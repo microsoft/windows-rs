@@ -10,7 +10,7 @@ impl ID3D12FunctionParameterReflection_Impl for Test {
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test_existing() -> Result<()> {
     unsafe {
         // TODO: the `into` will create a heap object but ID3D12FunctionParameterReflection
         // doesn't have a Drop impl so there's no way to free it nor should there be.

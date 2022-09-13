@@ -56,7 +56,7 @@ macro_rules! expected_token {
 struct Interface {
     visibility: syn::Visibility,
     name: syn::Ident,
-    parent: syn::Path,
+    parent: Option<syn::Path>,
     methods: Vec<InterfaceMethod>,
     docs: Vec<syn::Attribute>,
 }
@@ -67,7 +67,7 @@ impl Interface {
         let vis = &self.visibility;
         let name = &self.name;
         let docs = &self.docs;
-        let parent = self.parent();
+        let parent = self.parent_type();
         let vtable_name = quote::format_ident!("{}Vtbl", name);
         let guid = guid.to_tokens()?;
         let implementation = self.gen_implementation();
@@ -148,7 +148,7 @@ impl Interface {
 
         quote! {
             #[allow(non_camel_case_types)]
-            #vis trait #name: #parent Sized {
+            #vis trait #name: Sized + #parent {
                 #(#methods)*
             }
         }
@@ -158,8 +158,8 @@ impl Interface {
     fn gen_vtable(&self, vtable_name: &syn::Ident) -> proc_macro2::TokenStream {
         let vis = &self.visibility;
         let name = &self.name;
-        let parent_vtable = self.parent_vtable();
-        let parent_vtable_generics = if self.parent_is_iunknown() { quote!(Identity, OFFSET) } else { quote!(Identity, Impl, OFFSET) };
+        let trait_name = quote::format_ident!("{}_Impl", name);
+
         let vtable_entries = self
             .methods
             .iter()
@@ -172,7 +172,9 @@ impl Interface {
                 }
             })
             .collect::<Vec<_>>();
-        let trait_name = quote::format_ident!("{}_Impl", name);
+
+        let parent_vtable_generics = if self.parent_is_iunknown() { quote!(Identity, OFFSET) } else { quote!(Identity, Impl, OFFSET) };
+
         let functions = self
             .methods
             .iter()
@@ -197,6 +199,7 @@ impl Interface {
                 }
             })
             .collect::<Vec<_>>();
+
         let entries = self
             .methods
             .iter()
@@ -207,22 +210,41 @@ impl Interface {
                 }
             })
             .collect::<Vec<_>>();
-        quote! {
-            #[repr(C)]
-            #[doc(hidden)]
-            #vis struct #vtable_name {
-                pub base__: #parent_vtable,
-                #(#vtable_entries)*
-            }
 
-            impl #vtable_name {
-                pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>() -> Self {
-                    #(#functions)*
-                    Self { base__: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
+        if let Some(parent_vtable) = self.parent_vtable() {
+            quote! {
+                #[repr(C)]
+                #[doc(hidden)]
+                #vis struct #vtable_name {
+                    pub base__: #parent_vtable,
+                    #(#vtable_entries)*
                 }
+                impl #vtable_name {
+                    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>() -> Self {
+                        #(#functions)*
+                        Self { base__: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
+                    }
 
-                pub fn matches(iid: &windows::core::GUID) -> bool {
-                    iid == &<#name as ::windows::core::Interface>::IID
+                    pub fn matches(iid: &windows::core::GUID) -> bool {
+                        iid == &<#name as ::windows::core::Interface>::IID
+                    }
+                }
+            }
+        } else {
+            quote! {
+                #[repr(C)]
+                #[doc(hidden)]
+                #vis struct #vtable_name {
+                    #(#vtable_entries)*
+                }
+                impl #vtable_name {
+                    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>() -> Self {
+                        #(#functions)*
+                        Self { #(#entries),* }
+                    }
+                    pub fn matches(iid: &windows::core::GUID) -> bool {
+                        iid == &<#name as ::windows::core::Interface>::IID
+                    }
                 }
             }
         }
@@ -262,33 +284,50 @@ impl Interface {
         }
     }
 
-    fn parent(&self) -> proc_macro2::TokenStream {
-        let p = &self.parent;
-        quote!(#p)
+    fn parent_type(&self) -> proc_macro2::TokenStream {
+        if let Some(parent) = &self.parent {
+            quote!(#parent)
+        } else {
+            quote!(::std::ptr::NonNull<::std::ffi::c_void>)
+        }
     }
 
-    fn parent_vtable(&self) -> proc_macro2::TokenStream {
-        let i = self.parent_ident();
-        let i = quote::format_ident!("{}Vtbl", i);
-        quote!(#i)
+    fn parent_vtable(&self) -> Option<proc_macro2::TokenStream> {
+        if let Some(i) = self.parent_ident() {
+            let i = quote::format_ident!("{}Vtbl", i);
+            Some(quote!(#i))
+        } else {
+            None
+        }
     }
 
     fn parent_is_iunknown(&self) -> bool {
-        self.parent_ident() == "IUnknown"
+        if let Some(ident) = self.parent_ident() {
+            ident == "IUnknown"
+        } else {
+            false
+        }
     }
 
-    fn parent_ident(&self) -> &syn::Ident {
-        &self.parent.segments.last().as_ref().expect("segements should never be empty").ident
+    fn parent_ident(&self) -> Option<&syn::Ident> {
+        if let Some(parent) = &self.parent {
+            Some(&parent.segments.last().as_ref().expect("segements should never be empty").ident)
+        } else {
+            None
+        }
     }
 
     /// Gets the parent trait constrait which is nothing if the parent is IUnknown
     fn parent_trait_constraint(&self) -> proc_macro2::TokenStream {
-        let i = self.parent_ident();
-        if i == "IUnknown" {
-            return quote!();
+        if let Some(i) = self.parent_ident() {
+            if i == "IUnknown" {
+                return quote!();
+            }
+            let i = quote::format_ident!("{}_Impl", i);
+            quote!(#i)
+        } else {
+            quote!()
         }
-        let i = quote::format_ident!("{}_Impl", i);
-        quote!(#i +)
     }
 }
 
@@ -309,8 +348,8 @@ impl Parse for Interface {
         let _ = input.parse::<syn::Token![unsafe]>()?;
         let _ = input.parse::<syn::Token![trait]>()?;
         let name = input.parse::<syn::Ident>()?;
-        let _ = input.parse::<syn::Token![:]>().map_err(|_| syn::Error::new(name.span(), format!("Interfaces must inherit from another interface like so: `interface {}: IParentInterface`", name)))?;
-        let parent = input.parse::<syn::Path>()?;
+        let _ = input.parse::<syn::Token![:]>();
+        let parent = input.parse::<syn::Path>().ok();
         let content;
         syn::braced!(content in input);
         let mut methods = Vec::new();
@@ -330,11 +369,14 @@ impl Parse for Interface {
 ///     fn GetValue(&self, value: *mut f64) -> HRESULT;
 /// }
 /// ```
-struct Guid(syn::LitStr);
+struct Guid(Option<syn::LitStr>);
 
 impl Guid {
-    /// The various chunks of a COM interface GUID separated by "-"
-    fn chunks(&self) -> syn::Result<[String; 5]> {
+    fn to_tokens(&self) -> syn::Result<proc_macro2::TokenStream> {
+        fn hex_lit(num: &str) -> syn::LitInt {
+            syn::LitInt::new(&format!("0x{}", num), proc_macro2::Span::call_site())
+        }
+
         fn ensure_length(part: Option<&str>, index: usize, length: usize, span: proc_macro2::Span) -> syn::Result<String> {
             let part = match part {
                 Some(p) => p,
@@ -348,54 +390,51 @@ impl Guid {
             Ok(part.to_owned())
         }
 
-        let guid_value = self.0.value();
-        let mut delimited = guid_value.split('-').fuse();
-        let chunks = [ensure_length(delimited.next(), 0, 8, self.0.span())?, ensure_length(delimited.next(), 1, 4, self.0.span())?, ensure_length(delimited.next(), 2, 4, self.0.span())?, ensure_length(delimited.next(), 3, 4, self.0.span())?, ensure_length(delimited.next(), 4, 12, self.0.span())?];
+        if let Some(value) = &self.0 {
+            let guid_value = value.value();
+            let mut delimited = guid_value.split('-').fuse();
+            let chunks = [ensure_length(delimited.next(), 0, 8, value.span())?, ensure_length(delimited.next(), 1, 4, value.span())?, ensure_length(delimited.next(), 2, 4, value.span())?, ensure_length(delimited.next(), 3, 4, value.span())?, ensure_length(delimited.next(), 4, 12, value.span())?];
 
-        Ok(chunks)
-    }
+            let data1 = hex_lit(&chunks[0]);
+            let data2 = hex_lit(&chunks[1]);
+            let data3 = hex_lit(&chunks[2]);
+            let (data4_1, data4_2) = chunks[3].split_at(2);
+            let data4_1 = hex_lit(data4_1);
+            let data4_2 = hex_lit(data4_2);
+            let (data4_3, rest) = chunks[4].split_at(2);
+            let data4_3 = hex_lit(data4_3);
 
-    fn to_tokens(&self) -> syn::Result<proc_macro2::TokenStream> {
-        fn hex_lit(num: &str) -> syn::LitInt {
-            syn::LitInt::new(&format!("0x{}", num), proc_macro2::Span::call_site())
+            let (data4_4, rest) = rest.split_at(2);
+            let data4_4 = hex_lit(data4_4);
+
+            let (data4_5, rest) = rest.split_at(2);
+            let data4_5 = hex_lit(data4_5);
+
+            let (data4_6, rest) = rest.split_at(2);
+            let data4_6 = hex_lit(data4_6);
+
+            let (data4_7, data4_8) = rest.split_at(2);
+            let data4_7 = hex_lit(data4_7);
+            let data4_8 = hex_lit(data4_8);
+            Ok(quote! {
+                ::windows::core::GUID {
+                    data1: #data1,
+                    data2: #data2,
+                    data3: #data3,
+                    data4: [#data4_1, #data4_2, #data4_3, #data4_4, #data4_5, #data4_6, #data4_7, #data4_8]
+                }
+            })
+        } else {
+            Ok(quote! {
+                ::windows::core::GUID::zeroed()
+            })
         }
-
-        let chunks = self.chunks()?;
-        let data1 = hex_lit(&chunks[0]);
-        let data2 = hex_lit(&chunks[1]);
-        let data3 = hex_lit(&chunks[2]);
-        let (data4_1, data4_2) = chunks[3].split_at(2);
-        let data4_1 = hex_lit(data4_1);
-        let data4_2 = hex_lit(data4_2);
-        let (data4_3, rest) = chunks[4].split_at(2);
-        let data4_3 = hex_lit(data4_3);
-
-        let (data4_4, rest) = rest.split_at(2);
-        let data4_4 = hex_lit(data4_4);
-
-        let (data4_5, rest) = rest.split_at(2);
-        let data4_5 = hex_lit(data4_5);
-
-        let (data4_6, rest) = rest.split_at(2);
-        let data4_6 = hex_lit(data4_6);
-
-        let (data4_7, data4_8) = rest.split_at(2);
-        let data4_7 = hex_lit(data4_7);
-        let data4_8 = hex_lit(data4_8);
-        Ok(quote! {
-            ::windows::core::GUID {
-                data1: #data1,
-                data2: #data2,
-                data3: #data3,
-                data4: [#data4_1, #data4_2, #data4_3, #data4_4, #data4_5, #data4_6, #data4_7, #data4_8]
-            }
-        })
     }
 }
 
 impl Parse for Guid {
     fn parse(cursor: ParseStream) -> syn::Result<Self> {
-        let string: syn::LitStr = cursor.parse()?;
+        let string: Option<syn::LitStr> = cursor.parse().ok();
 
         Ok(Self(string))
     }

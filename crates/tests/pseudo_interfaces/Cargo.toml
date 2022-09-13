@@ -8,6 +8,7 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "implement",
+    "interface",
     "Win32_Graphics_Direct3D",
     "Win32_Graphics_Direct3D12",
 ]
