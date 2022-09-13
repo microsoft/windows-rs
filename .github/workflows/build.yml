@@ -188,7 +188,6 @@ jobs:
           cargo clippy -p test_window_long &&
           cargo clippy -p test_winrt &&
           cargo clippy -p tool_gnu &&
-          cargo clippy -p tool_gnullvm &&
           cargo clippy -p tool_ilrs &&
           cargo clippy -p tool_lib &&
           cargo clippy -p tool_msvc &&
