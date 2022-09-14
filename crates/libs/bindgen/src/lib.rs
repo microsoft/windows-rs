@@ -128,7 +128,11 @@ pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
         if gen.reader.type_def_kind(def) != TypeKind::Interface {
             continue;
         }
-        let tokens = implements::gen(gen, def);
+        let tokens = if gen.reader.type_def_flags(def).winrt() || gen.reader.type_def_interface_impls(def).next().is_some() {
+            implements::gen(gen, def)
+        } else {
+            quote! {}
+        };
 
         if !tokens.is_empty() {
             types.insert(type_name.name, tokens);

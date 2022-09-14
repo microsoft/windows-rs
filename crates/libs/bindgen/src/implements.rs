@@ -5,10 +5,13 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         return quote! {};
     }
 
+    let has_parent = gen.reader.type_def_flags(def).winrt() || gen.reader.type_def_interface_impls(def).next().is_some();
+
     let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
     let type_ident = to_ident(gen.reader.type_def_name(def));
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");
+    let implvtbl_ident = impl_ident.join("Vtbl");
     let constraints = gen.generic_constraints(generics);
     let generic_names = gen.generic_names(generics);
     let named_phantoms = gen.generic_named_phantoms(generics);
@@ -79,14 +82,25 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
         let invoke_upcall = if gen.reader.type_def_flags(def).winrt() { winrt_methods::gen_upcall(gen, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(gen, &signature, quote! { this.#name }) };
 
-        quote! {
-            unsafe extern "system" fn #name<#constraints Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize> #vtbl_signature {
-                // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
-                let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-                let this = (*this).get_impl();
-                #invoke_upcall
+        if has_parent {
+            quote! {
+                unsafe extern "system" fn #name<#constraints Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize> #vtbl_signature {
+                    // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
+                    let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+                    let this = (*this).get_impl();
+                    #invoke_upcall
+                }
             }
         }
+         else {
+            quote! {
+                unsafe extern "system" fn #name<#constraints Impl: #impl_ident<#generic_names>> #vtbl_signature {
+                    let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+                    let this = &*((*this).this as *const Impl);
+                    #invoke_upcall
+                }
+            }
+         }
     });
 
     let mut methods = quote! {};
@@ -106,27 +120,65 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     for method in gen.reader.type_def_methods(def) {
         let name = method_names.add(gen, method);
-        methods.combine(&quote! { #name: #name::<#generic_names Identity, Impl, OFFSET>, });
+        if has_parent {
+            methods.combine(&quote! { #name: #name::<#generic_names Identity, Impl, OFFSET>, });
+        } else {
+            methods.combine(&quote! { #name: #name::<#generic_names Impl>, });
+        }
     }
 
-    quote! {
-        #features
-        pub trait #impl_ident<#generic_names> : Sized #requires where #constraints {
-            #(#method_traits)*
-        }
-        #runtime_name
-        #features
-        impl<#constraints> #vtbl_ident<#generic_names> {
-            pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize>() -> #vtbl_ident<#generic_names> {
-                #(#method_impls)*
-                Self{
-                    #methods
-                    #(#named_phantoms)*
+    if has_parent {
+        quote! {
+            #features
+            pub trait #impl_ident<#generic_names> : Sized #requires where #constraints {
+                #(#method_traits)*
+            }
+            #runtime_name
+            #features
+            impl<#constraints> #vtbl_ident<#generic_names> {
+                pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize>() -> #vtbl_ident<#generic_names> {
+                    #(#method_impls)*
+                    Self{
+                        #methods
+                        #(#named_phantoms)*
+                    }
+                }
+                pub fn matches(iid: &windows::core::GUID) -> bool {
+                    #matches
                 }
             }
-            pub fn matches(iid: &windows::core::GUID) -> bool {
-                #matches
+        }
+    } else {
+        quote! {
+            #features
+            pub trait #impl_ident<#generic_names> : Sized #requires where #constraints {
+                #(#method_traits)*
+            }
+            #runtime_name
+            #features
+            impl<#constraints> #vtbl_ident<#generic_names> {
+                pub const fn new<Impl: #impl_ident<#generic_names>>() -> #vtbl_ident<#generic_names> {
+                    #(#method_impls)*
+                    Self{
+                        #methods
+                        #(#named_phantoms)*
+                    }
+                }
+            }
+            #features
+            struct #implvtbl_ident<T: #impl_ident> (::std::marker::PhantomData<T>);
+            #features
+            impl<T: #impl_ident> #implvtbl_ident<T> {
+                const VTABLE: #vtbl_ident = #vtbl_ident::new::<T>();
+            }
+            #features
+            impl #type_ident {
+                pub fn new<'a, T: #impl_ident>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+                    let this = ::windows::core::ScopedHeap { vtable: &#implvtbl_ident::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+                    let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+                    unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+                }
             }
         }
-    }
+    }    
 }

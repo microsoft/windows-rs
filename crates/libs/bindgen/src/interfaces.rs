@@ -57,9 +57,10 @@ fn gen_pseudo_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                 ::windows::core::HRESULT(-2147467262) // E_NOINTERFACE
             }
         }
-    });
 
+    });
     tokens.combine(&gen.interface_vtbl(def, &[], &ident, &empty, &features));
+    tokens.combine(&implements::gen(gen, def));
     tokens
 }
 

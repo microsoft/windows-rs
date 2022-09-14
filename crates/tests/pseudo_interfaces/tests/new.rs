@@ -1,44 +1,33 @@
-#![allow(non_snake_case)]
+#![allow(non_snake_case, non_camel_case_types)]
 
 use windows::core::*;
 
 // TODO: define a new pseudo interface and then implement and call it in various ways
 
 #[interface]
-unsafe trait ITest {
-    // needs to be a struct since the macro turns it into a struct anyway
+unsafe trait ITest { // needs to be a struct since the macro turns it into a struct anyway
     unsafe fn Call(&self) -> i32;
 }
 
-struct Test;
+struct Test(i32);
 
 impl ITest_Impl for Test {
     unsafe fn Call(&self) -> i32 {
-        123
+        self.0
     }
 }
 
-impl ITest {
-    fn new<'a, T: ITest_Impl>(this: &'a T) -> ITest_Scoped<'a, T> {
-        todo!()
-    }
+fn call(test: &ITest) {
+   unsafe { println!("call {}", test.Call()); }
 }
 
 #[test]
-fn test_new() {
+fn test() {
     unsafe {
-        // // TODO: the `into` will create a heap object but ITest
-        // // doesn't have a Drop impl so there's no way to free it nor should there be.
-        // let test: ITest = Test.into();
-        // assert_eq!(test.Call(), 123);
+        let test = Test(456);
+        let interface = ITest::new(&test);
+        call(&interface);
+        assert_eq!(interface.Call(), 456);
+        println!("Call {}", interface.Call());
     }
-}
-
-struct ITest_Scoped<'a, T: ITest_Impl> {
-    this: &'a T,
-    vtable: *const ITestVtbl,
-}
-
-impl<'a, T: ITest_Impl> ITest_Scoped<'a, T> {
-    const VTABLE: ITestVtbl = ITestVtbl::new();
 }
