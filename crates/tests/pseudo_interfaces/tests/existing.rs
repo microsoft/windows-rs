@@ -9,7 +9,7 @@ impl ID3D12FunctionParameterReflection_Impl for Test {
 }
 
 #[test]
-fn test_existing() -> Result<()> {
+fn test() -> Result<()> {
     unsafe {
         let test = ID3D12FunctionParameterReflection::new(&Test);
         let desc = test.GetDesc()?;
