@@ -91,8 +91,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
                     #invoke_upcall
                 }
             }
-        }
-         else {
+        } else {
             quote! {
                 unsafe extern "system" fn #name<#constraints Impl: #impl_ident<#generic_names>> #vtbl_signature {
                     let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
@@ -100,7 +99,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
                     #invoke_upcall
                 }
             }
-         }
+        }
     });
 
     let mut methods = quote! {};
@@ -180,5 +179,5 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
                 }
             }
         }
-    }    
+    }
 }
