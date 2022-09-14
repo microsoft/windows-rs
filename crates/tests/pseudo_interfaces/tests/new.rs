@@ -6,10 +6,10 @@ use windows::core::*;
 
 #[interface]
 unsafe trait ITest {
+    // needs to be a struct since the macro turns it into a struct anyway
     unsafe fn Call(&self) -> i32;
 }
 
-#[implement(ITest)]
 struct Test;
 
 impl ITest_Impl for Test {
@@ -18,12 +18,27 @@ impl ITest_Impl for Test {
     }
 }
 
-#[test]
-fn test_new()  {
-    unsafe {
-        // TODO: the `into` will create a heap object but ITest
-        // doesn't have a Drop impl so there's no way to free it nor should there be.
-        let test: ITest = Test.into();
-        assert_eq!(test.Call(), 123);
+impl ITest {
+    fn new<'a, T: ITest_Impl>(this: &'a T) -> ITest_Scoped<'a, T> {
+        todo!()
     }
+}
+
+#[test]
+fn test_new() {
+    unsafe {
+        // // TODO: the `into` will create a heap object but ITest
+        // // doesn't have a Drop impl so there's no way to free it nor should there be.
+        // let test: ITest = Test.into();
+        // assert_eq!(test.Call(), 123);
+    }
+}
+
+struct ITest_Scoped<'a, T: ITest_Impl> {
+    this: &'a T,
+    vtable: *const ITestVtbl,
+}
+
+impl<'a, T: ITest_Impl> ITest_Scoped<'a, T> {
+    const VTABLE: ITestVtbl = ITestVtbl::new();
 }

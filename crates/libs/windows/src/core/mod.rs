@@ -25,6 +25,7 @@ mod unknown;
 mod waiter;
 mod weak;
 mod weak_ref_count;
+mod scoped_interface;
 
 #[doc(hidden)]
 pub use abi::*;
@@ -62,6 +63,7 @@ pub use waiter::*;
 pub use weak::*;
 #[doc(hidden)]
 pub use weak_ref_count::*;
+pub use scoped_interface::*;
 
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = core::result::Result<T, Error>;

@@ -159,6 +159,7 @@ impl Interface {
         let vis = &self.visibility;
         let name = &self.name;
         let trait_name = quote::format_ident!("{}_Impl", name);
+        let implvtbl_name = quote::format_ident!("{}_ImplVtbl", name);
 
         let vtable_entries = self
             .methods
@@ -174,6 +175,7 @@ impl Interface {
             .collect::<Vec<_>>();
 
         let parent_vtable_generics = if self.parent_is_iunknown() { quote!(Identity, OFFSET) } else { quote!(Identity, Impl, OFFSET) };
+        let parent_vtable = self.parent_vtable();
 
         let functions = self
             .methods
@@ -190,12 +192,22 @@ impl Interface {
                     })
                     .collect::<Vec<_>>();
                 let ret = &m.ret;
-                quote! {
-                    unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
-                        let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-                        let this = (*this).get_impl();
-                        this.#name(#(#params),*).into()
-                    }
+                if parent_vtable.is_some() {
+                    quote! {
+                        unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
+                            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+                            let this = (*this).get_impl();
+                            this.#name(#(#params),*).into()
+                        }
+                    } 
+                } else {
+                    quote! {
+                        unsafe extern "system" fn #name<Impl: #trait_name>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
+                            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+                            let this = (*this).this as *const Impl;
+                            (*this).#name(#(#params),*).into()
+                        }
+                    } 
                 }
             })
             .collect::<Vec<_>>();
@@ -205,13 +217,19 @@ impl Interface {
             .iter()
             .map(|m| {
                 let name = &m.name;
-                quote! {
-                        #name: #name::<Identity, Impl, OFFSET>
+                if parent_vtable.is_some() {
+                    quote! {
+                            #name: #name::<Identity, Impl, OFFSET>
+                    }
+                } else {
+                    quote! {
+                        #name: #name::<Impl>
+                }
                 }
             })
             .collect::<Vec<_>>();
 
-        if let Some(parent_vtable) = self.parent_vtable() {
+        if let Some(parent_vtable) = parent_vtable {
             quote! {
                 #[repr(C)]
                 #[doc(hidden)]
@@ -238,12 +256,20 @@ impl Interface {
                     #(#vtable_entries)*
                 }
                 impl #vtable_name {
-                    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>() -> Self {
+                    pub const fn new<Impl: #trait_name>() -> Self {
                         #(#functions)*
                         Self { #(#entries),* }
                     }
-                    pub fn matches(iid: &windows::core::GUID) -> bool {
-                        iid == &<#name as ::windows::core::Interface>::IID
+                }
+                struct #implvtbl_name<T: #trait_name> (::std::marker::PhantomData<T>);
+                impl<T: #trait_name> #implvtbl_name<T> {
+                    const VTABLE: #vtable_name = #vtable_name::new::<T>();
+                }
+                impl #name {
+                    fn new<'a, T: #trait_name>(this: &'a T) -> ::windows::core::ScopedInterface<'a, #name> {
+                        let this = ::windows::core::ScopedHeap { vtable: &#implvtbl_name::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+                        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+                        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
                     }
                 }
             }
