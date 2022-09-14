@@ -419,6 +419,7 @@ impl IXAudio2EngineCallback_Vtbl {
         Self { OnProcessingPassStart: OnProcessingPassStart::<Impl>, OnProcessingPassEnd: OnProcessingPassEnd::<Impl>, OnCriticalError: OnCriticalError::<Impl> }
     }
 }
+#[doc(hidden)]
 struct IXAudio2EngineCallback_ImplVtbl<T: IXAudio2EngineCallback_Impl>(::std::marker::PhantomData<T>);
 impl<T: IXAudio2EngineCallback_Impl> IXAudio2EngineCallback_ImplVtbl<T> {
     const VTABLE: IXAudio2EngineCallback_Vtbl = IXAudio2EngineCallback_Vtbl::new::<T>();
@@ -1094,6 +1095,7 @@ impl IXAudio2Voice_Vtbl {
         }
     }
 }
+#[doc(hidden)]
 #[cfg(feature = "Win32_Foundation")]
 struct IXAudio2Voice_ImplVtbl<T: IXAudio2Voice_Impl>(::std::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Foundation")]
@@ -1211,6 +1213,7 @@ impl IXAudio2VoiceCallback_Vtbl {
         }
     }
 }
+#[doc(hidden)]
 struct IXAudio2VoiceCallback_ImplVtbl<T: IXAudio2VoiceCallback_Impl>(::std::marker::PhantomData<T>);
 impl<T: IXAudio2VoiceCallback_Impl> IXAudio2VoiceCallback_ImplVtbl<T> {
     const VTABLE: IXAudio2VoiceCallback_Vtbl = IXAudio2VoiceCallback_Vtbl::new::<T>();

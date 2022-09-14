@@ -1326,6 +1326,7 @@ impl IVssCreateWriterMetadata_Vtbl {
         }
     }
 }
+#[doc(hidden)]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 struct IVssCreateWriterMetadata_ImplVtbl<T: IVssCreateWriterMetadata_Impl>(::std::marker::PhantomData<T>);
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
@@ -2730,6 +2731,7 @@ impl IVssWriterComponents_Vtbl {
         Self { GetComponentCount: GetComponentCount::<Impl>, GetWriterInfo: GetWriterInfo::<Impl>, GetComponent: GetComponent::<Impl> }
     }
 }
+#[doc(hidden)]
 struct IVssWriterComponents_ImplVtbl<T: IVssWriterComponents_Impl>(::std::marker::PhantomData<T>);
 impl<T: IVssWriterComponents_Impl> IVssWriterComponents_ImplVtbl<T> {
     const VTABLE: IVssWriterComponents_Vtbl = IVssWriterComponents_Vtbl::new::<T>();

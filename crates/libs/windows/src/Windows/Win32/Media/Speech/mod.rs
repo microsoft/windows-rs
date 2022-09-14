@@ -1501,6 +1501,7 @@ impl ISpNotifyCallback_Vtbl {
         Self { NotifyCallback: NotifyCallback::<Impl> }
     }
 }
+#[doc(hidden)]
 #[cfg(feature = "Win32_Foundation")]
 struct ISpNotifyCallback_ImplVtbl<T: ISpNotifyCallback_Impl>(::std::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Foundation")]

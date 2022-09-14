@@ -14871,6 +14871,7 @@ impl IUMS_Vtbl {
         }
     }
 }
+#[doc(hidden)]
 #[cfg(feature = "Win32_Foundation")]
 struct IUMS_ImplVtbl<T: IUMS_Impl>(::std::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Foundation")]

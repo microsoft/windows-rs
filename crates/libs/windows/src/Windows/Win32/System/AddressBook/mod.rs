@@ -3310,6 +3310,7 @@ impl IWABOBJECT__Vtbl {
         }
     }
 }
+#[doc(hidden)]
 #[cfg(feature = "Win32_Foundation")]
 struct IWABOBJECT__ImplVtbl<T: IWABOBJECT__Impl>(::std::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Foundation")]

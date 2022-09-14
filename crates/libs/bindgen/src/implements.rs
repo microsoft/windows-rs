@@ -164,6 +164,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
                     }
                 }
             }
+            #[doc(hidden)]
             #features
             struct #implvtbl_ident<T: #impl_ident> (::std::marker::PhantomData<T>);
             #features

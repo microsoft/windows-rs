@@ -3385,6 +3385,7 @@ impl ID3D10EffectPass_Vtbl {
         }
     }
 }
+#[doc(hidden)]
 #[cfg(feature = "Win32_Foundation")]
 struct ID3D10EffectPass_ImplVtbl<T: ID3D10EffectPass_Impl>(::std::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Foundation")]
@@ -4705,6 +4706,7 @@ impl ID3D10EffectTechnique_Vtbl {
         }
     }
 }
+#[doc(hidden)]
 #[cfg(feature = "Win32_Foundation")]
 struct ID3D10EffectTechnique_ImplVtbl<T: ID3D10EffectTechnique_Impl>(::std::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Foundation")]
@@ -4841,6 +4843,7 @@ impl ID3D10EffectType_Vtbl {
         }
     }
 }
+#[doc(hidden)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 struct ID3D10EffectType_ImplVtbl<T: ID3D10EffectType_Impl>(::std::marker::PhantomData<T>);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -5180,6 +5183,7 @@ impl ID3D10EffectVariable_Vtbl {
         }
     }
 }
+#[doc(hidden)]
 #[cfg(feature = "Win32_Foundation")]
 struct ID3D10EffectVariable_ImplVtbl<T: ID3D10EffectVariable_Impl>(::std::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Foundation")]
@@ -6877,6 +6881,7 @@ impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
         Self { GetDesc: GetDesc::<Impl>, GetVariableByIndex: GetVariableByIndex::<Impl>, GetVariableByName: GetVariableByName::<Impl> }
     }
 }
+#[doc(hidden)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D10ShaderReflectionConstantBuffer_ImplVtbl<T: ID3D10ShaderReflectionConstantBuffer_Impl>(::std::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6972,6 +6977,7 @@ impl ID3D10ShaderReflectionType_Vtbl {
         }
     }
 }
+#[doc(hidden)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 struct ID3D10ShaderReflectionType_ImplVtbl<T: ID3D10ShaderReflectionType_Impl>(::std::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -7038,6 +7044,7 @@ impl ID3D10ShaderReflectionVariable_Vtbl {
         Self { GetDesc: GetDesc::<Impl>, GetType: GetType::<Impl> }
     }
 }
+#[doc(hidden)]
 struct ID3D10ShaderReflectionVariable_ImplVtbl<T: ID3D10ShaderReflectionVariable_Impl>(::std::marker::PhantomData<T>);
 impl<T: ID3D10ShaderReflectionVariable_Impl> ID3D10ShaderReflectionVariable_ImplVtbl<T> {
     const VTABLE: ID3D10ShaderReflectionVariable_Vtbl = ID3D10ShaderReflectionVariable_Vtbl::new::<T>();
