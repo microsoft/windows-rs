@@ -34,7 +34,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<T> #where_clause {
                     let mut result__ = ::core::option::Option::None;
-                    // TODO: don't required `Interface` trait here as that presupposes COM support
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).and_some(result__)
                 }
             }
