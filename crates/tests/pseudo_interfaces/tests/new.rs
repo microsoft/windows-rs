@@ -2,10 +2,8 @@
 
 use windows::core::*;
 
-// TODO: define a new pseudo interface and then implement and call it in various ways
-
 #[interface]
-unsafe trait ITest { // needs to be a struct since the macro turns it into a struct anyway
+unsafe trait ITest {
     unsafe fn Call(&self) -> i32;
 }
 
@@ -17,8 +15,8 @@ impl ITest_Impl for Test {
     }
 }
 
-fn call(test: &ITest) {
-   unsafe { println!("call {}", test.Call()); }
+unsafe fn call(test: &ITest) -> i32 {
+    test.Call()
 }
 
 #[test]
@@ -26,8 +24,7 @@ fn test() {
     unsafe {
         let test = Test(456);
         let interface = ITest::new(&test);
-        call(&interface);
+        assert_eq!(call(&interface), 456);
         assert_eq!(interface.Call(), 456);
-        println!("Call {}", interface.Call());
     }
 }
