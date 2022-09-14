@@ -1,0 +1,82 @@
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="windows::core::array::Array&lt;*&gt;">
+    <DisplayString>{{ len={len} }}</DisplayString>
+
+    <Expand>
+      <Item Name="[len]">len</Item>
+      <ArrayItems>
+        <Size>len</Size>
+        <ValuePointer>data</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+
+  <Type Name="windows::core::error::Error">
+    <Expand>
+      <ExpandedItem>code</ExpandedItem>
+      <Item Name="[info]">info</Item>
+    </Expand>
+  </Type>
+
+  <Type Name="windows::core::hresult::HRESULT">
+    <DisplayString>{(HRESULT)__0}</DisplayString>
+  </Type>
+
+  <Type Name="windows::core::ref_count::RefCount">
+    <DisplayString>{__0}</DisplayString>
+  </Type>
+
+  <Type Name="windows::core::strings::hstring::HSTRING">
+    <DisplayString Condition="__0 == nullptr">""</DisplayString>
+    <DisplayString>{((char16_t*)__0->data),[__0->len]su}</DisplayString>
+
+    <Expand>
+      <Item Name="[len]">__0 == nullptr ? (unsigned int)0 : __0->len</Item>
+      <Item Name="[ref_count]" Condition="__0 != nullptr">__0->count</Item>
+      <Item Name="[flags]" Condition="__0 != nullptr">__0->flags</Item>
+      <Synthetic Name="[chars]" Condition="__0 != nullptr">
+        <Expand>
+          <ArrayItems>
+            <Size>__0->len</Size>
+            <ValuePointer>(char16_t*)__0->data</ValuePointer>
+          </ArrayItems>
+        </Expand>
+      </Synthetic>
+    </Expand>
+  </Type>
+
+  <Type Name="windows::core::strings::pstr::PSTR">
+    <AlternativeType Name="windows::core::strings::pcstr::PCSTR" />
+    <Intrinsic Name="len" Expression="strlen(((char*)__0))" />
+    <DisplayString>{(char*)__0,[len()]s8}</DisplayString>
+    <Expand>
+      <Item Name="[len]">len()</Item>
+      <Synthetic Name="[chars]">
+        <Expand>
+          <ArrayItems>
+            <Size>len()</Size>
+            <ValuePointer>(char*)__0</ValuePointer>
+          </ArrayItems>
+        </Expand>
+      </Synthetic>
+    </Expand>
+  </Type>
+
+  <Type Name="windows::core::strings::pwstr::PWSTR">
+    <AlternativeType Name="windows::core::strings::pcwstr::PCWSTR" />
+    <Intrinsic Name="len" Expression="wcslen(((WCHAR*)__0))" />
+    <DisplayString>{(char16_t*)__0,[len()]su}</DisplayString>
+
+    <Expand>
+      <Item Name="[len]">len()</Item>
+      <Synthetic Name="[chars]">
+        <Expand>
+          <ArrayItems>
+            <Size>len()</Size>
+            <ValuePointer>(char16_t*)__0</ValuePointer>
+          </ArrayItems>
+        </Expand>
+      </Synthetic>
+    </Expand>
+  </Type>
+</AutoVisualizer>

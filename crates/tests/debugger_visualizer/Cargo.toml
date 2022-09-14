@@ -1,0 +1,18 @@
+[package]
+name = "test_debugger_visualizer"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "debugger_visualizer",
+    "implement",
+    "Win32_System_Com",
+    "Win32_Foundation",
+]
+
+[dev-dependencies]
+debugger_test = "0.1.0"
+debugger_test_parser = "0.1.0"
