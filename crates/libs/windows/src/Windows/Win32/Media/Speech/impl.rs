@@ -648,26 +648,6 @@ impl ISpMMSysAudio_Vtbl {
         iid == &<ISpMMSysAudio as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID || iid == &<ISpStreamFormat as ::windows::core::Interface>::IID || iid == &<ISpAudio as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-pub trait ISpNotifyCallback_Impl: Sized {
-    fn NotifyCallback(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ISpNotifyCallback {}
-#[cfg(feature = "Win32_Foundation")]
-impl ISpNotifyCallback_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpNotifyCallback_Impl, const OFFSET: isize>() -> ISpNotifyCallback_Vtbl {
-        unsafe extern "system" fn NotifyCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpNotifyCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.NotifyCallback(::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
-        }
-        Self { NotifyCallback: NotifyCallback::<Identity, Impl, OFFSET> }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpNotifyCallback as ::windows::core::Interface>::IID
-    }
-}
 pub trait ISpNotifySink_Impl: Sized {
     fn Notify(&self) -> ::windows::core::Result<()>;
 }

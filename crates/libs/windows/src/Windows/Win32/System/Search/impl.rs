@@ -6751,56 +6751,6 @@ impl ITrusteeGroupAdmin_Vtbl {
         iid == &<ITrusteeGroupAdmin as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-pub trait IUMS_Impl: Sized {
-    fn SqlUmsSuspend(&self, ticks: u32);
-    fn SqlUmsYield(&self, ticks: u32);
-    fn SqlUmsSwitchPremptive(&self);
-    fn SqlUmsSwitchNonPremptive(&self);
-    fn SqlUmsFIsPremptive(&self) -> super::super::Foundation::BOOL;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IUMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl IUMS_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUMS_Impl, const OFFSET: isize>() -> IUMS_Vtbl {
-        unsafe extern "system" fn SqlUmsSuspend<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUMS_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ticks: u32) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SqlUmsSuspend(::core::mem::transmute_copy(&ticks))
-        }
-        unsafe extern "system" fn SqlUmsYield<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUMS_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ticks: u32) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SqlUmsYield(::core::mem::transmute_copy(&ticks))
-        }
-        unsafe extern "system" fn SqlUmsSwitchPremptive<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUMS_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SqlUmsSwitchPremptive()
-        }
-        unsafe extern "system" fn SqlUmsSwitchNonPremptive<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUMS_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SqlUmsSwitchNonPremptive()
-        }
-        unsafe extern "system" fn SqlUmsFIsPremptive<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUMS_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SqlUmsFIsPremptive()
-        }
-        Self {
-            SqlUmsSuspend: SqlUmsSuspend::<Identity, Impl, OFFSET>,
-            SqlUmsYield: SqlUmsYield::<Identity, Impl, OFFSET>,
-            SqlUmsSwitchPremptive: SqlUmsSwitchPremptive::<Identity, Impl, OFFSET>,
-            SqlUmsSwitchNonPremptive: SqlUmsSwitchNonPremptive::<Identity, Impl, OFFSET>,
-            SqlUmsFIsPremptive: SqlUmsFIsPremptive::<Identity, Impl, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUMS as ::windows::core::Interface>::IID
-    }
-}
 pub trait IUMSInitialize_Impl: Sized {
     fn Initialize(&self, pums: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }

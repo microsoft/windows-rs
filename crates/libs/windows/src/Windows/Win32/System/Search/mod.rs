@@ -14824,6 +14824,67 @@ pub struct IUMS_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SqlUmsFIsPremptive: usize,
 }
+#[cfg(feature = "Win32_Foundation")]
+pub trait IUMS_Impl: Sized {
+    fn SqlUmsSuspend(&self, ticks: u32);
+    fn SqlUmsYield(&self, ticks: u32);
+    fn SqlUmsSwitchPremptive(&self);
+    fn SqlUmsSwitchNonPremptive(&self);
+    fn SqlUmsFIsPremptive(&self) -> super::super::Foundation::BOOL;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl IUMS_Vtbl {
+    pub const fn new<Impl: IUMS_Impl>() -> IUMS_Vtbl {
+        unsafe extern "system" fn SqlUmsSuspend<Impl: IUMS_Impl>(this: *mut ::core::ffi::c_void, ticks: u32) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.SqlUmsSuspend(::core::mem::transmute_copy(&ticks))
+        }
+        unsafe extern "system" fn SqlUmsYield<Impl: IUMS_Impl>(this: *mut ::core::ffi::c_void, ticks: u32) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.SqlUmsYield(::core::mem::transmute_copy(&ticks))
+        }
+        unsafe extern "system" fn SqlUmsSwitchPremptive<Impl: IUMS_Impl>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.SqlUmsSwitchPremptive()
+        }
+        unsafe extern "system" fn SqlUmsSwitchNonPremptive<Impl: IUMS_Impl>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.SqlUmsSwitchNonPremptive()
+        }
+        unsafe extern "system" fn SqlUmsFIsPremptive<Impl: IUMS_Impl>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.SqlUmsFIsPremptive()
+        }
+        Self {
+            SqlUmsSuspend: SqlUmsSuspend::<Impl>,
+            SqlUmsYield: SqlUmsYield::<Impl>,
+            SqlUmsSwitchPremptive: SqlUmsSwitchPremptive::<Impl>,
+            SqlUmsSwitchNonPremptive: SqlUmsSwitchNonPremptive::<Impl>,
+            SqlUmsFIsPremptive: SqlUmsFIsPremptive::<Impl>,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+struct IUMS_ImplVtbl<T: IUMS_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: IUMS_Impl> IUMS_ImplVtbl<T> {
+    const VTABLE: IUMS_Vtbl = IUMS_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IUMS {
+    pub fn new<'a, T: IUMS_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IUMS_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+    }
+}
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
 pub struct IUMSInitialize(::windows::core::IUnknown);

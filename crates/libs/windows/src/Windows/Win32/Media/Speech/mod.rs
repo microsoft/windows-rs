@@ -1484,6 +1484,37 @@ pub struct ISpNotifyCallback_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     NotifyCallback: usize,
 }
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpNotifyCallback_Impl: Sized {
+    fn NotifyCallback(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ISpNotifyCallback {}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpNotifyCallback_Vtbl {
+    pub const fn new<Impl: ISpNotifyCallback_Impl>() -> ISpNotifyCallback_Vtbl {
+        unsafe extern "system" fn NotifyCallback<Impl: ISpNotifyCallback_Impl>(this: *mut ::core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.NotifyCallback(::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
+        }
+        Self { NotifyCallback: NotifyCallback::<Impl> }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+struct ISpNotifyCallback_ImplVtbl<T: ISpNotifyCallback_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ISpNotifyCallback_Impl> ISpNotifyCallback_ImplVtbl<T> {
+    const VTABLE: ISpNotifyCallback_Vtbl = ISpNotifyCallback_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpNotifyCallback {
+    pub fn new<'a, T: ISpNotifyCallback_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ISpNotifyCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+    }
+}
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
 pub struct ISpNotifySink(::windows::core::IUnknown);

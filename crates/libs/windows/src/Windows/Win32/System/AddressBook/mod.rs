@@ -3174,6 +3174,156 @@ pub struct IWABOBJECT__Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetMe: usize,
 }
+#[cfg(feature = "Win32_Foundation")]
+pub trait IWABOBJECT__Impl: Sized {
+    fn QueryInterface(&self, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AddRef(&self) -> u32;
+    fn Release(&self) -> u32;
+    fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()>;
+    fn AllocateBuffer(&self, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllocateMore(&self, cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn FreeBuffer(&self, lpbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Backup(&self, lpfilename: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
+    fn Import(&self, lpwip: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
+    fn Find(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn VCardDisplay(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, lpszfilename: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
+    fn LDAPUrl(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: &::windows::core::PCSTR) -> ::windows::core::Result<IMailUser>;
+    fn VCardCreate(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: &::windows::core::PCSTR, lpmailuser: &::core::option::Option<IMailUser>) -> ::windows::core::Result<()>;
+    fn VCardRetrieve(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: &::windows::core::PCSTR) -> ::windows::core::Result<IMailUser>;
+    fn GetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn SetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, sbeid: &SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWABOBJECT_ {}
+#[cfg(feature = "Win32_Foundation")]
+impl IWABOBJECT__Vtbl {
+    pub const fn new<Impl: IWABOBJECT__Impl>() -> IWABOBJECT__Vtbl {
+        unsafe extern "system" fn QueryInterface<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.QueryInterface(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvobj)).into()
+        }
+        unsafe extern "system" fn AddRef<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.AddRef()
+        }
+        unsafe extern "system" fn Release<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.Release()
+        }
+        unsafe extern "system" fn GetLastError<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.GetLastError(::core::mem::transmute_copy(&hresult), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&lppmapierror)).into()
+        }
+        unsafe extern "system" fn AllocateBuffer<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.AllocateBuffer(::core::mem::transmute_copy(&cbsize), ::core::mem::transmute_copy(&lppbuffer)).into()
+        }
+        unsafe extern "system" fn AllocateMore<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.AllocateMore(::core::mem::transmute_copy(&cbsize), ::core::mem::transmute_copy(&lpobject), ::core::mem::transmute_copy(&lppbuffer)).into()
+        }
+        unsafe extern "system" fn FreeBuffer<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.FreeBuffer(::core::mem::transmute_copy(&lpbuffer)).into()
+        }
+        unsafe extern "system" fn Backup<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpfilename: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.Backup(::core::mem::transmute(&lpfilename)).into()
+        }
+        unsafe extern "system" fn Import<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpwip: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.Import(::core::mem::transmute(&lpwip)).into()
+        }
+        unsafe extern "system" fn Find<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.Find(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&hwnd)).into()
+        }
+        unsafe extern "system" fn VCardDisplay<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, lpszfilename: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.VCardDisplay(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&lpszfilename)).into()
+        }
+        unsafe extern "system" fn LDAPUrl<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: ::windows::core::PCSTR, lppmailuser: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            match this.LDAPUrl(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute(&lpszurl)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(lppmailuser, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn VCardCreate<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, ulflags: u32, lpszvcard: ::windows::core::PCSTR, lpmailuser: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.VCardCreate(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute(&lpszvcard), ::core::mem::transmute(&lpmailuser)).into()
+        }
+        unsafe extern "system" fn VCardRetrieve<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, ulflags: u32, lpszvcard: ::windows::core::PCSTR, lppmailuser: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            match this.VCardRetrieve(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute(&lpszvcard)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(lppmailuser, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetMe<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.GetMe(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&lpdwaction), ::core::mem::transmute_copy(&lpsbeid), ::core::mem::transmute_copy(&hwnd)).into()
+        }
+        unsafe extern "system" fn SetMe<Impl: IWABOBJECT__Impl>(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
+            this.SetMe(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute(&sbeid), ::core::mem::transmute_copy(&hwnd)).into()
+        }
+        Self {
+            QueryInterface: QueryInterface::<Impl>,
+            AddRef: AddRef::<Impl>,
+            Release: Release::<Impl>,
+            GetLastError: GetLastError::<Impl>,
+            AllocateBuffer: AllocateBuffer::<Impl>,
+            AllocateMore: AllocateMore::<Impl>,
+            FreeBuffer: FreeBuffer::<Impl>,
+            Backup: Backup::<Impl>,
+            Import: Import::<Impl>,
+            Find: Find::<Impl>,
+            VCardDisplay: VCardDisplay::<Impl>,
+            LDAPUrl: LDAPUrl::<Impl>,
+            VCardCreate: VCardCreate::<Impl>,
+            VCardRetrieve: VCardRetrieve::<Impl>,
+            GetMe: GetMe::<Impl>,
+            SetMe: SetMe::<Impl>,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+struct IWABOBJECT__ImplVtbl<T: IWABOBJECT__Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: IWABOBJECT__Impl> IWABOBJECT__ImplVtbl<T> {
+    const VTABLE: IWABOBJECT__Vtbl = IWABOBJECT__Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IWABOBJECT_ {
+    pub fn new<'a, T: IWABOBJECT__Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IWABOBJECT__ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+    }
+}
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
 pub struct IWABObject(::windows::core::IUnknown);
