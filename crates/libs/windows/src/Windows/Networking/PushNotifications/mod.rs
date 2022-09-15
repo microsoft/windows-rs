@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPushNotificationChannel(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPushNotificationChannel {
+unsafe impl ::windows::core::Vtable for IPushNotificationChannel {
     type Vtable = IPushNotificationChannel_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPushNotificationChannel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b28102e_ef0b_4f39_9b8a_a3c194de7081);
 }
 #[repr(C)]
@@ -27,8 +29,10 @@ pub struct IPushNotificationChannel_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPushNotificationChannelManagerForUser(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerForUser {
+unsafe impl ::windows::core::Vtable for IPushNotificationChannelManagerForUser {
     type Vtable = IPushNotificationChannelManagerForUser_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerForUser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c45704_1182_42c7_8890_f563c4890dc4);
 }
 #[repr(C)]
@@ -55,8 +59,10 @@ pub struct IPushNotificationChannelManagerForUser_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPushNotificationChannelManagerForUser2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerForUser2 {
+unsafe impl ::windows::core::Vtable for IPushNotificationChannelManagerForUser2 {
     type Vtable = IPushNotificationChannelManagerForUser2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerForUser2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc38b066a_7cc1_4dac_87fd_be6e920414a4);
 }
 #[repr(C)]
@@ -75,8 +81,10 @@ pub struct IPushNotificationChannelManagerForUser2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPushNotificationChannelManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics {
+unsafe impl ::windows::core::Vtable for IPushNotificationChannelManagerStatics {
     type Vtable = IPushNotificationChannelManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8baf9b65_77a1_4588_bd19_861529a9dcf0);
 }
 #[repr(C)]
@@ -99,8 +107,10 @@ pub struct IPushNotificationChannelManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPushNotificationChannelManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics2 {
+unsafe impl ::windows::core::Vtable for IPushNotificationChannelManagerStatics2 {
     type Vtable = IPushNotificationChannelManagerStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb444a65d_a7e9_4b28_950e_f375a907f9df);
 }
 #[repr(C)]
@@ -115,8 +125,10 @@ pub struct IPushNotificationChannelManagerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPushNotificationChannelManagerStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics3 {
+unsafe impl ::windows::core::Vtable for IPushNotificationChannelManagerStatics3 {
     type Vtable = IPushNotificationChannelManagerStatics3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4701fefe_0ede_4a3f_ae78_bfa471496925);
 }
 #[repr(C)]
@@ -128,8 +140,10 @@ pub struct IPushNotificationChannelManagerStatics3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPushNotificationChannelManagerStatics4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics4 {
+unsafe impl ::windows::core::Vtable for IPushNotificationChannelManagerStatics4 {
     type Vtable = IPushNotificationChannelManagerStatics4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPushNotificationChannelManagerStatics4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc540efb_7820_5a5b_9c01_b4757f774025);
 }
 #[repr(C)]
@@ -148,8 +162,10 @@ pub struct IPushNotificationChannelManagerStatics4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPushNotificationChannelsRevokedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPushNotificationChannelsRevokedEventArgs {
+unsafe impl ::windows::core::Vtable for IPushNotificationChannelsRevokedEventArgs {
     type Vtable = IPushNotificationChannelsRevokedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPushNotificationChannelsRevokedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20e1a24c_1a34_5beb_aae2_40c232c8c140);
 }
 #[repr(C)]
@@ -160,8 +176,10 @@ pub struct IPushNotificationChannelsRevokedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPushNotificationReceivedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPushNotificationReceivedEventArgs {
+unsafe impl ::windows::core::Vtable for IPushNotificationReceivedEventArgs {
     type Vtable = IPushNotificationReceivedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPushNotificationReceivedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1065e0c_36cd_484c_b935_0a99b753cf00);
 }
 #[repr(C)]
@@ -188,8 +206,10 @@ pub struct IPushNotificationReceivedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRawNotification(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IRawNotification {
+unsafe impl ::windows::core::Vtable for IRawNotification {
     type Vtable = IRawNotification_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRawNotification {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a227281_3b79_42ac_9963_22ab00d4f0b7);
 }
 #[repr(C)]
@@ -201,8 +221,10 @@ pub struct IRawNotification_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRawNotification2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IRawNotification2 {
+unsafe impl ::windows::core::Vtable for IRawNotification2 {
     type Vtable = IRawNotification2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRawNotification2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d0cf19_0c6f_4cdd_9424_eec5be014d26);
 }
 #[repr(C)]
@@ -218,8 +240,10 @@ pub struct IRawNotification2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRawNotification3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IRawNotification3 {
+unsafe impl ::windows::core::Vtable for IRawNotification3 {
     type Vtable = IRawNotification3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRawNotification3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62737dde_8a73_424c_ab44_5635f40a96e5);
 }
 #[repr(C)]
@@ -239,7 +263,7 @@ impl PushNotificationChannel {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Uri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -248,12 +272,12 @@ impl PushNotificationChannel {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExpirationTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).ExpirationTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -264,14 +288,14 @@ impl PushNotificationChannel {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PushNotificationReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PushNotificationReceived)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePushNotificationReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePushNotificationReceived)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemovePushNotificationReceived)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for PushNotificationChannel {
@@ -297,8 +321,10 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationChannel {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PushNotificationChannel {
+unsafe impl ::windows::core::Vtable for PushNotificationChannel {
     type Vtable = IPushNotificationChannel_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PushNotificationChannel {
     const IID: ::windows::core::GUID = <IPushNotificationChannel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PushNotificationChannel {
@@ -344,7 +370,7 @@ impl PushNotificationChannelManager {
     pub fn CreatePushNotificationChannelForApplicationAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePushNotificationChannelForApplicationAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -352,7 +378,7 @@ impl PushNotificationChannelManager {
     pub fn CreatePushNotificationChannelForApplicationAsyncWithId(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -360,7 +386,7 @@ impl PushNotificationChannelManager {
     pub fn CreatePushNotificationChannelForSecondaryTileAsync(tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForSecondaryTileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePushNotificationChannelForSecondaryTileAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -371,13 +397,13 @@ impl PushNotificationChannelManager {
     {
         Self::IPushNotificationChannelManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<PushNotificationChannelManagerForUser>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<PushNotificationChannelManagerForUser>(result__)
         })
     }
     pub fn GetDefault() -> ::windows::core::Result<PushNotificationChannelManagerForUser> {
         Self::IPushNotificationChannelManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PushNotificationChannelManagerForUser>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PushNotificationChannelManagerForUser>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -388,13 +414,13 @@ impl PushNotificationChannelManager {
     {
         Self::IPushNotificationChannelManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelsRevoked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ChannelsRevoked)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChannelsRevoked(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IPushNotificationChannelManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveChannelsRevoked)(::windows::core::Interface::as_raw(this), token).ok() })
+        Self::IPushNotificationChannelManagerStatics4(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveChannelsRevoked)(::windows::core::Vtable::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn IPushNotificationChannelManagerStatics<R, F: FnOnce(&IPushNotificationChannelManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -430,7 +456,7 @@ impl PushNotificationChannelManagerForUser {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePushNotificationChannelForApplicationAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -439,7 +465,7 @@ impl PushNotificationChannelManagerForUser {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -448,7 +474,7 @@ impl PushNotificationChannelManagerForUser {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForSecondaryTileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePushNotificationChannelForSecondaryTileAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -457,7 +483,7 @@ impl PushNotificationChannelManagerForUser {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -470,7 +496,7 @@ impl PushNotificationChannelManagerForUser {
         let this = &::windows::core::Interface::cast::<IPushNotificationChannelManagerForUser2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync)(::windows::core::Interface::as_raw(this), appserverkey.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(channelid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync)(::windows::core::Vtable::as_raw(this), appserverkey.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(channelid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -483,7 +509,7 @@ impl PushNotificationChannelManagerForUser {
         let this = &::windows::core::Interface::cast::<IPushNotificationChannelManagerForUser2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId)(::windows::core::Interface::as_raw(this), appserverkey.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(channelid), ::core::mem::transmute_copy(appid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId)(::windows::core::Vtable::as_raw(this), appserverkey.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(channelid), ::core::mem::transmute_copy(appid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         }
     }
 }
@@ -510,8 +536,10 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationChannelManagerForUs
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PushNotificationChannelManagerForUser {
+unsafe impl ::windows::core::Vtable for PushNotificationChannelManagerForUser {
     type Vtable = IPushNotificationChannelManagerForUser_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PushNotificationChannelManagerForUser {
     const IID: ::windows::core::GUID = <IPushNotificationChannelManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PushNotificationChannelManagerForUser {
@@ -576,8 +604,10 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationChannelsRevokedEven
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PushNotificationChannelsRevokedEventArgs {
+unsafe impl ::windows::core::Vtable for PushNotificationChannelsRevokedEventArgs {
     type Vtable = IPushNotificationChannelsRevokedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PushNotificationChannelsRevokedEventArgs {
     const IID: ::windows::core::GUID = <IPushNotificationChannelsRevokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PushNotificationChannelsRevokedEventArgs {
@@ -621,20 +651,20 @@ pub struct PushNotificationReceivedEventArgs(::windows::core::IUnknown);
 impl PushNotificationReceivedEventArgs {
     pub fn SetCancel(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCancel)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCancel)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Cancel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Cancel)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn NotificationType(&self) -> ::windows::core::Result<PushNotificationType> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NotificationType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PushNotificationType>(result__)
+            (::windows::core::Vtable::vtable(this).NotificationType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PushNotificationType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -643,7 +673,7 @@ impl PushNotificationReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ToastNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
+            (::windows::core::Vtable::vtable(this).ToastNotification)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -652,7 +682,7 @@ impl PushNotificationReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TileNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
+            (::windows::core::Vtable::vtable(this).TileNotification)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -661,14 +691,14 @@ impl PushNotificationReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BadgeNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::BadgeNotification>(result__)
+            (::windows::core::Vtable::vtable(this).BadgeNotification)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::BadgeNotification>(result__)
         }
     }
     pub fn RawNotification(&self) -> ::windows::core::Result<RawNotification> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RawNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<RawNotification>(result__)
+            (::windows::core::Vtable::vtable(this).RawNotification)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<RawNotification>(result__)
         }
     }
 }
@@ -695,8 +725,10 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationReceivedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PushNotificationReceivedEventArgs {
+unsafe impl ::windows::core::Vtable for PushNotificationReceivedEventArgs {
     type Vtable = IPushNotificationReceivedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PushNotificationReceivedEventArgs {
     const IID: ::windows::core::GUID = <IPushNotificationReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PushNotificationReceivedEventArgs {
@@ -742,7 +774,7 @@ impl RawNotification {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -751,14 +783,14 @@ impl RawNotification {
         let this = &::windows::core::Interface::cast::<IRawNotification2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).Headers)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     pub fn ChannelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IRawNotification2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ChannelId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -767,7 +799,7 @@ impl RawNotification {
         let this = &::windows::core::Interface::cast::<IRawNotification3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContentBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Vtable::vtable(this).ContentBytes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -794,8 +826,10 @@ unsafe impl ::windows::core::RuntimeType for RawNotification {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for RawNotification {
+unsafe impl ::windows::core::Vtable for RawNotification {
     type Vtable = IRawNotification_Vtbl;
+}
+unsafe impl ::windows::core::Interface for RawNotification {
     const IID: ::windows::core::GUID = <IRawNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RawNotification {

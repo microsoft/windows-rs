@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClassicAppManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IClassicAppManagerStatics {
+unsafe impl ::windows::core::Vtable for IClassicAppManagerStatics {
     type Vtable = IClassicAppManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IClassicAppManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2fad668_882c_4f33_b035_0df7b90d67e6);
 }
 #[repr(C)]
@@ -14,8 +16,10 @@ pub struct IClassicAppManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInstalledClassicAppInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInstalledClassicAppInfo {
+unsafe impl ::windows::core::Vtable for IInstalledClassicAppInfo {
     type Vtable = IInstalledClassicAppInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInstalledClassicAppInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a7d3da3_65d0_4086_80d6_0610d760207d);
 }
 #[repr(C)]
@@ -31,7 +35,7 @@ impl ClassicAppManager {
     pub fn FindInstalledApp(appuninstallkey: &::windows::core::HSTRING) -> ::windows::core::Result<InstalledClassicAppInfo> {
         Self::IClassicAppManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindInstalledApp)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appuninstallkey), result__.as_mut_ptr()).from_abi::<InstalledClassicAppInfo>(result__)
+            (::windows::core::Vtable::vtable(this).FindInstalledApp)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appuninstallkey), result__.as_mut_ptr()).from_abi::<InstalledClassicAppInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -51,14 +55,14 @@ impl InstalledClassicAppInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn DisplayVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayVersion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -85,8 +89,10 @@ unsafe impl ::windows::core::RuntimeType for InstalledClassicAppInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InstalledClassicAppInfo {
+unsafe impl ::windows::core::Vtable for InstalledClassicAppInfo {
     type Vtable = IInstalledClassicAppInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InstalledClassicAppInfo {
     const IID: ::windows::core::GUID = <IInstalledClassicAppInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InstalledClassicAppInfo {

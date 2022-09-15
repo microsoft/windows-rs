@@ -6,12 +6,12 @@ impl IGraphicsEffect {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
     }
 }
 impl ::core::convert::From<IGraphicsEffect> for ::windows::core::IUnknown {
@@ -86,8 +86,10 @@ unsafe impl ::windows::core::RuntimeType for IGraphicsEffect {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IGraphicsEffect {
+unsafe impl ::windows::core::Vtable for IGraphicsEffect {
     type Vtable = IGraphicsEffect_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGraphicsEffect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb51c0ce_8fe6_4636_b202_861faa07d8f3);
 }
 #[repr(C)]
@@ -154,8 +156,10 @@ unsafe impl ::windows::core::RuntimeType for IGraphicsEffectSource {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IGraphicsEffectSource {
+unsafe impl ::windows::core::Vtable for IGraphicsEffectSource {
     type Vtable = IGraphicsEffectSource_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGraphicsEffectSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d8f9ddc_4339_4eb9_9216_f9deb75658a2);
 }
 #[repr(C)]

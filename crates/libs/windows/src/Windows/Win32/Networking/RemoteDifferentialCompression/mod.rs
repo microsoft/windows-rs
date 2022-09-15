@@ -4,10 +4,10 @@ pub struct IFindSimilarResults(::windows::core::IUnknown);
 impl IFindSimilarResults {
     pub unsafe fn GetSize(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetNextFileId(&self, numtraitsmatched: &mut u32, similarityfileid: &mut SimilarityFileId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNextFileId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(numtraitsmatched), ::core::mem::transmute(similarityfileid)).ok()
+        (::windows::core::Vtable::vtable(self).GetNextFileId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(numtraitsmatched), ::core::mem::transmute(similarityfileid)).ok()
     }
 }
 impl ::core::convert::From<IFindSimilarResults> for ::windows::core::IUnknown {
@@ -41,8 +41,10 @@ impl ::core::fmt::Debug for IFindSimilarResults {
         f.debug_tuple("IFindSimilarResults").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IFindSimilarResults {
+unsafe impl ::windows::core::Vtable for IFindSimilarResults {
     type Vtable = IFindSimilarResults_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IFindSimilarResults {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a81_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -62,7 +64,7 @@ impl IRdcComparator {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), endofinput.into(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(rdc_errorcode)).ok()
+        (::windows::core::Vtable::vtable(self).Process)(::windows::core::Vtable::as_raw(self), endofinput.into(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(rdc_errorcode)).ok()
     }
 }
 impl ::core::convert::From<IRdcComparator> for ::windows::core::IUnknown {
@@ -96,8 +98,10 @@ impl ::core::fmt::Debug for IRdcComparator {
         f.debug_tuple("IRdcComparator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRdcComparator {
+unsafe impl ::windows::core::Vtable for IRdcComparator {
     type Vtable = IRdcComparator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRdcComparator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a77_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -115,16 +119,16 @@ pub struct IRdcFileReader(::windows::core::IUnknown);
 impl IRdcFileReader {
     pub unsafe fn GetFileSize(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: &mut u32, buffer: &mut u8, eof: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), offsetfilestart, bytestoread, ::core::mem::transmute(bytesactuallyread), ::core::mem::transmute(buffer), ::core::mem::transmute(eof)).ok()
+        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), offsetfilestart, bytestoread, ::core::mem::transmute(bytesactuallyread), ::core::mem::transmute(buffer), ::core::mem::transmute(eof)).ok()
     }
     pub unsafe fn GetFilePosition(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).GetFilePosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
 impl ::core::convert::From<IRdcFileReader> for ::windows::core::IUnknown {
@@ -158,8 +162,10 @@ impl ::core::fmt::Debug for IRdcFileReader {
         f.debug_tuple("IRdcFileReader").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRdcFileReader {
+unsafe impl ::windows::core::Vtable for IRdcFileReader {
     type Vtable = IRdcFileReader_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRdcFileReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a74_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -179,26 +185,26 @@ pub struct IRdcFileWriter(::windows::core::IUnknown);
 impl IRdcFileWriter {
     pub unsafe fn GetFileSize(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetFileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetFileSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: &mut u32, buffer: &mut u8, eof: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Read)(::windows::core::Interface::as_raw(self), offsetfilestart, bytestoread, ::core::mem::transmute(bytesactuallyread), ::core::mem::transmute(buffer), ::core::mem::transmute(eof)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), offsetfilestart, bytestoread, ::core::mem::transmute(bytesactuallyread), ::core::mem::transmute(buffer), ::core::mem::transmute(eof)).ok()
     }
     pub unsafe fn GetFilePosition(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetFilePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetFilePosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn Write(&self, offsetfilestart: u64, bytestowrite: u32) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Write)(::windows::core::Interface::as_raw(self), offsetfilestart, bytestowrite, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), offsetfilestart, bytestowrite, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
     pub unsafe fn Truncate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Truncate)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Truncate)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn DeleteOnClose(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteOnClose)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).DeleteOnClose)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IRdcFileWriter> for ::windows::core::IUnknown {
@@ -247,8 +253,10 @@ impl ::core::fmt::Debug for IRdcFileWriter {
         f.debug_tuple("IRdcFileWriter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRdcFileWriter {
+unsafe impl ::windows::core::Vtable for IRdcFileWriter {
     type Vtable = IRdcFileWriter_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRdcFileWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a75_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -265,7 +273,7 @@ pub struct IRdcGenerator(::windows::core::IUnknown);
 impl IRdcGenerator {
     pub unsafe fn GetGeneratorParameters(&self, level: u32) -> ::windows::core::Result<IRdcGeneratorParameters> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetGeneratorParameters)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
+        (::windows::core::Vtable::vtable(self).GetGeneratorParameters)(::windows::core::Vtable::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -273,7 +281,7 @@ impl IRdcGenerator {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), endofinput.into(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), outputbuffers.len() as _, ::core::mem::transmute(outputbuffers.as_ptr()), ::core::mem::transmute(rdc_errorcode)).ok()
+        (::windows::core::Vtable::vtable(self).Process)(::windows::core::Vtable::as_raw(self), endofinput.into(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), outputbuffers.len() as _, ::core::mem::transmute(outputbuffers.as_ptr()), ::core::mem::transmute(rdc_errorcode)).ok()
     }
 }
 impl ::core::convert::From<IRdcGenerator> for ::windows::core::IUnknown {
@@ -307,8 +315,10 @@ impl ::core::fmt::Debug for IRdcGenerator {
         f.debug_tuple("IRdcGenerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRdcGenerator {
+unsafe impl ::windows::core::Vtable for IRdcGenerator {
     type Vtable = IRdcGenerator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRdcGenerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a73_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -327,17 +337,17 @@ pub struct IRdcGeneratorFilterMaxParameters(::windows::core::IUnknown);
 impl IRdcGeneratorFilterMaxParameters {
     pub unsafe fn GetHorizonSize(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetHorizonSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetHorizonSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetHorizonSize(&self, horizonsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHorizonSize)(::windows::core::Interface::as_raw(self), horizonsize).ok()
+        (::windows::core::Vtable::vtable(self).SetHorizonSize)(::windows::core::Vtable::as_raw(self), horizonsize).ok()
     }
     pub unsafe fn GetHashWindowSize(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetHashWindowSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetHashWindowSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetHashWindowSize(&self, hashwindowsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashWindowSize)(::windows::core::Interface::as_raw(self), hashwindowsize).ok()
+        (::windows::core::Vtable::vtable(self).SetHashWindowSize)(::windows::core::Vtable::as_raw(self), hashwindowsize).ok()
     }
 }
 impl ::core::convert::From<IRdcGeneratorFilterMaxParameters> for ::windows::core::IUnknown {
@@ -371,8 +381,10 @@ impl ::core::fmt::Debug for IRdcGeneratorFilterMaxParameters {
         f.debug_tuple("IRdcGeneratorFilterMaxParameters").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRdcGeneratorFilterMaxParameters {
+unsafe impl ::windows::core::Vtable for IRdcGeneratorFilterMaxParameters {
     type Vtable = IRdcGeneratorFilterMaxParameters_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRdcGeneratorFilterMaxParameters {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a72_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -390,17 +402,17 @@ pub struct IRdcGeneratorParameters(::windows::core::IUnknown);
 impl IRdcGeneratorParameters {
     pub unsafe fn GetGeneratorParametersType(&self) -> ::windows::core::Result<GeneratorParametersType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetGeneratorParametersType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<GeneratorParametersType>(result__)
+        (::windows::core::Vtable::vtable(self).GetGeneratorParametersType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<GeneratorParametersType>(result__)
     }
     pub unsafe fn GetParametersVersion(&self, currentversion: &mut u32, minimumcompatibleappversion: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetParametersVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(currentversion), ::core::mem::transmute(minimumcompatibleappversion)).ok()
+        (::windows::core::Vtable::vtable(self).GetParametersVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(currentversion), ::core::mem::transmute(minimumcompatibleappversion)).ok()
     }
     pub unsafe fn GetSerializeSize(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSerializeSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetSerializeSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn Serialize(&self, size: u32, parametersblob: &mut u8, byteswritten: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Serialize)(::windows::core::Interface::as_raw(self), size, ::core::mem::transmute(parametersblob), ::core::mem::transmute(byteswritten)).ok()
+        (::windows::core::Vtable::vtable(self).Serialize)(::windows::core::Vtable::as_raw(self), size, ::core::mem::transmute(parametersblob), ::core::mem::transmute(byteswritten)).ok()
     }
 }
 impl ::core::convert::From<IRdcGeneratorParameters> for ::windows::core::IUnknown {
@@ -434,8 +446,10 @@ impl ::core::fmt::Debug for IRdcGeneratorParameters {
         f.debug_tuple("IRdcGeneratorParameters").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRdcGeneratorParameters {
+unsafe impl ::windows::core::Vtable for IRdcGeneratorParameters {
     type Vtable = IRdcGeneratorParameters_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRdcGeneratorParameters {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a71_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -453,36 +467,36 @@ pub struct IRdcLibrary(::windows::core::IUnknown);
 impl IRdcLibrary {
     pub unsafe fn ComputeDefaultRecursionDepth(&self, filesize: u64) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ComputeDefaultRecursionDepth)(::windows::core::Interface::as_raw(self), filesize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).ComputeDefaultRecursionDepth)(::windows::core::Vtable::as_raw(self), filesize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn CreateGeneratorParameters(&self, parameterstype: GeneratorParametersType, level: u32) -> ::windows::core::Result<IRdcGeneratorParameters> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGeneratorParameters)(::windows::core::Interface::as_raw(self), parameterstype, level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
+        (::windows::core::Vtable::vtable(self).CreateGeneratorParameters)(::windows::core::Vtable::as_raw(self), parameterstype, level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
     }
     pub unsafe fn OpenGeneratorParameters(&self, size: u32, parametersblob: &u8) -> ::windows::core::Result<IRdcGeneratorParameters> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).OpenGeneratorParameters)(::windows::core::Interface::as_raw(self), size, ::core::mem::transmute(parametersblob), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
+        (::windows::core::Vtable::vtable(self).OpenGeneratorParameters)(::windows::core::Vtable::as_raw(self), size, ::core::mem::transmute(parametersblob), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
     }
     pub unsafe fn CreateGenerator(&self, igeneratorparametersarray: &[::core::option::Option<IRdcGeneratorParameters>]) -> ::windows::core::Result<IRdcGenerator> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGenerator)(::windows::core::Interface::as_raw(self), igeneratorparametersarray.len() as _, ::core::mem::transmute(igeneratorparametersarray.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGenerator>(result__)
+        (::windows::core::Vtable::vtable(self).CreateGenerator)(::windows::core::Vtable::as_raw(self), igeneratorparametersarray.len() as _, ::core::mem::transmute(igeneratorparametersarray.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGenerator>(result__)
     }
     pub unsafe fn CreateComparator<'a, P0>(&self, iseedsignaturesfile: P0, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileReader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateComparator)(::windows::core::Interface::as_raw(self), iseedsignaturesfile.into().abi(), comparatorbuffersize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcComparator>(result__)
+        (::windows::core::Vtable::vtable(self).CreateComparator)(::windows::core::Vtable::as_raw(self), iseedsignaturesfile.into().abi(), comparatorbuffersize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcComparator>(result__)
     }
     pub unsafe fn CreateSignatureReader<'a, P0>(&self, ifilereader: P0) -> ::windows::core::Result<IRdcSignatureReader>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileReader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSignatureReader)(::windows::core::Interface::as_raw(self), ifilereader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcSignatureReader>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSignatureReader)(::windows::core::Vtable::as_raw(self), ifilereader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcSignatureReader>(result__)
     }
     pub unsafe fn GetRDCVersion(&self, currentversion: &mut u32, minimumcompatibleappversion: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRDCVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(currentversion), ::core::mem::transmute(minimumcompatibleappversion)).ok()
+        (::windows::core::Vtable::vtable(self).GetRDCVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(currentversion), ::core::mem::transmute(minimumcompatibleappversion)).ok()
     }
 }
 impl ::core::convert::From<IRdcLibrary> for ::windows::core::IUnknown {
@@ -516,8 +530,10 @@ impl ::core::fmt::Debug for IRdcLibrary {
         f.debug_tuple("IRdcLibrary").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRdcLibrary {
+unsafe impl ::windows::core::Vtable for IRdcLibrary {
     type Vtable = IRdcLibrary_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRdcLibrary {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a78_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -538,12 +554,12 @@ pub struct IRdcSignatureReader(::windows::core::IUnknown);
 impl IRdcSignatureReader {
     pub unsafe fn ReadHeader(&self) -> ::windows::core::Result<RDC_ErrorCode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ReadHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RDC_ErrorCode>(result__)
+        (::windows::core::Vtable::vtable(self).ReadHeader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RDC_ErrorCode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReadSignatures(&self, rdcsignaturepointer: &mut RdcSignaturePointer, endofoutput: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadSignatures)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rdcsignaturepointer), ::core::mem::transmute(endofoutput)).ok()
+        (::windows::core::Vtable::vtable(self).ReadSignatures)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rdcsignaturepointer), ::core::mem::transmute(endofoutput)).ok()
     }
 }
 impl ::core::convert::From<IRdcSignatureReader> for ::windows::core::IUnknown {
@@ -577,8 +593,10 @@ impl ::core::fmt::Debug for IRdcSignatureReader {
         f.debug_tuple("IRdcSignatureReader").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRdcSignatureReader {
+unsafe impl ::windows::core::Vtable for IRdcSignatureReader {
     type Vtable = IRdcSignatureReader_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRdcSignatureReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a76_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -596,11 +614,11 @@ pub struct IRdcSignatureReader_Vtbl {
 pub struct IRdcSimilarityGenerator(::windows::core::IUnknown);
 impl IRdcSimilarityGenerator {
     pub unsafe fn EnableSimilarity(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableSimilarity)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).EnableSimilarity)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Results(&self) -> ::windows::core::Result<SimilarityData> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Results)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SimilarityData>(result__)
+        (::windows::core::Vtable::vtable(self).Results)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SimilarityData>(result__)
     }
 }
 impl ::core::convert::From<IRdcSimilarityGenerator> for ::windows::core::IUnknown {
@@ -634,8 +652,10 @@ impl ::core::fmt::Debug for IRdcSimilarityGenerator {
         f.debug_tuple("IRdcSimilarityGenerator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRdcSimilarityGenerator {
+unsafe impl ::windows::core::Vtable for IRdcSimilarityGenerator {
     type Vtable = IRdcSimilarityGenerator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRdcSimilarityGenerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a80_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -657,7 +677,7 @@ impl ISimilarity {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), path.into(), truncate.into(), ::core::mem::transmute(securitydescriptor), recordsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTable)(::windows::core::Vtable::as_raw(self), path.into(), truncate.into(), ::core::mem::transmute(securitydescriptor), recordsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -668,7 +688,7 @@ impl ISimilarity {
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTableIndirect)(::windows::core::Interface::as_raw(self), mapping.into().abi(), fileidfile.into().abi(), truncate.into(), recordsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTableIndirect)(::windows::core::Vtable::as_raw(self), mapping.into().abi(), fileidfile.into().abi(), truncate.into(), recordsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -676,25 +696,25 @@ impl ISimilarity {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).CloseTable)(::windows::core::Interface::as_raw(self), isvalid.into()).ok()
+        (::windows::core::Vtable::vtable(self).CloseTable)(::windows::core::Vtable::as_raw(self), isvalid.into()).ok()
     }
     pub unsafe fn Append(&self, similarityfileid: &SimilarityFileId, similaritydata: &SimilarityData) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(similarityfileid), ::core::mem::transmute(similaritydata)).ok()
+        (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(similarityfileid), ::core::mem::transmute(similaritydata)).ok()
     }
     pub unsafe fn FindSimilarFileId(&self, similaritydata: &SimilarityData, numberofmatchesrequired: u16, resultssize: u32) -> ::windows::core::Result<IFindSimilarResults> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).FindSimilarFileId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(similaritydata), numberofmatchesrequired, resultssize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFindSimilarResults>(result__)
+        (::windows::core::Vtable::vtable(self).FindSimilarFileId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(similaritydata), numberofmatchesrequired, resultssize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFindSimilarResults>(result__)
     }
     pub unsafe fn CopyAndSwap<'a, P0, P1>(&self, newsimilaritytables: P0, reportprogress: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISimilarity>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ISimilarityReportProgress>>,
     {
-        (::windows::core::Interface::vtable(self).CopyAndSwap)(::windows::core::Interface::as_raw(self), newsimilaritytables.into().abi(), reportprogress.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).CopyAndSwap)(::windows::core::Vtable::as_raw(self), newsimilaritytables.into().abi(), reportprogress.into().abi()).ok()
     }
     pub unsafe fn GetRecordCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetRecordCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetRecordCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<ISimilarity> for ::windows::core::IUnknown {
@@ -728,8 +748,10 @@ impl ::core::fmt::Debug for ISimilarity {
         f.debug_tuple("ISimilarity").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISimilarity {
+unsafe impl ::windows::core::Vtable for ISimilarity {
     type Vtable = ISimilarity_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimilarity {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a83_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -765,7 +787,7 @@ impl ISimilarityFileIdTable {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), path.into(), truncate.into(), ::core::mem::transmute(securitydescriptor), recordsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTable)(::windows::core::Vtable::as_raw(self), path.into(), truncate.into(), ::core::mem::transmute(securitydescriptor), recordsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -775,7 +797,7 @@ impl ISimilarityFileIdTable {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTableIndirect)(::windows::core::Interface::as_raw(self), fileidfile.into().abi(), truncate.into(), recordsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTableIndirect)(::windows::core::Vtable::as_raw(self), fileidfile.into().abi(), truncate.into(), recordsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -783,22 +805,22 @@ impl ISimilarityFileIdTable {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).CloseTable)(::windows::core::Interface::as_raw(self), isvalid.into()).ok()
+        (::windows::core::Vtable::vtable(self).CloseTable)(::windows::core::Vtable::as_raw(self), isvalid.into()).ok()
     }
     pub unsafe fn Append(&self, similarityfileid: &SimilarityFileId) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(similarityfileid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(similarityfileid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn Lookup(&self, similarityfileindex: u32) -> ::windows::core::Result<SimilarityFileId> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Lookup)(::windows::core::Interface::as_raw(self), similarityfileindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SimilarityFileId>(result__)
+        (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), similarityfileindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SimilarityFileId>(result__)
     }
     pub unsafe fn Invalidate(&self, similarityfileindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invalidate)(::windows::core::Interface::as_raw(self), similarityfileindex).ok()
+        (::windows::core::Vtable::vtable(self).Invalidate)(::windows::core::Vtable::as_raw(self), similarityfileindex).ok()
     }
     pub unsafe fn GetRecordCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetRecordCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetRecordCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<ISimilarityFileIdTable> for ::windows::core::IUnknown {
@@ -832,8 +854,10 @@ impl ::core::fmt::Debug for ISimilarityFileIdTable {
         f.debug_tuple("ISimilarityFileIdTable").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISimilarityFileIdTable {
+unsafe impl ::windows::core::Vtable for ISimilarityFileIdTable {
     type Vtable = ISimilarityFileIdTable_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimilarityFileIdTable {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7f_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -862,7 +886,7 @@ pub struct ISimilarityFileIdTable_Vtbl {
 pub struct ISimilarityReportProgress(::windows::core::IUnknown);
 impl ISimilarityReportProgress {
     pub unsafe fn ReportProgress(&self, percentcompleted: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReportProgress)(::windows::core::Interface::as_raw(self), percentcompleted).ok()
+        (::windows::core::Vtable::vtable(self).ReportProgress)(::windows::core::Vtable::as_raw(self), percentcompleted).ok()
     }
 }
 impl ::core::convert::From<ISimilarityReportProgress> for ::windows::core::IUnknown {
@@ -896,8 +920,10 @@ impl ::core::fmt::Debug for ISimilarityReportProgress {
         f.debug_tuple("ISimilarityReportProgress").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISimilarityReportProgress {
+unsafe impl ::windows::core::Vtable for ISimilarityReportProgress {
     type Vtable = ISimilarityReportProgress_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimilarityReportProgress {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7a_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -913,7 +939,7 @@ impl ISimilarityTableDumpState {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNextData(&self, resultssize: u32, resultsused: &mut u32, eof: &mut super::super::Foundation::BOOL, results: &mut SimilarityDumpData) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNextData)(::windows::core::Interface::as_raw(self), resultssize, ::core::mem::transmute(resultsused), ::core::mem::transmute(eof), ::core::mem::transmute(results)).ok()
+        (::windows::core::Vtable::vtable(self).GetNextData)(::windows::core::Vtable::as_raw(self), resultssize, ::core::mem::transmute(resultsused), ::core::mem::transmute(eof), ::core::mem::transmute(results)).ok()
     }
 }
 impl ::core::convert::From<ISimilarityTableDumpState> for ::windows::core::IUnknown {
@@ -947,8 +973,10 @@ impl ::core::fmt::Debug for ISimilarityTableDumpState {
         f.debug_tuple("ISimilarityTableDumpState").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISimilarityTableDumpState {
+unsafe impl ::windows::core::Vtable for ISimilarityTableDumpState {
     type Vtable = ISimilarityTableDumpState_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimilarityTableDumpState {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7b_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -965,10 +993,10 @@ pub struct ISimilarityTableDumpState_Vtbl {
 pub struct ISimilarityTraitsMappedView(::windows::core::IUnknown);
 impl ISimilarityTraitsMappedView {
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Flush)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Unmap(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unmap)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Unmap)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -977,10 +1005,10 @@ impl ISimilarityTraitsMappedView {
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), index, dirty.into(), numelements, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SimilarityMappedViewInfo>(result__)
+        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), index, dirty.into(), numelements, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SimilarityMappedViewInfo>(result__)
     }
     pub unsafe fn GetView(&self, mappedpagebegin: &mut *mut u8, mappedpageend: &mut *mut u8) {
-        (::windows::core::Interface::vtable(self).GetView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mappedpagebegin), ::core::mem::transmute(mappedpageend))
+        (::windows::core::Vtable::vtable(self).GetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(mappedpagebegin), ::core::mem::transmute(mappedpageend))
     }
 }
 impl ::core::convert::From<ISimilarityTraitsMappedView> for ::windows::core::IUnknown {
@@ -1014,8 +1042,10 @@ impl ::core::fmt::Debug for ISimilarityTraitsMappedView {
         f.debug_tuple("ISimilarityTraitsMappedView").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISimilarityTraitsMappedView {
+unsafe impl ::windows::core::Vtable for ISimilarityTraitsMappedView {
     type Vtable = ISimilarityTraitsMappedView_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimilarityTraitsMappedView {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7c_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -1035,29 +1065,29 @@ pub struct ISimilarityTraitsMappedView_Vtbl {
 pub struct ISimilarityTraitsMapping(::windows::core::IUnknown);
 impl ISimilarityTraitsMapping {
     pub unsafe fn CloseMapping(&self) {
-        (::windows::core::Interface::vtable(self).CloseMapping)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).CloseMapping)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn SetFileSize(&self, filesize: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileSize)(::windows::core::Interface::as_raw(self), filesize).ok()
+        (::windows::core::Vtable::vtable(self).SetFileSize)(::windows::core::Vtable::as_raw(self), filesize).ok()
     }
     pub unsafe fn GetFileSize(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn OpenMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).OpenMapping)(::windows::core::Interface::as_raw(self), accessmode, begin, end, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).OpenMapping)(::windows::core::Vtable::as_raw(self), accessmode, begin, end, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn ResizeMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ResizeMapping)(::windows::core::Interface::as_raw(self), accessmode, begin, end, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).ResizeMapping)(::windows::core::Vtable::as_raw(self), accessmode, begin, end, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn GetPageSize(&self, pagesize: &mut u32) {
-        (::windows::core::Interface::vtable(self).GetPageSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pagesize))
+        (::windows::core::Vtable::vtable(self).GetPageSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pagesize))
     }
     pub unsafe fn CreateView(&self, minimummappedpages: u32, accessmode: RdcMappingAccessMode) -> ::windows::core::Result<ISimilarityTraitsMappedView> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateView)(::windows::core::Interface::as_raw(self), minimummappedpages, accessmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimilarityTraitsMappedView>(result__)
+        (::windows::core::Vtable::vtable(self).CreateView)(::windows::core::Vtable::as_raw(self), minimummappedpages, accessmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimilarityTraitsMappedView>(result__)
     }
 }
 impl ::core::convert::From<ISimilarityTraitsMapping> for ::windows::core::IUnknown {
@@ -1091,8 +1121,10 @@ impl ::core::fmt::Debug for ISimilarityTraitsMapping {
         f.debug_tuple("ISimilarityTraitsMapping").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISimilarityTraitsMapping {
+unsafe impl ::windows::core::Vtable for ISimilarityTraitsMapping {
     type Vtable = ISimilarityTraitsMapping_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimilarityTraitsMapping {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7d_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
@@ -1119,7 +1151,7 @@ impl ISimilarityTraitsTable {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), path.into(), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTable)(::windows::core::Vtable::as_raw(self), path.into(), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1129,7 +1161,7 @@ impl ISimilarityTraitsTable {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTableIndirect)(::windows::core::Interface::as_raw(self), mapping.into().abi(), truncate.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTableIndirect)(::windows::core::Vtable::as_raw(self), mapping.into().abi(), truncate.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1137,21 +1169,21 @@ impl ISimilarityTraitsTable {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).CloseTable)(::windows::core::Interface::as_raw(self), isvalid.into()).ok()
+        (::windows::core::Vtable::vtable(self).CloseTable)(::windows::core::Vtable::as_raw(self), isvalid.into()).ok()
     }
     pub unsafe fn Append(&self, data: &SimilarityData, fileindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(data), fileindex).ok()
+        (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data), fileindex).ok()
     }
     pub unsafe fn FindSimilarFileIndex(&self, similaritydata: &SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: &mut FindSimilarFileIndexResults, resultssize: u32, resultsused: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindSimilarFileIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(similaritydata), numberofmatchesrequired, ::core::mem::transmute(findsimilarfileindexresults), resultssize, ::core::mem::transmute(resultsused)).ok()
+        (::windows::core::Vtable::vtable(self).FindSimilarFileIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(similaritydata), numberofmatchesrequired, ::core::mem::transmute(findsimilarfileindexresults), resultssize, ::core::mem::transmute(resultsused)).ok()
     }
     pub unsafe fn BeginDump(&self) -> ::windows::core::Result<ISimilarityTableDumpState> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).BeginDump)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimilarityTableDumpState>(result__)
+        (::windows::core::Vtable::vtable(self).BeginDump)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimilarityTableDumpState>(result__)
     }
     pub unsafe fn GetLastIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetLastIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<ISimilarityTraitsTable> for ::windows::core::IUnknown {
@@ -1185,8 +1217,10 @@ impl ::core::fmt::Debug for ISimilarityTraitsTable {
         f.debug_tuple("ISimilarityTraitsTable").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISimilarityTraitsTable {
+unsafe impl ::windows::core::Vtable for ISimilarityTraitsTable {
     type Vtable = ISimilarityTraitsTable_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimilarityTraitsTable {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7e_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]

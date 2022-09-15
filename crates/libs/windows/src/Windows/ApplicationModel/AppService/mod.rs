@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceCatalogStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceCatalogStatics {
+unsafe impl ::windows::core::Vtable for IAppServiceCatalogStatics {
     type Vtable = IAppServiceCatalogStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceCatalogStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0d2507_d132_4c85_8395_3c31d5a1e941);
 }
 #[repr(C)]
@@ -17,8 +19,10 @@ pub struct IAppServiceCatalogStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceClosedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceClosedEventArgs {
+unsafe impl ::windows::core::Vtable for IAppServiceClosedEventArgs {
     type Vtable = IAppServiceClosedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceClosedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde6016f6_cb03_4d35_ac8d_cc6303239731);
 }
 #[repr(C)]
@@ -30,8 +34,10 @@ pub struct IAppServiceClosedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceConnection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceConnection {
+unsafe impl ::windows::core::Vtable for IAppServiceConnection {
     type Vtable = IAppServiceConnection_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceConnection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dd474a2_871f_4d52_89a9_9e090531bd27);
 }
 #[repr(C)]
@@ -70,8 +76,10 @@ pub struct IAppServiceConnection_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceConnection2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceConnection2 {
+unsafe impl ::windows::core::Vtable for IAppServiceConnection2 {
     type Vtable = IAppServiceConnection2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceConnection2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9);
 }
 #[repr(C)]
@@ -94,8 +102,10 @@ pub struct IAppServiceConnection2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceConnectionStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceConnectionStatics {
+unsafe impl ::windows::core::Vtable for IAppServiceConnectionStatics {
     type Vtable = IAppServiceConnectionStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceConnectionStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadc56ce9_d408_5673_8637_827a4b274168);
 }
 #[repr(C)]
@@ -110,8 +120,10 @@ pub struct IAppServiceConnectionStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceDeferral(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceDeferral {
+unsafe impl ::windows::core::Vtable for IAppServiceDeferral {
     type Vtable = IAppServiceDeferral_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceDeferral {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e1b5322_eab0_4248_ae04_fdf93838e472);
 }
 #[repr(C)]
@@ -123,8 +135,10 @@ pub struct IAppServiceDeferral_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceRequest {
+unsafe impl ::windows::core::Vtable for IAppServiceRequest {
     type Vtable = IAppServiceRequest_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
 }
 #[repr(C)]
@@ -143,8 +157,10 @@ pub struct IAppServiceRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceRequestReceivedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceRequestReceivedEventArgs {
+unsafe impl ::windows::core::Vtable for IAppServiceRequestReceivedEventArgs {
     type Vtable = IAppServiceRequestReceivedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceRequestReceivedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e122360_ff65_44ae_9e45_857fe4180681);
 }
 #[repr(C)]
@@ -157,8 +173,10 @@ pub struct IAppServiceRequestReceivedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceResponse(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceResponse {
+unsafe impl ::windows::core::Vtable for IAppServiceResponse {
     type Vtable = IAppServiceResponse_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceResponse {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
 }
 #[repr(C)]
@@ -174,8 +192,10 @@ pub struct IAppServiceResponse_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails {
+unsafe impl ::windows::core::Vtable for IAppServiceTriggerDetails {
     type Vtable = IAppServiceTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
 }
 #[repr(C)]
@@ -189,8 +209,10 @@ pub struct IAppServiceTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceTriggerDetails2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails2 {
+unsafe impl ::windows::core::Vtable for IAppServiceTriggerDetails2 {
     type Vtable = IAppServiceTriggerDetails2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe83d54b2_28cc_43f2_b465_c0482e59e2dc);
 }
 #[repr(C)]
@@ -202,8 +224,10 @@ pub struct IAppServiceTriggerDetails2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceTriggerDetails3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails3 {
+unsafe impl ::windows::core::Vtable for IAppServiceTriggerDetails3 {
     type Vtable = IAppServiceTriggerDetails3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd71e21_7939_4e68_9e3c_7780147aabb6);
 }
 #[repr(C)]
@@ -218,8 +242,10 @@ pub struct IAppServiceTriggerDetails3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppServiceTriggerDetails4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails4 {
+unsafe impl ::windows::core::Vtable for IAppServiceTriggerDetails4 {
     type Vtable = IAppServiceTriggerDetails4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
 }
 #[repr(C)]
@@ -231,8 +257,10 @@ pub struct IAppServiceTriggerDetails4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStatelessAppServiceResponse(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IStatelessAppServiceResponse {
+unsafe impl ::windows::core::Vtable for IStatelessAppServiceResponse {
     type Vtable = IStatelessAppServiceResponse_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IStatelessAppServiceResponse {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43754af7_a9ec_52fe_82e7_939b68dc9388);
 }
 #[repr(C)]
@@ -253,7 +281,7 @@ impl AppServiceCatalog {
     pub fn FindAppServiceProvidersAsync(appservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>> {
         Self::IAppServiceCatalogStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAppServiceProvidersAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(appservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>>(result__)
+            (::windows::core::Vtable::vtable(this).FindAppServiceProvidersAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>>(result__)
         })
     }
     #[doc(hidden)]
@@ -273,7 +301,7 @@ impl AppServiceClosedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceClosedStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceClosedStatus>(result__)
         }
     }
 }
@@ -300,8 +328,10 @@ unsafe impl ::windows::core::RuntimeType for AppServiceClosedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AppServiceClosedEventArgs {
+unsafe impl ::windows::core::Vtable for AppServiceClosedEventArgs {
     type Vtable = IAppServiceClosedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AppServiceClosedEventArgs {
     const IID: ::windows::core::GUID = <IAppServiceClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceClosedEventArgs {
@@ -354,23 +384,23 @@ impl AppServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AppServiceName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).AppServiceName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetAppServiceName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppServiceName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAppServiceName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).PackageFamilyName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetPackageFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageFamilyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPackageFamilyName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -378,7 +408,7 @@ impl AppServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).OpenAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -390,7 +420,7 @@ impl AppServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceResponse>>(result__)
+            (::windows::core::Vtable::vtable(this).SendMessageAsync)(::windows::core::Vtable::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -402,14 +432,14 @@ impl AppServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).RequestReceived)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRequestReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRequestReceived)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveRequestReceived)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -420,14 +450,14 @@ impl AppServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceClosed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ServiceClosed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServiceClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveServiceClosed)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveServiceClosed)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System_RemoteSystems\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
@@ -438,7 +468,7 @@ impl AppServiceConnection {
         let this = &::windows::core::Interface::cast::<IAppServiceConnection2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenRemoteAsync)(::windows::core::Interface::as_raw(this), remotesystemconnectionrequest.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).OpenRemoteAsync)(::windows::core::Vtable::as_raw(this), remotesystemconnectionrequest.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -447,7 +477,7 @@ impl AppServiceConnection {
         let this = &::windows::core::Interface::cast::<IAppServiceConnection2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -457,7 +487,7 @@ impl AppServiceConnection {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
     {
         let this = &::windows::core::Interface::cast::<IAppServiceConnection2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUser)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUser)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System_RemoteSystems\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
@@ -469,14 +499,14 @@ impl AppServiceConnection {
     {
         Self::IAppServiceConnectionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SendStatelessMessageAsync)(::windows::core::Interface::as_raw(this), connection.into().abi(), connectionrequest.into().abi(), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>>(result__)
+            (::windows::core::Vtable::vtable(this).SendStatelessMessageAsync)(::windows::core::Vtable::as_raw(this), connection.into().abi(), connectionrequest.into().abi(), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc(hidden)]
     pub fn IAppServiceConnectionStatics<R, F: FnOnce(&IAppServiceConnectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -507,8 +537,10 @@ unsafe impl ::windows::core::RuntimeType for AppServiceConnection {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AppServiceConnection {
+unsafe impl ::windows::core::Vtable for AppServiceConnection {
     type Vtable = IAppServiceConnection_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AppServiceConnection {
     const IID: ::windows::core::GUID = <IAppServiceConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceConnection {
@@ -574,7 +606,7 @@ pub struct AppServiceDeferral(::windows::core::IUnknown);
 impl AppServiceDeferral {
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Complete)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for AppServiceDeferral {
@@ -600,8 +632,10 @@ unsafe impl ::windows::core::RuntimeType for AppServiceDeferral {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AppServiceDeferral {
+unsafe impl ::windows::core::Vtable for AppServiceDeferral {
     type Vtable = IAppServiceDeferral_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AppServiceDeferral {
     const IID: ::windows::core::GUID = <IAppServiceDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceDeferral {
@@ -649,7 +683,7 @@ impl AppServiceRequest {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -661,7 +695,7 @@ impl AppServiceRequest {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SendResponseAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).SendResponseAsync)(::windows::core::Vtable::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>>(result__)
         }
     }
 }
@@ -688,8 +722,10 @@ unsafe impl ::windows::core::RuntimeType for AppServiceRequest {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AppServiceRequest {
+unsafe impl ::windows::core::Vtable for AppServiceRequest {
     type Vtable = IAppServiceRequest_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AppServiceRequest {
     const IID: ::windows::core::GUID = <IAppServiceRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceRequest {
@@ -735,14 +771,14 @@ impl AppServiceRequestReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceRequest>(result__)
+            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceRequest>(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows::core::Result<AppServiceDeferral> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceDeferral>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceDeferral>(result__)
         }
     }
 }
@@ -769,8 +805,10 @@ unsafe impl ::windows::core::RuntimeType for AppServiceRequestReceivedEventArgs 
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AppServiceRequestReceivedEventArgs {
+unsafe impl ::windows::core::Vtable for AppServiceRequestReceivedEventArgs {
     type Vtable = IAppServiceRequestReceivedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AppServiceRequestReceivedEventArgs {
     const IID: ::windows::core::GUID = <IAppServiceRequestReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceRequestReceivedEventArgs {
@@ -818,14 +856,14 @@ impl AppServiceResponse {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<AppServiceResponseStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceResponseStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceResponseStatus>(result__)
         }
     }
 }
@@ -852,8 +890,10 @@ unsafe impl ::windows::core::RuntimeType for AppServiceResponse {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AppServiceResponse {
+unsafe impl ::windows::core::Vtable for AppServiceResponse {
     type Vtable = IAppServiceResponse_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AppServiceResponse {
     const IID: ::windows::core::GUID = <IAppServiceResponse as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceResponse {
@@ -899,28 +939,28 @@ impl AppServiceTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).CallerPackageFamilyName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn AppServiceConnection(&self) -> ::windows::core::Result<AppServiceConnection> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AppServiceConnection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceConnection>(result__)
+            (::windows::core::Vtable::vtable(this).AppServiceConnection)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceConnection>(result__)
         }
     }
     pub fn IsRemoteSystemConnection(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppServiceTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsRemoteSystemConnection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsRemoteSystemConnection)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -929,14 +969,14 @@ impl AppServiceTriggerDetails {
         let this = &::windows::core::Interface::cast::<IAppServiceTriggerDetails3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CheckCallerForCapabilityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(capabilityname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).CheckCallerForCapabilityAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(capabilityname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     pub fn CallerRemoteConnectionToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppServiceTriggerDetails4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CallerRemoteConnectionToken)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).CallerRemoteConnectionToken)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -963,8 +1003,10 @@ unsafe impl ::windows::core::RuntimeType for AppServiceTriggerDetails {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AppServiceTriggerDetails {
+unsafe impl ::windows::core::Vtable for AppServiceTriggerDetails {
     type Vtable = IAppServiceTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AppServiceTriggerDetails {
     const IID: ::windows::core::GUID = <IAppServiceTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceTriggerDetails {
@@ -1012,14 +1054,14 @@ impl StatelessAppServiceResponse {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<StatelessAppServiceResponseStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StatelessAppServiceResponseStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<StatelessAppServiceResponseStatus>(result__)
         }
     }
 }
@@ -1046,8 +1088,10 @@ unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponse {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for StatelessAppServiceResponse {
+unsafe impl ::windows::core::Vtable for StatelessAppServiceResponse {
     type Vtable = IStatelessAppServiceResponse_Vtbl;
+}
+unsafe impl ::windows::core::Interface for StatelessAppServiceResponse {
     const IID: ::windows::core::GUID = <IStatelessAppServiceResponse as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StatelessAppServiceResponse {

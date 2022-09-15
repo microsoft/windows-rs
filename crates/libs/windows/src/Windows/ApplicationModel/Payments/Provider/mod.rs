@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPaymentAppCanMakePaymentTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPaymentAppCanMakePaymentTriggerDetails {
+unsafe impl ::windows::core::Vtable for IPaymentAppCanMakePaymentTriggerDetails {
     type Vtable = IPaymentAppCanMakePaymentTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPaymentAppCanMakePaymentTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6);
 }
 #[repr(C)]
@@ -15,8 +17,10 @@ pub struct IPaymentAppCanMakePaymentTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPaymentAppManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPaymentAppManager {
+unsafe impl ::windows::core::Vtable for IPaymentAppManager {
     type Vtable = IPaymentAppManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPaymentAppManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e47aa53_8521_4969_a957_df2538a3a98f);
 }
 #[repr(C)]
@@ -35,8 +39,10 @@ pub struct IPaymentAppManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPaymentAppManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPaymentAppManagerStatics {
+unsafe impl ::windows::core::Vtable for IPaymentAppManagerStatics {
     type Vtable = IPaymentAppManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPaymentAppManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa341ac28_fc89_4406_b4d9_34e7fe79dfb6);
 }
 #[repr(C)]
@@ -48,8 +54,10 @@ pub struct IPaymentAppManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPaymentTransaction(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPaymentTransaction {
+unsafe impl ::windows::core::Vtable for IPaymentTransaction {
     type Vtable = IPaymentTransaction_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPaymentTransaction {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62581da0_26a5_4e9b_a6eb_66606cf001d3);
 }
 #[repr(C)]
@@ -80,8 +88,10 @@ pub struct IPaymentTransaction_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPaymentTransactionAcceptResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPaymentTransactionAcceptResult {
+unsafe impl ::windows::core::Vtable for IPaymentTransactionAcceptResult {
     type Vtable = IPaymentTransactionAcceptResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPaymentTransactionAcceptResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x060e3276_d30c_4817_95a2_df7ae9273b56);
 }
 #[repr(C)]
@@ -93,8 +103,10 @@ pub struct IPaymentTransactionAcceptResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPaymentTransactionStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPaymentTransactionStatics {
+unsafe impl ::windows::core::Vtable for IPaymentTransactionStatics {
     type Vtable = IPaymentTransactionStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPaymentTransactionStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d639750_ee0a_4df5_9b1e_1c0f9ec59881);
 }
 #[repr(C)]
@@ -114,7 +126,7 @@ impl PaymentAppCanMakePaymentTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PaymentRequest>(result__)
+            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PaymentRequest>(result__)
         }
     }
     pub fn ReportCanMakePaymentResult<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -122,7 +134,7 @@ impl PaymentAppCanMakePaymentTriggerDetails {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::PaymentCanMakePaymentResult>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportCanMakePaymentResult)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ReportCanMakePaymentResult)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for PaymentAppCanMakePaymentTriggerDetails {
@@ -148,8 +160,10 @@ unsafe impl ::windows::core::RuntimeType for PaymentAppCanMakePaymentTriggerDeta
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PaymentAppCanMakePaymentTriggerDetails {
+unsafe impl ::windows::core::Vtable for PaymentAppCanMakePaymentTriggerDetails {
     type Vtable = IPaymentAppCanMakePaymentTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PaymentAppCanMakePaymentTriggerDetails {
     const IID: ::windows::core::GUID = <IPaymentAppCanMakePaymentTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PaymentAppCanMakePaymentTriggerDetails {
@@ -201,7 +215,7 @@ impl PaymentAppManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterAsync)(::windows::core::Interface::as_raw(this), supportedpaymentmethodids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).RegisterAsync)(::windows::core::Vtable::as_raw(this), supportedpaymentmethodids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -210,13 +224,13 @@ impl PaymentAppManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UnregisterAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).UnregisterAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     pub fn Current() -> ::windows::core::Result<PaymentAppManager> {
         Self::IPaymentAppManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PaymentAppManager>(result__)
+            (::windows::core::Vtable::vtable(this).Current)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PaymentAppManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -248,8 +262,10 @@ unsafe impl ::windows::core::RuntimeType for PaymentAppManager {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PaymentAppManager {
+unsafe impl ::windows::core::Vtable for PaymentAppManager {
     type Vtable = IPaymentAppManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PaymentAppManager {
     const IID: ::windows::core::GUID = <IPaymentAppManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PaymentAppManager {
@@ -295,41 +311,41 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PaymentRequest)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PaymentRequest>(result__)
+            (::windows::core::Vtable::vtable(this).PaymentRequest)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PaymentRequest>(result__)
         }
     }
     pub fn PayerEmail(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PayerEmail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).PayerEmail)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetPayerEmail(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPayerEmail)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPayerEmail)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn PayerName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PayerName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).PayerName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetPayerName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPayerName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPayerName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn PayerPhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PayerPhoneNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).PayerPhoneNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetPayerPhoneNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPayerPhoneNumber)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPayerPhoneNumber)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -340,7 +356,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateShippingAddressAsync)(::windows::core::Interface::as_raw(this), shippingaddress.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateShippingAddressAsync)(::windows::core::Vtable::as_raw(this), shippingaddress.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -352,7 +368,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(::windows::core::Interface::as_raw(this), selectedshippingoption.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateSelectedShippingOptionAsync)(::windows::core::Vtable::as_raw(this), selectedshippingoption.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -364,19 +380,19 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AcceptAsync)(::windows::core::Interface::as_raw(this), paymenttoken.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>(result__)
+            (::windows::core::Vtable::vtable(this).AcceptAsync)(::windows::core::Vtable::as_raw(this), paymenttoken.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>(result__)
         }
     }
     pub fn Reject(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Reject)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Reject)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(id: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransaction>> {
         Self::IPaymentTransactionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PaymentTransaction>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PaymentTransaction>>(result__)
         })
     }
     #[doc(hidden)]
@@ -408,8 +424,10 @@ unsafe impl ::windows::core::RuntimeType for PaymentTransaction {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PaymentTransaction {
+unsafe impl ::windows::core::Vtable for PaymentTransaction {
     type Vtable = IPaymentTransaction_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PaymentTransaction {
     const IID: ::windows::core::GUID = <IPaymentTransaction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PaymentTransaction {
@@ -455,7 +473,7 @@ impl PaymentTransactionAcceptResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PaymentRequestCompletionStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PaymentRequestCompletionStatus>(result__)
         }
     }
 }
@@ -482,8 +500,10 @@ unsafe impl ::windows::core::RuntimeType for PaymentTransactionAcceptResult {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PaymentTransactionAcceptResult {
+unsafe impl ::windows::core::Vtable for PaymentTransactionAcceptResult {
     type Vtable = IPaymentTransactionAcceptResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PaymentTransactionAcceptResult {
     const IID: ::windows::core::GUID = <IPaymentTransactionAcceptResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PaymentTransactionAcceptResult {

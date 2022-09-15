@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILockApplicationHost(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILockApplicationHost {
+unsafe impl ::windows::core::Vtable for ILockApplicationHost {
     type Vtable = ILockApplicationHost_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILockApplicationHost {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38ee31ad_d94f_4e7c_81fa_4f4436506281);
 }
 #[repr(C)]
@@ -22,8 +24,10 @@ pub struct ILockApplicationHost_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILockApplicationHostStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILockApplicationHostStatics {
+unsafe impl ::windows::core::Vtable for ILockApplicationHostStatics {
     type Vtable = ILockApplicationHostStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILockApplicationHostStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf48fab8e_23d7_4e63_96a1_666ff52d3b2c);
 }
 #[repr(C)]
@@ -35,8 +39,10 @@ pub struct ILockApplicationHostStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILockScreenBadge(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILockScreenBadge {
+unsafe impl ::windows::core::Vtable for ILockScreenBadge {
     type Vtable = ILockScreenBadge_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILockScreenBadge {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95105d9_2bff_4db0_9b4f_3824778b9c9a);
 }
 #[repr(C)]
@@ -61,8 +67,10 @@ pub struct ILockScreenBadge_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILockScreenInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILockScreenInfo {
+unsafe impl ::windows::core::Vtable for ILockScreenInfo {
     type Vtable = ILockScreenInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILockScreenInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf59aa65c_9711_4dc9_a630_95b6cb8cdad0);
 }
 #[repr(C)]
@@ -121,8 +129,10 @@ pub struct ILockScreenInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILockScreenUnlockingDeferral(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILockScreenUnlockingDeferral {
+unsafe impl ::windows::core::Vtable for ILockScreenUnlockingDeferral {
     type Vtable = ILockScreenUnlockingDeferral_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILockScreenUnlockingDeferral {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe);
 }
 #[repr(C)]
@@ -134,8 +144,10 @@ pub struct ILockScreenUnlockingDeferral_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILockScreenUnlockingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILockScreenUnlockingEventArgs {
+unsafe impl ::windows::core::Vtable for ILockScreenUnlockingEventArgs {
     type Vtable = ILockScreenUnlockingEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILockScreenUnlockingEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44e6c007_75fb_4abb_9f8b_824748900c71);
 }
 #[repr(C)]
@@ -154,7 +166,7 @@ pub struct LockApplicationHost(::windows::core::IUnknown);
 impl LockApplicationHost {
     pub fn RequestUnlock(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestUnlock)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RequestUnlock)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -165,19 +177,19 @@ impl LockApplicationHost {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Unlocking)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Unlocking)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUnlocking(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUnlocking)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveUnlocking)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn GetForCurrentView() -> ::windows::core::Result<LockApplicationHost> {
         Self::ILockApplicationHostStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LockApplicationHost>(result__)
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LockApplicationHost>(result__)
         })
     }
     #[doc(hidden)]
@@ -209,8 +221,10 @@ unsafe impl ::windows::core::RuntimeType for LockApplicationHost {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for LockApplicationHost {
+unsafe impl ::windows::core::Vtable for LockApplicationHost {
     type Vtable = ILockApplicationHost_Vtbl;
+}
+unsafe impl ::windows::core::Interface for LockApplicationHost {
     const IID: ::windows::core::GUID = <ILockApplicationHost as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockApplicationHost {
@@ -258,7 +272,7 @@ impl LockScreenBadge {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            (::windows::core::Vtable::vtable(this).Logo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -267,7 +281,7 @@ impl LockScreenBadge {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Glyph)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            (::windows::core::Vtable::vtable(this).Glyph)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -276,19 +290,19 @@ impl LockScreenBadge {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Number)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).Number)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     pub fn AutomationName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AutomationName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).AutomationName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn LaunchApp(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LaunchApp)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).LaunchApp)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for LockScreenBadge {
@@ -314,8 +328,10 @@ unsafe impl ::windows::core::RuntimeType for LockScreenBadge {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for LockScreenBadge {
+unsafe impl ::windows::core::Vtable for LockScreenBadge {
     type Vtable = ILockScreenBadge_Vtbl;
+}
+unsafe impl ::windows::core::Interface for LockScreenBadge {
     const IID: ::windows::core::GUID = <ILockScreenBadge as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenBadge {
@@ -366,14 +382,14 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LockScreenImageChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).LockScreenImageChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLockScreenImageChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLockScreenImageChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveLockScreenImageChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -381,7 +397,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LockScreenImage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            (::windows::core::Vtable::vtable(this).LockScreenImage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -393,14 +409,14 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BadgesChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).BadgesChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBadgesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBadgesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveBadgesChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -408,7 +424,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Badges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<LockScreenBadge>>(result__)
+            (::windows::core::Vtable::vtable(this).Badges)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<LockScreenBadge>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -420,14 +436,14 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DetailTextChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).DetailTextChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDetailTextChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDetailTextChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveDetailTextChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -435,7 +451,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DetailText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).DetailText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -447,14 +463,14 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AlarmIconChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AlarmIconChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAlarmIconChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAlarmIconChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveAlarmIconChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -462,7 +478,7 @@ impl LockScreenInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AlarmIcon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            (::windows::core::Vtable::vtable(this).AlarmIcon)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
 }
@@ -489,8 +505,10 @@ unsafe impl ::windows::core::RuntimeType for LockScreenInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for LockScreenInfo {
+unsafe impl ::windows::core::Vtable for LockScreenInfo {
     type Vtable = ILockScreenInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for LockScreenInfo {
     const IID: ::windows::core::GUID = <ILockScreenInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenInfo {
@@ -534,7 +552,7 @@ pub struct LockScreenUnlockingDeferral(::windows::core::IUnknown);
 impl LockScreenUnlockingDeferral {
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Complete)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for LockScreenUnlockingDeferral {
@@ -560,8 +578,10 @@ unsafe impl ::windows::core::RuntimeType for LockScreenUnlockingDeferral {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for LockScreenUnlockingDeferral {
+unsafe impl ::windows::core::Vtable for LockScreenUnlockingDeferral {
     type Vtable = ILockScreenUnlockingDeferral_Vtbl;
+}
+unsafe impl ::windows::core::Interface for LockScreenUnlockingDeferral {
     const IID: ::windows::core::GUID = <ILockScreenUnlockingDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenUnlockingDeferral {
@@ -607,7 +627,7 @@ impl LockScreenUnlockingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LockScreenUnlockingDeferral>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LockScreenUnlockingDeferral>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -616,7 +636,7 @@ impl LockScreenUnlockingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Deadline)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Deadline)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -643,8 +663,10 @@ unsafe impl ::windows::core::RuntimeType for LockScreenUnlockingEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for LockScreenUnlockingEventArgs {
+unsafe impl ::windows::core::Vtable for LockScreenUnlockingEventArgs {
     type Vtable = ILockScreenUnlockingEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for LockScreenUnlockingEventArgs {
     const IID: ::windows::core::GUID = <ILockScreenUnlockingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenUnlockingEventArgs {

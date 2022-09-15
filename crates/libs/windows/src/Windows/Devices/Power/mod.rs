@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBattery(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBattery {
+unsafe impl ::windows::core::Vtable for IBattery {
     type Vtable = IBattery_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBattery {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
 }
 #[repr(C)]
@@ -23,8 +25,10 @@ pub struct IBattery_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBatteryReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBatteryReport {
+unsafe impl ::windows::core::Vtable for IBatteryReport {
     type Vtable = IBatteryReport_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBatteryReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9858c3a_4e13_420a_a8d0_24f18f395401);
 }
 #[repr(C)]
@@ -55,8 +59,10 @@ pub struct IBatteryReport_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBatteryStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBatteryStatics {
+unsafe impl ::windows::core::Vtable for IBatteryStatics {
     type Vtable = IBatteryStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBatteryStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
 }
 #[repr(C)]
@@ -78,14 +84,14 @@ impl Battery {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetReport(&self) -> ::windows::core::Result<BatteryReport> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetReport)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BatteryReport>(result__)
+            (::windows::core::Vtable::vtable(this).GetReport)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BatteryReport>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -97,19 +103,19 @@ impl Battery {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReportUpdated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReportUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReportUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReportUpdated)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn AggregateBattery() -> ::windows::core::Result<Battery> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AggregateBattery)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Battery>(result__)
+            (::windows::core::Vtable::vtable(this).AggregateBattery)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Battery>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -117,13 +123,13 @@ impl Battery {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Battery>> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Battery>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Battery>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -155,8 +161,10 @@ unsafe impl ::windows::core::RuntimeType for Battery {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Battery {
+unsafe impl ::windows::core::Vtable for Battery {
     type Vtable = IBattery_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Battery {
     const IID: ::windows::core::GUID = <IBattery as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Battery {
@@ -204,7 +212,7 @@ impl BatteryReport {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChargeRateInMilliwatts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).ChargeRateInMilliwatts)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -213,7 +221,7 @@ impl BatteryReport {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DesignCapacityInMilliwattHours)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).DesignCapacityInMilliwattHours)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -222,7 +230,7 @@ impl BatteryReport {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FullChargeCapacityInMilliwattHours)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).FullChargeCapacityInMilliwattHours)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -231,7 +239,7 @@ impl BatteryReport {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RemainingCapacityInMilliwattHours)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).RemainingCapacityInMilliwattHours)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Power\"`*"]
@@ -240,7 +248,7 @@ impl BatteryReport {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::Power::BatteryStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::Power::BatteryStatus>(result__)
         }
     }
 }
@@ -267,8 +275,10 @@ unsafe impl ::windows::core::RuntimeType for BatteryReport {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for BatteryReport {
+unsafe impl ::windows::core::Vtable for BatteryReport {
     type Vtable = IBatteryReport_Vtbl;
+}
+unsafe impl ::windows::core::Interface for BatteryReport {
     const IID: ::windows::core::GUID = <IBatteryReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BatteryReport {

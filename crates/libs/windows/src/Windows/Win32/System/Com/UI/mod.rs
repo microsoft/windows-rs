@@ -9,7 +9,7 @@ impl IDummyHICONIncluder {
         P0: ::std::convert::Into<super::super::super::UI::WindowsAndMessaging::HICON>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).Dummy)(::windows::core::Interface::as_raw(self), h1.into(), h2.into()).ok()
+        (::windows::core::Vtable::vtable(self).Dummy)(::windows::core::Vtable::as_raw(self), h1.into(), h2.into()).ok()
     }
 }
 impl ::core::convert::From<IDummyHICONIncluder> for ::windows::core::IUnknown {
@@ -43,8 +43,10 @@ impl ::core::fmt::Debug for IDummyHICONIncluder {
         f.debug_tuple("IDummyHICONIncluder").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDummyHICONIncluder {
+unsafe impl ::windows::core::Vtable for IDummyHICONIncluder {
     type Vtable = IDummyHICONIncluder_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDummyHICONIncluder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947990de_cc28_11d2_a0f7_00805f858fb1);
 }
 #[repr(C)]
@@ -66,7 +68,7 @@ impl IThumbnailExtractor {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::StructuredStorage::IStorage>>,
     {
-        (::windows::core::Interface::vtable(self).ExtractThumbnail)(::windows::core::Interface::as_raw(self), pstg.into().abi(), ullength, ulheight, ::core::mem::transmute(puloutputlength), ::core::mem::transmute(puloutputheight), ::core::mem::transmute(phoutputbitmap)).ok()
+        (::windows::core::Vtable::vtable(self).ExtractThumbnail)(::windows::core::Vtable::as_raw(self), pstg.into().abi(), ullength, ulheight, ::core::mem::transmute(puloutputlength), ::core::mem::transmute(puloutputheight), ::core::mem::transmute(phoutputbitmap)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -74,7 +76,7 @@ impl IThumbnailExtractor {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::StructuredStorage::IStorage>>,
     {
-        (::windows::core::Interface::vtable(self).OnFileUpdated)(::windows::core::Interface::as_raw(self), pstg.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).OnFileUpdated)(::windows::core::Vtable::as_raw(self), pstg.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IThumbnailExtractor> for ::windows::core::IUnknown {
@@ -108,8 +110,10 @@ impl ::core::fmt::Debug for IThumbnailExtractor {
         f.debug_tuple("IThumbnailExtractor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IThumbnailExtractor {
+unsafe impl ::windows::core::Vtable for IThumbnailExtractor {
     type Vtable = IThumbnailExtractor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IThumbnailExtractor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x969dc708_5c76_11d1_8d86_0000f804b057);
 }
 #[repr(C)]

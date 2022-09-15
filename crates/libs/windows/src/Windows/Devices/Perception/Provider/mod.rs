@@ -3,8 +3,11 @@
 #[repr(transparent)]
 pub struct IKnownPerceptionFrameKindStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IKnownPerceptionFrameKindStatics {
+unsafe impl ::windows::core::Vtable for IKnownPerceptionFrameKindStatics {
     type Vtable = IKnownPerceptionFrameKindStatics_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IKnownPerceptionFrameKindStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ae651d6_9669_4106_9fae_4835c1b96104);
 }
 #[cfg(feature = "deprecated")]
@@ -30,8 +33,11 @@ pub struct IKnownPerceptionFrameKindStatics_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionControlGroup(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionControlGroup {
+unsafe impl ::windows::core::Vtable for IPerceptionControlGroup {
     type Vtable = IPerceptionControlGroup_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionControlGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x172c4882_2fd9_4c4e_ba34_fdf20a73dde5);
 }
 #[cfg(feature = "deprecated")]
@@ -49,8 +55,11 @@ pub struct IPerceptionControlGroup_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionControlGroupFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionControlGroupFactory {
+unsafe impl ::windows::core::Vtable for IPerceptionControlGroupFactory {
     type Vtable = IPerceptionControlGroupFactory_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionControlGroupFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f1af2e0_baf1_453b_bed4_cd9d4619154c);
 }
 #[cfg(feature = "deprecated")]
@@ -68,8 +77,11 @@ pub struct IPerceptionControlGroupFactory_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionCorrelation(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionCorrelation {
+unsafe impl ::windows::core::Vtable for IPerceptionCorrelation {
     type Vtable = IPerceptionCorrelation_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionCorrelation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4131a82_dff5_4047_8a19_3b4d805f7176);
 }
 #[cfg(feature = "deprecated")]
@@ -95,8 +107,11 @@ pub struct IPerceptionCorrelation_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionCorrelationFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionCorrelationFactory {
+unsafe impl ::windows::core::Vtable for IPerceptionCorrelationFactory {
     type Vtable = IPerceptionCorrelationFactory_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionCorrelationFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a6c425_2884_4a8f_8134_2835d7286cbf);
 }
 #[cfg(feature = "deprecated")]
@@ -114,8 +129,11 @@ pub struct IPerceptionCorrelationFactory_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionCorrelationGroup(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionCorrelationGroup {
+unsafe impl ::windows::core::Vtable for IPerceptionCorrelationGroup {
     type Vtable = IPerceptionCorrelationGroup_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionCorrelationGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x752a0906_36a7_47bb_9b79_56cc6b746770);
 }
 #[cfg(feature = "deprecated")]
@@ -133,8 +151,11 @@ pub struct IPerceptionCorrelationGroup_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionCorrelationGroupFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionCorrelationGroupFactory {
+unsafe impl ::windows::core::Vtable for IPerceptionCorrelationGroupFactory {
     type Vtable = IPerceptionCorrelationGroupFactory_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionCorrelationGroupFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7dfe2088_63df_48ed_83b1_4ab829132995);
 }
 #[cfg(feature = "deprecated")]
@@ -152,8 +173,11 @@ pub struct IPerceptionCorrelationGroupFactory_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionFaceAuthenticationGroup(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionFaceAuthenticationGroup {
+unsafe impl ::windows::core::Vtable for IPerceptionFaceAuthenticationGroup {
     type Vtable = IPerceptionFaceAuthenticationGroup_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionFaceAuthenticationGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8019814_4a91_41b0_83a6_881a1775353e);
 }
 #[cfg(feature = "deprecated")]
@@ -171,8 +195,11 @@ pub struct IPerceptionFaceAuthenticationGroup_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionFaceAuthenticationGroupFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionFaceAuthenticationGroupFactory {
+unsafe impl ::windows::core::Vtable for IPerceptionFaceAuthenticationGroupFactory {
     type Vtable = IPerceptionFaceAuthenticationGroupFactory_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionFaceAuthenticationGroupFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe68a05d4_b60c_40f4_bcb9_f24d46467320);
 }
 #[cfg(feature = "deprecated")]
@@ -190,8 +217,11 @@ pub struct IPerceptionFaceAuthenticationGroupFactory_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionFrame(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionFrame {
+unsafe impl ::windows::core::Vtable for IPerceptionFrame {
     type Vtable = IPerceptionFrame_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionFrame {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cfe7825_54bb_4d9d_bec5_8ef66151d2ac);
 }
 #[cfg(feature = "deprecated")]
@@ -228,7 +258,7 @@ impl IPerceptionFrameProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FrameProviderInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionFrameProviderInfo>(result__)
+            (::windows::core::Vtable::vtable(this).FrameProviderInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionFrameProviderInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -237,7 +267,7 @@ impl IPerceptionFrameProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Available)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Available)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -246,20 +276,20 @@ impl IPerceptionFrameProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -268,13 +298,13 @@ impl IPerceptionFrameProvider {
         P0: ::std::convert::Into<::windows::core::InParam<'a, PerceptionPropertyChangeRequest>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProperty)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProperty)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -364,8 +394,11 @@ unsafe impl ::windows::core::RuntimeType for IPerceptionFrameProvider {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionFrameProvider {
+unsafe impl ::windows::core::Vtable for IPerceptionFrameProvider {
     type Vtable = IPerceptionFrameProvider_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionFrameProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x794f7ab9_b37d_3b33_a10d_30626419ce65);
 }
 #[cfg(feature = "deprecated")]
@@ -403,8 +436,11 @@ pub struct IPerceptionFrameProvider_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionFrameProviderInfo(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionFrameProviderInfo {
+unsafe impl ::windows::core::Vtable for IPerceptionFrameProviderInfo {
     type Vtable = IPerceptionFrameProviderInfo_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionFrameProviderInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcca959e8_797e_4e83_9b87_036a74142fc4);
 }
 #[cfg(feature = "deprecated")]
@@ -468,14 +504,14 @@ impl IPerceptionFrameProviderManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetFrameProvider)(::windows::core::Interface::as_raw(this), frameproviderinfo.into().abi(), result__.as_mut_ptr()).from_abi::<IPerceptionFrameProvider>(result__)
+            (::windows::core::Vtable::vtable(this).GetFrameProvider)(::windows::core::Vtable::as_raw(this), frameproviderinfo.into().abi(), result__.as_mut_ptr()).from_abi::<IPerceptionFrameProvider>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -565,8 +601,11 @@ unsafe impl ::windows::core::RuntimeType for IPerceptionFrameProviderManager {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionFrameProviderManager {
+unsafe impl ::windows::core::Vtable for IPerceptionFrameProviderManager {
     type Vtable = IPerceptionFrameProviderManager_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionFrameProviderManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa959ce07_ead3_33df_8ec1_b924abe019c4);
 }
 #[cfg(feature = "deprecated")]
@@ -584,8 +623,11 @@ pub struct IPerceptionFrameProviderManager_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionFrameProviderManagerServiceStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionFrameProviderManagerServiceStatics {
+unsafe impl ::windows::core::Vtable for IPerceptionFrameProviderManagerServiceStatics {
     type Vtable = IPerceptionFrameProviderManagerServiceStatics_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionFrameProviderManagerServiceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae8386e6_cad9_4359_8f96_8eae51810526);
 }
 #[cfg(feature = "deprecated")]
@@ -639,8 +681,11 @@ pub struct IPerceptionFrameProviderManagerServiceStatics_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionPropertyChangeRequest(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionPropertyChangeRequest {
+unsafe impl ::windows::core::Vtable for IPerceptionPropertyChangeRequest {
     type Vtable = IPerceptionPropertyChangeRequest_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionPropertyChangeRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c5aeb51_350b_4df8_9414_59e09815510b);
 }
 #[cfg(feature = "deprecated")]
@@ -674,8 +719,11 @@ pub struct IPerceptionPropertyChangeRequest_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionVideoFrameAllocator(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionVideoFrameAllocator {
+unsafe impl ::windows::core::Vtable for IPerceptionVideoFrameAllocator {
     type Vtable = IPerceptionVideoFrameAllocator_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionVideoFrameAllocator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c38a7da_fdd8_4ed4_a039_2a6f9b235038);
 }
 #[cfg(feature = "deprecated")]
@@ -697,8 +745,11 @@ pub struct IPerceptionVideoFrameAllocator_Vtbl {
 #[repr(transparent)]
 pub struct IPerceptionVideoFrameAllocatorFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IPerceptionVideoFrameAllocatorFactory {
+unsafe impl ::windows::core::Vtable for IPerceptionVideoFrameAllocatorFactory {
     type Vtable = IPerceptionVideoFrameAllocatorFactory_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IPerceptionVideoFrameAllocatorFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a58b0e1_e91a_481e_b876_a89e2bbc6b33);
 }
 #[cfg(feature = "deprecated")]
@@ -721,7 +772,7 @@ impl KnownPerceptionFrameKind {
     pub fn Color() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionFrameKindStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Color)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Color)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -729,7 +780,7 @@ impl KnownPerceptionFrameKind {
     pub fn Depth() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionFrameKindStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Depth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Depth)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -737,7 +788,7 @@ impl KnownPerceptionFrameKind {
     pub fn Infrared() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionFrameKindStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Infrared)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Infrared)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -763,7 +814,7 @@ impl PerceptionControlGroup {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FrameProviderIds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).FrameProviderIds)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -775,7 +826,7 @@ impl PerceptionControlGroup {
     {
         Self::IPerceptionControlGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PerceptionControlGroup>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PerceptionControlGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -814,8 +865,11 @@ unsafe impl ::windows::core::RuntimeType for PerceptionControlGroup {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionControlGroup {
+unsafe impl ::windows::core::Vtable for PerceptionControlGroup {
     type Vtable = IPerceptionControlGroup_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionControlGroup {
     const IID: ::windows::core::GUID = <IPerceptionControlGroup as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -874,7 +928,7 @@ impl PerceptionCorrelation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TargetId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).TargetId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
@@ -883,7 +937,7 @@ impl PerceptionCorrelation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
@@ -892,7 +946,7 @@ impl PerceptionCorrelation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Quaternion>(result__)
+            (::windows::core::Vtable::vtable(this).Orientation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
@@ -900,7 +954,7 @@ impl PerceptionCorrelation {
     pub fn Create(targetid: &::windows::core::HSTRING, position: super::super::super::Foundation::Numerics::Vector3, orientation: super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<PerceptionCorrelation> {
         Self::IPerceptionCorrelationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(targetid), position, orientation, result__.as_mut_ptr()).from_abi::<PerceptionCorrelation>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(targetid), position, orientation, result__.as_mut_ptr()).from_abi::<PerceptionCorrelation>(result__)
         })
     }
     #[doc(hidden)]
@@ -939,8 +993,11 @@ unsafe impl ::windows::core::RuntimeType for PerceptionCorrelation {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionCorrelation {
+unsafe impl ::windows::core::Vtable for PerceptionCorrelation {
     type Vtable = IPerceptionCorrelation_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionCorrelation {
     const IID: ::windows::core::GUID = <IPerceptionCorrelation as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -999,7 +1056,7 @@ impl PerceptionCorrelationGroup {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RelativeLocations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<PerceptionCorrelation>>(result__)
+            (::windows::core::Vtable::vtable(this).RelativeLocations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<PerceptionCorrelation>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1011,7 +1068,7 @@ impl PerceptionCorrelationGroup {
     {
         Self::IPerceptionCorrelationGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), relativelocations.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PerceptionCorrelationGroup>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), relativelocations.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PerceptionCorrelationGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -1050,8 +1107,11 @@ unsafe impl ::windows::core::RuntimeType for PerceptionCorrelationGroup {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionCorrelationGroup {
+unsafe impl ::windows::core::Vtable for PerceptionCorrelationGroup {
     type Vtable = IPerceptionCorrelationGroup_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionCorrelationGroup {
     const IID: ::windows::core::GUID = <IPerceptionCorrelationGroup as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1110,7 +1170,7 @@ impl PerceptionFaceAuthenticationGroup {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FrameProviderIds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).FrameProviderIds)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1124,7 +1184,7 @@ impl PerceptionFaceAuthenticationGroup {
     {
         Self::IPerceptionFaceAuthenticationGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ids.try_into().map_err(|e| e.into())?.abi(), starthandler.into().abi(), stophandler.into().abi(), result__.as_mut_ptr()).from_abi::<PerceptionFaceAuthenticationGroup>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ids.try_into().map_err(|e| e.into())?.abi(), starthandler.into().abi(), stophandler.into().abi(), result__.as_mut_ptr()).from_abi::<PerceptionFaceAuthenticationGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -1163,8 +1223,11 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFaceAuthenticationGroup {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionFaceAuthenticationGroup {
+unsafe impl ::windows::core::Vtable for PerceptionFaceAuthenticationGroup {
     type Vtable = IPerceptionFaceAuthenticationGroup_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionFaceAuthenticationGroup {
     const IID: ::windows::core::GUID = <IPerceptionFaceAuthenticationGroup as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1223,14 +1286,14 @@ impl PerceptionFrame {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RelativeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).RelativeTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetRelativeTime(&self, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRelativeTime)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1238,7 +1301,7 @@ impl PerceptionFrame {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1247,7 +1310,7 @@ impl PerceptionFrame {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FrameData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IMemoryBuffer>(result__)
+            (::windows::core::Vtable::vtable(this).FrameData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IMemoryBuffer>(result__)
         }
     }
 }
@@ -1280,8 +1343,11 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrame {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionFrame {
+unsafe impl ::windows::core::Vtable for PerceptionFrame {
     type Vtable = IPerceptionFrame_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionFrame {
     const IID: ::windows::core::GUID = <IPerceptionFrame as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1347,14 +1413,14 @@ impl PerceptionFrameProviderInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1362,14 +1428,14 @@ impl PerceptionFrameProviderInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDisplayName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1377,14 +1443,14 @@ impl PerceptionFrameProviderInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetDeviceKind(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeviceKind)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDeviceKind)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1392,14 +1458,14 @@ impl PerceptionFrameProviderInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FrameKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).FrameKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetFrameKind(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrameKind)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFrameKind)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1407,14 +1473,14 @@ impl PerceptionFrameProviderInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Hidden)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Hidden)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetHidden(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHidden)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetHidden)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1446,8 +1512,11 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameProviderInfo {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionFrameProviderInfo {
+unsafe impl ::windows::core::Vtable for PerceptionFrameProviderInfo {
     type Vtable = IPerceptionFrameProviderInfo_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionFrameProviderInfo {
     const IID: ::windows::core::GUID = <IPerceptionFrameProviderInfo as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1507,7 +1576,7 @@ impl PerceptionFrameProviderManagerService {
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFrameProviderInfo>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterFrameProviderInfo)(::windows::core::Interface::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), frameproviderinfo.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterFrameProviderInfo)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), frameproviderinfo.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1517,7 +1586,7 @@ impl PerceptionFrameProviderManagerService {
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFrameProviderInfo>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UnregisterFrameProviderInfo)(::windows::core::Interface::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), frameproviderinfo.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterFrameProviderInfo)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), frameproviderinfo.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1527,7 +1596,7 @@ impl PerceptionFrameProviderManagerService {
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFaceAuthenticationGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterFaceAuthenticationGroup)(::windows::core::Interface::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), faceauthenticationgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterFaceAuthenticationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), faceauthenticationgroup.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1537,7 +1606,7 @@ impl PerceptionFrameProviderManagerService {
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFaceAuthenticationGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UnregisterFaceAuthenticationGroup)(::windows::core::Interface::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), faceauthenticationgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterFaceAuthenticationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), faceauthenticationgroup.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1547,7 +1616,7 @@ impl PerceptionFrameProviderManagerService {
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionControlGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterControlGroup)(::windows::core::Interface::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), controlgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterControlGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), controlgroup.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1557,7 +1626,7 @@ impl PerceptionFrameProviderManagerService {
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionControlGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UnregisterControlGroup)(::windows::core::Interface::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), controlgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterControlGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), controlgroup.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1567,7 +1636,7 @@ impl PerceptionFrameProviderManagerService {
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionCorrelationGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterCorrelationGroup)(::windows::core::Interface::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), correlationgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterCorrelationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), correlationgroup.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1577,7 +1646,7 @@ impl PerceptionFrameProviderManagerService {
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionCorrelationGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UnregisterCorrelationGroup)(::windows::core::Interface::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), correlationgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterCorrelationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), correlationgroup.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1586,7 +1655,7 @@ impl PerceptionFrameProviderManagerService {
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateAvailabilityForProvider)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), available).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UpdateAvailabilityForProvider)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), available).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1596,7 +1665,7 @@ impl PerceptionFrameProviderManagerService {
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFrame>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).PublishFrameForProvider)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), frame.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).PublishFrameForProvider)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), frame.into().abi()).ok() })
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
@@ -1621,7 +1690,7 @@ impl PerceptionPropertyChangeRequest {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1630,7 +1699,7 @@ impl PerceptionPropertyChangeRequest {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1639,14 +1708,14 @@ impl PerceptionPropertyChangeRequest {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PerceptionFrameSourcePropertyChangeStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PerceptionFrameSourcePropertyChangeStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetStatus(&self, value: super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetStatus)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1654,7 +1723,7 @@ impl PerceptionPropertyChangeRequest {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1687,8 +1756,11 @@ unsafe impl ::windows::core::RuntimeType for PerceptionPropertyChangeRequest {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionPropertyChangeRequest {
+unsafe impl ::windows::core::Vtable for PerceptionPropertyChangeRequest {
     type Vtable = IPerceptionPropertyChangeRequest_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionPropertyChangeRequest {
     const IID: ::windows::core::GUID = <IPerceptionPropertyChangeRequest as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1745,7 +1817,7 @@ impl PerceptionVideoFrameAllocator {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1753,7 +1825,7 @@ impl PerceptionVideoFrameAllocator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AllocateFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
+            (::windows::core::Vtable::vtable(this).AllocateFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
@@ -1765,7 +1837,7 @@ impl PerceptionVideoFrameAllocator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CopyFromVideoFrame)(::windows::core::Interface::as_raw(this), frame.into().abi(), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
+            (::windows::core::Vtable::vtable(this).CopyFromVideoFrame)(::windows::core::Vtable::as_raw(this), frame.into().abi(), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"deprecated\"`*"]
@@ -1773,7 +1845,7 @@ impl PerceptionVideoFrameAllocator {
     pub fn Create(maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<PerceptionVideoFrameAllocator> {
         Self::IPerceptionVideoFrameAllocatorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), maxoutstandingframecountforwrite, format, resolution, alpha, result__.as_mut_ptr()).from_abi::<PerceptionVideoFrameAllocator>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), maxoutstandingframecountforwrite, format, resolution, alpha, result__.as_mut_ptr()).from_abi::<PerceptionVideoFrameAllocator>(result__)
         })
     }
     #[doc(hidden)]
@@ -1812,8 +1884,11 @@ unsafe impl ::windows::core::RuntimeType for PerceptionVideoFrameAllocator {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionVideoFrameAllocator {
+unsafe impl ::windows::core::Vtable for PerceptionVideoFrameAllocator {
     type Vtable = IPerceptionVideoFrameAllocator_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionVideoFrameAllocator {
     const IID: ::windows::core::GUID = <IPerceptionVideoFrameAllocator as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1901,7 +1976,7 @@ impl PerceptionStartFaceAuthenticationHandler {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1973,8 +2048,11 @@ impl ::core::fmt::Debug for PerceptionStartFaceAuthenticationHandler {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionStartFaceAuthenticationHandler {
+unsafe impl ::windows::core::Vtable for PerceptionStartFaceAuthenticationHandler {
     type Vtable = PerceptionStartFaceAuthenticationHandler_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionStartFaceAuthenticationHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74816d2a_2090_4670_8c48_ef39e7ff7c26);
 }
 #[cfg(feature = "deprecated")]
@@ -2012,7 +2090,7 @@ impl PerceptionStopFaceAuthenticationHandler {
         P0: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFaceAuthenticationGroup>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2076,8 +2154,11 @@ impl ::core::fmt::Debug for PerceptionStopFaceAuthenticationHandler {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for PerceptionStopFaceAuthenticationHandler {
+unsafe impl ::windows::core::Vtable for PerceptionStopFaceAuthenticationHandler {
     type Vtable = PerceptionStopFaceAuthenticationHandler_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for PerceptionStopFaceAuthenticationHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x387ee6aa_89cd_481e_aade_dd92f70b2ad7);
 }
 #[cfg(feature = "deprecated")]

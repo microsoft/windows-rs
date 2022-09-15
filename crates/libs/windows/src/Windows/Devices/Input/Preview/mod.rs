@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeDevicePreview(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeDevicePreview {
+unsafe impl ::windows::core::Vtable for IGazeDevicePreview {
     type Vtable = IGazeDevicePreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeDevicePreview {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7ee9_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
@@ -29,8 +31,10 @@ pub struct IGazeDevicePreview_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeDeviceWatcherAddedPreviewEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeDeviceWatcherAddedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for IGazeDeviceWatcherAddedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeDeviceWatcherAddedPreviewEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7eed_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
@@ -42,8 +46,10 @@ pub struct IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeDeviceWatcherPreview(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeDeviceWatcherPreview {
+unsafe impl ::windows::core::Vtable for IGazeDeviceWatcherPreview {
     type Vtable = IGazeDeviceWatcherPreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeDeviceWatcherPreview {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7ee7_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
@@ -88,8 +94,10 @@ pub struct IGazeDeviceWatcherPreview_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeDeviceWatcherRemovedPreviewEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeDeviceWatcherRemovedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for IGazeDeviceWatcherRemovedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeDeviceWatcherRemovedPreviewEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2631f08_0e3f_431f_a606_50b35af94a1c);
 }
 #[repr(C)]
@@ -101,8 +109,10 @@ pub struct IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeDeviceWatcherUpdatedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for IGazeDeviceWatcherUpdatedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeDeviceWatcherUpdatedPreviewEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe830ef_7f08_4737_88e1_4a83ae4e4885);
 }
 #[repr(C)]
@@ -114,8 +124,10 @@ pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeEnteredPreviewEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeEnteredPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for IGazeEnteredPreviewEventArgs {
     type Vtable = IGazeEnteredPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeEnteredPreviewEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2567bf43_1225_489f_9dd1_daa7c50fbf4b);
 }
 #[repr(C)]
@@ -129,8 +141,10 @@ pub struct IGazeEnteredPreviewEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeExitedPreviewEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeExitedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for IGazeExitedPreviewEventArgs {
     type Vtable = IGazeExitedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeExitedPreviewEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d0af07e_7d83_40ef_9f0a_fbc1bbdcc5ac);
 }
 #[repr(C)]
@@ -144,8 +158,10 @@ pub struct IGazeExitedPreviewEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeInputSourcePreview(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeInputSourcePreview {
+unsafe impl ::windows::core::Vtable for IGazeInputSourcePreview {
     type Vtable = IGazeInputSourcePreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeInputSourcePreview {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7ee8_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
@@ -180,8 +196,10 @@ pub struct IGazeInputSourcePreview_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeInputSourcePreviewStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeInputSourcePreviewStatics {
+unsafe impl ::windows::core::Vtable for IGazeInputSourcePreviewStatics {
     type Vtable = IGazeInputSourcePreviewStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeInputSourcePreviewStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7ee6_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
@@ -194,8 +212,10 @@ pub struct IGazeInputSourcePreviewStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazeMovedPreviewEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazeMovedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for IGazeMovedPreviewEventArgs {
     type Vtable = IGazeMovedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazeMovedPreviewEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7eeb_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
@@ -213,8 +233,10 @@ pub struct IGazeMovedPreviewEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGazePointPreview(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGazePointPreview {
+unsafe impl ::windows::core::Vtable for IGazePointPreview {
     type Vtable = IGazePointPreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGazePointPreview {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79e7eea_b389_11e7_b201_c8d3ffb75721);
 }
 #[repr(C)]
@@ -244,28 +266,28 @@ impl GazeDevicePreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn CanTrackEyes(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CanTrackEyes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).CanTrackEyes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn CanTrackHead(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CanTrackHead)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).CanTrackHead)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn ConfigurationState(&self) -> ::windows::core::Result<GazeDeviceConfigurationStatePreview> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConfigurationState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDeviceConfigurationStatePreview>(result__)
+            (::windows::core::Vtable::vtable(this).ConfigurationState)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDeviceConfigurationStatePreview>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -274,7 +296,7 @@ impl GazeDevicePreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCalibrationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestCalibrationAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
@@ -283,7 +305,7 @@ impl GazeDevicePreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumericControlDescriptions)(::windows::core::Interface::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>>(result__)
+            (::windows::core::Vtable::vtable(this).GetNumericControlDescriptions)(::windows::core::Vtable::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
@@ -292,7 +314,7 @@ impl GazeDevicePreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetBooleanControlDescriptions)(::windows::core::Interface::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>>(result__)
+            (::windows::core::Vtable::vtable(this).GetBooleanControlDescriptions)(::windows::core::Vtable::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>>(result__)
         }
     }
 }
@@ -319,8 +341,10 @@ unsafe impl ::windows::core::RuntimeType for GazeDevicePreview {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazeDevicePreview {
+unsafe impl ::windows::core::Vtable for GazeDevicePreview {
     type Vtable = IGazeDevicePreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazeDevicePreview {
     const IID: ::windows::core::GUID = <IGazeDevicePreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazeDevicePreview {
@@ -366,7 +390,7 @@ impl GazeDeviceWatcherAddedPreviewEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Device)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDevicePreview>(result__)
+            (::windows::core::Vtable::vtable(this).Device)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDevicePreview>(result__)
         }
     }
 }
@@ -393,8 +417,10 @@ unsafe impl ::windows::core::RuntimeType for GazeDeviceWatcherAddedPreviewEventA
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazeDeviceWatcherAddedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for GazeDeviceWatcherAddedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazeDeviceWatcherAddedPreviewEventArgs {
     const IID: ::windows::core::GUID = <IGazeDeviceWatcherAddedPreviewEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs {
@@ -445,14 +471,14 @@ impl GazeDeviceWatcherPreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveAdded)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -463,14 +489,14 @@ impl GazeDeviceWatcherPreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveRemoved)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -481,14 +507,14 @@ impl GazeDeviceWatcherPreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Updated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveUpdated)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -499,22 +525,22 @@ impl GazeDeviceWatcherPreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveEnumerationCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for GazeDeviceWatcherPreview {
@@ -540,8 +566,10 @@ unsafe impl ::windows::core::RuntimeType for GazeDeviceWatcherPreview {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazeDeviceWatcherPreview {
+unsafe impl ::windows::core::Vtable for GazeDeviceWatcherPreview {
     type Vtable = IGazeDeviceWatcherPreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazeDeviceWatcherPreview {
     const IID: ::windows::core::GUID = <IGazeDeviceWatcherPreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazeDeviceWatcherPreview {
@@ -587,7 +615,7 @@ impl GazeDeviceWatcherRemovedPreviewEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Device)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDevicePreview>(result__)
+            (::windows::core::Vtable::vtable(this).Device)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDevicePreview>(result__)
         }
     }
 }
@@ -614,8 +642,10 @@ unsafe impl ::windows::core::RuntimeType for GazeDeviceWatcherRemovedPreviewEven
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazeDeviceWatcherRemovedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for GazeDeviceWatcherRemovedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazeDeviceWatcherRemovedPreviewEventArgs {
     const IID: ::windows::core::GUID = <IGazeDeviceWatcherRemovedPreviewEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArgs {
@@ -661,7 +691,7 @@ impl GazeDeviceWatcherUpdatedPreviewEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Device)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDevicePreview>(result__)
+            (::windows::core::Vtable::vtable(this).Device)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDevicePreview>(result__)
         }
     }
 }
@@ -688,8 +718,10 @@ unsafe impl ::windows::core::RuntimeType for GazeDeviceWatcherUpdatedPreviewEven
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazeDeviceWatcherUpdatedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for GazeDeviceWatcherUpdatedPreviewEventArgs {
     type Vtable = IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazeDeviceWatcherUpdatedPreviewEventArgs {
     const IID: ::windows::core::GUID = <IGazeDeviceWatcherUpdatedPreviewEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArgs {
@@ -735,18 +767,18 @@ impl GazeEnteredPreviewEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetHandled)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn CurrentPoint(&self) -> ::windows::core::Result<GazePointPreview> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazePointPreview>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentPoint)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazePointPreview>(result__)
         }
     }
 }
@@ -773,8 +805,10 @@ unsafe impl ::windows::core::RuntimeType for GazeEnteredPreviewEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazeEnteredPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for GazeEnteredPreviewEventArgs {
     type Vtable = IGazeEnteredPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazeEnteredPreviewEventArgs {
     const IID: ::windows::core::GUID = <IGazeEnteredPreviewEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazeEnteredPreviewEventArgs {
@@ -820,18 +854,18 @@ impl GazeExitedPreviewEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetHandled)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn CurrentPoint(&self) -> ::windows::core::Result<GazePointPreview> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazePointPreview>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentPoint)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazePointPreview>(result__)
         }
     }
 }
@@ -858,8 +892,10 @@ unsafe impl ::windows::core::RuntimeType for GazeExitedPreviewEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazeExitedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for GazeExitedPreviewEventArgs {
     type Vtable = IGazeExitedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazeExitedPreviewEventArgs {
     const IID: ::windows::core::GUID = <IGazeExitedPreviewEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazeExitedPreviewEventArgs {
@@ -910,14 +946,14 @@ impl GazeInputSourcePreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GazeMoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).GazeMoved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGazeMoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveGazeMoved)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveGazeMoved)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -928,14 +964,14 @@ impl GazeInputSourcePreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GazeEntered)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).GazeEntered)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGazeEntered(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveGazeEntered)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveGazeEntered)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -946,25 +982,25 @@ impl GazeInputSourcePreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GazeExited)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).GazeExited)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGazeExited(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveGazeExited)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveGazeExited)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn GetForCurrentView() -> ::windows::core::Result<GazeInputSourcePreview> {
         Self::IGazeInputSourcePreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeInputSourcePreview>(result__)
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeInputSourcePreview>(result__)
         })
     }
     pub fn CreateWatcher() -> ::windows::core::Result<GazeDeviceWatcherPreview> {
         Self::IGazeInputSourcePreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDeviceWatcherPreview>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDeviceWatcherPreview>(result__)
         })
     }
     #[doc(hidden)]
@@ -996,8 +1032,10 @@ unsafe impl ::windows::core::RuntimeType for GazeInputSourcePreview {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazeInputSourcePreview {
+unsafe impl ::windows::core::Vtable for GazeInputSourcePreview {
     type Vtable = IGazeInputSourcePreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazeInputSourcePreview {
     const IID: ::windows::core::GUID = <IGazeInputSourcePreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazeInputSourcePreview {
@@ -1043,18 +1081,18 @@ impl GazeMovedPreviewEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetHandled)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn CurrentPoint(&self) -> ::windows::core::Result<GazePointPreview> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazePointPreview>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentPoint)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazePointPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1063,7 +1101,7 @@ impl GazeMovedPreviewEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetIntermediatePoints)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<GazePointPreview>>(result__)
+            (::windows::core::Vtable::vtable(this).GetIntermediatePoints)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<GazePointPreview>>(result__)
         }
     }
 }
@@ -1090,8 +1128,10 @@ unsafe impl ::windows::core::RuntimeType for GazeMovedPreviewEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazeMovedPreviewEventArgs {
+unsafe impl ::windows::core::Vtable for GazeMovedPreviewEventArgs {
     type Vtable = IGazeMovedPreviewEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazeMovedPreviewEventArgs {
     const IID: ::windows::core::GUID = <IGazeMovedPreviewEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazeMovedPreviewEventArgs {
@@ -1137,7 +1177,7 @@ impl GazePointPreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SourceDevice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDevicePreview>(result__)
+            (::windows::core::Vtable::vtable(this).SourceDevice)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GazeDevicePreview>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1146,7 +1186,7 @@ impl GazePointPreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EyeGazePosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Vtable::vtable(this).EyeGazePosition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1155,14 +1195,14 @@ impl GazePointPreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HeadGazePosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Vtable::vtable(this).HeadGazePosition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>>(result__)
         }
     }
     pub fn Timestamp(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
@@ -1171,7 +1211,7 @@ impl GazePointPreview {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HidInputReport)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::HumanInterfaceDevice::HidInputReport>(result__)
+            (::windows::core::Vtable::vtable(this).HidInputReport)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::HumanInterfaceDevice::HidInputReport>(result__)
         }
     }
 }
@@ -1198,8 +1238,10 @@ unsafe impl ::windows::core::RuntimeType for GazePointPreview {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GazePointPreview {
+unsafe impl ::windows::core::Vtable for GazePointPreview {
     type Vtable = IGazePointPreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GazePointPreview {
     const IID: ::windows::core::GUID = <IGazePointPreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GazePointPreview {

@@ -55,7 +55,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
             impl <#constraints> ::windows::core::AsImpl<#original_ident::<#(#generics,)*>> for #interface_ident {
                 fn as_impl(&self) -> &#original_ident::<#(#generics,)*> {
-                    let this = ::windows::core::Interface::as_raw(self);
+                    let this = ::windows::core::Vtable::as_raw(self);
                     // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
                     // is guaranteed to live at least as long as `self`.
                     unsafe {
@@ -153,7 +153,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         impl <#constraints> ::windows::core::Compose for #original_ident::<#(#generics,)*> {
             unsafe fn compose<'a>(implementation: Self) -> (::windows::core::IInspectable, &'a mut ::core::option::Option<::windows::core::IInspectable>) {
                 let inspectable: ::windows::core::IInspectable = implementation.into();
-                let this: *mut ::core::ffi::c_void = ::windows::core::Interface::as_raw(&inspectable);
+                let this: *mut ::core::ffi::c_void = ::windows::core::Vtable::as_raw(&inspectable);
                 let this = (this as *mut *mut ::core::ffi::c_void).sub(1) as *mut #impl_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
             }
@@ -199,7 +199,7 @@ impl ImplementType {
     fn to_vtbl_ident(&self) -> proc_macro2::TokenStream {
         let ident = self.to_ident();
         quote! {
-            <#ident as ::windows::core::Interface>::Vtable
+            <#ident as ::windows::core::Vtable>::Vtable
         }
     }
     fn generics(&self) -> std::collections::BTreeSet<String> {

@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IApplicationDataManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IApplicationDataManager {
+unsafe impl ::windows::core::Vtable for IApplicationDataManager {
     type Vtable = IApplicationDataManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IApplicationDataManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d10432_2e99_4000_9a3a_64307e858129);
 }
 #[repr(C)]
@@ -13,8 +15,10 @@ pub struct IApplicationDataManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IApplicationDataManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IApplicationDataManagerStatics {
+unsafe impl ::windows::core::Vtable for IApplicationDataManagerStatics {
     type Vtable = IApplicationDataManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IApplicationDataManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e1862e3_698e_49a1_9752_dee94925b9b3);
 }
 #[repr(C)]
@@ -35,7 +39,7 @@ impl ApplicationDataManager {
     pub fn CreateForPackageFamily(packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForPackageFamily)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<super::super::Storage::ApplicationData>(result__)
+            (::windows::core::Vtable::vtable(this).CreateForPackageFamily)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<super::super::Storage::ApplicationData>(result__)
         })
     }
     #[doc(hidden)]
@@ -67,8 +71,10 @@ unsafe impl ::windows::core::RuntimeType for ApplicationDataManager {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ApplicationDataManager {
+unsafe impl ::windows::core::Vtable for ApplicationDataManager {
     type Vtable = IApplicationDataManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ApplicationDataManager {
     const IID: ::windows::core::GUID = <IApplicationDataManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationDataManager {

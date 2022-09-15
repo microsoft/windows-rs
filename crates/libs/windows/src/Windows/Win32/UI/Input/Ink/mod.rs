@@ -3,7 +3,7 @@
 pub struct IInkCommitRequestHandler(::windows::core::IUnknown);
 impl IInkCommitRequestHandler {
     pub unsafe fn OnCommitRequested(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnCommitRequested)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).OnCommitRequested)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IInkCommitRequestHandler> for ::windows::core::IUnknown {
@@ -37,8 +37,10 @@ impl ::core::fmt::Debug for IInkCommitRequestHandler {
         f.debug_tuple("IInkCommitRequestHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IInkCommitRequestHandler {
+unsafe impl ::windows::core::Vtable for IInkCommitRequestHandler {
     type Vtable = IInkCommitRequestHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInkCommitRequestHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfabea3fc_b108_45b6_a9fc_8d08fa9f85cf);
 }
 #[repr(C)]
@@ -59,7 +61,7 @@ impl IInkD2DRenderer {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), fhighcontrast.into()).ok()
+        (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), fhighcontrast.into()).ok()
     }
 }
 impl ::core::convert::From<IInkD2DRenderer> for ::windows::core::IUnknown {
@@ -93,8 +95,10 @@ impl ::core::fmt::Debug for IInkD2DRenderer {
         f.debug_tuple("IInkD2DRenderer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IInkD2DRenderer {
+unsafe impl ::windows::core::Vtable for IInkD2DRenderer {
     type Vtable = IInkD2DRenderer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInkD2DRenderer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
 }
 #[repr(C)]
@@ -115,7 +119,7 @@ impl IInkD2DRenderer2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), highcontrastadjustment).ok()
+        (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), highcontrastadjustment).ok()
     }
 }
 impl ::core::convert::From<IInkD2DRenderer2> for ::windows::core::IUnknown {
@@ -149,8 +153,10 @@ impl ::core::fmt::Debug for IInkD2DRenderer2 {
         f.debug_tuple("IInkD2DRenderer2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IInkD2DRenderer2 {
+unsafe impl ::windows::core::Vtable for IInkD2DRenderer2 {
     type Vtable = IInkD2DRenderer2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInkD2DRenderer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
 }
 #[repr(C)]
@@ -167,14 +173,14 @@ impl IInkDesktopHost {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IInkHostWorkItem>>,
     {
-        (::windows::core::Interface::vtable(self).QueueWorkItem)(::windows::core::Interface::as_raw(self), workitem.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).QueueWorkItem)(::windows::core::Vtable::as_raw(self), workitem.into().abi()).ok()
     }
     pub unsafe fn CreateInkPresenter<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateInkPresenter)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).CreateInkPresenter)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn CreateAndInitializeInkPresenter<'a, P0, T>(&self, rootvisual: P0, width: f32, height: f32) -> ::windows::core::Result<T>
     where
@@ -182,7 +188,7 @@ impl IInkDesktopHost {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateAndInitializeInkPresenter)(::windows::core::Interface::as_raw(self), rootvisual.into().abi(), width, height, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).CreateAndInitializeInkPresenter)(::windows::core::Vtable::as_raw(self), rootvisual.into().abi(), width, height, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IInkDesktopHost> for ::windows::core::IUnknown {
@@ -216,8 +222,10 @@ impl ::core::fmt::Debug for IInkDesktopHost {
         f.debug_tuple("IInkDesktopHost").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IInkDesktopHost {
+unsafe impl ::windows::core::Vtable for IInkDesktopHost {
     type Vtable = IInkDesktopHost_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInkDesktopHost {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
 }
 #[repr(C)]
@@ -233,7 +241,7 @@ pub struct IInkDesktopHost_Vtbl {
 pub struct IInkHostWorkItem(::windows::core::IUnknown);
 impl IInkHostWorkItem {
     pub unsafe fn Invoke(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IInkHostWorkItem> for ::windows::core::IUnknown {
@@ -267,8 +275,10 @@ impl ::core::fmt::Debug for IInkHostWorkItem {
         f.debug_tuple("IInkHostWorkItem").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IInkHostWorkItem {
+unsafe impl ::windows::core::Vtable for IInkHostWorkItem {
     type Vtable = IInkHostWorkItem_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInkHostWorkItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccda0a9a_1b78_4632_bb96_97800662e26c);
 }
 #[repr(C)]
@@ -286,22 +296,22 @@ impl IInkPresenterDesktop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetRootVisual)(::windows::core::Interface::as_raw(self), rootvisual.into().abi(), device.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetRootVisual)(::windows::core::Vtable::as_raw(self), rootvisual.into().abi(), device.into().abi()).ok()
     }
     pub unsafe fn SetCommitRequestHandler<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IInkCommitRequestHandler>>,
     {
-        (::windows::core::Interface::vtable(self).SetCommitRequestHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetCommitRequestHandler)(::windows::core::Vtable::as_raw(self), handler.into().abi()).ok()
     }
     pub unsafe fn GetSize(&self, width: &mut f32, height: &mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
+        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
     }
     pub unsafe fn SetSize(&self, width: f32, height: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSize)(::windows::core::Interface::as_raw(self), width, height).ok()
+        (::windows::core::Vtable::vtable(self).SetSize)(::windows::core::Vtable::as_raw(self), width, height).ok()
     }
     pub unsafe fn OnHighContrastChanged(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnHighContrastChanged)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).OnHighContrastChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IInkPresenterDesktop> for ::windows::core::IUnknown {
@@ -335,8 +345,10 @@ impl ::core::fmt::Debug for IInkPresenterDesktop {
         f.debug_tuple("IInkPresenterDesktop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IInkPresenterDesktop {
+unsafe impl ::windows::core::Vtable for IInkPresenterDesktop {
     type Vtable = IInkPresenterDesktop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInkPresenterDesktop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
 }
 #[repr(C)]

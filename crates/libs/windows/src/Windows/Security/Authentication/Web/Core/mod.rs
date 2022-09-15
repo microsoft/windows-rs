@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFindAllAccountsResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IFindAllAccountsResult {
+unsafe impl ::windows::core::Vtable for IFindAllAccountsResult {
     type Vtable = IFindAllAccountsResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IFindAllAccountsResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5812b5d_b72e_420c_86ab_aac0d7b7261f);
 }
 #[repr(C)]
@@ -19,8 +21,10 @@ pub struct IFindAllAccountsResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebAccountEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAccountEventArgs {
+unsafe impl ::windows::core::Vtable for IWebAccountEventArgs {
     type Vtable = IWebAccountEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebAccountEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fb7037d_424e_44ec_977c_ef2415462a5a);
 }
 #[repr(C)]
@@ -35,8 +39,10 @@ pub struct IWebAccountEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebAccountMonitor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAccountMonitor {
+unsafe impl ::windows::core::Vtable for IWebAccountMonitor {
     type Vtable = IWebAccountMonitor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebAccountMonitor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7445f5fd_aa9d_4619_8d5d_c138a4ede3e5);
 }
 #[repr(C)]
@@ -71,8 +77,10 @@ pub struct IWebAccountMonitor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebAccountMonitor2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAccountMonitor2 {
+unsafe impl ::windows::core::Vtable for IWebAccountMonitor2 {
     type Vtable = IWebAccountMonitor2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebAccountMonitor2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7adc1f8_24b8_4f01_9ae5_24545e71233a);
 }
 #[repr(C)]
@@ -91,8 +99,10 @@ pub struct IWebAccountMonitor2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebAuthenticationCoreManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerStatics {
+unsafe impl ::windows::core::Vtable for IWebAuthenticationCoreManagerStatics {
     type Vtable = IWebAuthenticationCoreManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aca7c92_a581_4479_9c10_752eff44fd34);
 }
 #[repr(C)]
@@ -131,8 +141,10 @@ pub struct IWebAuthenticationCoreManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebAuthenticationCoreManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerStatics2 {
+unsafe impl ::windows::core::Vtable for IWebAuthenticationCoreManagerStatics2 {
     type Vtable = IWebAuthenticationCoreManagerStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf584184a_8b57_4820_b6a4_70a5b6fcf44a);
 }
 #[repr(C)]
@@ -147,8 +159,10 @@ pub struct IWebAuthenticationCoreManagerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebAuthenticationCoreManagerStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerStatics3 {
+unsafe impl ::windows::core::Vtable for IWebAuthenticationCoreManagerStatics3 {
     type Vtable = IWebAuthenticationCoreManagerStatics3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2404eeb2_8924_4d93_ab3a_99688b419d56);
 }
 #[repr(C)]
@@ -163,8 +177,10 @@ pub struct IWebAuthenticationCoreManagerStatics3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebAuthenticationCoreManagerStatics4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerStatics4 {
+unsafe impl ::windows::core::Vtable for IWebAuthenticationCoreManagerStatics4 {
     type Vtable = IWebAuthenticationCoreManagerStatics4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerStatics4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54e633fe_96e0_41e8_9832_1298897c2aaf);
 }
 #[repr(C)]
@@ -195,8 +211,10 @@ pub struct IWebAuthenticationCoreManagerStatics4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebProviderError(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebProviderError {
+unsafe impl ::windows::core::Vtable for IWebProviderError {
     type Vtable = IWebProviderError_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebProviderError {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb191bb1_50c5_4809_8dca_09c99410245c);
 }
 #[repr(C)]
@@ -213,8 +231,10 @@ pub struct IWebProviderError_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebProviderErrorFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebProviderErrorFactory {
+unsafe impl ::windows::core::Vtable for IWebProviderErrorFactory {
     type Vtable = IWebProviderErrorFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebProviderErrorFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3c40a2d_89ef_4e37_847f_a8b9d5a32910);
 }
 #[repr(C)]
@@ -226,8 +246,10 @@ pub struct IWebProviderErrorFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebTokenRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebTokenRequest {
+unsafe impl ::windows::core::Vtable for IWebTokenRequest {
     type Vtable = IWebTokenRequest_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebTokenRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb77b4d68_adcb_4673_b364_0cf7b35caf97);
 }
 #[repr(C)]
@@ -249,8 +271,10 @@ pub struct IWebTokenRequest_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebTokenRequest2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebTokenRequest2 {
+unsafe impl ::windows::core::Vtable for IWebTokenRequest2 {
     type Vtable = IWebTokenRequest2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebTokenRequest2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd700c079_30c8_4397_9654_961c3be8b855);
 }
 #[repr(C)]
@@ -265,8 +289,10 @@ pub struct IWebTokenRequest2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebTokenRequest3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebTokenRequest3 {
+unsafe impl ::windows::core::Vtable for IWebTokenRequest3 {
     type Vtable = IWebTokenRequest3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebTokenRequest3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a755b51_3bb1_41a5_a63d_90bc32c7db9a);
 }
 #[repr(C)]
@@ -279,8 +305,10 @@ pub struct IWebTokenRequest3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebTokenRequestFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebTokenRequestFactory {
+unsafe impl ::windows::core::Vtable for IWebTokenRequestFactory {
     type Vtable = IWebTokenRequestFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebTokenRequestFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cf2141c_0ff0_4c67_b84f_99ddbe4a72c9);
 }
 #[repr(C)]
@@ -307,8 +335,10 @@ pub struct IWebTokenRequestFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebTokenRequestResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebTokenRequestResult {
+unsafe impl ::windows::core::Vtable for IWebTokenRequestResult {
     type Vtable = IWebTokenRequestResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebTokenRequestResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12a8305_d1f8_4483_8d54_38fe292784ff);
 }
 #[repr(C)]
@@ -329,8 +359,10 @@ pub struct IWebTokenRequestResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebTokenResponse(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebTokenResponse {
+unsafe impl ::windows::core::Vtable for IWebTokenResponse {
     type Vtable = IWebTokenResponse_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebTokenResponse {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67a7c5ca_83f6_44c6_a3b1_0eb69e41fa8a);
 }
 #[repr(C)]
@@ -351,8 +383,10 @@ pub struct IWebTokenResponse_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebTokenResponseFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebTokenResponseFactory {
+unsafe impl ::windows::core::Vtable for IWebTokenResponseFactory {
     type Vtable = IWebTokenResponseFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebTokenResponseFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab6bf7f8_5450_4ef6_97f7_052b0431c0f0);
 }
 #[repr(C)]
@@ -379,21 +413,21 @@ impl FindAllAccountsResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Accounts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>(result__)
+            (::windows::core::Vtable::vtable(this).Accounts)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<FindAllWebAccountsStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FindAllWebAccountsStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<FindAllWebAccountsStatus>(result__)
         }
     }
     pub fn ProviderError(&self) -> ::windows::core::Result<WebProviderError> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
         }
     }
 }
@@ -420,8 +454,10 @@ unsafe impl ::windows::core::RuntimeType for FindAllAccountsResult {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for FindAllAccountsResult {
+unsafe impl ::windows::core::Vtable for FindAllAccountsResult {
     type Vtable = IFindAllAccountsResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for FindAllAccountsResult {
     const IID: ::windows::core::GUID = <IFindAllAccountsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FindAllAccountsResult {
@@ -469,7 +505,7 @@ impl WebAccountEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Account)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Credentials::WebAccount>(result__)
+            (::windows::core::Vtable::vtable(this).Account)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Credentials::WebAccount>(result__)
         }
     }
 }
@@ -496,8 +532,10 @@ unsafe impl ::windows::core::RuntimeType for WebAccountEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebAccountEventArgs {
+unsafe impl ::windows::core::Vtable for WebAccountEventArgs {
     type Vtable = IWebAccountEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebAccountEventArgs {
     const IID: ::windows::core::GUID = <IWebAccountEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountEventArgs {
@@ -548,14 +586,14 @@ impl WebAccountMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Updated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveUpdated)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -566,14 +604,14 @@ impl WebAccountMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveRemoved)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -584,14 +622,14 @@ impl WebAccountMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultSignInAccountChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).DefaultSignInAccountChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDefaultSignInAccountChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDefaultSignInAccountChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveDefaultSignInAccountChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -602,14 +640,14 @@ impl WebAccountMonitor {
         let this = &::windows::core::Interface::cast::<IWebAccountMonitor2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccountPictureUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AccountPictureUpdated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountPictureUpdated(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebAccountMonitor2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountPictureUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveAccountPictureUpdated)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for WebAccountMonitor {
@@ -635,8 +673,10 @@ unsafe impl ::windows::core::RuntimeType for WebAccountMonitor {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebAccountMonitor {
+unsafe impl ::windows::core::Vtable for WebAccountMonitor {
     type Vtable = IWebAccountMonitor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebAccountMonitor {
     const IID: ::windows::core::GUID = <IWebAccountMonitor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountMonitor {
@@ -685,7 +725,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenSilentlyAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetTokenSilentlyAsync)(::windows::core::Vtable::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -697,7 +737,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenSilentlyWithWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetTokenSilentlyWithWebAccountAsync)(::windows::core::Vtable::as_raw(this), request.into().abi(), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -708,7 +748,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestTokenAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestTokenAsync)(::windows::core::Vtable::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -720,7 +760,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestTokenWithWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestTokenWithWebAccountAsync)(::windows::core::Vtable::as_raw(this), request.into().abi(), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -731,7 +771,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAccountAsync)(::windows::core::Interface::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(webaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>(result__)
+            (::windows::core::Vtable::vtable(this).FindAccountAsync)(::windows::core::Vtable::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(webaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -739,7 +779,7 @@ impl WebAuthenticationCoreManager {
     pub fn FindAccountProviderAsync(webaccountproviderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAccountProviderAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Vtable::vtable(this).FindAccountProviderAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -747,7 +787,7 @@ impl WebAuthenticationCoreManager {
     pub fn FindAccountProviderWithAuthorityAsync(webaccountproviderid: &::windows::core::HSTRING, authority: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAccountProviderWithAuthorityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Vtable::vtable(this).FindAccountProviderWithAuthorityAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`, `\"System\"`*"]
@@ -758,7 +798,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAccountProviderWithAuthorityForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Vtable::vtable(this).FindAccountProviderWithAuthorityForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
@@ -770,7 +810,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWebAccountMonitor)(::windows::core::Interface::as_raw(this), webaccounts.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<WebAccountMonitor>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWebAccountMonitor)(::windows::core::Vtable::as_raw(this), webaccounts.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<WebAccountMonitor>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -781,7 +821,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAccountsAsync)(::windows::core::Interface::as_raw(this), provider.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindAllAccountsAsync)(::windows::core::Vtable::as_raw(this), provider.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -792,7 +832,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAccountsWithClientIdAsync)(::windows::core::Interface::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(clientid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindAllAccountsWithClientIdAsync)(::windows::core::Vtable::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(clientid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -800,7 +840,7 @@ impl WebAuthenticationCoreManager {
     pub fn FindSystemAccountProviderAsync(webaccountproviderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindSystemAccountProviderAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Vtable::vtable(this).FindSystemAccountProviderAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -808,7 +848,7 @@ impl WebAuthenticationCoreManager {
     pub fn FindSystemAccountProviderWithAuthorityAsync(webaccountproviderid: &::windows::core::HSTRING, authority: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Vtable::vtable(this).FindSystemAccountProviderWithAuthorityAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`, `\"System\"`*"]
@@ -819,7 +859,7 @@ impl WebAuthenticationCoreManager {
     {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
+            (::windows::core::Vtable::vtable(this).FindSystemAccountProviderWithAuthorityForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
     #[doc(hidden)]
@@ -854,14 +894,14 @@ impl WebProviderError {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ErrorCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ErrorMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorMessage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ErrorMessage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -870,13 +910,13 @@ impl WebProviderError {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     pub fn Create(errorcode: u32, errormessage: &::windows::core::HSTRING) -> ::windows::core::Result<WebProviderError> {
         Self::IWebProviderErrorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), errorcode, ::core::mem::transmute_copy(errormessage), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), errorcode, ::core::mem::transmute_copy(errormessage), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
         })
     }
     #[doc(hidden)]
@@ -908,8 +948,10 @@ unsafe impl ::windows::core::RuntimeType for WebProviderError {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebProviderError {
+unsafe impl ::windows::core::Vtable for WebProviderError {
     type Vtable = IWebProviderError_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebProviderError {
     const IID: ::windows::core::GUID = <IWebProviderError as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebProviderError {
@@ -957,28 +999,28 @@ impl WebTokenRequest {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WebAccountProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Credentials::WebAccountProvider>(result__)
+            (::windows::core::Vtable::vtable(this).WebAccountProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Credentials::WebAccountProvider>(result__)
         }
     }
     pub fn Scope(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Scope)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Scope)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ClientId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ClientId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ClientId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn PromptType(&self) -> ::windows::core::Result<WebTokenRequestPromptType> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PromptType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebTokenRequestPromptType>(result__)
+            (::windows::core::Vtable::vtable(this).PromptType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebTokenRequestPromptType>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -987,7 +1029,7 @@ impl WebTokenRequest {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -996,19 +1038,19 @@ impl WebTokenRequest {
         let this = &::windows::core::Interface::cast::<IWebTokenRequest2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AppProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).AppProperties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IWebTokenRequest3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).CorrelationId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetCorrelationId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebTokenRequest3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCorrelationId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCorrelationId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -1018,7 +1060,7 @@ impl WebTokenRequest {
     {
         Self::IWebTokenRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(clientid), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(clientid), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1029,7 +1071,7 @@ impl WebTokenRequest {
     {
         Self::IWebTokenRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithPromptType)(::windows::core::Interface::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(clientid), prompttype, result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithPromptType)(::windows::core::Vtable::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(clientid), prompttype, result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1040,7 +1082,7 @@ impl WebTokenRequest {
     {
         Self::IWebTokenRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProvider)(::windows::core::Interface::as_raw(this), provider.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithProvider)(::windows::core::Vtable::as_raw(this), provider.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1051,7 +1093,7 @@ impl WebTokenRequest {
     {
         Self::IWebTokenRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithScope)(::windows::core::Interface::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(scope), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithScope)(::windows::core::Vtable::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(scope), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
     #[doc(hidden)]
@@ -1083,8 +1125,10 @@ unsafe impl ::windows::core::RuntimeType for WebTokenRequest {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebTokenRequest {
+unsafe impl ::windows::core::Vtable for WebTokenRequest {
     type Vtable = IWebTokenRequest_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebTokenRequest {
     const IID: ::windows::core::GUID = <IWebTokenRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebTokenRequest {
@@ -1132,21 +1176,21 @@ impl WebTokenRequestResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<WebTokenResponse>>(result__)
+            (::windows::core::Vtable::vtable(this).ResponseData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<WebTokenResponse>>(result__)
         }
     }
     pub fn ResponseStatus(&self) -> ::windows::core::Result<WebTokenRequestStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebTokenRequestStatus>(result__)
+            (::windows::core::Vtable::vtable(this).ResponseStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebTokenRequestStatus>(result__)
         }
     }
     pub fn ResponseError(&self) -> ::windows::core::Result<WebProviderError> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
+            (::windows::core::Vtable::vtable(this).ResponseError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1155,7 +1199,7 @@ impl WebTokenRequestResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidateCacheAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).InvalidateCacheAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -1182,8 +1226,10 @@ unsafe impl ::windows::core::RuntimeType for WebTokenRequestResult {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebTokenRequestResult {
+unsafe impl ::windows::core::Vtable for WebTokenRequestResult {
     type Vtable = IWebTokenRequestResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebTokenRequestResult {
     const IID: ::windows::core::GUID = <IWebTokenRequestResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebTokenRequestResult {
@@ -1236,14 +1282,14 @@ impl WebTokenResponse {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Token)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Token)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ProviderError(&self) -> ::windows::core::Result<WebProviderError> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1252,7 +1298,7 @@ impl WebTokenResponse {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WebAccount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Credentials::WebAccount>(result__)
+            (::windows::core::Vtable::vtable(this).WebAccount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Credentials::WebAccount>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1261,13 +1307,13 @@ impl WebTokenResponse {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     pub fn CreateWithToken(token: &::windows::core::HSTRING) -> ::windows::core::Result<WebTokenResponse> {
         Self::IWebTokenResponseFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithToken)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(token), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithToken)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(token), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1278,7 +1324,7 @@ impl WebTokenResponse {
     {
         Self::IWebTokenResponseFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTokenAndAccount)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(token), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithTokenAndAccount)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(token), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1290,7 +1336,7 @@ impl WebTokenResponse {
     {
         Self::IWebTokenResponseFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTokenAccountAndError)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(token), webaccount.into().abi(), error.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithTokenAccountAndError)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(token), webaccount.into().abi(), error.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
         })
     }
     #[doc(hidden)]
@@ -1322,8 +1368,10 @@ unsafe impl ::windows::core::RuntimeType for WebTokenResponse {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebTokenResponse {
+unsafe impl ::windows::core::Vtable for WebTokenResponse {
     type Vtable = IWebTokenResponse_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebTokenResponse {
     const IID: ::windows::core::GUID = <IWebTokenResponse as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebTokenResponse {

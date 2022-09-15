@@ -80,9 +80,10 @@ impl Interface {
             #(#docs)*
             #vis struct #name(#parent);
             #implementation
-
-            unsafe impl ::windows::core::Interface for #name {
+            unsafe impl ::windows::core::Vtable for #name {
                 type Vtable = #vtable_name;
+            }
+            unsafe impl ::windows::core::Interface for #name {
                 const IID: ::windows::core::GUID = #guid;
             }
             impl ::windows::core::RuntimeName for #name {}
@@ -115,7 +116,7 @@ impl Interface {
                 let ret = &m.ret;
                 quote! {
                     #vis unsafe fn #name(&self, #(#args),*) #ret {
-                        (::windows::core::Interface::vtable(self).#name)(::windows::core::Interface::as_raw(self), #(#params),*)
+                        (::windows::core::Vtable::vtable(self).#name)(::windows::core::Vtable::as_raw(self), #(#params),*)
                     }
                 }
             })

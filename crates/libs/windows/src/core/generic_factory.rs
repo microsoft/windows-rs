@@ -11,7 +11,7 @@ impl IGenericFactory {
     pub fn ActivateInstance<I: Interface>(&self) -> Result<I> {
         unsafe {
             let mut result__ = zeroed();
-            (Interface::vtable(self).ActivateInstance)(transmute_copy(self), transmute(&mut result__)).from_abi::<IInspectable>(result__)?.cast()
+            (Vtable::vtable(self).ActivateInstance)(transmute_copy(self), transmute(&mut result__)).from_abi::<IInspectable>(result__)?.cast()
         }
     }
 }
@@ -22,7 +22,10 @@ pub struct IGenericFactory_Vtbl {
     pub ActivateInstance: unsafe extern "system" fn(this: *mut std::ffi::c_void, instance: *mut *mut std::ffi::c_void) -> HRESULT,
 }
 
-unsafe impl Interface for IGenericFactory {
+unsafe impl Vtable for IGenericFactory {
     type Vtable = IGenericFactory_Vtbl;
+}
+
+unsafe impl Interface for IGenericFactory {
     const IID: GUID = GUID::from_u128(0x00000035_0000_0000_c000_000000000046);
 }

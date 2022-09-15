@@ -23,7 +23,7 @@ impl IPdfRendererNative {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGISurface>>,
     {
-        (::windows::core::Interface::vtable(self).RenderPageToSurface)(::windows::core::Interface::as_raw(self), pdfpage.into().abi(), psurface.into().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(prenderparams)).ok()
+        (::windows::core::Vtable::vtable(self).RenderPageToSurface)(::windows::core::Vtable::as_raw(self), pdfpage.into().abi(), psurface.into().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(prenderparams)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -32,7 +32,7 @@ impl IPdfRendererNative {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct2D::ID2D1DeviceContext>>,
     {
-        (::windows::core::Interface::vtable(self).RenderPageToDeviceContext)(::windows::core::Interface::as_raw(self), pdfpage.into().abi(), pd2ddevicecontext.into().abi(), ::core::mem::transmute(prenderparams)).ok()
+        (::windows::core::Vtable::vtable(self).RenderPageToDeviceContext)(::windows::core::Vtable::as_raw(self), pdfpage.into().abi(), pd2ddevicecontext.into().abi(), ::core::mem::transmute(prenderparams)).ok()
     }
 }
 impl ::core::convert::From<IPdfRendererNative> for ::windows::core::IUnknown {
@@ -66,8 +66,10 @@ impl ::core::fmt::Debug for IPdfRendererNative {
         f.debug_tuple("IPdfRendererNative").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IPdfRendererNative {
+unsafe impl ::windows::core::Vtable for IPdfRendererNative {
     type Vtable = IPdfRendererNative_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPdfRendererNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 }
 #[repr(C)]

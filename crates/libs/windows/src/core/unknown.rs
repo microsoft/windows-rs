@@ -15,9 +15,11 @@ pub struct IUnknown_Vtbl {
     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }
 
-unsafe impl Interface for IUnknown {
+unsafe impl Vtable for IUnknown {
     type Vtable = IUnknown_Vtbl;
+}
 
+unsafe impl Interface for IUnknown {
     const IID: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
 }
 

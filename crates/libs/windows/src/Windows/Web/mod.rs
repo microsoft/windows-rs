@@ -19,7 +19,7 @@ impl IUriToStreamResolver {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UriToStreamAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
+            (::windows::core::Vtable::vtable(this).UriToStreamAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
         }
     }
 }
@@ -76,8 +76,10 @@ unsafe impl ::windows::core::RuntimeType for IUriToStreamResolver {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IUriToStreamResolver {
+unsafe impl ::windows::core::Vtable for IUriToStreamResolver {
     type Vtable = IUriToStreamResolver_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUriToStreamResolver {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 }
 #[repr(C)]
@@ -92,8 +94,10 @@ pub struct IUriToStreamResolver_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebErrorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebErrorStatics {
+unsafe impl ::windows::core::Vtable for IWebErrorStatics {
     type Vtable = IWebErrorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebErrorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe616766_bf27_4064_87b7_6563bb11ce2e);
 }
 #[repr(C)]
@@ -108,7 +112,7 @@ impl WebError {
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), hresult, result__.as_mut_ptr()).from_abi::<WebErrorStatus>(result__)
+            (::windows::core::Vtable::vtable(this).GetStatus)(::windows::core::Vtable::as_raw(this), hresult, result__.as_mut_ptr()).from_abi::<WebErrorStatus>(result__)
         })
     }
     #[doc(hidden)]

@@ -71,8 +71,10 @@ unsafe impl ::windows::core::RuntimeType for IGeometrySource2D {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IGeometrySource2D {
+unsafe impl ::windows::core::Vtable for IGeometrySource2D {
     type Vtable = IGeometrySource2D_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeometrySource2D {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);
 }
 #[repr(C)]

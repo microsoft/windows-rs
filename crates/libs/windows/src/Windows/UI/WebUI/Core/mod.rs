@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBar(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBar {
+unsafe impl ::windows::core::Vtable for IWebUICommandBar {
     type Vtable = IWebUICommandBar_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBar {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
 }
 #[repr(C)]
@@ -61,8 +63,10 @@ pub struct IWebUICommandBar_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarBitmapIcon(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBarBitmapIcon {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarBitmapIcon {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
 }
 #[repr(C)]
@@ -81,8 +85,10 @@ pub struct IWebUICommandBarBitmapIcon_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarBitmapIconFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBarBitmapIconFactory {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarBitmapIconFactory {
     type Vtable = IWebUICommandBarBitmapIconFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarBitmapIconFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3f7d78a_7673_444a_be62_ac12d31c2231);
 }
 #[repr(C)]
@@ -97,8 +103,10 @@ pub struct IWebUICommandBarBitmapIconFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarConfirmationButton(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBarConfirmationButton {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarConfirmationButton {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
 }
 #[repr(C)]
@@ -173,8 +181,10 @@ unsafe impl ::windows::core::RuntimeType for IWebUICommandBarElement {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IWebUICommandBarElement {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarElement {
     type Vtable = IWebUICommandBarElement_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarElement {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9069ec2_284a_4633_8aad_637a27e282c3);
 }
 #[repr(C)]
@@ -239,8 +249,10 @@ unsafe impl ::windows::core::RuntimeType for IWebUICommandBarIcon {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IWebUICommandBarIcon {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarIcon {
     type Vtable = IWebUICommandBarIcon_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarIcon {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd587655d_2014_42be_969a_7d14ca6c8a49);
 }
 #[repr(C)]
@@ -251,8 +263,10 @@ pub struct IWebUICommandBarIcon_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarIconButton(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBarIconButton {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButton_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarIconButton {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
 }
 #[repr(C)]
@@ -281,8 +295,10 @@ pub struct IWebUICommandBarIconButton_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarItemInvokedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBarItemInvokedEventArgs {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarItemInvokedEventArgs {
     type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarItemInvokedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
 }
 #[repr(C)]
@@ -294,8 +310,10 @@ pub struct IWebUICommandBarItemInvokedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarSizeChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBarSizeChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarSizeChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
 }
 #[repr(C)]
@@ -310,8 +328,10 @@ pub struct IWebUICommandBarSizeChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBarStatics {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarStatics {
     type Vtable = IWebUICommandBarStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1449cdb9_a506_45be_8f42_b2837e2fe0c9);
 }
 #[repr(C)]
@@ -323,8 +343,10 @@ pub struct IWebUICommandBarStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarSymbolIcon(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBarSymbolIcon {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIcon_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarSymbolIcon {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
 }
 #[repr(C)]
@@ -337,8 +359,10 @@ pub struct IWebUICommandBarSymbolIcon_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebUICommandBarSymbolIconFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebUICommandBarSymbolIconFactory {
+unsafe impl ::windows::core::Vtable for IWebUICommandBarSymbolIconFactory {
     type Vtable = IWebUICommandBarSymbolIconFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebUICommandBarSymbolIconFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51be1a1f_3730_429e_b622_14e2b7bf6a07);
 }
 #[repr(C)]
@@ -355,67 +379,67 @@ impl WebUICommandBar {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Visible)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Visible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVisible)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Opacity(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Opacity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Opacity)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetOpacity(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetOpacity)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ForegroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Color>(result__)
+            (::windows::core::Vtable::vtable(this).ForegroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Color>(result__)
         }
     }
     pub fn SetForegroundColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForegroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetForegroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Color> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Color>(result__)
+            (::windows::core::Vtable::vtable(this).BackgroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Color>(result__)
         }
     }
     pub fn SetBackgroundColor(&self, value: super::super::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBackgroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ClosedDisplayMode(&self) -> ::windows::core::Result<WebUICommandBarClosedDisplayMode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ClosedDisplayMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebUICommandBarClosedDisplayMode>(result__)
+            (::windows::core::Vtable::vtable(this).ClosedDisplayMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebUICommandBarClosedDisplayMode>(result__)
         }
     }
     pub fn SetClosedDisplayMode(&self, value: WebUICommandBarClosedDisplayMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetClosedDisplayMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetClosedDisplayMode)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn IsOpen(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsOpen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsOpen)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetIsOpen(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsOpen)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIsOpen)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -423,7 +447,7 @@ impl WebUICommandBar {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Size>(result__)
+            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -432,7 +456,7 @@ impl WebUICommandBar {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PrimaryCommands)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>>(result__)
+            (::windows::core::Vtable::vtable(this).PrimaryCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -441,7 +465,7 @@ impl WebUICommandBar {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SecondaryCommands)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>>(result__)
+            (::windows::core::Vtable::vtable(this).SecondaryCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -453,14 +477,14 @@ impl WebUICommandBar {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MenuOpened)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MenuOpened)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMenuOpened(&self, value: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMenuOpened)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveMenuOpened)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -471,14 +495,14 @@ impl WebUICommandBar {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MenuClosed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MenuClosed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMenuClosed(&self, value: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMenuClosed)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveMenuClosed)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -489,19 +513,19 @@ impl WebUICommandBar {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SizeChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SizeChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSizeChanged(&self, value: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSizeChanged)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveSizeChanged)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn GetForCurrentView() -> ::windows::core::Result<WebUICommandBar> {
         Self::IWebUICommandBarStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebUICommandBar>(result__)
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebUICommandBar>(result__)
         })
     }
     #[doc(hidden)]
@@ -533,8 +557,10 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBar {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebUICommandBar {
+unsafe impl ::windows::core::Vtable for WebUICommandBar {
     type Vtable = IWebUICommandBar_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebUICommandBar {
     const IID: ::windows::core::GUID = <IWebUICommandBar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBar {
@@ -589,7 +615,7 @@ impl WebUICommandBarBitmapIcon {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).Uri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -599,7 +625,7 @@ impl WebUICommandBarBitmapIcon {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -609,7 +635,7 @@ impl WebUICommandBarBitmapIcon {
     {
         Self::IWebUICommandBarBitmapIconFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<WebUICommandBarBitmapIcon>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<WebUICommandBarBitmapIcon>(result__)
         })
     }
     #[doc(hidden)]
@@ -641,8 +667,10 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarBitmapIcon {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebUICommandBarBitmapIcon {
+unsafe impl ::windows::core::Vtable for WebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebUICommandBarBitmapIcon {
     const IID: ::windows::core::GUID = <IWebUICommandBarBitmapIcon as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarBitmapIcon {
@@ -714,12 +742,12 @@ impl WebUICommandBarConfirmationButton {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Text)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -730,14 +758,14 @@ impl WebUICommandBarConfirmationButton {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ItemInvoked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ItemInvoked)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemInvoked(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveItemInvoked)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveItemInvoked)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for WebUICommandBarConfirmationButton {
@@ -763,8 +791,10 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarConfirmationButton {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebUICommandBarConfirmationButton {
+unsafe impl ::windows::core::Vtable for WebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebUICommandBarConfirmationButton {
     const IID: ::windows::core::GUID = <IWebUICommandBarConfirmationButton as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarConfirmationButton {
@@ -836,51 +866,51 @@ impl WebUICommandBarIconButton {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Enabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetEnabled)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetLabel)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn IsToggleButton(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsToggleButton)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsToggleButton)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetIsToggleButton(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsToggleButton)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIsToggleButton)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn IsChecked(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsChecked)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsChecked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetIsChecked(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsChecked)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIsChecked)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Icon(&self) -> ::windows::core::Result<IWebUICommandBarIcon> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Icon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IWebUICommandBarIcon>(result__)
+            (::windows::core::Vtable::vtable(this).Icon)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<IWebUICommandBarIcon>(result__)
         }
     }
     pub fn SetIcon<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -889,7 +919,7 @@ impl WebUICommandBarIconButton {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIcon)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIcon)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -900,14 +930,14 @@ impl WebUICommandBarIconButton {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ItemInvoked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ItemInvoked)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemInvoked(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveItemInvoked)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveItemInvoked)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for WebUICommandBarIconButton {
@@ -933,8 +963,10 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarIconButton {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebUICommandBarIconButton {
+unsafe impl ::windows::core::Vtable for WebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButton_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebUICommandBarIconButton {
     const IID: ::windows::core::GUID = <IWebUICommandBarIconButton as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarIconButton {
@@ -999,7 +1031,7 @@ impl WebUICommandBarItemInvokedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsPrimaryCommand)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsPrimaryCommand)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1026,8 +1058,10 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarItemInvokedEventArgs
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebUICommandBarItemInvokedEventArgs {
+unsafe impl ::windows::core::Vtable for WebUICommandBarItemInvokedEventArgs {
     type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebUICommandBarItemInvokedEventArgs {
     const IID: ::windows::core::GUID = <IWebUICommandBarItemInvokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarItemInvokedEventArgs {
@@ -1075,7 +1109,7 @@ impl WebUICommandBarSizeChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Size>(result__)
+            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
 }
@@ -1102,8 +1136,10 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarSizeChangedEventArgs
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebUICommandBarSizeChangedEventArgs {
+unsafe impl ::windows::core::Vtable for WebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebUICommandBarSizeChangedEventArgs {
     const IID: ::windows::core::GUID = <IWebUICommandBarSizeChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarSizeChangedEventArgs {
@@ -1156,17 +1192,17 @@ impl WebUICommandBarSymbolIcon {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Symbol)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Symbol)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetSymbol(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSymbol)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSymbol)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Create(symbol: &::windows::core::HSTRING) -> ::windows::core::Result<WebUICommandBarSymbolIcon> {
         Self::IWebUICommandBarSymbolIconFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(symbol), result__.as_mut_ptr()).from_abi::<WebUICommandBarSymbolIcon>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(symbol), result__.as_mut_ptr()).from_abi::<WebUICommandBarSymbolIcon>(result__)
         })
     }
     #[doc(hidden)]
@@ -1198,8 +1234,10 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarSymbolIcon {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WebUICommandBarSymbolIcon {
+unsafe impl ::windows::core::Vtable for WebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIcon_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WebUICommandBarSymbolIcon {
     const IID: ::windows::core::GUID = <IWebUICommandBarSymbolIcon as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarSymbolIcon {
@@ -1301,7 +1339,7 @@ impl MenuClosedEventHandler {
     }
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 #[repr(C)]
@@ -1358,8 +1396,10 @@ impl ::core::fmt::Debug for MenuClosedEventHandler {
         f.debug_tuple("MenuClosedEventHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for MenuClosedEventHandler {
+unsafe impl ::windows::core::Vtable for MenuClosedEventHandler {
     type Vtable = MenuClosedEventHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MenuClosedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x435387c8_4dd0_4c52_9489_d390ce7721d2);
 }
 unsafe impl ::windows::core::RuntimeType for MenuClosedEventHandler {
@@ -1385,7 +1425,7 @@ impl MenuOpenedEventHandler {
     }
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 #[repr(C)]
@@ -1442,8 +1482,10 @@ impl ::core::fmt::Debug for MenuOpenedEventHandler {
         f.debug_tuple("MenuOpenedEventHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for MenuOpenedEventHandler {
+unsafe impl ::windows::core::Vtable for MenuOpenedEventHandler {
     type Vtable = MenuOpenedEventHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MenuOpenedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18dc0ad3_678f_4c19_8963_cc1c49a5ef9e);
 }
 unsafe impl ::windows::core::RuntimeType for MenuOpenedEventHandler {
@@ -1472,7 +1514,7 @@ impl SizeChangedEventHandler {
         P0: ::std::convert::Into<::windows::core::InParam<'a, WebUICommandBarSizeChangedEventArgs>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), eventargs.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), eventargs.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1529,8 +1571,10 @@ impl ::core::fmt::Debug for SizeChangedEventHandler {
         f.debug_tuple("SizeChangedEventHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for SizeChangedEventHandler {
+unsafe impl ::windows::core::Vtable for SizeChangedEventHandler {
     type Vtable = SizeChangedEventHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SizeChangedEventHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd49cfe3c_dd2e_4c28_b627_303a7f911af5);
 }
 unsafe impl ::windows::core::RuntimeType for SizeChangedEventHandler {

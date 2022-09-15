@@ -3552,13 +3552,13 @@ impl IDialBranding {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pwzconnectoid.into()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pwzconnectoid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetBitmap)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
+        (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
 impl ::core::convert::From<IDialBranding> for ::windows::core::IUnknown {
@@ -3592,8 +3592,10 @@ impl ::core::fmt::Debug for IDialBranding {
         f.debug_tuple("IDialBranding").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDialBranding {
+unsafe impl ::windows::core::Vtable for IDialBranding {
     type Vtable = IDialBranding_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDialBranding {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
 }
 #[repr(C)]
@@ -3615,35 +3617,35 @@ impl IDialEngine {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IDialEventSink>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pwzconnectoid.into(), pides.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pwzconnectoid.into(), pides.into().abi()).ok()
     }
     pub unsafe fn GetProperty<'a, P0, P1>(&self, pwzproperty: P0, pwzvalue: P1, dwbufsize: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pwzproperty.into(), pwzvalue.into(), dwbufsize).ok()
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pwzproperty.into(), pwzvalue.into(), dwbufsize).ok()
     }
     pub unsafe fn SetProperty<'a, P0, P1>(&self, pwzproperty: P0, pwzvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), pwzproperty.into(), pwzvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), pwzproperty.into(), pwzvalue.into()).ok()
     }
     pub unsafe fn Dial(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Dial)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Dial)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn HangUp(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HangUp)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).HangUp)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetConnectedState(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetConnectedState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetConnectedState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetConnectHandle(&self) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetConnectHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Vtable::vtable(self).GetConnectHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
 }
 impl ::core::convert::From<IDialEngine> for ::windows::core::IUnknown {
@@ -3677,8 +3679,10 @@ impl ::core::fmt::Debug for IDialEngine {
         f.debug_tuple("IDialEngine").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDialEngine {
+unsafe impl ::windows::core::Vtable for IDialEngine {
     type Vtable = IDialEngine_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDialEngine {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39fd782b_7905_40d5_9148_3c9b190423d5);
 }
 #[repr(C)]
@@ -3698,7 +3702,7 @@ pub struct IDialEngine_Vtbl {
 pub struct IDialEventSink(::windows::core::IUnknown);
 impl IDialEventSink {
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnEvent)(::windows::core::Interface::as_raw(self), dwevent, dwstatus).ok()
+        (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), dwevent, dwstatus).ok()
     }
 }
 impl ::core::convert::From<IDialEventSink> for ::windows::core::IUnknown {
@@ -3732,8 +3736,10 @@ impl ::core::fmt::Debug for IDialEventSink {
         f.debug_tuple("IDialEventSink").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDialEventSink {
+unsafe impl ::windows::core::Vtable for IDialEventSink {
     type Vtable = IDialEventSink_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDialEventSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
 }
 #[repr(C)]
@@ -3750,7 +3756,7 @@ impl IProofOfPossessionCookieInfoManager {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetCookieInfoForUri)(::windows::core::Interface::as_raw(self), uri.into(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
+        (::windows::core::Vtable::vtable(self).GetCookieInfoForUri)(::windows::core::Vtable::as_raw(self), uri.into(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager> for ::windows::core::IUnknown {
@@ -3784,8 +3790,10 @@ impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager {
         f.debug_tuple("IProofOfPossessionCookieInfoManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager {
+unsafe impl ::windows::core::Vtable for IProofOfPossessionCookieInfoManager {
     type Vtable = IProofOfPossessionCookieInfoManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdaece56_4edf_43df_b113_88e4556fa1bb);
 }
 #[repr(C)]
@@ -3803,7 +3811,7 @@ impl IProofOfPossessionCookieInfoManager2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetCookieInfoWithUriForAccount)(::windows::core::Interface::as_raw(self), webaccount.into().abi(), uri.into(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
+        (::windows::core::Vtable::vtable(self).GetCookieInfoWithUriForAccount)(::windows::core::Vtable::as_raw(self), webaccount.into().abi(), uri.into(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager2> for ::windows::core::IUnknown {
@@ -3837,8 +3845,10 @@ impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager2 {
         f.debug_tuple("IProofOfPossessionCookieInfoManager2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager2 {
+unsafe impl ::windows::core::Vtable for IProofOfPossessionCookieInfoManager2 {
     type Vtable = IProofOfPossessionCookieInfoManager2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e41407_b42f_4ae7_9966_34a087b2d713);
 }
 #[repr(C)]

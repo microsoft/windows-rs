@@ -9,7 +9,7 @@ impl IDisplayDeviceInterop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(psecurityattributes), access, ::core::mem::transmute_copy(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), pobject.into().abi(), ::core::mem::transmute(psecurityattributes), access, ::core::mem::transmute_copy(name), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18,7 +18,7 @@ impl IDisplayDeviceInterop {
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).OpenSharedHandle)(::windows::core::Interface::as_raw(self), nthandle.into(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
+        (::windows::core::Vtable::vtable(self).OpenSharedHandle)(::windows::core::Vtable::as_raw(self), nthandle.into(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
     }
 }
 impl ::core::convert::From<IDisplayDeviceInterop> for ::windows::core::IUnknown {
@@ -52,8 +52,10 @@ impl ::core::fmt::Debug for IDisplayDeviceInterop {
         f.debug_tuple("IDisplayDeviceInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDisplayDeviceInterop {
+unsafe impl ::windows::core::Vtable for IDisplayDeviceInterop {
     type Vtable = IDisplayDeviceInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDisplayDeviceInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64338358_366a_471b_bd56_dd8ef48e439b);
 }
 #[repr(C)]
@@ -77,11 +79,11 @@ impl IDisplayPathInterop {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSourcePresentationHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSourcePresentationHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSourcePresentationHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
     pub unsafe fn GetSourceId(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSourceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetSourceId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IDisplayPathInterop> for ::windows::core::IUnknown {
@@ -115,8 +117,10 @@ impl ::core::fmt::Debug for IDisplayPathInterop {
         f.debug_tuple("IDisplayPathInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDisplayPathInterop {
+unsafe impl ::windows::core::Vtable for IDisplayPathInterop {
     type Vtable = IDisplayPathInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDisplayPathInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);
 }
 #[repr(C)]

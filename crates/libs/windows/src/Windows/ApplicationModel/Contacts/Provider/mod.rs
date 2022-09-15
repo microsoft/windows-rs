@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContactPickerUI(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactPickerUI {
+unsafe impl ::windows::core::Vtable for IContactPickerUI {
     type Vtable = IContactPickerUI_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IContactPickerUI {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 }
 #[repr(C)]
@@ -32,8 +34,10 @@ pub struct IContactPickerUI_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContactPickerUI2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactPickerUI2 {
+unsafe impl ::windows::core::Vtable for IContactPickerUI2 {
     type Vtable = IContactPickerUI2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IContactPickerUI2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
 }
 #[repr(C)]
@@ -49,8 +53,10 @@ pub struct IContactPickerUI2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContactRemovedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactRemovedEventArgs {
+unsafe impl ::windows::core::Vtable for IContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IContactRemovedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 }
 #[repr(C)]
@@ -72,18 +78,18 @@ impl ContactPickerUI {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
+            (::windows::core::Vtable::vtable(this).AddContact)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
         }
     }
     pub fn RemoveContact(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveContact)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveContact)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id)).ok() }
     }
     pub fn ContainsContact(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContainsContact)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).ContainsContact)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -92,14 +98,14 @@ impl ContactPickerUI {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredFields)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).DesiredFields)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     pub fn SelectionMode(&self) -> ::windows::core::Result<super::ContactSelectionMode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ContactSelectionMode>(result__)
+            (::windows::core::Vtable::vtable(this).SelectionMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ContactSelectionMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -111,14 +117,14 @@ impl ContactPickerUI {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContactRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ContactRemoved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveContactRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveContactRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveContactRemoved)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn AddContact2<'a, P0>(&self, contact: P0) -> ::windows::core::Result<AddContactResult>
     where
@@ -127,7 +133,7 @@ impl ContactPickerUI {
         let this = &::windows::core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
+            (::windows::core::Vtable::vtable(this).AddContact)(::windows::core::Vtable::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -136,7 +142,7 @@ impl ContactPickerUI {
         let this = &::windows::core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredFieldsWithContactFieldType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<super::ContactFieldType>>(result__)
+            (::windows::core::Vtable::vtable(this).DesiredFieldsWithContactFieldType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<super::ContactFieldType>>(result__)
         }
     }
 }
@@ -163,8 +169,10 @@ unsafe impl ::windows::core::RuntimeType for ContactPickerUI {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ContactPickerUI {
+unsafe impl ::windows::core::Vtable for ContactPickerUI {
     type Vtable = IContactPickerUI_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ContactPickerUI {
     const IID: ::windows::core::GUID = <IContactPickerUI as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPickerUI {
@@ -208,7 +216,7 @@ impl ContactRemovedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -235,8 +243,10 @@ unsafe impl ::windows::core::RuntimeType for ContactRemovedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ContactRemovedEventArgs {
+unsafe impl ::windows::core::Vtable for ContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ContactRemovedEventArgs {
     const IID: ::windows::core::GUID = <IContactRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactRemovedEventArgs {

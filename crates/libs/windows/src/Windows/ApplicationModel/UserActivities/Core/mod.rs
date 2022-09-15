@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICoreUserActivityManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreUserActivityManagerStatics {
+unsafe impl ::windows::core::Vtable for ICoreUserActivityManagerStatics {
     type Vtable = ICoreUserActivityManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICoreUserActivityManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
 }
 #[repr(C)]
@@ -24,7 +26,7 @@ impl CoreUserActivityManager {
     {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUserActivitySessionInBackground)(::windows::core::Interface::as_raw(this), activity.into().abi(), result__.as_mut_ptr()).from_abi::<super::UserActivitySession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateUserActivitySessionInBackground)(::windows::core::Vtable::as_raw(this), activity.into().abi(), result__.as_mut_ptr()).from_abi::<super::UserActivitySession>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -35,7 +37,7 @@ impl CoreUserActivityManager {
     {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(::windows::core::Interface::as_raw(this), channel.into().abi(), starttime, endtime, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(::windows::core::Vtable::as_raw(this), channel.into().abi(), starttime, endtime, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]

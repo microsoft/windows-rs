@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOemSupportInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOemSupportInfo {
+unsafe impl ::windows::core::Vtable for IOemSupportInfo {
     type Vtable = IOemSupportInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOemSupportInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
 }
 #[repr(C)]
@@ -22,8 +24,10 @@ pub struct IOemSupportInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISmbiosInformationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISmbiosInformationStatics {
+unsafe impl ::windows::core::Vtable for ISmbiosInformationStatics {
     type Vtable = ISmbiosInformationStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISmbiosInformationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x080cca7c_637c_48c4_b728_f9273812db8e);
 }
 #[repr(C)]
@@ -35,8 +39,10 @@ pub struct ISmbiosInformationStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemSupportDeviceInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISystemSupportDeviceInfo {
+unsafe impl ::windows::core::Vtable for ISystemSupportDeviceInfo {
     type Vtable = ISystemSupportDeviceInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISystemSupportDeviceInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05880b99_8247_441b_a996_a1784bab79a8);
 }
 #[repr(C)]
@@ -54,8 +60,10 @@ pub struct ISystemSupportDeviceInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemSupportInfoStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISystemSupportInfoStatics {
+unsafe impl ::windows::core::Vtable for ISystemSupportInfoStatics {
     type Vtable = ISystemSupportInfoStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISystemSupportInfoStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef750974_c422_45d7_a44d_5c1c0043a2b3);
 }
 #[repr(C)]
@@ -68,8 +76,10 @@ pub struct ISystemSupportInfoStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISystemSupportInfoStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISystemSupportInfoStatics2 {
+unsafe impl ::windows::core::Vtable for ISystemSupportInfoStatics2 {
     type Vtable = ISystemSupportInfoStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISystemSupportInfoStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f349a4_3fa1_4986_aa4b_057420455e6d);
 }
 #[repr(C)]
@@ -88,7 +98,7 @@ impl OemSupportInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportLink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).SupportLink)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -97,14 +107,14 @@ impl OemSupportInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportAppLink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).SupportAppLink)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     pub fn SupportProvider(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SupportProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -131,8 +141,10 @@ unsafe impl ::windows::core::RuntimeType for OemSupportInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for OemSupportInfo {
+unsafe impl ::windows::core::Vtable for OemSupportInfo {
     type Vtable = IOemSupportInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for OemSupportInfo {
     const IID: ::windows::core::GUID = <IOemSupportInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OemSupportInfo {
@@ -176,7 +188,7 @@ impl SmbiosInformation {
     pub fn SerialNumber() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISmbiosInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SerialNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SerialNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -196,49 +208,49 @@ impl SystemSupportDeviceInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OperatingSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).OperatingSystem)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).FriendlyName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SystemManufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SystemManufacturer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SystemManufacturer)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SystemProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SystemProductName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SystemProductName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SystemSku(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SystemSku)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SystemSku)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SystemHardwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SystemHardwareVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SystemHardwareVersion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SystemFirmwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SystemFirmwareVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SystemFirmwareVersion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -265,8 +277,10 @@ unsafe impl ::windows::core::RuntimeType for SystemSupportDeviceInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for SystemSupportDeviceInfo {
+unsafe impl ::windows::core::Vtable for SystemSupportDeviceInfo {
     type Vtable = ISystemSupportDeviceInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SystemSupportDeviceInfo {
     const IID: ::windows::core::GUID = <ISystemSupportDeviceInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemSupportDeviceInfo {
@@ -310,19 +324,19 @@ impl SystemSupportInfo {
     pub fn LocalSystemEdition() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISystemSupportInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocalSystemEdition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).LocalSystemEdition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     pub fn OemSupportInfo() -> ::windows::core::Result<OemSupportInfo> {
         Self::ISystemSupportInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OemSupportInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<OemSupportInfo>(result__)
+            (::windows::core::Vtable::vtable(this).OemSupportInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<OemSupportInfo>(result__)
         })
     }
     pub fn LocalDeviceInfo() -> ::windows::core::Result<SystemSupportDeviceInfo> {
         Self::ISystemSupportInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocalDeviceInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SystemSupportDeviceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).LocalDeviceInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SystemSupportDeviceInfo>(result__)
         })
     }
     #[doc(hidden)]

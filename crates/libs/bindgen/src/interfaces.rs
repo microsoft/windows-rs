@@ -49,15 +49,9 @@ fn gen_pseudo_interface(gen: &Gen, def: TypeDef) -> TokenStream {
 
     tokens.combine(&quote! {
         #features
-        unsafe impl ::windows::core::Interface for #ident {
+        unsafe impl ::windows::core::Vtable for #ident {
             type Vtable = #vtbl;
-            const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
-            unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-                *interface = ::std::ptr::null_mut();
-                ::windows::core::HRESULT(-2147467262) // E_NOINTERFACE
-            }
         }
-
     });
     tokens.combine(&gen.interface_vtbl(def, &[], &ident, &empty, &features));
     tokens.combine(&implements::gen(gen, def));

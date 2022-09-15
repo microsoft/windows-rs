@@ -3,25 +3,25 @@
 pub struct ID2D1SimplifiedGeometrySink(::windows::core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
-        (::windows::core::Interface::vtable(self).SetFillMode)(::windows::core::Interface::as_raw(self), fillmode)
+        (::windows::core::Vtable::vtable(self).SetFillMode)(::windows::core::Vtable::as_raw(self), fillmode)
     }
     pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
-        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::windows::core::Interface::as_raw(self), vertexflags)
+        (::windows::core::Vtable::vtable(self).SetSegmentFlags)(::windows::core::Vtable::as_raw(self), vertexflags)
     }
     pub unsafe fn BeginFigure(&self, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
-        (::windows::core::Interface::vtable(self).BeginFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startpoint), figurebegin)
+        (::windows::core::Vtable::vtable(self).BeginFigure)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(startpoint), figurebegin)
     }
     pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
-        (::windows::core::Interface::vtable(self).AddLines)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(points.as_ptr()), points.len() as _)
+        (::windows::core::Vtable::vtable(self).AddLines)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(points.as_ptr()), points.len() as _)
     }
     pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
-        (::windows::core::Interface::vtable(self).AddBeziers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(beziers.as_ptr()), beziers.len() as _)
+        (::windows::core::Vtable::vtable(self).AddBeziers)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(beziers.as_ptr()), beziers.len() as _)
     }
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
-        (::windows::core::Interface::vtable(self).EndFigure)(::windows::core::Interface::as_raw(self), figureend)
+        (::windows::core::Vtable::vtable(self).EndFigure)(::windows::core::Vtable::as_raw(self), figureend)
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
@@ -57,8 +57,10 @@ impl ::core::fmt::Debug for ID2D1SimplifiedGeometrySink {
 }
 unsafe impl ::core::marker::Send for ID2D1SimplifiedGeometrySink {}
 unsafe impl ::core::marker::Sync for ID2D1SimplifiedGeometrySink {}
-unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
+unsafe impl ::windows::core::Vtable for ID2D1SimplifiedGeometrySink {
     type Vtable = ID2D1SimplifiedGeometrySink_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
 }
 #[repr(C)]

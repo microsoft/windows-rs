@@ -3,8 +3,10 @@ pub mod Geofencing;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICivicAddress(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICivicAddress {
+unsafe impl ::windows::core::Vtable for ICivicAddress {
     type Vtable = ICivicAddress_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICivicAddress {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
 }
 #[repr(C)]
@@ -23,8 +25,10 @@ pub struct ICivicAddress_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeoboundingBox(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeoboundingBox {
+unsafe impl ::windows::core::Vtable for IGeoboundingBox {
     type Vtable = IGeoboundingBox_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeoboundingBox {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2);
 }
 #[repr(C)]
@@ -40,8 +44,10 @@ pub struct IGeoboundingBox_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeoboundingBoxFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeoboundingBoxFactory {
+unsafe impl ::windows::core::Vtable for IGeoboundingBoxFactory {
     type Vtable = IGeoboundingBoxFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeoboundingBoxFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dfba589_0411_4abc_b3b5_5bbccb57d98c);
 }
 #[repr(C)]
@@ -55,8 +61,10 @@ pub struct IGeoboundingBoxFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeoboundingBoxStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeoboundingBoxStatics {
+unsafe impl ::windows::core::Vtable for IGeoboundingBoxStatics {
     type Vtable = IGeoboundingBoxStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeoboundingBoxStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67b80708_e61a_4cd0_841b_93233792b5ca);
 }
 #[repr(C)]
@@ -79,8 +87,10 @@ pub struct IGeoboundingBoxStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeocircle(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeocircle {
+unsafe impl ::windows::core::Vtable for IGeocircle {
     type Vtable = IGeocircle_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeocircle {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1);
 }
 #[repr(C)]
@@ -93,8 +103,10 @@ pub struct IGeocircle_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeocircleFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeocircleFactory {
+unsafe impl ::windows::core::Vtable for IGeocircleFactory {
     type Vtable = IGeocircleFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeocircleFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafd6531f_72b1_4f7d_87cc_4ed4c9849c05);
 }
 #[repr(C)]
@@ -108,8 +120,10 @@ pub struct IGeocircleFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeocoordinate(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeocoordinate {
+unsafe impl ::windows::core::Vtable for IGeocoordinate {
     type Vtable = IGeocoordinate_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeocoordinate {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee21a3aa_976a_4c70_803d_083ea55bcbc4);
 }
 #[repr(C)]
@@ -149,8 +163,10 @@ pub struct IGeocoordinate_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeocoordinateSatelliteData(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeocoordinateSatelliteData {
+unsafe impl ::windows::core::Vtable for IGeocoordinateSatelliteData {
     type Vtable = IGeocoordinateSatelliteData_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeocoordinateSatelliteData {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc32a74d9_2608_474c_912c_06dd490f4af7);
 }
 #[repr(C)]
@@ -173,8 +189,10 @@ pub struct IGeocoordinateSatelliteData_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeocoordinateSatelliteData2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeocoordinateSatelliteData2 {
+unsafe impl ::windows::core::Vtable for IGeocoordinateSatelliteData2 {
     type Vtable = IGeocoordinateSatelliteData2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeocoordinateSatelliteData2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x761c8cfd_a19d_5a51_80f5_71676115483e);
 }
 #[repr(C)]
@@ -193,8 +211,10 @@ pub struct IGeocoordinateSatelliteData2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeocoordinateWithPoint(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeocoordinateWithPoint {
+unsafe impl ::windows::core::Vtable for IGeocoordinateWithPoint {
     type Vtable = IGeocoordinateWithPoint_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeocoordinateWithPoint {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeea0525_d22c_4d46_b527_0b96066fc7db);
 }
 #[repr(C)]
@@ -206,8 +226,10 @@ pub struct IGeocoordinateWithPoint_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeocoordinateWithPositionData(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeocoordinateWithPositionData {
+unsafe impl ::windows::core::Vtable for IGeocoordinateWithPositionData {
     type Vtable = IGeocoordinateWithPositionData_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeocoordinateWithPositionData {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e634be_dbd6_40ac_b8f2_a65c0340d9a6);
 }
 #[repr(C)]
@@ -220,8 +242,10 @@ pub struct IGeocoordinateWithPositionData_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeocoordinateWithPositionSourceTimestamp(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeocoordinateWithPositionSourceTimestamp {
+unsafe impl ::windows::core::Vtable for IGeocoordinateWithPositionSourceTimestamp {
     type Vtable = IGeocoordinateWithPositionSourceTimestamp_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeocoordinateWithPositionSourceTimestamp {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8543fc02_c9f1_4610_afe0_8bc3a6a87036);
 }
 #[repr(C)]
@@ -236,8 +260,10 @@ pub struct IGeocoordinateWithPositionSourceTimestamp_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeocoordinateWithRemoteSource(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeocoordinateWithRemoteSource {
+unsafe impl ::windows::core::Vtable for IGeocoordinateWithRemoteSource {
     type Vtable = IGeocoordinateWithRemoteSource_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeocoordinateWithRemoteSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x397cebd7_ee38_5f3b_8900_c4a7bc9cf953);
 }
 #[repr(C)]
@@ -249,8 +275,10 @@ pub struct IGeocoordinateWithRemoteSource_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeolocator(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeolocator {
+unsafe impl ::windows::core::Vtable for IGeolocator {
     type Vtable = IGeolocator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeolocator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9c3bf62_4524_4989_8aa9_de019d2e551f);
 }
 #[repr(C)]
@@ -292,8 +320,10 @@ pub struct IGeolocator_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeolocator2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeolocator2 {
+unsafe impl ::windows::core::Vtable for IGeolocator2 {
     type Vtable = IGeolocator2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeolocator2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1b42e6d_8891_43b4_ad36_27c6fe9a97b1);
 }
 #[repr(C)]
@@ -305,8 +335,10 @@ pub struct IGeolocator2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeolocatorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeolocatorStatics {
+unsafe impl ::windows::core::Vtable for IGeolocatorStatics {
     type Vtable = IGeolocatorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeolocatorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a8e7571_2df5_4591_9f87_eb5fd894e9b7);
 }
 #[repr(C)]
@@ -329,8 +361,10 @@ pub struct IGeolocatorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeolocatorStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeolocatorStatics2 {
+unsafe impl ::windows::core::Vtable for IGeolocatorStatics2 {
     type Vtable = IGeolocatorStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeolocatorStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x993011a2_fa1c_4631_a71d_0dbeb1250d9c);
 }
 #[repr(C)]
@@ -350,8 +384,10 @@ pub struct IGeolocatorStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeolocatorWithScalarAccuracy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeolocatorWithScalarAccuracy {
+unsafe impl ::windows::core::Vtable for IGeolocatorWithScalarAccuracy {
     type Vtable = IGeolocatorWithScalarAccuracy_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeolocatorWithScalarAccuracy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f5d3c1_b80f_460a_994d_a96c47a51aa4);
 }
 #[repr(C)]
@@ -370,8 +406,10 @@ pub struct IGeolocatorWithScalarAccuracy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeopath(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeopath {
+unsafe impl ::windows::core::Vtable for IGeopath {
     type Vtable = IGeopath_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeopath {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe53fd7b9_2da4_4714_a652_de8593289898);
 }
 #[repr(C)]
@@ -386,8 +424,10 @@ pub struct IGeopath_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeopathFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeopathFactory {
+unsafe impl ::windows::core::Vtable for IGeopathFactory {
     type Vtable = IGeopathFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeopathFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27bea9c8_c7e7_4359_9b9b_fca3e05ef593);
 }
 #[repr(C)]
@@ -410,8 +450,10 @@ pub struct IGeopathFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeopoint(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeopoint {
+unsafe impl ::windows::core::Vtable for IGeopoint {
     type Vtable = IGeopoint_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeopoint {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef);
 }
 #[repr(C)]
@@ -423,8 +465,10 @@ pub struct IGeopoint_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeopointFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeopointFactory {
+unsafe impl ::windows::core::Vtable for IGeopointFactory {
     type Vtable = IGeopointFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeopointFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb6b8d33_76bd_4e30_8af7_a844dc37b7a0);
 }
 #[repr(C)]
@@ -438,8 +482,10 @@ pub struct IGeopointFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeoposition(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeoposition {
+unsafe impl ::windows::core::Vtable for IGeoposition {
     type Vtable = IGeoposition_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeoposition {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b);
 }
 #[repr(C)]
@@ -452,8 +498,10 @@ pub struct IGeoposition_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeoposition2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeoposition2 {
+unsafe impl ::windows::core::Vtable for IGeoposition2 {
     type Vtable = IGeoposition2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeoposition2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f62f697_8671_4b0d_86f8_474a8496187c);
 }
 #[repr(C)]
@@ -470,21 +518,21 @@ impl IGeoshape {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GeoshapeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
+            (::windows::core::Vtable::vtable(this).GeoshapeType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
         }
     }
     pub fn SpatialReferenceId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SpatialReferenceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).SpatialReferenceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn AltitudeReferenceSystem(&self) -> ::windows::core::Result<AltitudeReferenceSystem> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AltitudeReferenceSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
+            (::windows::core::Vtable::vtable(this).AltitudeReferenceSystem)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
 }
@@ -541,8 +589,10 @@ unsafe impl ::windows::core::RuntimeType for IGeoshape {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IGeoshape {
+unsafe impl ::windows::core::Vtable for IGeoshape {
     type Vtable = IGeoshape_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeoshape {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99ca2af_c729_43c1_8fab_d6dec914df7e);
 }
 #[repr(C)]
@@ -556,8 +606,10 @@ pub struct IGeoshape_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeovisit(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeovisit {
+unsafe impl ::windows::core::Vtable for IGeovisit {
     type Vtable = IGeovisit_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeovisit {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1877a76_9ef6_41ab_a0dd_793ece76e2de);
 }
 #[repr(C)]
@@ -574,8 +626,10 @@ pub struct IGeovisit_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeovisitMonitor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeovisitMonitor {
+unsafe impl ::windows::core::Vtable for IGeovisitMonitor {
     type Vtable = IGeovisitMonitor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeovisitMonitor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80118aaf_5944_4591_83c1_396647f54f2c);
 }
 #[repr(C)]
@@ -597,8 +651,10 @@ pub struct IGeovisitMonitor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeovisitMonitorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeovisitMonitorStatics {
+unsafe impl ::windows::core::Vtable for IGeovisitMonitorStatics {
     type Vtable = IGeovisitMonitorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeovisitMonitorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcf976a7_bbf2_4cdd_95cf_554c82edfb87);
 }
 #[repr(C)]
@@ -613,8 +669,10 @@ pub struct IGeovisitMonitorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeovisitStateChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeovisitStateChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IGeovisitStateChangedEventArgs {
     type Vtable = IGeovisitStateChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeovisitStateChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceb4d1ff_8b53_4968_beed_4cecd029ce15);
 }
 #[repr(C)]
@@ -626,8 +684,10 @@ pub struct IGeovisitStateChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGeovisitTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeovisitTriggerDetails {
+unsafe impl ::windows::core::Vtable for IGeovisitTriggerDetails {
     type Vtable = IGeovisitTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGeovisitTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f);
 }
 #[repr(C)]
@@ -642,8 +702,10 @@ pub struct IGeovisitTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPositionChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPositionChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IPositionChangedEventArgs {
     type Vtable = IPositionChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPositionChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093);
 }
 #[repr(C)]
@@ -655,8 +717,10 @@ pub struct IPositionChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IStatusChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IStatusChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IStatusChangedEventArgs {
     type Vtable = IStatusChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IStatusChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3453d2da_8c93_4111_a205_9aecfc9be5c0);
 }
 #[repr(C)]
@@ -668,8 +732,10 @@ pub struct IStatusChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IVenueData(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IVenueData {
+unsafe impl ::windows::core::Vtable for IVenueData {
     type Vtable = IVenueData_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IVenueData {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66f39187_60e3_4b2f_b527_4f53f1c3c677);
 }
 #[repr(C)]
@@ -687,28 +753,28 @@ impl CivicAddress {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Country)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Country)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn City(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).City)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).City)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn PostalCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PostalCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).PostalCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -717,7 +783,7 @@ impl CivicAddress {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -744,8 +810,10 @@ unsafe impl ::windows::core::RuntimeType for CivicAddress {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for CivicAddress {
+unsafe impl ::windows::core::Vtable for CivicAddress {
     type Vtable = ICivicAddress_Vtbl;
+}
+unsafe impl ::windows::core::Interface for CivicAddress {
     const IID: ::windows::core::GUID = <ICivicAddress as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CivicAddress {
@@ -791,53 +859,53 @@ impl GeoboundingBox {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NorthwestCorner)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
+            (::windows::core::Vtable::vtable(this).NorthwestCorner)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
         }
     }
     pub fn SoutheastCorner(&self) -> ::windows::core::Result<BasicGeoposition> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SoutheastCorner)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
+            (::windows::core::Vtable::vtable(this).SoutheastCorner)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
         }
     }
     pub fn Center(&self) -> ::windows::core::Result<BasicGeoposition> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Center)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
+            (::windows::core::Vtable::vtable(this).Center)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
         }
     }
     pub fn MinAltitude(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinAltitude)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).MinAltitude)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn MaxAltitude(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxAltitude)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).MaxAltitude)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn Create(northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition) -> ::windows::core::Result<GeoboundingBox> {
         Self::IGeoboundingBoxFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), northwestcorner, southeastcorner, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), northwestcorner, southeastcorner, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
         })
     }
     pub fn CreateWithAltitudeReference(northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<GeoboundingBox> {
         Self::IGeoboundingBoxFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAltitudeReference)(::windows::core::Interface::as_raw(this), northwestcorner, southeastcorner, altitudereferencesystem, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAltitudeReference)(::windows::core::Vtable::as_raw(this), northwestcorner, southeastcorner, altitudereferencesystem, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
         })
     }
     pub fn CreateWithAltitudeReferenceAndSpatialReference(northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<GeoboundingBox> {
         Self::IGeoboundingBoxFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows::core::Interface::as_raw(this), northwestcorner, southeastcorner, altitudereferencesystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows::core::Vtable::as_raw(this), northwestcorner, southeastcorner, altitudereferencesystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -849,7 +917,7 @@ impl GeoboundingBox {
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryCompute)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
+            (::windows::core::Vtable::vtable(this).TryCompute)(::windows::core::Vtable::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -861,7 +929,7 @@ impl GeoboundingBox {
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeWithAltitudeReference)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altituderefsystem, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
+            (::windows::core::Vtable::vtable(this).TryComputeWithAltitudeReference)(::windows::core::Vtable::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altituderefsystem, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -873,28 +941,28 @@ impl GeoboundingBox {
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeWithAltitudeReferenceAndSpatialReference)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altituderefsystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
+            (::windows::core::Vtable::vtable(this).TryComputeWithAltitudeReferenceAndSpatialReference)(::windows::core::Vtable::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altituderefsystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<GeoboundingBox>(result__)
         })
     }
     pub fn GeoshapeType(&self) -> ::windows::core::Result<GeoshapeType> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GeoshapeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
+            (::windows::core::Vtable::vtable(this).GeoshapeType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
         }
     }
     pub fn SpatialReferenceId(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SpatialReferenceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).SpatialReferenceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn AltitudeReferenceSystem(&self) -> ::windows::core::Result<AltitudeReferenceSystem> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AltitudeReferenceSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
+            (::windows::core::Vtable::vtable(this).AltitudeReferenceSystem)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
     #[doc(hidden)]
@@ -931,8 +999,10 @@ unsafe impl ::windows::core::RuntimeType for GeoboundingBox {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GeoboundingBox {
+unsafe impl ::windows::core::Vtable for GeoboundingBox {
     type Vtable = IGeoboundingBox_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GeoboundingBox {
     const IID: ::windows::core::GUID = <IGeoboundingBox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeoboundingBox {
@@ -997,53 +1067,53 @@ impl Geocircle {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Center)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
+            (::windows::core::Vtable::vtable(this).Center)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
         }
     }
     pub fn Radius(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Radius)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Radius)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn Create(position: BasicGeoposition, radius: f64) -> ::windows::core::Result<Geocircle> {
         Self::IGeocircleFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), position, radius, result__.as_mut_ptr()).from_abi::<Geocircle>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), position, radius, result__.as_mut_ptr()).from_abi::<Geocircle>(result__)
         })
     }
     pub fn CreateWithAltitudeReferenceSystem(position: BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geocircle> {
         Self::IGeocircleFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceSystem)(::windows::core::Interface::as_raw(this), position, radius, altitudereferencesystem, result__.as_mut_ptr()).from_abi::<Geocircle>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAltitudeReferenceSystem)(::windows::core::Vtable::as_raw(this), position, radius, altitudereferencesystem, result__.as_mut_ptr()).from_abi::<Geocircle>(result__)
         })
     }
     pub fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(position: BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geocircle> {
         Self::IGeocircleFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceSystemAndSpatialReferenceId)(::windows::core::Interface::as_raw(this), position, radius, altitudereferencesystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<Geocircle>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAltitudeReferenceSystemAndSpatialReferenceId)(::windows::core::Vtable::as_raw(this), position, radius, altitudereferencesystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<Geocircle>(result__)
         })
     }
     pub fn GeoshapeType(&self) -> ::windows::core::Result<GeoshapeType> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GeoshapeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
+            (::windows::core::Vtable::vtable(this).GeoshapeType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
         }
     }
     pub fn SpatialReferenceId(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SpatialReferenceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).SpatialReferenceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn AltitudeReferenceSystem(&self) -> ::windows::core::Result<AltitudeReferenceSystem> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AltitudeReferenceSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
+            (::windows::core::Vtable::vtable(this).AltitudeReferenceSystem)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
     #[doc(hidden)]
@@ -1075,8 +1145,10 @@ unsafe impl ::windows::core::RuntimeType for Geocircle {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Geocircle {
+unsafe impl ::windows::core::Vtable for Geocircle {
     type Vtable = IGeocircle_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Geocircle {
     const IID: ::windows::core::GUID = <IGeocircle as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geocircle {
@@ -1143,7 +1215,7 @@ impl Geocoordinate {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Latitude)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Latitude)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1152,7 +1224,7 @@ impl Geocoordinate {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Longitude)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Longitude)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1161,14 +1233,14 @@ impl Geocoordinate {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Altitude)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).Altitude)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     pub fn Accuracy(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Accuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Accuracy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1177,7 +1249,7 @@ impl Geocoordinate {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AltitudeAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).AltitudeAccuracy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1186,7 +1258,7 @@ impl Geocoordinate {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Heading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).Heading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1195,7 +1267,7 @@ impl Geocoordinate {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Speed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).Speed)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1204,28 +1276,28 @@ impl Geocoordinate {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn Point(&self) -> ::windows::core::Result<Geopoint> {
         let this = &::windows::core::Interface::cast::<IGeocoordinateWithPoint>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Point)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
+            (::windows::core::Vtable::vtable(this).Point)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
         }
     }
     pub fn PositionSource(&self) -> ::windows::core::Result<PositionSource> {
         let this = &::windows::core::Interface::cast::<IGeocoordinateWithPositionData>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PositionSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PositionSource>(result__)
+            (::windows::core::Vtable::vtable(this).PositionSource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PositionSource>(result__)
         }
     }
     pub fn SatelliteData(&self) -> ::windows::core::Result<GeocoordinateSatelliteData> {
         let this = &::windows::core::Interface::cast::<IGeocoordinateWithPositionData>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SatelliteData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeocoordinateSatelliteData>(result__)
+            (::windows::core::Vtable::vtable(this).SatelliteData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GeocoordinateSatelliteData>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1234,14 +1306,14 @@ impl Geocoordinate {
         let this = &::windows::core::Interface::cast::<IGeocoordinateWithPositionSourceTimestamp>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PositionSourceTimestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Vtable::vtable(this).PositionSourceTimestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     pub fn IsRemoteSource(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IGeocoordinateWithRemoteSource>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsRemoteSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsRemoteSource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1268,8 +1340,10 @@ unsafe impl ::windows::core::RuntimeType for Geocoordinate {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Geocoordinate {
+unsafe impl ::windows::core::Vtable for Geocoordinate {
     type Vtable = IGeocoordinate_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Geocoordinate {
     const IID: ::windows::core::GUID = <IGeocoordinate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geocoordinate {
@@ -1317,7 +1391,7 @@ impl GeocoordinateSatelliteData {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PositionDilutionOfPrecision)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).PositionDilutionOfPrecision)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1326,7 +1400,7 @@ impl GeocoordinateSatelliteData {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalDilutionOfPrecision)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).HorizontalDilutionOfPrecision)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1335,7 +1409,7 @@ impl GeocoordinateSatelliteData {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalDilutionOfPrecision)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).VerticalDilutionOfPrecision)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1344,7 +1418,7 @@ impl GeocoordinateSatelliteData {
         let this = &::windows::core::Interface::cast::<IGeocoordinateSatelliteData2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GeometricDilutionOfPrecision)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).GeometricDilutionOfPrecision)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1353,7 +1427,7 @@ impl GeocoordinateSatelliteData {
         let this = &::windows::core::Interface::cast::<IGeocoordinateSatelliteData2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TimeDilutionOfPrecision)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).TimeDilutionOfPrecision)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
 }
@@ -1380,8 +1454,10 @@ unsafe impl ::windows::core::RuntimeType for GeocoordinateSatelliteData {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GeocoordinateSatelliteData {
+unsafe impl ::windows::core::Vtable for GeocoordinateSatelliteData {
     type Vtable = IGeocoordinateSatelliteData_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GeocoordinateSatelliteData {
     const IID: ::windows::core::GUID = <IGeocoordinateSatelliteData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeocoordinateSatelliteData {
@@ -1434,40 +1510,40 @@ impl Geolocator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PositionAccuracy>(result__)
+            (::windows::core::Vtable::vtable(this).DesiredAccuracy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PositionAccuracy>(result__)
         }
     }
     pub fn SetDesiredAccuracy(&self, value: PositionAccuracy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredAccuracy)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredAccuracy)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn MovementThreshold(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MovementThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).MovementThreshold)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetMovementThreshold(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMovementThreshold)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetMovementThreshold)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn LocationStatus(&self) -> ::windows::core::Result<PositionStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocationStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PositionStatus>(result__)
+            (::windows::core::Vtable::vtable(this).LocationStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PositionStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1476,7 +1552,7 @@ impl Geolocator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetGeopositionAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Geoposition>>(result__)
+            (::windows::core::Vtable::vtable(this).GetGeopositionAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Geoposition>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1485,7 +1561,7 @@ impl Geolocator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetGeopositionAsyncWithAgeAndTimeout)(::windows::core::Interface::as_raw(this), maximumage, timeout, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Geoposition>>(result__)
+            (::windows::core::Vtable::vtable(this).GetGeopositionAsyncWithAgeAndTimeout)(::windows::core::Vtable::as_raw(this), maximumage, timeout, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Geoposition>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1497,14 +1573,14 @@ impl Geolocator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PositionChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PositionChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePositionChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemovePositionChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1515,25 +1591,25 @@ impl Geolocator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveStatusChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn AllowFallbackToConsentlessPositions(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IGeolocator2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AllowFallbackToConsentlessPositions)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AllowFallbackToConsentlessPositions)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>> {
         Self::IGeolocatorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1541,7 +1617,7 @@ impl Geolocator {
     pub fn GetGeopositionHistoryAsync(starttime: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetGeopositionHistoryAsync)(::windows::core::Interface::as_raw(this), starttime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetGeopositionHistoryAsync)(::windows::core::Vtable::as_raw(this), starttime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1549,13 +1625,13 @@ impl Geolocator {
     pub fn GetGeopositionHistoryWithDurationAsync(starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetGeopositionHistoryWithDurationAsync)(::windows::core::Interface::as_raw(this), starttime, duration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetGeopositionHistoryWithDurationAsync)(::windows::core::Vtable::as_raw(this), starttime, duration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>>(result__)
         })
     }
     pub fn IsDefaultGeopositionRecommended() -> ::windows::core::Result<bool> {
         Self::IGeolocatorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsDefaultGeopositionRecommended)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsDefaultGeopositionRecommended)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1565,14 +1641,14 @@ impl Geolocator {
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<BasicGeoposition>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
     {
-        Self::IGeolocatorStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetDefaultGeoposition)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
+        Self::IGeolocatorStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).SetDefaultGeoposition)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DefaultGeoposition() -> ::windows::core::Result<super::super::Foundation::IReference<BasicGeoposition>> {
         Self::IGeolocatorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultGeoposition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<BasicGeoposition>>(result__)
+            (::windows::core::Vtable::vtable(this).DefaultGeoposition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<BasicGeoposition>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1581,7 +1657,7 @@ impl Geolocator {
         let this = &::windows::core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredAccuracyInMeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).DesiredAccuracyInMeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1592,7 +1668,7 @@ impl Geolocator {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredAccuracyInMeters)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDesiredAccuracyInMeters)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc(hidden)]
     pub fn IGeolocatorStatics<R, F: FnOnce(&IGeolocatorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1628,8 +1704,10 @@ unsafe impl ::windows::core::RuntimeType for Geolocator {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Geolocator {
+unsafe impl ::windows::core::Vtable for Geolocator {
     type Vtable = IGeolocator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Geolocator {
     const IID: ::windows::core::GUID = <IGeolocator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geolocator {
@@ -1677,7 +1755,7 @@ impl Geopath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Positions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<BasicGeoposition>>(result__)
+            (::windows::core::Vtable::vtable(this).Positions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<BasicGeoposition>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1689,7 +1767,7 @@ impl Geopath {
     {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Geopath>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Geopath>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1701,7 +1779,7 @@ impl Geopath {
     {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAltitudeReference)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altitudereferencesystem, result__.as_mut_ptr()).from_abi::<Geopath>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAltitudeReference)(::windows::core::Vtable::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altitudereferencesystem, result__.as_mut_ptr()).from_abi::<Geopath>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1713,28 +1791,28 @@ impl Geopath {
     {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows::core::Interface::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altitudereferencesystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<Geopath>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows::core::Vtable::as_raw(this), positions.try_into().map_err(|e| e.into())?.abi(), altitudereferencesystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<Geopath>(result__)
         })
     }
     pub fn GeoshapeType(&self) -> ::windows::core::Result<GeoshapeType> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GeoshapeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
+            (::windows::core::Vtable::vtable(this).GeoshapeType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
         }
     }
     pub fn SpatialReferenceId(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SpatialReferenceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).SpatialReferenceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn AltitudeReferenceSystem(&self) -> ::windows::core::Result<AltitudeReferenceSystem> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AltitudeReferenceSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
+            (::windows::core::Vtable::vtable(this).AltitudeReferenceSystem)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
     #[doc(hidden)]
@@ -1766,8 +1844,10 @@ unsafe impl ::windows::core::RuntimeType for Geopath {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Geopath {
+unsafe impl ::windows::core::Vtable for Geopath {
     type Vtable = IGeopath_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Geopath {
     const IID: ::windows::core::GUID = <IGeopath as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geopath {
@@ -1832,46 +1912,46 @@ impl Geopoint {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
+            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BasicGeoposition>(result__)
         }
     }
     pub fn Create(position: BasicGeoposition) -> ::windows::core::Result<Geopoint> {
         Self::IGeopointFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), position, result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), position, result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
         })
     }
     pub fn CreateWithAltitudeReferenceSystem(position: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows::core::Result<Geopoint> {
         Self::IGeopointFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceSystem)(::windows::core::Interface::as_raw(this), position, altitudereferencesystem, result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAltitudeReferenceSystem)(::windows::core::Vtable::as_raw(this), position, altitudereferencesystem, result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
         })
     }
     pub fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(position: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows::core::Result<Geopoint> {
         Self::IGeopointFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAltitudeReferenceSystemAndSpatialReferenceId)(::windows::core::Interface::as_raw(this), position, altitudereferencesystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAltitudeReferenceSystemAndSpatialReferenceId)(::windows::core::Vtable::as_raw(this), position, altitudereferencesystem, spatialreferenceid, result__.as_mut_ptr()).from_abi::<Geopoint>(result__)
         })
     }
     pub fn GeoshapeType(&self) -> ::windows::core::Result<GeoshapeType> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GeoshapeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
+            (::windows::core::Vtable::vtable(this).GeoshapeType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GeoshapeType>(result__)
         }
     }
     pub fn SpatialReferenceId(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SpatialReferenceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).SpatialReferenceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn AltitudeReferenceSystem(&self) -> ::windows::core::Result<AltitudeReferenceSystem> {
         let this = &::windows::core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AltitudeReferenceSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
+            (::windows::core::Vtable::vtable(this).AltitudeReferenceSystem)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AltitudeReferenceSystem>(result__)
         }
     }
     #[doc(hidden)]
@@ -1903,8 +1983,10 @@ unsafe impl ::windows::core::RuntimeType for Geopoint {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Geopoint {
+unsafe impl ::windows::core::Vtable for Geopoint {
     type Vtable = IGeopoint_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Geopoint {
     const IID: ::windows::core::GUID = <IGeopoint as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geopoint {
@@ -1969,21 +2051,21 @@ impl Geoposition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Coordinate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Geocoordinate>(result__)
+            (::windows::core::Vtable::vtable(this).Coordinate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Geocoordinate>(result__)
         }
     }
     pub fn CivicAddress(&self) -> ::windows::core::Result<CivicAddress> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CivicAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CivicAddress>(result__)
+            (::windows::core::Vtable::vtable(this).CivicAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<CivicAddress>(result__)
         }
     }
     pub fn VenueData(&self) -> ::windows::core::Result<VenueData> {
         let this = &::windows::core::Interface::cast::<IGeoposition2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VenueData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VenueData>(result__)
+            (::windows::core::Vtable::vtable(this).VenueData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<VenueData>(result__)
         }
     }
 }
@@ -2010,8 +2092,10 @@ unsafe impl ::windows::core::RuntimeType for Geoposition {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Geoposition {
+unsafe impl ::windows::core::Vtable for Geoposition {
     type Vtable = IGeoposition_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Geoposition {
     const IID: ::windows::core::GUID = <IGeoposition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geoposition {
@@ -2057,14 +2141,14 @@ impl Geovisit {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Geoposition>(result__)
+            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Geoposition>(result__)
         }
     }
     pub fn StateChange(&self) -> ::windows::core::Result<VisitStateChange> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StateChange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisitStateChange>(result__)
+            (::windows::core::Vtable::vtable(this).StateChange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<VisitStateChange>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2073,7 +2157,7 @@ impl Geovisit {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -2100,8 +2184,10 @@ unsafe impl ::windows::core::RuntimeType for Geovisit {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Geovisit {
+unsafe impl ::windows::core::Vtable for Geovisit {
     type Vtable = IGeovisit_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Geovisit {
     const IID: ::windows::core::GUID = <IGeovisit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geovisit {
@@ -2154,16 +2240,16 @@ impl GeovisitMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MonitoringScope)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisitMonitoringScope>(result__)
+            (::windows::core::Vtable::vtable(this).MonitoringScope)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<VisitMonitoringScope>(result__)
         }
     }
     pub fn Start(&self, value: VisitMonitoringScope) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2174,21 +2260,21 @@ impl GeovisitMonitor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VisitStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).VisitStateChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVisitStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVisitStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveVisitStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetLastReportAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Geovisit>> {
         Self::IGeovisitMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetLastReportAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Geovisit>>(result__)
+            (::windows::core::Vtable::vtable(this).GetLastReportAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Geovisit>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2220,8 +2306,10 @@ unsafe impl ::windows::core::RuntimeType for GeovisitMonitor {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GeovisitMonitor {
+unsafe impl ::windows::core::Vtable for GeovisitMonitor {
     type Vtable = IGeovisitMonitor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GeovisitMonitor {
     const IID: ::windows::core::GUID = <IGeovisitMonitor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeovisitMonitor {
@@ -2267,7 +2355,7 @@ impl GeovisitStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Visit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Geovisit>(result__)
+            (::windows::core::Vtable::vtable(this).Visit)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Geovisit>(result__)
         }
     }
 }
@@ -2294,8 +2382,10 @@ unsafe impl ::windows::core::RuntimeType for GeovisitStateChangedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GeovisitStateChangedEventArgs {
+unsafe impl ::windows::core::Vtable for GeovisitStateChangedEventArgs {
     type Vtable = IGeovisitStateChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GeovisitStateChangedEventArgs {
     const IID: ::windows::core::GUID = <IGeovisitStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeovisitStateChangedEventArgs {
@@ -2343,7 +2433,7 @@ impl GeovisitTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadReports)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<Geovisit>>(result__)
+            (::windows::core::Vtable::vtable(this).ReadReports)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<Geovisit>>(result__)
         }
     }
 }
@@ -2370,8 +2460,10 @@ unsafe impl ::windows::core::RuntimeType for GeovisitTriggerDetails {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GeovisitTriggerDetails {
+unsafe impl ::windows::core::Vtable for GeovisitTriggerDetails {
     type Vtable = IGeovisitTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GeovisitTriggerDetails {
     const IID: ::windows::core::GUID = <IGeovisitTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeovisitTriggerDetails {
@@ -2417,7 +2509,7 @@ impl PositionChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Geoposition>(result__)
+            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Geoposition>(result__)
         }
     }
 }
@@ -2444,8 +2536,10 @@ unsafe impl ::windows::core::RuntimeType for PositionChangedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PositionChangedEventArgs {
+unsafe impl ::windows::core::Vtable for PositionChangedEventArgs {
     type Vtable = IPositionChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PositionChangedEventArgs {
     const IID: ::windows::core::GUID = <IPositionChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PositionChangedEventArgs {
@@ -2491,7 +2585,7 @@ impl StatusChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PositionStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PositionStatus>(result__)
         }
     }
 }
@@ -2518,8 +2612,10 @@ unsafe impl ::windows::core::RuntimeType for StatusChangedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for StatusChangedEventArgs {
+unsafe impl ::windows::core::Vtable for StatusChangedEventArgs {
     type Vtable = IStatusChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for StatusChangedEventArgs {
     const IID: ::windows::core::GUID = <IStatusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StatusChangedEventArgs {
@@ -2565,14 +2661,14 @@ impl VenueData {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Level(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Level)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Level)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -2599,8 +2695,10 @@ unsafe impl ::windows::core::RuntimeType for VenueData {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for VenueData {
+unsafe impl ::windows::core::Vtable for VenueData {
     type Vtable = IVenueData_Vtbl;
+}
+unsafe impl ::windows::core::Interface for VenueData {
     const IID: ::windows::core::GUID = <IVenueData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VenueData {

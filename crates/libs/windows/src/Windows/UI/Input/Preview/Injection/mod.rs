@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInjectedInputGamepadInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfo {
+unsafe impl ::windows::core::Vtable for IInjectedInputGamepadInfo {
     type Vtable = IInjectedInputGamepadInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 }
 #[repr(C)]
@@ -33,8 +35,10 @@ pub struct IInjectedInputGamepadInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInjectedInputGamepadInfoFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfoFactory {
+unsafe impl ::windows::core::Vtable for IInjectedInputGamepadInfoFactory {
     type Vtable = IInjectedInputGamepadInfoFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInjectedInputGamepadInfoFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
 }
 #[repr(C)]
@@ -49,8 +53,10 @@ pub struct IInjectedInputGamepadInfoFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInjectedInputKeyboardInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInjectedInputKeyboardInfo {
+unsafe impl ::windows::core::Vtable for IInjectedInputKeyboardInfo {
     type Vtable = IInjectedInputKeyboardInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInjectedInputKeyboardInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
 }
 #[repr(C)]
@@ -67,8 +73,10 @@ pub struct IInjectedInputKeyboardInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInjectedInputMouseInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInjectedInputMouseInfo {
+unsafe impl ::windows::core::Vtable for IInjectedInputMouseInfo {
     type Vtable = IInjectedInputMouseInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInjectedInputMouseInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 }
 #[repr(C)]
@@ -89,8 +97,10 @@ pub struct IInjectedInputMouseInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInjectedInputPenInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInjectedInputPenInfo {
+unsafe impl ::windows::core::Vtable for IInjectedInputPenInfo {
     type Vtable = IInjectedInputPenInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInjectedInputPenInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 }
 #[repr(C)]
@@ -115,8 +125,10 @@ pub struct IInjectedInputPenInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInjectedInputTouchInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInjectedInputTouchInfo {
+unsafe impl ::windows::core::Vtable for IInjectedInputTouchInfo {
     type Vtable = IInjectedInputTouchInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInjectedInputTouchInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 }
 #[repr(C)]
@@ -137,8 +149,10 @@ pub struct IInjectedInputTouchInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInputInjector(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInputInjector {
+unsafe impl ::windows::core::Vtable for IInputInjector {
     type Vtable = IInputInjector_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInputInjector {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 }
 #[repr(C)]
@@ -167,8 +181,10 @@ pub struct IInputInjector_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInputInjector2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInputInjector2 {
+unsafe impl ::windows::core::Vtable for IInputInjector2 {
     type Vtable = IInputInjector2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInputInjector2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
 }
 #[repr(C)]
@@ -182,8 +198,10 @@ pub struct IInputInjector2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInputInjectorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInputInjectorStatics {
+unsafe impl ::windows::core::Vtable for IInputInjectorStatics {
     type Vtable = IInputInjectorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInputInjectorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
 }
 #[repr(C)]
@@ -195,8 +213,10 @@ pub struct IInputInjectorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInputInjectorStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInputInjectorStatics2 {
+unsafe impl ::windows::core::Vtable for IInputInjectorStatics2 {
     type Vtable = IInputInjectorStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInputInjectorStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
 }
 #[repr(C)]
@@ -222,87 +242,87 @@ impl InjectedInputGamepadInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Buttons)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Gaming::Input::GamepadButtons>(result__)
+            (::windows::core::Vtable::vtable(this).Buttons)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Gaming::Input::GamepadButtons>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
     #[cfg(feature = "Gaming_Input")]
     pub fn SetButtons(&self, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtons)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetButtons)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn LeftThumbstickX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LeftThumbstickX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).LeftThumbstickX)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetLeftThumbstickX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLeftThumbstickX)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetLeftThumbstickX)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn LeftThumbstickY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LeftThumbstickY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).LeftThumbstickY)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetLeftThumbstickY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLeftThumbstickY)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetLeftThumbstickY)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn LeftTrigger(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LeftTrigger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).LeftTrigger)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetLeftTrigger(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLeftTrigger)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetLeftTrigger)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn RightThumbstickX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RightThumbstickX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).RightThumbstickX)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetRightThumbstickX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRightThumbstickX)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRightThumbstickX)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn RightThumbstickY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RightThumbstickY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).RightThumbstickY)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetRightThumbstickY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRightThumbstickY)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRightThumbstickY)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn RightTrigger(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RightTrigger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).RightTrigger)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetRightTrigger(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRightTrigger)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRightTrigger)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
     #[cfg(feature = "Gaming_Input")]
     pub fn CreateInstanceFromGamepadReading(reading: super::super::super::super::Gaming::Input::GamepadReading) -> ::windows::core::Result<InjectedInputGamepadInfo> {
         Self::IInjectedInputGamepadInfoFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromGamepadReading)(::windows::core::Interface::as_raw(this), reading, result__.as_mut_ptr()).from_abi::<InjectedInputGamepadInfo>(result__)
+            (::windows::core::Vtable::vtable(this).CreateInstanceFromGamepadReading)(::windows::core::Vtable::as_raw(this), reading, result__.as_mut_ptr()).from_abi::<InjectedInputGamepadInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -334,8 +354,10 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputGamepadInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InjectedInputGamepadInfo {
+unsafe impl ::windows::core::Vtable for InjectedInputGamepadInfo {
     type Vtable = IInjectedInputGamepadInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InjectedInputGamepadInfo {
     const IID: ::windows::core::GUID = <IInjectedInputGamepadInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputGamepadInfo {
@@ -386,34 +408,34 @@ impl InjectedInputKeyboardInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).KeyOptions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputKeyOptions>(result__)
+            (::windows::core::Vtable::vtable(this).KeyOptions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputKeyOptions>(result__)
         }
     }
     pub fn SetKeyOptions(&self, value: InjectedInputKeyOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetKeyOptions)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ScanCode(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ScanCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
+            (::windows::core::Vtable::vtable(this).ScanCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     pub fn SetScanCode(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScanCode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetScanCode)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn VirtualKey(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VirtualKey)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
+            (::windows::core::Vtable::vtable(this).VirtualKey)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     pub fn SetVirtualKey(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVirtualKey)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetVirtualKey)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for InjectedInputKeyboardInfo {
@@ -439,8 +461,10 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputKeyboardInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InjectedInputKeyboardInfo {
+unsafe impl ::windows::core::Vtable for InjectedInputKeyboardInfo {
     type Vtable = IInjectedInputKeyboardInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InjectedInputKeyboardInfo {
     const IID: ::windows::core::GUID = <IInjectedInputKeyboardInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputKeyboardInfo {
@@ -491,56 +515,56 @@ impl InjectedInputMouseInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MouseOptions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputMouseOptions>(result__)
+            (::windows::core::Vtable::vtable(this).MouseOptions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputMouseOptions>(result__)
         }
     }
     pub fn SetMouseOptions(&self, value: InjectedInputMouseOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMouseOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetMouseOptions)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn MouseData(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MouseData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MouseData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetMouseData(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMouseData)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetMouseData)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn DeltaY(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeltaY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).DeltaY)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn SetDeltaY(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeltaY)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDeltaY)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn DeltaX(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeltaX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).DeltaX)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn SetDeltaX(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeltaX)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDeltaX)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn TimeOffsetInMilliseconds(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TimeOffsetInMilliseconds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).TimeOffsetInMilliseconds)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetTimeOffsetInMilliseconds(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTimeOffsetInMilliseconds)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetTimeOffsetInMilliseconds)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for InjectedInputMouseInfo {
@@ -566,8 +590,10 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputMouseInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InjectedInputMouseInfo {
+unsafe impl ::windows::core::Vtable for InjectedInputMouseInfo {
     type Vtable = IInjectedInputMouseInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InjectedInputMouseInfo {
     const IID: ::windows::core::GUID = <IInjectedInputMouseInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputMouseInfo {
@@ -618,78 +644,78 @@ impl InjectedInputPenInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PointerInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPointerInfo>(result__)
+            (::windows::core::Vtable::vtable(this).PointerInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPointerInfo>(result__)
         }
     }
     pub fn SetPointerInfo(&self, value: InjectedInputPointerInfo) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerInfo)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPointerInfo)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn PenButtons(&self) -> ::windows::core::Result<InjectedInputPenButtons> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PenButtons)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPenButtons>(result__)
+            (::windows::core::Vtable::vtable(this).PenButtons)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPenButtons>(result__)
         }
     }
     pub fn SetPenButtons(&self, value: InjectedInputPenButtons) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPenButtons)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPenButtons)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn PenParameters(&self) -> ::windows::core::Result<InjectedInputPenParameters> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PenParameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPenParameters>(result__)
+            (::windows::core::Vtable::vtable(this).PenParameters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPenParameters>(result__)
         }
     }
     pub fn SetPenParameters(&self, value: InjectedInputPenParameters) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPenParameters)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPenParameters)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Pressure(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Pressure)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetPressure(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPressure)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPressure)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Rotation(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Rotation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Rotation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetRotation(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRotation)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn TiltX(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TiltX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).TiltX)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn SetTiltX(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTiltX)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetTiltX)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn TiltY(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TiltY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).TiltY)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn SetTiltY(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTiltY)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetTiltY)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for InjectedInputPenInfo {
@@ -715,8 +741,10 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputPenInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InjectedInputPenInfo {
+unsafe impl ::windows::core::Vtable for InjectedInputPenInfo {
     type Vtable = IInjectedInputPenInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InjectedInputPenInfo {
     const IID: ::windows::core::GUID = <IInjectedInputPenInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputPenInfo {
@@ -767,56 +795,56 @@ impl InjectedInputTouchInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputRectangle>(result__)
+            (::windows::core::Vtable::vtable(this).Contact)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputRectangle>(result__)
         }
     }
     pub fn SetContact(&self, value: InjectedInputRectangle) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContact)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContact)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Orientation(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).Orientation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn SetOrientation(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetOrientation)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn PointerInfo(&self) -> ::windows::core::Result<InjectedInputPointerInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PointerInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPointerInfo>(result__)
+            (::windows::core::Vtable::vtable(this).PointerInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPointerInfo>(result__)
         }
     }
     pub fn SetPointerInfo(&self, value: InjectedInputPointerInfo) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerInfo)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPointerInfo)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Pressure(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Pressure)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetPressure(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPressure)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPressure)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn TouchParameters(&self) -> ::windows::core::Result<InjectedInputTouchParameters> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TouchParameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputTouchParameters>(result__)
+            (::windows::core::Vtable::vtable(this).TouchParameters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputTouchParameters>(result__)
         }
     }
     pub fn SetTouchParameters(&self, value: InjectedInputTouchParameters) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTouchParameters)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetTouchParameters)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for InjectedInputTouchInfo {
@@ -842,8 +870,10 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputTouchInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InjectedInputTouchInfo {
+unsafe impl ::windows::core::Vtable for InjectedInputTouchInfo {
     type Vtable = IInjectedInputTouchInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InjectedInputTouchInfo {
     const IID: ::windows::core::GUID = <IInjectedInputTouchInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputTouchInfo {
@@ -891,7 +921,7 @@ impl InputInjector {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectKeyboardInput)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InjectKeyboardInput)(::windows::core::Vtable::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -901,11 +931,11 @@ impl InputInjector {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectMouseInput)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InjectMouseInput)(::windows::core::Vtable::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     pub fn InitializeTouchInjection(&self, visualmode: InjectedInputVisualizationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InitializeTouchInjection)(::windows::core::Interface::as_raw(this), visualmode).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InitializeTouchInjection)(::windows::core::Vtable::as_raw(this), visualmode).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -915,56 +945,56 @@ impl InputInjector {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectTouchInput)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InjectTouchInput)(::windows::core::Vtable::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     pub fn UninitializeTouchInjection(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UninitializeTouchInjection)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UninitializeTouchInjection)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn InitializePenInjection(&self, visualmode: InjectedInputVisualizationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InitializePenInjection)(::windows::core::Interface::as_raw(this), visualmode).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InitializePenInjection)(::windows::core::Vtable::as_raw(this), visualmode).ok() }
     }
     pub fn InjectPenInput<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, InjectedInputPenInfo>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectPenInput)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InjectPenInput)(::windows::core::Vtable::as_raw(this), input.into().abi()).ok() }
     }
     pub fn UninitializePenInjection(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UninitializePenInjection)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UninitializePenInjection)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn InjectShortcut(&self, shortcut: InjectedInputShortcut) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectShortcut)(::windows::core::Interface::as_raw(this), shortcut).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InjectShortcut)(::windows::core::Vtable::as_raw(this), shortcut).ok() }
     }
     pub fn InitializeGamepadInjection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInputInjector2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).InitializeGamepadInjection)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InitializeGamepadInjection)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn InjectGamepadInput<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, InjectedInputGamepadInfo>>,
     {
         let this = &::windows::core::Interface::cast::<IInputInjector2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).InjectGamepadInput)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InjectGamepadInput)(::windows::core::Vtable::as_raw(this), input.into().abi()).ok() }
     }
     pub fn UninitializeGamepadInjection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInputInjector2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).UninitializeGamepadInjection)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UninitializeGamepadInjection)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn TryCreate() -> ::windows::core::Result<InputInjector> {
         Self::IInputInjectorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InputInjector>(result__)
+            (::windows::core::Vtable::vtable(this).TryCreate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InputInjector>(result__)
         })
     }
     pub fn TryCreateForAppBroadcastOnly() -> ::windows::core::Result<InputInjector> {
         Self::IInputInjectorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateForAppBroadcastOnly)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InputInjector>(result__)
+            (::windows::core::Vtable::vtable(this).TryCreateForAppBroadcastOnly)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InputInjector>(result__)
         })
     }
     #[doc(hidden)]
@@ -1001,8 +1031,10 @@ unsafe impl ::windows::core::RuntimeType for InputInjector {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InputInjector {
+unsafe impl ::windows::core::Vtable for InputInjector {
     type Vtable = IInputInjector_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InputInjector {
     const IID: ::windows::core::GUID = <IInputInjector as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputInjector {

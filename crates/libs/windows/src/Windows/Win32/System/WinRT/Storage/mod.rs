@@ -3,7 +3,7 @@
 pub struct IOplockBreakingHandler(::windows::core::IUnknown);
 impl IOplockBreakingHandler {
     pub unsafe fn OplockBreaking(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OplockBreaking)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).OplockBreaking)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IOplockBreakingHandler> for ::windows::core::IUnknown {
@@ -37,8 +37,10 @@ impl ::core::fmt::Debug for IOplockBreakingHandler {
         f.debug_tuple("IOplockBreakingHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IOplockBreakingHandler {
+unsafe impl ::windows::core::Vtable for IOplockBreakingHandler {
     type Vtable = IOplockBreakingHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOplockBreakingHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x826abe3d_3acd_47d3_84f2_88aaedcf6304);
 }
 #[repr(C)]
@@ -53,7 +55,7 @@ pub struct IRandomAccessStreamFileAccessMode(::windows::core::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
     pub unsafe fn GetMode(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IRandomAccessStreamFileAccessMode> for ::windows::core::IUnknown {
@@ -87,8 +89,10 @@ impl ::core::fmt::Debug for IRandomAccessStreamFileAccessMode {
         f.debug_tuple("IRandomAccessStreamFileAccessMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRandomAccessStreamFileAccessMode {
+unsafe impl ::windows::core::Vtable for IRandomAccessStreamFileAccessMode {
     type Vtable = IRandomAccessStreamFileAccessMode_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRandomAccessStreamFileAccessMode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
 }
 #[repr(C)]
@@ -109,7 +113,7 @@ impl IStorageFolderHandleAccess {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), filename.into(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), filename.into(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<IStorageFolderHandleAccess> for ::windows::core::IUnknown {
@@ -143,8 +147,10 @@ impl ::core::fmt::Debug for IStorageFolderHandleAccess {
         f.debug_tuple("IStorageFolderHandleAccess").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IStorageFolderHandleAccess {
+unsafe impl ::windows::core::Vtable for IStorageFolderHandleAccess {
     type Vtable = IStorageFolderHandleAccess_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IStorageFolderHandleAccess {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf19938f_5462_48a0_be65_d2a3271a08d6);
 }
 #[repr(C)]
@@ -167,7 +173,7 @@ impl IStorageItemHandleAccess {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<IStorageItemHandleAccess> for ::windows::core::IUnknown {
@@ -201,8 +207,10 @@ impl ::core::fmt::Debug for IStorageItemHandleAccess {
         f.debug_tuple("IStorageItemHandleAccess").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IStorageItemHandleAccess {
+unsafe impl ::windows::core::Vtable for IStorageItemHandleAccess {
     type Vtable = IStorageItemHandleAccess_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IStorageItemHandleAccess {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ca296b2_2c25_4d22_b785_b885c8201e6a);
 }
 #[repr(C)]
@@ -219,7 +227,7 @@ pub struct IStorageItemHandleAccess_Vtbl {
 pub struct IUnbufferedFileHandleOplockCallback(::windows::core::IUnknown);
 impl IUnbufferedFileHandleOplockCallback {
     pub unsafe fn OnBrokenCallback(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnBrokenCallback)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).OnBrokenCallback)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IUnbufferedFileHandleOplockCallback> for ::windows::core::IUnknown {
@@ -253,8 +261,10 @@ impl ::core::fmt::Debug for IUnbufferedFileHandleOplockCallback {
         f.debug_tuple("IUnbufferedFileHandleOplockCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUnbufferedFileHandleOplockCallback {
+unsafe impl ::windows::core::Vtable for IUnbufferedFileHandleOplockCallback {
     type Vtable = IUnbufferedFileHandleOplockCallback_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUnbufferedFileHandleOplockCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1019a0e_6243_4329_8497_2e75894d7710);
 }
 #[repr(C)]
@@ -272,10 +282,10 @@ impl IUnbufferedFileHandleProvider {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUnbufferedFileHandleOplockCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Interface::as_raw(self), oplockbreakcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Vtable::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self), oplockbreakcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseUnbufferedFileHandle)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).CloseUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IUnbufferedFileHandleProvider> for ::windows::core::IUnknown {
@@ -309,8 +319,10 @@ impl ::core::fmt::Debug for IUnbufferedFileHandleProvider {
         f.debug_tuple("IUnbufferedFileHandleProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUnbufferedFileHandleProvider {
+unsafe impl ::windows::core::Vtable for IUnbufferedFileHandleProvider {
     type Vtable = IUnbufferedFileHandleProvider_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUnbufferedFileHandleProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);
 }
 #[repr(C)]

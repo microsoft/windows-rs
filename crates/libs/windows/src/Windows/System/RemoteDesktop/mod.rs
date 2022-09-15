@@ -3,8 +3,10 @@ pub mod Input;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInteractiveSessionStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInteractiveSessionStatics {
+unsafe impl ::windows::core::Vtable for IInteractiveSessionStatics {
     type Vtable = IInteractiveSessionStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInteractiveSessionStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60884631_dd3a_4576_9c8d_e8027618bdce);
 }
 #[repr(C)]
@@ -19,7 +21,7 @@ impl InteractiveSession {
     pub fn IsRemote() -> ::windows::core::Result<bool> {
         Self::IInteractiveSessionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsRemote)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsRemote)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]

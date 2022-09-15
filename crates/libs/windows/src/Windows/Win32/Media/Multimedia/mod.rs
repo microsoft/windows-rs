@@ -1985,25 +1985,25 @@ where
 pub struct IAVIEditStream(::windows::core::IUnknown);
 impl IAVIEditStream {
     pub unsafe fn Cut(&self, plstart: &mut i32, pllength: &mut i32, ppresult: &mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Cut)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
+        (::windows::core::Vtable::vtable(self).Cut)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
     pub unsafe fn Copy(&self, plstart: &mut i32, pllength: &mut i32, ppresult: &mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
+        (::windows::core::Vtable::vtable(self).Copy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
     pub unsafe fn Paste<'a, P0>(&self, plpos: &mut i32, pllength: &mut i32, pstream: P0, lstart: i32, lend: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
     {
-        (::windows::core::Interface::vtable(self).Paste)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into().abi(), lstart, lend).ok()
+        (::windows::core::Vtable::vtable(self).Paste)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into().abi(), lstart, lend).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IAVIStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInfo(&self, lpinfo: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpinfo.as_ptr()), lpinfo.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpinfo.as_ptr()), lpinfo.len() as _).ok()
     }
 }
 impl ::core::convert::From<IAVIEditStream> for ::windows::core::IUnknown {
@@ -2037,8 +2037,10 @@ impl ::core::fmt::Debug for IAVIEditStream {
         f.debug_tuple("IAVIEditStream").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IAVIEditStream {
+unsafe impl ::windows::core::Vtable for IAVIEditStream {
     type Vtable = IAVIEditStream_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAVIEditStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020024_0000_0000_c000_000000000046);
 }
 #[repr(C)]
@@ -2059,27 +2061,27 @@ pub struct IAVIEditStream_Vtbl {
 pub struct IAVIFile(::windows::core::IUnknown);
 impl IAVIFile {
     pub unsafe fn Info(&self, pfi: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Info)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfi.as_ptr()), pfi.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).Info)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfi.as_ptr()), pfi.len() as _).ok()
     }
     pub unsafe fn GetStream(&self, ppstream: &mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppstream), fcctype, lparam).ok()
+        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppstream), fcctype, lparam).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateStream(&self, ppstream: &mut ::core::option::Option<IAVIStream>, psi: &AVISTREAMINFOW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppstream), ::core::mem::transmute(psi)).ok()
+        (::windows::core::Vtable::vtable(self).CreateStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppstream), ::core::mem::transmute(psi)).ok()
     }
     pub unsafe fn WriteData(&self, ckid: u32, lpdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), ckid, ::core::mem::transmute(lpdata.as_ptr()), lpdata.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).WriteData)(::windows::core::Vtable::as_raw(self), ckid, ::core::mem::transmute(lpdata.as_ptr()), lpdata.len() as _).ok()
     }
     pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: &mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadData)(::windows::core::Interface::as_raw(self), ckid, ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
+        (::windows::core::Vtable::vtable(self).ReadData)(::windows::core::Vtable::as_raw(self), ckid, ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
     }
     pub unsafe fn EndRecord(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndRecord)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).EndRecord)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn DeleteStream(&self, fcctype: u32, lparam: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteStream)(::windows::core::Interface::as_raw(self), fcctype, lparam).ok()
+        (::windows::core::Vtable::vtable(self).DeleteStream)(::windows::core::Vtable::as_raw(self), fcctype, lparam).ok()
     }
 }
 impl ::core::convert::From<IAVIFile> for ::windows::core::IUnknown {
@@ -2113,8 +2115,10 @@ impl ::core::fmt::Debug for IAVIFile {
         f.debug_tuple("IAVIFile").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IAVIFile {
+unsafe impl ::windows::core::Vtable for IAVIFile {
     type Vtable = IAVIFile_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAVIFile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020020_0000_0000_c000_000000000046);
 }
 #[repr(C)]
@@ -2142,12 +2146,12 @@ impl IAVIPersistFile {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetClassID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.IsDirty)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).base__.IsDirty)(::windows::core::Vtable::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2155,7 +2159,7 @@ impl IAVIPersistFile {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.Load)(::windows::core::Interface::as_raw(self), pszfilename.into(), dwmode).ok()
+        (::windows::core::Vtable::vtable(self).base__.Load)(::windows::core::Vtable::as_raw(self), pszfilename.into(), dwmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2164,7 +2168,7 @@ impl IAVIPersistFile {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.Save)(::windows::core::Interface::as_raw(self), pszfilename.into(), fremember.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Save)(::windows::core::Vtable::as_raw(self), pszfilename.into(), fremember.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2172,16 +2176,16 @@ impl IAVIPersistFile {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.SaveCompleted)(::windows::core::Interface::as_raw(self), pszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SaveCompleted)(::windows::core::Vtable::as_raw(self), pszfilename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurFile(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCurFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetCurFile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     pub unsafe fn Reserved1(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reserved1)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Reserved1)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2259,8 +2263,11 @@ impl ::core::fmt::Debug for IAVIPersistFile {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IAVIPersistFile {
+unsafe impl ::windows::core::Vtable for IAVIPersistFile {
     type Vtable = IAVIPersistFile_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IAVIPersistFile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020025_0000_0000_c000_000000000046);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2281,41 +2288,41 @@ impl IAVIStream {
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), lparam1.into(), lparam2.into()).ok()
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), lparam1.into(), lparam2.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Info(&self, psi: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Info)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psi.as_ptr()), psi.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).Info)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psi.as_ptr()), psi.len() as _).ok()
     }
     pub unsafe fn FindSample(&self, lpos: i32, lflags: i32) -> i32 {
-        (::windows::core::Interface::vtable(self).FindSample)(::windows::core::Interface::as_raw(self), lpos, lflags)
+        (::windows::core::Vtable::vtable(self).FindSample)(::windows::core::Vtable::as_raw(self), lpos, lflags)
     }
     pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: &mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadFormat)(::windows::core::Interface::as_raw(self), lpos, ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcbformat)).ok()
+        (::windows::core::Vtable::vtable(self).ReadFormat)(::windows::core::Vtable::as_raw(self), lpos, ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcbformat)).ok()
     }
     pub unsafe fn SetFormat(&self, lpos: i32, lpformat: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormat)(::windows::core::Interface::as_raw(self), lpos, ::core::mem::transmute(lpformat.as_ptr()), lpformat.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetFormat)(::windows::core::Vtable::as_raw(self), lpos, ::core::mem::transmute(lpformat.as_ptr()), lpformat.len() as _).ok()
     }
     pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: ::core::option::Option<&mut [u8]>, plbytes: ::core::option::Option<&mut i32>, plsamples: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), lstart, lsamples, ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plbytes), ::core::mem::transmute(plsamples)).ok()
+        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), lstart, lsamples, ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plbytes), ::core::mem::transmute(plsamples)).ok()
     }
     pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: &[u8], dwflags: u32, plsampwritten: ::core::option::Option<&mut i32>, plbyteswritten: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Write)(::windows::core::Interface::as_raw(self), lstart, lsamples, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, dwflags, ::core::mem::transmute(plsampwritten), ::core::mem::transmute(plbyteswritten)).ok()
+        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), lstart, lsamples, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, dwflags, ::core::mem::transmute(plsampwritten), ::core::mem::transmute(plbyteswritten)).ok()
     }
     pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), lstart, lsamples).ok()
+        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), lstart, lsamples).ok()
     }
     pub unsafe fn ReadData(&self, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: &mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadData)(::windows::core::Interface::as_raw(self), fcc, ::core::mem::transmute(lp), ::core::mem::transmute(lpcb)).ok()
+        (::windows::core::Vtable::vtable(self).ReadData)(::windows::core::Vtable::as_raw(self), fcc, ::core::mem::transmute(lp), ::core::mem::transmute(lpcb)).ok()
     }
     pub unsafe fn WriteData(&self, fcc: u32, lp: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), fcc, ::core::mem::transmute(lp.as_ptr()), lp.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).WriteData)(::windows::core::Vtable::as_raw(self), fcc, ::core::mem::transmute(lp.as_ptr()), lp.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInfo(&self, lpinfo: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpinfo.as_ptr()), lpinfo.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpinfo.as_ptr()), lpinfo.len() as _).ok()
     }
 }
 impl ::core::convert::From<IAVIStream> for ::windows::core::IUnknown {
@@ -2349,8 +2356,10 @@ impl ::core::fmt::Debug for IAVIStream {
         f.debug_tuple("IAVIStream").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IAVIStream {
+unsafe impl ::windows::core::Vtable for IAVIStream {
     type Vtable = IAVIStream_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAVIStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020021_0000_0000_c000_000000000046);
 }
 #[repr(C)]
@@ -2383,10 +2392,10 @@ pub struct IAVIStream_Vtbl {
 pub struct IAVIStreaming(::windows::core::IUnknown);
 impl IAVIStreaming {
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin)(::windows::core::Interface::as_raw(self), lstart, lend, lrate).ok()
+        (::windows::core::Vtable::vtable(self).Begin)(::windows::core::Vtable::as_raw(self), lstart, lend, lrate).ok()
     }
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).End)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IAVIStreaming> for ::windows::core::IUnknown {
@@ -2420,8 +2429,10 @@ impl ::core::fmt::Debug for IAVIStreaming {
         f.debug_tuple("IAVIStreaming").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IAVIStreaming {
+unsafe impl ::windows::core::Vtable for IAVIStreaming {
     type Vtable = IAVIStreaming_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAVIStreaming {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020022_0000_0000_c000_000000000046);
 }
 #[repr(C)]
@@ -2436,18 +2447,18 @@ pub struct IAVIStreaming_Vtbl {
 pub struct IGetFrame(::windows::core::IUnknown);
 impl IGetFrame {
     pub unsafe fn GetFrame(&self, lpos: i32) -> *mut ::core::ffi::c_void {
-        (::windows::core::Interface::vtable(self).GetFrame)(::windows::core::Interface::as_raw(self), lpos)
+        (::windows::core::Vtable::vtable(self).GetFrame)(::windows::core::Vtable::as_raw(self), lpos)
     }
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin)(::windows::core::Interface::as_raw(self), lstart, lend, lrate).ok()
+        (::windows::core::Vtable::vtable(self).Begin)(::windows::core::Vtable::as_raw(self), lstart, lend, lrate).ok()
     }
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).End)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetFormat(&self, lpbi: &super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), x, y, dx, dy).ok()
+        (::windows::core::Vtable::vtable(self).SetFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), x, y, dx, dy).ok()
     }
 }
 impl ::core::convert::From<IGetFrame> for ::windows::core::IUnknown {
@@ -2481,8 +2492,10 @@ impl ::core::fmt::Debug for IGetFrame {
         f.debug_tuple("IGetFrame").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IGetFrame {
+unsafe impl ::windows::core::Vtable for IGetFrame {
     type Vtable = IGetFrame_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGetFrame {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);
 }
 #[repr(C)]

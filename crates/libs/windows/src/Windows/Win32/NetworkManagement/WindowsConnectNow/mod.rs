@@ -3,10 +3,10 @@
 pub struct IWCNConnectNotify(::windows::core::IUnknown);
 impl IWCNConnectNotify {
     pub unsafe fn ConnectSucceeded(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectSucceeded)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).ConnectSucceeded)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn ConnectFailed(&self, hrfailure: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectFailed)(::windows::core::Interface::as_raw(self), hrfailure).ok()
+        (::windows::core::Vtable::vtable(self).ConnectFailed)(::windows::core::Vtable::as_raw(self), hrfailure).ok()
     }
 }
 impl ::core::convert::From<IWCNConnectNotify> for ::windows::core::IUnknown {
@@ -40,8 +40,10 @@ impl ::core::fmt::Debug for IWCNConnectNotify {
         f.debug_tuple("IWCNConnectNotify").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IWCNConnectNotify {
+unsafe impl ::windows::core::Vtable for IWCNConnectNotify {
     type Vtable = IWCNConnectNotify_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWCNConnectNotify {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
 }
 #[repr(C)]
@@ -56,45 +58,45 @@ pub struct IWCNConnectNotify_Vtbl {
 pub struct IWCNDevice(::windows::core::IUnknown);
 impl IWCNDevice {
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, pbpassword: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), r#type, pbpassword.len() as _, ::core::mem::transmute(pbpassword.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).SetPassword)(::windows::core::Vtable::as_raw(self), r#type, pbpassword.len() as _, ::core::mem::transmute(pbpassword.as_ptr())).ok()
     }
     pub unsafe fn Connect<'a, P0>(&self, pnotify: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWCNConnectNotify>>,
     {
-        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), pnotify.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), pnotify.into().abi()).ok()
     }
     pub unsafe fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), attributetype, dwmaxbuffersize, ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
+        (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), attributetype, dwmaxbuffersize, ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
     }
     pub unsafe fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetIntegerAttribute)(::windows::core::Interface::as_raw(self), attributetype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetIntegerAttribute)(::windows::core::Vtable::as_raw(self), attributetype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, wszstring: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStringAttribute)(::windows::core::Interface::as_raw(self), attributetype, wszstring.len() as _, ::core::mem::transmute(wszstring.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).GetStringAttribute)(::windows::core::Vtable::as_raw(self), attributetype, wszstring.len() as _, ::core::mem::transmute(wszstring.as_ptr())).ok()
     }
     pub unsafe fn GetNetworkProfile(&self, wszprofile: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNetworkProfile)(::windows::core::Interface::as_raw(self), wszprofile.len() as _, ::core::mem::transmute(wszprofile.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).GetNetworkProfile)(::windows::core::Vtable::as_raw(self), wszprofile.len() as _, ::core::mem::transmute(wszprofile.as_ptr())).ok()
     }
     pub unsafe fn SetNetworkProfile<'a, P0>(&self, pszprofilexml: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), pszprofilexml.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetNetworkProfile)(::windows::core::Vtable::as_raw(self), pszprofilexml.into()).ok()
     }
     pub unsafe fn GetVendorExtension(&self, pvendorextspec: &WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVendorExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvendorextspec), dwmaxbuffersize, ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
+        (::windows::core::Vtable::vtable(self).GetVendorExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvendorextspec), dwmaxbuffersize, ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
     }
     pub unsafe fn SetVendorExtension(&self, pvendorextspec: &WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVendorExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvendorextspec), pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).SetVendorExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvendorextspec), pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn Unadvise(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unadvise)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, pbpassword: ::core::option::Option<&[u8]>, pbremotepublickeyhash: ::core::option::Option<&[u8]>, pbdhkeyblob: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNFCPasswordParams)(
-            ::windows::core::Interface::as_raw(self),
+        (::windows::core::Vtable::vtable(self).SetNFCPasswordParams)(
+            ::windows::core::Vtable::as_raw(self),
             r#type,
             dwoobpasswordid,
             pbpassword.as_deref().map_or(0, |slice| slice.len() as _),
@@ -138,8 +140,10 @@ impl ::core::fmt::Debug for IWCNDevice {
         f.debug_tuple("IWCNDevice").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IWCNDevice {
+unsafe impl ::windows::core::Vtable for IWCNDevice {
     type Vtable = IWCNDevice_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWCNDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
 }
 #[repr(C)]

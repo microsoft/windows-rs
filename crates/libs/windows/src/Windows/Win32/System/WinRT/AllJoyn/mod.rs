@@ -7,7 +7,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFromWin32Handle)(::windows::core::Interface::as_raw(self), win32handle, enableaboutdata, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, enableaboutdata, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::core::IUnknown {
@@ -56,8 +56,10 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
         f.debug_tuple("IWindowsDevicesAllJoynBusAttachmentFactoryInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
+unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b8f7505_b239_4e7b_88af_f6682575d861);
 }
 #[repr(C)]
@@ -72,7 +74,7 @@ pub struct IWindowsDevicesAllJoynBusAttachmentInterop(::windows::core::IUnknown)
 impl IWindowsDevicesAllJoynBusAttachmentInterop {
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Win32Handle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentInterop> for ::windows::core::IUnknown {
@@ -121,8 +123,10 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentInterop {
         f.debug_tuple("IWindowsDevicesAllJoynBusAttachmentInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentInterop {
+unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusAttachmentInterop {
     type Vtable = IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd89c65b_b50e_4a19_9d0c_b42b783281cd);
 }
 #[repr(C)]
@@ -140,7 +144,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFromWin32Handle)(::windows::core::Interface::as_raw(self), win32handle, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::core::IUnknown {
@@ -189,8 +193,10 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectFactoryInterop {
         f.debug_tuple("IWindowsDevicesAllJoynBusObjectFactoryInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectFactoryInterop {
+unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6174e506_8b95_4e36_95c0_b88fed34938c);
 }
 #[repr(C)]
@@ -204,14 +210,14 @@ pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
 pub struct IWindowsDevicesAllJoynBusObjectInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusObjectInterop {
     pub unsafe fn AddPropertyGetHandler(&self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPropertyGetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute_copy(interfacename), callback).ok()
+        (::windows::core::Vtable::vtable(self).AddPropertyGetHandler)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute_copy(interfacename), callback).ok()
     }
     pub unsafe fn AddPropertySetHandler(&self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPropertySetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute_copy(interfacename), callback).ok()
+        (::windows::core::Vtable::vtable(self).AddPropertySetHandler)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute_copy(interfacename), callback).ok()
     }
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Win32Handle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectInterop> for ::windows::core::IUnknown {
@@ -260,8 +266,10 @@ impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectInterop {
         f.debug_tuple("IWindowsDevicesAllJoynBusObjectInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectInterop {
+unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusObjectInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd78aa3d5_5054_428f_99f2_ec3a5de3c3bc);
 }
 #[repr(C)]

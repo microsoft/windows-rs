@@ -137,7 +137,7 @@ impl IIsolatedAppLauncher {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Launch)(::windows::core::Interface::as_raw(self), appusermodelid.into(), arguments.into(), ::core::mem::transmute(telemetryparameters)).ok()
+        (::windows::core::Vtable::vtable(self).Launch)(::windows::core::Vtable::as_raw(self), appusermodelid.into(), arguments.into(), ::core::mem::transmute(telemetryparameters)).ok()
     }
 }
 impl ::core::convert::From<IIsolatedAppLauncher> for ::windows::core::IUnknown {
@@ -171,8 +171,10 @@ impl ::core::fmt::Debug for IIsolatedAppLauncher {
         f.debug_tuple("IIsolatedAppLauncher").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IIsolatedAppLauncher {
+unsafe impl ::windows::core::Vtable for IIsolatedAppLauncher {
     type Vtable = IIsolatedAppLauncher_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IIsolatedAppLauncher {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
 }
 #[repr(C)]

@@ -3,8 +3,10 @@ pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IThreadPoolStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IThreadPoolStatics {
+unsafe impl ::windows::core::Vtable for IThreadPoolStatics {
     type Vtable = IThreadPoolStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IThreadPoolStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 }
 #[repr(C)]
@@ -27,8 +29,10 @@ pub struct IThreadPoolStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IThreadPoolTimer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IThreadPoolTimer {
+unsafe impl ::windows::core::Vtable for IThreadPoolTimer {
     type Vtable = IThreadPoolTimer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IThreadPoolTimer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 }
 #[repr(C)]
@@ -48,8 +52,10 @@ pub struct IThreadPoolTimer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IThreadPoolTimerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IThreadPoolTimerStatics {
+unsafe impl ::windows::core::Vtable for IThreadPoolTimerStatics {
     type Vtable = IThreadPoolTimerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IThreadPoolTimerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
 }
 #[repr(C)]
@@ -84,7 +90,7 @@ impl ThreadPool {
     {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RunAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).RunAsync)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -95,7 +101,7 @@ impl ThreadPool {
     {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RunWithPriorityAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).RunWithPriorityAsync)(::windows::core::Vtable::as_raw(this), handler.into().abi(), priority, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -106,7 +112,7 @@ impl ThreadPool {
     {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RunWithPriorityAndOptionsAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).RunWithPriorityAndOptionsAsync)(::windows::core::Vtable::as_raw(this), handler.into().abi(), priority, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -128,7 +134,7 @@ impl ThreadPoolTimer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Period)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).Period)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -137,12 +143,12 @@ impl ThreadPoolTimer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).Delay)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Cancel)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -152,7 +158,7 @@ impl ThreadPoolTimer {
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePeriodicTimer)(::windows::core::Interface::as_raw(this), handler.into().abi(), period, result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePeriodicTimer)(::windows::core::Vtable::as_raw(this), handler.into().abi(), period, result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -163,7 +169,7 @@ impl ThreadPoolTimer {
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTimer)(::windows::core::Interface::as_raw(this), handler.into().abi(), delay, result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
+            (::windows::core::Vtable::vtable(this).CreateTimer)(::windows::core::Vtable::as_raw(this), handler.into().abi(), delay, result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -175,7 +181,7 @@ impl ThreadPoolTimer {
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePeriodicTimerWithCompletion)(::windows::core::Interface::as_raw(this), handler.into().abi(), period, destroyed.into().abi(), result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePeriodicTimerWithCompletion)(::windows::core::Vtable::as_raw(this), handler.into().abi(), period, destroyed.into().abi(), result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -187,7 +193,7 @@ impl ThreadPoolTimer {
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTimerWithCompletion)(::windows::core::Interface::as_raw(this), handler.into().abi(), delay, destroyed.into().abi(), result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
+            (::windows::core::Vtable::vtable(this).CreateTimerWithCompletion)(::windows::core::Vtable::as_raw(this), handler.into().abi(), delay, destroyed.into().abi(), result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
         })
     }
     #[doc(hidden)]
@@ -219,8 +225,10 @@ unsafe impl ::windows::core::RuntimeType for ThreadPoolTimer {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ThreadPoolTimer {
+unsafe impl ::windows::core::Vtable for ThreadPoolTimer {
     type Vtable = IThreadPoolTimer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ThreadPoolTimer {
     const IID: ::windows::core::GUID = <IThreadPoolTimer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ThreadPoolTimer {
@@ -368,7 +376,7 @@ impl TimerDestroyedHandler {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ThreadPoolTimer>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), timer.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), timer.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -425,8 +433,10 @@ impl ::core::fmt::Debug for TimerDestroyedHandler {
         f.debug_tuple("TimerDestroyedHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for TimerDestroyedHandler {
+unsafe impl ::windows::core::Vtable for TimerDestroyedHandler {
     type Vtable = TimerDestroyedHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for TimerDestroyedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
 }
 unsafe impl ::windows::core::RuntimeType for TimerDestroyedHandler {
@@ -455,7 +465,7 @@ impl TimerElapsedHandler {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ThreadPoolTimer>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), timer.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), timer.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -512,8 +522,10 @@ impl ::core::fmt::Debug for TimerElapsedHandler {
         f.debug_tuple("TimerElapsedHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for TimerElapsedHandler {
+unsafe impl ::windows::core::Vtable for TimerElapsedHandler {
     type Vtable = TimerElapsedHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for TimerElapsedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaaea667_fbeb_49cb_adb2_71184c556e43);
 }
 unsafe impl ::windows::core::RuntimeType for TimerElapsedHandler {
@@ -547,7 +559,7 @@ impl WorkItemHandler {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), operation.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), operation.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -611,8 +623,11 @@ impl ::core::fmt::Debug for WorkItemHandler {
     }
 }
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Interface for WorkItemHandler {
+unsafe impl ::windows::core::Vtable for WorkItemHandler {
     type Vtable = WorkItemHandler_Vtbl;
+}
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::Interface for WorkItemHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa);
 }
 #[cfg(feature = "Foundation")]

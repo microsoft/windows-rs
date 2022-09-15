@@ -6,56 +6,56 @@ impl IPwmControllerProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PinCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).PinCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn ActualFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ActualFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).ActualFrequency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetDesiredFrequency(&self, frequency: f64) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetDesiredFrequency)(::windows::core::Interface::as_raw(this), frequency, result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).SetDesiredFrequency)(::windows::core::Vtable::as_raw(this), frequency, result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn MaxFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).MaxFrequency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn MinFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).MinFrequency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn AcquirePin(&self, pin: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AcquirePin)(::windows::core::Interface::as_raw(this), pin).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AcquirePin)(::windows::core::Vtable::as_raw(this), pin).ok() }
     }
     pub fn ReleasePin(&self, pin: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReleasePin)(::windows::core::Interface::as_raw(this), pin).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ReleasePin)(::windows::core::Vtable::as_raw(this), pin).ok() }
     }
     pub fn EnablePin(&self, pin: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).EnablePin)(::windows::core::Interface::as_raw(this), pin).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).EnablePin)(::windows::core::Vtable::as_raw(this), pin).ok() }
     }
     pub fn DisablePin(&self, pin: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DisablePin)(::windows::core::Interface::as_raw(this), pin).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).DisablePin)(::windows::core::Vtable::as_raw(this), pin).ok() }
     }
     pub fn SetPulseParameters(&self, pin: i32, dutycycle: f64, invertpolarity: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPulseParameters)(::windows::core::Interface::as_raw(this), pin, dutycycle, invertpolarity).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPulseParameters)(::windows::core::Vtable::as_raw(this), pin, dutycycle, invertpolarity).ok() }
     }
 }
 impl ::core::convert::From<IPwmControllerProvider> for ::windows::core::IUnknown {
@@ -111,8 +111,10 @@ unsafe impl ::windows::core::RuntimeType for IPwmControllerProvider {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IPwmControllerProvider {
+unsafe impl ::windows::core::Vtable for IPwmControllerProvider {
     type Vtable = IPwmControllerProvider_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPwmControllerProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1300593b_e2e3_40a4_b7d9_48dff0377a52);
 }
 #[repr(C)]
@@ -140,7 +142,7 @@ impl IPwmProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetControllers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>(result__)
+            (::windows::core::Vtable::vtable(this).GetControllers)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>(result__)
         }
     }
 }
@@ -197,8 +199,10 @@ unsafe impl ::windows::core::RuntimeType for IPwmProvider {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IPwmProvider {
+unsafe impl ::windows::core::Vtable for IPwmProvider {
     type Vtable = IPwmProvider_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPwmProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3301228_52f1_47b0_9349_66ba43d25902);
 }
 #[repr(C)]

@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESim(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESim {
+unsafe impl ::windows::core::Vtable for IESim {
     type Vtable = IESim_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESim {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f6e6e26_f123_437d_8ced_dc1d2bc0c3a9);
 }
 #[repr(C)]
@@ -46,8 +48,10 @@ pub struct IESim_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESim2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESim2 {
+unsafe impl ::windows::core::Vtable for IESim2 {
     type Vtable = IESim2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESim2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4fd0a0_c68f_56eb_b99b_8f34b8100299);
 }
 #[repr(C)]
@@ -68,8 +72,10 @@ pub struct IESim2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimAddedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimAddedEventArgs {
+unsafe impl ::windows::core::Vtable for IESimAddedEventArgs {
     type Vtable = IESimAddedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimAddedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38bd0a58_4d5a_4d08_8da7_e73eff369ddd);
 }
 #[repr(C)]
@@ -81,8 +87,10 @@ pub struct IESimAddedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimDiscoverEvent(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimDiscoverEvent {
+unsafe impl ::windows::core::Vtable for IESimDiscoverEvent {
     type Vtable = IESimDiscoverEvent_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimDiscoverEvent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe59ac3e3_39bc_5f6f_9321_0d4a182d261b);
 }
 #[repr(C)]
@@ -95,8 +103,10 @@ pub struct IESimDiscoverEvent_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimDiscoverResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimDiscoverResult {
+unsafe impl ::windows::core::Vtable for IESimDiscoverResult {
     type Vtable = IESimDiscoverResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimDiscoverResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56b4bb5e_ab2f_5ac6_b359_dd5a8e237926);
 }
 #[repr(C)]
@@ -114,8 +124,10 @@ pub struct IESimDiscoverResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimDownloadProfileMetadataResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimDownloadProfileMetadataResult {
+unsafe impl ::windows::core::Vtable for IESimDownloadProfileMetadataResult {
     type Vtable = IESimDownloadProfileMetadataResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimDownloadProfileMetadataResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4234d9e_5ad6_426d_8d00_4434f449afec);
 }
 #[repr(C)]
@@ -128,8 +140,10 @@ pub struct IESimDownloadProfileMetadataResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimManagerStatics {
+unsafe impl ::windows::core::Vtable for IESimManagerStatics {
     type Vtable = IESimManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bfa2c0c_df88_4631_bf04_c12e281b3962);
 }
 #[repr(C)]
@@ -150,8 +164,10 @@ pub struct IESimManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimOperationResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimOperationResult {
+unsafe impl ::windows::core::Vtable for IESimOperationResult {
     type Vtable = IESimOperationResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimOperationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa67b63b1_309b_4e77_9e7e_cd93f1ddc7b9);
 }
 #[repr(C)]
@@ -163,8 +179,10 @@ pub struct IESimOperationResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimPolicy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimPolicy {
+unsafe impl ::windows::core::Vtable for IESimPolicy {
     type Vtable = IESimPolicy_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimPolicy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e1b99d_cf7e_4315_882b_6f1e74b0d38f);
 }
 #[repr(C)]
@@ -176,8 +194,10 @@ pub struct IESimPolicy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimProfile(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimProfile {
+unsafe impl ::windows::core::Vtable for IESimProfile {
     type Vtable = IESimProfile_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimProfile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee1e7880_06a9_4027_b4f8_ddb23d7810e0);
 }
 #[repr(C)]
@@ -211,8 +231,10 @@ pub struct IESimProfile_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimProfileMetadata(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimProfileMetadata {
+unsafe impl ::windows::core::Vtable for IESimProfileMetadata {
     type Vtable = IESimProfileMetadata_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimProfileMetadata {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed25831f_90db_498d_a7b4_ebce807d3c23);
 }
 #[repr(C)]
@@ -257,8 +279,10 @@ pub struct IESimProfileMetadata_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimProfilePolicy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimProfilePolicy {
+unsafe impl ::windows::core::Vtable for IESimProfilePolicy {
     type Vtable = IESimProfilePolicy_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimProfilePolicy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6dd0f1d_9c5c_46c5_a289_a948999bf062);
 }
 #[repr(C)]
@@ -272,8 +296,10 @@ pub struct IESimProfilePolicy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimRemovedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimRemovedEventArgs {
+unsafe impl ::windows::core::Vtable for IESimRemovedEventArgs {
     type Vtable = IESimRemovedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimRemovedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdec5277b_2fd9_4ed9_8376_d9b5e41278a3);
 }
 #[repr(C)]
@@ -285,8 +311,10 @@ pub struct IESimRemovedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimServiceInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimServiceInfo {
+unsafe impl ::windows::core::Vtable for IESimServiceInfo {
     type Vtable = IESimServiceInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimServiceInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf16aabcf_7f59_4a51_8494_bd89d5ff50ee);
 }
 #[repr(C)]
@@ -299,8 +327,10 @@ pub struct IESimServiceInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimUpdatedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimUpdatedEventArgs {
+unsafe impl ::windows::core::Vtable for IESimUpdatedEventArgs {
     type Vtable = IESimUpdatedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimUpdatedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c125cec_508d_4b88_83cb_68bef8168d12);
 }
 #[repr(C)]
@@ -312,8 +342,10 @@ pub struct IESimUpdatedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESimWatcher(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IESimWatcher {
+unsafe impl ::windows::core::Vtable for IESimWatcher {
     type Vtable = IESimWatcher_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESimWatcher {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1f84ceb_a28d_4fbf_9771_6e31b81ccf22);
 }
 #[repr(C)]
@@ -367,8 +399,10 @@ pub struct IESimWatcher_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFdnAccessManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IFdnAccessManagerStatics {
+unsafe impl ::windows::core::Vtable for IFdnAccessManagerStatics {
     type Vtable = IFdnAccessManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IFdnAccessManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2aa4395_f1e6_4319_aa3e_477ca64b2bdf);
 }
 #[repr(C)]
@@ -383,8 +417,10 @@ pub struct IFdnAccessManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHotspotAuthenticationContext(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHotspotAuthenticationContext {
+unsafe impl ::windows::core::Vtable for IHotspotAuthenticationContext {
     type Vtable = IHotspotAuthenticationContext_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHotspotAuthenticationContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1003_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
@@ -416,8 +452,10 @@ pub struct IHotspotAuthenticationContext_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHotspotAuthenticationContext2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHotspotAuthenticationContext2 {
+unsafe impl ::windows::core::Vtable for IHotspotAuthenticationContext2 {
     type Vtable = IHotspotAuthenticationContext2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHotspotAuthenticationContext2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1004_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
@@ -432,8 +470,10 @@ pub struct IHotspotAuthenticationContext2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHotspotAuthenticationContextStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHotspotAuthenticationContextStatics {
+unsafe impl ::windows::core::Vtable for IHotspotAuthenticationContextStatics {
     type Vtable = IHotspotAuthenticationContextStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHotspotAuthenticationContextStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1002_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
@@ -445,8 +485,10 @@ pub struct IHotspotAuthenticationContextStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHotspotAuthenticationEventDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHotspotAuthenticationEventDetails {
+unsafe impl ::windows::core::Vtable for IHotspotAuthenticationEventDetails {
     type Vtable = IHotspotAuthenticationEventDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHotspotAuthenticationEventDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1001_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
@@ -458,8 +500,10 @@ pub struct IHotspotAuthenticationEventDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHotspotCredentialsAuthenticationResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHotspotCredentialsAuthenticationResult {
+unsafe impl ::windows::core::Vtable for IHotspotCredentialsAuthenticationResult {
     type Vtable = IHotspotCredentialsAuthenticationResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHotspotCredentialsAuthenticationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_1005_4de5_83c7_de61d88831d0);
 }
 #[repr(C)]
@@ -480,8 +524,10 @@ pub struct IHotspotCredentialsAuthenticationResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IKnownCSimFilePathsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKnownCSimFilePathsStatics {
+unsafe impl ::windows::core::Vtable for IKnownCSimFilePathsStatics {
     type Vtable = IKnownCSimFilePathsStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKnownCSimFilePathsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb458aeed_49f1_4c22_b073_96d511bf9c35);
 }
 #[repr(C)]
@@ -504,8 +550,10 @@ pub struct IKnownCSimFilePathsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IKnownRuimFilePathsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKnownRuimFilePathsStatics {
+unsafe impl ::windows::core::Vtable for IKnownRuimFilePathsStatics {
     type Vtable = IKnownRuimFilePathsStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKnownRuimFilePathsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3883c8b9_ff24_4571_a867_09f960426e14);
 }
 #[repr(C)]
@@ -528,8 +576,10 @@ pub struct IKnownRuimFilePathsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IKnownSimFilePathsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKnownSimFilePathsStatics {
+unsafe impl ::windows::core::Vtable for IKnownSimFilePathsStatics {
     type Vtable = IKnownSimFilePathsStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKnownSimFilePathsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80cd1a63_37a5_43d3_80a3_ccd23e8fecee);
 }
 #[repr(C)]
@@ -556,8 +606,10 @@ pub struct IKnownSimFilePathsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IKnownUSimFilePathsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IKnownUSimFilePathsStatics {
+unsafe impl ::windows::core::Vtable for IKnownUSimFilePathsStatics {
     type Vtable = IKnownUSimFilePathsStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKnownUSimFilePathsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c34e581_1f1b_43f4_9530_8b092d32d71f);
 }
 #[repr(C)]
@@ -588,8 +640,10 @@ pub struct IKnownUSimFilePathsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandAccount(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandAccount {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandAccount {
     type Vtable = IMobileBroadbandAccount_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandAccount {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36c24ccd_cee2_43e0_a603_ee86a36d6570);
 }
 #[repr(C)]
@@ -605,8 +659,10 @@ pub struct IMobileBroadbandAccount_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandAccount2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandAccount2 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandAccount2 {
     type Vtable = IMobileBroadbandAccount2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandAccount2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f52f1c_1136_4257_959f_b658a352b6d4);
 }
 #[repr(C)]
@@ -621,8 +677,10 @@ pub struct IMobileBroadbandAccount2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandAccount3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandAccount3 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandAccount3 {
     type Vtable = IMobileBroadbandAccount3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandAccount3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x092a1e21_9379_4b9b_ad31_d5fee2f748c6);
 }
 #[repr(C)]
@@ -637,8 +695,10 @@ pub struct IMobileBroadbandAccount3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandAccountEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandAccountEventArgs {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandAccountEventArgs {
     type Vtable = IMobileBroadbandAccountEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandAccountEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3853c880_77de_4c04_bead_a123b08c9f59);
 }
 #[repr(C)]
@@ -650,8 +710,10 @@ pub struct IMobileBroadbandAccountEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandAccountStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandAccountStatics {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandAccountStatics {
     type Vtable = IMobileBroadbandAccountStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandAccountStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7f4d24_afc1_4fc8_ae9a_a9175310faad);
 }
 #[repr(C)]
@@ -667,8 +729,10 @@ pub struct IMobileBroadbandAccountStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandAccountUpdatedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandAccountUpdatedEventArgs {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandAccountUpdatedEventArgs {
     type Vtable = IMobileBroadbandAccountUpdatedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandAccountUpdatedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bc31d88_a6bd_49e1_80ab_6b91354a57d4);
 }
 #[repr(C)]
@@ -682,8 +746,10 @@ pub struct IMobileBroadbandAccountUpdatedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandAccountWatcher(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandAccountWatcher {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandAccountWatcher {
     type Vtable = IMobileBroadbandAccountWatcher_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandAccountWatcher {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf3335e_23b5_449f_928d_5e0d3e04471d);
 }
 #[repr(C)]
@@ -737,8 +803,10 @@ pub struct IMobileBroadbandAccountWatcher_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandAntennaSar(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandAntennaSar {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandAntennaSar {
     type Vtable = IMobileBroadbandAntennaSar_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandAntennaSar {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9af4b7e_cbf9_4109_90be_5c06bfd513b6);
 }
 #[repr(C)]
@@ -751,8 +819,10 @@ pub struct IMobileBroadbandAntennaSar_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandAntennaSarFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandAntennaSarFactory {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandAntennaSarFactory {
     type Vtable = IMobileBroadbandAntennaSarFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandAntennaSarFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa91e1716_c04d_4a21_8698_1459dc672c6e);
 }
 #[repr(C)]
@@ -764,8 +834,10 @@ pub struct IMobileBroadbandAntennaSarFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandCellCdma(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandCellCdma {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandCellCdma {
     type Vtable = IMobileBroadbandCellCdma_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandCellCdma {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0601b3b4_411a_4f2e_8287_76f5650c60cd);
 }
 #[repr(C)]
@@ -808,8 +880,10 @@ pub struct IMobileBroadbandCellCdma_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandCellGsm(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandCellGsm {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandCellGsm {
     type Vtable = IMobileBroadbandCellGsm_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandCellGsm {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc917f06_7ee0_47b8_9e1f_c3b48df9df5b);
 }
 #[repr(C)]
@@ -845,8 +919,10 @@ pub struct IMobileBroadbandCellGsm_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandCellLte(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandCellLte {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandCellLte {
     type Vtable = IMobileBroadbandCellLte_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandCellLte {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9197c87b_2b78_456d_8b53_aaa25d0af741);
 }
 #[repr(C)]
@@ -886,8 +962,10 @@ pub struct IMobileBroadbandCellLte_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandCellNR(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandCellNR {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandCellNR {
     type Vtable = IMobileBroadbandCellNR_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandCellNR {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa13f0deb_66fc_4b4b_83a9_a487a3a5a0a6);
 }
 #[repr(C)]
@@ -931,8 +1009,10 @@ pub struct IMobileBroadbandCellNR_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandCellTdscdma(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandCellTdscdma {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandCellTdscdma {
     type Vtable = IMobileBroadbandCellTdscdma_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandCellTdscdma {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0eda1655_db0e_4182_8cda_cc419a7bde08);
 }
 #[repr(C)]
@@ -972,8 +1052,10 @@ pub struct IMobileBroadbandCellTdscdma_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandCellUmts(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandCellUmts {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandCellUmts {
     type Vtable = IMobileBroadbandCellUmts_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandCellUmts {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b4b5ae_49c8_4f15_b285_4c26a7f67215);
 }
 #[repr(C)]
@@ -1013,8 +1095,10 @@ pub struct IMobileBroadbandCellUmts_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandCellsInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandCellsInfo {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandCellsInfo {
     type Vtable = IMobileBroadbandCellsInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandCellsInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89a9562a_e472_4da5_929c_de61711dd261);
 }
 #[repr(C)]
@@ -1065,8 +1149,10 @@ pub struct IMobileBroadbandCellsInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandCellsInfo2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandCellsInfo2 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandCellsInfo2 {
     type Vtable = IMobileBroadbandCellsInfo2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandCellsInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66205912_b89f_4e12_bbb6_d5cf09a820ca);
 }
 #[repr(C)]
@@ -1085,8 +1171,10 @@ pub struct IMobileBroadbandCellsInfo2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandCurrentSlotIndexChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandCurrentSlotIndexChangedEventArgs {
     type Vtable = IMobileBroadbandCurrentSlotIndexChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandCurrentSlotIndexChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf718b184_c370_5fd4_a670_1846cb9bce47);
 }
 #[repr(C)]
@@ -1098,8 +1186,10 @@ pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceInformation {
     type Vtable = IMobileBroadbandDeviceInformation_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d08168_e381_4c6e_9be8_fe156969a446);
 }
 #[repr(C)]
@@ -1130,8 +1220,10 @@ pub struct IMobileBroadbandDeviceInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceInformation2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation2 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceInformation2 {
     type Vtable = IMobileBroadbandDeviceInformation2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e467af1_f932_4737_a722_03ba72370cb8);
 }
 #[repr(C)]
@@ -1145,8 +1237,10 @@ pub struct IMobileBroadbandDeviceInformation2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceInformation3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation3 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceInformation3 {
     type Vtable = IMobileBroadbandDeviceInformation3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe08bb4bd_5d30_4b5a_92cc_d54df881d49e);
 }
 #[repr(C)]
@@ -1160,8 +1254,10 @@ pub struct IMobileBroadbandDeviceInformation3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceInformation4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation4 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceInformation4 {
     type Vtable = IMobileBroadbandDeviceInformation4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceInformation4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x263f3152_7b9d_582c_b17c_f80a60b50031);
 }
 #[repr(C)]
@@ -1173,8 +1269,10 @@ pub struct IMobileBroadbandDeviceInformation4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceService(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceService {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceService {
     type Vtable = IMobileBroadbandDeviceService_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceService {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22be1a52_bd80_40ac_8e1f_2e07836a3dbd);
 }
 #[repr(C)]
@@ -1192,8 +1290,10 @@ pub struct IMobileBroadbandDeviceService_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceServiceCommandResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceCommandResult {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceServiceCommandResult {
     type Vtable = IMobileBroadbandDeviceServiceCommandResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceCommandResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0f46abb_94d6_44b9_a538_f0810b645389);
 }
 #[repr(C)]
@@ -1209,8 +1309,10 @@ pub struct IMobileBroadbandDeviceServiceCommandResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceServiceCommandSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceCommandSession {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceServiceCommandSession {
     type Vtable = IMobileBroadbandDeviceServiceCommandSession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceCommandSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc098a45_913b_4914_b6c3_ae6304593e75);
 }
 #[repr(C)]
@@ -1230,8 +1332,10 @@ pub struct IMobileBroadbandDeviceServiceCommandSession_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceDataReceivedEventArgs {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceServiceDataReceivedEventArgs {
     type Vtable = IMobileBroadbandDeviceServiceDataReceivedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceDataReceivedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6aa13de_1380_40e3_8618_73cbca48138c);
 }
 #[repr(C)]
@@ -1246,8 +1350,10 @@ pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceServiceDataSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceDataSession {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceServiceDataSession {
     type Vtable = IMobileBroadbandDeviceServiceDataSession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceDataSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdad62333_8bcf_4289_8a37_045c2169486a);
 }
 #[repr(C)]
@@ -1271,8 +1377,10 @@ pub struct IMobileBroadbandDeviceServiceDataSession_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceServiceInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceInformation {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceServiceInformation {
     type Vtable = IMobileBroadbandDeviceServiceInformation_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53d69b5b_c4ed_45f0_803a_d9417a6d9846);
 }
 #[repr(C)]
@@ -1286,8 +1394,10 @@ pub struct IMobileBroadbandDeviceServiceInformation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandDeviceServiceTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceTriggerDetails {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceServiceTriggerDetails {
     type Vtable = IMobileBroadbandDeviceServiceTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a055b70_b9ae_4458_9241_a6a5fbf18a0c);
 }
 #[repr(C)]
@@ -1304,8 +1414,10 @@ pub struct IMobileBroadbandDeviceServiceTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandModem(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandModem {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandModem {
     type Vtable = IMobileBroadbandModem_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandModem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0356912_e9f9_4f67_a03d_43189a316bf1);
 }
 #[repr(C)]
@@ -1335,8 +1447,10 @@ pub struct IMobileBroadbandModem_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandModem2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandModem2 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandModem2 {
     type Vtable = IMobileBroadbandModem2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandModem2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12862b28_b9eb_4ee2_bbe3_711f53eea373);
 }
 #[repr(C)]
@@ -1355,8 +1469,10 @@ pub struct IMobileBroadbandModem2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandModem3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandModem3 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandModem3 {
     type Vtable = IMobileBroadbandModem3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandModem3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9fec6ea_2f34_4582_9102_c314d2a87eec);
 }
 #[repr(C)]
@@ -1380,8 +1496,10 @@ pub struct IMobileBroadbandModem3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandModemConfiguration(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandModemConfiguration {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandModemConfiguration {
     type Vtable = IMobileBroadbandModemConfiguration_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandModemConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfce035a3_d6cd_4320_b982_be9d3ec7890f);
 }
 #[repr(C)]
@@ -1395,8 +1513,10 @@ pub struct IMobileBroadbandModemConfiguration_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandModemConfiguration2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandModemConfiguration2 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandModemConfiguration2 {
     type Vtable = IMobileBroadbandModemConfiguration2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandModemConfiguration2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320ff5c5_e460_42ae_aa51_69621e7a4477);
 }
 #[repr(C)]
@@ -1408,8 +1528,10 @@ pub struct IMobileBroadbandModemConfiguration2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandModemIsolation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandModemIsolation {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandModemIsolation {
     type Vtable = IMobileBroadbandModemIsolation_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandModemIsolation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5618fec_e661_4330_9bb4_3480212ec354);
 }
 #[repr(C)]
@@ -1430,8 +1552,10 @@ pub struct IMobileBroadbandModemIsolation_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandModemIsolationFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandModemIsolationFactory {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandModemIsolationFactory {
     type Vtable = IMobileBroadbandModemIsolationFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandModemIsolationFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21d7ec58_c2b1_4c2f_a030_72820a24ecd9);
 }
 #[repr(C)]
@@ -1443,8 +1567,10 @@ pub struct IMobileBroadbandModemIsolationFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandModemStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandModemStatics {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandModemStatics {
     type Vtable = IMobileBroadbandModemStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandModemStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf99ed637_d6f1_4a78_8cbc_6421a65063c8);
 }
 #[repr(C)]
@@ -1458,8 +1584,10 @@ pub struct IMobileBroadbandModemStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandNetwork(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandNetwork {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandNetwork {
     type Vtable = IMobileBroadbandNetwork_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandNetwork {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb63928c_0309_4cb6_a8c1_6a5a3c8e1ff6);
 }
 #[repr(C)]
@@ -1483,8 +1611,10 @@ pub struct IMobileBroadbandNetwork_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandNetwork2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandNetwork2 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandNetwork2 {
     type Vtable = IMobileBroadbandNetwork2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandNetwork2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a55db22_62f7_4bdd_ba1d_477441960ba0);
 }
 #[repr(C)]
@@ -1503,8 +1633,10 @@ pub struct IMobileBroadbandNetwork2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandNetwork3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandNetwork3 {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandNetwork3 {
     type Vtable = IMobileBroadbandNetwork3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandNetwork3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33670a8a_c7ef_444c_ab6c_df7ef7a390fe);
 }
 #[repr(C)]
@@ -1519,8 +1651,10 @@ pub struct IMobileBroadbandNetwork3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandNetworkRegistrationStateChange(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandNetworkRegistrationStateChange {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandNetworkRegistrationStateChange {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChange_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandNetworkRegistrationStateChange {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeaf94e1_960f_49b4_a08d_7d85e968c7ec);
 }
 #[repr(C)]
@@ -1533,8 +1667,10 @@ pub struct IMobileBroadbandNetworkRegistrationStateChange_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89135cff_28b8_46aa_b137_1c4b0f21edfe);
 }
 #[repr(C)]
@@ -1549,8 +1685,10 @@ pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandPco(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandPco {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandPco {
     type Vtable = IMobileBroadbandPco_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandPco {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4e4fcbe_e3a3_43c5_a87b_6c86d229d7fa);
 }
 #[repr(C)]
@@ -1567,8 +1705,10 @@ pub struct IMobileBroadbandPco_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandPcoDataChangeTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandPcoDataChangeTriggerDetails {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandPcoDataChangeTriggerDetails {
     type Vtable = IMobileBroadbandPcoDataChangeTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandPcoDataChangeTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x263f5114_64e0_4493_909b_2d14a01962b1);
 }
 #[repr(C)]
@@ -1580,8 +1720,10 @@ pub struct IMobileBroadbandPcoDataChangeTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandPin(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandPin {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandPin {
     type Vtable = IMobileBroadbandPin_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandPin {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe661d709_e779_45bf_8281_75323df9e321);
 }
 #[repr(C)]
@@ -1619,8 +1761,10 @@ pub struct IMobileBroadbandPin_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandPinLockStateChange(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandPinLockStateChange {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandPinLockStateChange {
     type Vtable = IMobileBroadbandPinLockStateChange_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandPinLockStateChange {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe16673e_1f04_4f95_8b90_e7f559dde7e5);
 }
 #[repr(C)]
@@ -1634,8 +1778,10 @@ pub struct IMobileBroadbandPinLockStateChange_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandPinLockStateChangeTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandPinLockStateChangeTriggerDetails {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandPinLockStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandPinLockStateChangeTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandPinLockStateChangeTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd338c091_3e91_4d38_9036_aee83a6e79ad);
 }
 #[repr(C)]
@@ -1650,8 +1796,10 @@ pub struct IMobileBroadbandPinLockStateChangeTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandPinManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandPinManager {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandPinManager {
     type Vtable = IMobileBroadbandPinManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandPinManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83567edd_6e1f_4b9b_a413_2b1f50cc36df);
 }
 #[repr(C)]
@@ -1667,8 +1815,10 @@ pub struct IMobileBroadbandPinManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandPinOperationResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandPinOperationResult {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandPinOperationResult {
     type Vtable = IMobileBroadbandPinOperationResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandPinOperationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11dddc32_31e7_49f5_b663_123d3bef0362);
 }
 #[repr(C)]
@@ -1681,8 +1831,10 @@ pub struct IMobileBroadbandPinOperationResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandRadioStateChange(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandRadioStateChange {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandRadioStateChange {
     type Vtable = IMobileBroadbandRadioStateChange_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandRadioStateChange {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb054a561_9833_4aed_9717_4348b21a24b3);
 }
 #[repr(C)]
@@ -1695,8 +1847,10 @@ pub struct IMobileBroadbandRadioStateChange_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandRadioStateChangeTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandRadioStateChangeTriggerDetails {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandRadioStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandRadioStateChangeTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandRadioStateChangeTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71301ace_093c_42c6_b0db_ad1f75a65445);
 }
 #[repr(C)]
@@ -1711,8 +1865,10 @@ pub struct IMobileBroadbandRadioStateChangeTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandSarManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandSarManager {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandSarManager {
     type Vtable = IMobileBroadbandSarManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandSarManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b26833_967e_40c9_a485_19c0dd209e22);
 }
 #[repr(C)]
@@ -1768,8 +1924,10 @@ pub struct IMobileBroadbandSarManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandSlotInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandSlotInfo {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandSlotInfo {
     type Vtable = IMobileBroadbandSlotInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandSlotInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd350b32_882e_542a_b17d_0bb1b49bae9e);
 }
 #[repr(C)]
@@ -1782,8 +1940,10 @@ pub struct IMobileBroadbandSlotInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandSlotInfoChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandSlotInfoChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandSlotInfoChangedEventArgs {
     type Vtable = IMobileBroadbandSlotInfoChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandSlotInfoChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3158839f_950c_54ce_a48d_ba4529b48f0f);
 }
 #[repr(C)]
@@ -1795,8 +1955,10 @@ pub struct IMobileBroadbandSlotInfoChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandSlotManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandSlotManager {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandSlotManager {
     type Vtable = IMobileBroadbandSlotManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandSlotManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba07cd6_2019_5f81_a294_cc364a11d0b2);
 }
 #[repr(C)]
@@ -1833,8 +1995,10 @@ pub struct IMobileBroadbandSlotManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandTransmissionStateChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandTransmissionStateChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandTransmissionStateChangedEventArgs {
     type Vtable = IMobileBroadbandTransmissionStateChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandTransmissionStateChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x612e3875_040a_4f99_a4f9_61d7c32da129);
 }
 #[repr(C)]
@@ -1846,8 +2010,10 @@ pub struct IMobileBroadbandTransmissionStateChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandUicc(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandUicc {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandUicc {
     type Vtable = IMobileBroadbandUicc_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandUicc {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe634f691_525a_4ce2_8fce_aa4162579154);
 }
 #[repr(C)]
@@ -1863,8 +2029,10 @@ pub struct IMobileBroadbandUicc_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandUiccApp(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandUiccApp {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandUiccApp {
     type Vtable = IMobileBroadbandUiccApp_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandUiccApp {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d170556_98a1_43dd_b2ec_50c90cf248df);
 }
 #[repr(C)]
@@ -1888,8 +2056,10 @@ pub struct IMobileBroadbandUiccApp_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandUiccAppReadRecordResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandUiccAppReadRecordResult {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandUiccAppReadRecordResult {
     type Vtable = IMobileBroadbandUiccAppReadRecordResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandUiccAppReadRecordResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c95285_358e_47c5_8249_695f383b2bdb);
 }
 #[repr(C)]
@@ -1905,8 +2075,10 @@ pub struct IMobileBroadbandUiccAppReadRecordResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandUiccAppRecordDetailsResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandUiccAppRecordDetailsResult {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandUiccAppRecordDetailsResult {
     type Vtable = IMobileBroadbandUiccAppRecordDetailsResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandUiccAppRecordDetailsResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd919682f_be14_4934_981d_2f57b9ed83e6);
 }
 #[repr(C)]
@@ -1923,8 +2095,10 @@ pub struct IMobileBroadbandUiccAppRecordDetailsResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMobileBroadbandUiccAppsResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMobileBroadbandUiccAppsResult {
+unsafe impl ::windows::core::Vtable for IMobileBroadbandUiccAppsResult {
     type Vtable = IMobileBroadbandUiccAppsResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandUiccAppsResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x744930eb_8157_4a41_8494_6bf54c9b1d2b);
 }
 #[repr(C)]
@@ -1940,8 +2114,10 @@ pub struct IMobileBroadbandUiccAppsResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorDataUsageTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorDataUsageTriggerDetails {
+unsafe impl ::windows::core::Vtable for INetworkOperatorDataUsageTriggerDetails {
     type Vtable = INetworkOperatorDataUsageTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorDataUsageTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50e3126d_a465_4eeb_9317_28a167630cea);
 }
 #[repr(C)]
@@ -1953,8 +2129,10 @@ pub struct INetworkOperatorDataUsageTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorNotificationEventDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorNotificationEventDetails {
+unsafe impl ::windows::core::Vtable for INetworkOperatorNotificationEventDetails {
     type Vtable = INetworkOperatorNotificationEventDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorNotificationEventDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc68a9d1_82e1_4488_9f2c_1276c2468fac);
 }
 #[repr(C)]
@@ -1974,8 +2152,10 @@ pub struct INetworkOperatorNotificationEventDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringAccessPointConfiguration(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringAccessPointConfiguration {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringAccessPointConfiguration {
     type Vtable = INetworkOperatorTetheringAccessPointConfiguration_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringAccessPointConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bcc0284_412e_403d_acc6_b757e34774a4);
 }
 #[repr(C)]
@@ -1990,8 +2170,10 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringAccessPointConfiguration2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringAccessPointConfiguration2 {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringAccessPointConfiguration2 {
     type Vtable = INetworkOperatorTetheringAccessPointConfiguration2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringAccessPointConfiguration2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1809142_7238_59a0_928b_74ab46fd64b6);
 }
 #[repr(C)]
@@ -2009,8 +2191,10 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringClient(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringClient {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringClient {
     type Vtable = INetworkOperatorTetheringClient_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringClient {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x709d254c_595f_4847_bb30_646935542918);
 }
 #[repr(C)]
@@ -2026,8 +2210,10 @@ pub struct INetworkOperatorTetheringClient_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringClientManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringClientManager {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringClientManager {
     type Vtable = INetworkOperatorTetheringClientManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringClientManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91b14016_8dca_4225_bbed_eef8b8d718d7);
 }
 #[repr(C)]
@@ -2042,8 +2228,10 @@ pub struct INetworkOperatorTetheringClientManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringEntitlementCheck(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringEntitlementCheck {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringEntitlementCheck {
     type Vtable = INetworkOperatorTetheringEntitlementCheck_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringEntitlementCheck {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0108916d_9e9a_4af6_8da3_60493b19c204);
 }
 #[repr(C)]
@@ -2055,8 +2243,10 @@ pub struct INetworkOperatorTetheringEntitlementCheck_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManager {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringManager {
     type Vtable = INetworkOperatorTetheringManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45a8da0_0e86_4d98_8ba4_dd70d4b764d3);
 }
 #[repr(C)]
@@ -2083,8 +2273,10 @@ pub struct INetworkOperatorTetheringManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringManagerStatics {
     type Vtable = INetworkOperatorTetheringManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ebcbacc_f8c3_405c_9964_70a1eeabe194);
 }
 #[repr(C)]
@@ -2097,8 +2289,10 @@ pub struct INetworkOperatorTetheringManagerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics2 {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringManagerStatics2 {
     type Vtable = INetworkOperatorTetheringManagerStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b235412_35f0_49e7_9b08_16d278fbaa42);
 }
 #[repr(C)]
@@ -2117,8 +2311,10 @@ pub struct INetworkOperatorTetheringManagerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringManagerStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics3 {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringManagerStatics3 {
     type Vtable = INetworkOperatorTetheringManagerStatics3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fdaadb6_4af9_4f21_9b58_d53e9f24231e);
 }
 #[repr(C)]
@@ -2133,8 +2329,10 @@ pub struct INetworkOperatorTetheringManagerStatics3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringManagerStatics4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics4 {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringManagerStatics4 {
     type Vtable = INetworkOperatorTetheringManagerStatics4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringManagerStatics4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3b9f9d0_ebff_46a4_a847_d663d8b0977e);
 }
 #[repr(C)]
@@ -2156,8 +2354,10 @@ pub struct INetworkOperatorTetheringManagerStatics4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct INetworkOperatorTetheringOperationResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkOperatorTetheringOperationResult {
+unsafe impl ::windows::core::Vtable for INetworkOperatorTetheringOperationResult {
     type Vtable = INetworkOperatorTetheringOperationResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INetworkOperatorTetheringOperationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebd203a1_01ba_476d_b4b3_bf3d12c8f80c);
 }
 #[repr(C)]
@@ -2170,8 +2370,10 @@ pub struct INetworkOperatorTetheringOperationResult_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProvisionFromXmlDocumentResults(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProvisionFromXmlDocumentResults {
+unsafe impl ::windows::core::Vtable for IProvisionFromXmlDocumentResults {
     type Vtable = IProvisionFromXmlDocumentResults_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProvisionFromXmlDocumentResults {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217700e0_8203_11df_adb9_f4ce462d9137);
 }
 #[repr(C)]
@@ -2184,8 +2386,10 @@ pub struct IProvisionFromXmlDocumentResults_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProvisionedProfile(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProvisionedProfile {
+unsafe impl ::windows::core::Vtable for IProvisionedProfile {
     type Vtable = IProvisionedProfile_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProvisionedProfile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217700e0_8202_11df_adb9_f4ce462d9137);
 }
 #[repr(C)]
@@ -2204,8 +2408,10 @@ pub struct IProvisionedProfile_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProvisioningAgent(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProvisioningAgent {
+unsafe impl ::windows::core::Vtable for IProvisioningAgent {
     type Vtable = IProvisioningAgent_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProvisioningAgent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217700e0_8201_11df_adb9_f4ce462d9137);
 }
 #[repr(C)]
@@ -2221,8 +2427,10 @@ pub struct IProvisioningAgent_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProvisioningAgentStaticMethods(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProvisioningAgentStaticMethods {
+unsafe impl ::windows::core::Vtable for IProvisioningAgentStaticMethods {
     type Vtable = IProvisioningAgentStaticMethods_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProvisioningAgentStaticMethods {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217700e0_8101_11df_adb9_f4ce462d9137);
 }
 #[repr(C)]
@@ -2234,8 +2442,10 @@ pub struct IProvisioningAgentStaticMethods_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITetheringEntitlementCheckTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITetheringEntitlementCheckTriggerDetails {
+unsafe impl ::windows::core::Vtable for ITetheringEntitlementCheckTriggerDetails {
     type Vtable = ITetheringEntitlementCheckTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITetheringEntitlementCheckTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03c65e9d_5926_41f3_a94e_b50926fc421b);
 }
 #[repr(C)]
@@ -2249,8 +2459,10 @@ pub struct ITetheringEntitlementCheckTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUssdMessage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUssdMessage {
+unsafe impl ::windows::core::Vtable for IUssdMessage {
     type Vtable = IUssdMessage_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUssdMessage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_2004_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
@@ -2267,8 +2479,10 @@ pub struct IUssdMessage_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUssdMessageFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUssdMessageFactory {
+unsafe impl ::windows::core::Vtable for IUssdMessageFactory {
     type Vtable = IUssdMessageFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUssdMessageFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_1003_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
@@ -2280,8 +2494,10 @@ pub struct IUssdMessageFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUssdReply(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUssdReply {
+unsafe impl ::windows::core::Vtable for IUssdReply {
     type Vtable = IUssdReply_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUssdReply {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_2005_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
@@ -2294,8 +2510,10 @@ pub struct IUssdReply_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUssdSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUssdSession {
+unsafe impl ::windows::core::Vtable for IUssdSession {
     type Vtable = IUssdSession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUssdSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_2002_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
@@ -2311,8 +2529,10 @@ pub struct IUssdSession_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUssdSessionStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUssdSessionStatics {
+unsafe impl ::windows::core::Vtable for IUssdSessionStatics {
     type Vtable = IUssdSessionStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUssdSessionStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9acf82_1001_4d5d_bf81_2aba1b4be4a8);
 }
 #[repr(C)]
@@ -2332,42 +2552,42 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableMemoryInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).AvailableMemoryInBytes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     pub fn Eid(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Eid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Eid)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn FirmwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FirmwareVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).FirmwareVersion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn MobileBroadbandModemDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MobileBroadbandModemDeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).MobileBroadbandModemDeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Policy(&self) -> ::windows::core::Result<ESimPolicy> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimPolicy>(result__)
+            (::windows::core::Vtable::vtable(this).Policy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimPolicy>(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<ESimState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimState>(result__)
+            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimState>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2376,7 +2596,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ESimProfile>>(result__)
+            (::windows::core::Vtable::vtable(this).GetProfiles)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ESimProfile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2385,7 +2605,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteProfileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(profileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).DeleteProfileAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(profileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2394,7 +2614,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadProfileMetadataAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activationcode), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>>(result__)
+            (::windows::core::Vtable::vtable(this).DownloadProfileMetadataAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activationcode), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2403,7 +2623,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResetAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).ResetAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2415,27 +2635,27 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProfileChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ProfileChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveProfileChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveProfileChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn Discover(&self) -> ::windows::core::Result<ESimDiscoverResult> {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Discover)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimDiscoverResult>(result__)
+            (::windows::core::Vtable::vtable(this).Discover)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimDiscoverResult>(result__)
         }
     }
     pub fn DiscoverWithServerAddressAndMatchingId(&self, serveraddress: &::windows::core::HSTRING, matchingid: &::windows::core::HSTRING) -> ::windows::core::Result<ESimDiscoverResult> {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), result__.as_mut_ptr()).from_abi::<ESimDiscoverResult>(result__)
+            (::windows::core::Vtable::vtable(this).DiscoverWithServerAddressAndMatchingId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), result__.as_mut_ptr()).from_abi::<ESimDiscoverResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2444,7 +2664,7 @@ impl ESim {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DiscoverAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
+            (::windows::core::Vtable::vtable(this).DiscoverAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2453,7 +2673,7 @@ impl ESim {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
+            (::windows::core::Vtable::vtable(this).DiscoverWithServerAddressAndMatchingIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
         }
     }
 }
@@ -2480,8 +2700,10 @@ unsafe impl ::windows::core::RuntimeType for ESim {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESim {
+unsafe impl ::windows::core::Vtable for ESim {
     type Vtable = IESim_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESim {
     const IID: ::windows::core::GUID = <IESim as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESim {
@@ -2527,7 +2749,7 @@ impl ESimAddedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
+            (::windows::core::Vtable::vtable(this).ESim)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
         }
     }
 }
@@ -2554,8 +2776,10 @@ unsafe impl ::windows::core::RuntimeType for ESimAddedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimAddedEventArgs {
+unsafe impl ::windows::core::Vtable for ESimAddedEventArgs {
     type Vtable = IESimAddedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimAddedEventArgs {
     const IID: ::windows::core::GUID = <IESimAddedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimAddedEventArgs {
@@ -2601,14 +2825,14 @@ impl ESimDiscoverEvent {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MatchingId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).MatchingId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn RspServerAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RspServerAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).RspServerAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -2635,8 +2859,10 @@ unsafe impl ::windows::core::RuntimeType for ESimDiscoverEvent {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimDiscoverEvent {
+unsafe impl ::windows::core::Vtable for ESimDiscoverEvent {
     type Vtable = IESimDiscoverEvent_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimDiscoverEvent {
     const IID: ::windows::core::GUID = <IESimDiscoverEvent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimDiscoverEvent {
@@ -2684,28 +2910,28 @@ impl ESimDiscoverResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Events)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>>(result__)
+            (::windows::core::Vtable::vtable(this).Events)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>>(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<ESimDiscoverResultKind> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimDiscoverResultKind>(result__)
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimDiscoverResultKind>(result__)
         }
     }
     pub fn ProfileMetadata(&self) -> ::windows::core::Result<ESimProfileMetadata> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProfileMetadata)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadata>(result__)
+            (::windows::core::Vtable::vtable(this).ProfileMetadata)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadata>(result__)
         }
     }
     pub fn Result(&self) -> ::windows::core::Result<ESimOperationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationResult>(result__)
+            (::windows::core::Vtable::vtable(this).Result)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationResult>(result__)
         }
     }
 }
@@ -2732,8 +2958,10 @@ unsafe impl ::windows::core::RuntimeType for ESimDiscoverResult {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimDiscoverResult {
+unsafe impl ::windows::core::Vtable for ESimDiscoverResult {
     type Vtable = IESimDiscoverResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimDiscoverResult {
     const IID: ::windows::core::GUID = <IESimDiscoverResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimDiscoverResult {
@@ -2779,14 +3007,14 @@ impl ESimDownloadProfileMetadataResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationResult>(result__)
+            (::windows::core::Vtable::vtable(this).Result)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationResult>(result__)
         }
     }
     pub fn ProfileMetadata(&self) -> ::windows::core::Result<ESimProfileMetadata> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProfileMetadata)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadata>(result__)
+            (::windows::core::Vtable::vtable(this).ProfileMetadata)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadata>(result__)
         }
     }
 }
@@ -2813,8 +3041,10 @@ unsafe impl ::windows::core::RuntimeType for ESimDownloadProfileMetadataResult {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimDownloadProfileMetadataResult {
+unsafe impl ::windows::core::Vtable for ESimDownloadProfileMetadataResult {
     type Vtable = IESimDownloadProfileMetadataResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimDownloadProfileMetadataResult {
     const IID: ::windows::core::GUID = <IESimDownloadProfileMetadataResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimDownloadProfileMetadataResult {
@@ -2858,13 +3088,13 @@ impl ESimManager {
     pub fn ServiceInfo() -> ::windows::core::Result<ESimServiceInfo> {
         Self::IESimManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimServiceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).ServiceInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimServiceInfo>(result__)
         })
     }
     pub fn TryCreateESimWatcher() -> ::windows::core::Result<ESimWatcher> {
         Self::IESimManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateESimWatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimWatcher>(result__)
+            (::windows::core::Vtable::vtable(this).TryCreateESimWatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimWatcher>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2875,13 +3105,13 @@ impl ESimManager {
     {
         Self::IESimManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceInfoChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ServiceInfoChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServiceInfoChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IESimManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveServiceInfoChanged)(::windows::core::Interface::as_raw(this), token).ok() })
+        Self::IESimManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveServiceInfoChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn IESimManagerStatics<R, F: FnOnce(&IESimManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2900,7 +3130,7 @@ impl ESimOperationResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationStatus>(result__)
         }
     }
 }
@@ -2927,8 +3157,10 @@ unsafe impl ::windows::core::RuntimeType for ESimOperationResult {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimOperationResult {
+unsafe impl ::windows::core::Vtable for ESimOperationResult {
     type Vtable = IESimOperationResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimOperationResult {
     const IID: ::windows::core::GUID = <IESimOperationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimOperationResult {
@@ -2974,7 +3206,7 @@ impl ESimPolicy {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldEnableManagingUi)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).ShouldEnableManagingUi)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3001,8 +3233,10 @@ unsafe impl ::windows::core::RuntimeType for ESimPolicy {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimPolicy {
+unsafe impl ::windows::core::Vtable for ESimPolicy {
     type Vtable = IESimPolicy_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimPolicy {
     const IID: ::windows::core::GUID = <IESimPolicy as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimPolicy {
@@ -3048,28 +3282,28 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Class)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileClass>(result__)
+            (::windows::core::Vtable::vtable(this).Class)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileClass>(result__)
         }
     }
     pub fn Nickname(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Nickname)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Nickname)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Policy(&self) -> ::windows::core::Result<ESimProfilePolicy> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfilePolicy>(result__)
+            (::windows::core::Vtable::vtable(this).Policy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfilePolicy>(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3078,28 +3312,28 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderIcon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderIcon)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<ESimProfileState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileState>(result__)
+            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileState>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3108,7 +3342,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).DisableAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3117,7 +3351,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).EnableAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3126,7 +3360,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetNicknameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(newnickname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).SetNicknameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(newnickname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
 }
@@ -3153,8 +3387,10 @@ unsafe impl ::windows::core::RuntimeType for ESimProfile {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimProfile {
+unsafe impl ::windows::core::Vtable for ESimProfile {
     type Vtable = IESimProfile_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimProfile {
     const IID: ::windows::core::GUID = <IESimProfile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimProfile {
@@ -3200,21 +3436,21 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsConfirmationCodeRequired)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsConfirmationCodeRequired)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn Policy(&self) -> ::windows::core::Result<ESimProfilePolicy> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfilePolicy>(result__)
+            (::windows::core::Vtable::vtable(this).Policy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfilePolicy>(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3223,28 +3459,28 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderIcon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderIcon)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<ESimProfileMetadataState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadataState>(result__)
+            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadataState>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3253,7 +3489,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DenyInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).DenyInstallAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3262,7 +3498,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConfirmInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).ConfirmInstallAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3271,7 +3507,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConfirmInstallWithConfirmationCodeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(confirmationcode), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).ConfirmInstallWithConfirmationCodeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(confirmationcode), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3280,7 +3516,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PostponeInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).PostponeInstallAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3292,14 +3528,14 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StateChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for ESimProfileMetadata {
@@ -3325,8 +3561,10 @@ unsafe impl ::windows::core::RuntimeType for ESimProfileMetadata {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimProfileMetadata {
+unsafe impl ::windows::core::Vtable for ESimProfileMetadata {
     type Vtable = IESimProfileMetadata_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimProfileMetadata {
     const IID: ::windows::core::GUID = <IESimProfileMetadata as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimProfileMetadata {
@@ -3372,21 +3610,21 @@ impl ESimProfilePolicy {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CanDelete)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).CanDelete)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn CanDisable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CanDisable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).CanDisable)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn IsManagedByEnterprise(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsManagedByEnterprise)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsManagedByEnterprise)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3413,8 +3651,10 @@ unsafe impl ::windows::core::RuntimeType for ESimProfilePolicy {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimProfilePolicy {
+unsafe impl ::windows::core::Vtable for ESimProfilePolicy {
     type Vtable = IESimProfilePolicy_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimProfilePolicy {
     const IID: ::windows::core::GUID = <IESimProfilePolicy as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimProfilePolicy {
@@ -3460,7 +3700,7 @@ impl ESimRemovedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
+            (::windows::core::Vtable::vtable(this).ESim)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
         }
     }
 }
@@ -3487,8 +3727,10 @@ unsafe impl ::windows::core::RuntimeType for ESimRemovedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimRemovedEventArgs {
+unsafe impl ::windows::core::Vtable for ESimRemovedEventArgs {
     type Vtable = IESimRemovedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimRemovedEventArgs {
     const IID: ::windows::core::GUID = <IESimRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimRemovedEventArgs {
@@ -3534,14 +3776,14 @@ impl ESimServiceInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationPreference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimAuthenticationPreference>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticationPreference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimAuthenticationPreference>(result__)
         }
     }
     pub fn IsESimUiEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsESimUiEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsESimUiEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3568,8 +3810,10 @@ unsafe impl ::windows::core::RuntimeType for ESimServiceInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimServiceInfo {
+unsafe impl ::windows::core::Vtable for ESimServiceInfo {
     type Vtable = IESimServiceInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimServiceInfo {
     const IID: ::windows::core::GUID = <IESimServiceInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimServiceInfo {
@@ -3615,7 +3859,7 @@ impl ESimUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
+            (::windows::core::Vtable::vtable(this).ESim)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
         }
     }
 }
@@ -3642,8 +3886,10 @@ unsafe impl ::windows::core::RuntimeType for ESimUpdatedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimUpdatedEventArgs {
+unsafe impl ::windows::core::Vtable for ESimUpdatedEventArgs {
     type Vtable = IESimUpdatedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimUpdatedEventArgs {
     const IID: ::windows::core::GUID = <IESimUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimUpdatedEventArgs {
@@ -3689,16 +3935,16 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimWatcherStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimWatcherStatus>(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3709,14 +3955,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveAdded)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3727,14 +3973,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveEnumerationCompleted)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3745,14 +3991,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveRemoved)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3763,14 +4009,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveStopped)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3781,14 +4027,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Updated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveUpdated)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for ESimWatcher {
@@ -3814,8 +4060,10 @@ unsafe impl ::windows::core::RuntimeType for ESimWatcher {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ESimWatcher {
+unsafe impl ::windows::core::Vtable for ESimWatcher {
     type Vtable = IESimWatcher_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ESimWatcher {
     const IID: ::windows::core::GUID = <IESimWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ESimWatcher {
@@ -3861,7 +4109,7 @@ impl FdnAccessManager {
     pub fn RequestUnlockAsync(contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IFdnAccessManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestUnlockAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contactlistid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestUnlockAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contactlistid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3881,7 +4129,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WirelessNetworkId)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Vtable::vtable(this).WirelessNetworkId)(::windows::core::Vtable::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -3890,7 +4138,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAdapter)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Connectivity::NetworkAdapter>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkAdapter)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Connectivity::NetworkAdapter>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3899,7 +4147,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RedirectMessageUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).RedirectMessageUrl)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3908,7 +4156,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RedirectMessageXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Vtable::vtable(this).RedirectMessageXml)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3917,24 +4165,24 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticationUrl)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     pub fn IssueCredentials(&self, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING, extraparameters: &::windows::core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).IssueCredentials)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(extraparameters), markasmanualconnectonfailure).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).IssueCredentials)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(extraparameters), markasmanualconnectonfailure).ok() }
     }
     pub fn AbortAuthentication(&self, markasmanual: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AbortAuthentication)(::windows::core::Interface::as_raw(this), markasmanual).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AbortAuthentication)(::windows::core::Vtable::as_raw(this), markasmanual).ok() }
     }
     pub fn SkipAuthentication(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SkipAuthentication)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SkipAuthentication)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn TriggerAttentionRequired(&self, packagerelativeapplicationid: &::windows::core::HSTRING, applicationparameters: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).TriggerAttentionRequired)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagerelativeapplicationid), ::core::mem::transmute_copy(applicationparameters)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).TriggerAttentionRequired)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(packagerelativeapplicationid), ::core::mem::transmute_copy(applicationparameters)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3942,13 +4190,13 @@ impl HotspotAuthenticationContext {
         let this = &::windows::core::Interface::cast::<IHotspotAuthenticationContext2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IssueCredentialsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(extraparameters), markasmanualconnectonfailure, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).IssueCredentialsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(extraparameters), markasmanualconnectonfailure, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>>(result__)
         }
     }
     pub fn TryGetAuthenticationContext(eventoken: &::windows::core::HSTRING, context: &mut ::core::option::Option<HotspotAuthenticationContext>) -> ::windows::core::Result<bool> {
         Self::IHotspotAuthenticationContextStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAuthenticationContext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventoken), context as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetAuthenticationContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventoken), context as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -3980,8 +4228,10 @@ unsafe impl ::windows::core::RuntimeType for HotspotAuthenticationContext {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for HotspotAuthenticationContext {
+unsafe impl ::windows::core::Vtable for HotspotAuthenticationContext {
     type Vtable = IHotspotAuthenticationContext_Vtbl;
+}
+unsafe impl ::windows::core::Interface for HotspotAuthenticationContext {
     const IID: ::windows::core::GUID = <IHotspotAuthenticationContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HotspotAuthenticationContext {
@@ -4025,7 +4275,7 @@ impl HotspotAuthenticationEventDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EventToken)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).EventToken)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -4052,8 +4302,10 @@ unsafe impl ::windows::core::RuntimeType for HotspotAuthenticationEventDetails {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for HotspotAuthenticationEventDetails {
+unsafe impl ::windows::core::Vtable for HotspotAuthenticationEventDetails {
     type Vtable = IHotspotAuthenticationEventDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for HotspotAuthenticationEventDetails {
     const IID: ::windows::core::GUID = <IHotspotAuthenticationEventDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HotspotAuthenticationEventDetails {
@@ -4097,14 +4349,14 @@ impl HotspotCredentialsAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasNetworkErrorOccurred)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).HasNetworkErrorOccurred)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn ResponseCode(&self) -> ::windows::core::Result<HotspotAuthenticationResponseCode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HotspotAuthenticationResponseCode>(result__)
+            (::windows::core::Vtable::vtable(this).ResponseCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HotspotAuthenticationResponseCode>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4113,7 +4365,7 @@ impl HotspotCredentialsAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LogoffUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).LogoffUrl)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -4122,7 +4374,7 @@ impl HotspotCredentialsAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationReplyXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticationReplyXml)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
 }
@@ -4149,8 +4401,10 @@ unsafe impl ::windows::core::RuntimeType for HotspotCredentialsAuthenticationRes
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for HotspotCredentialsAuthenticationResult {
+unsafe impl ::windows::core::Vtable for HotspotCredentialsAuthenticationResult {
     type Vtable = IHotspotCredentialsAuthenticationResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for HotspotCredentialsAuthenticationResult {
     const IID: ::windows::core::GUID = <IHotspotCredentialsAuthenticationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HotspotCredentialsAuthenticationResult {
@@ -4194,7 +4448,7 @@ impl KnownCSimFilePaths {
     pub fn EFSpn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownCSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EFSpn)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).EFSpn)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4202,7 +4456,7 @@ impl KnownCSimFilePaths {
     pub fn Gid1() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownCSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Gid1)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).Gid1)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4210,7 +4464,7 @@ impl KnownCSimFilePaths {
     pub fn Gid2() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownCSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Gid2)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).Gid2)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4230,7 +4484,7 @@ impl KnownRuimFilePaths {
     pub fn EFSpn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownRuimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EFSpn)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).EFSpn)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4238,7 +4492,7 @@ impl KnownRuimFilePaths {
     pub fn Gid1() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownRuimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Gid1)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).Gid1)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4246,7 +4500,7 @@ impl KnownRuimFilePaths {
     pub fn Gid2() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownRuimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Gid2)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).Gid2)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4266,7 +4520,7 @@ impl KnownSimFilePaths {
     pub fn EFOns() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EFOns)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).EFOns)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4274,7 +4528,7 @@ impl KnownSimFilePaths {
     pub fn EFSpn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EFSpn)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).EFSpn)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4282,7 +4536,7 @@ impl KnownSimFilePaths {
     pub fn Gid1() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Gid1)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).Gid1)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4290,7 +4544,7 @@ impl KnownSimFilePaths {
     pub fn Gid2() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Gid2)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).Gid2)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4310,7 +4564,7 @@ impl KnownUSimFilePaths {
     pub fn EFSpn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EFSpn)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).EFSpn)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4318,7 +4572,7 @@ impl KnownUSimFilePaths {
     pub fn EFOpl() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EFOpl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).EFOpl)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4326,7 +4580,7 @@ impl KnownUSimFilePaths {
     pub fn EFPnn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EFPnn)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).EFPnn)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4334,7 +4588,7 @@ impl KnownUSimFilePaths {
     pub fn Gid1() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Gid1)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).Gid1)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4342,7 +4596,7 @@ impl KnownUSimFilePaths {
     pub fn Gid2() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Gid2)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).Gid2)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4362,35 +4616,35 @@ impl MobileBroadbandAccount {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkAccountId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ServiceProviderGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceProviderGuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Vtable::vtable(this).ServiceProviderGuid)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     pub fn ServiceProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceProviderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ServiceProviderName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn CurrentNetwork(&self) -> ::windows::core::Result<MobileBroadbandNetwork> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentNetwork)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandNetwork>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentNetwork)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandNetwork>(result__)
         }
     }
     pub fn CurrentDeviceInformation(&self) -> ::windows::core::Result<MobileBroadbandDeviceInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentDeviceInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceInformation>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentDeviceInformation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceInformation>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Networking_Connectivity\"`*"]
@@ -4399,7 +4653,7 @@ impl MobileBroadbandAccount {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandAccount2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetConnectionProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>>(result__)
+            (::windows::core::Vtable::vtable(this).GetConnectionProfiles)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4408,7 +4662,7 @@ impl MobileBroadbandAccount {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandAccount3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccountExperienceUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).AccountExperienceUrl)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4416,13 +4670,13 @@ impl MobileBroadbandAccount {
     pub fn AvailableNetworkAccountIds() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IMobileBroadbandAccountStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableNetworkAccountIds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).AvailableNetworkAccountIds)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         })
     }
     pub fn CreateFromNetworkAccountId(networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<MobileBroadbandAccount> {
         Self::IMobileBroadbandAccountStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<MobileBroadbandAccount>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromNetworkAccountId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<MobileBroadbandAccount>(result__)
         })
     }
     #[doc(hidden)]
@@ -4454,8 +4708,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandAccount {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandAccount {
+unsafe impl ::windows::core::Vtable for MobileBroadbandAccount {
     type Vtable = IMobileBroadbandAccount_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandAccount {
     const IID: ::windows::core::GUID = <IMobileBroadbandAccount as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandAccount {
@@ -4499,7 +4755,7 @@ impl MobileBroadbandAccountEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkAccountId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -4526,8 +4782,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandAccountEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandAccountEventArgs {
+unsafe impl ::windows::core::Vtable for MobileBroadbandAccountEventArgs {
     type Vtable = IMobileBroadbandAccountEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandAccountEventArgs {
     const IID: ::windows::core::GUID = <IMobileBroadbandAccountEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandAccountEventArgs {
@@ -4571,21 +4829,21 @@ impl MobileBroadbandAccountUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkAccountId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn HasDeviceInformationChanged(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasDeviceInformationChanged)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).HasDeviceInformationChanged)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn HasNetworkChanged(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasNetworkChanged)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).HasNetworkChanged)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -4612,8 +4870,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandAccountUpdatedEventA
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandAccountUpdatedEventArgs {
+unsafe impl ::windows::core::Vtable for MobileBroadbandAccountUpdatedEventArgs {
     type Vtable = IMobileBroadbandAccountUpdatedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandAccountUpdatedEventArgs {
     const IID: ::windows::core::GUID = <IMobileBroadbandAccountUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
@@ -4669,14 +4929,14 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccountAdded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AccountAdded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountAdded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountAdded)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveAccountAdded)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4687,14 +4947,14 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccountUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AccountUpdated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountUpdated(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountUpdated)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveAccountUpdated)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4705,14 +4965,14 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccountRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AccountRemoved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountRemoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountRemoved)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveAccountRemoved)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4723,14 +4983,14 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveEnumerationCompleted)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4741,29 +5001,29 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveStopped)(::windows::core::Vtable::as_raw(this), cookie).ok() }
     }
     pub fn Status(&self) -> ::windows::core::Result<MobileBroadbandAccountWatcherStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandAccountWatcherStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandAccountWatcherStatus>(result__)
         }
     }
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Start)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandAccountWatcher {
@@ -4789,8 +5049,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandAccountWatcher {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandAccountWatcher {
+unsafe impl ::windows::core::Vtable for MobileBroadbandAccountWatcher {
     type Vtable = IMobileBroadbandAccountWatcher_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandAccountWatcher {
     const IID: ::windows::core::GUID = <IMobileBroadbandAccountWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandAccountWatcher {
@@ -4834,20 +5096,20 @@ impl MobileBroadbandAntennaSar {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AntennaIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).AntennaIndex)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn SarBackoffIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SarBackoffIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).SarBackoffIndex)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn CreateWithIndex(antennaindex: i32, sarbackoffindex: i32) -> ::windows::core::Result<MobileBroadbandAntennaSar> {
         Self::IMobileBroadbandAntennaSarFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithIndex)(::windows::core::Interface::as_raw(this), antennaindex, sarbackoffindex, result__.as_mut_ptr()).from_abi::<MobileBroadbandAntennaSar>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithIndex)(::windows::core::Vtable::as_raw(this), antennaindex, sarbackoffindex, result__.as_mut_ptr()).from_abi::<MobileBroadbandAntennaSar>(result__)
         })
     }
     #[doc(hidden)]
@@ -4879,8 +5141,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandAntennaSar {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandAntennaSar {
+unsafe impl ::windows::core::Vtable for MobileBroadbandAntennaSar {
     type Vtable = IMobileBroadbandAntennaSar_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandAntennaSar {
     const IID: ::windows::core::GUID = <IMobileBroadbandAntennaSar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandAntennaSar {
@@ -4928,7 +5192,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).BaseStationId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4937,7 +5201,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationPNCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).BaseStationPNCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4946,7 +5210,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationLatitude)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).BaseStationLatitude)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4955,7 +5219,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationLongitude)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).BaseStationLongitude)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4964,7 +5228,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationLastBroadcastGpsTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).BaseStationLastBroadcastGpsTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4973,7 +5237,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4982,7 +5246,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PilotSignalStrengthInDB)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).PilotSignalStrengthInDB)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4991,7 +5255,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SystemId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).SystemId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
 }
@@ -5018,8 +5282,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandCellCdma {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandCellCdma {
+unsafe impl ::windows::core::Vtable for MobileBroadbandCellCdma {
     type Vtable = IMobileBroadbandCellCdma_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandCellCdma {
     const IID: ::windows::core::GUID = <IMobileBroadbandCellCdma as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandCellCdma {
@@ -5067,7 +5333,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).BaseStationId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5076,7 +5342,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).CellId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5085,7 +5351,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).ChannelNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5094,14 +5360,14 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocationAreaCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).LocationAreaCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5110,7 +5376,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedSignalStrengthInDBm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).ReceivedSignalStrengthInDBm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5119,7 +5385,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).TimingAdvanceInBitPeriods)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
 }
@@ -5146,8 +5412,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandCellGsm {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandCellGsm {
+unsafe impl ::windows::core::Vtable for MobileBroadbandCellGsm {
     type Vtable = IMobileBroadbandCellGsm_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandCellGsm {
     const IID: ::windows::core::GUID = <IMobileBroadbandCellGsm as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandCellGsm {
@@ -5195,7 +5463,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).CellId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5204,7 +5472,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).ChannelNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5213,14 +5481,14 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PhysicalCellId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).PhysicalCellId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5229,7 +5497,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).ReferenceSignalReceivedPowerInDBm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5238,7 +5506,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).ReferenceSignalReceivedQualityInDBm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5247,7 +5515,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).TimingAdvanceInBitPeriods)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5256,7 +5524,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TrackingAreaCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).TrackingAreaCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
 }
@@ -5283,8 +5551,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandCellLte {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandCellLte {
+unsafe impl ::windows::core::Vtable for MobileBroadbandCellLte {
     type Vtable = IMobileBroadbandCellLte_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandCellLte {
     const IID: ::windows::core::GUID = <IMobileBroadbandCellLte as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandCellLte {
@@ -5332,7 +5602,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i64>>(result__)
+            (::windows::core::Vtable::vtable(this).CellId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5341,7 +5611,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).ChannelNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5350,14 +5620,14 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PhysicalCellId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).PhysicalCellId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5366,7 +5636,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).ReferenceSignalReceivedPowerInDBm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5375,7 +5645,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).ReferenceSignalReceivedQualityInDBm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5384,7 +5654,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TimingAdvanceInNanoseconds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).TimingAdvanceInNanoseconds)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5393,7 +5663,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TrackingAreaCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).TrackingAreaCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5402,7 +5672,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SignalToNoiseRatioInDB)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).SignalToNoiseRatioInDB)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
 }
@@ -5429,8 +5699,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandCellNR {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandCellNR {
+unsafe impl ::windows::core::Vtable for MobileBroadbandCellNR {
     type Vtable = IMobileBroadbandCellNR_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandCellNR {
     const IID: ::windows::core::GUID = <IMobileBroadbandCellNR as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandCellNR {
@@ -5478,7 +5750,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).CellId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5487,7 +5759,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CellParameterId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).CellParameterId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5496,7 +5768,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).ChannelNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5505,7 +5777,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocationAreaCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).LocationAreaCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5514,14 +5786,14 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PathLossInDB)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).PathLossInDB)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5530,7 +5802,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).ReceivedSignalCodePowerInDBm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5539,7 +5811,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).TimingAdvanceInBitPeriods)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
 }
@@ -5566,8 +5838,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandCellTdscdma {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandCellTdscdma {
+unsafe impl ::windows::core::Vtable for MobileBroadbandCellTdscdma {
     type Vtable = IMobileBroadbandCellTdscdma_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandCellTdscdma {
     const IID: ::windows::core::GUID = <IMobileBroadbandCellTdscdma as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandCellTdscdma {
@@ -5615,7 +5889,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).CellId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5624,7 +5898,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).ChannelNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5633,7 +5907,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocationAreaCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).LocationAreaCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5642,7 +5916,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PathLossInDB)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).PathLossInDB)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5651,14 +5925,14 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PrimaryScramblingCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Vtable::vtable(this).PrimaryScramblingCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5667,7 +5941,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).ReceivedSignalCodePowerInDBm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5676,7 +5950,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SignalToNoiseRatioInDB)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).SignalToNoiseRatioInDB)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
 }
@@ -5703,8 +5977,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandCellUmts {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandCellUmts {
+unsafe impl ::windows::core::Vtable for MobileBroadbandCellUmts {
     type Vtable = IMobileBroadbandCellUmts_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandCellUmts {
     const IID: ::windows::core::GUID = <IMobileBroadbandCellUmts as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandCellUmts {
@@ -5752,7 +6028,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsCdma)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>(result__)
+            (::windows::core::Vtable::vtable(this).NeighboringCellsCdma)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5761,7 +6037,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsGsm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>(result__)
+            (::windows::core::Vtable::vtable(this).NeighboringCellsGsm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5770,7 +6046,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsLte)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>(result__)
+            (::windows::core::Vtable::vtable(this).NeighboringCellsLte)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5779,7 +6055,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsTdscdma)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>(result__)
+            (::windows::core::Vtable::vtable(this).NeighboringCellsTdscdma)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5788,7 +6064,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsUmts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>(result__)
+            (::windows::core::Vtable::vtable(this).NeighboringCellsUmts)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5797,7 +6073,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsCdma)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>(result__)
+            (::windows::core::Vtable::vtable(this).ServingCellsCdma)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5806,7 +6082,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsGsm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>(result__)
+            (::windows::core::Vtable::vtable(this).ServingCellsGsm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5815,7 +6091,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsLte)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>(result__)
+            (::windows::core::Vtable::vtable(this).ServingCellsLte)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5824,7 +6100,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsTdscdma)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>(result__)
+            (::windows::core::Vtable::vtable(this).ServingCellsTdscdma)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5833,7 +6109,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsUmts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>(result__)
+            (::windows::core::Vtable::vtable(this).ServingCellsUmts)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5842,7 +6118,7 @@ impl MobileBroadbandCellsInfo {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandCellsInfo2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsNR)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>(result__)
+            (::windows::core::Vtable::vtable(this).NeighboringCellsNR)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5851,7 +6127,7 @@ impl MobileBroadbandCellsInfo {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandCellsInfo2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsNR)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>(result__)
+            (::windows::core::Vtable::vtable(this).ServingCellsNR)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>(result__)
         }
     }
 }
@@ -5878,8 +6154,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandCellsInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandCellsInfo {
+unsafe impl ::windows::core::Vtable for MobileBroadbandCellsInfo {
     type Vtable = IMobileBroadbandCellsInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandCellsInfo {
     const IID: ::windows::core::GUID = <IMobileBroadbandCellsInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandCellsInfo {
@@ -5925,7 +6203,7 @@ impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentSlotIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentSlotIndex)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
 }
@@ -5952,8 +6230,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandCurrentSlotIndexChan
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandCurrentSlotIndexChangedEventArgs {
+unsafe impl ::windows::core::Vtable for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     type Vtable = IMobileBroadbandCurrentSlotIndexChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     const IID: ::windows::core::GUID = <IMobileBroadbandCurrentSlotIndexChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventArgs {
@@ -5999,28 +6279,28 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkDeviceStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkDeviceStatus>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkDeviceStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkDeviceStatus>(result__)
         }
     }
     pub fn Manufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Manufacturer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Manufacturer)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Model(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Model)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Model)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn FirmwareInformation(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FirmwareInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).FirmwareInformation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -6029,28 +6309,28 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CellularClass)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Sms::CellularClass>(result__)
+            (::windows::core::Vtable::vtable(this).CellularClass)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Sms::CellularClass>(result__)
         }
     }
     pub fn DataClasses(&self) -> ::windows::core::Result<DataClasses> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DataClasses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DataClasses>(result__)
+            (::windows::core::Vtable::vtable(this).DataClasses)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DataClasses>(result__)
         }
     }
     pub fn CustomDataClass(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CustomDataClass)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).CustomDataClass)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn MobileEquipmentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MobileEquipmentId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).MobileEquipmentId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6059,91 +6339,91 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TelephoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).TelephoneNumbers)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     pub fn SubscriberId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SubscriberId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SubscriberId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SimIccId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SimIccId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SimIccId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn DeviceType(&self) -> ::windows::core::Result<MobileBroadbandDeviceType> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceType>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceType>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn CurrentRadioState(&self) -> ::windows::core::Result<MobileBroadbandRadioState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentRadioState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandRadioState>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentRadioState)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandRadioState>(result__)
         }
     }
     pub fn PinManager(&self) -> ::windows::core::Result<MobileBroadbandPinManager> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PinManager)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinManager>(result__)
+            (::windows::core::Vtable::vtable(this).PinManager)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinManager>(result__)
         }
     }
     pub fn Revision(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Revision)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Revision)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SerialNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SerialNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SerialNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SimSpn(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SimSpn)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SimSpn)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SimPnn(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SimPnn)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SimPnn)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SimGid1(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SimGid1)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SimGid1)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SlotManager(&self) -> ::windows::core::Result<MobileBroadbandSlotManager> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SlotManager)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandSlotManager>(result__)
+            (::windows::core::Vtable::vtable(this).SlotManager)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandSlotManager>(result__)
         }
     }
 }
@@ -6170,8 +6450,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceInformation {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandDeviceInformation {
+unsafe impl ::windows::core::Vtable for MobileBroadbandDeviceInformation {
     type Vtable = IMobileBroadbandDeviceInformation_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandDeviceInformation {
     const IID: ::windows::core::GUID = <IMobileBroadbandDeviceInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceInformation {
@@ -6215,7 +6497,7 @@ impl MobileBroadbandDeviceService {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceServiceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6224,21 +6506,21 @@ impl MobileBroadbandDeviceService {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedCommands)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).SupportedCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     pub fn OpenDataSession(&self) -> ::windows::core::Result<MobileBroadbandDeviceServiceDataSession> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenDataSession)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceServiceDataSession>(result__)
+            (::windows::core::Vtable::vtable(this).OpenDataSession)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceServiceDataSession>(result__)
         }
     }
     pub fn OpenCommandSession(&self) -> ::windows::core::Result<MobileBroadbandDeviceServiceCommandSession> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OpenCommandSession)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceServiceCommandSession>(result__)
+            (::windows::core::Vtable::vtable(this).OpenCommandSession)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceServiceCommandSession>(result__)
         }
     }
 }
@@ -6265,8 +6547,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceService {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandDeviceService {
+unsafe impl ::windows::core::Vtable for MobileBroadbandDeviceService {
     type Vtable = IMobileBroadbandDeviceService_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandDeviceService {
     const IID: ::windows::core::GUID = <IMobileBroadbandDeviceService as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceService {
@@ -6312,7 +6596,7 @@ impl MobileBroadbandDeviceServiceCommandResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StatusCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).StatusCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -6321,7 +6605,7 @@ impl MobileBroadbandDeviceServiceCommandResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Vtable::vtable(this).ResponseData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -6348,8 +6632,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceCommand
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceCommandResult {
+unsafe impl ::windows::core::Vtable for MobileBroadbandDeviceServiceCommandResult {
     type Vtable = IMobileBroadbandDeviceServiceCommandResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceCommandResult {
     const IID: ::windows::core::GUID = <IMobileBroadbandDeviceServiceCommandResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
@@ -6401,7 +6687,7 @@ impl MobileBroadbandDeviceServiceCommandSession {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SendQueryCommandAsync)(::windows::core::Interface::as_raw(this), commandid, data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>(result__)
+            (::windows::core::Vtable::vtable(this).SendQueryCommandAsync)(::windows::core::Vtable::as_raw(this), commandid, data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -6414,12 +6700,12 @@ impl MobileBroadbandDeviceServiceCommandSession {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SendSetCommandAsync)(::windows::core::Interface::as_raw(this), commandid, data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>(result__)
+            (::windows::core::Vtable::vtable(this).SendSetCommandAsync)(::windows::core::Vtable::as_raw(this), commandid, data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>(result__)
         }
     }
     pub fn CloseSession(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CloseSession)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).CloseSession)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceCommandSession {
@@ -6445,8 +6731,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceCommand
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceCommandSession {
+unsafe impl ::windows::core::Vtable for MobileBroadbandDeviceServiceCommandSession {
     type Vtable = IMobileBroadbandDeviceServiceCommandSession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceCommandSession {
     const IID: ::windows::core::GUID = <IMobileBroadbandDeviceServiceCommandSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
@@ -6494,7 +6782,7 @@ impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Vtable::vtable(this).ReceivedData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -6521,8 +6809,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceDataRec
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceDataReceivedEventArgs {
+unsafe impl ::windows::core::Vtable for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     type Vtable = IMobileBroadbandDeviceServiceDataReceivedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     const IID: ::windows::core::GUID = <IMobileBroadbandDeviceServiceDataReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEventArgs {
@@ -6574,12 +6864,12 @@ impl MobileBroadbandDeviceServiceDataSession {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WriteDataAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).WriteDataAsync)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     pub fn CloseSession(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CloseSession)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).CloseSession)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6590,14 +6880,14 @@ impl MobileBroadbandDeviceServiceDataSession {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DataReceived)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).DataReceived)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveDataReceived)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceDataSession {
@@ -6623,8 +6913,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceDataSes
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceDataSession {
+unsafe impl ::windows::core::Vtable for MobileBroadbandDeviceServiceDataSession {
     type Vtable = IMobileBroadbandDeviceServiceDataSession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceDataSession {
     const IID: ::windows::core::GUID = <IMobileBroadbandDeviceServiceDataSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceDataSession {
@@ -6670,21 +6962,21 @@ impl MobileBroadbandDeviceServiceInformation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceServiceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     pub fn IsDataReadSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsDataReadSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsDataReadSupported)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn IsDataWriteSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsDataWriteSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsDataWriteSupported)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -6711,8 +7003,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceInforma
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceInformation {
+unsafe impl ::windows::core::Vtable for MobileBroadbandDeviceServiceInformation {
     type Vtable = IMobileBroadbandDeviceServiceInformation_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceInformation {
     const IID: ::windows::core::GUID = <IMobileBroadbandDeviceServiceInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceInformation {
@@ -6758,14 +7052,14 @@ impl MobileBroadbandDeviceServiceTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn DeviceServiceId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceServiceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -6774,7 +7068,7 @@ impl MobileBroadbandDeviceServiceTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Vtable::vtable(this).ReceivedData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -6801,8 +7095,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceTrigger
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceTriggerDetails {
+unsafe impl ::windows::core::Vtable for MobileBroadbandDeviceServiceTriggerDetails {
     type Vtable = IMobileBroadbandDeviceServiceTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceTriggerDetails {
     const IID: ::windows::core::GUID = <IMobileBroadbandDeviceServiceTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
@@ -6848,28 +7144,28 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentAccount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandAccount>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentAccount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandAccount>(result__)
         }
     }
     pub fn DeviceInformation(&self) -> ::windows::core::Result<MobileBroadbandDeviceInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceInformation>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceInformation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceInformation>(result__)
         }
     }
     pub fn MaxDeviceServiceCommandSizeInBytes(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxDeviceServiceCommandSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxDeviceServiceCommandSizeInBytes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxDeviceServiceDataSizeInBytes(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxDeviceServiceDataSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxDeviceServiceDataSizeInBytes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6878,21 +7174,21 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceServices)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceServices)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>>(result__)
         }
     }
     pub fn GetDeviceService(&self, deviceserviceid: ::windows::core::GUID) -> ::windows::core::Result<MobileBroadbandDeviceService> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceService)(::windows::core::Interface::as_raw(this), deviceserviceid, result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceService>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceService)(::windows::core::Vtable::as_raw(this), deviceserviceid, result__.as_mut_ptr()).from_abi::<MobileBroadbandDeviceService>(result__)
         }
     }
     pub fn IsResetSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsResetSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsResetSupported)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6901,7 +7197,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResetAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ResetAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6910,14 +7206,14 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentConfigurationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentConfigurationAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>>(result__)
         }
     }
     pub fn CurrentNetwork(&self) -> ::windows::core::Result<MobileBroadbandNetwork> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentNetwork)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandNetwork>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentNetwork)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandNetwork>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6926,7 +7222,7 @@ impl MobileBroadbandModem {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetIsPassthroughEnabledAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).GetIsPassthroughEnabledAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6935,7 +7231,7 @@ impl MobileBroadbandModem {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetIsPassthroughEnabledAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).SetIsPassthroughEnabledAsync)(::windows::core::Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6944,14 +7240,14 @@ impl MobileBroadbandModem {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPcoAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetPcoAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>>(result__)
         }
     }
     pub fn IsInEmergencyCallMode(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsInEmergencyCallMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsInEmergencyCallMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6963,31 +7259,31 @@ impl MobileBroadbandModem {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsInEmergencyCallModeChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).IsInEmergencyCallModeChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsInEmergencyCallModeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveIsInEmergencyCallModeChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveIsInEmergencyCallModeChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     pub fn FromId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<MobileBroadbandModem> {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<MobileBroadbandModem>(result__)
+            (::windows::core::Vtable::vtable(this).FromId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<MobileBroadbandModem>(result__)
         })
     }
     pub fn GetDefault() -> ::windows::core::Result<MobileBroadbandModem> {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandModem>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandModem>(result__)
         })
     }
     #[doc(hidden)]
@@ -7019,8 +7315,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandModem {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandModem {
+unsafe impl ::windows::core::Vtable for MobileBroadbandModem {
     type Vtable = IMobileBroadbandModem_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandModem {
     const IID: ::windows::core::GUID = <IMobileBroadbandModem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandModem {
@@ -7066,28 +7364,28 @@ impl MobileBroadbandModemConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Uicc)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandUicc>(result__)
+            (::windows::core::Vtable::vtable(this).Uicc)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandUicc>(result__)
         }
     }
     pub fn HomeProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HomeProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).HomeProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn HomeProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HomeProviderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).HomeProviderName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SarManager(&self) -> ::windows::core::Result<MobileBroadbandSarManager> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModemConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SarManager)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandSarManager>(result__)
+            (::windows::core::Vtable::vtable(this).SarManager)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandSarManager>(result__)
         }
     }
 }
@@ -7114,8 +7412,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandModemConfiguration {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandModemConfiguration {
+unsafe impl ::windows::core::Vtable for MobileBroadbandModemConfiguration {
     type Vtable = IMobileBroadbandModemConfiguration_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandModemConfiguration {
     const IID: ::windows::core::GUID = <IMobileBroadbandModemConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandModemConfiguration {
@@ -7160,7 +7460,7 @@ impl MobileBroadbandModemIsolation {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddAllowedHost)(::windows::core::Interface::as_raw(this), host.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AddAllowedHost)(::windows::core::Vtable::as_raw(this), host.into().abi()).ok() }
     }
     pub fn AddAllowedHostRange<'a, P0, P1>(&self, first: P0, last: P1) -> ::windows::core::Result<()>
     where
@@ -7168,7 +7468,7 @@ impl MobileBroadbandModemIsolation {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddAllowedHostRange)(::windows::core::Interface::as_raw(this), first.into().abi(), last.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AddAllowedHostRange)(::windows::core::Vtable::as_raw(this), first.into().abi(), last.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7176,7 +7476,7 @@ impl MobileBroadbandModemIsolation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ApplyConfigurationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ApplyConfigurationAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7185,13 +7485,13 @@ impl MobileBroadbandModemIsolation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ClearConfigurationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ClearConfigurationAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     pub fn Create(modemdeviceid: &::windows::core::HSTRING, rulegroupid: &::windows::core::HSTRING) -> ::windows::core::Result<MobileBroadbandModemIsolation> {
         Self::IMobileBroadbandModemIsolationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(modemdeviceid), ::core::mem::transmute_copy(rulegroupid), result__.as_mut_ptr()).from_abi::<MobileBroadbandModemIsolation>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(modemdeviceid), ::core::mem::transmute_copy(rulegroupid), result__.as_mut_ptr()).from_abi::<MobileBroadbandModemIsolation>(result__)
         })
     }
     #[doc(hidden)]
@@ -7223,8 +7523,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandModemIsolation {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandModemIsolation {
+unsafe impl ::windows::core::Vtable for MobileBroadbandModemIsolation {
     type Vtable = IMobileBroadbandModemIsolation_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandModemIsolation {
     const IID: ::windows::core::GUID = <IMobileBroadbandModemIsolation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandModemIsolation {
@@ -7272,68 +7574,68 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAdapter)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Connectivity::NetworkAdapter>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkAdapter)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Connectivity::NetworkAdapter>(result__)
         }
     }
     pub fn NetworkRegistrationState(&self) -> ::windows::core::Result<NetworkRegistrationState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkRegistrationState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkRegistrationState>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkRegistrationState)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkRegistrationState>(result__)
         }
     }
     pub fn RegistrationNetworkError(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RegistrationNetworkError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).RegistrationNetworkError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn PacketAttachNetworkError(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PacketAttachNetworkError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).PacketAttachNetworkError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ActivationNetworkError(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ActivationNetworkError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ActivationNetworkError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn AccessPointName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccessPointName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).AccessPointName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn RegisteredDataClass(&self) -> ::windows::core::Result<DataClasses> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RegisteredDataClass)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DataClasses>(result__)
+            (::windows::core::Vtable::vtable(this).RegisteredDataClass)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DataClasses>(result__)
         }
     }
     pub fn RegisteredProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RegisteredProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).RegisteredProviderId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn RegisteredProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RegisteredProviderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).RegisteredProviderName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ShowConnectionUI(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowConnectionUI)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ShowConnectionUI)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7341,7 +7643,7 @@ impl MobileBroadbandNetwork {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandNetwork2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetVoiceCallSupportAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).GetVoiceCallSupportAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7350,7 +7652,7 @@ impl MobileBroadbandNetwork {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandNetwork2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RegistrationUiccApps)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>(result__)
+            (::windows::core::Vtable::vtable(this).RegistrationUiccApps)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7359,7 +7661,7 @@ impl MobileBroadbandNetwork {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandNetwork3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCellsInfoAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCellsInfoAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>>(result__)
         }
     }
 }
@@ -7386,8 +7688,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandNetwork {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandNetwork {
+unsafe impl ::windows::core::Vtable for MobileBroadbandNetwork {
     type Vtable = IMobileBroadbandNetwork_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandNetwork {
     const IID: ::windows::core::GUID = <IMobileBroadbandNetwork as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandNetwork {
@@ -7431,14 +7735,14 @@ impl MobileBroadbandNetworkRegistrationStateChange {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Network(&self) -> ::windows::core::Result<MobileBroadbandNetwork> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Network)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandNetwork>(result__)
+            (::windows::core::Vtable::vtable(this).Network)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandNetwork>(result__)
         }
     }
 }
@@ -7465,8 +7769,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandNetworkRegistrationS
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandNetworkRegistrationStateChange {
+unsafe impl ::windows::core::Vtable for MobileBroadbandNetworkRegistrationStateChange {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChange_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandNetworkRegistrationStateChange {
     const IID: ::windows::core::GUID = <IMobileBroadbandNetworkRegistrationStateChange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange {
@@ -7514,7 +7820,7 @@ impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkRegistrationStateChanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkRegistrationStateChanges)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>>(result__)
         }
     }
 }
@@ -7541,8 +7847,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandNetworkRegistrationS
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+unsafe impl ::windows::core::Vtable for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     const IID: ::windows::core::GUID = <IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
@@ -7590,21 +7898,21 @@ impl MobileBroadbandPco {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     pub fn IsComplete(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsComplete)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsComplete)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -7631,8 +7939,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPco {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandPco {
+unsafe impl ::windows::core::Vtable for MobileBroadbandPco {
     type Vtable = IMobileBroadbandPco_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandPco {
     const IID: ::windows::core::GUID = <IMobileBroadbandPco as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPco {
@@ -7678,7 +7988,7 @@ impl MobileBroadbandPcoDataChangeTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdatedData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPco>(result__)
+            (::windows::core::Vtable::vtable(this).UpdatedData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPco>(result__)
         }
     }
 }
@@ -7705,8 +8015,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPcoDataChangeTrigger
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandPcoDataChangeTriggerDetails {
+unsafe impl ::windows::core::Vtable for MobileBroadbandPcoDataChangeTriggerDetails {
     type Vtable = IMobileBroadbandPcoDataChangeTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandPcoDataChangeTriggerDetails {
     const IID: ::windows::core::GUID = <IMobileBroadbandPcoDataChangeTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
@@ -7752,49 +8064,49 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinType>(result__)
+            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinType>(result__)
         }
     }
     pub fn LockState(&self) -> ::windows::core::Result<MobileBroadbandPinLockState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LockState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinLockState>(result__)
+            (::windows::core::Vtable::vtable(this).LockState)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinLockState>(result__)
         }
     }
     pub fn Format(&self) -> ::windows::core::Result<MobileBroadbandPinFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinFormat>(result__)
+            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinFormat>(result__)
         }
     }
     pub fn Enabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Enabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn MaxLength(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxLength)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxLength)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MinLength(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinLength)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinLength)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn AttemptsRemaining(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AttemptsRemaining)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).AttemptsRemaining)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7803,7 +8115,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(currentpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).EnableAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(currentpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7812,7 +8124,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisableAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(currentpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).DisableAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(currentpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7821,7 +8133,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnterAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(currentpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).EnterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(currentpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7830,7 +8142,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ChangeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(currentpin), ::core::mem::transmute_copy(newpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).ChangeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(currentpin), ::core::mem::transmute_copy(newpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7839,7 +8151,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UnblockAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(pinunblockkey), ::core::mem::transmute_copy(newpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).UnblockAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pinunblockkey), ::core::mem::transmute_copy(newpin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
 }
@@ -7866,8 +8178,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPin {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandPin {
+unsafe impl ::windows::core::Vtable for MobileBroadbandPin {
     type Vtable = IMobileBroadbandPin_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandPin {
     const IID: ::windows::core::GUID = <IMobileBroadbandPin as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPin {
@@ -7913,21 +8227,21 @@ impl MobileBroadbandPinLockStateChange {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn PinType(&self) -> ::windows::core::Result<MobileBroadbandPinType> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PinType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinType>(result__)
+            (::windows::core::Vtable::vtable(this).PinType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinType>(result__)
         }
     }
     pub fn PinLockState(&self) -> ::windows::core::Result<MobileBroadbandPinLockState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PinLockState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinLockState>(result__)
+            (::windows::core::Vtable::vtable(this).PinLockState)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandPinLockState>(result__)
         }
     }
 }
@@ -7954,8 +8268,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinLockStateChange {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChange {
+unsafe impl ::windows::core::Vtable for MobileBroadbandPinLockStateChange {
     type Vtable = IMobileBroadbandPinLockStateChange_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChange {
     const IID: ::windows::core::GUID = <IMobileBroadbandPinLockStateChange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChange {
@@ -8003,7 +8319,7 @@ impl MobileBroadbandPinLockStateChangeTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PinLockStateChanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>>(result__)
+            (::windows::core::Vtable::vtable(this).PinLockStateChanges)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>>(result__)
         }
     }
 }
@@ -8030,8 +8346,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinLockStateChangeTr
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChangeTriggerDetails {
+unsafe impl ::windows::core::Vtable for MobileBroadbandPinLockStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandPinLockStateChangeTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChangeTriggerDetails {
     const IID: ::windows::core::GUID = <IMobileBroadbandPinLockStateChangeTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetails {
@@ -8079,14 +8397,14 @@ impl MobileBroadbandPinManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedPins)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>>(result__)
+            (::windows::core::Vtable::vtable(this).SupportedPins)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>>(result__)
         }
     }
     pub fn GetPin(&self, pintype: MobileBroadbandPinType) -> ::windows::core::Result<MobileBroadbandPin> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetPin)(::windows::core::Interface::as_raw(this), pintype, result__.as_mut_ptr()).from_abi::<MobileBroadbandPin>(result__)
+            (::windows::core::Vtable::vtable(this).GetPin)(::windows::core::Vtable::as_raw(this), pintype, result__.as_mut_ptr()).from_abi::<MobileBroadbandPin>(result__)
         }
     }
 }
@@ -8113,8 +8431,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinManager {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandPinManager {
+unsafe impl ::windows::core::Vtable for MobileBroadbandPinManager {
     type Vtable = IMobileBroadbandPinManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandPinManager {
     const IID: ::windows::core::GUID = <IMobileBroadbandPinManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPinManager {
@@ -8160,14 +8480,14 @@ impl MobileBroadbandPinOperationResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsSuccessful)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsSuccessful)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn AttemptsRemaining(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AttemptsRemaining)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).AttemptsRemaining)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
 }
@@ -8194,8 +8514,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinOperationResult {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandPinOperationResult {
+unsafe impl ::windows::core::Vtable for MobileBroadbandPinOperationResult {
     type Vtable = IMobileBroadbandPinOperationResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandPinOperationResult {
     const IID: ::windows::core::GUID = <IMobileBroadbandPinOperationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPinOperationResult {
@@ -8241,14 +8563,14 @@ impl MobileBroadbandRadioStateChange {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn RadioState(&self) -> ::windows::core::Result<MobileBroadbandRadioState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RadioState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandRadioState>(result__)
+            (::windows::core::Vtable::vtable(this).RadioState)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandRadioState>(result__)
         }
     }
 }
@@ -8275,8 +8597,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandRadioStateChange {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChange {
+unsafe impl ::windows::core::Vtable for MobileBroadbandRadioStateChange {
     type Vtable = IMobileBroadbandRadioStateChange_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChange {
     const IID: ::windows::core::GUID = <IMobileBroadbandRadioStateChange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChange {
@@ -8324,7 +8648,7 @@ impl MobileBroadbandRadioStateChangeTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RadioStateChanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>>(result__)
+            (::windows::core::Vtable::vtable(this).RadioStateChanges)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>>(result__)
         }
     }
 }
@@ -8351,8 +8675,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandRadioStateChangeTrig
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChangeTriggerDetails {
+unsafe impl ::windows::core::Vtable for MobileBroadbandRadioStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandRadioStateChangeTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChangeTriggerDetails {
     const IID: ::windows::core::GUID = <IMobileBroadbandRadioStateChangeTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails {
@@ -8398,21 +8724,21 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsBackoffEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsBackoffEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn IsWiFiHardwareIntegrated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsWiFiHardwareIntegrated)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsWiFiHardwareIntegrated)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn IsSarControlledByHardware(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsSarControlledByHardware)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsSarControlledByHardware)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -8421,7 +8747,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Antennas)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>>(result__)
+            (::windows::core::Vtable::vtable(this).Antennas)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8430,7 +8756,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HysteresisTimerPeriod)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).HysteresisTimerPeriod)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8442,14 +8768,14 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TransmissionStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).TransmissionStateChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTransmissionStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTransmissionStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveTransmissionStateChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8457,7 +8783,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnableBackoffAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).EnableBackoffAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8466,7 +8792,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisableBackoffAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).DisableBackoffAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -8479,7 +8805,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetConfigurationAsync)(::windows::core::Interface::as_raw(this), antennas.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SetConfigurationAsync)(::windows::core::Vtable::as_raw(this), antennas.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8488,7 +8814,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RevertSarToHardwareControlAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).RevertSarToHardwareControlAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8497,7 +8823,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetTransmissionStateChangedHysteresisAsync)(::windows::core::Interface::as_raw(this), timerperiod, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SetTransmissionStateChangedHysteresisAsync)(::windows::core::Vtable::as_raw(this), timerperiod, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8506,16 +8832,16 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetIsTransmittingAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).GetIsTransmittingAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     pub fn StartTransmissionStateMonitoring(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartTransmissionStateMonitoring)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StartTransmissionStateMonitoring)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn StopTransmissionStateMonitoring(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopTransmissionStateMonitoring)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StopTransmissionStateMonitoring)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandSarManager {
@@ -8541,8 +8867,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandSarManager {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandSarManager {
+unsafe impl ::windows::core::Vtable for MobileBroadbandSarManager {
     type Vtable = IMobileBroadbandSarManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandSarManager {
     const IID: ::windows::core::GUID = <IMobileBroadbandSarManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandSarManager {
@@ -8588,14 +8916,14 @@ impl MobileBroadbandSlotInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Index)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).Index)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<MobileBroadbandSlotState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandSlotState>(result__)
+            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandSlotState>(result__)
         }
     }
 }
@@ -8622,8 +8950,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandSlotInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandSlotInfo {
+unsafe impl ::windows::core::Vtable for MobileBroadbandSlotInfo {
     type Vtable = IMobileBroadbandSlotInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandSlotInfo {
     const IID: ::windows::core::GUID = <IMobileBroadbandSlotInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandSlotInfo {
@@ -8669,7 +8999,7 @@ impl MobileBroadbandSlotInfoChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SlotInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandSlotInfo>(result__)
+            (::windows::core::Vtable::vtable(this).SlotInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandSlotInfo>(result__)
         }
     }
 }
@@ -8696,8 +9026,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandSlotInfoChangedEvent
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandSlotInfoChangedEventArgs {
+unsafe impl ::windows::core::Vtable for MobileBroadbandSlotInfoChangedEventArgs {
     type Vtable = IMobileBroadbandSlotInfoChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandSlotInfoChangedEventArgs {
     const IID: ::windows::core::GUID = <IMobileBroadbandSlotInfoChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
@@ -8745,21 +9077,21 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SlotInfos)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>>(result__)
+            (::windows::core::Vtable::vtable(this).SlotInfos)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>>(result__)
         }
     }
     pub fn CurrentSlotIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentSlotIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentSlotIndex)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn SetCurrentSlot(&self, slotindex: i32) -> ::windows::core::Result<MobileBroadbandModemStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetCurrentSlot)(::windows::core::Interface::as_raw(this), slotindex, result__.as_mut_ptr()).from_abi::<MobileBroadbandModemStatus>(result__)
+            (::windows::core::Vtable::vtable(this).SetCurrentSlot)(::windows::core::Vtable::as_raw(this), slotindex, result__.as_mut_ptr()).from_abi::<MobileBroadbandModemStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8768,7 +9100,7 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetCurrentSlotAsync)(::windows::core::Interface::as_raw(this), slotindex, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).SetCurrentSlotAsync)(::windows::core::Vtable::as_raw(this), slotindex, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8780,14 +9112,14 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SlotInfoChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SlotInfoChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSlotInfoChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSlotInfoChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveSlotInfoChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8798,14 +9130,14 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentSlotIndexChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CurrentSlotIndexChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCurrentSlotIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCurrentSlotIndexChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveCurrentSlotIndexChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandSlotManager {
@@ -8831,8 +9163,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandSlotManager {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandSlotManager {
+unsafe impl ::windows::core::Vtable for MobileBroadbandSlotManager {
     type Vtable = IMobileBroadbandSlotManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandSlotManager {
     const IID: ::windows::core::GUID = <IMobileBroadbandSlotManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandSlotManager {
@@ -8878,7 +9212,7 @@ impl MobileBroadbandTransmissionStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsTransmitting)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsTransmitting)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -8905,8 +9239,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandTransmissionStateCha
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandTransmissionStateChangedEventArgs {
+unsafe impl ::windows::core::Vtable for MobileBroadbandTransmissionStateChangedEventArgs {
     type Vtable = IMobileBroadbandTransmissionStateChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandTransmissionStateChangedEventArgs {
     const IID: ::windows::core::GUID = <IMobileBroadbandTransmissionStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandTransmissionStateChangedEventArgs {
@@ -8952,7 +9288,7 @@ impl MobileBroadbandUicc {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SimIccId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).SimIccId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8961,7 +9297,7 @@ impl MobileBroadbandUicc {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetUiccAppsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetUiccAppsAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>>(result__)
         }
     }
 }
@@ -8988,8 +9324,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandUicc {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandUicc {
+unsafe impl ::windows::core::Vtable for MobileBroadbandUicc {
     type Vtable = IMobileBroadbandUicc_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandUicc {
     const IID: ::windows::core::GUID = <IMobileBroadbandUicc as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandUicc {
@@ -9037,14 +9375,14 @@ impl MobileBroadbandUiccApp {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<UiccAppKind> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UiccAppKind>(result__)
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UiccAppKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -9057,7 +9395,7 @@ impl MobileBroadbandUiccApp {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetRecordDetailsAsync)(::windows::core::Interface::as_raw(this), uiccfilepath.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetRecordDetailsAsync)(::windows::core::Vtable::as_raw(this), uiccfilepath.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -9070,7 +9408,7 @@ impl MobileBroadbandUiccApp {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadRecordAsync)(::windows::core::Interface::as_raw(this), uiccfilepath.try_into().map_err(|e| e.into())?.abi(), recordindex, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>(result__)
+            (::windows::core::Vtable::vtable(this).ReadRecordAsync)(::windows::core::Vtable::as_raw(this), uiccfilepath.try_into().map_err(|e| e.into())?.abi(), recordindex, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>(result__)
         }
     }
 }
@@ -9097,8 +9435,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandUiccApp {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandUiccApp {
+unsafe impl ::windows::core::Vtable for MobileBroadbandUiccApp {
     type Vtable = IMobileBroadbandUiccApp_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandUiccApp {
     const IID: ::windows::core::GUID = <IMobileBroadbandUiccApp as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandUiccApp {
@@ -9144,7 +9484,7 @@ impl MobileBroadbandUiccAppReadRecordResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -9153,7 +9493,7 @@ impl MobileBroadbandUiccAppReadRecordResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -9180,8 +9520,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandUiccAppReadRecordRes
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppReadRecordResult {
+unsafe impl ::windows::core::Vtable for MobileBroadbandUiccAppReadRecordResult {
     type Vtable = IMobileBroadbandUiccAppReadRecordResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppReadRecordResult {
     const IID: ::windows::core::GUID = <IMobileBroadbandUiccAppReadRecordResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
@@ -9227,42 +9569,42 @@ impl MobileBroadbandUiccAppRecordDetailsResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<UiccAppRecordKind> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UiccAppRecordKind>(result__)
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UiccAppRecordKind>(result__)
         }
     }
     pub fn RecordCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RecordCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).RecordCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn RecordSize(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RecordSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).RecordSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn ReadAccessCondition(&self) -> ::windows::core::Result<UiccAccessCondition> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAccessCondition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UiccAccessCondition>(result__)
+            (::windows::core::Vtable::vtable(this).ReadAccessCondition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UiccAccessCondition>(result__)
         }
     }
     pub fn WriteAccessCondition(&self) -> ::windows::core::Result<UiccAccessCondition> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAccessCondition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UiccAccessCondition>(result__)
+            (::windows::core::Vtable::vtable(this).WriteAccessCondition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UiccAccessCondition>(result__)
         }
     }
 }
@@ -9289,8 +9631,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandUiccAppRecordDetails
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppRecordDetailsResult {
+unsafe impl ::windows::core::Vtable for MobileBroadbandUiccAppRecordDetailsResult {
     type Vtable = IMobileBroadbandUiccAppRecordDetailsResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppRecordDetailsResult {
     const IID: ::windows::core::GUID = <IMobileBroadbandUiccAppRecordDetailsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
@@ -9336,7 +9680,7 @@ impl MobileBroadbandUiccAppsResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -9345,7 +9689,7 @@ impl MobileBroadbandUiccAppsResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UiccApps)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>(result__)
+            (::windows::core::Vtable::vtable(this).UiccApps)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>(result__)
         }
     }
 }
@@ -9372,8 +9716,10 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandUiccAppsResult {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppsResult {
+unsafe impl ::windows::core::Vtable for MobileBroadbandUiccAppsResult {
     type Vtable = IMobileBroadbandUiccAppsResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MobileBroadbandUiccAppsResult {
     const IID: ::windows::core::GUID = <IMobileBroadbandUiccAppsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandUiccAppsResult {
@@ -9419,7 +9765,7 @@ impl NetworkOperatorDataUsageTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NotificationKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkOperatorDataUsageNotificationKind>(result__)
+            (::windows::core::Vtable::vtable(this).NotificationKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkOperatorDataUsageNotificationKind>(result__)
         }
     }
 }
@@ -9446,8 +9792,10 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorDataUsageTriggerDeta
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for NetworkOperatorDataUsageTriggerDetails {
+unsafe impl ::windows::core::Vtable for NetworkOperatorDataUsageTriggerDetails {
     type Vtable = INetworkOperatorDataUsageTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for NetworkOperatorDataUsageTriggerDetails {
     const IID: ::windows::core::GUID = <INetworkOperatorDataUsageTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
@@ -9493,35 +9841,35 @@ impl NetworkOperatorNotificationEventDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NotificationType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkOperatorEventMessageType>(result__)
+            (::windows::core::Vtable::vtable(this).NotificationType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkOperatorEventMessageType>(result__)
         }
     }
     pub fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkAccountId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn EncodingType(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EncodingType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
+            (::windows::core::Vtable::vtable(this).EncodingType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn RuleId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RuleId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).RuleId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -9530,12 +9878,12 @@ impl NetworkOperatorNotificationEventDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SmsMessage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Sms::ISmsMessage>(result__)
+            (::windows::core::Vtable::vtable(this).SmsMessage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Sms::ISmsMessage>(result__)
         }
     }
     pub fn AuthorizeTethering(&self, allow: bool, entitlementfailurereason: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringEntitlementCheck>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AuthorizeTethering)(::windows::core::Interface::as_raw(this), allow, ::core::mem::transmute_copy(entitlementfailurereason)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AuthorizeTethering)(::windows::core::Vtable::as_raw(this), allow, ::core::mem::transmute_copy(entitlementfailurereason)).ok() }
     }
 }
 impl ::core::clone::Clone for NetworkOperatorNotificationEventDetails {
@@ -9561,8 +9909,10 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorNotificationEventDet
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for NetworkOperatorNotificationEventDetails {
+unsafe impl ::windows::core::Vtable for NetworkOperatorNotificationEventDetails {
     type Vtable = INetworkOperatorNotificationEventDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for NetworkOperatorNotificationEventDetails {
     const IID: ::windows::core::GUID = <INetworkOperatorNotificationEventDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkOperatorNotificationEventDetails {
@@ -9615,29 +9965,29 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Ssid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Ssid)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetSsid(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSsid)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSsid)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Passphrase(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Passphrase)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Passphrase)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetPassphrase(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPassphrase)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPassphrase)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn IsBandSupported(&self, band: TetheringWiFiBand) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsBandSupported)(::windows::core::Interface::as_raw(this), band, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsBandSupported)(::windows::core::Vtable::as_raw(this), band, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9646,19 +9996,19 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsBandSupportedAsync)(::windows::core::Interface::as_raw(this), band, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).IsBandSupportedAsync)(::windows::core::Vtable::as_raw(this), band, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     pub fn Band(&self) -> ::windows::core::Result<TetheringWiFiBand> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Band)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TetheringWiFiBand>(result__)
+            (::windows::core::Vtable::vtable(this).Band)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TetheringWiFiBand>(result__)
         }
     }
     pub fn SetBand(&self, value: TetheringWiFiBand) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBand)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBand)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for NetworkOperatorTetheringAccessPointConfiguration {
@@ -9684,8 +10034,10 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorTetheringAccessPoint
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for NetworkOperatorTetheringAccessPointConfiguration {
+unsafe impl ::windows::core::Vtable for NetworkOperatorTetheringAccessPointConfiguration {
     type Vtable = INetworkOperatorTetheringAccessPointConfiguration_Vtbl;
+}
+unsafe impl ::windows::core::Interface for NetworkOperatorTetheringAccessPointConfiguration {
     const IID: ::windows::core::GUID = <INetworkOperatorTetheringAccessPointConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringAccessPointConfiguration {
@@ -9731,7 +10083,7 @@ impl NetworkOperatorTetheringClient {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MacAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).MacAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -9740,7 +10092,7 @@ impl NetworkOperatorTetheringClient {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HostNames)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::HostName>>(result__)
+            (::windows::core::Vtable::vtable(this).HostNames)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::HostName>>(result__)
         }
     }
 }
@@ -9767,8 +10119,10 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorTetheringClient {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for NetworkOperatorTetheringClient {
+unsafe impl ::windows::core::Vtable for NetworkOperatorTetheringClient {
     type Vtable = INetworkOperatorTetheringClient_Vtbl;
+}
+unsafe impl ::windows::core::Interface for NetworkOperatorTetheringClient {
     const IID: ::windows::core::GUID = <INetworkOperatorTetheringClient as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringClient {
@@ -9816,35 +10170,35 @@ impl NetworkOperatorTetheringManager {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringClientManager>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTetheringClients)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>>(result__)
+            (::windows::core::Vtable::vtable(this).GetTetheringClients)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>>(result__)
         }
     }
     pub fn MaxClientCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxClientCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxClientCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ClientCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ClientCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ClientCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn TetheringOperationalState(&self) -> ::windows::core::Result<TetheringOperationalState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TetheringOperationalState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TetheringOperationalState>(result__)
+            (::windows::core::Vtable::vtable(this).TetheringOperationalState)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TetheringOperationalState>(result__)
         }
     }
     pub fn GetCurrentAccessPointConfiguration(&self) -> ::windows::core::Result<NetworkOperatorTetheringAccessPointConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentAccessPointConfiguration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringAccessPointConfiguration>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentAccessPointConfiguration)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringAccessPointConfiguration>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9856,7 +10210,7 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConfigureAccessPointAsync)(::windows::core::Interface::as_raw(this), configuration.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConfigureAccessPointAsync)(::windows::core::Vtable::as_raw(this), configuration.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9865,7 +10219,7 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StartTetheringAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).StartTetheringAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9874,19 +10228,19 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StopTetheringAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).StopTetheringAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>(result__)
         }
     }
     pub fn GetTetheringCapability(networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<TetheringCapability> {
         Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTetheringCapability)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<TetheringCapability>(result__)
+            (::windows::core::Vtable::vtable(this).GetTetheringCapability)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<TetheringCapability>(result__)
         })
     }
     pub fn CreateFromNetworkAccountId(networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<NetworkOperatorTetheringManager> {
         Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringManager>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromNetworkAccountId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -9897,7 +10251,7 @@ impl NetworkOperatorTetheringManager {
     {
         Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTetheringCapabilityFromConnectionProfile)(::windows::core::Interface::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<TetheringCapability>(result__)
+            (::windows::core::Vtable::vtable(this).GetTetheringCapabilityFromConnectionProfile)(::windows::core::Vtable::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<TetheringCapability>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -9908,7 +10262,7 @@ impl NetworkOperatorTetheringManager {
     {
         Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromConnectionProfile)(::windows::core::Interface::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringManager>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromConnectionProfile)(::windows::core::Vtable::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -9920,35 +10274,35 @@ impl NetworkOperatorTetheringManager {
     {
         Self::INetworkOperatorTetheringManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromConnectionProfileWithTargetAdapter)(::windows::core::Interface::as_raw(this), profile.into().abi(), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringManager>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromConnectionProfileWithTargetAdapter)(::windows::core::Vtable::as_raw(this), profile.into().abi(), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<NetworkOperatorTetheringManager>(result__)
         })
     }
     pub fn IsNoConnectionsTimeoutEnabled() -> ::windows::core::Result<bool> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsNoConnectionsTimeoutEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsNoConnectionsTimeoutEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn EnableNoConnectionsTimeout() -> ::windows::core::Result<()> {
-        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).EnableNoConnectionsTimeout)(::windows::core::Interface::as_raw(this)).ok() })
+        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows::core::Vtable::vtable(this).EnableNoConnectionsTimeout)(::windows::core::Vtable::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableNoConnectionsTimeoutAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnableNoConnectionsTimeoutAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).EnableNoConnectionsTimeoutAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     pub fn DisableNoConnectionsTimeout() -> ::windows::core::Result<()> {
-        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).DisableNoConnectionsTimeout)(::windows::core::Interface::as_raw(this)).ok() })
+        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows::core::Vtable::vtable(this).DisableNoConnectionsTimeout)(::windows::core::Vtable::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableNoConnectionsTimeoutAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisableNoConnectionsTimeoutAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).DisableNoConnectionsTimeoutAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -9995,8 +10349,10 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorTetheringManager {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for NetworkOperatorTetheringManager {
+unsafe impl ::windows::core::Vtable for NetworkOperatorTetheringManager {
     type Vtable = INetworkOperatorTetheringManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for NetworkOperatorTetheringManager {
     const IID: ::windows::core::GUID = <INetworkOperatorTetheringManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringManager {
@@ -10040,14 +10396,14 @@ impl NetworkOperatorTetheringOperationResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TetheringOperationStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TetheringOperationStatus>(result__)
         }
     }
     pub fn AdditionalErrorMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AdditionalErrorMessage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).AdditionalErrorMessage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -10074,8 +10430,10 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorTetheringOperationRe
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for NetworkOperatorTetheringOperationResult {
+unsafe impl ::windows::core::Vtable for NetworkOperatorTetheringOperationResult {
     type Vtable = INetworkOperatorTetheringOperationResult_Vtbl;
+}
+unsafe impl ::windows::core::Interface for NetworkOperatorTetheringOperationResult {
     const IID: ::windows::core::GUID = <INetworkOperatorTetheringOperationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkOperatorTetheringOperationResult {
@@ -10119,14 +10477,14 @@ impl ProvisionFromXmlDocumentResults {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AllElementsProvisioned)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).AllElementsProvisioned)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn ProvisionResultsXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionResultsXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ProvisionResultsXml)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -10153,8 +10511,10 @@ unsafe impl ::windows::core::RuntimeType for ProvisionFromXmlDocumentResults {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ProvisionFromXmlDocumentResults {
+unsafe impl ::windows::core::Vtable for ProvisionFromXmlDocumentResults {
     type Vtable = IProvisionFromXmlDocumentResults_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ProvisionFromXmlDocumentResults {
     const IID: ::windows::core::GUID = <IProvisionFromXmlDocumentResults as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProvisionFromXmlDocumentResults {
@@ -10198,13 +10558,13 @@ impl ProvisionedProfile {
     #[cfg(feature = "Networking_Connectivity")]
     pub fn UpdateCost(&self, value: super::Connectivity::NetworkCostType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateCost)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UpdateCost)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateUsage(&self, value: ProfileUsage) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateUsage)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UpdateUsage)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for ProvisionedProfile {
@@ -10230,8 +10590,10 @@ unsafe impl ::windows::core::RuntimeType for ProvisionedProfile {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ProvisionedProfile {
+unsafe impl ::windows::core::Vtable for ProvisionedProfile {
     type Vtable = IProvisionedProfile_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ProvisionedProfile {
     const IID: ::windows::core::GUID = <IProvisionedProfile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProvisionedProfile {
@@ -10284,20 +10646,20 @@ impl ProvisioningAgent {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionFromXmlDocumentAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(provisioningxmldocument), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>>(result__)
+            (::windows::core::Vtable::vtable(this).ProvisionFromXmlDocumentAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(provisioningxmldocument), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>>(result__)
         }
     }
     pub fn GetProvisionedProfile(&self, mediatype: ProfileMediaType, profilename: &::windows::core::HSTRING) -> ::windows::core::Result<ProvisionedProfile> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetProvisionedProfile)(::windows::core::Interface::as_raw(this), mediatype, ::core::mem::transmute_copy(profilename), result__.as_mut_ptr()).from_abi::<ProvisionedProfile>(result__)
+            (::windows::core::Vtable::vtable(this).GetProvisionedProfile)(::windows::core::Vtable::as_raw(this), mediatype, ::core::mem::transmute_copy(profilename), result__.as_mut_ptr()).from_abi::<ProvisionedProfile>(result__)
         }
     }
     pub fn CreateFromNetworkAccountId(networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<ProvisioningAgent> {
         Self::IProvisioningAgentStaticMethods(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<ProvisioningAgent>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromNetworkAccountId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<ProvisioningAgent>(result__)
         })
     }
     #[doc(hidden)]
@@ -10329,8 +10691,10 @@ unsafe impl ::windows::core::RuntimeType for ProvisioningAgent {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ProvisioningAgent {
+unsafe impl ::windows::core::Vtable for ProvisioningAgent {
     type Vtable = IProvisioningAgent_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ProvisioningAgent {
     const IID: ::windows::core::GUID = <IProvisioningAgent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProvisioningAgent {
@@ -10374,16 +10738,16 @@ impl TetheringEntitlementCheckTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkAccountId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn AllowTethering(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AllowTethering)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AllowTethering)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn DenyTethering(&self, entitlementfailurereason: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DenyTethering)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(entitlementfailurereason)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).DenyTethering)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(entitlementfailurereason)).ok() }
     }
 }
 impl ::core::clone::Clone for TetheringEntitlementCheckTriggerDetails {
@@ -10409,8 +10773,10 @@ unsafe impl ::windows::core::RuntimeType for TetheringEntitlementCheckTriggerDet
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for TetheringEntitlementCheckTriggerDetails {
+unsafe impl ::windows::core::Vtable for TetheringEntitlementCheckTriggerDetails {
     type Vtable = ITetheringEntitlementCheckTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for TetheringEntitlementCheckTriggerDetails {
     const IID: ::windows::core::GUID = <ITetheringEntitlementCheckTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TetheringEntitlementCheckTriggerDetails {
@@ -10456,39 +10822,39 @@ impl UssdMessage {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DataCodingScheme)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
+            (::windows::core::Vtable::vtable(this).DataCodingScheme)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
     pub fn SetDataCodingScheme(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDataCodingScheme)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDataCodingScheme)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn GetPayload(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetPayload)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Vtable::vtable(this).GetPayload)(::windows::core::Vtable::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     pub fn SetPayload(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPayload)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPayload)(::windows::core::Vtable::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
     }
     pub fn PayloadAsText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PayloadAsText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).PayloadAsText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetPayloadAsText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPayloadAsText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPayloadAsText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CreateMessage(messagetext: &::windows::core::HSTRING) -> ::windows::core::Result<UssdMessage> {
         Self::IUssdMessageFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMessage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetext), result__.as_mut_ptr()).from_abi::<UssdMessage>(result__)
+            (::windows::core::Vtable::vtable(this).CreateMessage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(messagetext), result__.as_mut_ptr()).from_abi::<UssdMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -10520,8 +10886,10 @@ unsafe impl ::windows::core::RuntimeType for UssdMessage {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UssdMessage {
+unsafe impl ::windows::core::Vtable for UssdMessage {
     type Vtable = IUssdMessage_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UssdMessage {
     const IID: ::windows::core::GUID = <IUssdMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UssdMessage {
@@ -10567,14 +10935,14 @@ impl UssdReply {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResultCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UssdResultCode>(result__)
+            (::windows::core::Vtable::vtable(this).ResultCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UssdResultCode>(result__)
         }
     }
     pub fn Message(&self) -> ::windows::core::Result<UssdMessage> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UssdMessage>(result__)
+            (::windows::core::Vtable::vtable(this).Message)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UssdMessage>(result__)
         }
     }
 }
@@ -10601,8 +10969,10 @@ unsafe impl ::windows::core::RuntimeType for UssdReply {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UssdReply {
+unsafe impl ::windows::core::Vtable for UssdReply {
     type Vtable = IUssdReply_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UssdReply {
     const IID: ::windows::core::GUID = <IUssdReply as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UssdReply {
@@ -10651,23 +11021,23 @@ impl UssdSession {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAndGetReplyAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UssdReply>>(result__)
+            (::windows::core::Vtable::vtable(this).SendMessageAndGetReplyAsync)(::windows::core::Vtable::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UssdReply>>(result__)
         }
     }
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn CreateFromNetworkAccountId(networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession> {
         Self::IUssdSessionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromNetworkAccountId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)
         })
     }
     pub fn CreateFromNetworkInterfaceId(networkinterfaceid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession> {
         Self::IUssdSessionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkInterfaceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkinterfaceid), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromNetworkInterfaceId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(networkinterfaceid), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)
         })
     }
     #[doc(hidden)]
@@ -10699,8 +11069,10 @@ unsafe impl ::windows::core::RuntimeType for UssdSession {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UssdSession {
+unsafe impl ::windows::core::Vtable for UssdSession {
     type Vtable = IUssdSession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UssdSession {
     const IID: ::windows::core::GUID = <IUssdSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UssdSession {

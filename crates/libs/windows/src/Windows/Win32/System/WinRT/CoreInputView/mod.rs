@@ -10,7 +10,7 @@ impl ICoreFrameworkInputViewInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<ICoreFrameworkInputViewInterop> for ::windows::core::IUnknown {
@@ -59,8 +59,10 @@ impl ::core::fmt::Debug for ICoreFrameworkInputViewInterop {
         f.debug_tuple("ICoreFrameworkInputViewInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewInterop {
+unsafe impl ::windows::core::Vtable for ICoreFrameworkInputViewInterop {
     type Vtable = ICoreFrameworkInputViewInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);
 }
 #[repr(C)]

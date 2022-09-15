@@ -23,7 +23,7 @@ pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: &mut D3D9ON1
 pub struct IDirect3DDevice9On12(::windows::core::IUnknown);
 impl IDirect3DDevice9On12 {
     pub unsafe fn GetD3D12Device(&self, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetD3D12Device)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvdevice)).ok()
+        (::windows::core::Vtable::vtable(self).GetD3D12Device)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvdevice)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
@@ -32,7 +32,7 @@ impl IDirect3DDevice9On12 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D9::IDirect3DResource9>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D12::ID3D12CommandQueue>>,
     {
-        (::windows::core::Interface::vtable(self).UnwrapUnderlyingResource)(::windows::core::Interface::as_raw(self), presource.into().abi(), pcommandqueue.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvresource12)).ok()
+        (::windows::core::Vtable::vtable(self).UnwrapUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource.into().abi(), pcommandqueue.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvresource12)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
@@ -40,7 +40,7 @@ impl IDirect3DDevice9On12 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D9::IDirect3DResource9>>,
     {
-        (::windows::core::Interface::vtable(self).ReturnUnderlyingResource)(::windows::core::Interface::as_raw(self), presource.into().abi(), numsync, ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
+        (::windows::core::Vtable::vtable(self).ReturnUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource.into().abi(), numsync, ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
     }
 }
 impl ::core::convert::From<IDirect3DDevice9On12> for ::windows::core::IUnknown {
@@ -74,8 +74,10 @@ impl ::core::fmt::Debug for IDirect3DDevice9On12 {
         f.debug_tuple("IDirect3DDevice9On12").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirect3DDevice9On12 {
+unsafe impl ::windows::core::Vtable for IDirect3DDevice9On12 {
     type Vtable = IDirect3DDevice9On12_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDirect3DDevice9On12 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7fda234_b589_4049_940d_8878977531c8);
 }
 #[repr(C)]

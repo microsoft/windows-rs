@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowManagementPreview(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWindowManagementPreview {
+unsafe impl ::windows::core::Vtable for IWindowManagementPreview {
     type Vtable = IWindowManagementPreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWindowManagementPreview {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ef55b0d_561d_513c_a67c_2c02b69cef41);
 }
 #[repr(C)]
@@ -13,8 +15,10 @@ pub struct IWindowManagementPreview_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWindowManagementPreviewStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWindowManagementPreviewStatics {
+unsafe impl ::windows::core::Vtable for IWindowManagementPreviewStatics {
     type Vtable = IWindowManagementPreviewStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWindowManagementPreviewStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f9725c6_c004_5a23_8fd2_8d092ce2704a);
 }
 #[repr(C)]
@@ -36,7 +40,7 @@ impl WindowManagementPreview {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::AppWindow>>,
     {
-        Self::IWindowManagementPreviewStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetPreferredMinSize)(::windows::core::Interface::as_raw(this), window.into().abi(), preferredframeminsize).ok() })
+        Self::IWindowManagementPreviewStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).SetPreferredMinSize)(::windows::core::Vtable::as_raw(this), window.into().abi(), preferredframeminsize).ok() })
     }
     #[doc(hidden)]
     pub fn IWindowManagementPreviewStatics<R, F: FnOnce(&IWindowManagementPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -67,8 +71,10 @@ unsafe impl ::windows::core::RuntimeType for WindowManagementPreview {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WindowManagementPreview {
+unsafe impl ::windows::core::Vtable for WindowManagementPreview {
     type Vtable = IWindowManagementPreview_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WindowManagementPreview {
     const IID: ::windows::core::GUID = <IWindowManagementPreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowManagementPreview {

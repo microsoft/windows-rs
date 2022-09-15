@@ -111,10 +111,10 @@ where
 pub struct IKsAggregateControl(::windows::core::IUnknown);
 impl IKsAggregateControl {
     pub unsafe fn KsAddAggregate(&self, aggregateclass: &::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsAddAggregate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(aggregateclass)).ok()
+        (::windows::core::Vtable::vtable(self).KsAddAggregate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(aggregateclass)).ok()
     }
     pub unsafe fn KsRemoveAggregate(&self, aggregateclass: &::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsRemoveAggregate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(aggregateclass)).ok()
+        (::windows::core::Vtable::vtable(self).KsRemoveAggregate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(aggregateclass)).ok()
     }
 }
 impl ::core::convert::From<IKsAggregateControl> for ::windows::core::IUnknown {
@@ -148,8 +148,10 @@ impl ::core::fmt::Debug for IKsAggregateControl {
         f.debug_tuple("IKsAggregateControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsAggregateControl {
+unsafe impl ::windows::core::Vtable for IKsAggregateControl {
     type Vtable = IKsAggregateControl_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKsAggregateControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f40eac0_3947_11d2_874e_00a0c9223196);
 }
 #[repr(C)]
@@ -164,13 +166,13 @@ pub struct IKsAggregateControl_Vtbl {
 pub struct IKsControl(::windows::core::IUnknown);
 impl IKsControl {
     pub unsafe fn KsProperty(&self, property: &KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(property), propertylength, ::core::mem::transmute(propertydata), datalength, ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Vtable::vtable(self).KsProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(property), propertylength, ::core::mem::transmute(propertydata), datalength, ::core::mem::transmute(bytesreturned)).ok()
     }
     pub unsafe fn KsMethod(&self, method: &KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(method), methodlength, ::core::mem::transmute(methoddata), datalength, ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Vtable::vtable(self).KsMethod)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(method), methodlength, ::core::mem::transmute(methoddata), datalength, ::core::mem::transmute(bytesreturned)).ok()
     }
     pub unsafe fn KsEvent(&self, event: &KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(event), eventlength, ::core::mem::transmute(eventdata), datalength, ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Vtable::vtable(self).KsEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(event), eventlength, ::core::mem::transmute(eventdata), datalength, ::core::mem::transmute(bytesreturned)).ok()
     }
 }
 impl ::core::convert::From<IKsControl> for ::windows::core::IUnknown {
@@ -204,8 +206,10 @@ impl ::core::fmt::Debug for IKsControl {
         f.debug_tuple("IKsControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsControl {
+unsafe impl ::windows::core::Vtable for IKsControl {
     type Vtable = IKsControl_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKsControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54685_06fd_11d2_b27a_00a0c9223196);
 }
 #[repr(C)]
@@ -223,11 +227,11 @@ impl IKsFormatSupport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFormatSupported(&self, pksformat: &mut KSDATAFORMAT, cbformat: u32, pbsupported: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pksformat), cbformat, ::core::mem::transmute(pbsupported)).ok()
+        (::windows::core::Vtable::vtable(self).IsFormatSupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pksformat), cbformat, ::core::mem::transmute(pbsupported)).ok()
     }
     pub unsafe fn GetDevicePreferredFormat(&self) -> ::windows::core::Result<*mut KSDATAFORMAT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetDevicePreferredFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut KSDATAFORMAT>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevicePreferredFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut KSDATAFORMAT>(result__)
     }
 }
 impl ::core::convert::From<IKsFormatSupport> for ::windows::core::IUnknown {
@@ -261,8 +265,10 @@ impl ::core::fmt::Debug for IKsFormatSupport {
         f.debug_tuple("IKsFormatSupport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsFormatSupport {
+unsafe impl ::windows::core::Vtable for IKsFormatSupport {
     type Vtable = IKsFormatSupport_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKsFormatSupport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
 }
 #[repr(C)]
@@ -281,7 +287,7 @@ pub struct IKsJackContainerId(::windows::core::IUnknown);
 impl IKsJackContainerId {
     pub unsafe fn GetJackContainerId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackContainerId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackContainerId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
 impl ::core::convert::From<IKsJackContainerId> for ::windows::core::IUnknown {
@@ -315,8 +321,10 @@ impl ::core::fmt::Debug for IKsJackContainerId {
         f.debug_tuple("IKsJackContainerId").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackContainerId {
+unsafe impl ::windows::core::Vtable for IKsJackContainerId {
     type Vtable = IKsJackContainerId_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKsJackContainerId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99af463_d629_4ec4_8c00_e54d68154248);
 }
 #[repr(C)]
@@ -331,13 +339,13 @@ pub struct IKsJackDescription(::windows::core::IUnknown);
 impl IKsJackDescription {
     pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackDescription(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackDescription)(::windows::core::Interface::as_raw(self), njack, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_DESCRIPTION>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackDescription)(::windows::core::Vtable::as_raw(self), njack, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_DESCRIPTION>(result__)
     }
 }
 impl ::core::convert::From<IKsJackDescription> for ::windows::core::IUnknown {
@@ -371,8 +379,10 @@ impl ::core::fmt::Debug for IKsJackDescription {
         f.debug_tuple("IKsJackDescription").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackDescription {
+unsafe impl ::windows::core::Vtable for IKsJackDescription {
     type Vtable = IKsJackDescription_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKsJackDescription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
 }
 #[repr(C)]
@@ -391,11 +401,11 @@ pub struct IKsJackDescription2(::windows::core::IUnknown);
 impl IKsJackDescription2 {
     pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetJackDescription2(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackDescription2)(::windows::core::Interface::as_raw(self), njack, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_DESCRIPTION2>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackDescription2)(::windows::core::Vtable::as_raw(self), njack, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_DESCRIPTION2>(result__)
     }
 }
 impl ::core::convert::From<IKsJackDescription2> for ::windows::core::IUnknown {
@@ -429,8 +439,10 @@ impl ::core::fmt::Debug for IKsJackDescription2 {
         f.debug_tuple("IKsJackDescription2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackDescription2 {
+unsafe impl ::windows::core::Vtable for IKsJackDescription2 {
     type Vtable = IKsJackDescription2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKsJackDescription2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
 }
 #[repr(C)]
@@ -448,7 +460,7 @@ impl IKsJackSinkInformation {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackSinkInformation(&self) -> ::windows::core::Result<KSJACK_SINK_INFORMATION> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackSinkInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_SINK_INFORMATION>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackSinkInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_SINK_INFORMATION>(result__)
     }
 }
 impl ::core::convert::From<IKsJackSinkInformation> for ::windows::core::IUnknown {
@@ -482,8 +494,10 @@ impl ::core::fmt::Debug for IKsJackSinkInformation {
         f.debug_tuple("IKsJackSinkInformation").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsJackSinkInformation {
+unsafe impl ::windows::core::Vtable for IKsJackSinkInformation {
     type Vtable = IKsJackSinkInformation_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKsJackSinkInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
 }
 #[repr(C)]
@@ -500,14 +514,14 @@ pub struct IKsJackSinkInformation_Vtbl {
 pub struct IKsPropertySet(::windows::core::IUnknown);
 impl IKsPropertySet {
     pub unsafe fn Set(&self, propset: &::windows::core::GUID, id: u32, instancedata: &[u8], propertydata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(instancedata.as_ptr()), instancedata.len() as _, ::core::mem::transmute(propertydata.as_ptr()), propertydata.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(instancedata.as_ptr()), instancedata.len() as _, ::core::mem::transmute(propertydata.as_ptr()), propertydata.len() as _).ok()
     }
     pub unsafe fn Get(&self, propset: &::windows::core::GUID, id: u32, instancedata: &[u8], propertydata: &mut [u8], bytesreturned: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(instancedata.as_ptr()), instancedata.len() as _, ::core::mem::transmute(propertydata.as_ptr()), propertydata.len() as _, ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(instancedata.as_ptr()), instancedata.len() as _, ::core::mem::transmute(propertydata.as_ptr()), propertydata.len() as _, ::core::mem::transmute(bytesreturned)).ok()
     }
     pub unsafe fn QuerySupported(&self, propset: &::windows::core::GUID, id: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).QuerySupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).QuerySupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IKsPropertySet> for ::windows::core::IUnknown {
@@ -541,8 +555,10 @@ impl ::core::fmt::Debug for IKsPropertySet {
         f.debug_tuple("IKsPropertySet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsPropertySet {
+unsafe impl ::windows::core::Vtable for IKsPropertySet {
     type Vtable = IKsPropertySet_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKsPropertySet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
 }
 #[repr(C)]
@@ -561,7 +577,7 @@ impl IKsTopology {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).CreateNodeInstance)(::windows::core::Interface::as_raw(self), nodeid, flags, desiredaccess, unkouter.into().abi(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
+        (::windows::core::Vtable::vtable(self).CreateNodeInstance)(::windows::core::Vtable::as_raw(self), nodeid, flags, desiredaccess, unkouter.into().abi(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
     }
 }
 impl ::core::convert::From<IKsTopology> for ::windows::core::IUnknown {
@@ -595,8 +611,10 @@ impl ::core::fmt::Debug for IKsTopology {
         f.debug_tuple("IKsTopology").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IKsTopology {
+unsafe impl ::windows::core::Vtable for IKsTopology {
     type Vtable = IKsTopology_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IKsTopology {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54683_06fd_11d2_b27a_00a0c9223196);
 }
 #[repr(C)]

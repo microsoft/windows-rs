@@ -3,8 +3,10 @@ pub mod Injection;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInputActivationListenerPreviewStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInputActivationListenerPreviewStatics {
+unsafe impl ::windows::core::Vtable for IInputActivationListenerPreviewStatics {
     type Vtable = IInputActivationListenerPreviewStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInputActivationListenerPreviewStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0551ce5_0de6_5be0_a589_f737201a4582);
 }
 #[repr(C)]
@@ -27,7 +29,7 @@ impl InputActivationListenerPreview {
     {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForApplicationWindow)(::windows::core::Interface::as_raw(this), window.into().abi(), result__.as_mut_ptr()).from_abi::<super::InputActivationListener>(result__)
+            (::windows::core::Vtable::vtable(this).CreateForApplicationWindow)(::windows::core::Vtable::as_raw(this), window.into().abi(), result__.as_mut_ptr()).from_abi::<super::InputActivationListener>(result__)
         })
     }
     #[doc(hidden)]

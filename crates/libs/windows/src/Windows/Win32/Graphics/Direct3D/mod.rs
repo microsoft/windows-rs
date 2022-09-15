@@ -7,10 +7,10 @@ pub mod Fxc;
 pub struct ID3DBlob(::windows::core::IUnknown);
 impl ID3DBlob {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
-        (::windows::core::Interface::vtable(self).GetBufferPointer)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetBufferPointer)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetBufferSize(&self) -> usize {
-        (::windows::core::Interface::vtable(self).GetBufferSize)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetBufferSize)(::windows::core::Vtable::as_raw(self))
     }
 }
 impl ::core::convert::From<ID3DBlob> for ::windows::core::IUnknown {
@@ -46,8 +46,10 @@ impl ::core::fmt::Debug for ID3DBlob {
 }
 unsafe impl ::core::marker::Send for ID3DBlob {}
 unsafe impl ::core::marker::Sync for ID3DBlob {}
-unsafe impl ::windows::core::Interface for ID3DBlob {
+unsafe impl ::windows::core::Vtable for ID3DBlob {
     type Vtable = ID3DBlob_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ID3DBlob {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
 }
 #[repr(C)]
@@ -63,10 +65,10 @@ pub struct ID3DDestructionNotifier(::windows::core::IUnknown);
 impl ID3DDestructionNotifier {
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterDestructionCallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callbackfn), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).RegisterDestructionCallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(callbackfn), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterDestructionCallback)(::windows::core::Interface::as_raw(self), callbackid).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterDestructionCallback)(::windows::core::Vtable::as_raw(self), callbackid).ok()
     }
 }
 impl ::core::convert::From<ID3DDestructionNotifier> for ::windows::core::IUnknown {
@@ -102,8 +104,10 @@ impl ::core::fmt::Debug for ID3DDestructionNotifier {
 }
 unsafe impl ::core::marker::Send for ID3DDestructionNotifier {}
 unsafe impl ::core::marker::Sync for ID3DDestructionNotifier {}
-unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
+unsafe impl ::windows::core::Vtable for ID3DDestructionNotifier {
     type Vtable = ID3DDestructionNotifier_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 }
 #[repr(C)]
@@ -121,19 +125,14 @@ impl ID3DInclude {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), includetype, pfilename.into(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), includetype, pfilename.into(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
     }
     pub unsafe fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata)).ok()
     }
 }
-unsafe impl ::windows::core::Interface for ID3DInclude {
+unsafe impl ::windows::core::Vtable for ID3DInclude {
     type Vtable = ID3DInclude_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
-    unsafe fn query(&self, _: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        *interface = ::std::ptr::null_mut();
-        ::windows::core::HRESULT(-2147467262)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

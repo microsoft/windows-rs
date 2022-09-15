@@ -3,8 +3,10 @@ pub mod Custom;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometer {
+unsafe impl ::windows::core::Vtable for IAccelerometer {
     type Vtable = IAccelerometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf184548_2711_4da7_8098_4b82205d3c7d);
 }
 #[repr(C)]
@@ -35,8 +37,10 @@ pub struct IAccelerometer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometer2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometer2 {
+unsafe impl ::windows::core::Vtable for IAccelerometer2 {
     type Vtable = IAccelerometer2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8f092ee_4964_401a_b602_220d7153c60a);
 }
 #[repr(C)]
@@ -55,8 +59,10 @@ pub struct IAccelerometer2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometer3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometer3 {
+unsafe impl ::windows::core::Vtable for IAccelerometer3 {
     type Vtable = IAccelerometer3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometer3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87e0022a_ed80_49eb_bf8a_a4ea31e5cd84);
 }
 #[repr(C)]
@@ -70,8 +76,10 @@ pub struct IAccelerometer3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometer4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometer4 {
+unsafe impl ::windows::core::Vtable for IAccelerometer4 {
     type Vtable = IAccelerometer4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometer4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d373c4f_42d3_45b2_8144_ab7fb665eb59);
 }
 #[repr(C)]
@@ -83,8 +91,10 @@ pub struct IAccelerometer4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometer5(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometer5 {
+unsafe impl ::windows::core::Vtable for IAccelerometer5 {
     type Vtable = IAccelerometer5_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometer5 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e7e7021_def4_53a6_af43_806fd538edf6);
 }
 #[repr(C)]
@@ -96,8 +106,10 @@ pub struct IAccelerometer5_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometerDataThreshold(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometerDataThreshold {
+unsafe impl ::windows::core::Vtable for IAccelerometerDataThreshold {
     type Vtable = IAccelerometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometerDataThreshold {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf92c1b68_6320_5577_879e_9942621c3dd9);
 }
 #[repr(C)]
@@ -114,8 +126,10 @@ pub struct IAccelerometerDataThreshold_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometerDeviceId(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometerDeviceId {
+unsafe impl ::windows::core::Vtable for IAccelerometerDeviceId {
     type Vtable = IAccelerometerDeviceId_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometerDeviceId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eac64a9_97d5_446d_ab5a_917df9b96a2c);
 }
 #[repr(C)]
@@ -127,8 +141,10 @@ pub struct IAccelerometerDeviceId_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometerReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometerReading {
+unsafe impl ::windows::core::Vtable for IAccelerometerReading {
     type Vtable = IAccelerometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometerReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9fe7acb_d351_40af_8bb6_7aa9ae641fb7);
 }
 #[repr(C)]
@@ -146,8 +162,10 @@ pub struct IAccelerometerReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometerReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometerReading2 {
+unsafe impl ::windows::core::Vtable for IAccelerometerReading2 {
     type Vtable = IAccelerometerReading2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometerReading2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a864aa2_15ae_4a40_be55_db58d7de7389);
 }
 #[repr(C)]
@@ -166,8 +184,10 @@ pub struct IAccelerometerReading2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometerReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IAccelerometerReadingChangedEventArgs {
     type Vtable = IAccelerometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0095c65b_b6ac_475a_9f44_8b32d35a3f25);
 }
 #[repr(C)]
@@ -179,8 +199,10 @@ pub struct IAccelerometerReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometerShakenEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometerShakenEventArgs {
+unsafe impl ::windows::core::Vtable for IAccelerometerShakenEventArgs {
     type Vtable = IAccelerometerShakenEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometerShakenEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95ff01d1_4a28_4f35_98e8_8178aae4084a);
 }
 #[repr(C)]
@@ -195,8 +217,10 @@ pub struct IAccelerometerShakenEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometerStatics {
+unsafe impl ::windows::core::Vtable for IAccelerometerStatics {
     type Vtable = IAccelerometerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5e28b74_5a87_4a2d_becc_0f906ea061dd);
 }
 #[repr(C)]
@@ -208,8 +232,10 @@ pub struct IAccelerometerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometerStatics2 {
+unsafe impl ::windows::core::Vtable for IAccelerometerStatics2 {
     type Vtable = IAccelerometerStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4c4842f_d86b_4685_b2d7_3396f798d57b);
 }
 #[repr(C)]
@@ -221,8 +247,10 @@ pub struct IAccelerometerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometerStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAccelerometerStatics3 {
+unsafe impl ::windows::core::Vtable for IAccelerometerStatics3 {
     type Vtable = IAccelerometerStatics3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAccelerometerStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9de218cf_455d_4cf3_8200_70e1410340f8);
 }
 #[repr(C)]
@@ -238,8 +266,10 @@ pub struct IAccelerometerStatics3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IActivitySensor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivitySensor {
+unsafe impl ::windows::core::Vtable for IActivitySensor {
     type Vtable = IActivitySensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IActivitySensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd7a630c_fb5f_48eb_b09b_a2708d1c61ef);
 }
 #[repr(C)]
@@ -273,8 +303,10 @@ pub struct IActivitySensor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IActivitySensorReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivitySensorReading {
+unsafe impl ::windows::core::Vtable for IActivitySensorReading {
     type Vtable = IActivitySensorReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IActivitySensorReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85125a96_1472_40a2_b2ae_e1ef29226c78);
 }
 #[repr(C)]
@@ -291,8 +323,10 @@ pub struct IActivitySensorReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IActivitySensorReadingChangeReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivitySensorReadingChangeReport {
+unsafe impl ::windows::core::Vtable for IActivitySensorReadingChangeReport {
     type Vtable = IActivitySensorReadingChangeReport_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IActivitySensorReadingChangeReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f3c2915_d93b_47bd_960a_f20fb2f322b9);
 }
 #[repr(C)]
@@ -304,8 +338,10 @@ pub struct IActivitySensorReadingChangeReport_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IActivitySensorReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivitySensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IActivitySensorReadingChangedEventArgs {
     type Vtable = IActivitySensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IActivitySensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde386717_aeb6_4ec7_946a_d9cc19b951ec);
 }
 #[repr(C)]
@@ -317,8 +353,10 @@ pub struct IActivitySensorReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IActivitySensorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivitySensorStatics {
+unsafe impl ::windows::core::Vtable for IActivitySensorStatics {
     type Vtable = IActivitySensorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IActivitySensorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa71e0e9d_ee8b_45d1_b25b_08cc0df92ab6);
 }
 #[repr(C)]
@@ -346,8 +384,10 @@ pub struct IActivitySensorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IActivitySensorTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IActivitySensorTriggerDetails {
+unsafe impl ::windows::core::Vtable for IActivitySensorTriggerDetails {
     type Vtable = IActivitySensorTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IActivitySensorTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c9e6612_b9ca_4677_b263_243297f79d3a);
 }
 #[repr(C)]
@@ -362,8 +402,10 @@ pub struct IActivitySensorTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAltimeter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAltimeter {
+unsafe impl ::windows::core::Vtable for IAltimeter {
     type Vtable = IAltimeter_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAltimeter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72f057fd_8f04_49f1_b4a7_f4e363b701a2);
 }
 #[repr(C)]
@@ -387,8 +429,10 @@ pub struct IAltimeter_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAltimeter2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAltimeter2 {
+unsafe impl ::windows::core::Vtable for IAltimeter2 {
     type Vtable = IAltimeter2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAltimeter2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9471bf9_2add_48f5_9f08_3d0c7660d938);
 }
 #[repr(C)]
@@ -402,8 +446,10 @@ pub struct IAltimeter2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAltimeterReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAltimeterReading {
+unsafe impl ::windows::core::Vtable for IAltimeterReading {
     type Vtable = IAltimeterReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAltimeterReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbe8ef73_7f5e_48c8_aa1a_f1f3befc1144);
 }
 #[repr(C)]
@@ -419,8 +465,10 @@ pub struct IAltimeterReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAltimeterReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAltimeterReading2 {
+unsafe impl ::windows::core::Vtable for IAltimeterReading2 {
     type Vtable = IAltimeterReading2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAltimeterReading2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x543a1bd9_6d0b_42b2_bd69_bc8fae0f782c);
 }
 #[repr(C)]
@@ -439,8 +487,10 @@ pub struct IAltimeterReading2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAltimeterReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAltimeterReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IAltimeterReadingChangedEventArgs {
     type Vtable = IAltimeterReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAltimeterReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7069d077_446d_47f7_998c_ebc23b45e4a2);
 }
 #[repr(C)]
@@ -452,8 +502,10 @@ pub struct IAltimeterReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAltimeterStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAltimeterStatics {
+unsafe impl ::windows::core::Vtable for IAltimeterStatics {
     type Vtable = IAltimeterStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAltimeterStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eb4d7c3_e5ac_47ce_8eef_d3718168c01f);
 }
 #[repr(C)]
@@ -465,8 +517,10 @@ pub struct IAltimeterStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarometer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBarometer {
+unsafe impl ::windows::core::Vtable for IBarometer {
     type Vtable = IBarometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBarometer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x934475a8_78bf_452f_b017_f0209ce6dab4);
 }
 #[repr(C)]
@@ -490,8 +544,10 @@ pub struct IBarometer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarometer2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBarometer2 {
+unsafe impl ::windows::core::Vtable for IBarometer2 {
     type Vtable = IBarometer2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBarometer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32bcc418_3eeb_4d04_9574_7633a8781f9f);
 }
 #[repr(C)]
@@ -505,8 +561,10 @@ pub struct IBarometer2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarometer3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBarometer3 {
+unsafe impl ::windows::core::Vtable for IBarometer3 {
     type Vtable = IBarometer3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBarometer3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e35f0ea_02b5_5a04_b03d_822084863a54);
 }
 #[repr(C)]
@@ -518,8 +576,10 @@ pub struct IBarometer3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarometerDataThreshold(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBarometerDataThreshold {
+unsafe impl ::windows::core::Vtable for IBarometerDataThreshold {
     type Vtable = IBarometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBarometerDataThreshold {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x076b952c_cb62_5a90_a0d1_f85e4a936394);
 }
 #[repr(C)]
@@ -532,8 +592,10 @@ pub struct IBarometerDataThreshold_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarometerReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBarometerReading {
+unsafe impl ::windows::core::Vtable for IBarometerReading {
     type Vtable = IBarometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBarometerReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b9d2e6_1df6_4a1a_a7ad_321d4f5db247);
 }
 #[repr(C)]
@@ -549,8 +611,10 @@ pub struct IBarometerReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarometerReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBarometerReading2 {
+unsafe impl ::windows::core::Vtable for IBarometerReading2 {
     type Vtable = IBarometerReading2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBarometerReading2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85a244eb_90c5_4875_891c_3865b4c357e7);
 }
 #[repr(C)]
@@ -569,8 +633,10 @@ pub struct IBarometerReading2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarometerReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBarometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IBarometerReadingChangedEventArgs {
     type Vtable = IBarometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBarometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d84945f_037b_404f_9bbb_6232d69543c3);
 }
 #[repr(C)]
@@ -582,8 +648,10 @@ pub struct IBarometerReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarometerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBarometerStatics {
+unsafe impl ::windows::core::Vtable for IBarometerStatics {
     type Vtable = IBarometerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBarometerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x286b270a_02e3_4f86_84fc_fdd892b5940f);
 }
 #[repr(C)]
@@ -595,8 +663,10 @@ pub struct IBarometerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBarometerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBarometerStatics2 {
+unsafe impl ::windows::core::Vtable for IBarometerStatics2 {
     type Vtable = IBarometerStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBarometerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc6b1e7_95ff_44ac_878e_d65c8308c34c);
 }
 #[repr(C)]
@@ -612,8 +682,10 @@ pub struct IBarometerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompass(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompass {
+unsafe impl ::windows::core::Vtable for ICompass {
     type Vtable = ICompass_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompass {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x292ffa94_1b45_403c_ba06_b106dba69a64);
 }
 #[repr(C)]
@@ -636,8 +708,10 @@ pub struct ICompass_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompass2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompass2 {
+unsafe impl ::windows::core::Vtable for ICompass2 {
     type Vtable = ICompass2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompass2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36f26d09_c7d7_434f_b461_979ddfc2322f);
 }
 #[repr(C)]
@@ -656,8 +730,10 @@ pub struct ICompass2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompass3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompass3 {
+unsafe impl ::windows::core::Vtable for ICompass3 {
     type Vtable = ICompass3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompass3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa424801b_c5ea_4d45_a0ec_4b791f041a89);
 }
 #[repr(C)]
@@ -671,8 +747,10 @@ pub struct ICompass3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompass4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompass4 {
+unsafe impl ::windows::core::Vtable for ICompass4 {
     type Vtable = ICompass4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompass4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x291e7f11_ec32_5dcc_bfcb_0bb39eba5774);
 }
 #[repr(C)]
@@ -684,8 +762,10 @@ pub struct ICompass4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompassDataThreshold(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompassDataThreshold {
+unsafe impl ::windows::core::Vtable for ICompassDataThreshold {
     type Vtable = ICompassDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompassDataThreshold {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd15b52b3_d39d_5ec8_b2e4_f193e6ab34ed);
 }
 #[repr(C)]
@@ -698,8 +778,10 @@ pub struct ICompassDataThreshold_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompassDeviceId(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompassDeviceId {
+unsafe impl ::windows::core::Vtable for ICompassDeviceId {
     type Vtable = ICompassDeviceId_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompassDeviceId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd181ca29_b085_4b1d_870a_4ff57ba74fd4);
 }
 #[repr(C)]
@@ -711,8 +793,10 @@ pub struct ICompassDeviceId_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompassReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompassReading {
+unsafe impl ::windows::core::Vtable for ICompassReading {
     type Vtable = ICompassReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompassReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82911128_513d_4dc9_b781_5eedfbf02d0c);
 }
 #[repr(C)]
@@ -732,8 +816,10 @@ pub struct ICompassReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompassReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompassReading2 {
+unsafe impl ::windows::core::Vtable for ICompassReading2 {
     type Vtable = ICompassReading2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompassReading2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb13a661e_51bb_4a12_bedd_ad47ff87d2e8);
 }
 #[repr(C)]
@@ -752,8 +838,10 @@ pub struct ICompassReading2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompassReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompassReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for ICompassReadingChangedEventArgs {
     type Vtable = ICompassReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompassReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1549b0_e8bc_4c7e_b009_4e41df137072);
 }
 #[repr(C)]
@@ -765,8 +853,10 @@ pub struct ICompassReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompassReadingHeadingAccuracy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompassReadingHeadingAccuracy {
+unsafe impl ::windows::core::Vtable for ICompassReadingHeadingAccuracy {
     type Vtable = ICompassReadingHeadingAccuracy_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompassReadingHeadingAccuracy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe761354e_8911_40f7_9e16_6ecc7daec5de);
 }
 #[repr(C)]
@@ -778,8 +868,10 @@ pub struct ICompassReadingHeadingAccuracy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompassStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompassStatics {
+unsafe impl ::windows::core::Vtable for ICompassStatics {
     type Vtable = ICompassStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompassStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9abc97df_56ec_4c25_b54d_40a68bb5b269);
 }
 #[repr(C)]
@@ -791,8 +883,10 @@ pub struct ICompassStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompassStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompassStatics2 {
+unsafe impl ::windows::core::Vtable for ICompassStatics2 {
     type Vtable = ICompassStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompassStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ace0ead_3baa_4990_9ce4_be0913754ed2);
 }
 #[repr(C)]
@@ -808,8 +902,10 @@ pub struct ICompassStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometer {
+unsafe impl ::windows::core::Vtable for IGyrometer {
     type Vtable = IGyrometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdb9a9c4_84b1_4ca2_9763_9b589506c70c);
 }
 #[repr(C)]
@@ -832,8 +928,10 @@ pub struct IGyrometer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometer2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometer2 {
+unsafe impl ::windows::core::Vtable for IGyrometer2 {
     type Vtable = IGyrometer2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63df2443_8ce8_41c3_ac44_8698810b557f);
 }
 #[repr(C)]
@@ -852,8 +950,10 @@ pub struct IGyrometer2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometer3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometer3 {
+unsafe impl ::windows::core::Vtable for IGyrometer3 {
     type Vtable = IGyrometer3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometer3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d6f88d5_8fbc_4484_914b_528adfd947b1);
 }
 #[repr(C)]
@@ -867,8 +967,10 @@ pub struct IGyrometer3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometer4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometer4 {
+unsafe impl ::windows::core::Vtable for IGyrometer4 {
     type Vtable = IGyrometer4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometer4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0628a60c_4c4b_5096_94e6_c356df68bef7);
 }
 #[repr(C)]
@@ -880,8 +982,10 @@ pub struct IGyrometer4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometerDataThreshold(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometerDataThreshold {
+unsafe impl ::windows::core::Vtable for IGyrometerDataThreshold {
     type Vtable = IGyrometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometerDataThreshold {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8648b31e_6e52_5259_bbad_242a69dc38c8);
 }
 #[repr(C)]
@@ -898,8 +1002,10 @@ pub struct IGyrometerDataThreshold_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometerDeviceId(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometerDeviceId {
+unsafe impl ::windows::core::Vtable for IGyrometerDeviceId {
     type Vtable = IGyrometerDeviceId_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometerDeviceId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee5e978_89a2_4275_9e95_7126f4708760);
 }
 #[repr(C)]
@@ -911,8 +1017,10 @@ pub struct IGyrometerDeviceId_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometerReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometerReading {
+unsafe impl ::windows::core::Vtable for IGyrometerReading {
     type Vtable = IGyrometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometerReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3d6de5c_1ee4_456f_9de7_e2493b5c8e03);
 }
 #[repr(C)]
@@ -930,8 +1038,10 @@ pub struct IGyrometerReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometerReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometerReading2 {
+unsafe impl ::windows::core::Vtable for IGyrometerReading2 {
     type Vtable = IGyrometerReading2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometerReading2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16afe13c_2b89_44bb_822b_d1e1556ff09b);
 }
 #[repr(C)]
@@ -950,8 +1060,10 @@ pub struct IGyrometerReading2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometerReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IGyrometerReadingChangedEventArgs {
     type Vtable = IGyrometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fdf1895_6f9e_42ce_8d58_388c0ab8356d);
 }
 #[repr(C)]
@@ -963,8 +1075,10 @@ pub struct IGyrometerReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometerStatics {
+unsafe impl ::windows::core::Vtable for IGyrometerStatics {
     type Vtable = IGyrometerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83b6e7c9_e49d_4b39_86e6_cd554be4c5c1);
 }
 #[repr(C)]
@@ -976,8 +1090,10 @@ pub struct IGyrometerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGyrometerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGyrometerStatics2 {
+unsafe impl ::windows::core::Vtable for IGyrometerStatics2 {
     type Vtable = IGyrometerStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGyrometerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef83f7a1_d700_4204_9613_79c6b161df4e);
 }
 #[repr(C)]
@@ -993,8 +1109,10 @@ pub struct IGyrometerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHingeAngleReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHingeAngleReading {
+unsafe impl ::windows::core::Vtable for IHingeAngleReading {
     type Vtable = IHingeAngleReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHingeAngleReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3cd45b9_1bf1_4f65_a704_e2da04f182c0);
 }
 #[repr(C)]
@@ -1014,8 +1132,10 @@ pub struct IHingeAngleReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHingeAngleSensor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHingeAngleSensor {
+unsafe impl ::windows::core::Vtable for IHingeAngleSensor {
     type Vtable = IHingeAngleSensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHingeAngleSensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9d3be02_bfdf_437f_8c29_88c77393d309);
 }
 #[repr(C)]
@@ -1042,8 +1162,10 @@ pub struct IHingeAngleSensor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHingeAngleSensorReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHingeAngleSensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IHingeAngleSensorReadingChangedEventArgs {
     type Vtable = IHingeAngleSensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHingeAngleSensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24d9558b_fad0_42b8_a854_78923049a1ba);
 }
 #[repr(C)]
@@ -1055,8 +1177,10 @@ pub struct IHingeAngleSensorReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHingeAngleSensorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHingeAngleSensorStatics {
+unsafe impl ::windows::core::Vtable for IHingeAngleSensorStatics {
     type Vtable = IHingeAngleSensorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHingeAngleSensorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7b63910_fbb1_4123_89ce_4ea34eb0dfca);
 }
 #[repr(C)]
@@ -1080,8 +1204,10 @@ pub struct IHingeAngleSensorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometer {
+unsafe impl ::windows::core::Vtable for IInclinometer {
     type Vtable = IInclinometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2648ca6f_2286_406f_9161_f0c4bd806ebf);
 }
 #[repr(C)]
@@ -1104,8 +1230,10 @@ pub struct IInclinometer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometer2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometer2 {
+unsafe impl ::windows::core::Vtable for IInclinometer2 {
     type Vtable = IInclinometer2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x029f3393_28b2_45f8_bb16_61e86a7fae6e);
 }
 #[repr(C)]
@@ -1125,8 +1253,10 @@ pub struct IInclinometer2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometer3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometer3 {
+unsafe impl ::windows::core::Vtable for IInclinometer3 {
     type Vtable = IInclinometer3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometer3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a095004_d765_4384_a3d7_0283f3abe6ae);
 }
 #[repr(C)]
@@ -1140,8 +1270,10 @@ pub struct IInclinometer3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometer4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometer4 {
+unsafe impl ::windows::core::Vtable for IInclinometer4 {
     type Vtable = IInclinometer4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometer4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43852618_8fca_548e_bbf5_5c50412b6aa4);
 }
 #[repr(C)]
@@ -1153,8 +1285,10 @@ pub struct IInclinometer4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerDataThreshold(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerDataThreshold {
+unsafe impl ::windows::core::Vtable for IInclinometerDataThreshold {
     type Vtable = IInclinometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerDataThreshold {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf80a4783_7bfe_545e_bb60_a0ebc47bd2fb);
 }
 #[repr(C)]
@@ -1171,8 +1305,10 @@ pub struct IInclinometerDataThreshold_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerDeviceId(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerDeviceId {
+unsafe impl ::windows::core::Vtable for IInclinometerDeviceId {
     type Vtable = IInclinometerDeviceId_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerDeviceId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01e91982_41ff_4406_ae83_62210ff16fe3);
 }
 #[repr(C)]
@@ -1184,8 +1320,10 @@ pub struct IInclinometerDeviceId_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerReading {
+unsafe impl ::windows::core::Vtable for IInclinometerReading {
     type Vtable = IInclinometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f44f055_b6f6_497f_b127_1a775e501458);
 }
 #[repr(C)]
@@ -1203,8 +1341,10 @@ pub struct IInclinometerReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerReading2 {
+unsafe impl ::windows::core::Vtable for IInclinometerReading2 {
     type Vtable = IInclinometerReading2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerReading2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f164781_e90b_4658_8915_0103e08a805a);
 }
 #[repr(C)]
@@ -1223,8 +1363,10 @@ pub struct IInclinometerReading2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IInclinometerReadingChangedEventArgs {
     type Vtable = IInclinometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ae91dc1_e7eb_4938_8511_ae0d6b440438);
 }
 #[repr(C)]
@@ -1236,8 +1378,10 @@ pub struct IInclinometerReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerReadingYawAccuracy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerReadingYawAccuracy {
+unsafe impl ::windows::core::Vtable for IInclinometerReadingYawAccuracy {
     type Vtable = IInclinometerReadingYawAccuracy_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerReadingYawAccuracy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb453e880_1fe3_4986_a257_e6ece2723949);
 }
 #[repr(C)]
@@ -1249,8 +1393,10 @@ pub struct IInclinometerReadingYawAccuracy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerStatics {
+unsafe impl ::windows::core::Vtable for IInclinometerStatics {
     type Vtable = IInclinometerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf22ec551_9c30_453a_8b49_3c3eeb33cb61);
 }
 #[repr(C)]
@@ -1262,8 +1408,10 @@ pub struct IInclinometerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerStatics2 {
+unsafe impl ::windows::core::Vtable for IInclinometerStatics2 {
     type Vtable = IInclinometerStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x043f9775_6a1e_499c_86e0_638c1a864b00);
 }
 #[repr(C)]
@@ -1275,8 +1423,10 @@ pub struct IInclinometerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerStatics3 {
+unsafe impl ::windows::core::Vtable for IInclinometerStatics3 {
     type Vtable = IInclinometerStatics3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd9a4280_b91a_4829_9392_abc0b6bdf2b4);
 }
 #[repr(C)]
@@ -1288,8 +1438,10 @@ pub struct IInclinometerStatics3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IInclinometerStatics4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IInclinometerStatics4 {
+unsafe impl ::windows::core::Vtable for IInclinometerStatics4 {
     type Vtable = IInclinometerStatics4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IInclinometerStatics4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8ba96f9_6e85_4a83_aed0_d7cdcc9856c8);
 }
 #[repr(C)]
@@ -1305,8 +1457,10 @@ pub struct IInclinometerStatics4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensor {
+unsafe impl ::windows::core::Vtable for ILightSensor {
     type Vtable = ILightSensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf84c0718_0c54_47ae_922e_789f57fb03a0);
 }
 #[repr(C)]
@@ -1329,8 +1483,10 @@ pub struct ILightSensor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensor2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensor2 {
+unsafe impl ::windows::core::Vtable for ILightSensor2 {
     type Vtable = ILightSensor2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensor2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x486b24e8_a94c_4090_8f48_09f782a9f7d5);
 }
 #[repr(C)]
@@ -1344,8 +1500,10 @@ pub struct ILightSensor2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensor3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensor3 {
+unsafe impl ::windows::core::Vtable for ILightSensor3 {
     type Vtable = ILightSensor3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensor3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4876d0ff_9f4c_5f72_adbd_a3471b063c00);
 }
 #[repr(C)]
@@ -1357,8 +1515,10 @@ pub struct ILightSensor3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensorDataThreshold(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensorDataThreshold {
+unsafe impl ::windows::core::Vtable for ILightSensorDataThreshold {
     type Vtable = ILightSensorDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensorDataThreshold {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb160afd1_878f_5492_9f2c_33dc3ae584a3);
 }
 #[repr(C)]
@@ -1373,8 +1533,10 @@ pub struct ILightSensorDataThreshold_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensorDeviceId(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensorDeviceId {
+unsafe impl ::windows::core::Vtable for ILightSensorDeviceId {
     type Vtable = ILightSensorDeviceId_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensorDeviceId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fee49f8_0afb_4f51_87f0_6c26375ce94f);
 }
 #[repr(C)]
@@ -1386,8 +1548,10 @@ pub struct ILightSensorDeviceId_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensorReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensorReading {
+unsafe impl ::windows::core::Vtable for ILightSensorReading {
     type Vtable = ILightSensorReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensorReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffdf6300_227c_4d2b_b302_fc0142485c68);
 }
 #[repr(C)]
@@ -1403,8 +1567,10 @@ pub struct ILightSensorReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensorReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensorReading2 {
+unsafe impl ::windows::core::Vtable for ILightSensorReading2 {
     type Vtable = ILightSensorReading2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensorReading2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7512185_44a3_44c9_8190_9ef6de0a8a74);
 }
 #[repr(C)]
@@ -1423,8 +1589,10 @@ pub struct ILightSensorReading2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensorReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for ILightSensorReadingChangedEventArgs {
     type Vtable = ILightSensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a2f4cf_258b_420c_b8ab_8edd601ecf50);
 }
 #[repr(C)]
@@ -1436,8 +1604,10 @@ pub struct ILightSensorReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensorStatics {
+unsafe impl ::windows::core::Vtable for ILightSensorStatics {
     type Vtable = ILightSensorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45db8c84_c3a8_471e_9a53_6457fad87c0e);
 }
 #[repr(C)]
@@ -1449,8 +1619,10 @@ pub struct ILightSensorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ILightSensorStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILightSensorStatics2 {
+unsafe impl ::windows::core::Vtable for ILightSensorStatics2 {
     type Vtable = ILightSensorStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILightSensorStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ec0a650_ddc6_40ab_ace3_ec3359d42c51);
 }
 #[repr(C)]
@@ -1466,8 +1638,10 @@ pub struct ILightSensorStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometer {
+unsafe impl ::windows::core::Vtable for IMagnetometer {
     type Vtable = IMagnetometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x484f626e_d3c9_4111_b3f6_2cf1faa418d5);
 }
 #[repr(C)]
@@ -1490,8 +1664,10 @@ pub struct IMagnetometer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometer2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometer2 {
+unsafe impl ::windows::core::Vtable for IMagnetometer2 {
     type Vtable = IMagnetometer2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4656c85_26f6_444b_a9e2_a23f966cd368);
 }
 #[repr(C)]
@@ -1510,8 +1686,10 @@ pub struct IMagnetometer2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometer3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometer3 {
+unsafe impl ::windows::core::Vtable for IMagnetometer3 {
     type Vtable = IMagnetometer3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometer3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe93db7c_a625_48ef_acf7_fac104832671);
 }
 #[repr(C)]
@@ -1525,8 +1703,10 @@ pub struct IMagnetometer3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometer4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometer4 {
+unsafe impl ::windows::core::Vtable for IMagnetometer4 {
     type Vtable = IMagnetometer4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometer4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfb17901_3e0f_508f_b24b_f2bb75015f40);
 }
 #[repr(C)]
@@ -1538,8 +1718,10 @@ pub struct IMagnetometer4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometerDataThreshold(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometerDataThreshold {
+unsafe impl ::windows::core::Vtable for IMagnetometerDataThreshold {
     type Vtable = IMagnetometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometerDataThreshold {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd177cb01_9063_5fa5_b596_b445e9dc3401);
 }
 #[repr(C)]
@@ -1556,8 +1738,10 @@ pub struct IMagnetometerDataThreshold_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometerDeviceId(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometerDeviceId {
+unsafe impl ::windows::core::Vtable for IMagnetometerDeviceId {
     type Vtable = IMagnetometerDeviceId_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometerDeviceId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58b498c2_7e4b_404c_9fc5_5de8b40ebae3);
 }
 #[repr(C)]
@@ -1569,8 +1753,10 @@ pub struct IMagnetometerDeviceId_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometerReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometerReading {
+unsafe impl ::windows::core::Vtable for IMagnetometerReading {
     type Vtable = IMagnetometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometerReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c2cc40d_ebfd_4e5c_bb11_afc29b3cae61);
 }
 #[repr(C)]
@@ -1589,8 +1775,10 @@ pub struct IMagnetometerReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometerReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometerReading2 {
+unsafe impl ::windows::core::Vtable for IMagnetometerReading2 {
     type Vtable = IMagnetometerReading2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometerReading2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4c95c61_61d9_404b_a328_066f177a1409);
 }
 #[repr(C)]
@@ -1609,8 +1797,10 @@ pub struct IMagnetometerReading2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometerReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IMagnetometerReadingChangedEventArgs {
     type Vtable = IMagnetometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17eae872_2eb9_4ee7_8ad0_3127537d949b);
 }
 #[repr(C)]
@@ -1622,8 +1812,10 @@ pub struct IMagnetometerReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometerStatics {
+unsafe impl ::windows::core::Vtable for IMagnetometerStatics {
     type Vtable = IMagnetometerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x853c64cc_0698_4dda_a6df_9cb9cc4ab40a);
 }
 #[repr(C)]
@@ -1635,8 +1827,10 @@ pub struct IMagnetometerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMagnetometerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IMagnetometerStatics2 {
+unsafe impl ::windows::core::Vtable for IMagnetometerStatics2 {
     type Vtable = IMagnetometerStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMagnetometerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0819f0_ffc6_4f89_a06f_18fa10792933);
 }
 #[repr(C)]
@@ -1652,8 +1846,10 @@ pub struct IMagnetometerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensor {
+unsafe impl ::windows::core::Vtable for IOrientationSensor {
     type Vtable = IOrientationSensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e354635_cf6b_4c63_abd8_10252b0bf6ec);
 }
 #[repr(C)]
@@ -1676,8 +1872,10 @@ pub struct IOrientationSensor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensor2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensor2 {
+unsafe impl ::windows::core::Vtable for IOrientationSensor2 {
     type Vtable = IOrientationSensor2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensor2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d924cf9_2f1f_49c9_8042_4a1813d67760);
 }
 #[repr(C)]
@@ -1697,8 +1895,10 @@ pub struct IOrientationSensor2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensor3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensor3 {
+unsafe impl ::windows::core::Vtable for IOrientationSensor3 {
     type Vtable = IOrientationSensor3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensor3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cce578d_646b_48c5_b7ee_44fdc4c6aafd);
 }
 #[repr(C)]
@@ -1712,8 +1912,10 @@ pub struct IOrientationSensor3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensorDeviceId(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensorDeviceId {
+unsafe impl ::windows::core::Vtable for IOrientationSensorDeviceId {
     type Vtable = IOrientationSensorDeviceId_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensorDeviceId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a69b648_4c29_49ec_b28f_ea1d117b66f0);
 }
 #[repr(C)]
@@ -1725,8 +1927,10 @@ pub struct IOrientationSensorDeviceId_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensorReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensorReading {
+unsafe impl ::windows::core::Vtable for IOrientationSensorReading {
     type Vtable = IOrientationSensorReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensorReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4756c993_6595_4897_bcc6_d537ee757564);
 }
 #[repr(C)]
@@ -1743,8 +1947,10 @@ pub struct IOrientationSensorReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensorReading2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensorReading2 {
+unsafe impl ::windows::core::Vtable for IOrientationSensorReading2 {
     type Vtable = IOrientationSensorReading2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensorReading2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00576e5f_49f8_4c05_9e07_24fac79408c3);
 }
 #[repr(C)]
@@ -1763,8 +1969,10 @@ pub struct IOrientationSensorReading2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensorReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IOrientationSensorReadingChangedEventArgs {
     type Vtable = IOrientationSensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012c1186_c3ba_46bc_ae65_7a98996cbfb8);
 }
 #[repr(C)]
@@ -1776,8 +1984,10 @@ pub struct IOrientationSensorReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensorReadingYawAccuracy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensorReadingYawAccuracy {
+unsafe impl ::windows::core::Vtable for IOrientationSensorReadingYawAccuracy {
     type Vtable = IOrientationSensorReadingYawAccuracy_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensorReadingYawAccuracy {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1ac9824_3f5a_49a2_bc7b_1180bc38cd2b);
 }
 #[repr(C)]
@@ -1789,8 +1999,10 @@ pub struct IOrientationSensorReadingYawAccuracy_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensorStatics {
+unsafe impl ::windows::core::Vtable for IOrientationSensorStatics {
     type Vtable = IOrientationSensorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10ef8712_fb4c_428a_898b_2765e409e669);
 }
 #[repr(C)]
@@ -1802,8 +2014,10 @@ pub struct IOrientationSensorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensorStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensorStatics2 {
+unsafe impl ::windows::core::Vtable for IOrientationSensorStatics2 {
     type Vtable = IOrientationSensorStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensorStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59da0d0b_d40a_4c71_9276_8a272a0a6619);
 }
 #[repr(C)]
@@ -1815,8 +2029,10 @@ pub struct IOrientationSensorStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensorStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensorStatics3 {
+unsafe impl ::windows::core::Vtable for IOrientationSensorStatics3 {
     type Vtable = IOrientationSensorStatics3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensorStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd82ce920_2777_40ff_9f59_d654b085f12f);
 }
 #[repr(C)]
@@ -1829,8 +2045,10 @@ pub struct IOrientationSensorStatics3_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IOrientationSensorStatics4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOrientationSensorStatics4 {
+unsafe impl ::windows::core::Vtable for IOrientationSensorStatics4 {
     type Vtable = IOrientationSensorStatics4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IOrientationSensorStatics4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa67feb55_2c85_4b28_a0fe_58c4b20495f5);
 }
 #[repr(C)]
@@ -1847,8 +2065,10 @@ pub struct IOrientationSensorStatics4_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPedometer(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPedometer {
+unsafe impl ::windows::core::Vtable for IPedometer {
     type Vtable = IPedometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPedometer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1e013d_3d98_45f8_8920_8e4ecaca5f97);
 }
 #[repr(C)]
@@ -1872,8 +2092,10 @@ pub struct IPedometer_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPedometer2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPedometer2 {
+unsafe impl ::windows::core::Vtable for IPedometer2 {
     type Vtable = IPedometer2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPedometer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5a406df_2b81_4add_b2ff_77ab6c98ba19);
 }
 #[repr(C)]
@@ -1888,8 +2110,10 @@ pub struct IPedometer2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPedometerDataThresholdFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPedometerDataThresholdFactory {
+unsafe impl ::windows::core::Vtable for IPedometerDataThresholdFactory {
     type Vtable = IPedometerDataThresholdFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPedometerDataThresholdFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbad8f50_7a54_466b_9010_77a162fca5d7);
 }
 #[repr(C)]
@@ -1901,8 +2125,10 @@ pub struct IPedometerDataThresholdFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPedometerReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPedometerReading {
+unsafe impl ::windows::core::Vtable for IPedometerReading {
     type Vtable = IPedometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPedometerReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2245dcf4_a8e1_432f_896a_be0dd9b02d24);
 }
 #[repr(C)]
@@ -1923,8 +2149,10 @@ pub struct IPedometerReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPedometerReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPedometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IPedometerReadingChangedEventArgs {
     type Vtable = IPedometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPedometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf855e47e_abbc_4456_86a8_25cf2b333742);
 }
 #[repr(C)]
@@ -1936,8 +2164,10 @@ pub struct IPedometerReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPedometerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPedometerStatics {
+unsafe impl ::windows::core::Vtable for IPedometerStatics {
     type Vtable = IPedometerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPedometerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82980a2f_4083_4dfb_b411_938ea0f4b946);
 }
 #[repr(C)]
@@ -1965,8 +2195,10 @@ pub struct IPedometerStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPedometerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPedometerStatics2 {
+unsafe impl ::windows::core::Vtable for IPedometerStatics2 {
     type Vtable = IPedometerStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPedometerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f5c6bb_ce0e_4133_b47e_8627ea72f677);
 }
 #[repr(C)]
@@ -1981,8 +2213,10 @@ pub struct IPedometerStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProximitySensor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProximitySensor {
+unsafe impl ::windows::core::Vtable for IProximitySensor {
     type Vtable = IProximitySensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProximitySensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54c076b8_ecfb_4944_b928_74fc504d47ee);
 }
 #[repr(C)]
@@ -2015,8 +2249,10 @@ pub struct IProximitySensor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProximitySensorDataThresholdFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProximitySensorDataThresholdFactory {
+unsafe impl ::windows::core::Vtable for IProximitySensorDataThresholdFactory {
     type Vtable = IProximitySensorDataThresholdFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProximitySensorDataThresholdFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905ac121_6d27_4ad3_9db5_6467f2a5ad9d);
 }
 #[repr(C)]
@@ -2028,8 +2264,10 @@ pub struct IProximitySensorDataThresholdFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProximitySensorReading(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProximitySensorReading {
+unsafe impl ::windows::core::Vtable for IProximitySensorReading {
     type Vtable = IProximitySensorReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProximitySensorReading {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71228d59_132d_4d5f_8ff9_2f0db8751ced);
 }
 #[repr(C)]
@@ -2049,8 +2287,10 @@ pub struct IProximitySensorReading_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProximitySensorReadingChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProximitySensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for IProximitySensorReadingChangedEventArgs {
     type Vtable = IProximitySensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProximitySensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfc2f366_c3e8_40fd_8cc3_67e289004938);
 }
 #[repr(C)]
@@ -2062,8 +2302,10 @@ pub struct IProximitySensorReadingChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProximitySensorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProximitySensorStatics {
+unsafe impl ::windows::core::Vtable for IProximitySensorStatics {
     type Vtable = IProximitySensorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProximitySensorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29186649_6269_4e57_a5ad_82be80813392);
 }
 #[repr(C)]
@@ -2076,8 +2318,10 @@ pub struct IProximitySensorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProximitySensorStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProximitySensorStatics2 {
+unsafe impl ::windows::core::Vtable for IProximitySensorStatics2 {
     type Vtable = IProximitySensorStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IProximitySensorStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbf473ae_e9ca_422f_ad67_4c3d25df350c);
 }
 #[repr(C)]
@@ -2146,8 +2390,10 @@ unsafe impl ::windows::core::RuntimeType for ISensorDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ISensorDataThreshold {
+unsafe impl ::windows::core::Vtable for ISensorDataThreshold {
     type Vtable = ISensorDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensorDataThreshold {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54daec61_fe4b_4e07_b260_3a4cdfbe396e);
 }
 #[repr(C)]
@@ -2158,8 +2404,10 @@ pub struct ISensorDataThreshold_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISensorDataThresholdTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISensorDataThresholdTriggerDetails {
+unsafe impl ::windows::core::Vtable for ISensorDataThresholdTriggerDetails {
     type Vtable = ISensorDataThresholdTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensorDataThresholdTriggerDetails {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9106f1b7_e88d_48b1_bc90_619c7b349391);
 }
 #[repr(C)]
@@ -2172,8 +2420,10 @@ pub struct ISensorDataThresholdTriggerDetails_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISensorQuaternion(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISensorQuaternion {
+unsafe impl ::windows::core::Vtable for ISensorQuaternion {
     type Vtable = ISensorQuaternion_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensorQuaternion {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c5c827_c71c_46e7_9da3_36a193b232bc);
 }
 #[repr(C)]
@@ -2188,8 +2438,10 @@ pub struct ISensorQuaternion_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISensorRotationMatrix(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISensorRotationMatrix {
+unsafe impl ::windows::core::Vtable for ISensorRotationMatrix {
     type Vtable = ISensorRotationMatrix_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensorRotationMatrix {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a3d5a67_22f4_4392_9538_65d0bd064aa6);
 }
 #[repr(C)]
@@ -2209,8 +2461,10 @@ pub struct ISensorRotationMatrix_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISimpleOrientationSensor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISimpleOrientationSensor {
+unsafe impl ::windows::core::Vtable for ISimpleOrientationSensor {
     type Vtable = ISimpleOrientationSensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimpleOrientationSensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ff53856_214a_4dee_a3f9_616f1ab06ffd);
 }
 #[repr(C)]
@@ -2230,8 +2484,10 @@ pub struct ISimpleOrientationSensor_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISimpleOrientationSensor2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISimpleOrientationSensor2 {
+unsafe impl ::windows::core::Vtable for ISimpleOrientationSensor2 {
     type Vtable = ISimpleOrientationSensor2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimpleOrientationSensor2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa277a798_8870_453e_8bd6_b8f5d8d7941b);
 }
 #[repr(C)]
@@ -2250,8 +2506,10 @@ pub struct ISimpleOrientationSensor2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISimpleOrientationSensorDeviceId(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISimpleOrientationSensorDeviceId {
+unsafe impl ::windows::core::Vtable for ISimpleOrientationSensorDeviceId {
     type Vtable = ISimpleOrientationSensorDeviceId_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimpleOrientationSensorDeviceId {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc00acb_3b76_41f6_8091_30efe646d3cf);
 }
 #[repr(C)]
@@ -2263,8 +2521,10 @@ pub struct ISimpleOrientationSensorDeviceId_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISimpleOrientationSensorOrientationChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISimpleOrientationSensorOrientationChangedEventArgs {
+unsafe impl ::windows::core::Vtable for ISimpleOrientationSensorOrientationChangedEventArgs {
     type Vtable = ISimpleOrientationSensorOrientationChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimpleOrientationSensorOrientationChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcd5c660_23d4_4b4c_a22e_ba81ade0c601);
 }
 #[repr(C)]
@@ -2280,8 +2540,10 @@ pub struct ISimpleOrientationSensorOrientationChangedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISimpleOrientationSensorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISimpleOrientationSensorStatics {
+unsafe impl ::windows::core::Vtable for ISimpleOrientationSensorStatics {
     type Vtable = ISimpleOrientationSensorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimpleOrientationSensorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72ed066f_70aa_40c6_9b1b_3433f7459b4e);
 }
 #[repr(C)]
@@ -2293,8 +2555,10 @@ pub struct ISimpleOrientationSensorStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISimpleOrientationSensorStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISimpleOrientationSensorStatics2 {
+unsafe impl ::windows::core::Vtable for ISimpleOrientationSensorStatics2 {
     type Vtable = ISimpleOrientationSensorStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISimpleOrientationSensorStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x848f9c7f_b138_4e11_8910_a2a2a3b56d83);
 }
 #[repr(C)]
@@ -2315,25 +2579,25 @@ impl Accelerometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReading>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2345,14 +2609,14 @@ impl Accelerometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2363,20 +2627,20 @@ impl Accelerometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Shaken)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Shaken)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShaken(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveShaken)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveShaken)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReadingTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -2384,58 +2648,58 @@ impl Accelerometer {
         let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingTransform)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
         }
     }
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccelerometer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportLatency)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAccelerometer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportLatency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAccelerometer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxBatchSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ReadingType(&self) -> ::windows::core::Result<AccelerometerReadingType> {
         let this = &::windows::core::Interface::cast::<IAccelerometer4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReadingType>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReadingType>(result__)
         }
     }
     pub fn ReportThreshold(&self) -> ::windows::core::Result<AccelerometerDataThreshold> {
         let this = &::windows::core::Interface::cast::<IAccelerometer5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerDataThreshold>(result__)
+            (::windows::core::Vtable::vtable(this).ReportThreshold)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerDataThreshold>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAccelerometerDeviceId>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<Accelerometer> {
         Self::IAccelerometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
         })
     }
     pub fn GetDefaultWithAccelerometerReadingType(readingtype: AccelerometerReadingType) -> ::windows::core::Result<Accelerometer> {
         Self::IAccelerometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultWithAccelerometerReadingType)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefaultWithAccelerometerReadingType)(::windows::core::Vtable::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2443,13 +2707,13 @@ impl Accelerometer {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>> {
         Self::IAccelerometerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Accelerometer>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Accelerometer>>(result__)
         })
     }
     pub fn GetDeviceSelector(readingtype: AccelerometerReadingType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAccelerometerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -2491,8 +2755,10 @@ unsafe impl ::windows::core::RuntimeType for Accelerometer {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Accelerometer {
+unsafe impl ::windows::core::Vtable for Accelerometer {
     type Vtable = IAccelerometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Accelerometer {
     const IID: ::windows::core::GUID = <IAccelerometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Accelerometer {
@@ -2538,34 +2804,34 @@ impl AccelerometerDataThreshold {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).XAxisInGForce)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).XAxisInGForce)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetXAxisInGForce(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetXAxisInGForce)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetXAxisInGForce)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn YAxisInGForce(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).YAxisInGForce)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).YAxisInGForce)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetYAxisInGForce(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetYAxisInGForce)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetYAxisInGForce)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ZAxisInGForce(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ZAxisInGForce)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).ZAxisInGForce)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetZAxisInGForce(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZAxisInGForce)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetZAxisInGForce)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for AccelerometerDataThreshold {
@@ -2591,8 +2857,10 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AccelerometerDataThreshold {
+unsafe impl ::windows::core::Vtable for AccelerometerDataThreshold {
     type Vtable = IAccelerometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AccelerometerDataThreshold {
     const IID: ::windows::core::GUID = <IAccelerometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccelerometerDataThreshold {
@@ -2640,28 +2908,28 @@ impl AccelerometerReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn AccelerationX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccelerationX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).AccelerationX)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn AccelerationY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccelerationY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).AccelerationY)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn AccelerationZ(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccelerationZ)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).AccelerationZ)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2670,7 +2938,7 @@ impl AccelerometerReading {
         let this = &::windows::core::Interface::cast::<IAccelerometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).PerformanceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2679,7 +2947,7 @@ impl AccelerometerReading {
         let this = &::windows::core::Interface::cast::<IAccelerometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -2706,8 +2974,10 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AccelerometerReading {
+unsafe impl ::windows::core::Vtable for AccelerometerReading {
     type Vtable = IAccelerometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AccelerometerReading {
     const IID: ::windows::core::GUID = <IAccelerometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccelerometerReading {
@@ -2753,7 +3023,7 @@ impl AccelerometerReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReading>(result__)
         }
     }
 }
@@ -2780,8 +3050,10 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerReadingChangedEventArg
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AccelerometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for AccelerometerReadingChangedEventArgs {
     type Vtable = IAccelerometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AccelerometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IAccelerometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccelerometerReadingChangedEventArgs {
@@ -2829,7 +3101,7 @@ impl AccelerometerShakenEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -2856,8 +3128,10 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerShakenEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AccelerometerShakenEventArgs {
+unsafe impl ::windows::core::Vtable for AccelerometerShakenEventArgs {
     type Vtable = IAccelerometerShakenEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AccelerometerShakenEventArgs {
     const IID: ::windows::core::GUID = <IAccelerometerShakenEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccelerometerShakenEventArgs {
@@ -2905,7 +3179,7 @@ impl ActivitySensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReadingAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensorReading>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReadingAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensorReading>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2914,21 +3188,21 @@ impl ActivitySensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SubscribedActivities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ActivityType>>(result__)
+            (::windows::core::Vtable::vtable(this).SubscribedActivities)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ActivityType>>(result__)
         }
     }
     pub fn PowerInMilliwatts(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PowerInMilliwatts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).PowerInMilliwatts)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2937,14 +3211,14 @@ impl ActivitySensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedActivities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivityType>>(result__)
+            (::windows::core::Vtable::vtable(this).SupportedActivities)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivityType>>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2956,27 +3230,27 @@ impl ActivitySensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefaultAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2984,7 +3258,7 @@ impl ActivitySensor {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2992,7 +3266,7 @@ impl ActivitySensor {
     pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSystemHistoryAsync)(::windows::core::Interface::as_raw(this), fromtime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetSystemHistoryAsync)(::windows::core::Vtable::as_raw(this), fromtime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3000,7 +3274,7 @@ impl ActivitySensor {
     pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(::windows::core::Interface::as_raw(this), fromtime, duration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetSystemHistoryWithDurationAsync)(::windows::core::Vtable::as_raw(this), fromtime, duration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3032,8 +3306,10 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensor {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ActivitySensor {
+unsafe impl ::windows::core::Vtable for ActivitySensor {
     type Vtable = IActivitySensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ActivitySensor {
     const IID: ::windows::core::GUID = <IActivitySensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensor {
@@ -3081,21 +3357,21 @@ impl ActivitySensorReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn Activity(&self) -> ::windows::core::Result<ActivityType> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Activity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivityType>(result__)
+            (::windows::core::Vtable::vtable(this).Activity)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivityType>(result__)
         }
     }
     pub fn Confidence(&self) -> ::windows::core::Result<ActivitySensorReadingConfidence> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Confidence)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReadingConfidence>(result__)
+            (::windows::core::Vtable::vtable(this).Confidence)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReadingConfidence>(result__)
         }
     }
 }
@@ -3122,8 +3398,10 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ActivitySensorReading {
+unsafe impl ::windows::core::Vtable for ActivitySensorReading {
     type Vtable = IActivitySensorReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ActivitySensorReading {
     const IID: ::windows::core::GUID = <IActivitySensorReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensorReading {
@@ -3169,7 +3447,7 @@ impl ActivitySensorReadingChangeReport {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReading>(result__)
         }
     }
 }
@@ -3196,8 +3474,10 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangeReport {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ActivitySensorReadingChangeReport {
+unsafe impl ::windows::core::Vtable for ActivitySensorReadingChangeReport {
     type Vtable = IActivitySensorReadingChangeReport_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ActivitySensorReadingChangeReport {
     const IID: ::windows::core::GUID = <IActivitySensorReadingChangeReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensorReadingChangeReport {
@@ -3243,7 +3523,7 @@ impl ActivitySensorReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReading>(result__)
         }
     }
 }
@@ -3270,8 +3550,10 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangedEventAr
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ActivitySensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for ActivitySensorReadingChangedEventArgs {
     type Vtable = IActivitySensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ActivitySensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IActivitySensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensorReadingChangedEventArgs {
@@ -3319,7 +3601,7 @@ impl ActivitySensorTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadReports)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>>(result__)
+            (::windows::core::Vtable::vtable(this).ReadReports)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>>(result__)
         }
     }
 }
@@ -3346,8 +3628,10 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorTriggerDetails {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ActivitySensorTriggerDetails {
+unsafe impl ::windows::core::Vtable for ActivitySensorTriggerDetails {
     type Vtable = IActivitySensorTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ActivitySensorTriggerDetails {
     const IID: ::windows::core::GUID = <IActivitySensorTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensorTriggerDetails {
@@ -3393,32 +3677,32 @@ impl Altimeter {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltimeterReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AltimeterReading>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3430,37 +3714,37 @@ impl Altimeter {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAltimeter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportLatency)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAltimeter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportLatency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAltimeter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxBatchSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<Altimeter> {
         Self::IAltimeterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Altimeter>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Altimeter>(result__)
         })
     }
     #[doc(hidden)]
@@ -3492,8 +3776,10 @@ unsafe impl ::windows::core::RuntimeType for Altimeter {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Altimeter {
+unsafe impl ::windows::core::Vtable for Altimeter {
     type Vtable = IAltimeter_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Altimeter {
     const IID: ::windows::core::GUID = <IAltimeter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Altimeter {
@@ -3541,14 +3827,14 @@ impl AltimeterReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn AltitudeChangeInMeters(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AltitudeChangeInMeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).AltitudeChangeInMeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3557,7 +3843,7 @@ impl AltimeterReading {
         let this = &::windows::core::Interface::cast::<IAltimeterReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).PerformanceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3566,7 +3852,7 @@ impl AltimeterReading {
         let this = &::windows::core::Interface::cast::<IAltimeterReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -3593,8 +3879,10 @@ unsafe impl ::windows::core::RuntimeType for AltimeterReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AltimeterReading {
+unsafe impl ::windows::core::Vtable for AltimeterReading {
     type Vtable = IAltimeterReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AltimeterReading {
     const IID: ::windows::core::GUID = <IAltimeterReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AltimeterReading {
@@ -3640,7 +3928,7 @@ impl AltimeterReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltimeterReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AltimeterReading>(result__)
         }
     }
 }
@@ -3667,8 +3955,10 @@ unsafe impl ::windows::core::RuntimeType for AltimeterReadingChangedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AltimeterReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for AltimeterReadingChangedEventArgs {
     type Vtable = IAltimeterReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AltimeterReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IAltimeterReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AltimeterReadingChangedEventArgs {
@@ -3714,32 +4004,32 @@ impl Barometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerReading>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3751,44 +4041,44 @@ impl Barometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBarometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportLatency)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBarometer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportLatency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBarometer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxBatchSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ReportThreshold(&self) -> ::windows::core::Result<BarometerDataThreshold> {
         let this = &::windows::core::Interface::cast::<IBarometer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerDataThreshold>(result__)
+            (::windows::core::Vtable::vtable(this).ReportThreshold)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerDataThreshold>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<Barometer> {
         Self::IBarometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Barometer>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Barometer>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3796,13 +4086,13 @@ impl Barometer {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Barometer>> {
         Self::IBarometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Barometer>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Barometer>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBarometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -3839,8 +4129,10 @@ unsafe impl ::windows::core::RuntimeType for Barometer {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Barometer {
+unsafe impl ::windows::core::Vtable for Barometer {
     type Vtable = IBarometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Barometer {
     const IID: ::windows::core::GUID = <IBarometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Barometer {
@@ -3886,12 +4178,12 @@ impl BarometerDataThreshold {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Hectopascals)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Hectopascals)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetHectopascals(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHectopascals)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetHectopascals)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for BarometerDataThreshold {
@@ -3917,8 +4209,10 @@ unsafe impl ::windows::core::RuntimeType for BarometerDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for BarometerDataThreshold {
+unsafe impl ::windows::core::Vtable for BarometerDataThreshold {
     type Vtable = IBarometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for BarometerDataThreshold {
     const IID: ::windows::core::GUID = <IBarometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarometerDataThreshold {
@@ -3966,14 +4260,14 @@ impl BarometerReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn StationPressureInHectopascals(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StationPressureInHectopascals)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).StationPressureInHectopascals)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3982,7 +4276,7 @@ impl BarometerReading {
         let this = &::windows::core::Interface::cast::<IBarometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).PerformanceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3991,7 +4285,7 @@ impl BarometerReading {
         let this = &::windows::core::Interface::cast::<IBarometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -4018,8 +4312,10 @@ unsafe impl ::windows::core::RuntimeType for BarometerReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for BarometerReading {
+unsafe impl ::windows::core::Vtable for BarometerReading {
     type Vtable = IBarometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for BarometerReading {
     const IID: ::windows::core::GUID = <IBarometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarometerReading {
@@ -4065,7 +4361,7 @@ impl BarometerReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerReading>(result__)
         }
     }
 }
@@ -4092,8 +4388,10 @@ unsafe impl ::windows::core::RuntimeType for BarometerReadingChangedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for BarometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for BarometerReadingChangedEventArgs {
     type Vtable = IBarometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for BarometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IBarometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarometerReadingChangedEventArgs {
@@ -4139,25 +4437,25 @@ impl Compass {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassReading>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4169,20 +4467,20 @@ impl Compass {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReadingTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -4190,51 +4488,51 @@ impl Compass {
         let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingTransform)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
         }
     }
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompass3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportLatency)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICompass3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportLatency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICompass3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxBatchSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ReportThreshold(&self) -> ::windows::core::Result<CompassDataThreshold> {
         let this = &::windows::core::Interface::cast::<ICompass4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassDataThreshold>(result__)
+            (::windows::core::Vtable::vtable(this).ReportThreshold)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassDataThreshold>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ICompassDeviceId>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<Compass> {
         Self::ICompassStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compass>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Compass>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICompassStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4242,7 +4540,7 @@ impl Compass {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Compass>> {
         Self::ICompassStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Compass>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Compass>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4279,8 +4577,10 @@ unsafe impl ::windows::core::RuntimeType for Compass {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Compass {
+unsafe impl ::windows::core::Vtable for Compass {
     type Vtable = ICompass_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Compass {
     const IID: ::windows::core::GUID = <ICompass as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Compass {
@@ -4326,12 +4626,12 @@ impl CompassDataThreshold {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Degrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).Degrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetDegrees(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDegrees)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for CompassDataThreshold {
@@ -4357,8 +4657,10 @@ unsafe impl ::windows::core::RuntimeType for CompassDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for CompassDataThreshold {
+unsafe impl ::windows::core::Vtable for CompassDataThreshold {
     type Vtable = ICompassDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for CompassDataThreshold {
     const IID: ::windows::core::GUID = <ICompassDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompassDataThreshold {
@@ -4406,14 +4708,14 @@ impl CompassReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn HeadingMagneticNorth(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HeadingMagneticNorth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).HeadingMagneticNorth)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4422,7 +4724,7 @@ impl CompassReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HeadingTrueNorth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).HeadingTrueNorth)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4431,7 +4733,7 @@ impl CompassReading {
         let this = &::windows::core::Interface::cast::<ICompassReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).PerformanceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4440,14 +4742,14 @@ impl CompassReading {
         let this = &::windows::core::Interface::cast::<ICompassReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
     pub fn HeadingAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy> {
         let this = &::windows::core::Interface::cast::<ICompassReadingHeadingAccuracy>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HeadingAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
+            (::windows::core::Vtable::vtable(this).HeadingAccuracy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
         }
     }
 }
@@ -4474,8 +4776,10 @@ unsafe impl ::windows::core::RuntimeType for CompassReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for CompassReading {
+unsafe impl ::windows::core::Vtable for CompassReading {
     type Vtable = ICompassReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for CompassReading {
     const IID: ::windows::core::GUID = <ICompassReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompassReading {
@@ -4521,7 +4825,7 @@ impl CompassReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassReading>(result__)
         }
     }
 }
@@ -4548,8 +4852,10 @@ unsafe impl ::windows::core::RuntimeType for CompassReadingChangedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for CompassReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for CompassReadingChangedEventArgs {
     type Vtable = ICompassReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for CompassReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <ICompassReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompassReadingChangedEventArgs {
@@ -4595,25 +4901,25 @@ impl Gyrometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerReading>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4625,20 +4931,20 @@ impl Gyrometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReadingTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -4646,51 +4952,51 @@ impl Gyrometer {
         let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingTransform)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
         }
     }
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IGyrometer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportLatency)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IGyrometer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportLatency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IGyrometer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxBatchSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ReportThreshold(&self) -> ::windows::core::Result<GyrometerDataThreshold> {
         let this = &::windows::core::Interface::cast::<IGyrometer4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerDataThreshold>(result__)
+            (::windows::core::Vtable::vtable(this).ReportThreshold)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerDataThreshold>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IGyrometerDeviceId>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<Gyrometer> {
         Self::IGyrometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Gyrometer>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Gyrometer>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGyrometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4698,7 +5004,7 @@ impl Gyrometer {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>> {
         Self::IGyrometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Gyrometer>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Gyrometer>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4735,8 +5041,10 @@ unsafe impl ::windows::core::RuntimeType for Gyrometer {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Gyrometer {
+unsafe impl ::windows::core::Vtable for Gyrometer {
     type Vtable = IGyrometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Gyrometer {
     const IID: ::windows::core::GUID = <IGyrometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Gyrometer {
@@ -4782,34 +5090,34 @@ impl GyrometerDataThreshold {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).XAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).XAxisInDegreesPerSecond)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetXAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetXAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetXAxisInDegreesPerSecond)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn YAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).YAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).YAxisInDegreesPerSecond)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetYAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetYAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetYAxisInDegreesPerSecond)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ZAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ZAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).ZAxisInDegreesPerSecond)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetZAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetZAxisInDegreesPerSecond)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for GyrometerDataThreshold {
@@ -4835,8 +5143,10 @@ unsafe impl ::windows::core::RuntimeType for GyrometerDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GyrometerDataThreshold {
+unsafe impl ::windows::core::Vtable for GyrometerDataThreshold {
     type Vtable = IGyrometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GyrometerDataThreshold {
     const IID: ::windows::core::GUID = <IGyrometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GyrometerDataThreshold {
@@ -4884,28 +5194,28 @@ impl GyrometerReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn AngularVelocityX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AngularVelocityX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).AngularVelocityX)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn AngularVelocityY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AngularVelocityY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).AngularVelocityY)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn AngularVelocityZ(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AngularVelocityZ)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).AngularVelocityZ)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4914,7 +5224,7 @@ impl GyrometerReading {
         let this = &::windows::core::Interface::cast::<IGyrometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).PerformanceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4923,7 +5233,7 @@ impl GyrometerReading {
         let this = &::windows::core::Interface::cast::<IGyrometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -4950,8 +5260,10 @@ unsafe impl ::windows::core::RuntimeType for GyrometerReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GyrometerReading {
+unsafe impl ::windows::core::Vtable for GyrometerReading {
     type Vtable = IGyrometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GyrometerReading {
     const IID: ::windows::core::GUID = <IGyrometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GyrometerReading {
@@ -4997,7 +5309,7 @@ impl GyrometerReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerReading>(result__)
         }
     }
 }
@@ -5024,8 +5336,10 @@ unsafe impl ::windows::core::RuntimeType for GyrometerReadingChangedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for GyrometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for GyrometerReadingChangedEventArgs {
     type Vtable = IGyrometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for GyrometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IGyrometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GyrometerReadingChangedEventArgs {
@@ -5073,14 +5387,14 @@ impl HingeAngleReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn AngleInDegrees(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AngleInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).AngleInDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5089,7 +5403,7 @@ impl HingeAngleReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -5116,8 +5430,10 @@ unsafe impl ::windows::core::RuntimeType for HingeAngleReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for HingeAngleReading {
+unsafe impl ::windows::core::Vtable for HingeAngleReading {
     type Vtable = IHingeAngleReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for HingeAngleReading {
     const IID: ::windows::core::GUID = <IHingeAngleReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HingeAngleReading {
@@ -5165,33 +5481,33 @@ impl HingeAngleSensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReadingAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleReading>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReadingAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleReading>>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn MinReportThresholdInDegrees(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).MinReportThresholdInDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn ReportThresholdInDegrees(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).ReportThresholdInDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetReportThresholdInDegrees(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportThresholdInDegrees)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5202,19 +5518,19 @@ impl HingeAngleSensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5222,7 +5538,7 @@ impl HingeAngleSensor {
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefaultAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5230,7 +5546,7 @@ impl HingeAngleSensor {
     pub fn GetRelatedToAdjacentPanelsAsync(firstpanelid: &::windows::core::HSTRING, secondpanelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetRelatedToAdjacentPanelsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(firstpanelid), ::core::mem::transmute_copy(secondpanelid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
+            (::windows::core::Vtable::vtable(this).GetRelatedToAdjacentPanelsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(firstpanelid), ::core::mem::transmute_copy(secondpanelid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5238,7 +5554,7 @@ impl HingeAngleSensor {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5270,8 +5586,10 @@ unsafe impl ::windows::core::RuntimeType for HingeAngleSensor {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for HingeAngleSensor {
+unsafe impl ::windows::core::Vtable for HingeAngleSensor {
     type Vtable = IHingeAngleSensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for HingeAngleSensor {
     const IID: ::windows::core::GUID = <IHingeAngleSensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HingeAngleSensor {
@@ -5317,7 +5635,7 @@ impl HingeAngleSensorReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HingeAngleReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HingeAngleReading>(result__)
         }
     }
 }
@@ -5344,8 +5662,10 @@ unsafe impl ::windows::core::RuntimeType for HingeAngleSensorReadingChangedEvent
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for HingeAngleSensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for HingeAngleSensorReadingChangedEventArgs {
     type Vtable = IHingeAngleSensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for HingeAngleSensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IHingeAngleSensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
@@ -5391,25 +5711,25 @@ impl Inclinometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InclinometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InclinometerReading>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5421,20 +5741,20 @@ impl Inclinometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInclinometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReadingTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -5442,70 +5762,70 @@ impl Inclinometer {
         let this = &::windows::core::Interface::cast::<IInclinometer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingTransform)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
         }
     }
     pub fn ReadingType(&self) -> ::windows::core::Result<SensorReadingType> {
         let this = &::windows::core::Interface::cast::<IInclinometer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorReadingType>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorReadingType>(result__)
         }
     }
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInclinometer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportLatency)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IInclinometer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportLatency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IInclinometer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxBatchSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ReportThreshold(&self) -> ::windows::core::Result<InclinometerDataThreshold> {
         let this = &::windows::core::Interface::cast::<IInclinometer4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InclinometerDataThreshold>(result__)
+            (::windows::core::Vtable::vtable(this).ReportThreshold)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InclinometerDataThreshold>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IInclinometerDeviceId>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<Inclinometer> {
         Self::IInclinometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Inclinometer>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Inclinometer>(result__)
         })
     }
     pub fn GetDefaultForRelativeReadings() -> ::windows::core::Result<Inclinometer> {
         Self::IInclinometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultForRelativeReadings)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Inclinometer>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefaultForRelativeReadings)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Inclinometer>(result__)
         })
     }
     pub fn GetDefaultWithSensorReadingType(sensorreadingtype: SensorReadingType) -> ::windows::core::Result<Inclinometer> {
         Self::IInclinometerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Interface::as_raw(this), sensorreadingtype, result__.as_mut_ptr()).from_abi::<Inclinometer>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Vtable::as_raw(this), sensorreadingtype, result__.as_mut_ptr()).from_abi::<Inclinometer>(result__)
         })
     }
     pub fn GetDeviceSelector(readingtype: SensorReadingType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IInclinometerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5513,7 +5833,7 @@ impl Inclinometer {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Inclinometer>> {
         Self::IInclinometerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Inclinometer>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Inclinometer>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5560,8 +5880,10 @@ unsafe impl ::windows::core::RuntimeType for Inclinometer {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Inclinometer {
+unsafe impl ::windows::core::Vtable for Inclinometer {
     type Vtable = IInclinometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Inclinometer {
     const IID: ::windows::core::GUID = <IInclinometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Inclinometer {
@@ -5607,34 +5929,34 @@ impl InclinometerDataThreshold {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PitchInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).PitchInDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn SetPitchInDegrees(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPitchInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPitchInDegrees)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn RollInDegrees(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RollInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).RollInDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn SetRollInDegrees(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRollInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRollInDegrees)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn YawInDegrees(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).YawInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).YawInDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn SetYawInDegrees(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetYawInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetYawInDegrees)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for InclinometerDataThreshold {
@@ -5660,8 +5982,10 @@ unsafe impl ::windows::core::RuntimeType for InclinometerDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InclinometerDataThreshold {
+unsafe impl ::windows::core::Vtable for InclinometerDataThreshold {
     type Vtable = IInclinometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InclinometerDataThreshold {
     const IID: ::windows::core::GUID = <IInclinometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InclinometerDataThreshold {
@@ -5709,28 +6033,28 @@ impl InclinometerReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn PitchDegrees(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PitchDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).PitchDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn RollDegrees(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RollDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).RollDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn YawDegrees(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).YawDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).YawDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5739,7 +6063,7 @@ impl InclinometerReading {
         let this = &::windows::core::Interface::cast::<IInclinometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).PerformanceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5748,14 +6072,14 @@ impl InclinometerReading {
         let this = &::windows::core::Interface::cast::<IInclinometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
     pub fn YawAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy> {
         let this = &::windows::core::Interface::cast::<IInclinometerReadingYawAccuracy>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).YawAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
+            (::windows::core::Vtable::vtable(this).YawAccuracy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
         }
     }
 }
@@ -5782,8 +6106,10 @@ unsafe impl ::windows::core::RuntimeType for InclinometerReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InclinometerReading {
+unsafe impl ::windows::core::Vtable for InclinometerReading {
     type Vtable = IInclinometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InclinometerReading {
     const IID: ::windows::core::GUID = <IInclinometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InclinometerReading {
@@ -5829,7 +6155,7 @@ impl InclinometerReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InclinometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InclinometerReading>(result__)
         }
     }
 }
@@ -5856,8 +6182,10 @@ unsafe impl ::windows::core::RuntimeType for InclinometerReadingChangedEventArgs
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for InclinometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for InclinometerReadingChangedEventArgs {
     type Vtable = IInclinometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for InclinometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IInclinometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InclinometerReadingChangedEventArgs {
@@ -5903,25 +6231,25 @@ impl LightSensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LightSensorReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LightSensorReading>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5933,57 +6261,57 @@ impl LightSensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILightSensor2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportLatency)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ILightSensor2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportLatency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ILightSensor2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxBatchSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ReportThreshold(&self) -> ::windows::core::Result<LightSensorDataThreshold> {
         let this = &::windows::core::Interface::cast::<ILightSensor3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LightSensorDataThreshold>(result__)
+            (::windows::core::Vtable::vtable(this).ReportThreshold)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LightSensorDataThreshold>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ILightSensorDeviceId>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<LightSensor> {
         Self::ILightSensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LightSensor>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LightSensor>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILightSensorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5991,7 +6319,7 @@ impl LightSensor {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LightSensor>> {
         Self::ILightSensorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LightSensor>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LightSensor>>(result__)
         })
     }
     #[doc(hidden)]
@@ -6028,8 +6356,10 @@ unsafe impl ::windows::core::RuntimeType for LightSensor {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for LightSensor {
+unsafe impl ::windows::core::Vtable for LightSensor {
     type Vtable = ILightSensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for LightSensor {
     const IID: ::windows::core::GUID = <ILightSensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LightSensor {
@@ -6075,23 +6405,23 @@ impl LightSensorDataThreshold {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LuxPercentage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).LuxPercentage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn SetLuxPercentage(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLuxPercentage)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetLuxPercentage)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn AbsoluteLux(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AbsoluteLux)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).AbsoluteLux)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn SetAbsoluteLux(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAbsoluteLux)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAbsoluteLux)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for LightSensorDataThreshold {
@@ -6117,8 +6447,10 @@ unsafe impl ::windows::core::RuntimeType for LightSensorDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for LightSensorDataThreshold {
+unsafe impl ::windows::core::Vtable for LightSensorDataThreshold {
     type Vtable = ILightSensorDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for LightSensorDataThreshold {
     const IID: ::windows::core::GUID = <ILightSensorDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LightSensorDataThreshold {
@@ -6166,14 +6498,14 @@ impl LightSensorReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn IlluminanceInLux(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IlluminanceInLux)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).IlluminanceInLux)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6182,7 +6514,7 @@ impl LightSensorReading {
         let this = &::windows::core::Interface::cast::<ILightSensorReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).PerformanceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6191,7 +6523,7 @@ impl LightSensorReading {
         let this = &::windows::core::Interface::cast::<ILightSensorReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -6218,8 +6550,10 @@ unsafe impl ::windows::core::RuntimeType for LightSensorReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for LightSensorReading {
+unsafe impl ::windows::core::Vtable for LightSensorReading {
     type Vtable = ILightSensorReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for LightSensorReading {
     const IID: ::windows::core::GUID = <ILightSensorReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LightSensorReading {
@@ -6265,7 +6599,7 @@ impl LightSensorReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LightSensorReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LightSensorReading>(result__)
         }
     }
 }
@@ -6292,8 +6626,10 @@ unsafe impl ::windows::core::RuntimeType for LightSensorReadingChangedEventArgs 
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for LightSensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for LightSensorReadingChangedEventArgs {
     type Vtable = ILightSensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for LightSensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <ILightSensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LightSensorReadingChangedEventArgs {
@@ -6339,25 +6675,25 @@ impl Magnetometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerReading>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6369,20 +6705,20 @@ impl Magnetometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMagnetometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReadingTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -6390,51 +6726,51 @@ impl Magnetometer {
         let this = &::windows::core::Interface::cast::<IMagnetometer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingTransform)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
         }
     }
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMagnetometer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportLatency)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMagnetometer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportLatency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMagnetometer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxBatchSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn ReportThreshold(&self) -> ::windows::core::Result<MagnetometerDataThreshold> {
         let this = &::windows::core::Interface::cast::<IMagnetometer4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerDataThreshold>(result__)
+            (::windows::core::Vtable::vtable(this).ReportThreshold)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerDataThreshold>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMagnetometerDeviceId>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<Magnetometer> {
         Self::IMagnetometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Magnetometer>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Magnetometer>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMagnetometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6442,7 +6778,7 @@ impl Magnetometer {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Magnetometer>> {
         Self::IMagnetometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Magnetometer>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Magnetometer>>(result__)
         })
     }
     #[doc(hidden)]
@@ -6479,8 +6815,10 @@ unsafe impl ::windows::core::RuntimeType for Magnetometer {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Magnetometer {
+unsafe impl ::windows::core::Vtable for Magnetometer {
     type Vtable = IMagnetometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Magnetometer {
     const IID: ::windows::core::GUID = <IMagnetometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Magnetometer {
@@ -6526,34 +6864,34 @@ impl MagnetometerDataThreshold {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).XAxisMicroteslas)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).XAxisMicroteslas)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn SetXAxisMicroteslas(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetXAxisMicroteslas)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetXAxisMicroteslas)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn YAxisMicroteslas(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).YAxisMicroteslas)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).YAxisMicroteslas)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn SetYAxisMicroteslas(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetYAxisMicroteslas)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetYAxisMicroteslas)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ZAxisMicroteslas(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ZAxisMicroteslas)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).ZAxisMicroteslas)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn SetZAxisMicroteslas(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZAxisMicroteslas)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetZAxisMicroteslas)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for MagnetometerDataThreshold {
@@ -6579,8 +6917,10 @@ unsafe impl ::windows::core::RuntimeType for MagnetometerDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MagnetometerDataThreshold {
+unsafe impl ::windows::core::Vtable for MagnetometerDataThreshold {
     type Vtable = IMagnetometerDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MagnetometerDataThreshold {
     const IID: ::windows::core::GUID = <IMagnetometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagnetometerDataThreshold {
@@ -6628,35 +6968,35 @@ impl MagnetometerReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn MagneticFieldX(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MagneticFieldX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).MagneticFieldX)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn MagneticFieldY(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MagneticFieldY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).MagneticFieldY)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn MagneticFieldZ(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MagneticFieldZ)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).MagneticFieldZ)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn DirectionalAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DirectionalAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
+            (::windows::core::Vtable::vtable(this).DirectionalAccuracy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6665,7 +7005,7 @@ impl MagnetometerReading {
         let this = &::windows::core::Interface::cast::<IMagnetometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).PerformanceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6674,7 +7014,7 @@ impl MagnetometerReading {
         let this = &::windows::core::Interface::cast::<IMagnetometerReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -6701,8 +7041,10 @@ unsafe impl ::windows::core::RuntimeType for MagnetometerReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MagnetometerReading {
+unsafe impl ::windows::core::Vtable for MagnetometerReading {
     type Vtable = IMagnetometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MagnetometerReading {
     const IID: ::windows::core::GUID = <IMagnetometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagnetometerReading {
@@ -6748,7 +7090,7 @@ impl MagnetometerReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerReading>(result__)
         }
     }
 }
@@ -6775,8 +7117,10 @@ unsafe impl ::windows::core::RuntimeType for MagnetometerReadingChangedEventArgs
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for MagnetometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for MagnetometerReadingChangedEventArgs {
     type Vtable = IMagnetometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for MagnetometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IMagnetometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagnetometerReadingChangedEventArgs {
@@ -6822,25 +7166,25 @@ impl OrientationSensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<OrientationSensorReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<OrientationSensorReading>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6852,20 +7196,20 @@ impl OrientationSensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IOrientationSensor2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReadingTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -6873,75 +7217,75 @@ impl OrientationSensor {
         let this = &::windows::core::Interface::cast::<IOrientationSensor2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingTransform)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
         }
     }
     pub fn ReadingType(&self) -> ::windows::core::Result<SensorReadingType> {
         let this = &::windows::core::Interface::cast::<IOrientationSensor2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorReadingType>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorReadingType>(result__)
         }
     }
     pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IOrientationSensor3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportLatency)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IOrientationSensor3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportLatency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IOrientationSensor3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxBatchSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IOrientationSensorDeviceId>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<OrientationSensor> {
         Self::IOrientationSensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
         })
     }
     pub fn GetDefaultForRelativeReadings() -> ::windows::core::Result<OrientationSensor> {
         Self::IOrientationSensorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultForRelativeReadings)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefaultForRelativeReadings)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
         })
     }
     pub fn GetDefaultWithSensorReadingType(sensorreadingtype: SensorReadingType) -> ::windows::core::Result<OrientationSensor> {
         Self::IOrientationSensorStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Interface::as_raw(this), sensorreadingtype, result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Vtable::as_raw(this), sensorreadingtype, result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
         })
     }
     pub fn GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal(sensorreadingtype: SensorReadingType, optimizationgoal: SensorOptimizationGoal) -> ::windows::core::Result<OrientationSensor> {
         Self::IOrientationSensorStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Interface::as_raw(this), sensorreadingtype, optimizationgoal, result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Vtable::as_raw(this), sensorreadingtype, optimizationgoal, result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
         })
     }
     pub fn GetDeviceSelector(readingtype: SensorReadingType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     pub fn GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal(readingtype: SensorReadingType, optimizationgoal: SensorOptimizationGoal) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Interface::as_raw(this), readingtype, optimizationgoal, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Vtable::as_raw(this), readingtype, optimizationgoal, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6949,7 +7293,7 @@ impl OrientationSensor {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OrientationSensor>> {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<OrientationSensor>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<OrientationSensor>>(result__)
         })
     }
     #[doc(hidden)]
@@ -6996,8 +7340,10 @@ unsafe impl ::windows::core::RuntimeType for OrientationSensor {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for OrientationSensor {
+unsafe impl ::windows::core::Vtable for OrientationSensor {
     type Vtable = IOrientationSensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for OrientationSensor {
     const IID: ::windows::core::GUID = <IOrientationSensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OrientationSensor {
@@ -7045,21 +7391,21 @@ impl OrientationSensorReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn RotationMatrix(&self) -> ::windows::core::Result<SensorRotationMatrix> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RotationMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorRotationMatrix>(result__)
+            (::windows::core::Vtable::vtable(this).RotationMatrix)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorRotationMatrix>(result__)
         }
     }
     pub fn Quaternion(&self) -> ::windows::core::Result<SensorQuaternion> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Quaternion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorQuaternion>(result__)
+            (::windows::core::Vtable::vtable(this).Quaternion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorQuaternion>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7068,7 +7414,7 @@ impl OrientationSensorReading {
         let this = &::windows::core::Interface::cast::<IOrientationSensorReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Vtable::vtable(this).PerformanceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7077,14 +7423,14 @@ impl OrientationSensorReading {
         let this = &::windows::core::Interface::cast::<IOrientationSensorReading2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
     pub fn YawAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy> {
         let this = &::windows::core::Interface::cast::<IOrientationSensorReadingYawAccuracy>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).YawAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
+            (::windows::core::Vtable::vtable(this).YawAccuracy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
         }
     }
 }
@@ -7111,8 +7457,10 @@ unsafe impl ::windows::core::RuntimeType for OrientationSensorReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for OrientationSensorReading {
+unsafe impl ::windows::core::Vtable for OrientationSensorReading {
     type Vtable = IOrientationSensorReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for OrientationSensorReading {
     const IID: ::windows::core::GUID = <IOrientationSensorReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OrientationSensorReading {
@@ -7158,7 +7506,7 @@ impl OrientationSensorReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<OrientationSensorReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<OrientationSensorReading>(result__)
         }
     }
 }
@@ -7185,8 +7533,10 @@ unsafe impl ::windows::core::RuntimeType for OrientationSensorReadingChangedEven
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for OrientationSensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for OrientationSensorReadingChangedEventArgs {
     type Vtable = IOrientationSensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for OrientationSensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IOrientationSensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OrientationSensorReadingChangedEventArgs {
@@ -7232,32 +7582,32 @@ impl Pedometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn PowerInMilliwatts(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PowerInMilliwatts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).PowerInMilliwatts)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MinimumReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReportInterval)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ReportInterval)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7269,14 +7619,14 @@ impl Pedometer {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -7284,7 +7634,7 @@ impl Pedometer {
         let this = &::windows::core::Interface::cast::<IPedometer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReadings)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<PedometerStepKind, PedometerReading>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReadings)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<PedometerStepKind, PedometerReading>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7292,7 +7642,7 @@ impl Pedometer {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Pedometer>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Pedometer>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7300,13 +7650,13 @@ impl Pedometer {
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Pedometer>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefaultAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Pedometer>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7314,7 +7664,7 @@ impl Pedometer {
     pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSystemHistoryAsync)(::windows::core::Interface::as_raw(this), fromtime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetSystemHistoryAsync)(::windows::core::Vtable::as_raw(this), fromtime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7322,7 +7672,7 @@ impl Pedometer {
     pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(::windows::core::Interface::as_raw(this), fromtime, duration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetSystemHistoryWithDurationAsync)(::windows::core::Vtable::as_raw(this), fromtime, duration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7333,7 +7683,7 @@ impl Pedometer {
     {
         Self::IPedometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetReadingsFromTriggerDetails)(::windows::core::Interface::as_raw(this), triggerdetails.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PedometerReading>>(result__)
+            (::windows::core::Vtable::vtable(this).GetReadingsFromTriggerDetails)(::windows::core::Vtable::as_raw(this), triggerdetails.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PedometerReading>>(result__)
         })
     }
     #[doc(hidden)]
@@ -7370,8 +7720,10 @@ unsafe impl ::windows::core::RuntimeType for Pedometer {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for Pedometer {
+unsafe impl ::windows::core::Vtable for Pedometer {
     type Vtable = IPedometer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for Pedometer {
     const IID: ::windows::core::GUID = <IPedometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Pedometer {
@@ -7419,7 +7771,7 @@ impl PedometerDataThreshold {
     {
         Self::IPedometerDataThresholdFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), sensor.into().abi(), stepgoal, result__.as_mut_ptr()).from_abi::<PedometerDataThreshold>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), sensor.into().abi(), stepgoal, result__.as_mut_ptr()).from_abi::<PedometerDataThreshold>(result__)
         })
     }
     #[doc(hidden)]
@@ -7451,8 +7803,10 @@ unsafe impl ::windows::core::RuntimeType for PedometerDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PedometerDataThreshold {
+unsafe impl ::windows::core::Vtable for PedometerDataThreshold {
     type Vtable = ISensorDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PedometerDataThreshold {
     const IID: ::windows::core::GUID = <ISensorDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PedometerDataThreshold {
@@ -7517,14 +7871,14 @@ impl PedometerReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StepKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PedometerStepKind>(result__)
+            (::windows::core::Vtable::vtable(this).StepKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PedometerStepKind>(result__)
         }
     }
     pub fn CumulativeSteps(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CumulativeSteps)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).CumulativeSteps)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7533,7 +7887,7 @@ impl PedometerReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7542,7 +7896,7 @@ impl PedometerReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CumulativeStepsDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).CumulativeStepsDuration)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -7569,8 +7923,10 @@ unsafe impl ::windows::core::RuntimeType for PedometerReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PedometerReading {
+unsafe impl ::windows::core::Vtable for PedometerReading {
     type Vtable = IPedometerReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PedometerReading {
     const IID: ::windows::core::GUID = <IPedometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PedometerReading {
@@ -7616,7 +7972,7 @@ impl PedometerReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PedometerReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PedometerReading>(result__)
         }
     }
 }
@@ -7643,8 +7999,10 @@ unsafe impl ::windows::core::RuntimeType for PedometerReadingChangedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for PedometerReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for PedometerReadingChangedEventArgs {
     type Vtable = IPedometerReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PedometerReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IPedometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PedometerReadingChangedEventArgs {
@@ -7690,7 +8048,7 @@ impl ProximitySensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7699,7 +8057,7 @@ impl ProximitySensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxDistanceInMillimeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).MaxDistanceInMillimeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7708,14 +8066,14 @@ impl ProximitySensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinDistanceInMillimeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).MinDistanceInMillimeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     pub fn GetCurrentReading(&self) -> ::windows::core::Result<ProximitySensorReading> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProximitySensorReading>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentReading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ProximitySensorReading>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7727,14 +8085,14 @@ impl ProximitySensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveReadingChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7742,19 +8100,19 @@ impl ProximitySensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDisplayOnOffController)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProximitySensorDisplayOnOffController>(result__)
+            (::windows::core::Vtable::vtable(this).CreateDisplayOnOffController)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ProximitySensorDisplayOnOffController>(result__)
         }
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IProximitySensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     pub fn FromId(sensorid: &::windows::core::HSTRING) -> ::windows::core::Result<ProximitySensor> {
         Self::IProximitySensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(sensorid), result__.as_mut_ptr()).from_abi::<ProximitySensor>(result__)
+            (::windows::core::Vtable::vtable(this).FromId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sensorid), result__.as_mut_ptr()).from_abi::<ProximitySensor>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7765,7 +8123,7 @@ impl ProximitySensor {
     {
         Self::IProximitySensorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetReadingsFromTriggerDetails)(::windows::core::Interface::as_raw(this), triggerdetails.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>>(result__)
+            (::windows::core::Vtable::vtable(this).GetReadingsFromTriggerDetails)(::windows::core::Vtable::as_raw(this), triggerdetails.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>>(result__)
         })
     }
     #[doc(hidden)]
@@ -7802,8 +8160,10 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensor {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ProximitySensor {
+unsafe impl ::windows::core::Vtable for ProximitySensor {
     type Vtable = IProximitySensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ProximitySensor {
     const IID: ::windows::core::GUID = <IProximitySensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximitySensor {
@@ -7851,7 +8211,7 @@ impl ProximitySensorDataThreshold {
     {
         Self::IProximitySensorDataThresholdFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), sensor.into().abi(), result__.as_mut_ptr()).from_abi::<ProximitySensorDataThreshold>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), sensor.into().abi(), result__.as_mut_ptr()).from_abi::<ProximitySensorDataThreshold>(result__)
         })
     }
     #[doc(hidden)]
@@ -7883,8 +8243,10 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensorDataThreshold {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ProximitySensorDataThreshold {
+unsafe impl ::windows::core::Vtable for ProximitySensorDataThreshold {
     type Vtable = ISensorDataThreshold_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ProximitySensorDataThreshold {
     const IID: ::windows::core::GUID = <ISensorDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximitySensorDataThreshold {
@@ -7951,7 +8313,7 @@ impl ProximitySensorDisplayOnOffController {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -7983,8 +8345,11 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensorDisplayOnOffControll
     }
 }
 #[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Interface for ProximitySensorDisplayOnOffController {
+unsafe impl ::windows::core::Vtable for ProximitySensorDisplayOnOffController {
     type Vtable = super::super::Foundation::IClosable_Vtbl;
+}
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::Interface for ProximitySensorDisplayOnOffController {
     const IID: ::windows::core::GUID = <super::super::Foundation::IClosable as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation")]
@@ -8063,14 +8428,14 @@ impl ProximitySensorReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn IsDetected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsDetected)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsDetected)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8079,7 +8444,7 @@ impl ProximitySensorReading {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DistanceInMillimeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).DistanceInMillimeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
 }
@@ -8106,8 +8471,10 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensorReading {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ProximitySensorReading {
+unsafe impl ::windows::core::Vtable for ProximitySensorReading {
     type Vtable = IProximitySensorReading_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ProximitySensorReading {
     const IID: ::windows::core::GUID = <IProximitySensorReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximitySensorReading {
@@ -8153,7 +8520,7 @@ impl ProximitySensorReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProximitySensorReading>(result__)
+            (::windows::core::Vtable::vtable(this).Reading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ProximitySensorReading>(result__)
         }
     }
 }
@@ -8180,8 +8547,10 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensorReadingChangedEventA
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for ProximitySensorReadingChangedEventArgs {
+unsafe impl ::windows::core::Vtable for ProximitySensorReadingChangedEventArgs {
     type Vtable = IProximitySensorReadingChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ProximitySensorReadingChangedEventArgs {
     const IID: ::windows::core::GUID = <IProximitySensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximitySensorReadingChangedEventArgs {
@@ -8227,14 +8596,14 @@ impl SensorDataThresholdTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SensorType(&self) -> ::windows::core::Result<SensorType> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SensorType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorType>(result__)
+            (::windows::core::Vtable::vtable(this).SensorType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorType>(result__)
         }
     }
 }
@@ -8261,8 +8630,10 @@ unsafe impl ::windows::core::RuntimeType for SensorDataThresholdTriggerDetails {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for SensorDataThresholdTriggerDetails {
+unsafe impl ::windows::core::Vtable for SensorDataThresholdTriggerDetails {
     type Vtable = ISensorDataThresholdTriggerDetails_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SensorDataThresholdTriggerDetails {
     const IID: ::windows::core::GUID = <ISensorDataThresholdTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SensorDataThresholdTriggerDetails {
@@ -8308,28 +8679,28 @@ impl SensorQuaternion {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).W)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).W)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn X(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).X)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).X)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn Y(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Y)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).Y)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn Z(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Z)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).Z)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
 }
@@ -8356,8 +8727,10 @@ unsafe impl ::windows::core::RuntimeType for SensorQuaternion {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for SensorQuaternion {
+unsafe impl ::windows::core::Vtable for SensorQuaternion {
     type Vtable = ISensorQuaternion_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SensorQuaternion {
     const IID: ::windows::core::GUID = <ISensorQuaternion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SensorQuaternion {
@@ -8403,63 +8776,63 @@ impl SensorRotationMatrix {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).M11)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).M11)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn M12(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).M12)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).M12)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn M13(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).M13)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).M13)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn M21(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).M21)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).M21)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn M22(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).M22)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).M22)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn M23(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).M23)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).M23)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn M31(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).M31)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).M31)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn M32(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).M32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).M32)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     pub fn M33(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).M33)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+            (::windows::core::Vtable::vtable(this).M33)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
 }
@@ -8486,8 +8859,10 @@ unsafe impl ::windows::core::RuntimeType for SensorRotationMatrix {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for SensorRotationMatrix {
+unsafe impl ::windows::core::Vtable for SensorRotationMatrix {
     type Vtable = ISensorRotationMatrix_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SensorRotationMatrix {
     const IID: ::windows::core::GUID = <ISensorRotationMatrix as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SensorRotationMatrix {
@@ -8533,7 +8908,7 @@ impl SimpleOrientationSensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentOrientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SimpleOrientation>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentOrientation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SimpleOrientation>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8545,20 +8920,20 @@ impl SimpleOrientationSensor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OrientationChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OrientationChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOrientationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveOrientationChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveOrientationChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISimpleOrientationSensor2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetReadingTransform)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -8566,26 +8941,26 @@ impl SimpleOrientationSensor {
         let this = &::windows::core::Interface::cast::<ISimpleOrientationSensor2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingTransform)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ISimpleOrientationSensorDeviceId>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<SimpleOrientationSensor> {
         Self::ISimpleOrientationSensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SimpleOrientationSensor>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SimpleOrientationSensor>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISimpleOrientationSensorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8593,7 +8968,7 @@ impl SimpleOrientationSensor {
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>> {
         Self::ISimpleOrientationSensorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>>(result__)
         })
     }
     #[doc(hidden)]
@@ -8630,8 +9005,10 @@ unsafe impl ::windows::core::RuntimeType for SimpleOrientationSensor {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for SimpleOrientationSensor {
+unsafe impl ::windows::core::Vtable for SimpleOrientationSensor {
     type Vtable = ISimpleOrientationSensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SimpleOrientationSensor {
     const IID: ::windows::core::GUID = <ISimpleOrientationSensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SimpleOrientationSensor {
@@ -8679,14 +9056,14 @@ impl SimpleOrientationSensorOrientationChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).Timestamp)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     pub fn Orientation(&self) -> ::windows::core::Result<SimpleOrientation> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SimpleOrientation>(result__)
+            (::windows::core::Vtable::vtable(this).Orientation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SimpleOrientation>(result__)
         }
     }
 }
@@ -8713,8 +9090,10 @@ unsafe impl ::windows::core::RuntimeType for SimpleOrientationSensorOrientationC
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for SimpleOrientationSensorOrientationChangedEventArgs {
+unsafe impl ::windows::core::Vtable for SimpleOrientationSensorOrientationChangedEventArgs {
     type Vtable = ISimpleOrientationSensorOrientationChangedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SimpleOrientationSensorOrientationChangedEventArgs {
     const IID: ::windows::core::GUID = <ISimpleOrientationSensorOrientationChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SimpleOrientationSensorOrientationChangedEventArgs {

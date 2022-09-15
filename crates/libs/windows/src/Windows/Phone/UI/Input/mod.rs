@@ -1,8 +1,10 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBackPressedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBackPressedEventArgs {
+unsafe impl ::windows::core::Vtable for IBackPressedEventArgs {
     type Vtable = IBackPressedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBackPressedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
 }
 #[repr(C)]
@@ -15,8 +17,10 @@ pub struct IBackPressedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICameraEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICameraEventArgs {
+unsafe impl ::windows::core::Vtable for ICameraEventArgs {
     type Vtable = ICameraEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICameraEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
 }
 #[repr(C)]
@@ -27,8 +31,10 @@ pub struct ICameraEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHardwareButtonsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHardwareButtonsStatics {
+unsafe impl ::windows::core::Vtable for IHardwareButtonsStatics {
     type Vtable = IHardwareButtonsStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHardwareButtonsStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594b8780_da66_4fd8_a776_7506bd0cbfa7);
 }
 #[repr(C)]
@@ -47,8 +53,10 @@ pub struct IHardwareButtonsStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHardwareButtonsStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHardwareButtonsStatics2 {
+unsafe impl ::windows::core::Vtable for IHardwareButtonsStatics2 {
     type Vtable = IHardwareButtonsStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHardwareButtonsStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39c6c274_993f_40dd_854c_831a8934b92e);
 }
 #[repr(C)]
@@ -88,12 +96,12 @@ impl BackPressedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetHandled)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for BackPressedEventArgs {
@@ -119,8 +127,10 @@ unsafe impl ::windows::core::RuntimeType for BackPressedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for BackPressedEventArgs {
+unsafe impl ::windows::core::Vtable for BackPressedEventArgs {
     type Vtable = IBackPressedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for BackPressedEventArgs {
     const IID: ::windows::core::GUID = <IBackPressedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackPressedEventArgs {
@@ -185,8 +195,10 @@ unsafe impl ::windows::core::RuntimeType for CameraEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for CameraEventArgs {
+unsafe impl ::windows::core::Vtable for CameraEventArgs {
     type Vtable = ICameraEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for CameraEventArgs {
     const IID: ::windows::core::GUID = <ICameraEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CameraEventArgs {
@@ -235,13 +247,13 @@ impl HardwareButtons {
     {
         Self::IHardwareButtonsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BackPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).BackPressed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBackPressed(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IHardwareButtonsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveBackPressed)(::windows::core::Interface::as_raw(this), token).ok() })
+        Self::IHardwareButtonsStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveBackPressed)(::windows::core::Vtable::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -251,13 +263,13 @@ impl HardwareButtons {
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CameraHalfPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CameraHalfPressed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCameraHalfPressed(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IHardwareButtonsStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCameraHalfPressed)(::windows::core::Interface::as_raw(this), token).ok() })
+        Self::IHardwareButtonsStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveCameraHalfPressed)(::windows::core::Vtable::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -267,13 +279,13 @@ impl HardwareButtons {
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CameraPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CameraPressed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCameraPressed(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IHardwareButtonsStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCameraPressed)(::windows::core::Interface::as_raw(this), token).ok() })
+        Self::IHardwareButtonsStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveCameraPressed)(::windows::core::Vtable::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -283,13 +295,13 @@ impl HardwareButtons {
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CameraReleased)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CameraReleased)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCameraReleased(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IHardwareButtonsStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCameraReleased)(::windows::core::Interface::as_raw(this), token).ok() })
+        Self::IHardwareButtonsStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveCameraReleased)(::windows::core::Vtable::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn IHardwareButtonsStatics<R, F: FnOnce(&IHardwareButtonsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
