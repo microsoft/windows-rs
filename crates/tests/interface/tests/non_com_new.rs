@@ -2,29 +2,33 @@
 
 use windows::core::*;
 
+// The `interface` macro defines a new local interface that does not derive from `IUnknown` and thus is not a COM interface at all. 
 #[interface]
-unsafe trait ITest {
-    unsafe fn Call(&self) -> i32;
+unsafe trait IBase {
+    unsafe fn Value(&self) -> i32;
 }
 
-struct Test(i32);
+struct Base(i32);
 
-impl ITest_Impl for Test {
-    unsafe fn Call(&self) -> i32 {
+impl IBase_Impl for Base {
+    unsafe fn Value(&self) -> i32 {
         self.0
     }
 }
 
-unsafe fn call(test: &ITest) -> i32 {
-    test.Call()
+unsafe fn value(test: &IBase) -> i32 {
+    test.Value()
 }
 
 #[test]
-fn test() {
+fn base() {
     unsafe {
-        let test = Test(456);
-        let interface = ITest::new(&test);
-        assert_eq!(call(&interface), 456);
-        assert_eq!(interface.Call(), 456);
+        // Since the interface is not rooted in `IUnknown`, there's no COM-style lifetime and the resulting implementation merely
+        // exists for the lifetime of the referenced implementation. 
+        let test = Base(456);
+        let interface = IBase::new(&test);
+        assert_eq!(value(&interface), 456);
+        assert_eq!(interface.Value(), 456);
     }
 }
+
