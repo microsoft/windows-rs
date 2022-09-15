@@ -2,12 +2,13 @@
 
 use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 
-// This defines a new local interface (based on IPersistMemory) that derives from an existing interface defined by the `windows` crate.
+// The `interface` macro defines a new local interface (based on IPersistMemory) that derives from an existing interface defined by the `windows` crate.
 #[interface("BD1AE5E0-A6AE-11CE-BD37-504200C10000")]
 unsafe trait ITestPersistMemory: IPersist {
     unsafe fn IsDirty(&self) -> HRESULT;
 }
 
+// The `implement` macro can implement both kinds of interfaces as the necessary type information is the same either way.
 #[implement(ITestPersistMemory, IPersist)]
 struct Test;
 
