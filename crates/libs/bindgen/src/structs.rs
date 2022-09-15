@@ -16,15 +16,10 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
     let name = to_ident(struct_name);
 
     if gen.reader.type_def_fields(def).next().is_none() {
-        if name.as_str().ends_with("Vtbl") {
-            // This just omits some useless struct declarations like `IDDVideoPortContainerVtbl`
-            return quote! {};
-        } else {
-            return quote! {
-                #[repr(C)]
-                pub struct #name(pub u8);
-            };
-        }
+        return quote! {
+            #[repr(C)]
+            pub struct #name(pub u8);
+        };
     }
 
     let flags = gen.reader.type_def_flags(def);
