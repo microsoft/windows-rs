@@ -291,7 +291,7 @@ unsafe impl ::windows::core::Interface for IDefaultLocation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDefaultLocation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pplocationreport: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -830,7 +830,7 @@ unsafe impl ::windows::core::Interface for ILocation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterForReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevents: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::HRESULT,
     pub UnregisterForReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pplocationreport: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -902,7 +902,7 @@ unsafe impl ::windows::core::Interface for ILocationEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnLocationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT,
 }
@@ -955,7 +955,7 @@ unsafe impl ::windows::core::Interface for ILocationPower {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationPower_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1018,7 +1018,7 @@ unsafe impl ::windows::core::Interface for ILocationReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationReport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSensorID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,

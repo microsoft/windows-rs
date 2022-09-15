@@ -10,7 +10,7 @@ unsafe impl ::windows::core::Interface for IAdcChannel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcChannel_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Controller: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ReadValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ReadRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -25,7 +25,7 @@ unsafe impl ::windows::core::Interface for IAdcController {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcController_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ResolutionInBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub MinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -45,7 +45,7 @@ unsafe impl ::windows::core::Interface for IAdcControllerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
     pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections")))]
@@ -61,7 +61,7 @@ unsafe impl ::windows::core::Interface for IAdcControllerStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

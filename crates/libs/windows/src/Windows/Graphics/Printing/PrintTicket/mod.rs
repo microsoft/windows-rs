@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IPrintTicketCapabilities {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketCapabilities_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub XmlNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -43,7 +43,7 @@ unsafe impl ::windows::core::Interface for IPrintTicketFeature {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketFeature_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub XmlNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -70,7 +70,7 @@ unsafe impl ::windows::core::Interface for IPrintTicketOption {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketOption_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub XmlNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -99,7 +99,7 @@ unsafe impl ::windows::core::Interface for IPrintTicketParameterDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketParameterDefinition_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub XmlNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -121,7 +121,7 @@ unsafe impl ::windows::core::Interface for IPrintTicketParameterInitializer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketParameterInitializer_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub XmlNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -141,7 +141,7 @@ unsafe impl ::windows::core::Interface for IPrintTicketValue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketValue_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintTicketValueType) -> ::windows::core::HRESULT,
     pub GetValueAsInteger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub GetValueAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -156,7 +156,7 @@ unsafe impl ::windows::core::Interface for IWorkflowPrintTicket {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkflowPrintTicket_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub XmlNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Data_Xml_Dom")]
@@ -203,7 +203,7 @@ unsafe impl ::windows::core::Interface for IWorkflowPrintTicketValidationResult 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkflowPrintTicketValidationResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Validated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }

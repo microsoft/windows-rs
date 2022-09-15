@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for ISpatialGraphInteropFrameOfReferenceP
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CoordinateSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NodeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -26,7 +26,7 @@ unsafe impl ::windows::core::Interface for ISpatialGraphInteropPreviewStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialGraphInteropPreviewStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateCoordinateSystemForNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub CreateCoordinateSystemForNodeWithPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: ::windows::core::GUID, relativeposition: super::super::super::Foundation::Numerics::Vector3, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -48,7 +48,7 @@ unsafe impl ::windows::core::Interface for ISpatialGraphInteropPreviewStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub TryCreateFrameOfReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub TryCreateFrameOfReferenceWithPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, relativeposition: super::super::super::Foundation::Numerics::Vector3, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

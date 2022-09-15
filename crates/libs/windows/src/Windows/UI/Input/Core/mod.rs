@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSour
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerIndependentInputSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Controller: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Core")]
     pub Dispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -25,7 +25,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSour
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerIndependentInputSource2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
     pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
@@ -41,7 +41,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSour
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_Core")]
     pub CreateForView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, view: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Core"))]

@@ -144,7 +144,7 @@ unsafe impl ::windows::core::Interface for IMbnConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ConnectionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub InterfaceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionmode: MBN_CONNECTION_MODE, strprofile: ::windows::core::PCWSTR, requestid: *mut u32) -> ::windows::core::HRESULT,
@@ -210,7 +210,7 @@ unsafe impl ::windows::core::Interface for IMbnConnectionContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetProvisionedContexts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provisionedcontexts: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -272,7 +272,7 @@ unsafe impl ::windows::core::Interface for IMbnConnectionContextEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionContextEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnProvisionedContextListChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnSetProvisionedContextComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -343,7 +343,7 @@ unsafe impl ::windows::core::Interface for IMbnConnectionEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnConnectComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: *mut ::core::ffi::c_void, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnDisconnectComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: *mut ::core::ffi::c_void, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnConnectStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -405,7 +405,7 @@ unsafe impl ::windows::core::Interface for IMbnConnectionManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::PCWSTR, mbnconnection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbnconnections: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -467,7 +467,7 @@ unsafe impl ::windows::core::Interface for IMbnConnectionManagerEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionManagerEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnConnectionArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnConnectionRemoval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -527,7 +527,7 @@ unsafe impl ::windows::core::Interface for IMbnConnectionProfile {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfile_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetProfileXmlData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiledata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub UpdateProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprofile: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -581,7 +581,7 @@ unsafe impl ::windows::core::Interface for IMbnConnectionProfileEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfileEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnProfileUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newprofile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
@@ -650,7 +650,7 @@ unsafe impl ::windows::core::Interface for IMbnConnectionProfileManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfileManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetConnectionProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: *mut ::core::ffi::c_void, connectionprofiles: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -713,7 +713,7 @@ unsafe impl ::windows::core::Interface for IMbnConnectionProfileManagerEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnConnectionProfileManagerEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnConnectionProfileArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnectionprofile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnConnectionProfileRemoval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldconnectionprofile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -818,7 +818,7 @@ unsafe impl ::windows::core::Interface for IMbnDeviceService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceService_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QuerySupportedCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows::core::HRESULT,
     pub OpenCommandSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows::core::HRESULT,
     pub CloseCommandSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows::core::HRESULT,
@@ -893,7 +893,7 @@ unsafe impl ::windows::core::Interface for IMbnDeviceServiceStateEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServiceStateEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnSessionsStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
@@ -957,7 +957,7 @@ unsafe impl ::windows::core::Interface for IMbnDeviceServicesContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServicesContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub EnumerateDeviceServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceservices: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1082,7 +1082,7 @@ unsafe impl ::windows::core::Interface for IMbnDeviceServicesEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServicesEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnQuerySupportedCommandsComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceservice: *mut ::core::ffi::c_void, commandidlist: *const super::super::System::Com::SAFEARRAY, status: ::windows::core::HRESULT, requestid: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1157,7 +1157,7 @@ unsafe impl ::windows::core::Interface for IMbnDeviceServicesManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnDeviceServicesManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDeviceServicesContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkinterfaceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, mbndevicescontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
@@ -1252,7 +1252,7 @@ unsafe impl ::windows::core::Interface for IMbnInterface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterface_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InterfaceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetInterfaceCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfacecaps: *mut MBN_INTERFACE_CAPS) -> ::windows::core::HRESULT,
     pub GetSubscriberInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subscriberinformation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1365,7 +1365,7 @@ unsafe impl ::windows::core::Interface for IMbnInterfaceEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterfaceEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnInterfaceCapabilityAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnSubscriberInformationChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnReadyStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1431,7 +1431,7 @@ unsafe impl ::windows::core::Interface for IMbnInterfaceManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterfaceManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: ::windows::core::PCWSTR, mbninterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterfaces: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -1493,7 +1493,7 @@ unsafe impl ::windows::core::Interface for IMbnInterfaceManagerEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnInterfaceManagerEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnInterfaceArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnInterfaceRemoval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1569,7 +1569,7 @@ unsafe impl ::windows::core::Interface for IMbnMultiCarrier {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnMultiCarrier_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetHomeProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, homeprovider: *const MBN_PROVIDER2, requestid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetPreferredProviders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preferredmulticarrierproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -1659,7 +1659,7 @@ unsafe impl ::windows::core::Interface for IMbnMultiCarrierEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnMultiCarrierEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnSetHomeProviderComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: *mut ::core::ffi::c_void, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnCurrentCellularClassChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnPreferredProvidersChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1770,7 +1770,7 @@ unsafe impl ::windows::core::Interface for IMbnPin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub PinType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pintype: *mut MBN_PIN_TYPE) -> ::windows::core::HRESULT,
     pub PinFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinformat: *mut MBN_PIN_FORMAT) -> ::windows::core::HRESULT,
     pub PinLengthMin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinlengthmin: *mut u32) -> ::windows::core::HRESULT,
@@ -1856,7 +1856,7 @@ unsafe impl ::windows::core::Interface for IMbnPinEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPinEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnEnableComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnDisableComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnEnterComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -1920,7 +1920,7 @@ unsafe impl ::windows::core::Interface for IMbnPinManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPinManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetPinList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinlist: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1983,7 +1983,7 @@ unsafe impl ::windows::core::Interface for IMbnPinManagerEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnPinManagerEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnPinListAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinmanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnGetPinStateComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinmanager: *mut ::core::ffi::c_void, pininfo: MBN_PIN_INFO, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -2042,7 +2042,7 @@ unsafe impl ::windows::core::Interface for IMbnRadio {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRadio_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SoftwareRadioState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwareradiostate: *mut MBN_RADIO) -> ::windows::core::HRESULT,
     pub HardwareRadioState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hardwareradiostate: *mut MBN_RADIO) -> ::windows::core::HRESULT,
     pub SetSoftwareRadioState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radiostate: MBN_RADIO, requestid: *mut u32) -> ::windows::core::HRESULT,
@@ -2102,7 +2102,7 @@ unsafe impl ::windows::core::Interface for IMbnRadioEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRadioEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnRadioStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnSetSoftwareRadioStateComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -2192,7 +2192,7 @@ unsafe impl ::windows::core::Interface for IMbnRegistration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRegistration_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRegisterState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, registerstate: *mut MBN_REGISTER_STATE) -> ::windows::core::HRESULT,
     pub GetRegisterMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, registermode: *mut MBN_REGISTER_MODE) -> ::windows::core::HRESULT,
     pub GetProviderID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -2271,7 +2271,7 @@ unsafe impl ::windows::core::Interface for IMbnRegistrationEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnRegistrationEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnRegisterModeAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnRegisterStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnPacketServiceStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2326,7 +2326,7 @@ unsafe impl ::windows::core::Interface for IMbnServiceActivation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnServiceActivation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2383,7 +2383,7 @@ unsafe impl ::windows::core::Interface for IMbnServiceActivationEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnServiceActivationEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnActivationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceactivation: *mut ::core::ffi::c_void, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: ::windows::core::HRESULT, networkerror: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2440,7 +2440,7 @@ unsafe impl ::windows::core::Interface for IMbnSignal {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSignal_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSignalStrength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalstrength: *mut u32) -> ::windows::core::HRESULT,
     pub GetSignalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalerror: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -2493,7 +2493,7 @@ unsafe impl ::windows::core::Interface for IMbnSignalEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSignalEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnSignalStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
@@ -2584,7 +2584,7 @@ unsafe impl ::windows::core::Interface for IMbnSms {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSms_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSmsConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smsconfiguration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSmsConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smsconfiguration: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows::core::HRESULT,
     pub SmsSendPdu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdudata: ::windows::core::PCWSTR, size: u8, requestid: *mut u32) -> ::windows::core::HRESULT,
@@ -2668,7 +2668,7 @@ unsafe impl ::windows::core::Interface for IMbnSmsConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsConfiguration_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ServiceCenterAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetServiceCenterAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaddress: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub MaxMessageIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT,
@@ -2765,7 +2765,7 @@ unsafe impl ::windows::core::Interface for IMbnSmsEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnSmsConfigurationChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sms: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnSetSmsConfigurationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sms: *mut ::core::ffi::c_void, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnSmsSendComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sms: *mut ::core::ffi::c_void, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -2841,7 +2841,7 @@ unsafe impl ::windows::core::Interface for IMbnSmsReadMsgPdu {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsReadMsgPdu_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut MBN_MSG_STATUS) -> ::windows::core::HRESULT,
     pub PduData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdudata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -2927,7 +2927,7 @@ unsafe impl ::windows::core::Interface for IMbnSmsReadMsgTextCdma {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSmsReadMsgTextCdma_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut MBN_MSG_STATUS) -> ::windows::core::HRESULT,
     pub Address: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -2997,7 +2997,7 @@ unsafe impl ::windows::core::Interface for IMbnSubscriberInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnSubscriberInformation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SubscriberID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subscriberid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SimIccID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, simiccid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3064,7 +3064,7 @@ unsafe impl ::windows::core::Interface for IMbnVendorSpecificEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnVendorSpecificEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnEventNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendoroperation: *mut ::core::ffi::c_void, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3123,7 +3123,7 @@ unsafe impl ::windows::core::Interface for IMbnVendorSpecificOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMbnVendorSpecificOperation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetVendorSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

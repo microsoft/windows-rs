@@ -81,7 +81,7 @@ unsafe impl ::windows::core::Interface for IBuffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBuffer_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Capacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -96,7 +96,7 @@ unsafe impl ::windows::core::Interface for IBufferFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBufferFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capacity: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -109,7 +109,7 @@ unsafe impl ::windows::core::Interface for IBufferStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBufferStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CreateCopyFromMemoryBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -191,7 +191,7 @@ unsafe impl ::windows::core::Interface for IContentTypeProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentTypeProvider_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -435,7 +435,7 @@ unsafe impl ::windows::core::Interface for IDataReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataReader_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub UnconsumedBufferLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub UnicodeEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UnicodeEncoding) -> ::windows::core::HRESULT,
     pub SetUnicodeEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UnicodeEncoding) -> ::windows::core::HRESULT,
@@ -482,7 +482,7 @@ unsafe impl ::windows::core::Interface for IDataReaderFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataReaderFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateDataReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -495,7 +495,7 @@ unsafe impl ::windows::core::Interface for IDataReaderStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataReaderStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -714,7 +714,7 @@ unsafe impl ::windows::core::Interface for IDataWriter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataWriter_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub UnstoredBufferLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub UnicodeEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UnicodeEncoding) -> ::windows::core::HRESULT,
     pub SetUnicodeEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UnicodeEncoding) -> ::windows::core::HRESULT,
@@ -765,7 +765,7 @@ unsafe impl ::windows::core::Interface for IDataWriterFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataWriterFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateDataWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -778,7 +778,7 @@ unsafe impl ::windows::core::Interface for IFileRandomAccessStreamStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileRandomAccessStreamStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub OpenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, accessmode: super::FileAccessMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -918,7 +918,7 @@ unsafe impl ::windows::core::Interface for IInputStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputStream_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ReadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, count: u32, options: InputStreamOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -998,7 +998,7 @@ unsafe impl ::windows::core::Interface for IInputStreamReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputStreamReference_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub OpenSequentialReadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1119,7 +1119,7 @@ unsafe impl ::windows::core::Interface for IOutputStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOutputStream_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub WriteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1219,7 +1219,7 @@ unsafe impl ::windows::core::Interface for IPropertySetSerializer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertySetSerializer_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyset: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1452,7 +1452,7 @@ unsafe impl ::windows::core::Interface for IRandomAccessStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStream_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub SetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT,
     pub GetInputStreamAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1537,7 +1537,7 @@ unsafe impl ::windows::core::Interface for IRandomAccessStreamReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamReference_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub OpenReadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1553,7 +1553,7 @@ unsafe impl ::windows::core::Interface for IRandomAccessStreamReferenceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamReferenceStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateFromFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub CreateFromUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1571,7 +1571,7 @@ unsafe impl ::windows::core::Interface for IRandomAccessStreamStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CopyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, destination: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1853,7 +1853,7 @@ unsafe impl ::windows::core::Interface for IRandomAccessStreamWithContentType {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamWithContentType_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]

@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Networking")]
     pub ConnectionHostName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking"))]
@@ -42,7 +42,7 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceService2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -55,7 +55,7 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceService3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Enumeration")]
     pub DeviceAccessInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Enumeration"))]
@@ -75,7 +75,7 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceServiceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServiceStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -92,7 +92,7 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceServiceStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServiceStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetDeviceSelectorForBluetoothDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluetoothdevice: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDeviceSelectorForBluetoothDeviceWithCacheMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluetoothdevice: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetDeviceSelectorForBluetoothDeviceAndServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluetoothdevice: *mut ::core::ffi::c_void, serviceid: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -108,7 +108,7 @@ unsafe impl ::windows::core::Interface for IRfcommDeviceServicesResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServicesResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Services: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -125,7 +125,7 @@ unsafe impl ::windows::core::Interface for IRfcommServiceId {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceId_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Uuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub AsShortId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub AsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -140,7 +140,7 @@ unsafe impl ::windows::core::Interface for IRfcommServiceIdStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceIdStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FromUuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uuid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FromShortId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shortid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SerialPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -160,7 +160,7 @@ unsafe impl ::windows::core::Interface for IRfcommServiceProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceProvider_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub SdpRawAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -182,7 +182,7 @@ unsafe impl ::windows::core::Interface for IRfcommServiceProvider2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceProvider2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_Sockets")]
     pub StartAdvertisingWithRadioDiscoverability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listener: *mut ::core::ffi::c_void, radiodiscoverable: bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))]
@@ -198,7 +198,7 @@ unsafe impl ::windows::core::Interface for IRfcommServiceProviderStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceProviderStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

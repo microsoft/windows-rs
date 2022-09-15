@@ -134,7 +134,7 @@ unsafe impl ::windows::core::Interface for IDDVideoPortContainer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDDVideoPortContainer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateVideoPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumVideoPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetVideoPortConnectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, pcinfo: *mut u32, param2: *mut DDVIDEOPORTCONNECT) -> ::windows::core::HRESULT,
@@ -272,7 +272,7 @@ unsafe impl ::windows::core::Interface for IDirectDraw {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -435,7 +435,7 @@ unsafe impl ::windows::core::Interface for IDirectDraw2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -619,7 +619,7 @@ unsafe impl ::windows::core::Interface for IDirectDraw4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw4_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -821,7 +821,7 @@ unsafe impl ::windows::core::Interface for IDirectDraw7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw7_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -945,7 +945,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawClipper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawClipper_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub GetClipList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
@@ -1017,7 +1017,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawColorControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawColorControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT,
     pub SetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT,
 }
@@ -1070,7 +1070,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawGammaControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawGammaControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetGammaRamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::HRESULT,
     pub SetGammaRamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::HRESULT,
 }
@@ -1126,7 +1126,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawKernel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawKernel_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDKERNELCAPS) -> ::windows::core::HRESULT,
     pub GetKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut usize) -> ::windows::core::HRESULT,
     pub ReleaseKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1195,7 +1195,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawPalette {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawPalette_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub GetEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::HRESULT,
@@ -1406,7 +1406,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -1670,7 +1670,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawSurface2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -1940,7 +1940,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawSurface3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -2228,7 +2228,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawSurface4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface4_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -2536,7 +2536,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawSurface7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface7_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -2660,7 +2660,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawSurfaceKernel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurfaceKernel_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut usize) -> ::windows::core::HRESULT,
     pub ReleaseKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2759,7 +2759,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawVideoPort {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawVideoPort_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows::core::HRESULT,
     pub GetBandwidthInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> ::windows::core::HRESULT,
     pub GetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT,
@@ -2837,7 +2837,7 @@ unsafe impl ::windows::core::Interface for IDirectDrawVideoPortNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawVideoPortNotify_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AcquireNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

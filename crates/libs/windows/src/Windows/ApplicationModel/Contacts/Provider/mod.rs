@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IContactPickerUI {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPickerUI_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub AddContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contact: *mut ::core::ffi::c_void, result__: *mut AddContactResult) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -39,7 +39,7 @@ unsafe impl ::windows::core::Interface for IContactPickerUI2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPickerUI2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AddContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: *mut ::core::ffi::c_void, result__: *mut AddContactResult) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub DesiredFieldsWithContactFieldType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -56,7 +56,7 @@ unsafe impl ::windows::core::Interface for IContactRemovedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactRemovedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]

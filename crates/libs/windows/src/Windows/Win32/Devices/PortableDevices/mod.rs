@@ -57,7 +57,7 @@ unsafe impl ::windows::core::Interface for IConnectionRequestCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnectionRequestCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
@@ -116,7 +116,7 @@ unsafe impl ::windows::core::Interface for IEnumPortableDeviceConnectors {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPortableDeviceConnectors_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crequested: u32, pconnectors: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cconnectors: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -181,7 +181,7 @@ unsafe impl ::windows::core::Interface for IEnumPortableDeviceObjectIDs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPortableDeviceObjectIDs_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cobjects: u32, pobjids: *mut ::windows::core::PWSTR, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cobjects: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -238,7 +238,7 @@ unsafe impl ::windows::core::Interface for IMediaRadioManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaRadioManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRadioInstances: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnSystemRadioStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sysradiostate: SYSTEM_RADIO_STATE, utimeoutsec: u32) -> ::windows::core::HRESULT,
 }
@@ -297,7 +297,7 @@ unsafe impl ::windows::core::Interface for IMediaRadioManagerNotifySink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaRadioManagerNotifySink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnInstanceAdd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pradioinstance: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnInstanceRemove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrradioinstanceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub OnInstanceRadioChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrradioinstanceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, radiostate: DEVICE_RADIO_STATE) -> ::windows::core::HRESULT,
@@ -391,7 +391,7 @@ unsafe impl ::windows::core::Interface for IPortableDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevice_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpdeviceid: ::windows::core::PCWSTR, pclientinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SendCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pparameters: *mut ::core::ffi::c_void, ppresults: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -492,7 +492,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceCapabilities {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceCapabilities_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSupportedCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcommands: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub GetCommandOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppoptions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -586,7 +586,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceConnector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceConnector_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceContent_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EnumObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pszparentobjectid: ::windows::core::PCWSTR, pfilter: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Transfer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresources: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1064,7 +1064,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceDispatchFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceDispatchFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetDeviceDispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpdeviceid: ::windows::core::PCWSTR, ppdevicedispatch: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1119,7 +1119,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceEventCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceEventCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventparameters: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
@@ -1184,7 +1184,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceKeyCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceKeyCollection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelems: *const u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT,
@@ -1274,7 +1274,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnpdeviceids: *mut ::windows::core::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows::core::HRESULT,
     pub RefreshDeviceList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDeviceFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpdeviceid: ::windows::core::PCWSTR, pdevicefriendlyname: ::windows::core::PWSTR, pcchdevicefriendlyname: *mut u32) -> ::windows::core::HRESULT,
@@ -1352,7 +1352,7 @@ unsafe impl ::windows::core::Interface for IPortableDevicePropVariantCollection 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevicePropVariantCollection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelems: *const u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
@@ -1452,7 +1452,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceProperties_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSupportedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszobjectid: ::windows::core::PCWSTR, ppkeys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub GetPropertyAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszobjectid: ::windows::core::PCWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppattributes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1538,7 +1538,7 @@ unsafe impl ::windows::core::Interface for IPortableDevicePropertiesBulk {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevicePropertiesBulk_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueueGetValuesByObjectList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectids: *mut ::core::ffi::c_void, pkeys: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pcontext: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub QueueGetValuesByObjectFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjectformat: *const ::windows::core::GUID, pszparentobjectid: ::windows::core::PCWSTR, dwdepth: u32, pkeys: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pcontext: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub QueueSetValuesByObjectList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectvalues: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pcontext: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -1600,7 +1600,7 @@ unsafe impl ::windows::core::Interface for IPortableDevicePropertiesBulkCallback
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevicePropertiesBulkCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OnProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *const ::windows::core::GUID, presults: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -1690,7 +1690,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceResources {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceResources_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSupportedResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszobjectid: ::windows::core::PCWSTR, ppkeys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub GetResourceAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszobjectid: ::windows::core::PCWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppresourceattributes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1804,7 +1804,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceService_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpserviceid: ::windows::core::PCWSTR, pclientinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcapabilities: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1871,7 +1871,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceActivation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceActivation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OpenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpserviceid: ::windows::core::PCWSTR, pclientinfo: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CancelOpenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1989,7 +1989,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceCapabilities {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceCapabilities_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSupportedMethods: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmethods: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSupportedMethodsByFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: *const ::windows::core::GUID, ppmethods: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetMethodAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const ::windows::core::GUID, ppattributes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2075,7 +2075,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDeviceServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpdeviceid: ::windows::core::PCWSTR, guidservicecategory: *const ::windows::core::GUID, pservices: *mut ::windows::core::PWSTR, pcservices: *mut u32) -> ::windows::core::HRESULT,
     pub GetDeviceForService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpserviceid: ::windows::core::PCWSTR, ppszpnpdeviceid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
@@ -2128,7 +2128,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceMethodCallback 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceMethodCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, presults: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
@@ -2193,7 +2193,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceMethods {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceMethods_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const ::windows::core::GUID, pparameters: *mut ::core::ffi::c_void, ppresults: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InvokeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const ::windows::core::GUID, pparameters: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2244,7 +2244,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceServiceOpenCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceOpenCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
@@ -2297,7 +2297,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceUnitsStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceUnitsStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SeekInUnits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2583,7 +2583,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceValues {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceValues_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *const u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
@@ -2801,7 +2801,7 @@ unsafe impl ::windows::core::Interface for IPortableDeviceValuesCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceValuesCollection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelems: *const u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppvalues: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalues: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2977,7 +2977,7 @@ unsafe impl ::windows::core::Interface for IRadioInstance {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioInstance_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRadioManagerSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidsignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetInstanceSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: u32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -3043,7 +3043,7 @@ unsafe impl ::windows::core::Interface for IRadioInstanceCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioInstanceCollection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcinstance: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, ppradioinstance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3113,7 +3113,7 @@ unsafe impl ::windows::core::Interface for IWpdSerializer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWpdSerializer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetIPortableDeviceValuesFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const u8, dwinputbufferlength: u32, ppparams: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WriteIPortableDeviceValuesToBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputbufferlength: u32, presults: *mut ::core::ffi::c_void, pbuffer: *mut u8, pdwbyteswritten: *mut u32) -> ::windows::core::HRESULT,
     pub GetBufferFromIPortableDeviceValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psource: *mut ::core::ffi::c_void, ppbuffer: *mut *mut u8, pdwbuffersize: *mut u32) -> ::windows::core::HRESULT,

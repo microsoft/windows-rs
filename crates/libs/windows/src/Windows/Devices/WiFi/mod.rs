@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IWiFiAdapter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiAdapter_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_Connectivity")]
     pub NetworkAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_Connectivity"))]
@@ -50,7 +50,7 @@ unsafe impl ::windows::core::Interface for IWiFiAdapter2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiAdapter2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub GetWpsConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, availablenetwork: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -70,7 +70,7 @@ unsafe impl ::windows::core::Interface for IWiFiAdapterStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiAdapterStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub FindAllAdaptersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -95,7 +95,7 @@ unsafe impl ::windows::core::Interface for IWiFiAvailableNetwork {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiAvailableNetwork_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Uptime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -127,7 +127,7 @@ unsafe impl ::windows::core::Interface for IWiFiConnectionResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiConnectionResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ConnectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WiFiConnectionStatus) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -140,7 +140,7 @@ unsafe impl ::windows::core::Interface for IWiFiNetworkReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiNetworkReport_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -160,7 +160,7 @@ unsafe impl ::windows::core::Interface for IWiFiWpsConfigurationResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiFiWpsConfigurationResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WiFiWpsConfigurationStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub SupportedWpsKinds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

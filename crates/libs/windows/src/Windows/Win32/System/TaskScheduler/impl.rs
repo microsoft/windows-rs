@@ -451,7 +451,7 @@ impl IEnumWorkItems_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1174,7 +1174,7 @@ impl IProvideTaskPage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPage: GetPage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPage: GetPage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvideTaskPage as ::windows::core::Interface>::IID
@@ -2105,7 +2105,7 @@ impl IScheduledWorkItem_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateTrigger: CreateTrigger::<Identity, Impl, OFFSET>,
             DeleteTrigger: DeleteTrigger::<Identity, Impl, OFFSET>,
             GetTriggerCount: GetTriggerCount::<Identity, Impl, OFFSET>,
@@ -2781,7 +2781,7 @@ impl ITaskHandler_Vtbl {
             this.Resume().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
             Pause: Pause::<Identity, Impl, OFFSET>,
@@ -2810,7 +2810,7 @@ impl ITaskHandlerStatus_Vtbl {
             this.TaskCompleted(::core::mem::transmute_copy(&taskerrcode)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             UpdateStatus: UpdateStatus::<Identity, Impl, OFFSET>,
             TaskCompleted: TaskCompleted::<Identity, Impl, OFFSET>,
         }
@@ -3017,7 +3017,7 @@ impl ITaskScheduler_Vtbl {
             this.IsOfType(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&riid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetTargetComputer: SetTargetComputer::<Identity, Impl, OFFSET>,
             GetTargetComputer: GetTargetComputer::<Identity, Impl, OFFSET>,
             Enum: Enum::<Identity, Impl, OFFSET>,
@@ -3638,7 +3638,7 @@ impl ITaskTrigger_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetTrigger: SetTrigger::<Identity, Impl, OFFSET>,
             GetTrigger: GetTrigger::<Identity, Impl, OFFSET>,
             GetTriggerString: GetTriggerString::<Identity, Impl, OFFSET>,
@@ -3684,7 +3684,7 @@ impl ITaskVariables_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetInput: GetInput::<Identity, Impl, OFFSET>,
             SetOutput: SetOutput::<Identity, Impl, OFFSET>,
             GetContext: GetContext::<Identity, Impl, OFFSET>,

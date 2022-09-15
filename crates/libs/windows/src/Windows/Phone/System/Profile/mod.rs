@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for IRetailModeStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRetailModeStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub RetailModeEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]

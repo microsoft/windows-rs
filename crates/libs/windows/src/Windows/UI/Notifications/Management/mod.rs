@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IUserNotificationListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserNotificationListener_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -40,7 +40,7 @@ unsafe impl ::windows::core::Interface for IUserNotificationListenerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserNotificationListenerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]

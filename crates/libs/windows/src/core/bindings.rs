@@ -50,7 +50,7 @@ unsafe impl Interface for IPropertyValueStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyValueStatics_Vtbl {
-    pub base__: IInspectableVtbl,
+    pub base__: IInspectable_Vtbl,
     pub CreateEmpty: unsafe extern "system" fn(this: *mut c_void, result__: *mut *mut c_void) -> HRESULT,
     pub CreateUInt8: unsafe extern "system" fn(this: *mut c_void, value: u8, result__: *mut *mut c_void) -> HRESULT,
     pub CreateInt16: unsafe extern "system" fn(this: *mut c_void, value: i16, result__: *mut *mut c_void) -> HRESULT,
@@ -107,7 +107,7 @@ pub struct IReference_Vtbl<T>
 where
     T: RuntimeType + 'static,
 {
-    pub base__: IInspectableVtbl,
+    pub base__: IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(this: *mut c_void, result__: *mut <T as Abi>::Abi) -> HRESULT,
     pub T: std::marker::PhantomData<T>,
 }
@@ -148,7 +148,7 @@ unsafe impl Interface for IStringable {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStringable_Vtbl {
-    pub base__: IInspectableVtbl,
+    pub base__: IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(this: *mut c_void, result__: *mut std::mem::ManuallyDrop<HSTRING>) -> HRESULT,
 }
 
@@ -261,7 +261,7 @@ unsafe impl Interface for IAgileObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAgileObject_Vtbl {
-    pub base__: IUnknownVtbl,
+    pub base__: IUnknown_Vtbl,
 }
 
 #[repr(transparent)]
@@ -307,7 +307,7 @@ unsafe impl Interface for IErrorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorInfo_Vtbl {
-    pub base__: IUnknownVtbl,
+    pub base__: IUnknown_Vtbl,
     pub GetGUID: unsafe extern "system" fn(this: *mut c_void, pguid: *mut GUID) -> HRESULT,
     pub GetSource: unsafe extern "system" fn(this: *mut c_void, pbstrsource: *mut BSTR) -> HRESULT,
     pub GetDescription: unsafe extern "system" fn(this: *mut c_void, pbstrdescription: *mut BSTR) -> HRESULT,
@@ -345,7 +345,7 @@ unsafe impl Interface for IAgileReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAgileReference_Vtbl {
-    pub base__: IUnknownVtbl,
+    pub base__: IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(this: *mut c_void, riid: *const GUID, ppvobjectreference: *mut *mut c_void) -> HRESULT,
 }
 
@@ -375,7 +375,7 @@ unsafe impl Interface for ILanguageExceptionErrorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILanguageExceptionErrorInfo_Vtbl {
-    pub base__: IUnknownVtbl,
+    pub base__: IUnknown_Vtbl,
     pub GetLanguageException: unsafe extern "system" fn(this: *mut c_void, languageexception: *mut *mut c_void) -> HRESULT,
 }
 
@@ -456,7 +456,7 @@ unsafe impl Interface for IRestrictedErrorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRestrictedErrorInfo_Vtbl {
-    pub base__: IUnknownVtbl,
+    pub base__: IUnknown_Vtbl,
     pub GetErrorDetails: unsafe extern "system" fn(this: *mut c_void, description: *mut BSTR, error: *mut HRESULT, restricteddescription: *mut BSTR, capabilitysid: *mut BSTR) -> HRESULT,
     pub GetReference: unsafe extern "system" fn(this: *mut c_void, reference: *mut BSTR) -> HRESULT,
 }
@@ -490,7 +490,7 @@ unsafe impl Interface for IWeakReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWeakReference_Vtbl {
-    pub base__: IUnknownVtbl,
+    pub base__: IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(this: *mut c_void, riid: *const GUID, objectreference: *mut *mut c_void) -> HRESULT,
 }
 
@@ -520,6 +520,6 @@ unsafe impl Interface for IWeakReferenceSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWeakReferenceSource_Vtbl {
-    pub base__: IUnknownVtbl,
+    pub base__: IUnknown_Vtbl,
     pub GetWeakReference: unsafe extern "system" fn(this: *mut c_void, weakreference: *mut *mut c_void) -> HRESULT,
 }

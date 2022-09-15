@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for INotePlacementChangedPreviewEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotePlacementChangedPreviewEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ViewId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -21,7 +21,7 @@ unsafe impl ::windows::core::Interface for INoteVisibilityChangedPreviewEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct INoteVisibilityChangedPreviewEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ViewId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -35,7 +35,7 @@ unsafe impl ::windows::core::Interface for INotesWindowManagerPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotesWindowManagerPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsScreenLocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ShowNote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, noteviewid: i32) -> ::windows::core::HRESULT,
     pub ShowNoteRelativeTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, noteviewid: i32, anchornoteviewid: i32) -> ::windows::core::HRESULT,
@@ -92,7 +92,7 @@ unsafe impl ::windows::core::Interface for INotesWindowManagerPreview2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotesWindowManagerPreview2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ShowNoteRelativeToWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, noteviewid: i32, anchornoteviewid: i32, options: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub ShowNoteWithPlacementWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, noteviewid: i32, data: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -114,7 +114,7 @@ unsafe impl ::windows::core::Interface for INotesWindowManagerPreviewShowNoteOpt
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotesWindowManagerPreviewShowNoteOptions_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ShowWithFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetShowWithFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
@@ -128,7 +128,7 @@ unsafe impl ::windows::core::Interface for INotesWindowManagerPreviewStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INotesWindowManagerPreviewStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]

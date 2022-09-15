@@ -95,7 +95,7 @@ unsafe impl ::windows::core::Interface for IDirect3DDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -198,7 +198,7 @@ unsafe impl ::windows::core::Interface for IDirect3DSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSurface_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]

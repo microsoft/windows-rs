@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthentication_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub ServiceAuthenticationHmac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
@@ -50,7 +50,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -73,7 +73,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub StageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -92,7 +92,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Stage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorAuthenticationStage) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -119,7 +119,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub ShowNotificationMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, message: SecondaryAuthenticationFactorAuthenticationMessage, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -154,7 +154,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorDeviceP
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub RegisterDevicePresenceMonitoringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceinstancepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, monitoringmode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -185,7 +185,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -216,7 +216,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorInfo2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorInfo2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub PresenceMonitoringMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -243,7 +243,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorRegistr
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorRegistration_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub FinishRegisteringDeviceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceconfigurationdata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
@@ -266,7 +266,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorRegistr
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorRegistrationResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SecondaryAuthenticationFactorRegistrationStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -289,7 +289,7 @@ unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorRegistr
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorRegistrationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub RequestStartRegisteringDeviceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, devicefriendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicemodelnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, devicekey: *mut ::core::ffi::c_void, mutualauthenticationkey: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]

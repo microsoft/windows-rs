@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IPrintSupportExtensionSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportExtensionSession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Printers")]
     pub Printer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Printers"))]
@@ -41,7 +41,7 @@ unsafe impl ::windows::core::Interface for IPrintSupportExtensionTriggerDetails 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportExtensionTriggerDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -54,7 +54,7 @@ unsafe impl ::windows::core::Interface for IPrintSupportPrintDeviceCapabilitiesC
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
     pub GetCurrentPrintDeviceCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
@@ -78,7 +78,7 @@ unsafe impl ::windows::core::Interface for IPrintSupportPrintTicketValidationReq
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub PrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
@@ -99,7 +99,7 @@ unsafe impl ::windows::core::Interface for IPrintSupportSessionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportSessionInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel")]
     pub SourceAppInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))]
@@ -119,7 +119,7 @@ unsafe impl ::windows::core::Interface for IPrintSupportSettingsActivatedEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportSettingsActivatedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Session: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -136,7 +136,7 @@ unsafe impl ::windows::core::Interface for IPrintSupportSettingsUISession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintSupportSettingsUISession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub SessionPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]

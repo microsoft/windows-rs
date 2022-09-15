@@ -89,7 +89,7 @@ unsafe impl ::windows::core::Interface for IBitmapData {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitmapData_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CopyBytesTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut u8, numberofbytescopied: *mut u32) -> ::windows::core::HRESULT,
     pub GetStride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstride: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -192,7 +192,7 @@ unsafe impl ::windows::core::Interface for IVisualTreeService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeService_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AdviseVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnadviseVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -561,7 +561,7 @@ unsafe impl ::windows::core::Interface for IVisualTreeServiceCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualTreeServiceCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relation: ParentChildRelation, element: ::core::mem::ManuallyDrop<VisualElement>, mutationtype: VisualMutationType) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
@@ -719,7 +719,7 @@ unsafe impl ::windows::core::Interface for IXamlDiagnostics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDiagnostics_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdispatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetUiLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplayer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

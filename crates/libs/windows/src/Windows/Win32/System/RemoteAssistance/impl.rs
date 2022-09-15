@@ -22,7 +22,7 @@ impl IRendezvousApplication_Vtbl {
             let this = (*this).get_impl();
             this.SetRendezvousSession(::core::mem::transmute(&prendezvoussession)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetRendezvousSession: SetRendezvousSession::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRendezvousSession: SetRendezvousSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRendezvousApplication as ::windows::core::Interface>::IID
@@ -82,7 +82,7 @@ impl IRendezvousSession_Vtbl {
             this.Terminate(::core::mem::transmute_copy(&hr), ::core::mem::transmute(&bstrappdata)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             State: State::<Identity, Impl, OFFSET>,
             RemoteUser: RemoteUser::<Identity, Impl, OFFSET>,
             Flags: Flags::<Identity, Impl, OFFSET>,

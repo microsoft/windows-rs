@@ -152,7 +152,7 @@ impl ID3D12Debug_Vtbl {
             let this = (*this).get_impl();
             this.EnableDebugLayer()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EnableDebugLayer: EnableDebugLayer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnableDebugLayer: EnableDebugLayer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D12Debug as ::windows::core::Interface>::IID
@@ -185,7 +185,7 @@ impl ID3D12Debug1_Vtbl {
             this.SetEnableSynchronizedCommandQueueValidation(::core::mem::transmute_copy(&enable))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnableDebugLayer: EnableDebugLayer::<Identity, Impl, OFFSET>,
             SetEnableGPUBasedValidation: SetEnableGPUBasedValidation::<Identity, Impl, OFFSET>,
             SetEnableSynchronizedCommandQueueValidation: SetEnableSynchronizedCommandQueueValidation::<Identity, Impl, OFFSET>,
@@ -207,7 +207,7 @@ impl ID3D12Debug2_Vtbl {
             this.SetGPUBasedValidationFlags(::core::mem::transmute_copy(&flags))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetGPUBasedValidationFlags: SetGPUBasedValidationFlags::<Identity, Impl, OFFSET>,
         }
     }
@@ -319,7 +319,7 @@ impl ID3D12DebugCommandList_Vtbl {
             this.GetFeatureMask()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AssertResourceState: AssertResourceState::<Identity, Impl, OFFSET>,
             SetFeatureMask: SetFeatureMask::<Identity, Impl, OFFSET>,
             GetFeatureMask: GetFeatureMask::<Identity, Impl, OFFSET>,
@@ -356,7 +356,7 @@ impl ID3D12DebugCommandList1_Vtbl {
             this.GetDebugParameter(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&datasize)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AssertResourceState: AssertResourceState::<Identity, Impl, OFFSET>,
             SetDebugParameter: SetDebugParameter::<Identity, Impl, OFFSET>,
             GetDebugParameter: GetDebugParameter::<Identity, Impl, OFFSET>,
@@ -410,7 +410,7 @@ impl ID3D12DebugCommandQueue_Vtbl {
             let this = (*this).get_impl();
             this.AssertResourceState(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&state))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AssertResourceState: AssertResourceState::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AssertResourceState: AssertResourceState::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D12DebugCommandQueue as ::windows::core::Interface>::IID
@@ -440,7 +440,7 @@ impl ID3D12DebugDevice_Vtbl {
             this.ReportLiveDeviceObjects(::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetFeatureMask: SetFeatureMask::<Identity, Impl, OFFSET>,
             GetFeatureMask: GetFeatureMask::<Identity, Impl, OFFSET>,
             ReportLiveDeviceObjects: ReportLiveDeviceObjects::<Identity, Impl, OFFSET>,
@@ -474,7 +474,7 @@ impl ID3D12DebugDevice1_Vtbl {
             this.ReportLiveDeviceObjects(::core::mem::transmute_copy(&flags)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetDebugParameter: SetDebugParameter::<Identity, Impl, OFFSET>,
             GetDebugParameter: GetDebugParameter::<Identity, Impl, OFFSET>,
             ReportLiveDeviceObjects: ReportLiveDeviceObjects::<Identity, Impl, OFFSET>,
@@ -1247,7 +1247,7 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetAutoBreadcrumbsOutput: GetAutoBreadcrumbsOutput::<Identity, Impl, OFFSET>,
             GetPageFaultAllocationOutput: GetPageFaultAllocationOutput::<Identity, Impl, OFFSET>,
         }
@@ -1352,7 +1352,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
             this.SetWatsonDumpEnablement(::core::mem::transmute_copy(&enablement))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetAutoBreadcrumbsEnablement: SetAutoBreadcrumbsEnablement::<Identity, Impl, OFFSET>,
             SetPageFaultEnablement: SetPageFaultEnablement::<Identity, Impl, OFFSET>,
             SetWatsonDumpEnablement: SetWatsonDumpEnablement::<Identity, Impl, OFFSET>,
@@ -2295,7 +2295,7 @@ impl ID3D12InfoQueue_Vtbl {
             this.GetMuteDebugOutput()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetMessageCountLimit: SetMessageCountLimit::<Identity, Impl, OFFSET>,
             ClearStoredMessages: ClearStoredMessages::<Identity, Impl, OFFSET>,
             GetMessage: GetMessage::<Identity, Impl, OFFSET>,
@@ -2391,7 +2391,7 @@ impl ID3D12LibraryReflection_Vtbl {
             this.GetFunctionByIndex(::core::mem::transmute_copy(&functionindex))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             GetFunctionByIndex: GetFunctionByIndex::<Identity, Impl, OFFSET>,
         }
@@ -2411,7 +2411,7 @@ impl ID3D12LifetimeOwner_Vtbl {
             let this = (*this).get_impl();
             this.LifetimeStateUpdated(::core::mem::transmute_copy(&newstate))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LifetimeStateUpdated: LifetimeStateUpdated::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LifetimeStateUpdated: LifetimeStateUpdated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D12LifetimeOwner as ::windows::core::Interface>::IID
@@ -2484,7 +2484,7 @@ impl ID3D12Object_Vtbl {
             this.SetName(::core::mem::transmute(&name)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateDataInterface: SetPrivateDataInterface::<Identity, Impl, OFFSET>,
@@ -2799,7 +2799,7 @@ impl ID3D12RootSignatureDeserializer_Vtbl {
             let this = (*this).get_impl();
             this.GetRootSignatureDesc()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRootSignatureDesc: GetRootSignatureDesc::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRootSignatureDesc: GetRootSignatureDesc::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D12RootSignatureDeserializer as ::windows::core::Interface>::IID
@@ -2816,7 +2816,7 @@ impl ID3D12SDKConfiguration_Vtbl {
             let this = (*this).get_impl();
             this.SetSDKVersion(::core::mem::transmute_copy(&sdkversion), ::core::mem::transmute(&sdkpath)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetSDKVersion: SetSDKVersion::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSDKVersion: SetSDKVersion::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D12SDKConfiguration as ::windows::core::Interface>::IID
@@ -3028,7 +3028,7 @@ impl ID3D12ShaderReflection_Vtbl {
             this.GetRequiresFlags()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, Impl, OFFSET>,
             GetConstantBufferByName: GetConstantBufferByName::<Identity, Impl, OFFSET>,
@@ -3087,7 +3087,7 @@ impl ID3D12SharingContract_Vtbl {
             this.EndCapturableWork(::core::mem::transmute_copy(&guid))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Present: Present::<Identity, Impl, OFFSET>,
             SharedFenceSignal: SharedFenceSignal::<Identity, Impl, OFFSET>,
             BeginCapturableWork: BeginCapturableWork::<Identity, Impl, OFFSET>,
@@ -3138,7 +3138,7 @@ impl ID3D12StateObjectProperties_Vtbl {
             this.SetPipelineStackSize(::core::mem::transmute_copy(&pipelinestacksizeinbytes))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetShaderIdentifier: GetShaderIdentifier::<Identity, Impl, OFFSET>,
             GetShaderStackSize: GetShaderStackSize::<Identity, Impl, OFFSET>,
             GetPipelineStackSize: GetPipelineStackSize::<Identity, Impl, OFFSET>,
@@ -3182,7 +3182,7 @@ impl ID3D12SwapChainAssistant_Vtbl {
             this.InsertImplicitSync().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLUID: GetLUID::<Identity, Impl, OFFSET>,
             GetSwapChainObject: GetSwapChainObject::<Identity, Impl, OFFSET>,
             GetCurrentResourceAndCommandQueue: GetCurrentResourceAndCommandQueue::<Identity, Impl, OFFSET>,
@@ -3214,7 +3214,7 @@ impl ID3D12Tools_Vtbl {
             this.ShaderInstrumentationEnabled()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnableShaderInstrumentation: EnableShaderInstrumentation::<Identity, Impl, OFFSET>,
             ShaderInstrumentationEnabled: ShaderInstrumentationEnabled::<Identity, Impl, OFFSET>,
         }
@@ -3247,7 +3247,7 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
             this.GetUnconvertedRootSignatureDesc()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRootSignatureDescAtVersion: GetRootSignatureDescAtVersion::<Identity, Impl, OFFSET>,
             GetUnconvertedRootSignatureDesc: GetUnconvertedRootSignatureDesc::<Identity, Impl, OFFSET>,
         }

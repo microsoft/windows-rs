@@ -9,7 +9,7 @@ impl IInkCommitRequestHandler_Vtbl {
             let this = (*this).get_impl();
             this.OnCommitRequested().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnCommitRequested: OnCommitRequested::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCommitRequested: OnCommitRequested::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkCommitRequestHandler as ::windows::core::Interface>::IID
@@ -29,7 +29,7 @@ impl IInkD2DRenderer_Vtbl {
             let this = (*this).get_impl();
             this.Draw(::core::mem::transmute(&pd2d1devicecontext), ::core::mem::transmute(&pinkstrokeiterable), ::core::mem::transmute_copy(&fhighcontrast)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkD2DRenderer as ::windows::core::Interface>::IID
@@ -46,7 +46,7 @@ impl IInkD2DRenderer2_Vtbl {
             let this = (*this).get_impl();
             this.Draw(::core::mem::transmute(&pd2d1devicecontext), ::core::mem::transmute(&pinkstrokeiterable), ::core::mem::transmute_copy(&highcontrastadjustment)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkD2DRenderer2 as ::windows::core::Interface>::IID
@@ -76,7 +76,7 @@ impl IInkDesktopHost_Vtbl {
             this.CreateAndInitializeInkPresenter(::core::mem::transmute(&rootvisual), ::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             QueueWorkItem: QueueWorkItem::<Identity, Impl, OFFSET>,
             CreateInkPresenter: CreateInkPresenter::<Identity, Impl, OFFSET>,
             CreateAndInitializeInkPresenter: CreateAndInitializeInkPresenter::<Identity, Impl, OFFSET>,
@@ -97,7 +97,7 @@ impl IInkHostWorkItem_Vtbl {
             let this = (*this).get_impl();
             this.Invoke().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInkHostWorkItem as ::windows::core::Interface>::IID
@@ -139,7 +139,7 @@ impl IInkPresenterDesktop_Vtbl {
             this.OnHighContrastChanged().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetRootVisual: SetRootVisual::<Identity, Impl, OFFSET>,
             SetCommitRequestHandler: SetCommitRequestHandler::<Identity, Impl, OFFSET>,
             GetSize: GetSize::<Identity, Impl, OFFSET>,

@@ -105,8 +105,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let mut methods = quote! {};
 
     match gen.reader.type_def_vtables(def).last() {
-        Some(Type::IUnknown) => methods.combine(&quote! { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), }),
-        Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident, OFFSET>(), }),
+        Some(Type::IUnknown) => methods.combine(&quote! { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), }),
+        Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, #type_ident, OFFSET>(), }),
         Some(Type::TypeDef((def, generics))) => {
             let name = gen.type_def_name_imp(*def, generics, "_Vtbl");
             methods.combine(&quote! { base__: #name::new::<Identity, Impl, OFFSET>(), });

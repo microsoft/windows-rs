@@ -19,7 +19,7 @@ impl IDWriteAsyncResult_Vtbl {
             this.GetResult().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetWaitHandle: GetWaitHandle::<Identity, Impl, OFFSET>,
             GetResult: GetResult::<Identity, Impl, OFFSET>,
         }
@@ -103,7 +103,7 @@ impl IDWriteBitmapRenderTarget_Vtbl {
             this.Resize(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             DrawGlyphRun: DrawGlyphRun::<Identity, Impl, OFFSET>,
             GetMemoryDC: GetMemoryDC::<Identity, Impl, OFFSET>,
             GetPixelsPerDip: GetPixelsPerDip::<Identity, Impl, OFFSET>,
@@ -181,7 +181,7 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             GetCurrentRun: GetCurrentRun::<Identity, Impl, OFFSET>,
         }
@@ -447,7 +447,7 @@ impl IDWriteFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSystemFontCollection: GetSystemFontCollection::<Identity, Impl, OFFSET>,
             CreateCustomFontCollection: CreateCustomFontCollection::<Identity, Impl, OFFSET>,
             RegisterFontCollectionLoader: RegisterFontCollectionLoader::<Identity, Impl, OFFSET>,
@@ -1097,7 +1097,7 @@ impl IDWriteFont_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFontFamily: GetFontFamily::<Identity, Impl, OFFSET>,
             GetWeight: GetWeight::<Identity, Impl, OFFSET>,
             GetStretch: GetStretch::<Identity, Impl, OFFSET>,
@@ -1287,7 +1287,7 @@ impl IDWriteFontCollection_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFontFamilyCount: GetFontFamilyCount::<Identity, Impl, OFFSET>,
             GetFontFamily: GetFontFamily::<Identity, Impl, OFFSET>,
             FindFamilyName: FindFamilyName::<Identity, Impl, OFFSET>,
@@ -1439,7 +1439,7 @@ impl IDWriteFontCollectionLoader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateEnumeratorFromKey: CreateEnumeratorFromKey::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateEnumeratorFromKey: CreateEnumeratorFromKey::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDWriteFontCollectionLoader as ::windows::core::Interface>::IID
@@ -1456,7 +1456,7 @@ impl IDWriteFontDownloadListener_Vtbl {
             let this = (*this).get_impl();
             this.DownloadCompleted(::core::mem::transmute(&downloadqueue), ::core::mem::transmute(&context), ::core::mem::transmute_copy(&downloadresult))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DownloadCompleted: DownloadCompleted::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DownloadCompleted: DownloadCompleted::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDWriteFontDownloadListener as ::windows::core::Interface>::IID
@@ -1513,7 +1513,7 @@ impl IDWriteFontDownloadQueue_Vtbl {
             this.GetGenerationCount()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddListener: AddListener::<Identity, Impl, OFFSET>,
             RemoveListener: RemoveListener::<Identity, Impl, OFFSET>,
             IsEmpty: IsEmpty::<Identity, Impl, OFFSET>,
@@ -1637,7 +1637,7 @@ impl IDWriteFontFace_Vtbl {
             this.GetGdiCompatibleGlyphMetrics(::core::mem::transmute_copy(&emsize), ::core::mem::transmute_copy(&pixelsperdip), ::core::mem::transmute_copy(&transform), ::core::mem::transmute_copy(&usegdinatural), ::core::mem::transmute_copy(&glyphindices), ::core::mem::transmute_copy(&glyphcount), ::core::mem::transmute_copy(&glyphmetrics), ::core::mem::transmute_copy(&issideways)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetType: GetType::<Identity, Impl, OFFSET>,
             GetFiles: GetFiles::<Identity, Impl, OFFSET>,
             GetIndex: GetIndex::<Identity, Impl, OFFSET>,
@@ -2232,7 +2232,7 @@ impl IDWriteFontFaceReference_Vtbl {
             this.EnqueueFileFragmentDownloadRequest(::core::mem::transmute_copy(&fileoffset), ::core::mem::transmute_copy(&fragmentsize)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateFontFace: CreateFontFace::<Identity, Impl, OFFSET>,
             CreateFontFaceWithSimulations: CreateFontFaceWithSimulations::<Identity, Impl, OFFSET>,
             Equals: Equals::<Identity, Impl, OFFSET>,
@@ -2308,7 +2308,7 @@ impl IDWriteFontFallback_Vtbl {
             this.MapCharacters(::core::mem::transmute(&analysissource), ::core::mem::transmute_copy(&textposition), ::core::mem::transmute_copy(&textlength), ::core::mem::transmute(&basefontcollection), ::core::mem::transmute(&basefamilyname), ::core::mem::transmute_copy(&baseweight), ::core::mem::transmute_copy(&basestyle), ::core::mem::transmute_copy(&basestretch), ::core::mem::transmute_copy(&mappedlength), ::core::mem::transmute_copy(&mappedfont), ::core::mem::transmute_copy(&scale))
                 .into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), MapCharacters: MapCharacters::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), MapCharacters: MapCharacters::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDWriteFontFallback as ::windows::core::Interface>::IID
@@ -2361,7 +2361,7 @@ impl IDWriteFontFallbackBuilder_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddMapping: AddMapping::<Identity, Impl, OFFSET>,
             AddMappings: AddMappings::<Identity, Impl, OFFSET>,
             CreateFontFallback: CreateFontFallback::<Identity, Impl, OFFSET>,
@@ -2541,7 +2541,7 @@ impl IDWriteFontFile_Vtbl {
             this.Analyze(::core::mem::transmute_copy(&issupportedfonttype), ::core::mem::transmute_copy(&fontfiletype), ::core::mem::transmute_copy(&fontfacetype), ::core::mem::transmute_copy(&numberoffaces)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetReferenceKey: GetReferenceKey::<Identity, Impl, OFFSET>,
             GetLoader: GetLoader::<Identity, Impl, OFFSET>,
             Analyze: Analyze::<Identity, Impl, OFFSET>,
@@ -2584,7 +2584,7 @@ impl IDWriteFontFileEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
             GetCurrentFontFile: GetCurrentFontFile::<Identity, Impl, OFFSET>,
         }
@@ -2610,7 +2610,7 @@ impl IDWriteFontFileLoader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateStreamFromKey: CreateStreamFromKey::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateStreamFromKey: CreateStreamFromKey::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDWriteFontFileLoader as ::windows::core::Interface>::IID
@@ -2658,7 +2658,7 @@ impl IDWriteFontFileStream_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ReadFileFragment: ReadFileFragment::<Identity, Impl, OFFSET>,
             ReleaseFileFragment: ReleaseFileFragment::<Identity, Impl, OFFSET>,
             GetFileSize: GetFileSize::<Identity, Impl, OFFSET>,
@@ -2705,7 +2705,7 @@ impl IDWriteFontList_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFontCollection: GetFontCollection::<Identity, Impl, OFFSET>,
             GetFontCount: GetFontCount::<Identity, Impl, OFFSET>,
             GetFont: GetFont::<Identity, Impl, OFFSET>,
@@ -2889,7 +2889,7 @@ impl IDWriteFontResource_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFontFile: GetFontFile::<Identity, Impl, OFFSET>,
             GetFontFaceIndex: GetFontFaceIndex::<Identity, Impl, OFFSET>,
             GetFontAxisCount: GetFontAxisCount::<Identity, Impl, OFFSET>,
@@ -3013,7 +3013,7 @@ impl IDWriteFontSet_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFontCount: GetFontCount::<Identity, Impl, OFFSET>,
             GetFontFaceReference: GetFontFaceReference::<Identity, Impl, OFFSET>,
             FindFontFaceReference: FindFontFaceReference::<Identity, Impl, OFFSET>,
@@ -3278,7 +3278,7 @@ impl IDWriteFontSetBuilder_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddFontFaceReference: AddFontFaceReference::<Identity, Impl, OFFSET>,
             AddFontFaceReference2: AddFontFaceReference2::<Identity, Impl, OFFSET>,
             AddFontSet: AddFontSet::<Identity, Impl, OFFSET>,
@@ -3396,7 +3396,7 @@ impl IDWriteGdiInterop_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateFontFromLOGFONT: CreateFontFromLOGFONT::<Identity, Impl, OFFSET>,
             ConvertFontToLOGFONT: ConvertFontToLOGFONT::<Identity, Impl, OFFSET>,
             ConvertFontFaceToLOGFONT: ConvertFontFaceToLOGFONT::<Identity, Impl, OFFSET>,
@@ -3509,7 +3509,7 @@ impl IDWriteGlyphRunAnalysis_Vtbl {
             this.GetAlphaBlendParams(::core::mem::transmute(&renderingparams), ::core::mem::transmute_copy(&blendgamma), ::core::mem::transmute_copy(&blendenhancedcontrast), ::core::mem::transmute_copy(&blendcleartypelevel)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetAlphaTextureBounds: GetAlphaTextureBounds::<Identity, Impl, OFFSET>,
             CreateAlphaTexture: CreateAlphaTexture::<Identity, Impl, OFFSET>,
             GetAlphaBlendParams: GetAlphaBlendParams::<Identity, Impl, OFFSET>,
@@ -3597,7 +3597,7 @@ impl IDWriteInlineObject_Vtbl {
             this.GetBreakConditions(::core::mem::transmute_copy(&breakconditionbefore), ::core::mem::transmute_copy(&breakconditionafter)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Draw: Draw::<Identity, Impl, OFFSET>,
             GetMetrics: GetMetrics::<Identity, Impl, OFFSET>,
             GetOverhangMetrics: GetOverhangMetrics::<Identity, Impl, OFFSET>,
@@ -3714,7 +3714,7 @@ impl IDWriteLocalizedStrings_Vtbl {
             this.GetString(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&stringbuffer), ::core::mem::transmute_copy(&size)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             FindLocaleName: FindLocaleName::<Identity, Impl, OFFSET>,
             GetLocaleNameLength: GetLocaleNameLength::<Identity, Impl, OFFSET>,
@@ -3731,7 +3731,7 @@ pub trait IDWriteNumberSubstitution_Impl: Sized {}
 impl ::windows::core::RuntimeName for IDWriteNumberSubstitution {}
 impl IDWriteNumberSubstitution_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteNumberSubstitution_Impl, const OFFSET: isize>() -> IDWriteNumberSubstitution_Vtbl {
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDWriteNumberSubstitution as ::windows::core::Interface>::IID
@@ -3782,7 +3782,7 @@ impl IDWritePixelSnapping_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsPixelSnappingDisabled: IsPixelSnappingDisabled::<Identity, Impl, OFFSET>,
             GetCurrentTransform: GetCurrentTransform::<Identity, Impl, OFFSET>,
             GetPixelsPerDip: GetPixelsPerDip::<Identity, Impl, OFFSET>,
@@ -3936,7 +3936,7 @@ impl IDWriteRenderingParams_Vtbl {
             this.GetRenderingMode()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetGamma: GetGamma::<Identity, Impl, OFFSET>,
             GetEnhancedContrast: GetEnhancedContrast::<Identity, Impl, OFFSET>,
             GetClearTypeLevel: GetClearTypeLevel::<Identity, Impl, OFFSET>,
@@ -4050,7 +4050,7 @@ impl IDWriteStringList_Vtbl {
             this.GetString(::core::mem::transmute_copy(&listindex), ::core::mem::transmute_copy(&stringbuffer), ::core::mem::transmute_copy(&stringbuffersize)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetLocaleNameLength: GetLocaleNameLength::<Identity, Impl, OFFSET>,
             GetLocaleName: GetLocaleName::<Identity, Impl, OFFSET>,
@@ -4092,7 +4092,7 @@ impl IDWriteTextAnalysisSink_Vtbl {
             this.SetNumberSubstitution(::core::mem::transmute_copy(&textposition), ::core::mem::transmute_copy(&textlength), ::core::mem::transmute(&numbersubstitution)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetScriptAnalysis: SetScriptAnalysis::<Identity, Impl, OFFSET>,
             SetLineBreakpoints: SetLineBreakpoints::<Identity, Impl, OFFSET>,
             SetBidiLevel: SetBidiLevel::<Identity, Impl, OFFSET>,
@@ -4159,7 +4159,7 @@ impl IDWriteTextAnalysisSource_Vtbl {
             this.GetNumberSubstitution(::core::mem::transmute_copy(&textposition), ::core::mem::transmute_copy(&textlength), ::core::mem::transmute_copy(&numbersubstitution)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetTextAtPosition: GetTextAtPosition::<Identity, Impl, OFFSET>,
             GetTextBeforePosition: GetTextBeforePosition::<Identity, Impl, OFFSET>,
             GetParagraphReadingDirection: GetParagraphReadingDirection::<Identity, Impl, OFFSET>,
@@ -4389,7 +4389,7 @@ impl IDWriteTextAnalyzer_Vtbl {
             .into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AnalyzeScript: AnalyzeScript::<Identity, Impl, OFFSET>,
             AnalyzeBidi: AnalyzeBidi::<Identity, Impl, OFFSET>,
             AnalyzeNumberSubstitution: AnalyzeNumberSubstitution::<Identity, Impl, OFFSET>,
@@ -4731,7 +4731,7 @@ impl IDWriteTextFormat_Vtbl {
             this.GetLocaleName(::core::mem::transmute_copy(&localename), ::core::mem::transmute_copy(&namesize)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetTextAlignment: SetTextAlignment::<Identity, Impl, OFFSET>,
             SetParagraphAlignment: SetParagraphAlignment::<Identity, Impl, OFFSET>,
             SetWordWrapping: SetWordWrapping::<Identity, Impl, OFFSET>,
@@ -5589,7 +5589,7 @@ impl IDWriteTypography_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddFontFeature: AddFontFeature::<Identity, Impl, OFFSET>,
             GetFontFeatureCount: GetFontFeatureCount::<Identity, Impl, OFFSET>,
             GetFontFeature: GetFontFeature::<Identity, Impl, OFFSET>,

@@ -44,7 +44,7 @@ unsafe impl ::windows::core::Interface for IOplockBreakingHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOplockBreakingHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OplockBreaking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
@@ -94,7 +94,7 @@ unsafe impl ::windows::core::Interface for IRandomAccessStreamFileAccessMode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamFileAccessMode_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileaccessmode: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
@@ -150,7 +150,7 @@ unsafe impl ::windows::core::Interface for IStorageFolderHandleAccess {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageFolderHandleAccess_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows::core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: *mut ::core::ffi::c_void, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -208,7 +208,7 @@ unsafe impl ::windows::core::Interface for IStorageItemHandleAccess {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemHandleAccess_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: *mut ::core::ffi::c_void, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -260,7 +260,7 @@ unsafe impl ::windows::core::Interface for IUnbufferedFileHandleOplockCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnbufferedFileHandleOplockCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnBrokenCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
@@ -316,7 +316,7 @@ unsafe impl ::windows::core::Interface for IUnbufferedFileHandleProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnbufferedFileHandleProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OpenUnbufferedFileHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oplockbreakcallback: *mut ::core::ffi::c_void, filehandle: *mut usize) -> ::windows::core::HRESULT,
     pub CloseUnbufferedFileHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

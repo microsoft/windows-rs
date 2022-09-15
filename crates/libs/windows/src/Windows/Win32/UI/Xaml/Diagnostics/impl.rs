@@ -49,7 +49,7 @@ impl IBitmapData_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CopyBytesTo: CopyBytesTo::<Identity, Impl, OFFSET>,
             GetStride: GetStride::<Identity, Impl, OFFSET>,
             GetBitmapDescription: GetBitmapDescription::<Identity, Impl, OFFSET>,
@@ -153,7 +153,7 @@ impl IVisualTreeService_Vtbl {
             this.ClearChildren(::core::mem::transmute_copy(&parent)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseVisualTreeChange: AdviseVisualTreeChange::<Identity, Impl, OFFSET>,
             UnadviseVisualTreeChange: UnadviseVisualTreeChange::<Identity, Impl, OFFSET>,
             GetEnums: GetEnums::<Identity, Impl, OFFSET>,
@@ -295,7 +295,7 @@ impl IVisualTreeServiceCallback_Vtbl {
             let this = (*this).get_impl();
             this.OnVisualTreeChange(::core::mem::transmute(&relation), ::core::mem::transmute(&element), ::core::mem::transmute_copy(&mutationtype)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnVisualTreeChange: OnVisualTreeChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnVisualTreeChange: OnVisualTreeChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVisualTreeServiceCallback as ::windows::core::Interface>::IID
@@ -417,7 +417,7 @@ impl IXamlDiagnostics_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDispatcher: GetDispatcher::<Identity, Impl, OFFSET>,
             GetUiLayer: GetUiLayer::<Identity, Impl, OFFSET>,
             GetApplication: GetApplication::<Identity, Impl, OFFSET>,

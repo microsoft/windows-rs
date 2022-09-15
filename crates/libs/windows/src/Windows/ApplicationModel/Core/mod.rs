@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IAppListEntry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppListEntry_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DisplayInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub LaunchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -25,7 +25,7 @@ unsafe impl ::windows::core::Interface for IAppListEntry2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppListEntry2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -38,7 +38,7 @@ unsafe impl ::windows::core::Interface for IAppListEntry3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppListEntry3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub LaunchForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "System")))]
@@ -54,7 +54,7 @@ unsafe impl ::windows::core::Interface for IAppListEntry4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppListEntry4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AppInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -67,7 +67,7 @@ unsafe impl ::windows::core::Interface for ICoreApplication {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplication_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub Suspending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -106,7 +106,7 @@ unsafe impl ::windows::core::Interface for ICoreApplication2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplication2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub BackgroundActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))]
@@ -143,7 +143,7 @@ unsafe impl ::windows::core::Interface for ICoreApplication3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplication3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub RequestRestartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, launcharguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -163,7 +163,7 @@ unsafe impl ::windows::core::Interface for ICoreApplicationExit {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationExit_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Exit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub Exiting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -257,7 +257,7 @@ unsafe impl ::windows::core::Interface for ICoreApplicationUnhandledError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationUnhandledError_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub UnhandledErrorDetected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -277,7 +277,7 @@ unsafe impl ::windows::core::Interface for ICoreApplicationUseCount {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationUseCount_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IncrementApplicationUseCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DecrementApplicationUseCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -291,7 +291,7 @@ unsafe impl ::windows::core::Interface for ICoreApplicationView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationView_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Core")]
     pub CoreWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))]
@@ -317,7 +317,7 @@ unsafe impl ::windows::core::Interface for ICoreApplicationView2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationView2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Core")]
     pub Dispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))]
@@ -333,7 +333,7 @@ unsafe impl ::windows::core::Interface for ICoreApplicationView3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationView3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub TitleBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -355,7 +355,7 @@ unsafe impl ::windows::core::Interface for ICoreApplicationView5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationView5_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -371,7 +371,7 @@ unsafe impl ::windows::core::Interface for ICoreApplicationView6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationView6_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
     pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
@@ -387,7 +387,7 @@ unsafe impl ::windows::core::Interface for ICoreApplicationViewTitleBar {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationViewTitleBar_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetExtendViewIntoTitleBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub ExtendViewIntoTitleBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SystemOverlayLeftInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -421,7 +421,7 @@ unsafe impl ::windows::core::Interface for ICoreImmersiveApplication {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreImmersiveApplication_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Views: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -439,7 +439,7 @@ unsafe impl ::windows::core::Interface for ICoreImmersiveApplication2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreImmersiveApplication2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateNewViewFromMainView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -452,7 +452,7 @@ unsafe impl ::windows::core::Interface for ICoreImmersiveApplication3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreImmersiveApplication3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateNewViewWithViewSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewsource: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -548,7 +548,7 @@ unsafe impl ::windows::core::Interface for IFrameworkView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkView_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationview: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Core")]
     pub SetWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -630,7 +630,7 @@ unsafe impl ::windows::core::Interface for IFrameworkViewSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkViewSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -643,7 +643,7 @@ unsafe impl ::windows::core::Interface for IHostedViewClosingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostedViewClosingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -659,7 +659,7 @@ unsafe impl ::windows::core::Interface for IUnhandledError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnhandledError_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Propagate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -673,7 +673,7 @@ unsafe impl ::windows::core::Interface for IUnhandledErrorDetectedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnhandledErrorDetectedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub UnhandledError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]

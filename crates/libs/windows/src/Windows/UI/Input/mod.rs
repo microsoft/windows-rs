@@ -16,7 +16,7 @@ unsafe impl ::windows::core::Interface for IAttachableInputObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttachableInputObject_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28,7 +28,7 @@ unsafe impl ::windows::core::Interface for IAttachableInputObjectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttachableInputObjectFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -40,7 +40,7 @@ unsafe impl ::windows::core::Interface for ICrossSlidingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICrossSlidingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -61,7 +61,7 @@ unsafe impl ::windows::core::Interface for ICrossSlidingEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICrossSlidingEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -74,7 +74,7 @@ unsafe impl ::windows::core::Interface for IDraggingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDraggingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -95,7 +95,7 @@ unsafe impl ::windows::core::Interface for IDraggingEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDraggingEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -108,7 +108,7 @@ unsafe impl ::windows::core::Interface for IEdgeGesture {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeGesture_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Starting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -144,7 +144,7 @@ unsafe impl ::windows::core::Interface for IEdgeGestureEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeGestureEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EdgeGestureKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -157,7 +157,7 @@ unsafe impl ::windows::core::Interface for IEdgeGestureStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEdgeGestureStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -170,7 +170,7 @@ unsafe impl ::windows::core::Interface for IGestureRecognizer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGestureRecognizer_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GestureSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GestureSettings) -> ::windows::core::HRESULT,
     pub SetGestureSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GestureSettings) -> ::windows::core::HRESULT,
     pub IsInertial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -303,7 +303,7 @@ unsafe impl ::windows::core::Interface for IGestureRecognizer2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGestureRecognizer2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub TapMinContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetTapMinContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub TapMaxContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -337,7 +337,7 @@ unsafe impl ::windows::core::Interface for IHoldingEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHoldingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -358,7 +358,7 @@ unsafe impl ::windows::core::Interface for IHoldingEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHoldingEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub CurrentContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -372,7 +372,7 @@ unsafe impl ::windows::core::Interface for IInputActivationListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputActivationListener_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InputActivationState) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub InputActivationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -393,7 +393,7 @@ unsafe impl ::windows::core::Interface for IInputActivationListenerActivationCha
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputActivationListenerActivationChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InputActivationState) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -406,7 +406,7 @@ unsafe impl ::windows::core::Interface for IKeyboardDeliveryInterceptor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyboardDeliveryInterceptor_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsInterceptionEnabledWhenInForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsInterceptionEnabledWhenInForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
@@ -436,7 +436,7 @@ unsafe impl ::windows::core::Interface for IKeyboardDeliveryInterceptorStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyboardDeliveryInterceptorStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -449,7 +449,7 @@ unsafe impl ::windows::core::Interface for IManipulationCompletedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationCompletedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -477,7 +477,7 @@ unsafe impl ::windows::core::Interface for IManipulationCompletedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationCompletedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub CurrentContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -491,7 +491,7 @@ unsafe impl ::windows::core::Interface for IManipulationInertiaStartingEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationInertiaStartingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -523,7 +523,7 @@ unsafe impl ::windows::core::Interface for IManipulationInertiaStartingEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationInertiaStartingEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -536,7 +536,7 @@ unsafe impl ::windows::core::Interface for IManipulationStartedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationStartedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -560,7 +560,7 @@ unsafe impl ::windows::core::Interface for IManipulationStartedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationStartedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -573,7 +573,7 @@ unsafe impl ::windows::core::Interface for IManipulationUpdatedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationUpdatedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -605,7 +605,7 @@ unsafe impl ::windows::core::Interface for IManipulationUpdatedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManipulationUpdatedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub CurrentContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -619,7 +619,7 @@ unsafe impl ::windows::core::Interface for IMouseWheelParameters {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMouseWheelParameters_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CharTranslation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -651,7 +651,7 @@ unsafe impl ::windows::core::Interface for IPointerPoint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPoint_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -680,7 +680,7 @@ unsafe impl ::windows::core::Interface for IPointerPointProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointProperties_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Pressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub IsInverted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsEraser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -722,7 +722,7 @@ unsafe impl ::windows::core::Interface for IPointerPointProperties2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointProperties2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ZDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -738,7 +738,7 @@ unsafe impl ::windows::core::Interface for IPointerPointStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetCurrentPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetIntermediatePoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -840,7 +840,7 @@ unsafe impl ::windows::core::Interface for IPointerPointTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerPointTransform_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Inverse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub TryTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -861,7 +861,7 @@ unsafe impl ::windows::core::Interface for IPointerVisualizationSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerVisualizationSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetIsContactFeedbackEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsContactFeedbackEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsBarrelButtonFeedbackEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -877,7 +877,7 @@ unsafe impl ::windows::core::Interface for IPointerVisualizationSettingsStatics 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerVisualizationSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -890,7 +890,7 @@ unsafe impl ::windows::core::Interface for IRadialController {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialController_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Menu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RotationResolutionInDegrees: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetRotationResolutionInDegrees: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
@@ -963,7 +963,7 @@ unsafe impl ::windows::core::Interface for IRadialController2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialController2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ButtonPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -999,7 +999,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerButtonClickedEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonClickedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1012,7 +1012,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerButtonClickedEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonClickedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Haptics"))]
@@ -1028,7 +1028,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerButtonHoldingEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonHoldingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1045,7 +1045,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerButtonPressedEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonPressedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1062,7 +1062,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerButtonReleasedEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonReleasedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1079,7 +1079,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerConfiguration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfiguration_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub SetDefaultMenuItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buttons: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1097,7 +1097,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerConfiguration2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfiguration2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetActiveControllerWhenMenuIsSuppressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ActiveControllerWhenMenuIsSuppressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetIsMenuSuppressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1113,7 +1113,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerConfigurationStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1126,7 +1126,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerConfigurationStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetAppController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AppController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetIsAppControllerEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1142,7 +1142,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerControlAcquiredEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerControlAcquiredEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1155,7 +1155,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerControlAcquiredEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerControlAcquiredEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1172,7 +1172,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerMenu {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenu_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Items: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1193,7 +1193,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerMenuItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItem_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Tag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1216,7 +1216,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerMenuItemStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItemStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateFromIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, icon: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -1233,7 +1233,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerMenuItemStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItemStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateFromFontGlyph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub CreateFromFontGlyphWithUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, glyph: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fontfamily: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fonturi: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1250,7 +1250,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerRotationChangedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerRotationChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub RotationDeltaInDegrees: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1264,7 +1264,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerRotationChangedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerRotationChangedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1281,7 +1281,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerScreenContact {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContact_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Bounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1301,7 +1301,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerScreenContactContinu
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactContinuedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1314,7 +1314,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerScreenContactContinu
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactContinuedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1331,7 +1331,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerScreenContactEndedEv
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactEndedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1348,7 +1348,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerScreenContactStarted
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactStartedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1361,7 +1361,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerScreenContactStarted
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactStartedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsButtonPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Haptics")]
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub CreateForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1392,7 +1392,7 @@ unsafe impl ::windows::core::Interface for IRightTappedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRightTappedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -1412,7 +1412,7 @@ unsafe impl ::windows::core::Interface for IRightTappedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRightTappedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1425,7 +1425,7 @@ unsafe impl ::windows::core::Interface for ISystemButtonEventController {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemButtonEventController_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub SystemFunctionButtonPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1469,7 +1469,7 @@ unsafe impl ::windows::core::Interface for ISystemButtonEventControllerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemButtonEventControllerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
     pub CreateForDispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
@@ -1485,7 +1485,7 @@ unsafe impl ::windows::core::Interface for ISystemFunctionButtonEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemFunctionButtonEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
@@ -1500,7 +1500,7 @@ unsafe impl ::windows::core::Interface for ISystemFunctionLockChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemFunctionLockChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub IsLocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1516,7 +1516,7 @@ unsafe impl ::windows::core::Interface for ISystemFunctionLockIndicatorChangedEv
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemFunctionLockIndicatorChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub IsIndicatorOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -1532,7 +1532,7 @@ unsafe impl ::windows::core::Interface for ITappedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITappedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Input")]
     pub PointerDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Input::PointerDeviceType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Input"))]
@@ -1553,7 +1553,7 @@ unsafe impl ::windows::core::Interface for ITappedEventArgs2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITappedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Input\"`*"]

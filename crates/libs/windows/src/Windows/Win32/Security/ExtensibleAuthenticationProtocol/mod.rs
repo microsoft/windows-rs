@@ -425,7 +425,7 @@ unsafe impl ::windows::core::Interface for IAccountingProviderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountingProviderConfig_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -502,7 +502,7 @@ unsafe impl ::windows::core::Interface for IAuthenticationProviderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAuthenticationProviderConfig_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -589,7 +589,7 @@ unsafe impl ::windows::core::Interface for IEAPProviderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEAPProviderConfig_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -910,7 +910,7 @@ unsafe impl ::windows::core::Interface for IRouterProtocolConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRouterProtocolConfig_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

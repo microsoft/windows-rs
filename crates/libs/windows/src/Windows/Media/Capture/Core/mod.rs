@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IVariablePhotoCapturedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVariablePhotoCapturedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub CaptureTimeOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -30,7 +30,7 @@ unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVariablePhotoSequenceCapture_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub StartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -70,7 +70,7 @@ unsafe impl ::windows::core::Interface for IVariablePhotoSequenceCapture2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVariablePhotoSequenceCapture2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub UpdateSettingsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

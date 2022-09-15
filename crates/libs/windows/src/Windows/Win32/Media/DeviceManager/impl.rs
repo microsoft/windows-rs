@@ -16,7 +16,7 @@ impl IComponentAuthenticate_Vtbl {
             this.SACGetProtocols(::core::mem::transmute_copy(&ppdwprotocols), ::core::mem::transmute_copy(&pdwprotocolcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SACAuth: SACAuth::<Identity, Impl, OFFSET>,
             SACGetProtocols: SACGetProtocols::<Identity, Impl, OFFSET>,
         }
@@ -130,7 +130,7 @@ impl IMDSPDevice_Vtbl {
             this.SendOpaqueCommand(::core::mem::transmute_copy(&pcommand)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetManufacturer: GetManufacturer::<Identity, Impl, OFFSET>,
             GetVersion: GetVersion::<Identity, Impl, OFFSET>,
@@ -336,7 +336,7 @@ impl IMDSPDeviceControl_Vtbl {
             this.Seek(::core::mem::transmute_copy(&fumode), ::core::mem::transmute_copy(&noffset)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDCStatus: GetDCStatus::<Identity, Impl, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             Play: Play::<Identity, Impl, OFFSET>,
@@ -368,7 +368,7 @@ impl IMDSPDirectTransfer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), TransferToDevice: TransferToDevice::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TransferToDevice: TransferToDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMDSPDirectTransfer as ::windows::core::Interface>::IID
@@ -416,7 +416,7 @@ impl IMDSPEnumDevice_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -469,7 +469,7 @@ impl IMDSPEnumStorage_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -534,7 +534,7 @@ impl IMDSPObject_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Read: Read::<Identity, Impl, OFFSET>,
             Write: Write::<Identity, Impl, OFFSET>,
@@ -654,7 +654,7 @@ impl IMDSPObjectInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPlayLength: GetPlayLength::<Identity, Impl, OFFSET>,
             SetPlayLength: SetPlayLength::<Identity, Impl, OFFSET>,
             GetPlayOffset: GetPlayOffset::<Identity, Impl, OFFSET>,
@@ -679,7 +679,7 @@ impl IMDSPRevoked_Vtbl {
             let this = (*this).get_impl();
             this.GetRevocationURL(::core::mem::transmute_copy(&ppwszrevocationurl), ::core::mem::transmute_copy(&pdwbufferlen)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMDSPRevoked as ::windows::core::Interface>::IID
@@ -778,7 +778,7 @@ impl IMDSPStorage_Vtbl {
             this.SendOpaqueCommand(::core::mem::transmute_copy(&pcommand)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetAttributes: SetAttributes::<Identity, Impl, OFFSET>,
             GetStorageGlobals: GetStorageGlobals::<Identity, Impl, OFFSET>,
             GetAttributes: GetAttributes::<Identity, Impl, OFFSET>,
@@ -1041,7 +1041,7 @@ impl IMDSPStorageGlobals_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             GetSerialNumber: GetSerialNumber::<Identity, Impl, OFFSET>,
             GetTotalSize: GetTotalSize::<Identity, Impl, OFFSET>,
@@ -1087,7 +1087,7 @@ impl IMDServiceProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDeviceCount: GetDeviceCount::<Identity, Impl, OFFSET>,
             EnumDevices: EnumDevices::<Identity, Impl, OFFSET>,
         }
@@ -1147,7 +1147,7 @@ impl ISCPSecureAuthenticate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSecureQuery: GetSecureQuery::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSecureQuery: GetSecureQuery::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISCPSecureAuthenticate as ::windows::core::Interface>::IID
@@ -1200,7 +1200,7 @@ impl ISCPSecureExchange_Vtbl {
             this.TransferComplete().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TransferContainerData: TransferContainerData::<Identity, Impl, OFFSET>,
             ObjectData: ObjectData::<Identity, Impl, OFFSET>,
             TransferComplete: TransferComplete::<Identity, Impl, OFFSET>,
@@ -1297,7 +1297,7 @@ impl ISCPSecureQuery_Vtbl {
             this.GetRights(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pbspsessionkey), ::core::mem::transmute_copy(&dwsessionkeylen), ::core::mem::transmute(&pstgglobals), ::core::mem::transmute_copy(&pprights), ::core::mem::transmute_copy(&pnrightscount), ::core::mem::transmute_copy(&abmac)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDataDemands: GetDataDemands::<Identity, Impl, OFFSET>,
             ExamineData: ExamineData::<Identity, Impl, OFFSET>,
             MakeDecision: MakeDecision::<Identity, Impl, OFFSET>,
@@ -1422,7 +1422,7 @@ impl ISCPSession_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginSession: BeginSession::<Identity, Impl, OFFSET>,
             EndSession: EndSession::<Identity, Impl, OFFSET>,
             GetSecureQuery: GetSecureQuery::<Identity, Impl, OFFSET>,
@@ -1537,7 +1537,7 @@ impl IWMDMDevice_Vtbl {
             this.SendOpaqueCommand(::core::mem::transmute_copy(&pcommand)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetManufacturer: GetManufacturer::<Identity, Impl, OFFSET>,
             GetVersion: GetVersion::<Identity, Impl, OFFSET>,
@@ -1743,7 +1743,7 @@ impl IWMDMDeviceControl_Vtbl {
             this.Seek(::core::mem::transmute_copy(&fumode), ::core::mem::transmute_copy(&noffset)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             Play: Play::<Identity, Impl, OFFSET>,
@@ -1776,7 +1776,7 @@ impl IWMDMDeviceSession_Vtbl {
             this.EndSession(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pctx), ::core::mem::transmute_copy(&dwsizectx)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginSession: BeginSession::<Identity, Impl, OFFSET>,
             EndSession: EndSession::<Identity, Impl, OFFSET>,
         }
@@ -1827,7 +1827,7 @@ impl IWMDMEnumDevice_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1880,7 +1880,7 @@ impl IWMDMEnumStorage_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1960,7 +1960,7 @@ impl IWMDMLogger_Vtbl {
             this.SetSizeParams(::core::mem::transmute_copy(&dwmaxsize), ::core::mem::transmute_copy(&dwshrinktosize)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsEnabled: IsEnabled::<Identity, Impl, OFFSET>,
             Enable: Enable::<Identity, Impl, OFFSET>,
             GetLogFileName: GetLogFileName::<Identity, Impl, OFFSET>,
@@ -2012,7 +2012,7 @@ impl IWMDMMetaData_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddItem: AddItem::<Identity, Impl, OFFSET>,
             QueryByName: QueryByName::<Identity, Impl, OFFSET>,
             QueryByIndex: QueryByIndex::<Identity, Impl, OFFSET>,
@@ -2034,7 +2034,7 @@ impl IWMDMNotification_Vtbl {
             let this = (*this).get_impl();
             this.WMDMMessage(::core::mem::transmute_copy(&dwmessagetype), ::core::mem::transmute(&pwszcanonicalname)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), WMDMMessage: WMDMMessage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), WMDMMessage: WMDMMessage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMDMNotification as ::windows::core::Interface>::IID
@@ -2118,7 +2118,7 @@ impl IWMDMObjectInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPlayLength: GetPlayLength::<Identity, Impl, OFFSET>,
             SetPlayLength: SetPlayLength::<Identity, Impl, OFFSET>,
             GetPlayOffset: GetPlayOffset::<Identity, Impl, OFFSET>,
@@ -2201,7 +2201,7 @@ impl IWMDMOperation_Vtbl {
             this.End(::core::mem::transmute_copy(&phcompletioncode), ::core::mem::transmute(&pnewobject)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginRead: BeginRead::<Identity, Impl, OFFSET>,
             BeginWrite: BeginWrite::<Identity, Impl, OFFSET>,
             GetObjectName: GetObjectName::<Identity, Impl, OFFSET>,
@@ -2295,7 +2295,7 @@ impl IWMDMProgress_Vtbl {
             this.End().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin: Begin::<Identity, Impl, OFFSET>,
             Progress: Progress::<Identity, Impl, OFFSET>,
             End: End::<Identity, Impl, OFFSET>,
@@ -2367,7 +2367,7 @@ impl IWMDMRevoked_Vtbl {
             let this = (*this).get_impl();
             this.GetRevocationURL(::core::mem::transmute_copy(&ppwszrevocationurl), ::core::mem::transmute_copy(&pdwbufferlen), ::core::mem::transmute_copy(&pdwrevokedbitflag)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMDMRevoked as ::windows::core::Interface>::IID
@@ -2454,7 +2454,7 @@ impl IWMDMStorage_Vtbl {
             this.SendOpaqueCommand(::core::mem::transmute_copy(&pcommand)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetAttributes: SetAttributes::<Identity, Impl, OFFSET>,
             GetStorageGlobals: GetStorageGlobals::<Identity, Impl, OFFSET>,
             GetAttributes: GetAttributes::<Identity, Impl, OFFSET>,
@@ -2687,7 +2687,7 @@ impl IWMDMStorageControl_Vtbl {
             this.Move(::core::mem::transmute_copy(&fumode), ::core::mem::transmute(&ptargetobject), ::core::mem::transmute(&pprogress)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Insert: Insert::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
             Rename: Rename::<Identity, Impl, OFFSET>,
@@ -2793,7 +2793,7 @@ impl IWMDMStorageGlobals_Vtbl {
             this.Initialize(::core::mem::transmute_copy(&fumode), ::core::mem::transmute(&pprogress)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             GetSerialNumber: GetSerialNumber::<Identity, Impl, OFFSET>,
             GetTotalSize: GetTotalSize::<Identity, Impl, OFFSET>,
@@ -2849,7 +2849,7 @@ impl IWMDeviceManager_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRevision: GetRevision::<Identity, Impl, OFFSET>,
             GetDeviceCount: GetDeviceCount::<Identity, Impl, OFFSET>,
             EnumDevices: EnumDevices::<Identity, Impl, OFFSET>,

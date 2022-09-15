@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IWebAccountClientView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountClientView_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ApplicationCallbackUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -26,7 +26,7 @@ unsafe impl ::windows::core::Interface for IWebAccountClientViewFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountClientViewFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewtype: WebAccountClientViewType, applicationcallbackuri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -46,7 +46,7 @@ unsafe impl ::windows::core::Interface for IWebAccountManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub UpdateWebAccountPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))]
@@ -98,7 +98,7 @@ unsafe impl ::windows::core::Interface for IWebAccountManagerStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub PullCookiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uristring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callerpfn: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -114,7 +114,7 @@ unsafe impl ::windows::core::Interface for IWebAccountManagerStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
     pub FindAllProviderWebAccountsForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))]
@@ -142,7 +142,7 @@ unsafe impl ::windows::core::Interface for IWebAccountManagerStatics4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountManagerStatics4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub InvalidateAppCacheForAllAccountsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -162,7 +162,7 @@ unsafe impl ::windows::core::Interface for IWebAccountMapManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountMapManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub AddWebAccountWithScopeAndMapAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: *mut ::core::ffi::c_void, scope: WebAccountScope, peruserwebaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))]
@@ -190,7 +190,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderAddAccountOperatio
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderAddAccountOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
@@ -271,7 +271,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderBaseReportOperatio
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderBaseReportOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Security_Authentication_Web_Core")]
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -288,7 +288,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderDeleteAccountOpera
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderDeleteAccountOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
     pub WebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
@@ -304,7 +304,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderManageAccountOpera
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderManageAccountOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
     pub WebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
@@ -383,7 +383,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAccountProviderOperationKind) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderRetrieveCookiesOpe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderRetrieveCookiesOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -428,7 +428,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderSignOutAccountOper
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderSignOutAccountOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Credentials")]
     pub WebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
@@ -549,7 +549,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderSilentReportOperat
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderSilentReportOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ReportUserInteractionRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Security_Authentication_Web_Core")]
     pub ReportUserInteractionRequiredWithError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -628,7 +628,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderTokenObjects {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderTokenObjects_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
@@ -731,7 +731,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderTokenObjects2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderTokenObjects2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
@@ -859,7 +859,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderTokenOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderTokenOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ProviderRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub ProviderResponses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -975,7 +975,7 @@ unsafe impl ::windows::core::Interface for IWebAccountProviderUIReportOperation 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountProviderUIReportOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ReportUserCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -988,7 +988,7 @@ unsafe impl ::windows::core::Interface for IWebAccountScopeManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAccountScopeManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub AddWebAccountWithScopeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: *mut ::core::ffi::c_void, scope: WebAccountScope, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))]
@@ -1012,7 +1012,7 @@ unsafe impl ::windows::core::Interface for IWebProviderTokenRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebProviderTokenRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
     pub ClientRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Authentication_Web_Core"))]
@@ -1041,7 +1041,7 @@ unsafe impl ::windows::core::Interface for IWebProviderTokenRequest2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebProviderTokenRequest2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub GetApplicationTokenBindingKeyIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keytype: super::TokenBindingKeyType, target: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
@@ -1057,7 +1057,7 @@ unsafe impl ::windows::core::Interface for IWebProviderTokenRequest3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebProviderTokenRequest3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ApplicationPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ApplicationProcessName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1075,7 +1075,7 @@ unsafe impl ::windows::core::Interface for IWebProviderTokenResponse {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebProviderTokenResponse_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
     pub ClientResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Authentication_Web_Core"))]
@@ -1091,7 +1091,7 @@ unsafe impl ::windows::core::Interface for IWebProviderTokenResponseFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebProviderTokenResponseFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Security_Authentication_Web_Core")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webtokenresponse: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Authentication_Web_Core"))]

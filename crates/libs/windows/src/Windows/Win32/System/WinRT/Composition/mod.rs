@@ -65,7 +65,7 @@ unsafe impl ::windows::core::Interface for ICompositionCapabilitiesInteropFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionCapabilitiesInteropFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "UI_Composition", feature = "Win32_Foundation")))]
@@ -142,7 +142,7 @@ unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDrawingSurfaceInterop_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BeginDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updaterect: *const super::super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -312,7 +312,7 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDeviceInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDeviceInterop_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRenderingDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetRenderingDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -372,7 +372,7 @@ unsafe impl ::windows::core::Interface for ICompositorDesktopInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorDesktopInterop_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
     pub CreateDesktopWindowTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndtarget: super::super::super::Foundation::HWND, istopmost: super::super::super::Foundation::BOOL, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation")))]
@@ -449,7 +449,7 @@ unsafe impl ::windows::core::Interface for ICompositorInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositorInterop_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
     pub CreateCompositionSurfaceForHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, swapchain: super::super::super::Foundation::HANDLE, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "UI_Composition", feature = "Win32_Foundation")))]
@@ -512,7 +512,7 @@ unsafe impl ::windows::core::Interface for IDesktopWindowTargetInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowTargetInterop_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Hwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -567,7 +567,7 @@ unsafe impl ::windows::core::Interface for ISwapChainInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISwapChainInterop_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
@@ -618,7 +618,7 @@ unsafe impl ::windows::core::Interface for IVisualInteractionSourceInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualInteractionSourceInterop_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
     pub TryRedirectForManipulation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging")))]

@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IAudioMediaFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioMediaFrame_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
     pub AudioEncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -26,7 +26,7 @@ unsafe impl ::windows::core::Interface for IBufferMediaFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBufferMediaFrame_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub Buffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -43,7 +43,7 @@ unsafe impl ::windows::core::Interface for IDepthMediaFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDepthMediaFrame_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub VideoMediaFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DepthFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -62,7 +62,7 @@ unsafe impl ::windows::core::Interface for IDepthMediaFrame2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDepthMediaFrame2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub MaxReliableDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub MinReliableDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -76,7 +76,7 @@ unsafe impl ::windows::core::Interface for IDepthMediaFrameFormat {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDepthMediaFrameFormat_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub VideoFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DepthScaleInMeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
@@ -90,7 +90,7 @@ unsafe impl ::windows::core::Interface for IInfraredMediaFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInfraredMediaFrame_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub VideoMediaFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsIlluminated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -105,7 +105,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameArrivedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameArrivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -117,7 +117,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameFormat {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameFormat_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub MajorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Subtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
@@ -140,7 +140,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameFormat2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameFormat2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub AudioEncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
@@ -156,7 +156,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameReader_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -185,7 +185,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameReader2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameReader2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetAcquisitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaFrameReaderAcquisitionMode) -> ::windows::core::HRESULT,
     pub AcquisitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaFrameReaderAcquisitionMode) -> ::windows::core::HRESULT,
 }
@@ -199,7 +199,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameReference_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaFrameSourceKind) -> ::windows::core::HRESULT,
     pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -231,7 +231,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameReference2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameReference2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AudioMediaFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -244,7 +244,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Controller: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -279,7 +279,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceController {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceController_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub GetPropertyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -303,7 +303,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceController2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceController2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub GetPropertyByExtendedIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extendedPropertyId_array_size: u32, extendedpropertyid: *const u8, maxpropertyvaluesize: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -323,7 +323,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceController3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceController3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Devices")]
     pub AudioDeviceController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Devices"))]
@@ -339,7 +339,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceGetPropertyResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceGetPropertyResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaFrameSourceGetPropertyStatus) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -353,7 +353,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceGroup_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -371,7 +371,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceGroupStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceGroupStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub FindAllAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -392,7 +392,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub MediaStreamType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::MediaStreamType) -> ::windows::core::HRESULT,
     pub SourceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaFrameSourceKind) -> ::windows::core::HRESULT,
@@ -420,7 +420,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceInfo2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ProfileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub VideoProfileMediaDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -437,7 +437,7 @@ unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceInfo3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Enumeration", feature = "UI_WindowManagement"))]
     pub GetRelativePanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayregion: *mut ::core::ffi::c_void, result__: *mut super::super::super::Devices::Enumeration::Panel) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "UI_WindowManagement")))]
@@ -453,7 +453,7 @@ unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameArrivedEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameArrivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -465,7 +465,7 @@ unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameReader_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub FrameArrived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -494,7 +494,7 @@ unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameReader2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameReader2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetAcquisitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaFrameReaderAcquisitionMode) -> ::windows::core::HRESULT,
     pub AcquisitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaFrameReaderAcquisitionMode) -> ::windows::core::HRESULT,
 }
@@ -508,7 +508,7 @@ unsafe impl ::windows::core::Interface for IMultiSourceMediaFrameReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameReference_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub TryGetFrameReferenceBySourceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -521,7 +521,7 @@ unsafe impl ::windows::core::Interface for IVideoMediaFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoMediaFrame_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FrameReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub VideoFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_Imaging")]
@@ -550,7 +550,7 @@ unsafe impl ::windows::core::Interface for IVideoMediaFrameFormat {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoMediaFrameFormat_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub MediaFrameFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DepthFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,

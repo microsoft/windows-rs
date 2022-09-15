@@ -68,7 +68,7 @@ impl Interface {
         let name = &self.name;
         let docs = &self.docs;
         let parent = self.parent_type();
-        let vtable_name = quote::format_ident!("{}Vtbl", name);
+        let vtable_name = quote::format_ident!("{}_Vtbl", name);
         let guid = guid.to_tokens()?;
         let implementation = self.gen_implementation();
         let com_trait = self.get_com_trait();
@@ -320,7 +320,7 @@ impl Interface {
 
     fn parent_vtable(&self) -> Option<proc_macro2::TokenStream> {
         if let Some(i) = self.parent_ident() {
-            let i = quote::format_ident!("{}Vtbl", i);
+            let i = quote::format_ident!("{}_Vtbl", i);
             Some(quote!(#i))
         } else {
             None

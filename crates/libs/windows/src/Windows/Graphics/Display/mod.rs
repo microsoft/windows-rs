@@ -10,7 +10,7 @@ unsafe impl ::windows::core::Interface for IAdvancedColorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedColorInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CurrentAdvancedColorKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdvancedColorKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub RedPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -45,7 +45,7 @@ unsafe impl ::windows::core::Interface for IBrightnessOverride {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrightnessOverride_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsOverrideActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub BrightnessLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -89,7 +89,7 @@ unsafe impl ::windows::core::Interface for IBrightnessOverrideSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrightnessOverrideSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DesiredLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub DesiredNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -103,7 +103,7 @@ unsafe impl ::windows::core::Interface for IBrightnessOverrideSettingsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrightnessOverrideSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateFromLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateFromNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nits: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateFromDisplayBrightnessOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overridescenario: DisplayBrightnessOverrideScenario, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -118,7 +118,7 @@ unsafe impl ::windows::core::Interface for IBrightnessOverrideStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBrightnessOverrideStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetDefaultForSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -136,7 +136,7 @@ unsafe impl ::windows::core::Interface for IColorOverrideSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorOverrideSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DesiredDisplayColorOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayColorOverrideScenario) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -149,7 +149,7 @@ unsafe impl ::windows::core::Interface for IColorOverrideSettingsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorOverrideSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateFromDisplayColorOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overridescenario: DisplayColorOverrideScenario, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -162,7 +162,7 @@ unsafe impl ::windows::core::Interface for IDisplayEnhancementOverride {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverride_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ColorOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetColorOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BrightnessOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -207,7 +207,7 @@ unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabiliti
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsBrightnessControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsBrightnessNitsControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -225,7 +225,7 @@ unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabiliti
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -238,7 +238,7 @@ unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverrideStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -251,7 +251,7 @@ unsafe impl ::windows::core::Interface for IDisplayInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CurrentOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
     pub NativeOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -306,7 +306,7 @@ unsafe impl ::windows::core::Interface for IDisplayInformation2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayInformation2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub RawPixelsPerViewPixel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -319,7 +319,7 @@ unsafe impl ::windows::core::Interface for IDisplayInformation3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayInformation3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub DiagonalSizeInInches: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -335,7 +335,7 @@ unsafe impl ::windows::core::Interface for IDisplayInformation4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayInformation4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ScreenWidthInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub ScreenHeightInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -349,7 +349,7 @@ unsafe impl ::windows::core::Interface for IDisplayInformation5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayInformation5_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetAdvancedColorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub AdvancedColorInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -370,7 +370,7 @@ unsafe impl ::windows::core::Interface for IDisplayInformationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayInformationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
     pub SetAutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: DisplayOrientations) -> ::windows::core::HRESULT,
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::Interface for IDisplayPropertiesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayPropertiesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CurrentOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -480,7 +480,7 @@ unsafe impl ::windows::core::Interface for IDisplayServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayServices_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -492,7 +492,7 @@ unsafe impl ::windows::core::Interface for IDisplayServicesStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayServicesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FindAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::DisplayId) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -2323,7 +2323,7 @@ struct DisplayPropertiesEventHandlerBox<F: FnMut(&::core::option::Option<::windo
 #[cfg(feature = "deprecated")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DisplayPropertiesEventHandlerBox<F> {
     const VTABLE: DisplayPropertiesEventHandler_Vtbl = DisplayPropertiesEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2390,7 +2390,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPropertiesEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DisplayPropertiesEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]

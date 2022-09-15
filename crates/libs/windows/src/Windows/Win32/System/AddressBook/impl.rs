@@ -279,7 +279,7 @@ impl IMAPIAdviseSink_Vtbl {
             let this = (*this).get_impl();
             this.OnNotify(::core::mem::transmute_copy(&cnotif), ::core::mem::transmute_copy(&lpnotifications))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMAPIAdviseSink as ::windows::core::Interface>::IID
@@ -378,7 +378,7 @@ impl IMAPIControl_Vtbl {
             this.GetState(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&lpulstate)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLastError: GetLastError::<Identity, Impl, OFFSET>,
             Activate: Activate::<Identity, Impl, OFFSET>,
             GetState: GetState::<Identity, Impl, OFFSET>,
@@ -535,7 +535,7 @@ impl IMAPIProgress_Vtbl {
             this.SetLimits(::core::mem::transmute_copy(&lpulmin), ::core::mem::transmute_copy(&lpulmax), ::core::mem::transmute_copy(&lpulflags)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Progress: Progress::<Identity, Impl, OFFSET>,
             GetFlags: GetFlags::<Identity, Impl, OFFSET>,
             GetMax: GetMax::<Identity, Impl, OFFSET>,
@@ -622,7 +622,7 @@ impl IMAPIProp_Vtbl {
             this.GetIDsFromNames(::core::mem::transmute_copy(&cpropnames), ::core::mem::transmute_copy(&lpppropnames), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&lppproptags)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLastError: GetLastError::<Identity, Impl, OFFSET>,
             SaveChanges: SaveChanges::<Identity, Impl, OFFSET>,
             GetProps: GetProps::<Identity, Impl, OFFSET>,
@@ -831,7 +831,7 @@ impl IMAPITable_Vtbl {
             this.SetCollapseState(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&cbcollapsestate), ::core::mem::transmute_copy(&pbcollapsestate), ::core::mem::transmute_copy(&lpbklocation)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLastError: GetLastError::<Identity, Impl, OFFSET>,
             Advise: Advise::<Identity, Impl, OFFSET>,
             Unadvise: Unadvise::<Identity, Impl, OFFSET>,
@@ -1215,7 +1215,7 @@ impl IProviderAdmin_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLastError: GetLastError::<Identity, Impl, OFFSET>,
             GetProviderTable: GetProviderTable::<Identity, Impl, OFFSET>,
             CreateProvider: CreateProvider::<Identity, Impl, OFFSET>,
@@ -1290,7 +1290,7 @@ impl ITableData_Vtbl {
             this.HrDeleteRows(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&lprowsettodelete), ::core::mem::transmute_copy(&crowsdeleted)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             HrGetView: HrGetView::<Identity, Impl, OFFSET>,
             HrModifyRow: HrModifyRow::<Identity, Impl, OFFSET>,
             HrDeleteRow: HrDeleteRow::<Identity, Impl, OFFSET>,
@@ -1320,7 +1320,7 @@ impl IWABExtInit_Vtbl {
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute_copy(&lpwabextdisplay)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWABExtInit as ::windows::core::Interface>::IID
@@ -1425,7 +1425,7 @@ impl IWABObject_Vtbl {
             this.SetMe(::core::mem::transmute(&lpiab), ::core::mem::transmute_copy(&ulflags), ::core::mem::transmute(&sbeid), ::core::mem::transmute_copy(&hwnd)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLastError: GetLastError::<Identity, Impl, OFFSET>,
             AllocateBuffer: AllocateBuffer::<Identity, Impl, OFFSET>,
             AllocateMore: AllocateMore::<Identity, Impl, OFFSET>,

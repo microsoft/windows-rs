@@ -85,7 +85,7 @@ impl IXAPO_Vtbl {
             this.CalcOutputFrames(::core::mem::transmute_copy(&inputframecount))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRegistrationProperties: GetRegistrationProperties::<Identity, Impl, OFFSET>,
             IsInputFormatSupported: IsInputFormatSupported::<Identity, Impl, OFFSET>,
             IsOutputFormatSupported: IsOutputFormatSupported::<Identity, Impl, OFFSET>,
@@ -132,7 +132,7 @@ impl IXAPOHrtfParameters_Vtbl {
             this.SetEnvironment(::core::mem::transmute_copy(&environment)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetSourcePosition: SetSourcePosition::<Identity, Impl, OFFSET>,
             SetSourceOrientation: SetSourceOrientation::<Identity, Impl, OFFSET>,
             SetSourceGain: SetSourceGain::<Identity, Impl, OFFSET>,
@@ -161,7 +161,7 @@ impl IXAPOParameters_Vtbl {
             this.GetParameters(::core::mem::transmute_copy(&pparameters), ::core::mem::transmute_copy(&parameterbytesize))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetParameters: SetParameters::<Identity, Impl, OFFSET>,
             GetParameters: GetParameters::<Identity, Impl, OFFSET>,
         }
@@ -239,7 +239,7 @@ impl IXAudio2_Vtbl {
             this.SetDebugConfiguration(::core::mem::transmute_copy(&pdebugconfiguration), ::core::mem::transmute_copy(&preserved))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterForCallbacks: RegisterForCallbacks::<Identity, Impl, OFFSET>,
             UnregisterForCallbacks: UnregisterForCallbacks::<Identity, Impl, OFFSET>,
             CreateSourceVoice: CreateSourceVoice::<Identity, Impl, OFFSET>,
@@ -274,7 +274,7 @@ impl IXAudio2Extension_Vtbl {
             this.GetProcessor(::core::mem::transmute_copy(&processor))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetProcessingQuantum: GetProcessingQuantum::<Identity, Impl, OFFSET>,
             GetProcessor: GetProcessor::<Identity, Impl, OFFSET>,
         }

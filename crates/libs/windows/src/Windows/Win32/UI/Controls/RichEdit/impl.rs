@@ -109,7 +109,7 @@ impl IRichEditOle_Vtbl {
             this.ImportDataObject(::core::mem::transmute(&lpdataobj), ::core::mem::transmute_copy(&cf), ::core::mem::transmute_copy(&hmetapict)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetClientSite: GetClientSite::<Identity, Impl, OFFSET>,
             GetObjectCount: GetObjectCount::<Identity, Impl, OFFSET>,
             GetLinkCount: GetLinkCount::<Identity, Impl, OFFSET>,
@@ -207,7 +207,7 @@ impl IRichEditOleCallback_Vtbl {
             this.GetContextMenu(::core::mem::transmute_copy(&seltype), ::core::mem::transmute(&lpoleobj), ::core::mem::transmute_copy(&lpchrg), ::core::mem::transmute_copy(&lphmenu)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetNewStorage: GetNewStorage::<Identity, Impl, OFFSET>,
             GetInPlaceContext: GetInPlaceContext::<Identity, Impl, OFFSET>,
             ShowContainerUI: ShowContainerUI::<Identity, Impl, OFFSET>,
@@ -238,7 +238,7 @@ impl IRicheditUiaOverrides_Vtbl {
             let this = (*this).get_impl();
             this.GetPropertyOverrideValue(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&pretvalue)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPropertyOverrideValue: GetPropertyOverrideValue::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropertyOverrideValue: GetPropertyOverrideValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRicheditUiaOverrides as ::windows::core::Interface>::IID
@@ -2478,7 +2478,7 @@ impl ITextHost_Vtbl {
             this.TxGetSelectionBarWidth(::core::mem::transmute_copy(&lselbarwidth)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TxGetDC: TxGetDC::<Identity, Impl, OFFSET>,
             TxReleaseDC: TxReleaseDC::<Identity, Impl, OFFSET>,
             TxShowScrollBar: TxShowScrollBar::<Identity, Impl, OFFSET>,
@@ -5025,7 +5025,7 @@ impl ITextServices_Vtbl {
             this.TxGetCachedSize(::core::mem::transmute_copy(&pdwwidth), ::core::mem::transmute_copy(&pdwheight)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TxSendMessage: TxSendMessage::<Identity, Impl, OFFSET>,
             TxDraw: TxDraw::<Identity, Impl, OFFSET>,
             TxGetHScroll: TxGetHScroll::<Identity, Impl, OFFSET>,
@@ -5203,7 +5203,7 @@ impl ITextStory_Vtbl {
             this.SetText(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&bstr)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetActive: GetActive::<Identity, Impl, OFFSET>,
             SetActive: SetActive::<Identity, Impl, OFFSET>,
             GetDisplay: GetDisplay::<Identity, Impl, OFFSET>,

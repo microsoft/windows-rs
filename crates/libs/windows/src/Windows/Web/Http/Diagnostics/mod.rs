@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProvider_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -46,7 +46,7 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestRespons
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Timestamps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -71,7 +71,7 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestRespons
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CacheCheckedTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -119,7 +119,7 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderRequestSentEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -144,7 +144,7 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderResponseReceiv
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -162,7 +162,7 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticProviderStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "System_Diagnostics")]
     pub CreateFromProcessDiagnosticInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processdiagnosticinfo: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System_Diagnostics"))]
@@ -178,7 +178,7 @@ unsafe impl ::windows::core::Interface for IHttpDiagnosticSourceLocation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticSourceLocation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub SourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

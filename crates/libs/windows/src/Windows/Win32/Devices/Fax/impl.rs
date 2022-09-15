@@ -7192,7 +7192,7 @@ impl IStiDevice_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
@@ -7291,7 +7291,7 @@ impl IStiDeviceControl_Vtbl {
             this.WriteToErrorLog(::core::mem::transmute_copy(&dwmessagetype), ::core::mem::transmute(&pszmessage), ::core::mem::transmute_copy(&dwerrorcode)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             RawReadData: RawReadData::<Identity, Impl, OFFSET>,
             RawWriteData: RawWriteData::<Identity, Impl, OFFSET>,
@@ -7438,7 +7438,7 @@ impl IStiUSD_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
@@ -7566,7 +7566,7 @@ impl IStillImageW_Vtbl {
             this.WriteToErrorLog(::core::mem::transmute_copy(&dwmessagetype), ::core::mem::transmute(&pszmessage)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetDeviceList: GetDeviceList::<Identity, Impl, OFFSET>,
             GetDeviceInfo: GetDeviceInfo::<Identity, Impl, OFFSET>,

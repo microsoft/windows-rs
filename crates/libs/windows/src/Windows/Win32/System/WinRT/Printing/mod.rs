@@ -76,7 +76,7 @@ unsafe impl ::windows::core::Interface for IPrintManagerInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintManagerInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -147,7 +147,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowConfigurationNative {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowConfigurationNative_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub PrinterQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com")))]
@@ -216,7 +216,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowObjectModelSourceFileCo
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartXpsOMGeneration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Storage_Xps")]
     pub ObjectFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -272,7 +272,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowXpsObjectModelTargetPac
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Xps")]
     pub DocumentPackageTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Xps"))]
@@ -356,7 +356,7 @@ unsafe impl ::windows::core::Interface for IPrintWorkflowXpsReceiver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWorkflowXpsReceiver_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SetDocumentSequencePrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequenceprintticket: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -549,7 +549,7 @@ unsafe impl ::windows::core::Interface for IPrinting3DManagerInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DManagerInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

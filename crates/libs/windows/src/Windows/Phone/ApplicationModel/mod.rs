@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationProfileStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Modes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]

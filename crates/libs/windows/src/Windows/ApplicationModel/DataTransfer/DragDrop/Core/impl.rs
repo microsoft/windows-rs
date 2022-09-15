@@ -61,7 +61,7 @@ impl ICoreDropOperationTarget_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreDropOperationTarget, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ICoreDropOperationTarget, OFFSET>(),
             EnterAsync: EnterAsync::<Identity, Impl, OFFSET>,
             OverAsync: OverAsync::<Identity, Impl, OFFSET>,
             LeaveAsync: LeaveAsync::<Identity, Impl, OFFSET>,

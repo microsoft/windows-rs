@@ -2763,7 +2763,7 @@ unsafe impl ::windows::core::Interface for IADsAggregatee {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAggregatee_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ConnectAsAggregatee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pouterunknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DisconnectAsAggregatee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RelinquishInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -2821,7 +2821,7 @@ unsafe impl ::windows::core::Interface for IADsAggregator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsAggregator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ConnectAsAggregator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregatee: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DisconnectAsAggregator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4832,7 +4832,7 @@ unsafe impl ::windows::core::Interface for IADsExtension {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADsExtension_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Operate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcode: u32, vardata1: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, vardata2: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, vardata3: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -12040,7 +12040,7 @@ unsafe impl ::windows::core::Interface for ICommonQuery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommonQuery_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub OpenQueryWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -12119,7 +12119,7 @@ unsafe impl ::windows::core::Interface for IDirectoryObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectoryObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetObjectInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobjinfo: *mut *mut ADS_OBJECT_INFO) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetObjectAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32, ppattributeentries: *mut *mut ADS_ATTR_INFO, pdwnumattributesreturned: *mut u32) -> ::windows::core::HRESULT,
@@ -12232,7 +12232,7 @@ unsafe impl ::windows::core::Interface for IDirectorySchemaMgmt {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectorySchemaMgmt_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub EnumAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszattrnames: *const ::windows::core::PWSTR, dwnumattributes: u32, ppattrdefinition: *const *const ADS_ATTR_DEF, pdwnumattributes: *const u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12366,7 +12366,7 @@ unsafe impl ::windows::core::Interface for IDirectorySearch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectorySearch_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetSearchPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchprefs: *const ADS_SEARCHPREF_INFO, dwnumprefs: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12449,7 +12449,7 @@ unsafe impl ::windows::core::Interface for IDsAdminCreateObj {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminCreateObj_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padscontainerobj: *mut ::core::ffi::c_void, padscopysource: *mut ::core::ffi::c_void, lpszclassname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12513,7 +12513,7 @@ unsafe impl ::windows::core::Interface for IDsAdminNewObj {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObj_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncurrindex: u32, bvalid: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12609,7 +12609,7 @@ unsafe impl ::windows::core::Interface for IDsAdminNewObjExt {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObjExt_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padscontainerobj: *mut ::core::ffi::c_void, padscopysource: *mut ::core::ffi::c_void, lpszclassname: ::windows::core::PCWSTR, pdsadminnewobj: *mut ::core::ffi::c_void, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging")))]
@@ -12684,7 +12684,7 @@ unsafe impl ::windows::core::Interface for IDsAdminNewObjPrimarySite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNewObjPrimarySite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -12754,7 +12754,7 @@ unsafe impl ::windows::core::Interface for IDsAdminNotifyHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsAdminNotifyHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextrainfo: *mut ::core::ffi::c_void, pueventflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12838,7 +12838,7 @@ unsafe impl ::windows::core::Interface for IDsBrowseDomainTree {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsBrowseDomainTree_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BrowseTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ppsztargetpath: *mut ::windows::core::PWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12971,7 +12971,7 @@ unsafe impl ::windows::core::Interface for IDsDisplaySpecifier {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsDisplaySpecifier_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserver: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR, pszpassword: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     pub SetLanguageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: u16) -> ::windows::core::HRESULT,
     pub GetDisplaySpecifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszobjectclass: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -13048,7 +13048,7 @@ unsafe impl ::windows::core::Interface for IDsObjectPicker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDsObjectPicker_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub InvokeDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ppdoselections: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -13333,7 +13333,7 @@ unsafe impl ::windows::core::Interface for IPrivateDispatch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrivateDispatch_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ADSIInitializeDispatchManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwextensionid: i32) -> ::windows::core::HRESULT,
     pub ADSIGetTypeInfoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctinfo: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -13395,7 +13395,7 @@ unsafe impl ::windows::core::Interface for IPrivateUnknown {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrivateUnknown_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ADSIInitializeObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszusername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lpszpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lnreserved: i32) -> ::windows::core::HRESULT,
     pub ADSIReleaseObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -13466,7 +13466,7 @@ unsafe impl ::windows::core::Interface for IQueryForm {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryForm_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Registry")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkform: super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))]

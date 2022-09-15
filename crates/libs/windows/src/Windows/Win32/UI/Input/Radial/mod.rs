@@ -66,7 +66,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerConfigurationInterop
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -140,7 +140,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSour
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerIndependentInputSourceInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -214,7 +214,7 @@ unsafe impl ::windows::core::Interface for IRadialControllerInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

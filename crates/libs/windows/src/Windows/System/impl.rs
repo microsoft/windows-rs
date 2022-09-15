@@ -28,7 +28,7 @@ impl ILauncherViewOptions_Vtbl {
             this.SetDesiredRemainingView(value).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, ILauncherViewOptions, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ILauncherViewOptions, OFFSET>(),
             DesiredRemainingView: DesiredRemainingView::<Identity, Impl, OFFSET>,
             SetDesiredRemainingView: SetDesiredRemainingView::<Identity, Impl, OFFSET>,
         }

@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IGuidanceAudioNotificationRequestedEv
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AudioNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceAudioNotificationKind) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub AudioFilePaths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -26,7 +26,7 @@ unsafe impl ::windows::core::Interface for IGuidanceLaneInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceLaneInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub LaneMarkers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceLaneMarkers) -> ::windows::core::HRESULT,
     pub IsOnRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -40,7 +40,7 @@ unsafe impl ::windows::core::Interface for IGuidanceManeuver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceManeuver_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub StartLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -67,7 +67,7 @@ unsafe impl ::windows::core::Interface for IGuidanceMapMatchedCoordinate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceMapMatchedCoordinate_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -87,7 +87,7 @@ unsafe impl ::windows::core::Interface for IGuidanceNavigator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigator_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub StartNavigating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, route: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartSimulating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, route: *mut ::core::ffi::c_void, speedinmeterspersecond: i32) -> ::windows::core::HRESULT,
     pub StartTracking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -175,7 +175,7 @@ unsafe impl ::windows::core::Interface for IGuidanceNavigator2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigator2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub AudioNotificationRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -197,7 +197,7 @@ unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigatorStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -210,7 +210,7 @@ unsafe impl ::windows::core::Interface for IGuidanceNavigatorStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigatorStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub UseAppProvidedVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -223,7 +223,7 @@ unsafe impl ::windows::core::Interface for IGuidanceReroutedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceReroutedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Route: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -236,7 +236,7 @@ unsafe impl ::windows::core::Interface for IGuidanceRoadSegment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSegment_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub RoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ShortRoadName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SpeedLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -263,7 +263,7 @@ unsafe impl ::windows::core::Interface for IGuidanceRoadSegment2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSegment2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsScenic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -276,7 +276,7 @@ unsafe impl ::windows::core::Interface for IGuidanceRoadSignpost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSignpost_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ExitNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Exit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI")]
@@ -302,7 +302,7 @@ unsafe impl ::windows::core::Interface for IGuidanceRoute {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoute_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -336,7 +336,7 @@ unsafe impl ::windows::core::Interface for IGuidanceRouteStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRouteStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CanCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub TryCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -350,7 +350,7 @@ unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceTelemetryCollector_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub ClearLocalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -369,7 +369,7 @@ unsafe impl ::windows::core::Interface for IGuidanceTelemetryCollectorStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceTelemetryCollectorStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -382,7 +382,7 @@ unsafe impl ::windows::core::Interface for IGuidanceUpdatedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceUpdatedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceMode) -> ::windows::core::HRESULT,
     pub NextManeuver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NextManeuverDistance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,

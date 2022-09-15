@@ -78,7 +78,7 @@ unsafe impl ::windows::core::Interface for IGeometrySource2D {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeometrySource2D_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics\"`*"]

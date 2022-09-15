@@ -37,7 +37,7 @@ impl IMILBitmapEffect_Vtbl {
             this.SetInputSource(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&pbitmapsource)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetOutput: GetOutput::<Identity, Impl, OFFSET>,
             GetParentEffect: GetParentEffect::<Identity, Impl, OFFSET>,
             SetInputSource: SetInputSource::<Identity, Impl, OFFSET>,
@@ -77,7 +77,7 @@ impl IMILBitmapEffectConnections_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetInputConnector: GetInputConnector::<Identity, Impl, OFFSET>,
             GetOutputConnector: GetOutputConnector::<Identity, Impl, OFFSET>,
         }
@@ -140,7 +140,7 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetNumberInputs: GetNumberInputs::<Identity, Impl, OFFSET>,
             GetNumberOutputs: GetNumberOutputs::<Identity, Impl, OFFSET>,
             GetInputConnectorInfo: GetInputConnectorInfo::<Identity, Impl, OFFSET>,
@@ -244,7 +244,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetIndex: GetIndex::<Identity, Impl, OFFSET>,
             GetOptimalFormat: GetOptimalFormat::<Identity, Impl, OFFSET>,
             GetNumberFormats: GetNumberFormats::<Identity, Impl, OFFSET>,
@@ -273,7 +273,7 @@ impl IMILBitmapEffectEvents_Vtbl {
             this.DirtyRegion(::core::mem::transmute(&peffect), ::core::mem::transmute_copy(&prect)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             PropertyChange: PropertyChange::<Identity, Impl, OFFSET>,
             DirtyRegion: DirtyRegion::<Identity, Impl, OFFSET>,
         }
@@ -324,7 +324,7 @@ impl IMILBitmapEffectFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateEffect: CreateEffect::<Identity, Impl, OFFSET>,
             CreateContext: CreateContext::<Identity, Impl, OFFSET>,
             CreateEffectOuter: CreateEffectOuter::<Identity, Impl, OFFSET>,
@@ -370,7 +370,7 @@ impl IMILBitmapEffectGroup_Vtbl {
             this.Add(::core::mem::transmute(&peffect)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetInteriorInputConnector: GetInteriorInputConnector::<Identity, Impl, OFFSET>,
             GetInteriorOutputConnector: GetInteriorOutputConnector::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -416,7 +416,7 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Preprocess: Preprocess::<Identity, Impl, OFFSET>,
             GetNumberChildren: GetNumberChildren::<Identity, Impl, OFFSET>,
             GetChildren: GetChildren::<Identity, Impl, OFFSET>,
@@ -495,7 +495,7 @@ impl IMILBitmapEffectImpl_Vtbl {
             this.Initialize(::core::mem::transmute(&pinner)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsInPlaceModificationAllowed: IsInPlaceModificationAllowed::<Identity, Impl, OFFSET>,
             SetParentEffect: SetParentEffect::<Identity, Impl, OFFSET>,
             GetInputSource: GetInputSource::<Identity, Impl, OFFSET>,
@@ -559,7 +559,7 @@ impl IMILBitmapEffectInteriorInputConnector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetInputConnector: GetInputConnector::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInputConnector: GetInputConnector::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMILBitmapEffectInteriorInputConnector as ::windows::core::Interface>::IID
@@ -582,7 +582,7 @@ impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetOutputConnector: GetOutputConnector::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOutputConnector: GetOutputConnector::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMILBitmapEffectInteriorOutputConnector as ::windows::core::Interface>::IID
@@ -645,7 +645,7 @@ impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
             this.RemoveBackLink(::core::mem::transmute(&pconnection)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddBackLink: AddBackLink::<Identity, Impl, OFFSET>,
             RemoveBackLink: RemoveBackLink::<Identity, Impl, OFFSET>,
         }
@@ -711,7 +711,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
             this.GetAffineMatrix(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&pmatrix)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetOutput: GetOutput::<Identity, Impl, OFFSET>,
             TransformPoint: TransformPoint::<Identity, Impl, OFFSET>,
             TransformRect: TransformRect::<Identity, Impl, OFFSET>,
@@ -748,7 +748,7 @@ impl IMILBitmapEffectPrimitiveImpl_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsDirty: IsDirty::<Identity, Impl, OFFSET>,
             IsVolatile: IsVolatile::<Identity, Impl, OFFSET>,
         }
@@ -823,7 +823,7 @@ impl IMILBitmapEffectRenderContext_Vtbl {
             this.SetRegionOfInterest(::core::mem::transmute_copy(&prect)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetOutputPixelFormat: SetOutputPixelFormat::<Identity, Impl, OFFSET>,
             GetOutputPixelFormat: GetOutputPixelFormat::<Identity, Impl, OFFSET>,
             SetUseSoftwareRenderer: SetUseSoftwareRenderer::<Identity, Impl, OFFSET>,
@@ -880,7 +880,7 @@ impl IMILBitmapEffectRenderContextImpl_Vtbl {
             this.UpdateOutputBounds(::core::mem::transmute_copy(&prect)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetUseSoftwareRenderer: GetUseSoftwareRenderer::<Identity, Impl, OFFSET>,
             GetTransform: GetTransform::<Identity, Impl, OFFSET>,
             UpdateTransform: UpdateTransform::<Identity, Impl, OFFSET>,
@@ -946,7 +946,7 @@ impl IMILBitmapEffects_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Parent: Parent::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,

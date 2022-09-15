@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for IBackgroundMediaPlayerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundMediaPlayerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -59,7 +59,7 @@ unsafe impl ::windows::core::Interface for ICurrentMediaPlaybackItemChangedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub NewItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OldItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -73,7 +73,7 @@ unsafe impl ::windows::core::Interface for ICurrentMediaPlaybackItemChangedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackItemChangedReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -86,7 +86,7 @@ unsafe impl ::windows::core::Interface for IMediaBreak {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBreak_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub PlaybackList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub PresentationPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -110,7 +110,7 @@ unsafe impl ::windows::core::Interface for IMediaBreakEndedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBreakEndedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub MediaBreak: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -123,7 +123,7 @@ unsafe impl ::windows::core::Interface for IMediaBreakFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBreakFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, insertionmethod: MediaBreakInsertionMethod, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub CreateWithPresentationPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, insertionmethod: MediaBreakInsertionMethod, presentationposition: super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -140,7 +140,7 @@ unsafe impl ::windows::core::Interface for IMediaBreakManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBreakManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub BreaksSeekedOver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -188,7 +188,7 @@ unsafe impl ::windows::core::Interface for IMediaBreakSchedule {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBreakSchedule_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ScheduleChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -219,7 +219,7 @@ unsafe impl ::windows::core::Interface for IMediaBreakSeekedOverEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBreakSeekedOverEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub SeekedOverBreaks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -243,7 +243,7 @@ unsafe impl ::windows::core::Interface for IMediaBreakSkippedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBreakSkippedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub MediaBreak: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -256,7 +256,7 @@ unsafe impl ::windows::core::Interface for IMediaBreakStartedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaBreakStartedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub MediaBreak: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
@@ -358,7 +358,7 @@ unsafe impl ::windows::core::Interface for IMediaEnginePlaybackSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaEnginePlaybackSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CurrentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -378,7 +378,7 @@ unsafe impl ::windows::core::Interface for IMediaItemDisplayProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaItemDisplayProperties_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::MediaPlaybackType) -> ::windows::core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::MediaPlaybackType) -> ::windows::core::HRESULT,
     pub MusicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub MediaPlayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -508,7 +508,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerAutoRepea
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub AutoRepeatMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::MediaPlaybackAutoRepeatMode) -> ::windows::core::HRESULT,
@@ -527,7 +527,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerCommandBe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerCommandBehavior_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CommandManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub EnablingRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaCommandEnablingRule) -> ::windows::core::HRESULT,
@@ -551,7 +551,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerFastForwa
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -569,7 +569,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerNextRecei
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -587,7 +587,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerPauseRece
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -605,7 +605,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerPlayRecei
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -623,7 +623,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerPositionR
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -645,7 +645,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerPreviousR
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -663,7 +663,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerRateRecei
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub PlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -682,7 +682,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerRewindRec
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -700,7 +700,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackCommandManagerShuffleRe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsShuffleRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -719,7 +719,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackItem_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AudioTracksChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -771,7 +771,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackItem2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackItem2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub BreakSchedule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -796,7 +796,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackItem3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackItem3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsDisabledInPlaybackList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsDisabledInPlaybackList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub TotalDownloadProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -813,7 +813,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackItemError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackItemError_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackItemErrorCode) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -827,7 +827,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackItemFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackItemFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Core")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Core"))]
@@ -843,7 +843,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackItemFactory2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackItemFactory2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
     pub CreateWithStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, starttime: super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Media_Core")))]
@@ -863,7 +863,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackItemFailedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackItemFailedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -877,7 +877,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackItemOpenedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackItemOpenedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -890,7 +890,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackItemStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackItemStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Core")]
     pub FindFromMediaSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Core"))]
@@ -906,7 +906,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackList_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ItemFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -955,7 +955,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackList2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackList2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub MaxPrefetchTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -985,7 +985,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackList3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackList3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub MaxPlayedItemsToKeepOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1005,7 +1005,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackSession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub PlaybackStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1136,7 +1136,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackSession2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackSession2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub BufferedRangesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1196,7 +1196,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackSession3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackSession3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Media_MediaProperties")]
     pub PlaybackRotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaRotation) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
@@ -1217,7 +1217,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackSessionBufferingStarted
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsPlaybackInterruption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1230,7 +1230,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackSessionOutputDegradatio
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub VideoConstrictionReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackSessionVideoConstrictionReason) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -1297,7 +1297,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1309,7 +1309,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackSphericalVideoProjectio
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackSphericalVideoProjection_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
@@ -1343,7 +1343,7 @@ unsafe impl ::windows::core::Interface for IMediaPlaybackTimedMetadataTrackList 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlaybackTimedMetadataTrackList_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub PresentationModeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Core")))]
@@ -1365,7 +1365,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayer_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AutoPlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAutoPlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1515,7 +1515,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayer2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayer2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SystemMediaTransportControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AudioCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerAudioCategory) -> ::windows::core::HRESULT,
     pub SetAudioCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaPlayerAudioCategory) -> ::windows::core::HRESULT,
@@ -1532,7 +1532,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayer3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayer3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub IsMutedChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1593,7 +1593,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayer4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayer4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub SetSurfaceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1613,7 +1613,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayer5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayer5_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub VideoFrameAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1647,7 +1647,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayer6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayer6_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub SubtitleFrameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1675,7 +1675,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayer7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayer7_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Audio")]
     pub AudioStateMonitor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Audio"))]
@@ -1691,7 +1691,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerDataReceivedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerDataReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1707,7 +1707,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerEffects {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerEffects_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AddAudioEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectoptional: bool, configuration: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1724,7 +1724,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerEffects2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerEffects2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AddVideoEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectoptional: bool, effectconfiguration: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1740,7 +1740,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerFailedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerFailedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerError) -> ::windows::core::HRESULT,
     pub ExtendedErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub ErrorMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1755,7 +1755,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerRateChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerRateChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub NewRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1768,7 +1768,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Protection")]
     pub ProtectionManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Protection"))]
@@ -1800,7 +1800,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerSource2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1814,7 +1814,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPlayerSurface_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Composition")]
     pub CompositionSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
@@ -1835,7 +1835,7 @@ unsafe impl ::windows::core::Interface for IPlaybackMediaMarker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackMediaMarker_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Time: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1853,7 +1853,7 @@ unsafe impl ::windows::core::Interface for IPlaybackMediaMarkerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackMediaMarkerFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CreateFromTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -1873,7 +1873,7 @@ unsafe impl ::windows::core::Interface for IPlaybackMediaMarkerReachedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackMediaMarkerReachedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub PlaybackMediaMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1886,7 +1886,7 @@ unsafe impl ::windows::core::Interface for IPlaybackMediaMarkerSequence {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackMediaMarkerSequence_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Insert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1901,7 +1901,7 @@ unsafe impl ::windows::core::Interface for ITimedMetadataPresentationModeChanged
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimedMetadataPresentationModeChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Core")]
     pub Track: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Core"))]

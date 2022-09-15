@@ -437,7 +437,7 @@ impl IRDPSRAPIAudioStream_Vtbl {
             this.FreeBuffer().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
@@ -469,7 +469,7 @@ impl IRDPSRAPIClipboardUseEvents_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnPasteFromClipboard: OnPasteFromClipboard::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnPasteFromClipboard: OnPasteFromClipboard::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRDPSRAPIClipboardUseEvents as ::windows::core::Interface>::IID
@@ -499,7 +499,7 @@ impl IRDPSRAPIDebug_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetCLXCmdLine: SetCLXCmdLine::<Identity, Impl, OFFSET>,
             CLXCmdLine: CLXCmdLine::<Identity, Impl, OFFSET>,
         }
@@ -750,7 +750,7 @@ impl IRDPSRAPIPerfCounterLogger_Vtbl {
             let this = (*this).get_impl();
             this.LogValue(::core::mem::transmute_copy(&lvalue)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LogValue: LogValue::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LogValue: LogValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRDPSRAPIPerfCounterLogger as ::windows::core::Interface>::IID
@@ -773,7 +773,7 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateLogger: CreateLogger::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateLogger: CreateLogger::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRDPSRAPIPerfCounterLoggingManager as ::windows::core::Interface>::IID
@@ -1137,7 +1137,7 @@ impl IRDPSRAPITransportStream_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AllocBuffer: AllocBuffer::<Identity, Impl, OFFSET>,
             FreeBuffer: FreeBuffer::<Identity, Impl, OFFSET>,
             WriteBuffer: WriteBuffer::<Identity, Impl, OFFSET>,
@@ -1252,7 +1252,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             this.SetContext(::core::mem::transmute(&pcontext)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Storage: Storage::<Identity, Impl, OFFSET>,
             StorageSize: StorageSize::<Identity, Impl, OFFSET>,
             PayloadSize: PayloadSize::<Identity, Impl, OFFSET>,
@@ -1293,7 +1293,7 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
             this.OnStreamClosed(::core::mem::transmute_copy(&hrreason))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnWriteCompleted: OnWriteCompleted::<Identity, Impl, OFFSET>,
             OnReadCompleted: OnReadCompleted::<Identity, Impl, OFFSET>,
             OnStreamClosed: OnStreamClosed::<Identity, Impl, OFFSET>,
@@ -1780,7 +1780,7 @@ impl IRDPViewerInputSink_Vtbl {
             this.EndTouchFrame().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SendMouseButtonEvent: SendMouseButtonEvent::<Identity, Impl, OFFSET>,
             SendMouseMoveEvent: SendMouseMoveEvent::<Identity, Impl, OFFSET>,
             SendMouseWheelEvent: SendMouseWheelEvent::<Identity, Impl, OFFSET>,

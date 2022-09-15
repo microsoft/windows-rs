@@ -2736,7 +2736,7 @@ unsafe impl ::windows::core::Interface for IEnumACDGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumACDGroup_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2803,7 +2803,7 @@ unsafe impl ::windows::core::Interface for IEnumAddress {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAddress_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2870,7 +2870,7 @@ unsafe impl ::windows::core::Interface for IEnumAgent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAgent_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2937,7 +2937,7 @@ unsafe impl ::windows::core::Interface for IEnumAgentHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAgentHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3004,7 +3004,7 @@ unsafe impl ::windows::core::Interface for IEnumAgentSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumAgentSession_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3069,7 +3069,7 @@ unsafe impl ::windows::core::Interface for IEnumBstr {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBstr_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppstrings: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -3133,7 +3133,7 @@ unsafe impl ::windows::core::Interface for IEnumCall {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCall_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3200,7 +3200,7 @@ unsafe impl ::windows::core::Interface for IEnumCallHub {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCallHub_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3267,7 +3267,7 @@ unsafe impl ::windows::core::Interface for IEnumCallingCard {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCallingCard_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3332,7 +3332,7 @@ unsafe impl ::windows::core::Interface for IEnumDialableAddrs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDialableAddrs_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -3396,7 +3396,7 @@ unsafe impl ::windows::core::Interface for IEnumDirectory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDirectory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3463,7 +3463,7 @@ unsafe impl ::windows::core::Interface for IEnumDirectoryObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDirectoryObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pval: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3530,7 +3530,7 @@ unsafe impl ::windows::core::Interface for IEnumLocation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumLocation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3597,7 +3597,7 @@ unsafe impl ::windows::core::Interface for IEnumMcastScope {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumMcastScope_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppscopes: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3664,7 +3664,7 @@ unsafe impl ::windows::core::Interface for IEnumPhone {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPhone_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3731,7 +3731,7 @@ unsafe impl ::windows::core::Interface for IEnumPluggableSuperclassInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPluggableSuperclassInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3798,7 +3798,7 @@ unsafe impl ::windows::core::Interface for IEnumPluggableTerminalClassInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPluggableTerminalClassInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3865,7 +3865,7 @@ unsafe impl ::windows::core::Interface for IEnumQueue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumQueue_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3932,7 +3932,7 @@ unsafe impl ::windows::core::Interface for IEnumStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3999,7 +3999,7 @@ unsafe impl ::windows::core::Interface for IEnumSubStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSubStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4066,7 +4066,7 @@ unsafe impl ::windows::core::Interface for IEnumTerminal {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTerminal_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4131,7 +4131,7 @@ unsafe impl ::windows::core::Interface for IEnumTerminalClass {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumTerminalClass_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pelements: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -4754,7 +4754,7 @@ unsafe impl ::windows::core::Interface for ITAMMediaFormat {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAMMediaFormat_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub MediaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
@@ -6678,7 +6678,7 @@ unsafe impl ::windows::core::Interface for ITAllocatorProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITAllocatorProperties_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub SetAllocatorProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pallocproperties: *const super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
@@ -10395,7 +10395,7 @@ unsafe impl ::windows::core::Interface for ITLegacyAddressMediaControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITLegacyAddressMediaControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::HRESULT,
     pub GetDevConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> ::windows::core::HRESULT,
     pub SetDevConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwsize: u32, pdeviceconfig: *const u8) -> ::windows::core::HRESULT,
@@ -11047,7 +11047,7 @@ unsafe impl ::windows::core::Interface for ITMSPAddress {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITMSPAddress_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hevent: *const i32) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateMSPCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hcall: *const i32, dwreserved: u32, dwmediatype: u32, pouterunknown: *mut ::core::ffi::c_void, ppstreamcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12180,7 +12180,7 @@ unsafe impl ::windows::core::Interface for ITPluggableTerminalEventSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITPluggableTerminalEventSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub FireEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12238,7 +12238,7 @@ unsafe impl ::windows::core::Interface for ITPluggableTerminalEventSinkRegistrat
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITPluggableTerminalEventSinkRegistration_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventsink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnregisterSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -14342,7 +14342,7 @@ unsafe impl ::windows::core::Interface for ITTAPIEventNotification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITTAPIEventNotification_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Event: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, pevent: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -15336,7 +15336,7 @@ unsafe impl ::windows::core::Interface for ITnef {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITnef_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_AddressBook")]
     pub AddProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, ulelemid: u32, lpvdata: *mut ::core::ffi::c_void, lpproplist: *mut super::super::System::AddressBook::SPropTagArray) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_AddressBook"))]

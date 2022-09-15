@@ -76,7 +76,7 @@ unsafe impl ::windows::core::Interface for IDirect3DDxgiInterfaceAccess {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDxgiInterfaceAccess_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

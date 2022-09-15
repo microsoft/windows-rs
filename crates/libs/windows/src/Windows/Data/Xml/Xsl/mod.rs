@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IXsltProcessor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXsltProcessor_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
     pub TransformToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputnode: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
@@ -24,7 +24,7 @@ unsafe impl ::windows::core::Interface for IXsltProcessor2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXsltProcessor2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
     pub TransformToDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputnode: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
@@ -40,7 +40,7 @@ unsafe impl ::windows::core::Interface for IXsltProcessorFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXsltProcessorFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]

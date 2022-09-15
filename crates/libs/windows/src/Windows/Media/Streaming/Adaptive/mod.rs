@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsLive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub DesiredLiveOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -103,7 +103,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSource2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AdvancedSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -116,7 +116,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSource3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSource3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub MinLiveOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -146,7 +146,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceAdvancedSettings 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceAdvancedSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AllSegmentsIndependent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllSegmentsIndependent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -176,7 +176,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceCorrelatedTimes {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceCorrelatedTimes_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -200,7 +200,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceCreationResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceCreationStatus) -> ::windows::core::HRESULT,
     pub MediaSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Web_Http")]
@@ -218,7 +218,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceCreationResult2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResult2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -231,7 +231,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDiagnosticAvailab
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DiagnosticType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceDiagnosticType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -276,7 +276,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDiagnosticAvailab
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -289,7 +289,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDiagnosticAvailab
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ResourceDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -306,7 +306,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDiagnostics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnostics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub DiagnosticAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -326,7 +326,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadBitrateCh
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub OldValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub NewValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -340,7 +340,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadBitrateCh
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceDownloadBitrateChangedReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -353,7 +353,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadCompleted
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ResourceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceResourceType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub ResourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -382,7 +382,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadCompleted
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Statistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -400,7 +400,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadCompleted
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ResourceDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -417,7 +417,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadFailedEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ResourceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceResourceType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub ResourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -446,7 +446,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadFailedEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub Statistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -465,7 +465,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadFailedEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ResourceDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -482,7 +482,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadRequested
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -495,7 +495,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadRequested
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ResourceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdaptiveMediaSourceResourceType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub ResourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -522,7 +522,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadRequested
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub RequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -539,7 +539,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadRequested
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ResourceDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -556,7 +556,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ResourceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -596,7 +596,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadResult2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadResult2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub ResourceByteRangeOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -624,7 +624,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceDownloadStatistic
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadStatistics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContentBytesReceivedCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub TimeToHeadersReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -649,7 +649,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourcePlaybackBitrateCh
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub OldValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub NewValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub AudioOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -664,7 +664,7 @@ unsafe impl ::windows::core::Interface for IAdaptiveMediaSourceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsContentTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub CreateFromUriAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

@@ -1869,7 +1869,7 @@ unsafe impl ::windows::core::Interface for IActivateAudioInterfaceAsyncOperation
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivateAudioInterfaceAsyncOperation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetActivateResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activateresult: *mut ::windows::core::HRESULT, activatedinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1921,7 +1921,7 @@ unsafe impl ::windows::core::Interface for IActivateAudioInterfaceCompletionHand
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivateAudioInterfaceCompletionHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ActivateCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activateoperation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1987,7 +1987,7 @@ unsafe impl ::windows::core::Interface for IAudioAmbisonicsControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioAmbisonicsControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetHeadTracking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benableheadtracking: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -2056,7 +2056,7 @@ unsafe impl ::windows::core::Interface for IAudioAutoGainControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioAutoGainControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2199,7 +2199,7 @@ unsafe impl ::windows::core::Interface for IAudioCaptureClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioCaptureClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: *mut u64, pu64qpcposition: *mut u64) -> ::windows::core::HRESULT,
     pub ReleaseBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numframesread: u32) -> ::windows::core::HRESULT,
     pub GetNextPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumframesinnextpacket: *mut u32) -> ::windows::core::HRESULT,
@@ -2254,7 +2254,7 @@ unsafe impl ::windows::core::Interface for IAudioChannelConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioChannelConfig_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetChannelConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconfig: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetChannelConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwconfig: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -2350,7 +2350,7 @@ unsafe impl ::windows::core::Interface for IAudioClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetBufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumbufferframes: *mut u32) -> ::windows::core::HRESULT,
     pub GetStreamLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phnslatency: *mut i64) -> ::windows::core::HRESULT,
@@ -2708,7 +2708,7 @@ unsafe impl ::windows::core::Interface for IAudioClientDuckingControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClientDuckingControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetDuckingOptionsForCurrentStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: AUDIO_DUCKING_OPTIONS) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -2765,7 +2765,7 @@ unsafe impl ::windows::core::Interface for IAudioClock {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClock_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pu64frequency: *mut u64) -> ::windows::core::HRESULT,
     pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pu64position: *mut u64, pu64qpcposition: *mut u64) -> ::windows::core::HRESULT,
     pub GetCharacteristics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
@@ -2816,7 +2816,7 @@ unsafe impl ::windows::core::Interface for IAudioClock2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClock2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevicePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceposition: *mut u64, qpcposition: *mut u64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -2865,7 +2865,7 @@ unsafe impl ::windows::core::Interface for IAudioClockAdjustment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioClockAdjustment_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetSampleRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flsamplerate: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -2914,7 +2914,7 @@ unsafe impl ::windows::core::Interface for IAudioEffectsChangedNotificationClien
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEffectsChangedNotificationClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnAudioEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -2980,7 +2980,7 @@ unsafe impl ::windows::core::Interface for IAudioEffectsManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEffectsManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterAudioEffectsChangedNotificationCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, client: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnregisterAudioEffectsChangedNotificationCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, client: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3040,7 +3040,7 @@ unsafe impl ::windows::core::Interface for IAudioFormatEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioFormatEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, format: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT,
 }
@@ -3094,7 +3094,7 @@ unsafe impl ::windows::core::Interface for IAudioInputSelector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioInputSelector_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnidselected: *mut u32) -> ::windows::core::HRESULT,
     pub SetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nidselect: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -3155,7 +3155,7 @@ unsafe impl ::windows::core::Interface for IAudioLoudness {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioLoudness_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3302,7 +3302,7 @@ unsafe impl ::windows::core::Interface for IAudioMute {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioMute_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetMute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmuted: super::super::Foundation::BOOL, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3362,7 +3362,7 @@ unsafe impl ::windows::core::Interface for IAudioOutputSelector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioOutputSelector_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnidselected: *mut u32) -> ::windows::core::HRESULT,
     pub SetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nidselect: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -3417,7 +3417,7 @@ unsafe impl ::windows::core::Interface for IAudioPeakMeter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioPeakMeter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcchannels: *mut u32) -> ::windows::core::HRESULT,
     pub GetLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nchannel: u32, pflevel: *mut f32) -> ::windows::core::HRESULT,
 }
@@ -3471,7 +3471,7 @@ unsafe impl ::windows::core::Interface for IAudioRenderClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioRenderClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numframesrequested: u32, ppdata: *mut *mut u8) -> ::windows::core::HRESULT,
     pub ReleaseBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numframeswritten: u32, dwflags: u32) -> ::windows::core::HRESULT,
 }
@@ -3561,7 +3561,7 @@ unsafe impl ::windows::core::Interface for IAudioSessionControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSessionControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut AudioSessionState) -> ::windows::core::HRESULT,
     pub GetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -3757,7 +3757,7 @@ unsafe impl ::windows::core::Interface for IAudioSessionEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSessionEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessioncount: *mut i32) -> ::windows::core::HRESULT,
     pub GetSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessioncount: i32, session: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3836,7 +3836,7 @@ unsafe impl ::windows::core::Interface for IAudioSessionEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSessionEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnDisplayNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newdisplayname: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OnIconPathChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newiconpath: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3899,7 +3899,7 @@ unsafe impl ::windows::core::Interface for IAudioSessionManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSessionManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetAudioSessionControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiosessionguid: *const ::windows::core::GUID, streamflags: u32, sessioncontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSimpleAudioVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiosessionguid: *const ::windows::core::GUID, streamflags: u32, audiovolume: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4054,7 +4054,7 @@ unsafe impl ::windows::core::Interface for IAudioSessionNotification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSessionNotification_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnSessionCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newsession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -4110,7 +4110,7 @@ unsafe impl ::windows::core::Interface for IAudioStateMonitor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioStateMonitor_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registration: *mut i64) -> ::windows::core::HRESULT,
     pub UnregisterCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, registration: i64),
     pub GetSoundLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> AudioStateMonitorSoundLevel,
@@ -4175,7 +4175,7 @@ unsafe impl ::windows::core::Interface for IAudioStreamVolume {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioStreamVolume_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub SetChannelVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, flevel: f32) -> ::windows::core::HRESULT,
     pub GetChannelVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pflevel: *mut f32) -> ::windows::core::HRESULT,
@@ -4230,7 +4230,7 @@ unsafe impl ::windows::core::Interface for IAudioSystemEffectsPropertyChangeNoti
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub OnPropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -4315,7 +4315,7 @@ unsafe impl ::windows::core::Interface for IAudioSystemEffectsPropertyStore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffectsPropertyStore_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub OpenDefaultPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stgmaccess: u32, propstore: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -4468,7 +4468,7 @@ unsafe impl ::windows::core::Interface for IAudioVolumeDuckNotification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioVolumeDuckNotification_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnVolumeDuckNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::PCWSTR, countcommunicationsessions: u32) -> ::windows::core::HRESULT,
     pub OnVolumeUnduckNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
@@ -4612,7 +4612,7 @@ unsafe impl ::windows::core::Interface for IChannelAudioVolume {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChannelAudioVolume_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub SetChannelVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, flevel: f32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetChannelVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pflevel: *mut f32) -> ::windows::core::HRESULT,
@@ -4697,7 +4697,7 @@ unsafe impl ::windows::core::Interface for IConnector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConnector_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut ConnectorType) -> ::windows::core::HRESULT,
     pub GetDataFlow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflow: *mut DataFlow) -> ::windows::core::HRESULT,
     pub ConnectTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnectto: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4756,7 +4756,7 @@ unsafe impl ::windows::core::Interface for IControlChangeNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IControlChangeNotify_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsenderprocessid: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -4810,7 +4810,7 @@ unsafe impl ::windows::core::Interface for IControlInterface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IControlInterface_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwstrname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -4870,7 +4870,7 @@ unsafe impl ::windows::core::Interface for IDeviceSpecificProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceSpecificProperty_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *mut u16) -> ::windows::core::HRESULT,
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvvalue: *mut ::core::ffi::c_void, pcbvalue: *mut u32) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvvalue: *const ::core::ffi::c_void, cbvalue: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -4954,7 +4954,7 @@ unsafe impl ::windows::core::Interface for IDeviceTopology {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceTopology_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetConnectorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, ppconnector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSubunitCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
@@ -5032,7 +5032,7 @@ unsafe impl ::windows::core::Interface for IMMDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMDevice_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -5095,7 +5095,7 @@ unsafe impl ::windows::core::Interface for IMMDeviceActivator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMDeviceActivator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, pdevice: *mut ::core::ffi::c_void, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -5152,7 +5152,7 @@ unsafe impl ::windows::core::Interface for IMMDeviceCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMDeviceCollection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdevices: *mut u32) -> ::windows::core::HRESULT,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ndevice: u32, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5226,7 +5226,7 @@ unsafe impl ::windows::core::Interface for IMMDeviceEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMDeviceEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EnumAudioEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dataflow: EDataFlow, dwstatemask: u32, ppdevices: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDefaultAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dataflow: EDataFlow, role: ERole, ppendpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrid: ::windows::core::PCWSTR, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5280,7 +5280,7 @@ unsafe impl ::windows::core::Interface for IMMEndpoint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMEndpoint_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDataFlow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataflow: *mut EDataFlow) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -5358,7 +5358,7 @@ unsafe impl ::windows::core::Interface for IMMNotificationClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMNotificationClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnDeviceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrdeviceid: ::windows::core::PCWSTR, dwnewstate: u32) -> ::windows::core::HRESULT,
     pub OnDeviceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrdeviceid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub OnDeviceRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrdeviceid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -5431,7 +5431,7 @@ unsafe impl ::windows::core::Interface for IMessageFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessageFilter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub HandleInComingCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5537,7 +5537,7 @@ unsafe impl ::windows::core::Interface for IPart {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPart_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwstrname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetLocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnid: *mut u32) -> ::windows::core::HRESULT,
     pub GetGlobalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwstrglobalid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
@@ -5603,7 +5603,7 @@ unsafe impl ::windows::core::Interface for IPartsList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPartsList_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pppart: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5670,7 +5670,7 @@ unsafe impl ::windows::core::Interface for IPerChannelDbLevel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerChannelDbLevel_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcchannels: *mut u32) -> ::windows::core::HRESULT,
     pub GetLevelRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> ::windows::core::HRESULT,
     pub GetLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nchannel: u32, pfleveldb: *mut f32) -> ::windows::core::HRESULT,
@@ -5742,7 +5742,7 @@ unsafe impl ::windows::core::Interface for ISimpleAudioVolume {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleAudioVolume_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetMasterVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flevel: f32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetMasterVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflevel: *mut f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -5833,7 +5833,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStaticObjectPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::core::HRESULT,
     pub GetNativeStaticObjectTypeMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: *mut AudioObjectType) -> ::windows::core::HRESULT,
     pub GetMaxDynamicObjectCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows::core::HRESULT,
@@ -6030,7 +6030,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioMetadataClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ActivateSpatialAudioMetadataItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxitemcount: u16, framecount: u16, metadataitemsbuffer: *mut *mut ::core::ffi::c_void, metadataitems: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSpatialAudioMetadataItemsBufferLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxitemcount: u16, bufferlength: *mut u32) -> ::windows::core::HRESULT,
     pub ActivateSpatialAudioMetadataWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overflowmode: SpatialAudioMetadataWriterOverflowMode, metadatawriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6096,7 +6096,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioMetadataCopier {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataCopier_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadataitems: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CopyMetadataForFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: *mut ::core::ffi::c_void, itemscopied: *mut u16) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6164,7 +6164,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioMetadataItems {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataItems_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFrameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framecount: *mut u16) -> ::windows::core::HRESULT,
     pub GetItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemcount: *mut u16) -> ::windows::core::HRESULT,
     pub GetMaxItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxitemcount: *mut u16) -> ::windows::core::HRESULT,
@@ -6223,7 +6223,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioMetadataItemsBuffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataItemsBuffer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachToBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut u8, bufferlength: u32) -> ::windows::core::HRESULT,
     pub AttachToPopulatedBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut u8, bufferlength: u32) -> ::windows::core::HRESULT,
     pub DetachBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6286,7 +6286,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioMetadataReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataReader_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadataitems: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ReadNextItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandcount: *mut u8, frameoffset: *mut u16) -> ::windows::core::HRESULT,
     pub ReadNextItemCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandid: *mut u8, valuebuffer: *mut ::core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> ::windows::core::HRESULT,
@@ -6350,7 +6350,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioMetadataWriter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioMetadataWriter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadataitems: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WriteNextItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameoffset: u16) -> ::windows::core::HRESULT,
     pub WriteNextItemCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandid: u8, valuebuffer: *const ::core::ffi::c_void, valuebufferlength: u32) -> ::windows::core::HRESULT,
@@ -6499,7 +6499,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioObjectBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectBase_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows::core::HRESULT,
     pub SetEndOfStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framecount: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -6929,7 +6929,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamBase_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetAvailableDynamicObjectCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows::core::HRESULT,
     pub GetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, service: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7174,7 +7174,7 @@ unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamNotify
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialAudioObjectRenderStreamNotify_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnAvailableDynamicObjectCountChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -7219,7 +7219,7 @@ unsafe impl ::windows::core::Interface for ISubunit {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISubunit_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const ACMDM_DRIVER_ABOUT: u32 = 24587u32;

@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IWindowManagementPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowManagementPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -20,7 +20,7 @@ unsafe impl ::windows::core::Interface for IWindowManagementPreviewStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowManagementPreviewStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub SetPreferredMinSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: *mut ::core::ffi::c_void, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

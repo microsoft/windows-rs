@@ -16,7 +16,7 @@ impl ID3DBlob_Vtbl {
             this.GetBufferSize()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetBufferPointer: GetBufferPointer::<Identity, Impl, OFFSET>,
             GetBufferSize: GetBufferSize::<Identity, Impl, OFFSET>,
         }
@@ -49,7 +49,7 @@ impl ID3DDestructionNotifier_Vtbl {
             this.UnregisterDestructionCallback(::core::mem::transmute_copy(&callbackid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterDestructionCallback: RegisterDestructionCallback::<Identity, Impl, OFFSET>,
             UnregisterDestructionCallback: UnregisterDestructionCallback::<Identity, Impl, OFFSET>,
         }

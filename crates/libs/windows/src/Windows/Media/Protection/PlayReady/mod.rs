@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for INDClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDClient_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub RegistrationCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -82,7 +82,7 @@ unsafe impl ::windows::core::Interface for INDClientFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDClientFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadengine: *mut ::core::ffi::c_void, streamparser: *mut ::core::ffi::c_void, pmessenger: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -195,7 +195,7 @@ unsafe impl ::windows::core::Interface for INDClosedCaptionDataReceivedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDClosedCaptionDataReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub ClosedCaptionDataFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NDClosedCaptionFormat) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -307,7 +307,7 @@ unsafe impl ::windows::core::Interface for INDCustomData {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDCustomData_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CustomDataTypeID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -330,7 +330,7 @@ unsafe impl ::windows::core::Interface for INDCustomDataFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDCustomDataFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customDataTypeIDBytes_array_size: u32, customdatatypeidbytes: *const u8, customDataBytes_array_size: u32, customdatabytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -485,7 +485,7 @@ unsafe impl ::windows::core::Interface for INDDownloadEngine {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDDownloadEngine_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -643,7 +643,7 @@ unsafe impl ::windows::core::Interface for INDDownloadEngineNotifier {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDDownloadEngineNotifier_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub OnStreamOpened: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -758,7 +758,7 @@ unsafe impl ::windows::core::Interface for INDLicenseFetchCompletedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchCompletedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub ResponseCustomData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -881,7 +881,7 @@ unsafe impl ::windows::core::Interface for INDLicenseFetchDescriptor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchDescriptor_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub ContentIDType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NDContentIDType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -912,7 +912,7 @@ unsafe impl ::windows::core::Interface for INDLicenseFetchDescriptorFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchDescriptorFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentidtype: NDContentIDType, contentIDBytes_array_size: u32, contentidbytes: *const u8, licensefetchchallengecustomdata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1007,7 +1007,7 @@ unsafe impl ::windows::core::Interface for INDLicenseFetchResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDLicenseFetchResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub ResponseCustomData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1129,7 +1129,7 @@ unsafe impl ::windows::core::Interface for INDMessenger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDMessenger_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub SendRegistrationRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -1236,7 +1236,7 @@ unsafe impl ::windows::core::Interface for INDProximityDetectionCompletedEventAr
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDProximityDetectionCompletedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub ProximityDetectionRetryCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1355,7 +1355,7 @@ unsafe impl ::windows::core::Interface for INDRegistrationCompletedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDRegistrationCompletedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub ResponseCustomData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1462,7 +1462,7 @@ unsafe impl ::windows::core::Interface for INDSendResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDSendResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Response: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1557,7 +1557,7 @@ unsafe impl ::windows::core::Interface for INDStartResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStartResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
     pub MediaStreamSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Media_Core", feature = "deprecated")))]
@@ -1656,7 +1656,7 @@ unsafe impl ::windows::core::Interface for INDStorageFileHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStorageFileHelper_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
     pub GetFileURLs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated")))]
@@ -1782,7 +1782,7 @@ unsafe impl ::windows::core::Interface for INDStreamParser {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStreamParser_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub ParseData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dataBytes_array_size: u32, databytes: *const u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1925,7 +1925,7 @@ unsafe impl ::windows::core::Interface for INDStreamParserNotifier {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDStreamParserNotifier_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub OnContentIDReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, licensefetchdescriptor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -1956,7 +1956,7 @@ unsafe impl ::windows::core::Interface for INDTCPMessengerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDTCPMessengerFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotehostname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, remotehostport: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -2141,7 +2141,7 @@ unsafe impl ::windows::core::Interface for INDTransmitterProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDTransmitterProperties_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CertificateType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NDCertificateType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -2197,7 +2197,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyContentHeader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeader_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub KeyId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub KeyIdString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -2225,7 +2225,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyContentHeader2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeader2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub KeyIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub KeyIdStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -2239,7 +2239,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyContentHeaderFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeaderFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CreateInstanceFromWindowsMediaDrmHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headerBytes_array_size: u32, headerbytes: *const u8, licenseacquisitionurl: *mut ::core::ffi::c_void, licenseacquisitionuserinterfaceurl: *mut ::core::ffi::c_void, customattributes: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, domainserviceid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2260,7 +2260,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyContentHeaderFactory2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeaderFactory2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CreateInstanceFromComponents2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, contentKeyIds_array_size: u32, contentkeyids: *const ::windows::core::GUID, contentKeyIdStrings_array_size: u32, contentkeyidstrings: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: *mut ::core::ffi::c_void, licenseacquisitionuserinterfaceurl: *mut ::core::ffi::c_void, customattributes: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, domainserviceid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2276,7 +2276,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyContentResolver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyContentResolver_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ServiceRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentheader: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
@@ -2381,7 +2381,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyDomain {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyDomain_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Revision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -2401,7 +2401,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyDomainIterableFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyDomainIterableFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, domainaccountid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2417,7 +2417,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyDomainJoinServiceRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyDomainJoinServiceRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DomainAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetDomainAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub DomainFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -2435,7 +2435,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyDomainLeaveServiceRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyDomainLeaveServiceRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DomainAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetDomainAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub DomainServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -2451,7 +2451,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyITADataGenerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyITADataGenerator_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GenerateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidcpsystemid: ::windows::core::GUID, countofstreams: u32, configuration: *mut ::core::ffi::c_void, format: PlayReadyITADataFormat, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2467,7 +2467,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyIndividualizationServiceReq
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyIndividualizationServiceRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
@@ -2585,7 +2585,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicense {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicense_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FullyEvaluated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub UsableForPlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -2607,7 +2607,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicense2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicense2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SecureStopId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SecurityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub InMemoryOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -2821,7 +2821,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseAcquisitionServiceRe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContentHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetContentHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DomainServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -2837,7 +2837,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseAcquisitionServiceRe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -2850,7 +2850,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseAcquisitionServiceRe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateLicenseIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentheader: *mut ::core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2866,7 +2866,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseIterableFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseIterableFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentheader: *mut ::core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -2882,7 +2882,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseManagement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseManagement_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub DeleteLicenses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentheader: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -2967,7 +2967,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseSession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateLAServiceRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ConfigureMediaProtectionManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mpm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3081,7 +3081,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseSession2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseSession2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateLicenseIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentheader: *mut ::core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -3097,7 +3097,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyLicenseSessionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseSessionFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -3113,7 +3113,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyMeteringReportServiceReques
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyMeteringReportServiceRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub MeteringCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
     pub SetMeteringCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, meteringCertBytes_array_size: u32, meteringcertbytes: *const u8) -> ::windows::core::HRESULT,
 }
@@ -3127,7 +3127,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyRevocationServiceRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyRevocationServiceRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3139,7 +3139,7 @@ unsafe impl ::windows::core::Interface for IPlayReadySecureStopIterableFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadySecureStopIterableFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publisherCertBytes_array_size: u32, publishercertbytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -3367,7 +3367,7 @@ unsafe impl ::windows::core::Interface for IPlayReadySecureStopServiceRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadySecureStopServiceRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SessionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -3390,7 +3390,7 @@ unsafe impl ::windows::core::Interface for IPlayReadySecureStopServiceRequestFac
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadySecureStopServiceRequestFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publisherCertBytes_array_size: u32, publishercertbytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateInstanceFromSessionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::GUID, publisherCertBytes_array_size: u32, publishercertbytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3558,7 +3558,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyServiceRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyServiceRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -3588,7 +3588,7 @@ unsafe impl ::windows::core::Interface for IPlayReadySoapMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadySoapMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetMessageBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub MessageHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3609,7 +3609,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DomainJoinServiceRequestType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub DomainLeaveServiceRequestType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub IndividualizationServiceRequestType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -3629,7 +3629,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub PlayReadyCertificateSecurityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3642,7 +3642,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SecureStopServiceRequestType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub CheckSupportedHardware: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwdrmfeature: PlayReadyHardwareDRMFeatures, result__: *mut bool) -> ::windows::core::HRESULT,
 }
@@ -3656,7 +3656,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyStatics4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub InputTrustAuthorityToCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ProtectionSystemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -3670,7 +3670,7 @@ unsafe impl ::windows::core::Interface for IPlayReadyStatics5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics5_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub HardwareDRMDisabledAtTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

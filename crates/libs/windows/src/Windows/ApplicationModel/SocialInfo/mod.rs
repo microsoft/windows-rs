@@ -13,7 +13,7 @@ unsafe impl ::windows::core::Interface for ISocialFeedChildItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialFeedChildItem_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -68,7 +68,7 @@ unsafe impl ::windows::core::Interface for ISocialFeedContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialFeedContent_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -107,7 +107,7 @@ unsafe impl ::windows::core::Interface for ISocialFeedItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialFeedItem_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -202,7 +202,7 @@ unsafe impl ::windows::core::Interface for ISocialFeedSharedItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialFeedSharedItem_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub OriginalSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -253,7 +253,7 @@ unsafe impl ::windows::core::Interface for ISocialItemThumbnail {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialItemThumbnail_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub TargetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -296,7 +296,7 @@ unsafe impl ::windows::core::Interface for ISocialUserInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISocialUserInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]

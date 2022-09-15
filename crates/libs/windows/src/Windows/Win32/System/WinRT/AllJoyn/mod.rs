@@ -63,7 +63,7 @@ unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentFa
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
@@ -128,7 +128,7 @@ unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusAttachmentIn
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Win32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
@@ -196,7 +196,7 @@ unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
@@ -267,7 +267,7 @@ unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectIntero
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AddPropertyGetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT,
     pub AddPropertySetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT,
     pub Win32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT,

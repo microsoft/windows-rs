@@ -40,7 +40,7 @@ impl IMarshal_Vtbl {
             this.DisconnectObject(::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetUnmarshalClass: GetUnmarshalClass::<Identity, Impl, OFFSET>,
             GetMarshalSizeMax: GetMarshalSizeMax::<Identity, Impl, OFFSET>,
             MarshalInterface: MarshalInterface::<Identity, Impl, OFFSET>,

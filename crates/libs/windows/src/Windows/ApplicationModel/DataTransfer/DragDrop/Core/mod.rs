@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for ICoreDragDropManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragDropManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub TargetRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -30,7 +30,7 @@ unsafe impl ::windows::core::Interface for ICoreDragDropManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragDropManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -43,7 +43,7 @@ unsafe impl ::windows::core::Interface for ICoreDragInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Modifiers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::DragDropModifiers) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -61,7 +61,7 @@ unsafe impl ::windows::core::Interface for ICoreDragInfo2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragInfo2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AllowedOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -74,7 +74,7 @@ unsafe impl ::windows::core::Interface for ICoreDragOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPointerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_Imaging")]
@@ -102,7 +102,7 @@ unsafe impl ::windows::core::Interface for ICoreDragOperation2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragOperation2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AllowedOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows::core::HRESULT,
     pub SetAllowedOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::DataPackageOperation) -> ::windows::core::HRESULT,
 }
@@ -116,7 +116,7 @@ unsafe impl ::windows::core::Interface for ICoreDragUIOverride {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragUIOverride_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
     pub SetContentFromSoftwareBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
@@ -250,7 +250,7 @@ unsafe impl ::windows::core::Interface for ICoreDropOperationTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDropOperationTarget_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub EnterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, draginfo: *mut ::core::ffi::c_void, draguioverride: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -278,7 +278,7 @@ unsafe impl ::windows::core::Interface for ICoreDropOperationTargetRequestedEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDropOperationTargetRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]

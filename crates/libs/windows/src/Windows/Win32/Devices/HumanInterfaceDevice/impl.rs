@@ -135,7 +135,7 @@ impl IDirectInput8A_Vtbl {
             this.ConfigureDevices(::core::mem::transmute(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute_copy(&param3)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateDevice: CreateDevice::<Identity, Impl, OFFSET>,
             EnumDevices: EnumDevices::<Identity, Impl, OFFSET>,
             GetDeviceStatus: GetDeviceStatus::<Identity, Impl, OFFSET>,
@@ -207,7 +207,7 @@ impl IDirectInput8W_Vtbl {
             this.ConfigureDevices(::core::mem::transmute(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute_copy(&param3)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateDevice: CreateDevice::<Identity, Impl, OFFSET>,
             EnumDevices: EnumDevices::<Identity, Impl, OFFSET>,
             GetDeviceStatus: GetDeviceStatus::<Identity, Impl, OFFSET>,
@@ -261,7 +261,7 @@ impl IDirectInputA_Vtbl {
             this.Initialize(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateDevice: CreateDevice::<Identity, Impl, OFFSET>,
             EnumDevices: EnumDevices::<Identity, Impl, OFFSET>,
             GetDeviceStatus: GetDeviceStatus::<Identity, Impl, OFFSET>,
@@ -674,7 +674,7 @@ impl IDirectInputDevice8A_Vtbl {
             this.GetImageInfo(::core::mem::transmute_copy(&param0)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             EnumObjects: EnumObjects::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
@@ -893,7 +893,7 @@ impl IDirectInputDevice8W_Vtbl {
             this.GetImageInfo(::core::mem::transmute_copy(&param0)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             EnumObjects: EnumObjects::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
@@ -1028,7 +1028,7 @@ impl IDirectInputDeviceA_Vtbl {
             this.Initialize(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             EnumObjects: EnumObjects::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
@@ -1149,7 +1149,7 @@ impl IDirectInputDeviceW_Vtbl {
             this.Initialize(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET>,
             EnumObjects: EnumObjects::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
@@ -1240,7 +1240,7 @@ impl IDirectInputEffect_Vtbl {
             this.Escape(::core::mem::transmute_copy(&param0)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetEffectGuid: GetEffectGuid::<Identity, Impl, OFFSET>,
             GetParameters: GetParameters::<Identity, Impl, OFFSET>,
@@ -1329,7 +1329,7 @@ impl IDirectInputEffectDriver_Vtbl {
             this.GetEffectStatus(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             DeviceID: DeviceID::<Identity, Impl, OFFSET>,
             GetVersions: GetVersions::<Identity, Impl, OFFSET>,
             Escape: Escape::<Identity, Impl, OFFSET>,
@@ -1452,7 +1452,7 @@ impl IDirectInputJoyConfig_Vtbl {
             this.OpenConfigKey(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Acquire: Acquire::<Identity, Impl, OFFSET>,
             Unacquire: Unacquire::<Identity, Impl, OFFSET>,
             SetCooperativeLevel: SetCooperativeLevel::<Identity, Impl, OFFSET>,
@@ -1580,7 +1580,7 @@ impl IDirectInputJoyConfig8_Vtbl {
             this.OpenAppStatusKey(::core::mem::transmute_copy(&param0)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Acquire: Acquire::<Identity, Impl, OFFSET>,
             Unacquire: Unacquire::<Identity, Impl, OFFSET>,
             SetCooperativeLevel: SetCooperativeLevel::<Identity, Impl, OFFSET>,
@@ -1642,7 +1642,7 @@ impl IDirectInputW_Vtbl {
             this.Initialize(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateDevice: CreateDevice::<Identity, Impl, OFFSET>,
             EnumDevices: EnumDevices::<Identity, Impl, OFFSET>,
             GetDeviceStatus: GetDeviceStatus::<Identity, Impl, OFFSET>,

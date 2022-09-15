@@ -22,7 +22,7 @@ impl IAppxBlockMapBlock_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetHash: GetHash::<Identity, Impl, OFFSET>,
             GetCompressedSize: GetCompressedSize::<Identity, Impl, OFFSET>,
         }
@@ -76,7 +76,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -155,7 +155,7 @@ impl IAppxBlockMapFile_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetBlocks: GetBlocks::<Identity, Impl, OFFSET>,
             GetLocalFileHeaderSize: GetLocalFileHeaderSize::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
@@ -212,7 +212,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -279,7 +279,7 @@ impl IAppxBlockMapReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFile: GetFile::<Identity, Impl, OFFSET>,
             GetFiles: GetFiles::<Identity, Impl, OFFSET>,
             GetHashMethod: GetHashMethod::<Identity, Impl, OFFSET>,
@@ -335,7 +335,7 @@ impl IAppxBundleFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateBundleWriter: CreateBundleWriter::<Identity, Impl, OFFSET>,
             CreateBundleReader: CreateBundleReader::<Identity, Impl, OFFSET>,
             CreateBundleManifestReader: CreateBundleManifestReader::<Identity, Impl, OFFSET>,
@@ -387,7 +387,7 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPackageId: GetPackageId::<Identity, Impl, OFFSET>,
             GetFileName: GetFileName::<Identity, Impl, OFFSET>,
             GetPackageInfoItems: GetPackageInfoItems::<Identity, Impl, OFFSET>,
@@ -442,7 +442,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -530,7 +530,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPackageType: GetPackageType::<Identity, Impl, OFFSET>,
             GetPackageId: GetPackageId::<Identity, Impl, OFFSET>,
             GetFileName: GetFileName::<Identity, Impl, OFFSET>,
@@ -588,7 +588,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetIsPackageReference: GetIsPackageReference::<Identity, Impl, OFFSET>,
             GetIsNonQualifiedResourcePackage: GetIsNonQualifiedResourcePackage::<Identity, Impl, OFFSET>,
             GetIsDefaultApplicablePackage: GetIsDefaultApplicablePackage::<Identity, Impl, OFFSET>,
@@ -615,7 +615,7 @@ impl IAppxBundleManifestPackageInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetTargetDeviceFamilies: GetTargetDeviceFamilies::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetTargetDeviceFamilies: GetTargetDeviceFamilies::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxBundleManifestPackageInfo3 as ::windows::core::Interface>::IID
@@ -641,7 +641,7 @@ impl IAppxBundleManifestPackageInfo4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetIsStub: GetIsStub::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIsStub: GetIsStub::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxBundleManifestPackageInfo4 as ::windows::core::Interface>::IID
@@ -692,7 +692,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -747,7 +747,7 @@ impl IAppxBundleManifestReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPackageId: GetPackageId::<Identity, Impl, OFFSET>,
             GetPackageInfoItems: GetPackageInfoItems::<Identity, Impl, OFFSET>,
             GetStream: GetStream::<Identity, Impl, OFFSET>,
@@ -774,7 +774,7 @@ impl IAppxBundleManifestReader2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetOptionalBundles: GetOptionalBundles::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOptionalBundles: GetOptionalBundles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxBundleManifestReader2 as ::windows::core::Interface>::IID
@@ -846,7 +846,7 @@ impl IAppxBundleReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFootprintFile: GetFootprintFile::<Identity, Impl, OFFSET>,
             GetBlockMap: GetBlockMap::<Identity, Impl, OFFSET>,
             GetManifest: GetManifest::<Identity, Impl, OFFSET>,
@@ -879,7 +879,7 @@ impl IAppxBundleWriter_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddPayloadPackage: AddPayloadPackage::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -903,7 +903,7 @@ impl IAppxBundleWriter2_Vtbl {
             this.AddExternalPackageReference(::core::mem::transmute(&filename), ::core::mem::transmute(&inputstream)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddExternalPackageReference: AddExternalPackageReference::<Identity, Impl, OFFSET>,
         }
     }
@@ -932,7 +932,7 @@ impl IAppxBundleWriter3_Vtbl {
             this.Close(::core::mem::transmute(&hashmethodstring)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddPackageReference: AddPackageReference::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -968,7 +968,7 @@ impl IAppxBundleWriter4_Vtbl {
             this.AddExternalPackageReference(::core::mem::transmute(&filename), ::core::mem::transmute(&inputstream), ::core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddPayloadPackage: AddPayloadPackage::<Identity, Impl, OFFSET>,
             AddPackageReference: AddPackageReference::<Identity, Impl, OFFSET>,
             AddExternalPackageReference: AddExternalPackageReference::<Identity, Impl, OFFSET>,
@@ -1008,7 +1008,7 @@ impl IAppxContentGroup_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetFiles: GetFiles::<Identity, Impl, OFFSET>,
         }
@@ -1062,7 +1062,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -1102,7 +1102,7 @@ impl IAppxContentGroupMapReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRequiredGroup: GetRequiredGroup::<Identity, Impl, OFFSET>,
             GetAutomaticGroups: GetAutomaticGroups::<Identity, Impl, OFFSET>,
         }
@@ -1135,7 +1135,7 @@ impl IAppxContentGroupMapWriter_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddAutomaticGroup: AddAutomaticGroup::<Identity, Impl, OFFSET>,
             AddAutomaticFile: AddAutomaticFile::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
@@ -1190,7 +1190,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -1221,7 +1221,7 @@ impl IAppxEncryptedBundleWriter_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddPayloadPackageEncrypted: AddPayloadPackageEncrypted::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -1245,7 +1245,7 @@ impl IAppxEncryptedBundleWriter2_Vtbl {
             this.AddExternalPackageReference(::core::mem::transmute(&filename), ::core::mem::transmute(&inputstream)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddExternalPackageReference: AddExternalPackageReference::<Identity, Impl, OFFSET>,
         }
     }
@@ -1274,7 +1274,7 @@ impl IAppxEncryptedBundleWriter3_Vtbl {
             this.AddExternalPackageReference(::core::mem::transmute(&filename), ::core::mem::transmute(&inputstream), ::core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddPayloadPackageEncrypted: AddPayloadPackageEncrypted::<Identity, Impl, OFFSET>,
             AddExternalPackageReference: AddExternalPackageReference::<Identity, Impl, OFFSET>,
         }
@@ -1304,7 +1304,7 @@ impl IAppxEncryptedPackageWriter_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddPayloadFileEncrypted: AddPayloadFileEncrypted::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -1327,7 +1327,7 @@ impl IAppxEncryptedPackageWriter2_Vtbl {
             let this = (*this).get_impl();
             this.AddPayloadFilesEncrypted(::core::mem::transmute_copy(&filecount), ::core::mem::transmute_copy(&payloadfiles), ::core::mem::transmute_copy(&memorylimit)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddPayloadFilesEncrypted: AddPayloadFilesEncrypted::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddPayloadFilesEncrypted: AddPayloadFilesEncrypted::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxEncryptedPackageWriter2 as ::windows::core::Interface>::IID
@@ -1414,7 +1414,7 @@ impl IAppxEncryptionFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EncryptPackage: EncryptPackage::<Identity, Impl, OFFSET>,
             DecryptPackage: DecryptPackage::<Identity, Impl, OFFSET>,
             CreateEncryptedPackageWriter: CreateEncryptedPackageWriter::<Identity, Impl, OFFSET>,
@@ -1450,7 +1450,7 @@ impl IAppxEncryptionFactory2_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateEncryptedPackageWriter: CreateEncryptedPackageWriter::<Identity, Impl, OFFSET>,
         }
     }
@@ -1503,7 +1503,7 @@ impl IAppxEncryptionFactory3_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EncryptPackage: EncryptPackage::<Identity, Impl, OFFSET>,
             CreateEncryptedPackageWriter: CreateEncryptedPackageWriter::<Identity, Impl, OFFSET>,
             EncryptBundle: EncryptBundle::<Identity, Impl, OFFSET>,
@@ -1528,7 +1528,7 @@ impl IAppxEncryptionFactory4_Vtbl {
             let this = (*this).get_impl();
             this.EncryptPackage(::core::mem::transmute(&inputstream), ::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles), ::core::mem::transmute_copy(&memorylimit)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EncryptPackage: EncryptPackage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EncryptPackage: EncryptPackage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxEncryptionFactory4 as ::windows::core::Interface>::IID
@@ -1603,7 +1603,7 @@ impl IAppxFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreatePackageWriter: CreatePackageWriter::<Identity, Impl, OFFSET>,
             CreatePackageReader: CreatePackageReader::<Identity, Impl, OFFSET>,
             CreateManifestReader: CreateManifestReader::<Identity, Impl, OFFSET>,
@@ -1660,7 +1660,7 @@ impl IAppxFactory2_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateContentGroupMapReader: CreateContentGroupMapReader::<Identity, Impl, OFFSET>,
             CreateSourceContentGroupMapReader: CreateSourceContentGroupMapReader::<Identity, Impl, OFFSET>,
             CreateContentGroupMapWriter: CreateContentGroupMapWriter::<Identity, Impl, OFFSET>,
@@ -1739,7 +1739,7 @@ impl IAppxFile_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCompressionOption: GetCompressionOption::<Identity, Impl, OFFSET>,
             GetContentType: GetContentType::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
@@ -1796,7 +1796,7 @@ impl IAppxFilesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -1836,7 +1836,7 @@ impl IAppxManifestApplication_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetStringValue: GetStringValue::<Identity, Impl, OFFSET>,
             GetAppUserModelId: GetAppUserModelId::<Identity, Impl, OFFSET>,
         }
@@ -1890,7 +1890,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -1945,7 +1945,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -2000,7 +2000,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -2052,7 +2052,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetMinVersion: GetMinVersion::<Identity, Impl, OFFSET>,
             GetMinDate: GetMinDate::<Identity, Impl, OFFSET>,
@@ -2107,7 +2107,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -2162,7 +2162,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -2189,7 +2189,7 @@ impl IAppxManifestDriverDependency_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDriverConstraints: GetDriverConstraints::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDriverConstraints: GetDriverConstraints::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxManifestDriverDependency as ::windows::core::Interface>::IID
@@ -2240,7 +2240,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -2292,7 +2292,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetPublisher: GetPublisher::<Identity, Impl, OFFSET>,
             GetMinVersion: GetMinVersion::<Identity, Impl, OFFSET>,
@@ -2319,7 +2319,7 @@ impl IAppxManifestHostRuntimeDependency2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPackageFamilyName: GetPackageFamilyName::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPackageFamilyName: GetPackageFamilyName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxManifestHostRuntimeDependency2 as ::windows::core::Interface>::IID
@@ -2370,7 +2370,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -2422,7 +2422,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetPublisher: GetPublisher::<Identity, Impl, OFFSET>,
             GetPackageFamilyName: GetPackageFamilyName::<Identity, Impl, OFFSET>,
@@ -2477,7 +2477,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -2517,7 +2517,7 @@ impl IAppxManifestOSPackageDependency_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetVersion: GetVersion::<Identity, Impl, OFFSET>,
         }
@@ -2559,7 +2559,7 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetIsOptionalPackage: GetIsOptionalPackage::<Identity, Impl, OFFSET>,
             GetMainPackageName: GetMainPackageName::<Identity, Impl, OFFSET>,
         }
@@ -2613,7 +2613,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -2665,7 +2665,7 @@ impl IAppxManifestPackageDependency_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetPublisher: GetPublisher::<Identity, Impl, OFFSET>,
             GetMinVersion: GetMinVersion::<Identity, Impl, OFFSET>,
@@ -2721,7 +2721,7 @@ impl IAppxManifestPackageDependency3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetIsOptional: GetIsOptional::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIsOptional: GetIsOptional::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxManifestPackageDependency3 as ::windows::core::Interface>::IID
@@ -2832,7 +2832,7 @@ impl IAppxManifestPackageId_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetArchitecture: GetArchitecture::<Identity, Impl, OFFSET>,
             GetPublisher: GetPublisher::<Identity, Impl, OFFSET>,
@@ -2906,7 +2906,7 @@ impl IAppxManifestProperties_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetBoolValue: GetBoolValue::<Identity, Impl, OFFSET>,
             GetStringValue: GetStringValue::<Identity, Impl, OFFSET>,
         }
@@ -2957,7 +2957,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLanguage: GetLanguage::<Identity, Impl, OFFSET>,
             GetScale: GetScale::<Identity, Impl, OFFSET>,
             GetDXFeatureLevel: GetDXFeatureLevel::<Identity, Impl, OFFSET>,
@@ -3012,7 +3012,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -3139,7 +3139,7 @@ impl IAppxManifestReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPackageId: GetPackageId::<Identity, Impl, OFFSET>,
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
             GetPackageDependencies: GetPackageDependencies::<Identity, Impl, OFFSET>,
@@ -3267,7 +3267,7 @@ impl IAppxManifestReader5_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetMainPackageDependencies: GetMainPackageDependencies::<Identity, Impl, OFFSET>,
         }
     }
@@ -3296,7 +3296,7 @@ impl IAppxManifestReader6_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetIsNonQualifiedResourcePackage: GetIsNonQualifiedResourcePackage::<Identity, Impl, OFFSET>,
         }
     }
@@ -3346,7 +3346,7 @@ impl IAppxManifestReader7_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDriverDependencies: GetDriverDependencies::<Identity, Impl, OFFSET>,
             GetOSPackageDependencies: GetOSPackageDependencies::<Identity, Impl, OFFSET>,
             GetHostRuntimeDependencies: GetHostRuntimeDependencies::<Identity, Impl, OFFSET>,
@@ -3401,7 +3401,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -3456,7 +3456,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
             GetHasCurrent: GetHasCurrent::<Identity, Impl, OFFSET>,
             MoveNext: MoveNext::<Identity, Impl, OFFSET>,
@@ -3508,7 +3508,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetMinVersion: GetMinVersion::<Identity, Impl, OFFSET>,
             GetMaxVersionTested: GetMaxVersionTested::<Identity, Impl, OFFSET>,
@@ -3563,7 +3563,7 @@ impl IAppxPackageEditor_Vtbl {
             this.UpdatePackageManifest(::core::mem::transmute(&packagestream), ::core::mem::transmute(&updatedmanifeststream), ::core::mem::transmute_copy(&ispackageencrypted), ::core::mem::transmute_copy(&options)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetWorkingDirectory: SetWorkingDirectory::<Identity, Impl, OFFSET>,
             CreateDeltaPackage: CreateDeltaPackage::<Identity, Impl, OFFSET>,
             CreateDeltaPackageUsingBaselineBlockMap: CreateDeltaPackageUsingBaselineBlockMap::<Identity, Impl, OFFSET>,
@@ -3642,7 +3642,7 @@ impl IAppxPackageReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetBlockMap: GetBlockMap::<Identity, Impl, OFFSET>,
             GetFootprintFile: GetFootprintFile::<Identity, Impl, OFFSET>,
             GetPayloadFile: GetPayloadFile::<Identity, Impl, OFFSET>,
@@ -3675,7 +3675,7 @@ impl IAppxPackageWriter_Vtbl {
             this.Close(::core::mem::transmute(&manifest)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddPayloadFile: AddPayloadFile::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -3698,7 +3698,7 @@ impl IAppxPackageWriter2_Vtbl {
             let this = (*this).get_impl();
             this.Close(::core::mem::transmute(&manifest), ::core::mem::transmute(&contentgroupmap)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxPackageWriter2 as ::windows::core::Interface>::IID
@@ -3718,7 +3718,7 @@ impl IAppxPackageWriter3_Vtbl {
             let this = (*this).get_impl();
             this.AddPayloadFiles(::core::mem::transmute_copy(&filecount), ::core::mem::transmute_copy(&payloadfiles), ::core::mem::transmute_copy(&memorylimit)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddPayloadFiles: AddPayloadFiles::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddPayloadFiles: AddPayloadFiles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxPackageWriter3 as ::windows::core::Interface>::IID
@@ -3742,7 +3742,7 @@ impl IAppxPackagingDiagnosticEventSink_Vtbl {
             this.ReportError(::core::mem::transmute(&errormessage)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ReportContextChange: ReportContextChange::<Identity, Impl, OFFSET>,
             ReportError: ReportError::<Identity, Impl, OFFSET>,
         }
@@ -3762,7 +3762,7 @@ impl IAppxPackagingDiagnosticEventSinkManager_Vtbl {
             let this = (*this).get_impl();
             this.SetSinkForProcess(::core::mem::transmute(&sink)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetSinkForProcess: SetSinkForProcess::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSinkForProcess: SetSinkForProcess::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAppxPackagingDiagnosticEventSinkManager as ::windows::core::Interface>::IID
@@ -3798,7 +3798,7 @@ impl IAppxSourceContentGroupMapReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRequiredGroup: GetRequiredGroup::<Identity, Impl, OFFSET>,
             GetAutomaticGroups: GetAutomaticGroups::<Identity, Impl, OFFSET>,
         }

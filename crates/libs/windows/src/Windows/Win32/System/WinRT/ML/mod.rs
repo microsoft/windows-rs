@@ -50,7 +50,7 @@ unsafe impl ::windows::core::Interface for ILearningModelDeviceFactoryNative {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelDeviceFactoryNative_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub CreateFromD3D12CommandQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
@@ -105,7 +105,7 @@ unsafe impl ::windows::core::Interface for ILearningModelOperatorProviderNative 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelOperatorProviderNative_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
     pub GetRegistry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppoperatorregistry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_AI_MachineLearning_WinML"))]
@@ -157,7 +157,7 @@ unsafe impl ::windows::core::Interface for ILearningModelSessionOptionsNative {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptionsNative_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetIntraOpNumThreadsOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intraopnumthreads: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`*"]
@@ -212,7 +212,7 @@ unsafe impl ::windows::core::Interface for ITensorNative {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorNative_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub GetD3D12Resource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -270,7 +270,7 @@ unsafe impl ::windows::core::Interface for ITensorStaticsNative {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorStaticsNative_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub CreateFromD3D12Resource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, shape: *mut i64, shapecount: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]

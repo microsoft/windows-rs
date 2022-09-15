@@ -703,7 +703,7 @@ impl IADsAggregatee_Vtbl {
             this.RestoreInterface(::core::mem::transmute_copy(&riid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ConnectAsAggregatee: ConnectAsAggregatee::<Identity, Impl, OFFSET>,
             DisconnectAsAggregatee: DisconnectAsAggregatee::<Identity, Impl, OFFSET>,
             RelinquishInterface: RelinquishInterface::<Identity, Impl, OFFSET>,
@@ -732,7 +732,7 @@ impl IADsAggregator_Vtbl {
             this.DisconnectAsAggregator().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ConnectAsAggregator: ConnectAsAggregator::<Identity, Impl, OFFSET>,
             DisconnectAsAggregator: DisconnectAsAggregator::<Identity, Impl, OFFSET>,
         }
@@ -2136,7 +2136,7 @@ impl IADsExtension_Vtbl {
             this.PrivateInvoke(::core::mem::transmute_copy(&dispidmember), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Operate: Operate::<Identity, Impl, OFFSET>,
             PrivateGetIDsOfNames: PrivateGetIDsOfNames::<Identity, Impl, OFFSET>,
             PrivateInvoke: PrivateInvoke::<Identity, Impl, OFFSET>,
@@ -6906,7 +6906,7 @@ impl ICommonQuery_Vtbl {
             let this = (*this).get_impl();
             this.OpenQueryWindow(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&pquerywnd), ::core::mem::transmute_copy(&ppdataobject)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OpenQueryWindow: OpenQueryWindow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OpenQueryWindow: OpenQueryWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICommonQuery as ::windows::core::Interface>::IID
@@ -6969,7 +6969,7 @@ impl IDirectoryObject_Vtbl {
             this.DeleteDSObject(::core::mem::transmute(&pszrdnname)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetObjectInformation: GetObjectInformation::<Identity, Impl, OFFSET>,
             GetObjectAttributes: GetObjectAttributes::<Identity, Impl, OFFSET>,
             SetObjectAttributes: SetObjectAttributes::<Identity, Impl, OFFSET>,
@@ -7038,7 +7038,7 @@ impl IDirectorySchemaMgmt_Vtbl {
             this.DeleteClassDefinition(::core::mem::transmute(&pszclassname)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnumAttributes: EnumAttributes::<Identity, Impl, OFFSET>,
             CreateAttributeDefinition: CreateAttributeDefinition::<Identity, Impl, OFFSET>,
             WriteAttributeDefinition: WriteAttributeDefinition::<Identity, Impl, OFFSET>,
@@ -7134,7 +7134,7 @@ impl IDirectorySearch_Vtbl {
             this.CloseSearchHandle(::core::mem::transmute_copy(&hsearchresult)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetSearchPreference: SetSearchPreference::<Identity, Impl, OFFSET>,
             ExecuteSearch: ExecuteSearch::<Identity, Impl, OFFSET>,
             AbandonSearch: AbandonSearch::<Identity, Impl, OFFSET>,
@@ -7178,7 +7178,7 @@ impl IDsAdminCreateObj_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             CreateModal: CreateModal::<Identity, Impl, OFFSET>,
         }
@@ -7208,7 +7208,7 @@ impl IDsAdminNewObj_Vtbl {
             this.GetPageCounts(::core::mem::transmute_copy(&pntotal), ::core::mem::transmute_copy(&pnstartindex)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetButtons: SetButtons::<Identity, Impl, OFFSET>,
             GetPageCounts: GetPageCounts::<Identity, Impl, OFFSET>,
         }
@@ -7262,7 +7262,7 @@ impl IDsAdminNewObjExt_Vtbl {
             this.GetSummaryInfo(::core::mem::transmute_copy(&pbstrtext)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             AddPages: AddPages::<Identity, Impl, OFFSET>,
             SetObject: SetObject::<Identity, Impl, OFFSET>,
@@ -7293,7 +7293,7 @@ impl IDsAdminNewObjPrimarySite_Vtbl {
             this.Commit().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateNew: CreateNew::<Identity, Impl, OFFSET>,
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
@@ -7335,7 +7335,7 @@ impl IDsAdminNotifyHandler_Vtbl {
             this.End().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Begin: Begin::<Identity, Impl, OFFSET>,
             Notify: Notify::<Identity, Impl, OFFSET>,
@@ -7385,7 +7385,7 @@ impl IDsBrowseDomainTree_Vtbl {
             this.SetComputer(::core::mem::transmute(&pszcomputername), ::core::mem::transmute(&pszusername), ::core::mem::transmute(&pszpassword)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BrowseTo: BrowseTo::<Identity, Impl, OFFSET>,
             GetDomains: GetDomains::<Identity, Impl, OFFSET>,
             FreeDomains: FreeDomains::<Identity, Impl, OFFSET>,
@@ -7472,7 +7472,7 @@ impl IDsDisplaySpecifier_Vtbl {
             this.GetAttributeADsType(::core::mem::transmute(&pszattributename))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetServer: SetServer::<Identity, Impl, OFFSET>,
             SetLanguageID: SetLanguageID::<Identity, Impl, OFFSET>,
             GetDisplaySpecifier: GetDisplaySpecifier::<Identity, Impl, OFFSET>,
@@ -7517,7 +7517,7 @@ impl IDsObjectPicker_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InvokeDialog: InvokeDialog::<Identity, Impl, OFFSET>,
         }
@@ -7668,7 +7668,7 @@ impl IPrivateDispatch_Vtbl {
             this.ADSIInvoke(::core::mem::transmute_copy(&dispidmember), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ADSIInitializeDispatchManager: ADSIInitializeDispatchManager::<Identity, Impl, OFFSET>,
             ADSIGetTypeInfoCount: ADSIGetTypeInfoCount::<Identity, Impl, OFFSET>,
             ADSIGetTypeInfo: ADSIGetTypeInfo::<Identity, Impl, OFFSET>,
@@ -7698,7 +7698,7 @@ impl IPrivateUnknown_Vtbl {
             this.ADSIReleaseObject().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ADSIInitializeObject: ADSIInitializeObject::<Identity, Impl, OFFSET>,
             ADSIReleaseObject: ADSIReleaseObject::<Identity, Impl, OFFSET>,
         }
@@ -7734,7 +7734,7 @@ impl IQueryForm_Vtbl {
             this.AddPages(::core::mem::transmute(&paddpagesproc), ::core::mem::transmute_copy(&lparam)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             AddForms: AddForms::<Identity, Impl, OFFSET>,
             AddPages: AddPages::<Identity, Impl, OFFSET>,

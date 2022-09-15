@@ -247,7 +247,7 @@ impl IImageList_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             ReplaceIcon: ReplaceIcon::<Identity, Impl, OFFSET>,
             SetOverlayImage: SetOverlayImage::<Identity, Impl, OFFSET>,

@@ -28,7 +28,7 @@ impl ICreateDeviceAccessAsync_Vtbl {
             this.GetResult(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&deviceaccess)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Cancel: Cancel::<Identity, Impl, OFFSET>,
             Wait: Wait::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
@@ -63,7 +63,7 @@ impl IDeviceIoControl_Vtbl {
             this.CancelOperation(::core::mem::transmute_copy(&cancelcontext)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             DeviceIoControlSync: DeviceIoControlSync::<Identity, Impl, OFFSET>,
             DeviceIoControlAsync: DeviceIoControlAsync::<Identity, Impl, OFFSET>,
             CancelOperation: CancelOperation::<Identity, Impl, OFFSET>,
@@ -84,7 +84,7 @@ impl IDeviceRequestCompletionCallback_Vtbl {
             let this = (*this).get_impl();
             this.Invoke(::core::mem::transmute_copy(&requestresult), ::core::mem::transmute_copy(&bytesreturned)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeviceRequestCompletionCallback as ::windows::core::Interface>::IID

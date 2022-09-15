@@ -3599,7 +3599,7 @@ unsafe impl ::windows::core::Interface for IDialBranding {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialBranding_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub GetBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
@@ -3684,7 +3684,7 @@ unsafe impl ::windows::core::Interface for IDialEngine {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialEngine_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: ::windows::core::PCWSTR, pides: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: ::windows::core::PCWSTR, pwzvalue: ::windows::core::PCWSTR, dwbufsize: u32) -> ::windows::core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: ::windows::core::PCWSTR, pwzvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -3739,7 +3739,7 @@ unsafe impl ::windows::core::Interface for IDialEventSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialEventSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwevent: u32, dwstatus: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -3791,7 +3791,7 @@ unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCookieInfoForUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -3844,7 +3844,7 @@ unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager2 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManager2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uri: ::windows::core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]

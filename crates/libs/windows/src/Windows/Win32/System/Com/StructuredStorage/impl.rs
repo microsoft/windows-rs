@@ -22,7 +22,7 @@ impl IDirectWriterLock_Vtbl {
             this.HaveWriteAccess().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             WaitForWriteAccess: WaitForWriteAccess::<Identity, Impl, OFFSET>,
             ReleaseWriteAccess: ReleaseWriteAccess::<Identity, Impl, OFFSET>,
             HaveWriteAccess: HaveWriteAccess::<Identity, Impl, OFFSET>,
@@ -71,7 +71,7 @@ impl IEnumSTATPROPSETSTG_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -118,7 +118,7 @@ impl IEnumSTATPROPSTG_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -168,7 +168,7 @@ impl IEnumSTATSTG_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -224,7 +224,7 @@ impl IFillLockBytes_Vtbl {
             this.Terminate(::core::mem::transmute_copy(&bcanceled)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             FillAppend: FillAppend::<Identity, Impl, OFFSET>,
             FillAt: FillAt::<Identity, Impl, OFFSET>,
             SetFillSize: SetFillSize::<Identity, Impl, OFFSET>,
@@ -271,7 +271,7 @@ impl ILayoutStorage_Vtbl {
             this.ReLayoutDocfileOnILockBytes(::core::mem::transmute(&pilockbytes)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             LayoutScript: LayoutScript::<Identity, Impl, OFFSET>,
             BeginMonitor: BeginMonitor::<Identity, Impl, OFFSET>,
             EndMonitor: EndMonitor::<Identity, Impl, OFFSET>,
@@ -340,7 +340,7 @@ impl ILockBytes_Vtbl {
             this.Stat(::core::mem::transmute_copy(&pstatstg), ::core::mem::transmute_copy(&grfstatflag)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ReadAt: ReadAt::<Identity, Impl, OFFSET>,
             WriteAt: WriteAt::<Identity, Impl, OFFSET>,
             Flush: Flush::<Identity, Impl, OFFSET>,
@@ -432,7 +432,7 @@ impl IPropertyBag_Vtbl {
             let this = (*this).get_impl();
             this.Write(::core::mem::transmute(&pszpropname), ::core::mem::transmute_copy(&pvar)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Read: Read::<Identity, Impl, OFFSET>, Write: Write::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Read: Read::<Identity, Impl, OFFSET>, Write: Write::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertyBag as ::windows::core::Interface>::IID
@@ -483,7 +483,7 @@ impl IPropertyBag2_Vtbl {
             this.LoadObject(::core::mem::transmute(&pstrname), ::core::mem::transmute_copy(&dwhint), ::core::mem::transmute(&punkobject), ::core::mem::transmute(&perrlog)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Read: Read::<Identity, Impl, OFFSET>,
             Write: Write::<Identity, Impl, OFFSET>,
             CountProperties: CountProperties::<Identity, Impl, OFFSET>,
@@ -543,7 +543,7 @@ impl IPropertySetStorage_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Create: Create::<Identity, Impl, OFFSET>,
             Open: Open::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
@@ -647,7 +647,7 @@ impl IPropertyStorage_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ReadMultiple: ReadMultiple::<Identity, Impl, OFFSET>,
             WriteMultiple: WriteMultiple::<Identity, Impl, OFFSET>,
             DeleteMultiple: DeleteMultiple::<Identity, Impl, OFFSET>,
@@ -677,7 +677,7 @@ impl IRootStorage_Vtbl {
             let this = (*this).get_impl();
             this.SwitchToFile(::core::mem::transmute(&pszfile)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SwitchToFile: SwitchToFile::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SwitchToFile: SwitchToFile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRootStorage as ::windows::core::Interface>::IID
@@ -800,7 +800,7 @@ impl IStorage_Vtbl {
             this.Stat(::core::mem::transmute_copy(&pstatstg), ::core::mem::transmute_copy(&grfstatflag)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateStream: CreateStream::<Identity, Impl, OFFSET>,
             OpenStream: OpenStream::<Identity, Impl, OFFSET>,
             CreateStorage: CreateStorage::<Identity, Impl, OFFSET>,

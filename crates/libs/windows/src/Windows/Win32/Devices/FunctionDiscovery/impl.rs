@@ -61,7 +61,7 @@ impl IFunctionDiscovery_Vtbl {
             this.RemoveInstance(::core::mem::transmute_copy(&enumsystemvisibility), ::core::mem::transmute(&pszcategory), ::core::mem::transmute(&pszsubcategory), ::core::mem::transmute(&pszcategoryidentity)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetInstanceCollection: GetInstanceCollection::<Identity, Impl, OFFSET>,
             GetInstance: GetInstance::<Identity, Impl, OFFSET>,
             CreateInstanceCollectionQuery: CreateInstanceCollectionQuery::<Identity, Impl, OFFSET>,
@@ -101,7 +101,7 @@ impl IFunctionDiscoveryNotification_Vtbl {
             this.OnEvent(::core::mem::transmute_copy(&dweventid), ::core::mem::transmute_copy(&fdqcquerycontext), ::core::mem::transmute(&pszprovider)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnUpdate: OnUpdate::<Identity, Impl, OFFSET>,
             OnError: OnError::<Identity, Impl, OFFSET>,
             OnEvent: OnEvent::<Identity, Impl, OFFSET>,
@@ -192,7 +192,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
             this.InstanceReleased(::core::mem::transmute(&pifunctioninstance), ::core::mem::transmute_copy(&iproviderinstancecontext)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Query: Query::<Identity, Impl, OFFSET>,
             EndQuery: EndQuery::<Identity, Impl, OFFSET>,
@@ -252,7 +252,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreatePropertyStore: CreatePropertyStore::<Identity, Impl, OFFSET>,
             CreateInstance: CreateInstance::<Identity, Impl, OFFSET>,
             CreateFunctionInstanceCollection: CreateFunctionInstanceCollection::<Identity, Impl, OFFSET>,
@@ -307,7 +307,7 @@ impl IFunctionDiscoveryProviderQuery_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsInstanceQuery: IsInstanceQuery::<Identity, Impl, OFFSET>,
             IsSubcategoryQuery: IsSubcategoryQuery::<Identity, Impl, OFFSET>,
             GetQueryConstraints: GetQueryConstraints::<Identity, Impl, OFFSET>,
@@ -332,7 +332,7 @@ impl IFunctionDiscoveryServiceProvider_Vtbl {
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pifunctioninstance), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFunctionDiscoveryServiceProvider as ::windows::core::Interface>::IID
@@ -469,7 +469,7 @@ impl IFunctionInstanceCollection_Vtbl {
             this.DeleteAll().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             Get: Get::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -516,7 +516,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddQueryConstraint: AddQueryConstraint::<Identity, Impl, OFFSET>,
             AddPropertyConstraint: AddPropertyConstraint::<Identity, Impl, OFFSET>,
             Execute: Execute::<Identity, Impl, OFFSET>,
@@ -546,7 +546,7 @@ impl IFunctionInstanceQuery_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Execute: Execute::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Execute: Execute::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFunctionInstanceQuery as ::windows::core::Interface>::IID
@@ -576,7 +576,7 @@ impl IPNPXAssociation_Vtbl {
             this.Delete(::core::mem::transmute(&pszsubcategory)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Associate: Associate::<Identity, Impl, OFFSET>,
             Unassociate: Unassociate::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
@@ -610,7 +610,7 @@ impl IPNPXDeviceAssociation_Vtbl {
             this.Delete(::core::mem::transmute(&pszsubcategory), ::core::mem::transmute(&pifunctiondiscoverynotification)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Associate: Associate::<Identity, Impl, OFFSET>,
             Unassociate: Unassociate::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
@@ -689,7 +689,7 @@ impl IPropertyStoreCollection_Vtbl {
             this.DeleteAll().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             Get: Get::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -754,7 +754,7 @@ impl IProviderProperties_Vtbl {
             this.SetValue(::core::mem::transmute(&pifunctioninstance), ::core::mem::transmute_copy(&iproviderinstancecontext), ::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&ppropvar)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
@@ -816,7 +816,7 @@ impl IProviderPropertyConstraintCollection_Vtbl {
             this.Reset().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             Get: Get::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,
@@ -856,7 +856,7 @@ impl IProviderPublishing_Vtbl {
             this.RemoveInstance(::core::mem::transmute_copy(&enumvisibilityflags), ::core::mem::transmute(&pszsubcategory), ::core::mem::transmute(&pszproviderinstanceidentity)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateInstance: CreateInstance::<Identity, Impl, OFFSET>,
             RemoveInstance: RemoveInstance::<Identity, Impl, OFFSET>,
         }
@@ -919,7 +919,7 @@ impl IProviderQueryConstraintCollection_Vtbl {
             this.Reset().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             Get: Get::<Identity, Impl, OFFSET>,
             Item: Item::<Identity, Impl, OFFSET>,

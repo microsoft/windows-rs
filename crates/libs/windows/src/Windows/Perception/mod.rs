@@ -14,7 +14,7 @@ unsafe impl ::windows::core::Interface for IPerceptionTimestamp {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestamp_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub TargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -34,7 +34,7 @@ unsafe impl ::windows::core::Interface for IPerceptionTimestamp2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestamp2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub SystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -50,7 +50,7 @@ unsafe impl ::windows::core::Interface for IPerceptionTimestampHelperStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub FromHistoricalTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -66,7 +66,7 @@ unsafe impl ::windows::core::Interface for IPerceptionTimestampHelperStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub FromSystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]

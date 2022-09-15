@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IBattery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBattery_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub RemainingChargePercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub RemainingDischargeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -33,7 +33,7 @@ unsafe impl ::windows::core::Interface for IBatteryStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBatteryStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_Devices_Power\"`*"]

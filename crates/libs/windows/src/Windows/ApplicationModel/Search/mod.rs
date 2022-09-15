@@ -10,7 +10,7 @@ unsafe impl ::windows::core::Interface for ILocalContentSuggestionSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocalContentSuggestionSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
@@ -37,7 +37,7 @@ unsafe impl ::windows::core::Interface for ISearchPane {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPane_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub SetSearchHistoryEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -246,7 +246,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneQueryChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub QueryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -270,7 +270,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneQueryLinguisticDetails {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneQueryLinguisticDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub QueryTextAlternatives: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -291,7 +291,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneQuerySubmittedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneQuerySubmittedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub QueryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -314,7 +314,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneQuerySubmittedEventArgsWit
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub LinguisticDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -333,7 +333,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneResultSuggestionChosenEven
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneResultSuggestionChosenEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Tag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -352,7 +352,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -371,7 +371,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneStaticsWithHideThisApplica
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneStaticsWithHideThisApplication_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub HideThisApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -390,7 +390,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneSuggestionsRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneSuggestionsRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -417,7 +417,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneSuggestionsRequestDeferral
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneSuggestionsRequestDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -436,7 +436,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneSuggestionsRequestedEventA
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneSuggestionsRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -455,7 +455,7 @@ unsafe impl ::windows::core::Interface for ISearchPaneVisibilityChangedEventArgs
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPaneVisibilityChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Visible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -471,7 +471,7 @@ unsafe impl ::windows::core::Interface for ISearchQueryLinguisticDetails {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchQueryLinguisticDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub QueryTextAlternatives: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -489,7 +489,7 @@ unsafe impl ::windows::core::Interface for ISearchQueryLinguisticDetailsFactory 
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchQueryLinguisticDetailsFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querytextalternatives: *mut ::core::ffi::c_void, querytextcompositionstart: u32, querytextcompositionlength: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -505,7 +505,7 @@ unsafe impl ::windows::core::Interface for ISearchSuggestionCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchSuggestionCollection_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub AppendQuerySuggestion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -528,7 +528,7 @@ unsafe impl ::windows::core::Interface for ISearchSuggestionsRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchSuggestionsRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SearchSuggestionCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -543,7 +543,7 @@ unsafe impl ::windows::core::Interface for ISearchSuggestionsRequestDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchSuggestionsRequestDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Search\"`*"]

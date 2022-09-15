@@ -22,15 +22,15 @@ impl IInspectable {
 
 #[doc(hidden)]
 #[repr(C)]
-pub struct IInspectableVtbl {
-    pub base: IUnknownVtbl,
+pub struct IInspectable_Vtbl {
+    pub base: IUnknown_Vtbl,
     pub GetIids: unsafe extern "system" fn(this: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
     pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> HRESULT,
     pub GetTrustLevel: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
 }
 
 unsafe impl Interface for IInspectable {
-    type Vtable = IInspectableVtbl;
+    type Vtable = IInspectable_Vtbl;
 
     const IID: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
 }
@@ -128,7 +128,7 @@ impl core::convert::TryFrom<&IInspectable> for HSTRING {
 }
 
 #[cfg(feature = "implement")]
-impl IInspectableVtbl {
+impl IInspectable_Vtbl {
     pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetIids(_: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> ::windows::core::HRESULT {
             // Note: even if we end up implementing this in future, it still doesn't need a this pointer
@@ -150,6 +150,6 @@ impl IInspectableVtbl {
             *value = 0;
             HRESULT(0)
         }
-        Self { base: IUnknownVtbl::new::<Identity, OFFSET>(), GetIids, GetRuntimeClassName: GetRuntimeClassName::<Name>, GetTrustLevel }
+        Self { base: IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIids, GetRuntimeClassName: GetRuntimeClassName::<Name>, GetTrustLevel }
     }
 }

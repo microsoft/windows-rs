@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for ICurrentSessionChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentSessionChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -20,7 +20,7 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SourceAppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub TryGetMediaPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -123,7 +123,7 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetCurrentSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -156,7 +156,7 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub RequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -172,7 +172,7 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Subtitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AlbumArtist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -203,7 +203,7 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsPlayEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsPauseEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsStopEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -230,7 +230,7 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Controls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PlaybackStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GlobalSystemMediaTransportControlsSessionPlaybackStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -260,7 +260,7 @@ unsafe impl ::windows::core::Interface for IGlobalSystemMediaTransportControlsSe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -296,7 +296,7 @@ unsafe impl ::windows::core::Interface for IMediaPropertiesChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPropertiesChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -308,7 +308,7 @@ unsafe impl ::windows::core::Interface for IPlaybackInfoChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackInfoChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -320,7 +320,7 @@ unsafe impl ::windows::core::Interface for ISessionsChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISessionsChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -332,7 +332,7 @@ unsafe impl ::windows::core::Interface for ITimelinePropertiesChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelinePropertiesChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]

@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for IImageVariableDescriptorPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageVariableDescriptorPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Graphics_Imaging", feature = "deprecated"))]
     pub BitmapPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Graphics_Imaging", feature = "deprecated")))]
@@ -38,7 +38,7 @@ unsafe impl ::windows::core::Interface for IInferencingOptionsPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInferencingOptionsPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub PreferredDeviceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LearningModelDeviceKindPreview) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -93,7 +93,7 @@ unsafe impl ::windows::core::Interface for ILearningModelBindingPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelBindingPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Bind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -120,7 +120,7 @@ unsafe impl ::windows::core::Interface for ILearningModelBindingPreviewFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelBindingPreviewFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CreateFromModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, model: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -139,7 +139,7 @@ unsafe impl ::windows::core::Interface for ILearningModelDescriptionPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelDescriptionPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -186,7 +186,7 @@ unsafe impl ::windows::core::Interface for ILearningModelEvaluationResultPreview
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelEvaluationResultPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -209,7 +209,7 @@ unsafe impl ::windows::core::Interface for ILearningModelPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub EvaluateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *mut ::core::ffi::c_void, correlationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
@@ -244,7 +244,7 @@ unsafe impl ::windows::core::Interface for ILearningModelPreviewStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelPreviewStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
     pub LoadModelFromStorageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelfile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "deprecated")))]
@@ -370,7 +370,7 @@ unsafe impl ::windows::core::Interface for ILearningModelVariableDescriptorPrevi
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelVariableDescriptorPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -401,7 +401,7 @@ unsafe impl ::windows::core::Interface for IMapVariableDescriptorPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapVariableDescriptorPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub KeyKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FeatureElementKindPreview) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -432,7 +432,7 @@ unsafe impl ::windows::core::Interface for ISequenceVariableDescriptorPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISequenceVariableDescriptorPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub ElementType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -451,7 +451,7 @@ unsafe impl ::windows::core::Interface for ITensorVariableDescriptorPreview {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITensorVariableDescriptorPreview_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
     pub DataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FeatureElementKindPreview) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]

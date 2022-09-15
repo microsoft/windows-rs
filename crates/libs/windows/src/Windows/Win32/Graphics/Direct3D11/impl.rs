@@ -368,7 +368,7 @@ impl ID3D11Debug_Vtbl {
             this.ValidateContextForDispatch(::core::mem::transmute(&pcontext)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetFeatureMask: SetFeatureMask::<Identity, Impl, OFFSET>,
             GetFeatureMask: GetFeatureMask::<Identity, Impl, OFFSET>,
             SetPresentPerRenderOpDelay: SetPresentPerRenderOpDelay::<Identity, Impl, OFFSET>,
@@ -835,7 +835,7 @@ impl ID3D11Device_Vtbl {
             this.GetExceptionMode()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateBuffer: CreateBuffer::<Identity, Impl, OFFSET>,
             CreateTexture1D: CreateTexture1D::<Identity, Impl, OFFSET>,
             CreateTexture2D: CreateTexture2D::<Identity, Impl, OFFSET>,
@@ -1258,7 +1258,7 @@ impl ID3D11DeviceChild_Vtbl {
             this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::core::mem::transmute(&pdata)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
@@ -2496,7 +2496,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateModuleInstance: CreateModuleInstance::<Identity, Impl, OFFSET>,
             SetInputSignature: SetInputSignature::<Identity, Impl, OFFSET>,
             SetOutputSignature: SetOutputSignature::<Identity, Impl, OFFSET>,
@@ -2750,7 +2750,7 @@ impl ID3D11InfoQueue_Vtbl {
             this.GetMuteDebugOutput()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetMessageCountLimit: SetMessageCountLimit::<Identity, Impl, OFFSET>,
             ClearStoredMessages: ClearStoredMessages::<Identity, Impl, OFFSET>,
             GetMessage: GetMessage::<Identity, Impl, OFFSET>,
@@ -2826,7 +2826,7 @@ impl ID3D11LibraryReflection_Vtbl {
             this.GetFunctionByIndex(::core::mem::transmute_copy(&functionindex))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             GetFunctionByIndex: GetFunctionByIndex::<Identity, Impl, OFFSET>,
         }
@@ -2862,7 +2862,7 @@ impl ID3D11Linker_Vtbl {
             this.AddClipPlaneFromCBuffer(::core::mem::transmute_copy(&ucbufferslot), ::core::mem::transmute_copy(&ucbufferentry)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Link: Link::<Identity, Impl, OFFSET>,
             UseLibrary: UseLibrary::<Identity, Impl, OFFSET>,
             AddClipPlaneFromCBuffer: AddClipPlaneFromCBuffer::<Identity, Impl, OFFSET>,
@@ -2876,7 +2876,7 @@ pub trait ID3D11LinkingNode_Impl: Sized {}
 impl ::windows::core::RuntimeName for ID3D11LinkingNode {}
 impl ID3D11LinkingNode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11LinkingNode_Impl, const OFFSET: isize>() -> ID3D11LinkingNode_Vtbl {
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D11LinkingNode as ::windows::core::Interface>::IID
@@ -2899,7 +2899,7 @@ impl ID3D11Module_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D11Module as ::windows::core::Interface>::IID
@@ -2971,7 +2971,7 @@ impl ID3D11ModuleInstance_Vtbl {
             this.BindResourceAsUnorderedAccessViewByName(::core::mem::transmute(&psrvname), ::core::mem::transmute_copy(&udstuavslot), ::core::mem::transmute_copy(&ucount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BindConstantBuffer: BindConstantBuffer::<Identity, Impl, OFFSET>,
             BindConstantBufferByName: BindConstantBufferByName::<Identity, Impl, OFFSET>,
             BindResource: BindResource::<Identity, Impl, OFFSET>,
@@ -3021,7 +3021,7 @@ impl ID3D11Multithread_Vtbl {
             this.GetMultithreadProtected()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Enter: Enter::<Identity, Impl, OFFSET>,
             Leave: Leave::<Identity, Impl, OFFSET>,
             SetMultithreadProtected: SetMultithreadProtected::<Identity, Impl, OFFSET>,
@@ -3157,7 +3157,7 @@ impl ID3D11RefDefaultTrackingOptions_Vtbl {
             let this = (*this).get_impl();
             this.SetTrackingOptions(::core::mem::transmute_copy(&resourcetypeflags), ::core::mem::transmute_copy(&options)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetTrackingOptions: SetTrackingOptions::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetTrackingOptions: SetTrackingOptions::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D11RefDefaultTrackingOptions as ::windows::core::Interface>::IID
@@ -3174,7 +3174,7 @@ impl ID3D11RefTrackingOptions_Vtbl {
             let this = (*this).get_impl();
             this.SetTrackingOptions(::core::mem::transmute_copy(&uoptions)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetTrackingOptions: SetTrackingOptions::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetTrackingOptions: SetTrackingOptions::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D11RefTrackingOptions as ::windows::core::Interface>::IID
@@ -3436,7 +3436,7 @@ impl ID3D11ShaderReflection_Vtbl {
             this.GetRequiresFlags()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, Impl, OFFSET>,
             GetConstantBufferByName: GetConstantBufferByName::<Identity, Impl, OFFSET>,
@@ -3583,7 +3583,7 @@ impl ID3D11ShaderTrace_Vtbl {
             this.GetReadRegister(::core::mem::transmute_copy(&stepindex), ::core::mem::transmute_copy(&readregisterindex), ::core::mem::transmute_copy(&pregister), ::core::mem::transmute_copy(&pvalue)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TraceReady: TraceReady::<Identity, Impl, OFFSET>,
             ResetTrace: ResetTrace::<Identity, Impl, OFFSET>,
             GetTraceStats: GetTraceStats::<Identity, Impl, OFFSET>,
@@ -3615,7 +3615,7 @@ impl ID3D11ShaderTraceFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateShaderTrace: CreateShaderTrace::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateShaderTrace: CreateShaderTrace::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D11ShaderTraceFactory as ::windows::core::Interface>::IID
@@ -3642,7 +3642,7 @@ impl ID3D11SwitchToRef_Vtbl {
             this.GetUseRef()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetUseRef: SetUseRef::<Identity, Impl, OFFSET>,
             GetUseRef: GetUseRef::<Identity, Impl, OFFSET>,
         }
@@ -3769,7 +3769,7 @@ impl ID3D11TracingDevice_Vtbl {
             this.SetShaderTrackingOptions(::core::mem::transmute(&pshader), ::core::mem::transmute_copy(&options)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetShaderTrackingOptionsByType: SetShaderTrackingOptionsByType::<Identity, Impl, OFFSET>,
             SetShaderTrackingOptions: SetShaderTrackingOptions::<Identity, Impl, OFFSET>,
         }
@@ -4710,7 +4710,7 @@ impl ID3D11VideoDevice_Vtbl {
             this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::core::mem::transmute(&pdata)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateVideoDecoder: CreateVideoDecoder::<Identity, Impl, OFFSET>,
             CreateVideoProcessor: CreateVideoProcessor::<Identity, Impl, OFFSET>,
             CreateAuthenticatedChannel: CreateAuthenticatedChannel::<Identity, Impl, OFFSET>,
@@ -5067,7 +5067,7 @@ impl ID3DUserDefinedAnnotation_Vtbl {
             this.GetStatus()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginEvent: BeginEvent::<Identity, Impl, OFFSET>,
             EndEvent: EndEvent::<Identity, Impl, OFFSET>,
             SetMarker: SetMarker::<Identity, Impl, OFFSET>,
@@ -5126,7 +5126,7 @@ impl ID3DX11FFT_Vtbl {
             this.InverseTransform(::core::mem::transmute(&pinputbuffer), ::core::mem::transmute_copy(&ppoutputbuffer)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetForwardScale: SetForwardScale::<Identity, Impl, OFFSET>,
             GetForwardScale: GetForwardScale::<Identity, Impl, OFFSET>,
             SetInverseScale: SetInverseScale::<Identity, Impl, OFFSET>,
@@ -5164,7 +5164,7 @@ impl ID3DX11Scan_Vtbl {
             this.Multiscan(::core::mem::transmute_copy(&elementtype), ::core::mem::transmute_copy(&opcode), ::core::mem::transmute_copy(&elementscansize), ::core::mem::transmute_copy(&elementscanpitch), ::core::mem::transmute_copy(&scancount), ::core::mem::transmute(&psrc), ::core::mem::transmute(&pdst)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetScanDirection: SetScanDirection::<Identity, Impl, OFFSET>,
             Scan: Scan::<Identity, Impl, OFFSET>,
             Multiscan: Multiscan::<Identity, Impl, OFFSET>,
@@ -5192,7 +5192,7 @@ impl ID3DX11SegmentedScan_Vtbl {
             this.SegScan(::core::mem::transmute_copy(&elementtype), ::core::mem::transmute_copy(&opcode), ::core::mem::transmute_copy(&elementscansize), ::core::mem::transmute(&psrc), ::core::mem::transmute(&psrcelementflags), ::core::mem::transmute(&pdst)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetScanDirection: SetScanDirection::<Identity, Impl, OFFSET>,
             SegScan: SegScan::<Identity, Impl, OFFSET>,
         }

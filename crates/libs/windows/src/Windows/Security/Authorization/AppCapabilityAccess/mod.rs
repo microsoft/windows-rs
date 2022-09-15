@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IAppCapability {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapability_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CapabilityName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "System")]
     pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -38,7 +38,7 @@ unsafe impl ::windows::core::Interface for IAppCapabilityAccessChangedEventArgs 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -50,7 +50,7 @@ unsafe impl ::windows::core::Interface for IAppCapabilityStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapabilityStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub RequestAccessForCapabilitiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitynames: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]

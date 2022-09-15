@@ -10,7 +10,7 @@ unsafe impl ::windows::core::Interface for IExtendedExecutionRevokedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendedExecutionRevokedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionRevokedReason) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -23,7 +23,7 @@ unsafe impl ::windows::core::Interface for IExtendedExecutionSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendedExecutionSession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionReason) -> ::windows::core::HRESULT,
     pub SetReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ExtendedExecutionReason) -> ::windows::core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,

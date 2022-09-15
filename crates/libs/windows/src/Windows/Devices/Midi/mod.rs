@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IMidiChannelPressureMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiChannelPressureMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Pressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
 }
@@ -22,7 +22,7 @@ unsafe impl ::windows::core::Interface for IMidiChannelPressureMessageFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiChannelPressureMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiChannelPressureMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: u8, pressure: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -35,7 +35,7 @@ unsafe impl ::windows::core::Interface for IMidiControlChangeMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiControlChangeMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Controller: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub ControlValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
@@ -50,7 +50,7 @@ unsafe impl ::windows::core::Interface for IMidiControlChangeMessageFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiControlChangeMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiControlChangeMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: u8, controller: u8, controlvalue: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -63,7 +63,7 @@ unsafe impl ::windows::core::Interface for IMidiInPort {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiInPort_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub MessageReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -84,7 +84,7 @@ unsafe impl ::windows::core::Interface for IMidiInPortStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiInPortStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -181,7 +181,7 @@ unsafe impl ::windows::core::Interface for IMidiMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -202,7 +202,7 @@ unsafe impl ::windows::core::Interface for IMidiMessageReceivedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiMessageReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -215,7 +215,7 @@ unsafe impl ::windows::core::Interface for IMidiNoteOffMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiNoteOffMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Note: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Velocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
@@ -230,7 +230,7 @@ unsafe impl ::windows::core::Interface for IMidiNoteOffMessageFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiNoteOffMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiNoteOffMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: u8, note: u8, velocity: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -243,7 +243,7 @@ unsafe impl ::windows::core::Interface for IMidiNoteOnMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiNoteOnMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Note: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Velocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
@@ -258,7 +258,7 @@ unsafe impl ::windows::core::Interface for IMidiNoteOnMessageFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiNoteOnMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiNoteOnMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: u8, note: u8, velocity: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -379,7 +379,7 @@ unsafe impl ::windows::core::Interface for IMidiOutPort {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiOutPort_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SendMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, midimessage: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub SendBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mididata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -397,7 +397,7 @@ unsafe impl ::windows::core::Interface for IMidiOutPortStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiOutPortStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -414,7 +414,7 @@ unsafe impl ::windows::core::Interface for IMidiPitchBendChangeMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiPitchBendChangeMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Bend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
 }
@@ -428,7 +428,7 @@ unsafe impl ::windows::core::Interface for IMidiPitchBendChangeMessageFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiPitchBendChangeMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiPitchBendChangeMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: u8, bend: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -441,7 +441,7 @@ unsafe impl ::windows::core::Interface for IMidiPolyphonicKeyPressureMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiPolyphonicKeyPressureMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Note: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Pressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
@@ -456,7 +456,7 @@ unsafe impl ::windows::core::Interface for IMidiPolyphonicKeyPressureMessageFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiPolyphonicKeyPressureMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiPolyphonicKeyPressureMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: u8, note: u8, pressure: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -469,7 +469,7 @@ unsafe impl ::windows::core::Interface for IMidiProgramChangeMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiProgramChangeMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Program: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
 }
@@ -483,7 +483,7 @@ unsafe impl ::windows::core::Interface for IMidiProgramChangeMessageFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiProgramChangeMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiProgramChangeMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: u8, program: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -496,7 +496,7 @@ unsafe impl ::windows::core::Interface for IMidiSongPositionPointerMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSongPositionPointerMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Beats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -509,7 +509,7 @@ unsafe impl ::windows::core::Interface for IMidiSongPositionPointerMessageFactor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSongPositionPointerMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiSongPositionPointerMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beats: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -522,7 +522,7 @@ unsafe impl ::windows::core::Interface for IMidiSongSelectMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSongSelectMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Song: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -535,7 +535,7 @@ unsafe impl ::windows::core::Interface for IMidiSongSelectMessageFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSongSelectMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiSongSelectMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, song: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -548,7 +548,7 @@ unsafe impl ::windows::core::Interface for IMidiSynthesizer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSynthesizer_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Enumeration")]
     pub AudioDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Enumeration"))]
@@ -566,7 +566,7 @@ unsafe impl ::windows::core::Interface for IMidiSynthesizerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSynthesizerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -590,7 +590,7 @@ unsafe impl ::windows::core::Interface for IMidiSystemExclusiveMessageFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiSystemExclusiveMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
     pub CreateMidiSystemExclusiveMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rawdata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -606,7 +606,7 @@ unsafe impl ::windows::core::Interface for IMidiTimeCodeMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiTimeCodeMessage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FrameType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub Values: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
 }
@@ -620,7 +620,7 @@ unsafe impl ::windows::core::Interface for IMidiTimeCodeMessageFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMidiTimeCodeMessageFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateMidiTimeCodeMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frametype: u8, values: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_Midi\"`*"]

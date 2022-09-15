@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for ICompositionDebugHeatMaps {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDebugHeatMaps_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Hide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtree: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShowMemoryUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtree: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShowOverdraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtree: *mut ::core::ffi::c_void, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::HRESULT,
@@ -24,7 +24,7 @@ unsafe impl ::windows::core::Interface for ICompositionDebugSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDebugSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub HeatMaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -37,7 +37,7 @@ unsafe impl ::windows::core::Interface for ICompositionDebugSettingsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDebugSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub TryGetSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]

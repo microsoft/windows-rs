@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IDesktopWindowTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDesktopWindowTarget_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsTopmost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]

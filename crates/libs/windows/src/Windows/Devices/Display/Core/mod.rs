@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IDisplayAdapter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayAdapter_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DisplayAdapterId) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
@@ -34,7 +34,7 @@ unsafe impl ::windows::core::Interface for IDisplayAdapterStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayAdapterStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
     pub FromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: super::super::super::Graphics::DisplayAdapterId, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
@@ -50,7 +50,7 @@ unsafe impl ::windows::core::Interface for IDisplayDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayDevice_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateScanoutSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreatePrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, desc: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateTaskPool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -72,7 +72,7 @@ unsafe impl ::windows::core::Interface for IDisplayDevice2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayDevice2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
     pub CreateSimpleScanoutWithDirtyRectsAndOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, surface: *mut ::core::ffi::c_void, subresourceindex: u32, syncinterval: u32, dirtyrects: *mut ::core::ffi::c_void, options: DisplayScanoutOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics")))]
@@ -88,7 +88,7 @@ unsafe impl ::windows::core::Interface for IDisplayFence {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayFence_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -100,7 +100,7 @@ unsafe impl ::windows::core::Interface for IDisplayManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -170,7 +170,7 @@ unsafe impl ::windows::core::Interface for IDisplayManagerChangedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -188,7 +188,7 @@ unsafe impl ::windows::core::Interface for IDisplayManagerDisabledEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerDisabledEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -206,7 +206,7 @@ unsafe impl ::windows::core::Interface for IDisplayManagerEnabledEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerEnabledEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -224,7 +224,7 @@ unsafe impl ::windows::core::Interface for IDisplayManagerPathsFailedOrInvalidat
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -242,7 +242,7 @@ unsafe impl ::windows::core::Interface for IDisplayManagerResultWithState {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerResultWithState_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayManagerResult) -> ::windows::core::HRESULT,
     pub ExtendedErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -257,7 +257,7 @@ unsafe impl ::windows::core::Interface for IDisplayManagerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: DisplayManagerOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -270,7 +270,7 @@ unsafe impl ::windows::core::Interface for IDisplayModeInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayModeInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
     pub SourceResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
@@ -306,7 +306,7 @@ unsafe impl ::windows::core::Interface for IDisplayModeInfo2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayModeInfo2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub PhysicalPresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayPresentationRate) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -322,7 +322,7 @@ unsafe impl ::windows::core::Interface for IDisplayPath {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayPath_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub View: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayPathStatus) -> ::windows::core::HRESULT,
@@ -394,7 +394,7 @@ unsafe impl ::windows::core::Interface for IDisplayPath2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayPath2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
     pub PhysicalPresentationRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -414,7 +414,7 @@ unsafe impl ::windows::core::Interface for IDisplayPrimaryDescription {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayPrimaryDescription_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Graphics_DirectX")]
@@ -445,7 +445,7 @@ unsafe impl ::windows::core::Interface for IDisplayPrimaryDescriptionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
@@ -461,7 +461,7 @@ unsafe impl ::windows::core::Interface for IDisplayPrimaryDescriptionStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
     pub CreateWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extraproperties: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11")))]
@@ -477,7 +477,7 @@ unsafe impl ::windows::core::Interface for IDisplayScanout {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayScanout_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -489,7 +489,7 @@ unsafe impl ::windows::core::Interface for IDisplaySource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplaySource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
     pub AdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DisplayAdapterId) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
@@ -510,7 +510,7 @@ unsafe impl ::windows::core::Interface for IDisplaySource2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplaySource2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplaySourceStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub StatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -531,7 +531,7 @@ unsafe impl ::windows::core::Interface for IDisplayState {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayState_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsStale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -566,7 +566,7 @@ unsafe impl ::windows::core::Interface for IDisplayStateOperationResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayStateOperationResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayStateOperationStatus) -> ::windows::core::HRESULT,
     pub ExtendedErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -580,7 +580,7 @@ unsafe impl ::windows::core::Interface for IDisplaySurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplaySurface_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -592,7 +592,7 @@ unsafe impl ::windows::core::Interface for IDisplayTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayTarget_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Adapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DeviceInterfacePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AdapterRelativeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
@@ -621,7 +621,7 @@ unsafe impl ::windows::core::Interface for IDisplayTask {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayTask_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetScanout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scanout: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetWait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, readyfence: *mut ::core::ffi::c_void, readyfencevalue: u64) -> ::windows::core::HRESULT,
 }
@@ -635,7 +635,7 @@ unsafe impl ::windows::core::Interface for IDisplayTask2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayTask2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetSignal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalkind: DisplayTaskSignalKind, fence: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -648,7 +648,7 @@ unsafe impl ::windows::core::Interface for IDisplayTaskPool {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayTaskPool_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "deprecated")]
     pub ExecuteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, task: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -665,7 +665,7 @@ unsafe impl ::windows::core::Interface for IDisplayTaskPool2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayTaskPool2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub TryExecuteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, task: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -678,7 +678,7 @@ unsafe impl ::windows::core::Interface for IDisplayTaskResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayTaskResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub PresentStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayPresentStatus) -> ::windows::core::HRESULT,
     pub PresentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub SourceStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplaySourceStatus) -> ::windows::core::HRESULT,
@@ -693,7 +693,7 @@ unsafe impl ::windows::core::Interface for IDisplayView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayView_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Paths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -722,7 +722,7 @@ unsafe impl ::windows::core::Interface for IDisplayWireFormat {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayWireFormat_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub PixelEncoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayWireFormatPixelEncoding) -> ::windows::core::HRESULT,
     pub BitsPerChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub ColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayWireFormatColorSpace) -> ::windows::core::HRESULT,
@@ -743,7 +743,7 @@ unsafe impl ::windows::core::Interface for IDisplayWireFormatFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayWireFormatFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -756,7 +756,7 @@ unsafe impl ::windows::core::Interface for IDisplayWireFormatStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayWireFormatStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extraproperties: *mut ::core::ffi::c_void, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]

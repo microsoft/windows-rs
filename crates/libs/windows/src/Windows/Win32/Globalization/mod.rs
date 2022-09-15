@@ -12022,7 +12022,7 @@ unsafe impl ::windows::core::Interface for IComprehensiveSpellCheckProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComprehensiveSpellCheckProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ComprehensiveCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::windows::core::PCWSTR, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -12081,7 +12081,7 @@ unsafe impl ::windows::core::Interface for IEnumCodePage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumCodePage_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12143,7 +12143,7 @@ unsafe impl ::windows::core::Interface for IEnumRfc1766 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumRfc1766_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12205,7 +12205,7 @@ unsafe impl ::windows::core::Interface for IEnumScript {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumScript_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12258,7 +12258,7 @@ unsafe impl ::windows::core::Interface for IEnumSpellingError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSpellingError_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -12319,7 +12319,7 @@ unsafe impl ::windows::core::Interface for IMLangCodePages {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangCodePages_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCharCodePages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chsrc: u16, pdwcodepages: *mut u32) -> ::windows::core::HRESULT,
     pub GetStrCodePages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsrc: ::windows::core::PCWSTR, cchsrc: i32, dwprioritycodepages: u32, pdwcodepages: *mut u32, pcchcodepages: *mut i32) -> ::windows::core::HRESULT,
     pub CodePageToCodePages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucodepage: u32, pdwcodepages: *mut u32) -> ::windows::core::HRESULT,
@@ -12392,7 +12392,7 @@ unsafe impl ::windows::core::Interface for IMLangConvertCharset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangConvertCharset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::HRESULT,
     pub GetSourceCodePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puisrccodepage: *mut u32) -> ::windows::core::HRESULT,
     pub GetDestinationCodePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puidstcodepage: *mut u32) -> ::windows::core::HRESULT,
@@ -12715,7 +12715,7 @@ unsafe impl ::windows::core::Interface for IMLangLineBreakConsole {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangLineBreakConsole_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BreakLineML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrcmlstr: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> ::windows::core::HRESULT,
     pub BreakLineW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, pszsrc: ::windows::core::PCWSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::HRESULT,
     pub BreakLineA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, ucodepage: u32, pszsrc: ::windows::core::PCSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::HRESULT,
@@ -12787,7 +12787,7 @@ unsafe impl ::windows::core::Interface for IMLangString {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangString_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Sync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fnoaccess: super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12979,7 +12979,7 @@ unsafe impl ::windows::core::Interface for IMLangStringBufA {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangStringBufA_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub LockBuf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut super::Foundation::CHAR, pcchbuf: *mut i32) -> ::windows::core::HRESULT,
@@ -13051,7 +13051,7 @@ unsafe impl ::windows::core::Interface for IMLangStringBufW {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLangStringBufW_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows::core::HRESULT,
     pub LockBuf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u16, pcchbuf: *mut i32) -> ::windows::core::HRESULT,
     pub UnlockBuf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuf: ::windows::core::PCWSTR, cchoffset: i32, cchwrite: i32) -> ::windows::core::HRESULT,
@@ -13274,7 +13274,7 @@ unsafe impl ::windows::core::Interface for IMultiLanguage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiLanguage_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNumberOfCodePageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccodepage: *mut u32) -> ::windows::core::HRESULT,
     pub GetCodePageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, pcodepageinfo: *mut MIMECPINFO) -> ::windows::core::HRESULT,
     pub GetFamilyCodePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, puifamilycodepage: *mut u32) -> ::windows::core::HRESULT,
@@ -13454,7 +13454,7 @@ unsafe impl ::windows::core::Interface for IMultiLanguage2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiLanguage2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNumberOfCodePageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccodepage: *mut u32) -> ::windows::core::HRESULT,
     pub GetCodePageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, langid: u16, pcodepageinfo: *mut MIMECPINFO) -> ::windows::core::HRESULT,
     pub GetFamilyCodePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, puifamilycodepage: *mut u32) -> ::windows::core::HRESULT,
@@ -13756,7 +13756,7 @@ unsafe impl ::windows::core::Interface for IOptionDescription {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOptionDescription_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Heading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
@@ -13870,7 +13870,7 @@ unsafe impl ::windows::core::Interface for ISpellCheckProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub LanguageTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Check: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::windows::core::PCWSTR, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -13956,7 +13956,7 @@ unsafe impl ::windows::core::Interface for ISpellCheckProviderFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckProviderFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SupportedLanguages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -14094,7 +14094,7 @@ unsafe impl ::windows::core::Interface for ISpellChecker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellChecker_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub LanguageTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Check: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::windows::core::PCWSTR, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -14316,7 +14316,7 @@ unsafe impl ::windows::core::Interface for ISpellCheckerChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckerChangedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -14384,7 +14384,7 @@ unsafe impl ::windows::core::Interface for ISpellCheckerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckerFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub SupportedLanguages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -14454,7 +14454,7 @@ unsafe impl ::windows::core::Interface for ISpellingError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellingError_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows::core::HRESULT,
     pub CorrectiveAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut CORRECTIVE_ACTION) -> ::windows::core::HRESULT,
@@ -14517,7 +14517,7 @@ unsafe impl ::windows::core::Interface for IUserDictionariesRegistrar {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDictionariesRegistrar_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterUserDictionary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionarypath: ::windows::core::PCWSTR, languagetag: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub UnregisterUserDictionary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionarypath: ::windows::core::PCWSTR, languagetag: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }

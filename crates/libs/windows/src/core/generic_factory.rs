@@ -18,7 +18,7 @@ impl IGenericFactory {
 
 #[repr(C)]
 pub struct IGenericFactory_Vtbl {
-    pub base__: IInspectableVtbl,
+    pub base__: IInspectable_Vtbl,
     pub ActivateInstance: unsafe extern "system" fn(this: *mut std::ffi::c_void, instance: *mut *mut std::ffi::c_void) -> HRESULT,
 }
 

@@ -224,7 +224,7 @@ unsafe impl ::windows::core::Interface for IMXNamespaceManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMXNamespaceManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub putAllowOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, foverride: i16) -> ::windows::core::HRESULT,
     pub getAllowOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, foverride: *mut i16) -> ::windows::core::HRESULT,
     pub reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -925,7 +925,7 @@ unsafe impl ::windows::core::Interface for ISAXAttributes {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXAttributes_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub getLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnlength: *mut i32) -> ::windows::core::HRESULT,
     pub getURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> ::windows::core::HRESULT,
     pub getLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> ::windows::core::HRESULT,
@@ -1050,7 +1050,7 @@ unsafe impl ::windows::core::Interface for ISAXContentHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXContentHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub putDocumentLocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocator: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub startDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub endDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1123,7 +1123,7 @@ unsafe impl ::windows::core::Interface for ISAXDTDHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXDTDHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub notationDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32) -> ::windows::core::HRESULT,
     pub unparsedEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32, pwchnotationname: ::windows::core::PCWSTR, cchnotationname: i32) -> ::windows::core::HRESULT,
 }
@@ -1202,7 +1202,7 @@ unsafe impl ::windows::core::Interface for ISAXDeclHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXDeclHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub elementDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchmodel: ::windows::core::PCWSTR, cchmodel: i32) -> ::windows::core::HRESULT,
     pub attributeDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchelementname: ::windows::core::PCWSTR, cchelementname: i32, pwchattributename: ::windows::core::PCWSTR, cchattributename: i32, pwchtype: ::windows::core::PCWSTR, cchtype: i32, pwchvaluedefault: ::windows::core::PCWSTR, cchvaluedefault: i32, pwchvalue: ::windows::core::PCWSTR, cchvalue: i32) -> ::windows::core::HRESULT,
     pub internalEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchvalue: ::windows::core::PCWSTR, cchvalue: i32) -> ::windows::core::HRESULT,
@@ -1261,7 +1261,7 @@ unsafe impl ::windows::core::Interface for ISAXEntityResolver {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXEntityResolver_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub resolveEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchpublicid: ::windows::core::PCWSTR, pwchsystemid: ::windows::core::PCWSTR, pvarinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -1331,7 +1331,7 @@ unsafe impl ::windows::core::Interface for ISAXErrorHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXErrorHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocator: *mut ::core::ffi::c_void, pwcherrormessage: ::windows::core::PCWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub fatalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocator: *mut ::core::ffi::c_void, pwcherrormessage: ::windows::core::PCWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub ignorableWarning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocator: *mut ::core::ffi::c_void, pwcherrormessage: ::windows::core::PCWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -1414,7 +1414,7 @@ unsafe impl ::windows::core::Interface for ISAXLexicalHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXLexicalHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub startDTD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32, pwchpublicid: ::windows::core::PCWSTR, cchpublicid: i32, pwchsystemid: ::windows::core::PCWSTR, cchsystemid: i32) -> ::windows::core::HRESULT,
     pub endDTD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub startEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, cchname: i32) -> ::windows::core::HRESULT,
@@ -1482,7 +1482,7 @@ unsafe impl ::windows::core::Interface for ISAXLocator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXLocator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub getColumnNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pncolumn: *mut i32) -> ::windows::core::HRESULT,
     pub getLineNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnline: *mut i32) -> ::windows::core::HRESULT,
     pub getPublicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwchpublicid: *mut *mut u16) -> ::windows::core::HRESULT,
@@ -1813,7 +1813,7 @@ unsafe impl ::windows::core::Interface for ISAXXMLReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISAXXMLReader_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub getFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, pvfvalue: *mut i16) -> ::windows::core::HRESULT,
     pub putFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, vfvalue: i16) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14070,7 +14070,7 @@ unsafe impl ::windows::core::Interface for IXMLError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLError_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorreturn: *mut XML_ERROR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -14363,7 +14363,7 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszmethod: ::windows::core::PCWSTR, pwszurl: ::windows::core::PCWSTR, pstatuscallback: *mut ::core::ffi::c_void, pwszusername: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR, pwszproxyusername: ::windows::core::PCWSTR, pwszproxypassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *mut ::core::ffi::c_void, cbbody: u64) -> ::windows::core::HRESULT,
@@ -14468,7 +14468,7 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest2Callback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXMLHTTPRequest2Callback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxhr: *mut ::core::ffi::c_void, pwszredirecturl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub OnHeadersAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxhr: *mut ::core::ffi::c_void, dwstatus: u32, pwszstatus: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]

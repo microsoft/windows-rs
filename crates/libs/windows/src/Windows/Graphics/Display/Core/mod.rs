@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IHdmiDisplayInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetSupportedDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -49,7 +49,7 @@ unsafe impl ::windows::core::Interface for IHdmiDisplayInformationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -62,7 +62,7 @@ unsafe impl ::windows::core::Interface for IHdmiDisplayMode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayMode_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ResolutionWidthInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub ResolutionHeightInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub RefreshRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -85,7 +85,7 @@ unsafe impl ::windows::core::Interface for IHdmiDisplayMode2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdmiDisplayMode2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsDolbyVisionLowLatencySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]

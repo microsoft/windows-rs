@@ -1555,7 +1555,7 @@ unsafe impl ::windows::core::Interface for IAccIdentity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccIdentity_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetIdentityString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1606,7 +1606,7 @@ unsafe impl ::windows::core::Interface for IAccPropServer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccPropServer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetPropValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -1768,7 +1768,7 @@ unsafe impl ::windows::core::Interface for IAccPropServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccPropServices_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub SetPropValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, var: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2210,7 +2210,7 @@ unsafe impl ::windows::core::Interface for IAccessibleEx {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleEx_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetObjectForChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idchild: i32, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetIAccessiblePair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppacc: *mut *mut ::core::ffi::c_void, pidchild: *mut i32) -> ::windows::core::HRESULT,
@@ -2271,7 +2271,7 @@ unsafe impl ::windows::core::Interface for IAccessibleHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub AccessibleObjectFromID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: i32, lobjectid: i32, piaccessible: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2333,7 +2333,7 @@ unsafe impl ::windows::core::Interface for IAccessibleHostingElementProviders {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleHostingElementProviders_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetEmbeddedFragmentRoots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2411,7 +2411,7 @@ unsafe impl ::windows::core::Interface for IAccessibleWindowlessSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleWindowlessSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AcquireObjectIdRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangesize: i32, prangeowner: *mut ::core::ffi::c_void, prangebase: *mut i32) -> ::windows::core::HRESULT,
     pub ReleaseObjectIdRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangebase: i32, prangeowner: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -2486,7 +2486,7 @@ unsafe impl ::windows::core::Interface for IAnnotationProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnnotationProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AnnotationTypeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub AnnotationTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -2540,7 +2540,7 @@ unsafe impl ::windows::core::Interface for ICustomNavigationProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICustomNavigationProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Navigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -2593,7 +2593,7 @@ unsafe impl ::windows::core::Interface for IDockProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDockProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetDockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dockposition: DockPosition) -> ::windows::core::HRESULT,
     pub DockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut DockPosition) -> ::windows::core::HRESULT,
 }
@@ -2662,7 +2662,7 @@ unsafe impl ::windows::core::Interface for IDragProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDragProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsGrabbed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2730,7 +2730,7 @@ unsafe impl ::windows::core::Interface for IDropTargetProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTargetProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub DropTargetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub DropTargetEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -2790,7 +2790,7 @@ unsafe impl ::windows::core::Interface for IExpandCollapseProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExpandCollapseProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Expand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Collapse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ExpandCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ExpandCollapseState) -> ::windows::core::HRESULT,
@@ -2858,7 +2858,7 @@ unsafe impl ::windows::core::Interface for IGridItemProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridItemProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Row: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
     pub Column: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
     pub RowSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
@@ -2920,7 +2920,7 @@ unsafe impl ::windows::core::Interface for IGridProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGridProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RowCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
     pub ColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
@@ -2971,7 +2971,7 @@ unsafe impl ::windows::core::Interface for IInvokeProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInvokeProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -3027,7 +3027,7 @@ unsafe impl ::windows::core::Interface for IItemContainerProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemContainerProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3136,7 +3136,7 @@ unsafe impl ::windows::core::Interface for ILegacyIAccessibleProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILegacyIAccessibleProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Select: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flagsselect: i32) -> ::windows::core::HRESULT,
     pub DoDefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -3218,7 +3218,7 @@ unsafe impl ::windows::core::Interface for IMultipleViewProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultipleViewProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetViewName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewid: i32, pretval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewid: i32) -> ::windows::core::HRESULT,
     pub CurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
@@ -3274,7 +3274,7 @@ unsafe impl ::windows::core::Interface for IObjectModelProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectModelProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetUnderlyingObjectModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -3329,7 +3329,7 @@ unsafe impl ::windows::core::Interface for IProxyProviderWinEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProxyProviderWinEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RespondToWinEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3401,7 +3401,7 @@ unsafe impl ::windows::core::Interface for IProxyProviderWinEventSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProxyProviderWinEventSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AddAutomationPropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, id: i32, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3484,7 +3484,7 @@ unsafe impl ::windows::core::Interface for IRangeValueProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRangeValueProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: f64) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3549,7 +3549,7 @@ unsafe impl ::windows::core::Interface for IRawElementProviderAdviseEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderAdviseEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub AdviseEventAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3629,7 +3629,7 @@ unsafe impl ::windows::core::Interface for IRawElementProviderFragment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderFragment_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Navigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetRuntimeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -3694,7 +3694,7 @@ unsafe impl ::windows::core::Interface for IRawElementProviderFragmentRoot {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderFragmentRoot_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ElementProviderFromPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f64, y: f64, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3747,7 +3747,7 @@ unsafe impl ::windows::core::Interface for IRawElementProviderHostingAccessibles
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderHostingAccessibles_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetEmbeddedAccessibles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3805,7 +3805,7 @@ unsafe impl ::windows::core::Interface for IRawElementProviderHwndOverride {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderHwndOverride_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetOverrideProviderForHwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3872,7 +3872,7 @@ unsafe impl ::windows::core::Interface for IRawElementProviderSimple {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderSimple_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ProviderOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ProviderOptions) -> ::windows::core::HRESULT,
     pub GetPatternProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: i32, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4122,7 +4122,7 @@ unsafe impl ::windows::core::Interface for IRawElementProviderWindowlessSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawElementProviderWindowlessSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetAdjacentFragment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: NavigateDirection, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetRuntimeIdPrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -4178,7 +4178,7 @@ unsafe impl ::windows::core::Interface for IRichEditUiaInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditUiaInformation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetBoundaryRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiarect: *mut UiaRect) -> ::windows::core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4232,7 +4232,7 @@ unsafe impl ::windows::core::Interface for IRicheditWindowlessAccessibility {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRicheditWindowlessAccessibility_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psite: *mut ::core::ffi::c_void, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -4281,7 +4281,7 @@ unsafe impl ::windows::core::Interface for IScrollItemProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollItemProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ScrollIntoView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -4361,7 +4361,7 @@ unsafe impl ::windows::core::Interface for IScrollProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScrollProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Scroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT,
     pub SetScrollPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT,
     pub HorizontalScrollPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows::core::HRESULT,
@@ -4439,7 +4439,7 @@ unsafe impl ::windows::core::Interface for ISelectionItemProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionItemProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Select: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddToSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveFromSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4510,7 +4510,7 @@ unsafe impl ::windows::core::Interface for ISelectionProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectionProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4681,7 +4681,7 @@ unsafe impl ::windows::core::Interface for ISpreadsheetItemProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpreadsheetItemProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Formula: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetAnnotationObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -4742,7 +4742,7 @@ unsafe impl ::windows::core::Interface for ISpreadsheetProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpreadsheetProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -4816,7 +4816,7 @@ unsafe impl ::windows::core::Interface for IStylesProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylesProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StyleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub StyleName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub FillColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -4874,7 +4874,7 @@ unsafe impl ::windows::core::Interface for ISynchronizedInputProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISynchronizedInputProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartListening: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4933,7 +4933,7 @@ unsafe impl ::windows::core::Interface for ITableItemProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableItemProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetRowHeaderItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5002,7 +5002,7 @@ unsafe impl ::windows::core::Interface for ITableProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetRowHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5064,7 +5064,7 @@ unsafe impl ::windows::core::Interface for ITextChildProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextChildProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub TextContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TextRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5243,7 +5243,7 @@ unsafe impl ::windows::core::Interface for ITextProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5508,7 +5508,7 @@ unsafe impl ::windows::core::Interface for ITextRangeProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRangeProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, range: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -5763,7 +5763,7 @@ unsafe impl ::windows::core::Interface for IToggleProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToggleProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Toggle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ToggleState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ToggleState) -> ::windows::core::HRESULT,
 }
@@ -5837,7 +5837,7 @@ unsafe impl ::windows::core::Interface for ITransformProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransformProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f64, y: f64) -> ::windows::core::HRESULT,
     pub Resize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: f64, height: f64) -> ::windows::core::HRESULT,
     pub Rotate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, degrees: f64) -> ::windows::core::HRESULT,
@@ -6366,7 +6366,7 @@ unsafe impl ::windows::core::Interface for IUIAutomation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CompareElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, el1: *mut ::core::ffi::c_void, el2: *mut ::core::ffi::c_void, aresame: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9080,7 +9080,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationActiveTextPositionChange
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub HandleActiveTextPositionChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, range: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -9245,7 +9245,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationAnnotationPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationAnnotationPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CurrentAnnotationTypeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentAnnotationTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentAuthor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -9404,7 +9404,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationCacheRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationCacheRequest_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32) -> ::windows::core::HRESULT,
     pub AddPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: i32) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clonedrequest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9466,7 +9466,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationChangesEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationChangesEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub HandleChangesEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9514,7 +9514,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationCondition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationCondition_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -9563,7 +9563,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationCustomNavigationPattern 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationCustomNavigationPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Navigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -9620,7 +9620,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationDockPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationDockPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetDockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dockpos: DockPosition) -> ::windows::core::HRESULT,
     pub CurrentDockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut DockPosition) -> ::windows::core::HRESULT,
     pub CachedDockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut DockPosition) -> ::windows::core::HRESULT,
@@ -9708,7 +9708,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationDragPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationDragPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CurrentIsGrabbed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9793,7 +9793,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationDropTargetPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationDropTargetPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CurrentDropTargetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CachedDropTargetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -10259,7 +10259,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationElement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationElement_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetRuntimeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, runtimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -15580,7 +15580,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationElementArray {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationElementArray_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT,
     pub GetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, element: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -15633,7 +15633,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub HandleAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventid: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -15728,7 +15728,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationEventHandlerGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationEventHandlerGroup_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddActiveTextPositionChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddAutomationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: i32, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddChangesEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -15794,7 +15794,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationExpandCollapsePattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationExpandCollapsePattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Expand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Collapse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CurrentExpandCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ExpandCollapseState) -> ::windows::core::HRESULT,
@@ -15849,7 +15849,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationFocusChangedEventHandler
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationFocusChangedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub HandleFocusChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -15935,7 +15935,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationGridItemPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationGridItemPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CurrentContainingGrid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CurrentRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -16010,7 +16010,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationGridPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationGridPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, element: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CurrentRowCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -16063,7 +16063,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationInvokePattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationInvokePattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -16119,7 +16119,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationItemContainerPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationItemContainerPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -16266,7 +16266,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationLegacyIAccessiblePattern
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationLegacyIAccessiblePattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Select: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flagsselect: i32) -> ::windows::core::HRESULT,
     pub DoDefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -16365,7 +16365,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationMultipleViewPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationMultipleViewPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetViewName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, view: i32, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, view: i32) -> ::windows::core::HRESULT,
     pub CurrentCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -16493,7 +16493,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationNotificationEventHandler
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationNotificationEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub HandleNotificationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, activityid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -16543,7 +16543,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationObjectModelPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationObjectModelPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetUnderlyingObjectModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -16681,7 +16681,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationPatternHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationPatternHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateClientWrapper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppatterninstance: *mut ::core::ffi::c_void, pclientwrapper: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Dispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::HRESULT,
 }
@@ -16739,7 +16739,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationPatternInstance {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationPatternInstance_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -16798,7 +16798,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationPropertyChangedEventHand
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub HandlePropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, propertyid: i32, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -16940,7 +16940,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationProxyFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationProxyFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, provider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -17067,7 +17067,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationProxyFactoryEntry {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationProxyFactoryEntry_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ProxyFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ClassName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub ImageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -17188,7 +17188,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationProxyFactoryMapping {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationProxyFactoryMapping_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, table: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -17306,7 +17306,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationRangeValuePattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationRangeValuePattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: f64) -> ::windows::core::HRESULT,
     pub CurrentValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -17383,7 +17383,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationRegistrar {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationRegistrar_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: *const UIAutomationPropertyInfo, propertyid: *mut i32) -> ::windows::core::HRESULT,
     pub RegisterEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *const UIAutomationEventInfo, eventid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -17437,7 +17437,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationScrollItemPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationScrollItemPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ScrollIntoView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -17545,7 +17545,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationScrollPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationScrollPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Scroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT,
     pub SetScrollPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT,
     pub CurrentHorizontalScrollPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT,
@@ -17645,7 +17645,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationSelectionItemPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSelectionItemPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Select: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddToSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveFromSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -17735,7 +17735,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationSelectionPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSelectionPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCurrentSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CurrentCanSelectMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -17958,7 +17958,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationSpreadsheetItemPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSpreadsheetItemPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CurrentFormula: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetCurrentAnnotationObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -18019,7 +18019,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationSpreadsheetPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSpreadsheetPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, element: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -18073,7 +18073,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationStructureChangedEventHan
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationStructureChangedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub HandleStructureChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -18184,7 +18184,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationStylesPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationStylesPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CurrentStyleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentStyleName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentFillColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -18251,7 +18251,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationSynchronizedInputPattern
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationSynchronizedInputPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartListening: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -18314,7 +18314,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTableItemPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTableItemPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCurrentRowHeaderItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentColumnHeaderItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCachedRowHeaderItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -18387,7 +18387,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTablePattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTablePattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCurrentRowHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentColumnHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CurrentRowOrColumnMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut RowOrColumnMajor) -> ::windows::core::HRESULT,
@@ -18446,7 +18446,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTextChildPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextChildPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub TextContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, container: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TextRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, range: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -18600,7 +18600,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTextEditTextChangedEvent
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextEditTextChangedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub HandleTextEditTextChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -18678,7 +18678,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTextPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RangeFromPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pt: super::super::Foundation::POINT, range: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -18936,7 +18936,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTextRange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextRange_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clonedrange: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, range: *mut ::core::ffi::c_void, aresame: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -19389,7 +19389,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTextRangeArray {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTextRangeArray_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT,
     pub GetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, element: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -19447,7 +19447,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTogglePattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTogglePattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Toggle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CurrentToggleState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ToggleState) -> ::windows::core::HRESULT,
     pub CachedToggleState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ToggleState) -> ::windows::core::HRESULT,
@@ -19540,7 +19540,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTransformPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTransformPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f64, y: f64) -> ::windows::core::HRESULT,
     pub Resize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: f64, height: f64) -> ::windows::core::HRESULT,
     pub Rotate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, degrees: f64) -> ::windows::core::HRESULT,
@@ -19869,7 +19869,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationTreeWalker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationTreeWalker_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetParentElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, parent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFirstChildElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, first: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetLastChildElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, last: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -19950,7 +19950,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationValuePattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationValuePattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -20009,7 +20009,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationVirtualizedItemPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationVirtualizedItemPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Realize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -20131,7 +20131,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationWindowPattern {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAutomationWindowPattern_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub WaitForInputIdle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, milliseconds: i32, success: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -20234,7 +20234,7 @@ unsafe impl ::windows::core::Interface for IValueProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValueProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -20288,7 +20288,7 @@ unsafe impl ::windows::core::Interface for IVirtualizedItemProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVirtualizedItemProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Realize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -20378,7 +20378,7 @@ unsafe impl ::windows::core::Interface for IWindowProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetVisualState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: WindowVisualState) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]

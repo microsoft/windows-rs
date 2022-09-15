@@ -44,7 +44,7 @@ impl IAppointmentParticipant_Vtbl {
             this.SetAddress(::core::mem::transmute(&value)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAppointmentParticipant, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAppointmentParticipant, OFFSET>(),
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
             Address: Address::<Identity, Impl, OFFSET>,

@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IMdmAllowPolicyStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmAllowPolicyStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsBrowserAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsCameraAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsMicrosoftAccountAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -24,7 +24,7 @@ unsafe impl ::windows::core::Interface for IMdmPolicyStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmPolicyStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetMessagingSyncPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MessagingSyncPolicy) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -37,7 +37,7 @@ unsafe impl ::windows::core::Interface for IWorkplaceSettingsStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkplaceSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsMicrosoftAccountOptional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Management_Workplace\"`*"]

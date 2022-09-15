@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTri
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Advertisement::BluetoothLEAdvertisementPublisherStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
@@ -25,7 +25,7 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementPublisherTri
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub SelectedTransmitPowerLevelInDBm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -41,7 +41,7 @@ unsafe impl ::windows::core::Interface for IBluetoothLEAdvertisementWatcherTrigg
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Devices_Bluetooth_Advertisement", feature = "Foundation_Collections"))]
     pub Advertisements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -59,7 +59,7 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigge
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub Characteristic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
@@ -79,7 +79,7 @@ unsafe impl ::windows::core::Interface for IGattCharacteristicNotificationTrigge
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerDetails2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows::core::HRESULT,
     pub EventTriggeringMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BluetoothEventTriggeringMode) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections"))]
@@ -97,7 +97,7 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderConnection_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub TriggerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub Service: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -115,7 +115,7 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderConnectionStatics
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderConnectionStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub AllServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -131,7 +131,7 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderTriggerDetails {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTriggerDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -144,7 +144,7 @@ unsafe impl ::windows::core::Interface for IRfcommConnectionTriggerDetails {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommConnectionTriggerDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Networking_Sockets")]
     pub Socket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))]
@@ -162,7 +162,7 @@ unsafe impl ::windows::core::Interface for IRfcommInboundConnectionInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommInboundConnectionInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
     pub SdpRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -192,7 +192,7 @@ unsafe impl ::windows::core::Interface for IRfcommOutboundConnectionInformation 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommOutboundConnectionInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub RemoteServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Rfcomm"))]

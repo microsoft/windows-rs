@@ -55,7 +55,7 @@ impl IAccClientDocMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDocuments: GetDocuments::<Identity, Impl, OFFSET>,
             LookupByHWND: LookupByHWND::<Identity, Impl, OFFSET>,
             LookupByPoint: LookupByPoint::<Identity, Impl, OFFSET>,
@@ -123,7 +123,7 @@ impl IAccDictionary_Vtbl {
             this.ConvertValueToString(::core::mem::transmute_copy(&term), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute(&varvalue), ::core::mem::transmute_copy(&pbstrresult), ::core::mem::transmute_copy(&plcid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLocalizedString: GetLocalizedString::<Identity, Impl, OFFSET>,
             GetParentTerm: GetParentTerm::<Identity, Impl, OFFSET>,
             GetMnemonicString: GetMnemonicString::<Identity, Impl, OFFSET>,
@@ -159,7 +159,7 @@ impl IAccServerDocMgr_Vtbl {
             this.OnDocumentFocus(::core::mem::transmute(&punk)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             NewDocument: NewDocument::<Identity, Impl, OFFSET>,
             RevokeDocument: RevokeDocument::<Identity, Impl, OFFSET>,
             OnDocumentFocus: OnDocumentFocus::<Identity, Impl, OFFSET>,
@@ -244,7 +244,7 @@ impl IAccStore_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Register: Register::<Identity, Impl, OFFSET>,
             Unregister: Unregister::<Identity, Impl, OFFSET>,
             GetDocuments: GetDocuments::<Identity, Impl, OFFSET>,
@@ -369,7 +369,7 @@ impl IAnchor_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetGravity: SetGravity::<Identity, Impl, OFFSET>,
             GetGravity: GetGravity::<Identity, Impl, OFFSET>,
             IsEqual: IsEqual::<Identity, Impl, OFFSET>,
@@ -398,7 +398,7 @@ impl IClonableWrapper_Vtbl {
             let this = (*this).get_impl();
             this.CloneNewWrapper(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CloneNewWrapper: CloneNewWrapper::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CloneNewWrapper: CloneNewWrapper::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IClonableWrapper as ::windows::core::Interface>::IID
@@ -418,7 +418,7 @@ impl ICoCreateLocally_Vtbl {
             let this = (*this).get_impl();
             this.CoCreateLocally(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&dwclscontext), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&punk), ::core::mem::transmute_copy(&riidparam), ::core::mem::transmute(&punkparam), ::core::mem::transmute(&varparam)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CoCreateLocally: CoCreateLocally::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CoCreateLocally: CoCreateLocally::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoCreateLocally as ::windows::core::Interface>::IID
@@ -438,7 +438,7 @@ impl ICoCreatedLocally_Vtbl {
             let this = (*this).get_impl();
             this.LocalInit(::core::mem::transmute(&punklocalobject), ::core::mem::transmute_copy(&riidparam), ::core::mem::transmute(&punkparam), ::core::mem::transmute(&varparam)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LocalInit: LocalInit::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LocalInit: LocalInit::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICoCreatedLocally as ::windows::core::Interface>::IID
@@ -468,7 +468,7 @@ impl IDocWrap_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetDoc: SetDoc::<Identity, Impl, OFFSET>,
             GetWrappedDoc: GetWrappedDoc::<Identity, Impl, OFFSET>,
         }
@@ -513,7 +513,7 @@ impl IEnumITfCompositionView_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -560,7 +560,7 @@ impl IEnumSpeechCommands_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -607,7 +607,7 @@ impl IEnumTfCandidates_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -654,7 +654,7 @@ impl IEnumTfContextViews_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -701,7 +701,7 @@ impl IEnumTfContexts_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -748,7 +748,7 @@ impl IEnumTfDisplayAttributeInfo_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -795,7 +795,7 @@ impl IEnumTfDocumentMgrs_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -842,7 +842,7 @@ impl IEnumTfFunctionProviders_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -889,7 +889,7 @@ impl IEnumTfInputProcessorProfiles_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -936,7 +936,7 @@ impl IEnumTfLangBarItems_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -986,7 +986,7 @@ impl IEnumTfLanguageProfiles_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1033,7 +1033,7 @@ impl IEnumTfLatticeElements_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1080,7 +1080,7 @@ impl IEnumTfProperties_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1130,7 +1130,7 @@ impl IEnumTfPropertyValue_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1177,7 +1177,7 @@ impl IEnumTfRanges_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1224,7 +1224,7 @@ impl IEnumTfUIElements_Vtbl {
             this.Skip(::core::mem::transmute_copy(&ulcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1246,7 +1246,7 @@ impl IInternalDocWrap_Vtbl {
             let this = (*this).get_impl();
             this.NotifyRevoke().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NotifyRevoke: NotifyRevoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyRevoke: NotifyRevoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInternalDocWrap as ::windows::core::Interface>::IID
@@ -1276,7 +1276,7 @@ impl ISpeechCommandProvider_Vtbl {
             this.ProcessCommand(::core::mem::transmute(&pszcommand), ::core::mem::transmute_copy(&cch), ::core::mem::transmute_copy(&langid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnumSpeechCommands: EnumSpeechCommands::<Identity, Impl, OFFSET>,
             ProcessCommand: ProcessCommand::<Identity, Impl, OFFSET>,
         }
@@ -1522,7 +1522,7 @@ impl ITextStoreACP_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseSink: AdviseSink::<Identity, Impl, OFFSET>,
             UnadviseSink: UnadviseSink::<Identity, Impl, OFFSET>,
             RequestLock: RequestLock::<Identity, Impl, OFFSET>,
@@ -1780,7 +1780,7 @@ impl ITextStoreACP2_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseSink: AdviseSink::<Identity, Impl, OFFSET>,
             UnadviseSink: UnadviseSink::<Identity, Impl, OFFSET>,
             RequestLock: RequestLock::<Identity, Impl, OFFSET>,
@@ -1826,7 +1826,7 @@ impl ITextStoreACPEx_Vtbl {
             let this = (*this).get_impl();
             this.ScrollToRect(::core::mem::transmute_copy(&acpstart), ::core::mem::transmute_copy(&acpend), ::core::mem::transmute(&rc), ::core::mem::transmute_copy(&dwposition)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ScrollToRect: ScrollToRect::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollToRect: ScrollToRect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextStoreACPEx as ::windows::core::Interface>::IID
@@ -1871,7 +1871,7 @@ impl ITextStoreACPServices_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Serialize: Serialize::<Identity, Impl, OFFSET>,
             Unserialize: Unserialize::<Identity, Impl, OFFSET>,
             ForceLoadProperty: ForceLoadProperty::<Identity, Impl, OFFSET>,
@@ -1936,7 +1936,7 @@ impl ITextStoreACPSink_Vtbl {
             this.OnEndEditTransaction().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnTextChange: OnTextChange::<Identity, Impl, OFFSET>,
             OnSelectionChange: OnSelectionChange::<Identity, Impl, OFFSET>,
             OnLayoutChange: OnLayoutChange::<Identity, Impl, OFFSET>,
@@ -2205,7 +2205,7 @@ impl ITextStoreAnchor_Vtbl {
             this.InsertEmbeddedAtSelection(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pdataobject), ::core::mem::transmute_copy(&ppastart), ::core::mem::transmute_copy(&ppaend)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseSink: AdviseSink::<Identity, Impl, OFFSET>,
             UnadviseSink: UnadviseSink::<Identity, Impl, OFFSET>,
             RequestLock: RequestLock::<Identity, Impl, OFFSET>,
@@ -2253,7 +2253,7 @@ impl ITextStoreAnchorEx_Vtbl {
             let this = (*this).get_impl();
             this.ScrollToRect(::core::mem::transmute(&pstart), ::core::mem::transmute(&pend), ::core::mem::transmute(&rc), ::core::mem::transmute_copy(&dwposition)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ScrollToRect: ScrollToRect::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollToRect: ScrollToRect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextStoreAnchorEx as ::windows::core::Interface>::IID
@@ -2313,7 +2313,7 @@ impl ITextStoreAnchorSink_Vtbl {
             this.OnEndEditTransaction().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnTextChange: OnTextChange::<Identity, Impl, OFFSET>,
             OnSelectionChange: OnSelectionChange::<Identity, Impl, OFFSET>,
             OnLayoutChange: OnLayoutChange::<Identity, Impl, OFFSET>,
@@ -2359,7 +2359,7 @@ impl ITfActiveLanguageProfileNotifySink_Vtbl {
             let this = (*this).get_impl();
             this.OnActivated(::core::mem::transmute_copy(&clsid), ::core::mem::transmute_copy(&guidprofile), ::core::mem::transmute_copy(&factivated)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnActivated: OnActivated::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivated: OnActivated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfActiveLanguageProfileNotifySink as ::windows::core::Interface>::IID
@@ -2413,7 +2413,7 @@ impl ITfCandidateList_Vtbl {
             this.SetResult(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&imcr)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnumCandidates: EnumCandidates::<Identity, Impl, OFFSET>,
             GetCandidate: GetCandidate::<Identity, Impl, OFFSET>,
             GetCandidateNum: GetCandidateNum::<Identity, Impl, OFFSET>,
@@ -2599,7 +2599,7 @@ impl ITfCandidateString_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetString: GetString::<Identity, Impl, OFFSET>,
             GetIndex: GetIndex::<Identity, Impl, OFFSET>,
         }
@@ -2743,7 +2743,7 @@ impl ITfCategoryMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterCategory: RegisterCategory::<Identity, Impl, OFFSET>,
             UnregisterCategory: UnregisterCategory::<Identity, Impl, OFFSET>,
             EnumCategoriesInItem: EnumCategoriesInItem::<Identity, Impl, OFFSET>,
@@ -2782,7 +2782,7 @@ impl ITfCleanupContextDurationSink_Vtbl {
             this.OnEndCleanupContext().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStartCleanupContext: OnStartCleanupContext::<Identity, Impl, OFFSET>,
             OnEndCleanupContext: OnEndCleanupContext::<Identity, Impl, OFFSET>,
         }
@@ -2802,7 +2802,7 @@ impl ITfCleanupContextSink_Vtbl {
             let this = (*this).get_impl();
             this.OnCleanupContext(::core::mem::transmute_copy(&ecwrite), ::core::mem::transmute(&pic)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnCleanupContext: OnCleanupContext::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCleanupContext: OnCleanupContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfCleanupContextSink as ::windows::core::Interface>::IID
@@ -2825,7 +2825,7 @@ impl ITfClientId_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetClientId: GetClientId::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetClientId: GetClientId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfClientId as ::windows::core::Interface>::IID
@@ -2858,7 +2858,7 @@ impl ITfCompartment_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
         }
@@ -2878,7 +2878,7 @@ impl ITfCompartmentEventSink_Vtbl {
             let this = (*this).get_impl();
             this.OnChange(::core::mem::transmute_copy(&rguid)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfCompartmentEventSink as ::windows::core::Interface>::IID
@@ -2923,7 +2923,7 @@ impl ITfCompartmentMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCompartment: GetCompartment::<Identity, Impl, OFFSET>,
             ClearCompartment: ClearCompartment::<Identity, Impl, OFFSET>,
             EnumCompartments: EnumCompartments::<Identity, Impl, OFFSET>,
@@ -2969,7 +2969,7 @@ impl ITfComposition_Vtbl {
             this.EndComposition(::core::mem::transmute_copy(&ecwrite)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRange: GetRange::<Identity, Impl, OFFSET>,
             ShiftStart: ShiftStart::<Identity, Impl, OFFSET>,
             ShiftEnd: ShiftEnd::<Identity, Impl, OFFSET>,
@@ -2991,7 +2991,7 @@ impl ITfCompositionSink_Vtbl {
             let this = (*this).get_impl();
             this.OnCompositionTerminated(::core::mem::transmute_copy(&ecwrite), ::core::mem::transmute(&pcomposition)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnCompositionTerminated: OnCompositionTerminated::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCompositionTerminated: OnCompositionTerminated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfCompositionSink as ::windows::core::Interface>::IID
@@ -3027,7 +3027,7 @@ impl ITfCompositionView_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetOwnerClsid: GetOwnerClsid::<Identity, Impl, OFFSET>,
             GetRange: GetRange::<Identity, Impl, OFFSET>,
         }
@@ -3054,7 +3054,7 @@ impl ITfConfigureSystemKeystrokeFeed_Vtbl {
             this.EnableSystemKeystrokeFeed().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             DisableSystemKeystrokeFeed: DisableSystemKeystrokeFeed::<Identity, Impl, OFFSET>,
             EnableSystemKeystrokeFeed: EnableSystemKeystrokeFeed::<Identity, Impl, OFFSET>,
         }
@@ -3240,7 +3240,7 @@ impl ITfContext_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RequestEditSession: RequestEditSession::<Identity, Impl, OFFSET>,
             InWriteSession: InWriteSession::<Identity, Impl, OFFSET>,
             GetSelection: GetSelection::<Identity, Impl, OFFSET>,
@@ -3316,7 +3316,7 @@ impl ITfContextComposition_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             StartComposition: StartComposition::<Identity, Impl, OFFSET>,
             EnumCompositions: EnumCompositions::<Identity, Impl, OFFSET>,
             FindComposition: FindComposition::<Identity, Impl, OFFSET>,
@@ -3384,7 +3384,7 @@ impl ITfContextKeyEventSink_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnKeyDown: OnKeyDown::<Identity, Impl, OFFSET>,
             OnKeyUp: OnKeyUp::<Identity, Impl, OFFSET>,
             OnTestKeyDown: OnTestKeyDown::<Identity, Impl, OFFSET>,
@@ -3470,7 +3470,7 @@ impl ITfContextOwner_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetACPFromPoint: GetACPFromPoint::<Identity, Impl, OFFSET>,
             GetTextExt: GetTextExt::<Identity, Impl, OFFSET>,
             GetScreenExt: GetScreenExt::<Identity, Impl, OFFSET>,
@@ -3533,7 +3533,7 @@ impl ITfContextOwnerCompositionSink_Vtbl {
             this.OnEndComposition(::core::mem::transmute(&pcomposition)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStartComposition: OnStartComposition::<Identity, Impl, OFFSET>,
             OnUpdateComposition: OnUpdateComposition::<Identity, Impl, OFFSET>,
             OnEndComposition: OnEndComposition::<Identity, Impl, OFFSET>,
@@ -3600,7 +3600,7 @@ impl ITfContextOwnerServices_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnLayoutChange: OnLayoutChange::<Identity, Impl, OFFSET>,
             OnStatusChange: OnStatusChange::<Identity, Impl, OFFSET>,
             OnAttributeChange: OnAttributeChange::<Identity, Impl, OFFSET>,
@@ -3665,7 +3665,7 @@ impl ITfContextView_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRangeFromPoint: GetRangeFromPoint::<Identity, Impl, OFFSET>,
             GetTextExt: GetTextExt::<Identity, Impl, OFFSET>,
             GetScreenExt: GetScreenExt::<Identity, Impl, OFFSET>,
@@ -3709,7 +3709,7 @@ impl ITfCreatePropertyStore_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsStoreSerializable: IsStoreSerializable::<Identity, Impl, OFFSET>,
             CreatePropertyStore: CreatePropertyStore::<Identity, Impl, OFFSET>,
         }
@@ -3775,7 +3775,7 @@ impl ITfDisplayAttributeInfo_Vtbl {
             this.Reset().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetGUID: GetGUID::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             GetAttributeInfo: GetAttributeInfo::<Identity, Impl, OFFSET>,
@@ -3817,7 +3817,7 @@ impl ITfDisplayAttributeMgr_Vtbl {
             this.GetDisplayAttributeInfo(::core::mem::transmute_copy(&guid), ::core::mem::transmute_copy(&ppinfo), ::core::mem::transmute_copy(&pclsidowner)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnUpdateInfo: OnUpdateInfo::<Identity, Impl, OFFSET>,
             EnumDisplayAttributeInfo: EnumDisplayAttributeInfo::<Identity, Impl, OFFSET>,
             GetDisplayAttributeInfo: GetDisplayAttributeInfo::<Identity, Impl, OFFSET>,
@@ -3838,7 +3838,7 @@ impl ITfDisplayAttributeNotifySink_Vtbl {
             let this = (*this).get_impl();
             this.OnUpdateInfo().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUpdateInfo: OnUpdateInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUpdateInfo: OnUpdateInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfDisplayAttributeNotifySink as ::windows::core::Interface>::IID
@@ -3874,7 +3874,7 @@ impl ITfDisplayAttributeProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnumDisplayAttributeInfo: EnumDisplayAttributeInfo::<Identity, Impl, OFFSET>,
             GetDisplayAttributeInfo: GetDisplayAttributeInfo::<Identity, Impl, OFFSET>,
         }
@@ -3943,7 +3943,7 @@ impl ITfDocumentMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateContext: CreateContext::<Identity, Impl, OFFSET>,
             Push: Push::<Identity, Impl, OFFSET>,
             Pop: Pop::<Identity, Impl, OFFSET>,
@@ -3989,7 +3989,7 @@ impl ITfEditRecord_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSelectionStatus: GetSelectionStatus::<Identity, Impl, OFFSET>,
             GetTextAndPropertyUpdates: GetTextAndPropertyUpdates::<Identity, Impl, OFFSET>,
         }
@@ -4009,7 +4009,7 @@ impl ITfEditSession_Vtbl {
             let this = (*this).get_impl();
             this.DoEditSession(::core::mem::transmute_copy(&ec)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DoEditSession: DoEditSession::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoEditSession: DoEditSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfEditSession as ::windows::core::Interface>::IID
@@ -4033,7 +4033,7 @@ impl ITfEditTransactionSink_Vtbl {
             this.OnEndEditTransaction(::core::mem::transmute(&pic)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStartEditTransaction: OnStartEditTransaction::<Identity, Impl, OFFSET>,
             OnEndEditTransaction: OnEndEditTransaction::<Identity, Impl, OFFSET>,
         }
@@ -4080,7 +4080,7 @@ impl ITfFnBalloon_Vtbl {
             let this = (*this).get_impl();
             this.UpdateBalloon(::core::mem::transmute_copy(&style), ::core::mem::transmute(&pch), ::core::mem::transmute_copy(&cch)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), UpdateBalloon: UpdateBalloon::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UpdateBalloon: UpdateBalloon::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfFnBalloon as ::windows::core::Interface>::IID
@@ -4541,7 +4541,7 @@ impl ITfFunction_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfFunction as ::windows::core::Interface>::IID
@@ -4589,7 +4589,7 @@ impl ITfFunctionProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetType: GetType::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             GetFunction: GetFunction::<Identity, Impl, OFFSET>,
@@ -4610,7 +4610,7 @@ impl ITfInputProcessorProfileActivationSink_Vtbl {
             let this = (*this).get_impl();
             this.OnActivated(::core::mem::transmute_copy(&dwprofiletype), ::core::mem::transmute_copy(&langid), ::core::mem::transmute_copy(&clsid), ::core::mem::transmute_copy(&catid), ::core::mem::transmute_copy(&guidprofile), ::core::mem::transmute_copy(&hkl), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnActivated: OnActivated::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivated: OnActivated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfInputProcessorProfileActivationSink as ::windows::core::Interface>::IID
@@ -4705,7 +4705,7 @@ impl ITfInputProcessorProfileMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ActivateProfile: ActivateProfile::<Identity, Impl, OFFSET>,
             DeactivateProfile: DeactivateProfile::<Identity, Impl, OFFSET>,
             GetProfile: GetProfile::<Identity, Impl, OFFSET>,
@@ -4738,7 +4738,7 @@ impl ITfInputProcessorProfileSubstituteLayout_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSubstituteKeyboardLayout: GetSubstituteKeyboardLayout::<Identity, Impl, OFFSET>,
         }
     }
@@ -4893,7 +4893,7 @@ impl ITfInputProcessorProfiles_Vtbl {
             this.SubstituteKeyboardLayout(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&langid), ::core::mem::transmute_copy(&guidprofile), ::core::mem::transmute_copy(&hkl)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Register: Register::<Identity, Impl, OFFSET>,
             Unregister: Unregister::<Identity, Impl, OFFSET>,
             AddLanguageProfile: AddLanguageProfile::<Identity, Impl, OFFSET>,
@@ -4995,7 +4995,7 @@ impl ITfInputScope_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetInputScopes: GetInputScopes::<Identity, Impl, OFFSET>,
             GetPhrase: GetPhrase::<Identity, Impl, OFFSET>,
             GetRegularExpression: GetRegularExpression::<Identity, Impl, OFFSET>,
@@ -5066,7 +5066,7 @@ impl ITfInsertAtSelection_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             InsertTextAtSelection: InsertTextAtSelection::<Identity, Impl, OFFSET>,
             InsertEmbeddedAtSelection: InsertEmbeddedAtSelection::<Identity, Impl, OFFSET>,
         }
@@ -5132,7 +5132,7 @@ impl ITfIntegratableCandidateListUIElement_Vtbl {
             this.FinalizeExactCompositionString().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetIntegrationStyle: SetIntegrationStyle::<Identity, Impl, OFFSET>,
             GetSelectionStyle: GetSelectionStyle::<Identity, Impl, OFFSET>,
             OnKeyDown: OnKeyDown::<Identity, Impl, OFFSET>,
@@ -5219,7 +5219,7 @@ impl ITfKeyEventSink_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnSetFocus: OnSetFocus::<Identity, Impl, OFFSET>,
             OnTestKeyDown: OnTestKeyDown::<Identity, Impl, OFFSET>,
             OnTestKeyUp: OnTestKeyUp::<Identity, Impl, OFFSET>,
@@ -5253,7 +5253,7 @@ impl ITfKeyTraceEventSink_Vtbl {
             this.OnKeyTraceUp(::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnKeyTraceDown: OnKeyTraceDown::<Identity, Impl, OFFSET>,
             OnKeyTraceUp: OnKeyTraceUp::<Identity, Impl, OFFSET>,
         }
@@ -5409,7 +5409,7 @@ impl ITfKeystrokeMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseKeyEventSink: AdviseKeyEventSink::<Identity, Impl, OFFSET>,
             UnadviseKeyEventSink: UnadviseKeyEventSink::<Identity, Impl, OFFSET>,
             GetForeground: GetForeground::<Identity, Impl, OFFSET>,
@@ -5463,7 +5463,7 @@ impl ITfLMLattice_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             QueryType: QueryType::<Identity, Impl, OFFSET>,
             EnumLatticeElements: EnumLatticeElements::<Identity, Impl, OFFSET>,
         }
@@ -5523,7 +5523,7 @@ impl ITfLangBarEventSink_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnSetFocus: OnSetFocus::<Identity, Impl, OFFSET>,
             OnThreadTerminate: OnThreadTerminate::<Identity, Impl, OFFSET>,
             OnThreadItemChange: OnThreadItemChange::<Identity, Impl, OFFSET>,
@@ -5587,7 +5587,7 @@ impl ITfLangBarItem_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetInfo: GetInfo::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             Show: Show::<Identity, Impl, OFFSET>,
@@ -5928,7 +5928,7 @@ impl ITfLangBarItemMgr_Vtbl {
             this.UnadviseItemsSink(::core::mem::transmute_copy(&ulcount), ::core::mem::transmute_copy(&pdwcookie)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnumItems: EnumItems::<Identity, Impl, OFFSET>,
             GetItem: GetItem::<Identity, Impl, OFFSET>,
             AddItem: AddItem::<Identity, Impl, OFFSET>,
@@ -5958,7 +5958,7 @@ impl ITfLangBarItemSink_Vtbl {
             let this = (*this).get_impl();
             this.OnUpdate(::core::mem::transmute_copy(&dwflags)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUpdate: OnUpdate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUpdate: OnUpdate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfLangBarItemSink as ::windows::core::Interface>::IID
@@ -6039,7 +6039,7 @@ impl ITfLangBarMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseEventSink: AdviseEventSink::<Identity, Impl, OFFSET>,
             UnadviseEventSink: UnadviseEventSink::<Identity, Impl, OFFSET>,
             GetThreadMarshalInterface: GetThreadMarshalInterface::<Identity, Impl, OFFSET>,
@@ -6082,7 +6082,7 @@ impl ITfLanguageProfileNotifySink_Vtbl {
             this.OnLanguageChanged().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnLanguageChange: OnLanguageChange::<Identity, Impl, OFFSET>,
             OnLanguageChanged: OnLanguageChanged::<Identity, Impl, OFFSET>,
         }
@@ -6109,7 +6109,7 @@ impl ITfMSAAControl_Vtbl {
             this.SystemDisableMSAA().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SystemEnableMSAA: SystemEnableMSAA::<Identity, Impl, OFFSET>,
             SystemDisableMSAA: SystemDisableMSAA::<Identity, Impl, OFFSET>,
         }
@@ -6132,7 +6132,7 @@ impl ITfMenu_Vtbl {
             let this = (*this).get_impl();
             this.AddMenuItem(::core::mem::transmute_copy(&uid), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&hbmp), ::core::mem::transmute_copy(&hbmpmask), ::core::mem::transmute(&pch), ::core::mem::transmute_copy(&cch), ::core::mem::transmute_copy(&ppmenu)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddMenuItem: AddMenuItem::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddMenuItem: AddMenuItem::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfMenu as ::windows::core::Interface>::IID
@@ -6171,7 +6171,7 @@ impl ITfMessagePump_Vtbl {
             this.GetMessageW(::core::mem::transmute_copy(&pmsg), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&wmsgfiltermin), ::core::mem::transmute_copy(&wmsgfiltermax), ::core::mem::transmute_copy(&pfresult)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             PeekMessageA: PeekMessageA::<Identity, Impl, OFFSET>,
             GetMessageA: GetMessageA::<Identity, Impl, OFFSET>,
             PeekMessageW: PeekMessageW::<Identity, Impl, OFFSET>,
@@ -6202,7 +6202,7 @@ impl ITfMouseSink_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnMouseEvent: OnMouseEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnMouseEvent: OnMouseEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfMouseSink as ::windows::core::Interface>::IID
@@ -6232,7 +6232,7 @@ impl ITfMouseTracker_Vtbl {
             this.UnadviseMouseSink(::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseMouseSink: AdviseMouseSink::<Identity, Impl, OFFSET>,
             UnadviseMouseSink: UnadviseMouseSink::<Identity, Impl, OFFSET>,
         }
@@ -6265,7 +6265,7 @@ impl ITfMouseTrackerACP_Vtbl {
             this.UnadviseMouseSink(::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseMouseSink: AdviseMouseSink::<Identity, Impl, OFFSET>,
             UnadviseMouseSink: UnadviseMouseSink::<Identity, Impl, OFFSET>,
         }
@@ -6294,7 +6294,7 @@ impl ITfPersistentPropertyLoaderACP_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LoadProperty: LoadProperty::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadProperty: LoadProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfPersistentPropertyLoaderACP as ::windows::core::Interface>::IID
@@ -6311,7 +6311,7 @@ impl ITfPreservedKeyNotifySink_Vtbl {
             let this = (*this).get_impl();
             this.OnUpdated(::core::mem::transmute_copy(&pprekey)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUpdated: OnUpdated::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUpdated: OnUpdated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfPreservedKeyNotifySink as ::windows::core::Interface>::IID
@@ -6478,7 +6478,7 @@ impl ITfPropertyStore_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetType: GetType::<Identity, Impl, OFFSET>,
             GetDataType: GetDataType::<Identity, Impl, OFFSET>,
             GetData: GetData::<Identity, Impl, OFFSET>,
@@ -6514,7 +6514,7 @@ impl ITfQueryEmbedded_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), QueryInsertEmbedded: QueryInsertEmbedded::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryInsertEmbedded: QueryInsertEmbedded::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfQueryEmbedded as ::windows::core::Interface>::IID
@@ -6733,7 +6733,7 @@ impl ITfRange_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetText: GetText::<Identity, Impl, OFFSET>,
             SetText: SetText::<Identity, Impl, OFFSET>,
             GetFormattedText: GetFormattedText::<Identity, Impl, OFFSET>,
@@ -6803,7 +6803,7 @@ impl ITfRangeBackup_Vtbl {
             let this = (*this).get_impl();
             this.Restore(::core::mem::transmute_copy(&ec), ::core::mem::transmute(&prange)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Restore: Restore::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Restore: Restore::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfRangeBackup as ::windows::core::Interface>::IID
@@ -6860,7 +6860,7 @@ impl ITfReadOnlyProperty_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetType: GetType::<Identity, Impl, OFFSET>,
             EnumRanges: EnumRanges::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
@@ -6982,7 +6982,7 @@ impl ITfReverseConversion_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DoReverseConversion: DoReverseConversion::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoReverseConversion: DoReverseConversion::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfReverseConversion as ::windows::core::Interface>::IID
@@ -7018,7 +7018,7 @@ impl ITfReverseConversionList_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLength: GetLength::<Identity, Impl, OFFSET>,
             GetString: GetString::<Identity, Impl, OFFSET>,
         }
@@ -7044,7 +7044,7 @@ impl ITfReverseConversionMgr_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetReverseConversion: GetReverseConversion::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetReverseConversion: GetReverseConversion::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfReverseConversionMgr as ::windows::core::Interface>::IID
@@ -7074,7 +7074,7 @@ impl ITfSource_Vtbl {
             this.UnadviseSink(::core::mem::transmute_copy(&dwcookie)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseSink: AdviseSink::<Identity, Impl, OFFSET>,
             UnadviseSink: UnadviseSink::<Identity, Impl, OFFSET>,
         }
@@ -7101,7 +7101,7 @@ impl ITfSourceSingle_Vtbl {
             this.UnadviseSingleSink(::core::mem::transmute_copy(&tid), ::core::mem::transmute_copy(&riid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseSingleSink: AdviseSingleSink::<Identity, Impl, OFFSET>,
             UnadviseSingleSink: UnadviseSingleSink::<Identity, Impl, OFFSET>,
         }
@@ -7137,7 +7137,7 @@ impl ITfSpeechUIServer_Vtbl {
             this.UpdateBalloon(::core::mem::transmute_copy(&style), ::core::mem::transmute(&pch), ::core::mem::transmute_copy(&cch)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ShowUI: ShowUI::<Identity, Impl, OFFSET>,
             UpdateBalloon: UpdateBalloon::<Identity, Impl, OFFSET>,
@@ -7158,7 +7158,7 @@ impl ITfStatusSink_Vtbl {
             let this = (*this).get_impl();
             this.OnStatusChange(::core::mem::transmute(&pic), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnStatusChange: OnStatusChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnStatusChange: OnStatusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfStatusSink as ::windows::core::Interface>::IID
@@ -7188,7 +7188,7 @@ impl ITfSystemDeviceTypeLangBarItem_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetIconMode: SetIconMode::<Identity, Impl, OFFSET>,
             GetIconMode: GetIconMode::<Identity, Impl, OFFSET>,
         }
@@ -7218,7 +7218,7 @@ impl ITfSystemLangBarItem_Vtbl {
             this.SetTooltipString(::core::mem::transmute(&pchtooltip), ::core::mem::transmute_copy(&cch)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetIcon: SetIcon::<Identity, Impl, OFFSET>,
             SetTooltipString: SetTooltipString::<Identity, Impl, OFFSET>,
         }
@@ -7245,7 +7245,7 @@ impl ITfSystemLangBarItemSink_Vtbl {
             this.OnMenuSelect(::core::mem::transmute_copy(&wid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             InitMenu: InitMenu::<Identity, Impl, OFFSET>,
             OnMenuSelect: OnMenuSelect::<Identity, Impl, OFFSET>,
         }
@@ -7278,7 +7278,7 @@ impl ITfSystemLangBarItemText_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetItemText: SetItemText::<Identity, Impl, OFFSET>,
             GetItemText: GetItemText::<Identity, Impl, OFFSET>,
         }
@@ -7298,7 +7298,7 @@ impl ITfTextEditSink_Vtbl {
             let this = (*this).get_impl();
             this.OnEndEdit(::core::mem::transmute(&pic), ::core::mem::transmute_copy(&ecreadonly), ::core::mem::transmute(&peditrecord)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnEndEdit: OnEndEdit::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEndEdit: OnEndEdit::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfTextEditSink as ::windows::core::Interface>::IID
@@ -7322,7 +7322,7 @@ impl ITfTextInputProcessor_Vtbl {
             this.Deactivate().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Activate: Activate::<Identity, Impl, OFFSET>,
             Deactivate: Deactivate::<Identity, Impl, OFFSET>,
         }
@@ -7359,7 +7359,7 @@ impl ITfTextLayoutSink_Vtbl {
             let this = (*this).get_impl();
             this.OnLayoutChange(::core::mem::transmute(&pic), ::core::mem::transmute_copy(&lcode), ::core::mem::transmute(&pview)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnLayoutChange: OnLayoutChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnLayoutChange: OnLayoutChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITfTextLayoutSink as ::windows::core::Interface>::IID
@@ -7383,7 +7383,7 @@ impl ITfThreadFocusSink_Vtbl {
             this.OnKillThreadFocus().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnSetThreadFocus: OnSetThreadFocus::<Identity, Impl, OFFSET>,
             OnKillThreadFocus: OnKillThreadFocus::<Identity, Impl, OFFSET>,
         }
@@ -7521,7 +7521,7 @@ impl ITfThreadMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Activate: Activate::<Identity, Impl, OFFSET>,
             Deactivate: Deactivate::<Identity, Impl, OFFSET>,
             CreateDocumentMgr: CreateDocumentMgr::<Identity, Impl, OFFSET>,
@@ -7686,7 +7686,7 @@ impl ITfThreadMgr2_Vtbl {
             this.ResumeKeystrokeHandling().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Activate: Activate::<Identity, Impl, OFFSET>,
             Deactivate: Deactivate::<Identity, Impl, OFFSET>,
             CreateDocumentMgr: CreateDocumentMgr::<Identity, Impl, OFFSET>,
@@ -7743,7 +7743,7 @@ impl ITfThreadMgrEventSink_Vtbl {
             this.OnPopContext(::core::mem::transmute(&pic)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnInitDocumentMgr: OnInitDocumentMgr::<Identity, Impl, OFFSET>,
             OnUninitDocumentMgr: OnUninitDocumentMgr::<Identity, Impl, OFFSET>,
             OnSetFocus: OnSetFocus::<Identity, Impl, OFFSET>,
@@ -7838,7 +7838,7 @@ impl ITfTransitoryExtensionSink_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnTransitoryExtensionUpdated: OnTransitoryExtensionUpdated::<Identity, Impl, OFFSET>,
         }
     }
@@ -7923,7 +7923,7 @@ impl ITfUIElement_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             GetGUID: GetGUID::<Identity, Impl, OFFSET>,
             Show: Show::<Identity, Impl, OFFSET>,
@@ -7985,7 +7985,7 @@ impl ITfUIElementMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginUIElement: BeginUIElement::<Identity, Impl, OFFSET>,
             UpdateUIElement: UpdateUIElement::<Identity, Impl, OFFSET>,
             EndUIElement: EndUIElement::<Identity, Impl, OFFSET>,
@@ -8024,7 +8024,7 @@ impl ITfUIElementSink_Vtbl {
             this.EndUIElement(::core::mem::transmute_copy(&dwuielementid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginUIElement: BeginUIElement::<Identity, Impl, OFFSET>,
             UpdateUIElement: UpdateUIElement::<Identity, Impl, OFFSET>,
             EndUIElement: EndUIElement::<Identity, Impl, OFFSET>,
@@ -8079,7 +8079,7 @@ impl IUIManagerEventSink_Vtbl {
             this.OnWindowClosed().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnWindowOpening: OnWindowOpening::<Identity, Impl, OFFSET>,
             OnWindowOpened: OnWindowOpened::<Identity, Impl, OFFSET>,
             OnWindowUpdating: OnWindowUpdating::<Identity, Impl, OFFSET>,
@@ -8152,7 +8152,7 @@ impl IVersionInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSubcomponentCount: GetSubcomponentCount::<Identity, Impl, OFFSET>,
             GetImplementationID: GetImplementationID::<Identity, Impl, OFFSET>,
             GetBuildVersion: GetBuildVersion::<Identity, Impl, OFFSET>,

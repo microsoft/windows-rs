@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for ISoundLevelBrokerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISoundLevelBrokerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SoundLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::SoundLevel) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub SoundLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,

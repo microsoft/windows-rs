@@ -170,7 +170,7 @@ unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesAggregateProvider_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Adc_Provider")]
     pub AdcControllerProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Adc_Provider"))]
@@ -202,7 +202,7 @@ unsafe impl ::windows::core::Interface for ILowLevelDevicesAggregateProviderFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesAggregateProviderFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adc: *mut ::core::ffi::c_void, pwm: *mut ::core::ffi::c_void, gpio: *mut ::core::ffi::c_void, i2c: *mut ::core::ffi::c_void, spi: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider")))]
@@ -218,7 +218,7 @@ unsafe impl ::windows::core::Interface for ILowLevelDevicesController {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesController_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -230,7 +230,7 @@ unsafe impl ::windows::core::Interface for ILowLevelDevicesControllerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesControllerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DefaultProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetDefaultProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

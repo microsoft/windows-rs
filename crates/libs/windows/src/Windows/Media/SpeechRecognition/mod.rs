@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for ISpeechContinuousRecognitionCompleted
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechContinuousRecognitionCompletedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionResultStatus) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -21,7 +21,7 @@ unsafe impl ::windows::core::Interface for ISpeechContinuousRecognitionResultGen
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechContinuousRecognitionResultGeneratedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -34,7 +34,7 @@ unsafe impl ::windows::core::Interface for ISpeechContinuousRecognitionSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechContinuousRecognitionSession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub AutoStopSilenceTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -91,7 +91,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionCompilationResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionCompilationResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionResultStatus) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -199,7 +199,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionConstraint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionConstraint_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub Tag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -218,7 +218,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionGrammarFileConstrai
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionGrammarFileConstraint_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
     pub GrammarFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))]
@@ -234,7 +234,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionGrammarFileConstrai
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionGrammarFileConstraintFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))]
@@ -254,7 +254,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionHypothesis {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionHypothesis_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -267,7 +267,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionHypothesisGenerated
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionHypothesisGeneratedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Hypothesis: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -280,7 +280,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionListConstraint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionListConstraint_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Commands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -296,7 +296,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionListConstraintFacto
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionListConstraintFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commands: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -316,7 +316,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionQualityDegradingEve
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionQualityDegradingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Problem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionAudioProblem) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -329,7 +329,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionResultStatus) -> ::windows::core::HRESULT,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Confidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionConfidence) -> ::windows::core::HRESULT,
@@ -355,7 +355,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionResult2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionResult2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub PhraseStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -375,7 +375,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionSemanticInterpretat
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionSemanticInterpretation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -391,7 +391,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionTopicConstraint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionTopicConstraint_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Scenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionScenario) -> ::windows::core::HRESULT,
     pub TopicHint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -405,7 +405,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionTopicConstraintFact
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionTopicConstraintFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenario: SpeechRecognitionScenario, topichint: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateWithTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenario: SpeechRecognitionScenario, topichint: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, tag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -419,7 +419,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognitionVoiceCommandDefinit
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionVoiceCommandDefinitionConstraint_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -431,7 +431,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizer_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Globalization")]
     pub CurrentLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
@@ -481,7 +481,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizer2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizer2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ContinuousRecognitionSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognizerState) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -507,7 +507,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Globalization")]
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
@@ -523,7 +523,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerStateChangedEventArg
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerStateChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognizerState) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -536,7 +536,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Globalization")]
     pub SystemSpeechLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
@@ -560,7 +560,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "Globalization"))]
     pub TrySetSystemSpeechLanguageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, speechlanguage: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Globalization")))]
@@ -576,7 +576,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerTimeouts {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerTimeouts_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub InitialSilenceTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -612,7 +612,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecognizerUIOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerUIOptions_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ExampleText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetExampleText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AudiblePrompt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -632,7 +632,7 @@ unsafe impl ::windows::core::Interface for IVoiceCommandManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub InstallCommandSetsFromStorageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
@@ -652,7 +652,7 @@ unsafe impl ::windows::core::Interface for IVoiceCommandSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandSet_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]

@@ -8,7 +8,7 @@ unsafe impl ::windows::core::Interface for IClass {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClass_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Int32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const i32, b_array_size: u32, b: *mut i32, c_array_size: *mut u32, c: *mut *mut i32, result_size__: *mut u32, result__: *mut *mut i32) -> ::windows::core::HRESULT,
@@ -167,7 +167,7 @@ impl IClass_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IClass, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),
             Property: Property::<Identity, Impl, OFFSET>,
             SetProperty: SetProperty::<Identity, Impl, OFFSET>,
             Int32Array: Int32Array::<Identity, Impl, OFFSET>,

@@ -73,14 +73,14 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         #[repr(C)]
         struct #impl_ident<#(#generics,)*> where #constraints {
             base: ::core::option::Option<::windows::core::IInspectable>,
-            identity: *const ::windows::core::IInspectableVtbl,
+            identity: *const ::windows::core::IInspectable_Vtbl,
             vtables: (#(*const #vtbl_idents,)*),
             this: #original_ident::<#(#generics,)*>,
             count: ::windows::core::WeakRefCount,
         }
         impl <#constraints> #impl_ident::<#(#generics,)*> {
             const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
-            const IDENTITY: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl::new::<Self, #identity_type, -1>();
+            const IDENTITY: ::windows::core::IInspectable_Vtbl = ::windows::core::IInspectable_Vtbl::new::<Self, #identity_type, -1>();
             fn new(this: #original_ident::<#(#generics,)*>) -> Self {
                 Self {
                     base: ::core::option::Option::None,

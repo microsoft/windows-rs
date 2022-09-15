@@ -203,7 +203,7 @@ impl IWICBitmapCodecProgressNotification_Vtbl {
             this.RegisterProgressNotification(::core::mem::transmute(&pfnprogressnotification), ::core::mem::transmute_copy(&pvdata), ::core::mem::transmute_copy(&dwprogressflags)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterProgressNotification: RegisterProgressNotification::<Identity, Impl, OFFSET>,
         }
     }
@@ -334,7 +334,7 @@ impl IWICBitmapDecoder_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             QueryCapability: QueryCapability::<Identity, Impl, OFFSET>,
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetContainerFormat: GetContainerFormat::<Identity, Impl, OFFSET>,
@@ -488,7 +488,7 @@ impl IWICBitmapEncoder_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetContainerFormat: GetContainerFormat::<Identity, Impl, OFFSET>,
             GetEncoderInfo: GetEncoderInfo::<Identity, Impl, OFFSET>,
@@ -675,7 +675,7 @@ impl IWICBitmapFrameEncode_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             SetSize: SetSize::<Identity, Impl, OFFSET>,
             SetResolution: SetResolution::<Identity, Impl, OFFSET>,
@@ -735,7 +735,7 @@ impl IWICBitmapLock_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSize: GetSize::<Identity, Impl, OFFSET>,
             GetStride: GetStride::<Identity, Impl, OFFSET>,
             GetDataPointer: GetDataPointer::<Identity, Impl, OFFSET>,
@@ -805,7 +805,7 @@ impl IWICBitmapSource_Vtbl {
             this.CopyPixels(::core::mem::transmute_copy(&prc), ::core::mem::transmute_copy(&cbstride), ::core::mem::transmute_copy(&cbbuffersize), ::core::mem::transmute_copy(&pbbuffer)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSize: GetSize::<Identity, Impl, OFFSET>,
             GetPixelFormat: GetPixelFormat::<Identity, Impl, OFFSET>,
             GetResolution: GetResolution::<Identity, Impl, OFFSET>,
@@ -856,7 +856,7 @@ impl IWICBitmapSourceTransform_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CopyPixels: CopyPixels::<Identity, Impl, OFFSET>,
             GetClosestSize: GetClosestSize::<Identity, Impl, OFFSET>,
             GetClosestPixelFormat: GetClosestPixelFormat::<Identity, Impl, OFFSET>,
@@ -921,7 +921,7 @@ impl IWICColorContext_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             InitializeFromFilename: InitializeFromFilename::<Identity, Impl, OFFSET>,
             InitializeFromMemory: InitializeFromMemory::<Identity, Impl, OFFSET>,
             InitializeFromExifColorSpace: InitializeFromExifColorSpace::<Identity, Impl, OFFSET>,
@@ -1136,7 +1136,7 @@ impl IWICComponentInfo_Vtbl {
             this.GetFriendlyName(::core::mem::transmute_copy(&cchfriendlyname), ::core::mem::transmute(&wzfriendlyname), ::core::mem::transmute_copy(&pcchactual)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetComponentType: GetComponentType::<Identity, Impl, OFFSET>,
             GetCLSID: GetCLSID::<Identity, Impl, OFFSET>,
             GetSigningStatus: GetSigningStatus::<Identity, Impl, OFFSET>,
@@ -1184,7 +1184,7 @@ impl IWICDdsDecoder_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetParameters: GetParameters::<Identity, Impl, OFFSET>,
             GetFrame: GetFrame::<Identity, Impl, OFFSET>,
         }
@@ -1226,7 +1226,7 @@ impl IWICDdsEncoder_Vtbl {
             this.CreateNewFrame(::core::mem::transmute_copy(&ppiframeencode), ::core::mem::transmute_copy(&parrayindex), ::core::mem::transmute_copy(&pmiplevel), ::core::mem::transmute_copy(&psliceindex)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetParameters: SetParameters::<Identity, Impl, OFFSET>,
             GetParameters: GetParameters::<Identity, Impl, OFFSET>,
             CreateNewFrame: CreateNewFrame::<Identity, Impl, OFFSET>,
@@ -1269,7 +1269,7 @@ impl IWICDdsFrameDecode_Vtbl {
             this.CopyBlocks(::core::mem::transmute_copy(&prcboundsinblocks), ::core::mem::transmute_copy(&cbstride), ::core::mem::transmute_copy(&cbbuffersize), ::core::mem::transmute_copy(&pbbuffer)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSizeInBlocks: GetSizeInBlocks::<Identity, Impl, OFFSET>,
             GetFormatInfo: GetFormatInfo::<Identity, Impl, OFFSET>,
             CopyBlocks: CopyBlocks::<Identity, Impl, OFFSET>,
@@ -1602,7 +1602,7 @@ impl IWICDevelopRawNotificationCallback_Vtbl {
             let this = (*this).get_impl();
             this.Notify(::core::mem::transmute_copy(&notificationmask)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWICDevelopRawNotificationCallback as ::windows::core::Interface>::IID
@@ -1647,7 +1647,7 @@ impl IWICEnumMetadataItem_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -1682,7 +1682,7 @@ impl IWICFastMetadataEncoder_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Commit: Commit::<Identity, Impl, OFFSET>,
             GetMetadataQueryWriter: GetMetadataQueryWriter::<Identity, Impl, OFFSET>,
         }
@@ -2069,7 +2069,7 @@ impl IWICImagingFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateDecoderFromFilename: CreateDecoderFromFilename::<Identity, Impl, OFFSET>,
             CreateDecoderFromStream: CreateDecoderFromStream::<Identity, Impl, OFFSET>,
             CreateDecoderFromFileHandle: CreateDecoderFromFileHandle::<Identity, Impl, OFFSET>,
@@ -2206,7 +2206,7 @@ impl IWICJpegFrameDecode_Vtbl {
             this.CopyMinimalStream(::core::mem::transmute_copy(&streamoffset), ::core::mem::transmute_copy(&cbstreamdata), ::core::mem::transmute_copy(&pbstreamdata), ::core::mem::transmute_copy(&pcbstreamdataactual)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             DoesSupportIndexing: DoesSupportIndexing::<Identity, Impl, OFFSET>,
             SetIndexing: SetIndexing::<Identity, Impl, OFFSET>,
             ClearIndexing: ClearIndexing::<Identity, Impl, OFFSET>,
@@ -2274,7 +2274,7 @@ impl IWICJpegFrameEncode_Vtbl {
             this.WriteScan(::core::mem::transmute_copy(&cbscandata), ::core::mem::transmute_copy(&pbscandata)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetAcHuffmanTable: GetAcHuffmanTable::<Identity, Impl, OFFSET>,
             GetDcHuffmanTable: GetDcHuffmanTable::<Identity, Impl, OFFSET>,
             GetQuantizationTable: GetQuantizationTable::<Identity, Impl, OFFSET>,
@@ -2342,7 +2342,7 @@ impl IWICMetadataBlockReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetContainerFormat: GetContainerFormat::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetReaderByIndex: GetReaderByIndex::<Identity, Impl, OFFSET>,
@@ -2544,7 +2544,7 @@ impl IWICMetadataQueryReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetContainerFormat: GetContainerFormat::<Identity, Impl, OFFSET>,
             GetLocation: GetLocation::<Identity, Impl, OFFSET>,
             GetMetadataByName: GetMetadataByName::<Identity, Impl, OFFSET>,
@@ -2654,7 +2654,7 @@ impl IWICMetadataReader_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetMetadataFormat: GetMetadataFormat::<Identity, Impl, OFFSET>,
             GetMetadataHandlerInfo: GetMetadataHandlerInfo::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
@@ -2895,7 +2895,7 @@ impl IWICPalette_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             InitializePredefined: InitializePredefined::<Identity, Impl, OFFSET>,
             InitializeCustom: InitializeCustom::<Identity, Impl, OFFSET>,
             InitializeFromBitmap: InitializeFromBitmap::<Identity, Impl, OFFSET>,
@@ -3074,7 +3074,7 @@ impl IWICPlanarBitmapFrameEncode_Vtbl {
             this.WriteSource(::core::mem::transmute_copy(&ppplanes), ::core::mem::transmute_copy(&cplanes), ::core::mem::transmute_copy(&prcsource)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             WritePixels: WritePixels::<Identity, Impl, OFFSET>,
             WriteSource: WriteSource::<Identity, Impl, OFFSET>,
         }
@@ -3104,7 +3104,7 @@ impl IWICPlanarBitmapSourceTransform_Vtbl {
             this.CopyPixels(::core::mem::transmute_copy(&prcsource), ::core::mem::transmute_copy(&uiwidth), ::core::mem::transmute_copy(&uiheight), ::core::mem::transmute_copy(&dsttransform), ::core::mem::transmute_copy(&dstplanaroptions), ::core::mem::transmute_copy(&pdstplanes), ::core::mem::transmute_copy(&cplanes)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             DoesSupportTransform: DoesSupportTransform::<Identity, Impl, OFFSET>,
             CopyPixels: CopyPixels::<Identity, Impl, OFFSET>,
         }
@@ -3160,7 +3160,7 @@ impl IWICProgressCallback_Vtbl {
             let this = (*this).get_impl();
             this.Notify(::core::mem::transmute_copy(&uframenum), ::core::mem::transmute_copy(&operation), ::core::mem::transmute_copy(&dblprogress)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWICProgressCallback as ::windows::core::Interface>::IID
@@ -3202,7 +3202,7 @@ impl IWICProgressiveLevelControl_Vtbl {
             this.SetCurrentLevel(::core::mem::transmute_copy(&nlevel)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLevelCount: GetLevelCount::<Identity, Impl, OFFSET>,
             GetCurrentLevel: GetCurrentLevel::<Identity, Impl, OFFSET>,
             SetCurrentLevel: SetCurrentLevel::<Identity, Impl, OFFSET>,
@@ -3307,7 +3307,7 @@ impl IWICStreamProvider_Vtbl {
             this.RefreshStream().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetStream: GetStream::<Identity, Impl, OFFSET>,
             GetPersistOptions: GetPersistOptions::<Identity, Impl, OFFSET>,
             GetPreferredVendorGUID: GetPreferredVendorGUID::<Identity, Impl, OFFSET>,

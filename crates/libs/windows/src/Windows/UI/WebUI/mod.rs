@@ -10,7 +10,7 @@ unsafe impl ::windows::core::Interface for IActivatedDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_WebUI\"`*"]
@@ -85,7 +85,7 @@ unsafe impl ::windows::core::Interface for IActivatedEventArgsDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedEventArgsDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ActivatedOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -98,7 +98,7 @@ unsafe impl ::windows::core::Interface for IActivatedOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivatedOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -111,7 +111,7 @@ unsafe impl ::windows::core::Interface for IHtmlPrintDocumentSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHtmlPrintDocumentSource_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintContent) -> ::windows::core::HRESULT,
     pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PrintContent) -> ::windows::core::HRESULT,
     pub LeftMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -141,7 +141,7 @@ unsafe impl ::windows::core::Interface for INewWebUIViewCreatedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INewWebUIViewCreatedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub WebUIView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "ApplicationModel_Activation")]
     pub ActivatedEventArgs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -163,7 +163,7 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub Activated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))]
@@ -207,7 +207,7 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub LeavingBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))]
@@ -236,7 +236,7 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
     pub RequestRestartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, launcharguments: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation")))]
@@ -256,7 +256,7 @@ unsafe impl ::windows::core::Interface for IWebUIActivationStatics4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub NewWebUIViewCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -350,7 +350,7 @@ unsafe impl ::windows::core::Interface for IWebUIBackgroundTaskInstance {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstance_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, succeeded: bool) -> ::windows::core::HRESULT,
 }
@@ -364,7 +364,7 @@ unsafe impl ::windows::core::Interface for IWebUIBackgroundTaskInstanceStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstanceStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -377,7 +377,7 @@ unsafe impl ::windows::core::Interface for IWebUINavigatedDeferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUINavigatedDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_WebUI\"`*"]
@@ -452,7 +452,7 @@ unsafe impl ::windows::core::Interface for IWebUINavigatedEventArgs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUINavigatedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub NavigatedOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -465,7 +465,7 @@ unsafe impl ::windows::core::Interface for IWebUINavigatedOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUINavigatedOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -478,7 +478,7 @@ unsafe impl ::windows::core::Interface for IWebUIView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIView_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ApplicationViewId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -509,7 +509,7 @@ unsafe impl ::windows::core::Interface for IWebUIViewStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebUIViewStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -13695,7 +13695,7 @@ struct ActivatedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ActivatedEventHandlerBox<F> {
     const VTABLE: ActivatedEventHandler_Vtbl = ActivatedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -13762,7 +13762,7 @@ unsafe impl ::windows::core::RuntimeType for ActivatedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ActivatedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel_Activation")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventargs: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Activation"))]
@@ -13800,7 +13800,7 @@ struct BackgroundActivatedEventHandlerBox<F: FnMut(&::core::option::Option<::win
 #[cfg(feature = "ApplicationModel_Activation")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> BackgroundActivatedEventHandlerBox<F> {
     const VTABLE: BackgroundActivatedEventHandler_Vtbl = BackgroundActivatedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -13867,7 +13867,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct BackgroundActivatedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel_Activation")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventargs: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Activation"))]
@@ -13905,7 +13905,7 @@ struct EnteredBackgroundEventHandlerBox<F: FnMut(&::core::option::Option<::windo
 #[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> EnteredBackgroundEventHandlerBox<F> {
     const VTABLE: EnteredBackgroundEventHandler_Vtbl = EnteredBackgroundEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -13972,7 +13972,7 @@ unsafe impl ::windows::core::RuntimeType for EnteredBackgroundEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct EnteredBackgroundEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))]
@@ -14010,7 +14010,7 @@ struct LeavingBackgroundEventHandlerBox<F: FnMut(&::core::option::Option<::windo
 #[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> LeavingBackgroundEventHandlerBox<F> {
     const VTABLE: LeavingBackgroundEventHandler_Vtbl = LeavingBackgroundEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -14077,7 +14077,7 @@ unsafe impl ::windows::core::RuntimeType for LeavingBackgroundEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct LeavingBackgroundEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))]
@@ -14109,7 +14109,7 @@ struct NavigatedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<IWebUINavigatedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> NavigatedEventHandlerBox<F> {
     const VTABLE: NavigatedEventHandler_Vtbl = NavigatedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -14169,7 +14169,7 @@ unsafe impl ::windows::core::RuntimeType for NavigatedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct NavigatedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_WebUI\"`*"]
@@ -14196,7 +14196,7 @@ struct ResumingEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core:
 }
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ResumingEventHandlerBox<F> {
     const VTABLE: ResumingEventHandler_Vtbl = ResumingEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -14256,7 +14256,7 @@ unsafe impl ::windows::core::RuntimeType for ResumingEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ResumingEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_WebUI\"`, `\"ApplicationModel\"`*"]
@@ -14291,7 +14291,7 @@ struct SuspendingEventHandlerBox<F: FnMut(&::core::option::Option<::windows::cor
 #[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::option::Option<super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SuspendingEventHandlerBox<F> {
     const VTABLE: SuspendingEventHandler_Vtbl = SuspendingEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -14358,7 +14358,7 @@ unsafe impl ::windows::core::RuntimeType for SuspendingEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct SuspendingEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "ApplicationModel")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))]

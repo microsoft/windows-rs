@@ -187,7 +187,7 @@ impl ID3D10Debug_Vtbl {
             this.Validate().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetFeatureMask: SetFeatureMask::<Identity, Impl, OFFSET>,
             GetFeatureMask: GetFeatureMask::<Identity, Impl, OFFSET>,
             SetPresentPerRenderOpDelay: SetPresentPerRenderOpDelay::<Identity, Impl, OFFSET>,
@@ -946,7 +946,7 @@ impl ID3D10Device_Vtbl {
             this.GetTextFilterSize(::core::mem::transmute_copy(&pwidth), ::core::mem::transmute_copy(&pheight))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             VSSetConstantBuffers: VSSetConstantBuffers::<Identity, Impl, OFFSET>,
             PSSetShaderResources: PSSetShaderResources::<Identity, Impl, OFFSET>,
             PSSetShader: PSSetShader::<Identity, Impl, OFFSET>,
@@ -1127,7 +1127,7 @@ impl ID3D10DeviceChild_Vtbl {
             this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::core::mem::transmute(&pdata)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
@@ -1237,7 +1237,7 @@ impl ID3D10Effect_Vtbl {
             this.IsOptimized()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsValid: IsValid::<Identity, Impl, OFFSET>,
             IsPool: IsPool::<Identity, Impl, OFFSET>,
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
@@ -1524,7 +1524,7 @@ impl ID3D10EffectPool_Vtbl {
             let this = (*this).get_impl();
             this.AsEffect()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AsEffect: AsEffect::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AsEffect: AsEffect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D10EffectPool as ::windows::core::Interface>::IID
@@ -2291,7 +2291,7 @@ impl ID3D10InfoQueue_Vtbl {
             this.GetMuteDebugOutput()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetMessageCountLimit: SetMessageCountLimit::<Identity, Impl, OFFSET>,
             ClearStoredMessages: ClearStoredMessages::<Identity, Impl, OFFSET>,
             GetMessage: GetMessage::<Identity, Impl, OFFSET>,
@@ -2376,7 +2376,7 @@ impl ID3D10Multithread_Vtbl {
             this.GetMultithreadProtected()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Enter: Enter::<Identity, Impl, OFFSET>,
             Leave: Leave::<Identity, Impl, OFFSET>,
             SetMultithreadProtected: SetMultithreadProtected::<Identity, Impl, OFFSET>,
@@ -2584,7 +2584,7 @@ impl ID3D10ShaderReflection_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, Impl, OFFSET>,
             GetConstantBufferByName: GetConstantBufferByName::<Identity, Impl, OFFSET>,
@@ -2768,7 +2768,7 @@ impl ID3D10ShaderReflection1_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDesc: GetDesc::<Identity, Impl, OFFSET>,
             GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, Impl, OFFSET>,
             GetConstantBufferByName: GetConstantBufferByName::<Identity, Impl, OFFSET>,
@@ -2866,7 +2866,7 @@ impl ID3D10StateBlock_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Capture: Capture::<Identity, Impl, OFFSET>,
             Apply: Apply::<Identity, Impl, OFFSET>,
             ReleaseAllDeviceObjects: ReleaseAllDeviceObjects::<Identity, Impl, OFFSET>,
@@ -2898,7 +2898,7 @@ impl ID3D10SwitchToRef_Vtbl {
             this.GetUseRef()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetUseRef: SetUseRef::<Identity, Impl, OFFSET>,
             GetUseRef: GetUseRef::<Identity, Impl, OFFSET>,
         }

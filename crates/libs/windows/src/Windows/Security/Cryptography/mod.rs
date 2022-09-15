@@ -14,7 +14,7 @@ unsafe impl ::windows::core::Interface for ICryptographicBufferStatics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICryptographicBufferStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
     pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object1: *mut ::core::ffi::c_void, object2: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]

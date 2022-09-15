@@ -1108,7 +1108,7 @@ unsafe impl ::windows::core::Interface for IAudioDeviceEndpoint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceEndpoint_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxperiod: i64, u32latencycoefficient: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetRTCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisrtcapable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -1188,7 +1188,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpoint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpoint_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
     pub GetFrameFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppformat: *mut *mut super::super::Media::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Audio"))]
@@ -1253,7 +1253,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1313,7 +1313,7 @@ unsafe impl ::windows::core::Interface for IAudioEndpointRT {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioEndpointRT_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCurrentPadding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION),
     pub ProcessingComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub SetPinInactive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1373,7 +1373,7 @@ unsafe impl ::windows::core::Interface for IAudioInputEndpointRT {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioInputEndpointRT_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub GetInputDataPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnectionproperty: *mut super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION),
     #[cfg(not(feature = "Win32_Media_Audio_Apo"))]
@@ -1435,7 +1435,7 @@ unsafe impl ::windows::core::Interface for IAudioOutputEndpointRT {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioOutputEndpointRT_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetOutputDataPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32framecount: u32, paetimestamp: *const AE_CURRENT_POSITION) -> usize,
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub ReleaseOutputDataPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnectionproperty: *const super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY),
@@ -1938,7 +1938,7 @@ unsafe impl ::windows::core::Interface for IRemoteSystemAdditionalInfoProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteSystemAdditionalInfoProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetAdditionalInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deduplicationid: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, mapview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -1990,7 +1990,7 @@ unsafe impl ::windows::core::Interface for ITSGAccountingEngine {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAccountingEngine_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub DoAccounting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accountingdatatype: AAAccountingDataType, accountingdata: ::core::mem::ManuallyDrop<AAAccountingData>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -2053,7 +2053,7 @@ unsafe impl ::windows::core::Interface for ITSGAuthenticateUserSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthenticateUserSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnUserAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, userdomain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, context: usize, usertoken: super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2114,7 +2114,7 @@ unsafe impl ::windows::core::Interface for ITSGAuthenticationEngine {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthenticationEngine_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AuthenticateUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mainsessionid: ::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CancelAuthentication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mainsessionid: ::windows::core::GUID, context: usize) -> ::windows::core::HRESULT,
 }
@@ -2164,7 +2164,7 @@ unsafe impl ::windows::core::Interface for ITSGAuthorizeConnectionSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthorizeConnectionSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnConnectionAuthorized: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrin: ::windows::core::HRESULT, mainsessionid: ::windows::core::GUID, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -2213,7 +2213,7 @@ unsafe impl ::windows::core::Interface for ITSGAuthorizeResourceSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGAuthorizeResourceSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnChannelAuthorized: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrin: ::windows::core::HRESULT, mainsessionid: ::windows::core::GUID, subsessionid: i32, allowedresourcenames: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, numallowedresourcenames: u32, failedresourcenames: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, numfailedresourcenames: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -2283,7 +2283,7 @@ unsafe impl ::windows::core::Interface for ITSGPolicyEngine {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITSGPolicyEngine_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AuthorizeConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mainsessionid: ::windows::core::GUID, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, authtype: AAAuthSchemes, clientmachineip: ::core::mem::ManuallyDrop<::windows::core::BSTR>, clientmachinename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2344,7 +2344,7 @@ unsafe impl ::windows::core::Interface for ITsSbBaseNotifySink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbBaseNotifySink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnReportStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::core::HRESULT,
 }
@@ -2461,7 +2461,7 @@ unsafe impl ::windows::core::Interface for ITsSbClientConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbClientConnection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub UserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub InitialProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -2664,7 +2664,7 @@ unsafe impl ::windows::core::Interface for ITsSbEnvironment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbEnvironment_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub ServerWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2845,7 +2845,7 @@ unsafe impl ::windows::core::Interface for ITsSbFilterPluginStore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbFilterPluginStore_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub SaveProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropertyset: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
@@ -2908,7 +2908,7 @@ unsafe impl ::windows::core::Interface for ITsSbGenericNotifySink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbGenericNotifySink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetWaitTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfttimeout: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
@@ -2985,7 +2985,7 @@ unsafe impl ::windows::core::Interface for ITsSbGlobalStore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbGlobalStore_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, farmname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pptarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub QuerySessionBySessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwsessionid: u32, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3047,7 +3047,7 @@ unsafe impl ::windows::core::Interface for ITsSbLoadBalanceResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbLoadBalanceResult_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -3574,7 +3574,7 @@ unsafe impl ::windows::core::Interface for ITsSbPlugin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbPlugin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, pnotifysink: *mut ::core::ffi::c_void, ppropertyset: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
@@ -3953,7 +3953,7 @@ unsafe impl ::windows::core::Interface for ITsSbProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateTargetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, environmentname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pptarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateLoadBalanceResultObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplbresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateSessionObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, domain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, sessionid: u32, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4135,7 +4135,7 @@ unsafe impl ::windows::core::Interface for ITsSbProvisioningPluginNotifySink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbProvisioningPluginNotifySink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnJobCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvmnotifyinfo: *const VM_NOTIFY_INFO) -> ::windows::core::HRESULT,
     pub OnVirtualMachineStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvmnotifyentry: *const VM_NOTIFY_ENTRY, vmnotifystatus: VM_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub OnJobCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultcode: ::windows::core::HRESULT, resultdescription: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -4204,7 +4204,7 @@ unsafe impl ::windows::core::Interface for ITsSbResourceNotification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbResourceNotification_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub NotifySessionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: TSSESSION_STATE, psession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyTargetChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetchangetype: u32, ptarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyClientConnectionStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4261,7 +4261,7 @@ unsafe impl ::windows::core::Interface for ITsSbResourceNotificationEx {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbResourceNotificationEx_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub NotifySessionChangeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, domain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, sessionid: u32, sessionstate: TSSESSION_STATE) -> ::windows::core::HRESULT,
     pub NotifyTargetChangeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, targetchangetype: u32) -> ::windows::core::HRESULT,
     pub NotifyClientConnectionStateChangeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, domain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, initialprogram: ::core::mem::ManuallyDrop<::windows::core::BSTR>, poolname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, connectionchangetype: CONNECTION_CHANGE_NOTIFICATION) -> ::windows::core::HRESULT,
@@ -4526,7 +4526,7 @@ unsafe impl ::windows::core::Interface for ITsSbResourcePluginStore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbResourcePluginStore_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, farmname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pptarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub QuerySessionBySessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsessionid: u32, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddTargetToStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4632,7 +4632,7 @@ unsafe impl ::windows::core::Interface for ITsSbServiceNotification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbServiceNotification_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub NotifyServiceFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyServiceSuccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4748,7 +4748,7 @@ unsafe impl ::windows::core::Interface for ITsSbSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbSession_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -4896,7 +4896,7 @@ unsafe impl ::windows::core::Interface for ITsSbTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbTarget_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetTargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub FarmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -5119,7 +5119,7 @@ unsafe impl ::windows::core::Interface for ITsSbTaskInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITsSbTaskInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub TargetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstarttime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
@@ -5360,7 +5360,7 @@ unsafe impl ::windows::core::Interface for IWRdsEnhancedFastReconnectArbitrator 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsEnhancedFastReconnectArbitrator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSessionForEnhancedFastReconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psessionidarray: *const i32, dwsessioncount: u32, presultsessionid: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -5422,7 +5422,7 @@ unsafe impl ::windows::core::Interface for IWRdsGraphicsChannel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsGraphicsChannel_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32, pbuffer: *const u8, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannelevents: *mut ::core::ffi::c_void, popencontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5494,7 +5494,7 @@ unsafe impl ::windows::core::Interface for IWRdsGraphicsChannelEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsGraphicsChannelEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnDataReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32, pbuffer: *const u8) -> ::windows::core::HRESULT,
     pub OnClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnChannelOpened: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, openresult: ::windows::core::HRESULT, popencontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5551,7 +5551,7 @@ unsafe impl ::windows::core::Interface for IWRdsGraphicsChannelManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsGraphicsChannelManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszchannelname: *const u8, channeltype: WRdsGraphicsChannelType, ppvirtualchannel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -5716,7 +5716,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolConnection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLogonErrorRedirector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplogonerrorredir: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AcceptConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -5825,7 +5825,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolConnectionCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolConnectionCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnReady: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BrokenConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: u32, source: u32) -> ::windows::core::HRESULT,
     pub StopScreenUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5882,7 +5882,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolConnectionSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolConnectionSettings_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetConnectionSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: ::windows::core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::core::HRESULT,
     pub GetConnectionSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: ::windows::core::GUID, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::HRESULT,
 }
@@ -5943,7 +5943,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolLicenseConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolLicenseConnection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RequestLicensingCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplicensecapabilities: *mut WTS_LICENSE_CAPABILITIES, pcblicensecapabilities: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6008,7 +6008,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolListener_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL, pwrdslistenersettings: *mut WRDS_LISTENER_SETTINGS) -> ::windows::core::HRESULT,
     pub StartListen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StopListen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6065,7 +6065,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolListenerCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolListenerCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnection: *mut ::core::ffi::c_void, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS, pcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6140,7 +6140,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolLogonErrorRedirector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolLogonErrorRedirector_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnBeginPainting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RedirectStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmessage: ::windows::core::PCWSTR, presponse: *mut WTS_LOGON_ERROR_REDIRECTOR_RESPONSE) -> ::windows::core::HRESULT,
     pub RedirectMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcaption: ::windows::core::PCWSTR, pszmessage: ::windows::core::PCWSTR, utype: u32, presponse: *mut WTS_LOGON_ERROR_REDIRECTOR_RESPONSE) -> ::windows::core::HRESULT,
@@ -6224,7 +6224,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwrdssettings: *mut ::core::ffi::c_void, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6294,7 +6294,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolSettings_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL, pwrdssettings: *mut WRDS_SETTINGS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6357,7 +6357,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolShadowCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolShadowCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StopShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InvokeTargetShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptargetservername: ::windows::core::PCWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
@@ -6420,7 +6420,7 @@ unsafe impl ::windows::core::Interface for IWRdsProtocolShadowConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsProtocolShadowConnection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptargetservername: ::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DoTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -6490,7 +6490,7 @@ unsafe impl ::windows::core::Interface for IWRdsWddmIddProps {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWRdsWddmIddProps_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetHardwareId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisplaydriverhardwareid: ::windows::core::PCWSTR, count: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub OnDriverLoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: u32, driverhandle: super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT,
@@ -6552,7 +6552,7 @@ unsafe impl ::windows::core::Interface for IWTSBitmapRenderService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSBitmapRenderService_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetMappedRenderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mappingid: u64, pmappedrenderercallback: *mut ::core::ffi::c_void, ppmappedrenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -6608,7 +6608,7 @@ unsafe impl ::windows::core::Interface for IWTSBitmapRenderer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSBitmapRenderer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Render: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imageformat: ::windows::core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> ::windows::core::HRESULT,
     pub GetRendererStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatistics: *mut BITMAP_RENDERER_STATISTICS) -> ::windows::core::HRESULT,
     pub RemoveMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6661,7 +6661,7 @@ unsafe impl ::windows::core::Interface for IWTSBitmapRendererCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSBitmapRendererCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnTargetSizeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rcnewsize: super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6716,7 +6716,7 @@ unsafe impl ::windows::core::Interface for IWTSListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSListener_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub GetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertybag: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
@@ -6773,7 +6773,7 @@ unsafe impl ::windows::core::Interface for IWTSListenerCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSListenerCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnNewChannelConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6837,7 +6837,7 @@ unsafe impl ::windows::core::Interface for IWTSPlugin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSPlugin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannelmgr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Connected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disconnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdisconnectcode: u32) -> ::windows::core::HRESULT,
@@ -6890,7 +6890,7 @@ unsafe impl ::windows::core::Interface for IWTSPluginServiceProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSPluginServiceProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceid: ::windows::core::GUID, ppunkobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7048,7 +7048,7 @@ unsafe impl ::windows::core::Interface for IWTSProtocolConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolConnection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLogonErrorRedirector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplogonerrorredir: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SendPolicyData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppolicydata: *const WTS_POLICY_DATA) -> ::windows::core::HRESULT,
@@ -7155,7 +7155,7 @@ unsafe impl ::windows::core::Interface for IWTSProtocolConnectionCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolConnectionCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnReady: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BrokenConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: u32, source: u32) -> ::windows::core::HRESULT,
     pub StopScreenUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7219,7 +7219,7 @@ unsafe impl ::windows::core::Interface for IWTSProtocolLicenseConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolLicenseConnection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RequestLicensingCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplicensecapabilities: *mut WTS_LICENSE_CAPABILITIES, pcblicensecapabilities: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7280,7 +7280,7 @@ unsafe impl ::windows::core::Interface for IWTSProtocolListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolListener_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartListen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StopListen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -7334,7 +7334,7 @@ unsafe impl ::windows::core::Interface for IWTSProtocolListenerCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolListenerCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnection: *mut ::core::ffi::c_void, pcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7406,7 +7406,7 @@ unsafe impl ::windows::core::Interface for IWTSProtocolLogonErrorRedirector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolLogonErrorRedirector_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnBeginPainting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RedirectStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmessage: ::windows::core::PCWSTR, presponse: *mut WTS_LOGON_ERROR_REDIRECTOR_RESPONSE) -> ::windows::core::HRESULT,
     pub RedirectMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcaption: ::windows::core::PCWSTR, pszmessage: ::windows::core::PCWSTR, utype: u32, presponse: *mut WTS_LOGON_ERROR_REDIRECTOR_RESPONSE) -> ::windows::core::HRESULT,
@@ -7474,7 +7474,7 @@ unsafe impl ::windows::core::Interface for IWTSProtocolManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszlistenername: ::windows::core::PCWSTR, pprotocollistener: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyServiceStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::core::HRESULT,
     pub NotifySessionOfServiceStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: *const WTS_SESSION_ID) -> ::windows::core::HRESULT,
@@ -7534,7 +7534,7 @@ unsafe impl ::windows::core::Interface for IWTSProtocolShadowCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolShadowCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StopShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InvokeTargetShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptargetservername: ::windows::core::PCWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
@@ -7597,7 +7597,7 @@ unsafe impl ::windows::core::Interface for IWTSProtocolShadowConnection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSProtocolShadowConnection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptargetservername: ::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DoTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -7677,7 +7677,7 @@ unsafe impl ::windows::core::Interface for IWTSSBPlugin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSSBPlugin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugincapabilities: *mut u32) -> ::windows::core::HRESULT,
     pub WTSSBX_MachineChangeNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notificationtype: WTSSBX_NOTIFICATION_TYPE, machineid: i32, pmachineinfo: *const WTSSBX_MACHINE_INFO) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -7740,7 +7740,7 @@ unsafe impl ::windows::core::Interface for IWTSVirtualChannel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSVirtualChannel_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32, pbuffer: *const u8, preserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -7793,7 +7793,7 @@ unsafe impl ::windows::core::Interface for IWTSVirtualChannelCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSVirtualChannelCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnDataReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32, pbuffer: *const u8) -> ::windows::core::HRESULT,
     pub OnClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -7847,7 +7847,7 @@ unsafe impl ::windows::core::Interface for IWTSVirtualChannelManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWTSVirtualChannelManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszchannelname: *const u8, uflags: u32, plistenercallback: *mut ::core::ffi::c_void, pplistener: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7908,7 +7908,7 @@ unsafe impl ::windows::core::Interface for IWorkspace {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspace_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetWorkspaceNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psawkspnames: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8166,7 +8166,7 @@ unsafe impl ::windows::core::Interface for IWorkspaceClientExt {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceClientExt_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetResourceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrworkspaceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetResourceDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrworkspacedisplayname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub IssueDisconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8224,7 +8224,7 @@ unsafe impl ::windows::core::Interface for IWorkspaceRegistration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceRegistration_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookieconnection: u32) -> ::windows::core::HRESULT,
 }
@@ -8362,7 +8362,7 @@ unsafe impl ::windows::core::Interface for IWorkspaceReportMessage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkspaceReportMessage_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterErrorLogMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmessage: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub IsErrorMessageRegistered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrwkspid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwerrortype: u32, bstrerrormessagetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwerrorcode: u32, pferrorexist: *mut i16) -> ::windows::core::HRESULT,
     pub RegisterErrorEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrwkspid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwerrortype: u32, bstrerrormessagetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwerrorcode: u32) -> ::windows::core::HRESULT,
@@ -8927,7 +8927,7 @@ unsafe impl ::windows::core::Interface for ItsPubPlugin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ItsPubPlugin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetResourceList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userid: ::windows::core::PCWSTR, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows::core::HRESULT,
     pub GetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alias: ::windows::core::PCWSTR, flags: i32, resource: *mut pluginResource) -> ::windows::core::HRESULT,
     pub GetCacheLastUpdateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lastupdatetime: *mut u64) -> ::windows::core::HRESULT,

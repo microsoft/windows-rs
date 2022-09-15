@@ -3860,7 +3860,7 @@ unsafe impl ::windows::core::Interface for IGetClusterDataInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterDataInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetClusterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcchname: *mut i32) -> ::windows::core::HRESULT,
     pub GetClusterHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut _HCLUSTER,
     pub GetObjectCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> i32,
@@ -3911,7 +3911,7 @@ unsafe impl ::windows::core::Interface for IGetClusterGroupInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterGroupInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetGroupHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> *mut _HGROUP,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -3960,7 +3960,7 @@ unsafe impl ::windows::core::Interface for IGetClusterNetInterfaceInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterNetInterfaceInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNetInterfaceHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> *mut _HNETINTERFACE,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -4009,7 +4009,7 @@ unsafe impl ::windows::core::Interface for IGetClusterNetworkInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterNetworkInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNetworkHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> *mut _HNETWORK,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -4058,7 +4058,7 @@ unsafe impl ::windows::core::Interface for IGetClusterNodeInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterNodeInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNodeHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> *mut _HNODE,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -4110,7 +4110,7 @@ unsafe impl ::windows::core::Interface for IGetClusterObjectInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterObjectInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32, lpszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcchname: *mut i32) -> ::windows::core::HRESULT,
     pub GetObjectType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> CLUADMEX_OBJECT_TYPE,
 }
@@ -4168,7 +4168,7 @@ unsafe impl ::windows::core::Interface for IGetClusterResourceInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterResourceInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetResourceHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> *mut _HRESOURCE,
     pub GetResourceTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32, lpszrestypename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcchrestypename: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -4235,7 +4235,7 @@ unsafe impl ::windows::core::Interface for IGetClusterUIInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetClusterUIInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetClusterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcchname: *mut i32) -> ::windows::core::HRESULT,
     pub GetLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9697,7 +9697,7 @@ unsafe impl ::windows::core::Interface for IWCContextMenuCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWCContextMenuCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddExtensionMenuItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lpszstatusbartext: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -9746,7 +9746,7 @@ unsafe impl ::windows::core::Interface for IWCPropertySheetCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWCPropertySheetCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddPropertySheetPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpage: *const i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -9803,7 +9803,7 @@ unsafe impl ::windows::core::Interface for IWCWizard97Callback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWCWizard97Callback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddWizard97Page: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpage: *const i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub EnableNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpage: *const i32, benable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -9864,7 +9864,7 @@ unsafe impl ::windows::core::Interface for IWCWizardCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWCWizardCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddWizardPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpage: *const i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub EnableNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpage: *const i32, benable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -9921,7 +9921,7 @@ unsafe impl ::windows::core::Interface for IWEExtendContextMenu {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWEExtendContextMenu_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddContextMenuItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidata: *mut ::core::ffi::c_void, picallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -9974,7 +9974,7 @@ unsafe impl ::windows::core::Interface for IWEExtendPropertySheet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWEExtendPropertySheet_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreatePropertySheetPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidata: *mut ::core::ffi::c_void, picallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -10027,7 +10027,7 @@ unsafe impl ::windows::core::Interface for IWEExtendWizard {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWEExtendWizard_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateWizardPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidata: *mut ::core::ffi::c_void, picallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -10080,7 +10080,7 @@ unsafe impl ::windows::core::Interface for IWEExtendWizard97 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWEExtendWizard97_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateWizard97Pages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidata: *mut ::core::ffi::c_void, picallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -10132,7 +10132,7 @@ unsafe impl ::windows::core::Interface for IWEInvokeCommand {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWEInvokeCommand_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InvokeCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncommandid: u32, pidata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
