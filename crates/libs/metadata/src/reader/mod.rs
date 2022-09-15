@@ -1158,6 +1158,9 @@ impl<'a> Reader<'a> {
         }
         result
     }
+    pub fn type_def_is_pseudo_interface(&self, row: TypeDef) -> bool {
+        self.type_def_vtables(row).first() ==  Some(&Type::IUnknown)
+    }
 
     //
     // TypeRef table queries
