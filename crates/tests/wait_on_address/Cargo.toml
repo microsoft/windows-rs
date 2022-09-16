@@ -1,0 +1,12 @@
+[package]
+name = "test_wait_on_address"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies.windows-sys]
+path = "../../libs/sys"
+features = [
+    "Win32_Foundation",
+    "Win32_System_Threading",
+]
