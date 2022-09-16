@@ -164,6 +164,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_sys &&
           cargo test --target ${{ matrix.target }} -p test_unions &&
           cargo test --target ${{ matrix.target }} -p test_vector &&
+          cargo test --target ${{ matrix.target }} -p test_wait_on_address &&
           cargo test --target ${{ matrix.target }} -p test_weak &&
           cargo test --target ${{ matrix.target }} -p test_weak_ref &&
           cargo test --target ${{ matrix.target }} -p test_win32 &&

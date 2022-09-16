@@ -180,6 +180,7 @@ jobs:
           cargo clippy -p test_sys &&
           cargo clippy -p test_unions &&
           cargo clippy -p test_vector &&
+          cargo clippy -p test_wait_on_address &&
           cargo clippy -p test_weak &&
           cargo clippy -p test_weak_ref &&
           cargo clippy -p test_win32 &&
