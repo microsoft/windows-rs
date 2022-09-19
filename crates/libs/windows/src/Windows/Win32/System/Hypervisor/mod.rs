@@ -906,7 +906,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorRegisters<'a, P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVirtualProcessorRegisters<'a, P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32) -> ::windows::core::Result<WHV_REGISTER_VALUE>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -914,7 +914,8 @@ where
     extern "system" {
         fn WHvGetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
     }
-    WHvGetVirtualProcessorRegisters(partition.into(), vpindex, ::core::mem::transmute(registernames), ::core::mem::transmute(registercount), ::core::mem::transmute(registervalues)).ok()
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WHvGetVirtualProcessorRegisters(partition.into(), vpindex, ::core::mem::transmute(registernames), registercount, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WHV_REGISTER_VALUE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -942,7 +943,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceInterruptTarget<'a, P0>(partition: P0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceInterruptTarget<'a, P0>(partition: P0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -950,11 +951,11 @@ where
     extern "system" {
         fn WHvGetVpciDeviceInterruptTarget(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT;
     }
-    WHvGetVpciDeviceInterruptTarget(partition.into(), logicaldeviceid, index, multimessagenumber, ::core::mem::transmute(target), target.len() as _, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
+    WHvGetVpciDeviceInterruptTarget(partition.into(), logicaldeviceid, index, multimessagenumber, ::core::mem::transmute(target), targetsizeinbytes, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceNotification<'a, P0>(partition: P0, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceNotification<'a, P0>(partition: P0, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -962,7 +963,7 @@ where
     extern "system" {
         fn WHvGetVpciDeviceNotification(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows::core::HRESULT;
     }
-    WHvGetVpciDeviceNotification(partition.into(), logicaldeviceid, ::core::mem::transmute(notification), notification.len() as _).ok()
+    WHvGetVpciDeviceNotification(partition.into(), logicaldeviceid, ::core::mem::transmute(notification), notificationsizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -1040,7 +1041,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvQueryGpaRangeDirtyBitmap<'a, P0>(partition: P0, guestaddress: u64, rangesizeinbytes: u64, bitmap: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
+pub unsafe fn WHvQueryGpaRangeDirtyBitmap<'a, P0>(partition: P0, guestaddress: u64, rangesizeinbytes: u64, bitmap: ::core::option::Option<*mut u64>, bitmapsizeinbytes: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -1048,7 +1049,7 @@ where
     extern "system" {
         fn WHvQueryGpaRangeDirtyBitmap(partition: WHV_PARTITION_HANDLE, guestaddress: u64, rangesizeinbytes: u64, bitmap: *mut u64, bitmapsizeinbytes: u32) -> ::windows::core::HRESULT;
     }
-    WHvQueryGpaRangeDirtyBitmap(partition.into(), guestaddress, rangesizeinbytes, ::core::mem::transmute(bitmap.unwrap_or(::std::ptr::null_mut())), bitmap.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    WHvQueryGpaRangeDirtyBitmap(partition.into(), guestaddress, rangesizeinbytes, ::core::mem::transmute(bitmap.unwrap_or(::std::ptr::null_mut())), bitmapsizeinbytes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -1218,7 +1219,7 @@ where
     extern "system" {
         fn WHvSetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::core::HRESULT;
     }
-    WHvSetVirtualProcessorRegisters(partition.into(), vpindex, ::core::mem::transmute(registernames), ::core::mem::transmute(registercount), ::core::mem::transmute(registervalues)).ok()
+    WHvSetVirtualProcessorRegisters(partition.into(), vpindex, ::core::mem::transmute(registernames), registercount, ::core::mem::transmute(registervalues)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]

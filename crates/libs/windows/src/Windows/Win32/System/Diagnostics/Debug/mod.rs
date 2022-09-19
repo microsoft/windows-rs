@@ -4664,17 +4664,19 @@ impl IActiveScriptAuthor {
     {
         (::windows::core::Interface::vtable(self).ParseScriptText)(::windows::core::Interface::as_raw(self), pszcode.into(), pszitemname.into(), pszdelimiter.into(), dwcookie, dwflags).ok()
     }
-    pub unsafe fn GetScriptTextAttributes<'a, P0>(&self, pszcode: ::windows::core::PCWSTR, cch: u32, pszdelimiter: P0, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
+    pub unsafe fn GetScriptTextAttributes<'a, P0, P1>(&self, pszcode: P0, cch: u32, pszdelimiter: P1, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetScriptTextAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszcode), ::core::mem::transmute(cch), pszdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
+        (::windows::core::Interface::vtable(self).GetScriptTextAttributes)(::windows::core::Interface::as_raw(self), pszcode.into(), cch, pszdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
     }
-    pub unsafe fn GetScriptletTextAttributes<'a, P0>(&self, pszcode: ::windows::core::PCWSTR, cch: u32, pszdelimiter: P0, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
+    pub unsafe fn GetScriptletTextAttributes<'a, P0, P1>(&self, pszcode: P0, cch: u32, pszdelimiter: P1, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetScriptletTextAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszcode), ::core::mem::transmute(cch), pszdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
+        (::windows::core::Interface::vtable(self).GetScriptletTextAttributes)(::windows::core::Interface::as_raw(self), pszcode.into(), cch, pszdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
     }
     pub unsafe fn GetRoot(&self) -> ::windows::core::Result<IScriptNode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4854,17 +4856,19 @@ pub struct IActiveScriptAuthorProcedure_Vtbl {
 #[repr(transparent)]
 pub struct IActiveScriptDebug32(::windows::core::IUnknown);
 impl IActiveScriptDebug32 {
-    pub unsafe fn GetScriptTextAttributes<'a, P0>(&self, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: P0, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
+    pub unsafe fn GetScriptTextAttributes<'a, P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetScriptTextAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstrcode), ::core::mem::transmute(unumcodechars), pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
+        (::windows::core::Interface::vtable(self).GetScriptTextAttributes)(::windows::core::Interface::as_raw(self), pstrcode.into(), unumcodechars, pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
     }
-    pub unsafe fn GetScriptletTextAttributes<'a, P0>(&self, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: P0, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
+    pub unsafe fn GetScriptletTextAttributes<'a, P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetScriptletTextAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstrcode), ::core::mem::transmute(unumcodechars), pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
+        (::windows::core::Interface::vtable(self).GetScriptletTextAttributes)(::windows::core::Interface::as_raw(self), pstrcode.into(), unumcodechars, pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
     }
     pub unsafe fn EnumCodeContextsOfPosition(&self, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32) -> ::windows::core::Result<IEnumDebugCodeContexts> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4918,17 +4922,19 @@ pub struct IActiveScriptDebug32_Vtbl {
 #[repr(transparent)]
 pub struct IActiveScriptDebug64(::windows::core::IUnknown);
 impl IActiveScriptDebug64 {
-    pub unsafe fn GetScriptTextAttributes<'a, P0>(&self, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: P0, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
+    pub unsafe fn GetScriptTextAttributes<'a, P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetScriptTextAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstrcode), ::core::mem::transmute(unumcodechars), pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
+        (::windows::core::Interface::vtable(self).GetScriptTextAttributes)(::windows::core::Interface::as_raw(self), pstrcode.into(), unumcodechars, pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
     }
-    pub unsafe fn GetScriptletTextAttributes<'a, P0>(&self, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: P0, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
+    pub unsafe fn GetScriptletTextAttributes<'a, P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetScriptletTextAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstrcode), ::core::mem::transmute(unumcodechars), pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
+        (::windows::core::Interface::vtable(self).GetScriptletTextAttributes)(::windows::core::Interface::as_raw(self), pstrcode.into(), unumcodechars, pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
     }
     pub unsafe fn EnumCodeContextsOfPosition(&self, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32) -> ::windows::core::Result<IEnumDebugCodeContexts> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16327,8 +16333,9 @@ impl IDebugControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(out)).ok()
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     pub unsafe fn Execute<'a, P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> ::windows::core::Result<()>
     where
@@ -16354,8 +16361,9 @@ impl IDebugControl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBreakpointById)(::windows::core::Interface::as_raw(self), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDebugBreakpoint>(result__)
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_BREAKPOINT_PARAMETERS>(result__)
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows::core::Result<IDebugBreakpoint> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16439,8 +16447,9 @@ impl IDebugControl {
     {
         (::windows::core::Interface::vtable(self).SetSpecificFilterArgument)(::windows::core::Interface::as_raw(self), index, argument.into()).ok()
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_EXCEPTION_FILTER_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_EXCEPTION_FILTER_PARAMETERS>(result__)
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), params.len() as _, ::core::mem::transmute(params.as_ptr())).ok()
@@ -16916,8 +16925,9 @@ impl IDebugControl2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(out)).ok()
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     pub unsafe fn Execute<'a, P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> ::windows::core::Result<()>
     where
@@ -16943,8 +16953,9 @@ impl IDebugControl2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBreakpointById)(::windows::core::Interface::as_raw(self), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDebugBreakpoint>(result__)
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_BREAKPOINT_PARAMETERS>(result__)
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows::core::Result<IDebugBreakpoint> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -17028,8 +17039,9 @@ impl IDebugControl2 {
     {
         (::windows::core::Interface::vtable(self).SetSpecificFilterArgument)(::windows::core::Interface::as_raw(self), index, argument.into()).ok()
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_EXCEPTION_FILTER_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_EXCEPTION_FILTER_PARAMETERS>(result__)
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), params.len() as _, ::core::mem::transmute(params.as_ptr())).ok()
@@ -17559,8 +17571,9 @@ impl IDebugControl3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(out)).ok()
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     pub unsafe fn Execute<'a, P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> ::windows::core::Result<()>
     where
@@ -17586,8 +17599,9 @@ impl IDebugControl3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBreakpointById)(::windows::core::Interface::as_raw(self), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDebugBreakpoint>(result__)
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_BREAKPOINT_PARAMETERS>(result__)
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows::core::Result<IDebugBreakpoint> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -17671,8 +17685,9 @@ impl IDebugControl3 {
     {
         (::windows::core::Interface::vtable(self).SetSpecificFilterArgument)(::windows::core::Interface::as_raw(self), index, argument.into()).ok()
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_EXCEPTION_FILTER_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_EXCEPTION_FILTER_PARAMETERS>(result__)
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), params.len() as _, ::core::mem::transmute(params.as_ptr())).ok()
@@ -18277,8 +18292,9 @@ impl IDebugControl4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(out)).ok()
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     pub unsafe fn Execute<'a, P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> ::windows::core::Result<()>
     where
@@ -18304,8 +18320,9 @@ impl IDebugControl4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBreakpointById)(::windows::core::Interface::as_raw(self), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDebugBreakpoint>(result__)
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_BREAKPOINT_PARAMETERS>(result__)
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows::core::Result<IDebugBreakpoint> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -18389,8 +18406,9 @@ impl IDebugControl4 {
     {
         (::windows::core::Interface::vtable(self).SetSpecificFilterArgument)(::windows::core::Interface::as_raw(self), index, argument.into()).ok()
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_EXCEPTION_FILTER_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_EXCEPTION_FILTER_PARAMETERS>(result__)
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), params.len() as _, ::core::mem::transmute(params.as_ptr())).ok()
@@ -19394,8 +19412,9 @@ impl IDebugControl5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(out)).ok()
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     pub unsafe fn Execute<'a, P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> ::windows::core::Result<()>
     where
@@ -19421,8 +19440,9 @@ impl IDebugControl5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBreakpointById)(::windows::core::Interface::as_raw(self), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDebugBreakpoint>(result__)
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_BREAKPOINT_PARAMETERS>(result__)
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows::core::Result<IDebugBreakpoint> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19506,8 +19526,9 @@ impl IDebugControl5 {
     {
         (::windows::core::Interface::vtable(self).SetSpecificFilterArgument)(::windows::core::Interface::as_raw(self), index, argument.into()).ok()
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_EXCEPTION_FILTER_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_EXCEPTION_FILTER_PARAMETERS>(result__)
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), params.len() as _, ::core::mem::transmute(params.as_ptr())).ok()
@@ -20563,8 +20584,9 @@ impl IDebugControl6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(out)).ok()
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     pub unsafe fn Execute<'a, P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> ::windows::core::Result<()>
     where
@@ -20590,8 +20612,9 @@ impl IDebugControl6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBreakpointById)(::windows::core::Interface::as_raw(self), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDebugBreakpoint>(result__)
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_BREAKPOINT_PARAMETERS>(result__)
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows::core::Result<IDebugBreakpoint> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -20675,8 +20698,9 @@ impl IDebugControl6 {
     {
         (::windows::core::Interface::vtable(self).SetSpecificFilterArgument)(::windows::core::Interface::as_raw(self), index, argument.into()).ok()
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_EXCEPTION_FILTER_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_EXCEPTION_FILTER_PARAMETERS>(result__)
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), params.len() as _, ::core::mem::transmute(params.as_ptr())).ok()
@@ -21741,8 +21765,9 @@ impl IDebugControl7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(out)).ok()
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).CoerceValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(r#in), ::core::mem::transmute(outtypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     pub unsafe fn Execute<'a, P0>(&self, outputcontrol: u32, command: P0, flags: u32) -> ::windows::core::Result<()>
     where
@@ -21768,8 +21793,9 @@ impl IDebugControl7 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBreakpointById)(::windows::core::Interface::as_raw(self), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDebugBreakpoint>(result__)
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_BREAKPOINT_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetBreakpointParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_BREAKPOINT_PARAMETERS>(result__)
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows::core::Result<IDebugBreakpoint> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -21853,8 +21879,9 @@ impl IDebugControl7 {
     {
         (::windows::core::Interface::vtable(self).SetSpecificFilterArgument)(::windows::core::Interface::as_raw(self), index, argument.into()).ok()
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_EXCEPTION_FILTER_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(codes.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_EXCEPTION_FILTER_PARAMETERS>(result__)
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExceptionFilterParameters)(::windows::core::Interface::as_raw(self), params.len() as _, ::core::mem::transmute(params.as_ptr())).ok()
@@ -23857,13 +23884,14 @@ pub struct IDebugDocumentHelper64_Vtbl {
 pub struct IDebugDocumentHost(::windows::core::IUnknown);
 impl IDebugDocumentHost {
     pub unsafe fn GetDeferredText(&self, dwtextstartcookie: u32, pchartext: ::windows::core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeferredText)(::windows::core::Interface::as_raw(self), dwtextstartcookie, ::core::mem::transmute(pchartext), ::core::mem::transmute(pstatextattr), ::core::mem::transmute(pcnumchars), ::core::mem::transmute(cmaxchars)).ok()
+        (::windows::core::Interface::vtable(self).GetDeferredText)(::windows::core::Interface::as_raw(self), dwtextstartcookie, ::core::mem::transmute(pchartext), ::core::mem::transmute(pstatextattr), ::core::mem::transmute(pcnumchars), cmaxchars).ok()
     }
-    pub unsafe fn GetScriptTextAttributes<'a, P0>(&self, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: P0, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
+    pub unsafe fn GetScriptTextAttributes<'a, P0, P1>(&self, pstrcode: P0, unumcodechars: u32, pstrdelimiter: P1, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetScriptTextAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstrcode), ::core::mem::transmute(unumcodechars), pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
+        (::windows::core::Interface::vtable(self).GetScriptTextAttributes)(::windows::core::Interface::as_raw(self), pstrcode.into(), unumcodechars, pstrdelimiter.into(), dwflags, ::core::mem::transmute(pattr)).ok()
     }
     pub unsafe fn OnCreateDocumentContext(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -24993,8 +25021,9 @@ impl IDebugExtendedProperty {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetExtendedInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cinfos), ::core::mem::transmute(rgguidextendedinfo), ::core::mem::transmute(rgvar)).ok()
+    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Com::VARIANT> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).base__.GetExtendedInfo)(::windows::core::Interface::as_raw(self), cinfos, ::core::mem::transmute(rgguidextendedinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Com::VARIANT>(result__)
     }
     pub unsafe fn SetValueAsString<'a, P0>(&self, pszvalue: P0, nradix: u32) -> ::windows::core::Result<()>
     where
@@ -28100,8 +28129,9 @@ impl IDebugProperty {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetExtendedInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cinfos), ::core::mem::transmute(rgguidextendedinfo), ::core::mem::transmute(rgvar)).ok()
+    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Com::VARIANT> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetExtendedInfo)(::windows::core::Interface::as_raw(self), cinfos, ::core::mem::transmute(rgguidextendedinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Com::VARIANT>(result__)
     }
     pub unsafe fn SetValueAsString<'a, P0>(&self, pszvalue: P0, nradix: u32) -> ::windows::core::Result<()>
     where
@@ -28503,13 +28533,14 @@ impl IDebugRegisters {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
+    pub unsafe fn GetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *const DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
+        (::windows::core::Interface::vtable(self).SetValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
     }
     pub unsafe fn OutputRegisters(&self, outputcontrol: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OutputRegisters)(::windows::core::Interface::as_raw(self), outputcontrol, flags).ok()
@@ -28621,13 +28652,14 @@ impl IDebugRegisters2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
+    pub unsafe fn GetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValues(&self, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *const DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
+        (::windows::core::Interface::vtable(self).SetValues)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
     }
     pub unsafe fn OutputRegisters(&self, outputcontrol: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OutputRegisters)(::windows::core::Interface::as_raw(self), outputcontrol, flags).ok()
@@ -28680,23 +28712,25 @@ impl IDebugRegisters2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPseudoValues(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPseudoValues)(::windows::core::Interface::as_raw(self), source, ::core::mem::transmute(count), ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
+    pub unsafe fn GetPseudoValues(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetPseudoValues)(::windows::core::Interface::as_raw(self), source, count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPseudoValues(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *const DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPseudoValues)(::windows::core::Interface::as_raw(self), source, ::core::mem::transmute(count), ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
+        (::windows::core::Interface::vtable(self).SetPseudoValues)(::windows::core::Interface::as_raw(self), source, count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetValues2(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *mut DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValues2)(::windows::core::Interface::as_raw(self), source, ::core::mem::transmute(count), ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
+    pub unsafe fn GetValues2(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32) -> ::windows::core::Result<DEBUG_VALUE> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetValues2)(::windows::core::Interface::as_raw(self), source, count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_VALUE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValues2(&self, source: u32, count: u32, indices: ::core::option::Option<*const u32>, start: u32, values: *const DEBUG_VALUE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValues2)(::windows::core::Interface::as_raw(self), source, ::core::mem::transmute(count), ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
+        (::windows::core::Interface::vtable(self).SetValues2)(::windows::core::Interface::as_raw(self), source, count, ::core::mem::transmute(indices.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(values)).ok()
     }
     pub unsafe fn OutputRegisters2(&self, outputcontrol: u32, source: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OutputRegisters2)(::windows::core::Interface::as_raw(self), outputcontrol, source, flags).ok()
@@ -29583,8 +29617,9 @@ impl IDebugSymbols {
         )
         .ok()
     }
-    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32) -> ::windows::core::Result<DEBUG_MODULE_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_MODULE_PARAMETERS>(result__)
     }
     pub unsafe fn GetSymbolModule<'a, P0>(&self, symbol: P0) -> ::windows::core::Result<u64>
     where
@@ -29915,8 +29950,9 @@ impl IDebugSymbols2 {
         )
         .ok()
     }
-    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32) -> ::windows::core::Result<DEBUG_MODULE_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_MODULE_PARAMETERS>(result__)
     }
     pub unsafe fn GetSymbolModule<'a, P0>(&self, symbol: P0) -> ::windows::core::Result<u64>
     where
@@ -30283,8 +30319,9 @@ impl IDebugSymbols3 {
         )
         .ok()
     }
-    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32) -> ::windows::core::Result<DEBUG_MODULE_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_MODULE_PARAMETERS>(result__)
     }
     pub unsafe fn GetSymbolModule<'a, P0>(&self, symbol: P0) -> ::windows::core::Result<u64>
     where
@@ -30719,7 +30756,7 @@ impl IDebugSymbols3 {
         (::windows::core::Interface::vtable(self).RemoveSyntheticSymbol)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
     pub unsafe fn GetSymbolEntriesByOffset(&self, offset: u64, flags: u32, ids: ::core::option::Option<*mut DEBUG_MODULE_AND_ID>, displacements: ::core::option::Option<*mut u64>, idscount: u32, entries: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSymbolEntriesByOffset)(::windows::core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(displacements.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(idscount), ::core::mem::transmute(entries.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetSymbolEntriesByOffset)(::windows::core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(displacements.unwrap_or(::std::ptr::null_mut())), idscount, ::core::mem::transmute(entries.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntriesByName<'a, P0>(&self, symbol: P0, flags: u32, ids: ::core::option::Option<&mut [DEBUG_MODULE_AND_ID]>, entries: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
@@ -31025,8 +31062,9 @@ impl IDebugSymbols4 {
         )
         .ok()
     }
-    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32) -> ::windows::core::Result<DEBUG_MODULE_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_MODULE_PARAMETERS>(result__)
     }
     pub unsafe fn GetSymbolModule<'a, P0>(&self, symbol: P0) -> ::windows::core::Result<u64>
     where
@@ -31461,7 +31499,7 @@ impl IDebugSymbols4 {
         (::windows::core::Interface::vtable(self).RemoveSyntheticSymbol)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
     pub unsafe fn GetSymbolEntriesByOffset(&self, offset: u64, flags: u32, ids: ::core::option::Option<*mut DEBUG_MODULE_AND_ID>, displacements: ::core::option::Option<*mut u64>, idscount: u32, entries: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSymbolEntriesByOffset)(::windows::core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(displacements.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(idscount), ::core::mem::transmute(entries.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetSymbolEntriesByOffset)(::windows::core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(displacements.unwrap_or(::std::ptr::null_mut())), idscount, ::core::mem::transmute(entries.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntriesByName<'a, P0>(&self, symbol: P0, flags: u32, ids: ::core::option::Option<&mut [DEBUG_MODULE_AND_ID]>, entries: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
@@ -31805,8 +31843,9 @@ impl IDebugSymbols5 {
         )
         .ok()
     }
-    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(params)).ok()
+    pub unsafe fn GetModuleParameters(&self, count: u32, bases: ::core::option::Option<*const u64>, start: u32) -> ::windows::core::Result<DEBUG_MODULE_PARAMETERS> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetModuleParameters)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(bases.unwrap_or(::std::ptr::null())), start, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEBUG_MODULE_PARAMETERS>(result__)
     }
     pub unsafe fn GetSymbolModule<'a, P0>(&self, symbol: P0) -> ::windows::core::Result<u64>
     where
@@ -32241,7 +32280,7 @@ impl IDebugSymbols5 {
         (::windows::core::Interface::vtable(self).RemoveSyntheticSymbol)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
     pub unsafe fn GetSymbolEntriesByOffset(&self, offset: u64, flags: u32, ids: ::core::option::Option<*mut DEBUG_MODULE_AND_ID>, displacements: ::core::option::Option<*mut u64>, idscount: u32, entries: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSymbolEntriesByOffset)(::windows::core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(displacements.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(idscount), ::core::mem::transmute(entries.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetSymbolEntriesByOffset)(::windows::core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(displacements.unwrap_or(::std::ptr::null_mut())), idscount, ::core::mem::transmute(entries.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntriesByName<'a, P0>(&self, symbol: P0, flags: u32, ids: ::core::option::Option<&mut [DEBUG_MODULE_AND_ID]>, entries: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
@@ -32614,7 +32653,7 @@ impl IDebugSystemObjects {
         (::windows::core::Interface::vtable(self).GetTotalNumberThreads)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(total), ::core::mem::transmute(largestprocess)).ok()
     }
     pub unsafe fn GetThreadIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetThreadIdsByIndex)(::windows::core::Interface::as_raw(self), start, ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetThreadIdsByIndex)(::windows::core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetThreadIdByProcessor(&self, processor: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -32657,7 +32696,7 @@ impl IDebugSystemObjects {
         (::windows::core::Interface::vtable(self).GetNumberProcesses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetProcessIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProcessIdsByIndex)(::windows::core::Interface::as_raw(self), start, ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetProcessIdsByIndex)(::windows::core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessDataOffset(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -32798,7 +32837,7 @@ impl IDebugSystemObjects2 {
         (::windows::core::Interface::vtable(self).GetTotalNumberThreads)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(total), ::core::mem::transmute(largestprocess)).ok()
     }
     pub unsafe fn GetThreadIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetThreadIdsByIndex)(::windows::core::Interface::as_raw(self), start, ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetThreadIdsByIndex)(::windows::core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetThreadIdByProcessor(&self, processor: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -32841,7 +32880,7 @@ impl IDebugSystemObjects2 {
         (::windows::core::Interface::vtable(self).GetNumberProcesses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetProcessIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProcessIdsByIndex)(::windows::core::Interface::as_raw(self), start, ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetProcessIdsByIndex)(::windows::core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessDataOffset(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -33005,7 +33044,7 @@ impl IDebugSystemObjects3 {
         (::windows::core::Interface::vtable(self).GetTotalNumberThreads)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(total), ::core::mem::transmute(largestprocess)).ok()
     }
     pub unsafe fn GetThreadIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetThreadIdsByIndex)(::windows::core::Interface::as_raw(self), start, ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetThreadIdsByIndex)(::windows::core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetThreadIdByProcessor(&self, processor: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -33048,7 +33087,7 @@ impl IDebugSystemObjects3 {
         (::windows::core::Interface::vtable(self).GetNumberProcesses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetProcessIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProcessIdsByIndex)(::windows::core::Interface::as_raw(self), start, ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetProcessIdsByIndex)(::windows::core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessDataOffset(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -33253,7 +33292,7 @@ impl IDebugSystemObjects4 {
         (::windows::core::Interface::vtable(self).GetTotalNumberThreads)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(total), ::core::mem::transmute(largestprocess)).ok()
     }
     pub unsafe fn GetThreadIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetThreadIdsByIndex)(::windows::core::Interface::as_raw(self), start, ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetThreadIdsByIndex)(::windows::core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetThreadIdByProcessor(&self, processor: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -33296,7 +33335,7 @@ impl IDebugSystemObjects4 {
         (::windows::core::Interface::vtable(self).GetNumberProcesses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetProcessIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProcessIdsByIndex)(::windows::core::Interface::as_raw(self), start, ::core::mem::transmute(count), ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetProcessIdsByIndex)(::windows::core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessDataOffset(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -37510,7 +37549,7 @@ impl ISimpleConnectionPoint {
         (::windows::core::Interface::vtable(self).GetEventCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn DescribeEvents(&self, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut ::windows::core::BSTR, pceventsfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DescribeEvents)(::windows::core::Interface::as_raw(self), ievent, ::core::mem::transmute(cevents), ::core::mem::transmute(prgid), ::core::mem::transmute(prgbstr), ::core::mem::transmute(pceventsfetched)).ok()
+        (::windows::core::Interface::vtable(self).DescribeEvents)(::windows::core::Interface::as_raw(self), ievent, cevents, ::core::mem::transmute(prgid), ::core::mem::transmute(prgbstr), ::core::mem::transmute(pceventsfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

@@ -2,11 +2,12 @@
 #[repr(transparent)]
 pub struct IDedupBackupSupport(::windows::core::IUnknown);
 impl IDedupBackupSupport {
-    pub unsafe fn RestoreFiles<'a, P0>(&self, numberoffiles: u32, filefullpaths: *const ::windows::core::BSTR, store: P0, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>
+    pub unsafe fn RestoreFiles<'a, P0>(&self, numberoffiles: u32, filefullpaths: *const ::windows::core::BSTR, store: P0, flags: u32) -> ::windows::core::Result<::windows::core::HRESULT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDedupReadFileCallback>>,
     {
-        (::windows::core::Interface::vtable(self).RestoreFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(numberoffiles), ::core::mem::transmute(filefullpaths), store.into().abi(), flags, ::core::mem::transmute(fileresults)).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).RestoreFiles)(::windows::core::Interface::as_raw(self), numberoffiles, ::core::mem::transmute(filefullpaths), store.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
     }
 }
 impl ::core::convert::From<IDedupBackupSupport> for ::windows::core::IUnknown {

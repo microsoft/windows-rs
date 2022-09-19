@@ -66,7 +66,7 @@ pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvd
     extern "system" {
         fn RtlWriteNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvdestination: *mut ::core::ffi::c_void, source: *const ::core::ffi::c_void, size: usize, flags: u32) -> u32;
     }
-    RtlWriteNonVolatileMemory(::core::mem::transmute(nvtoken), ::core::mem::transmute(nvdestination), ::core::mem::transmute(source), ::core::mem::transmute(size), flags)
+    RtlWriteNonVolatileMemory(::core::mem::transmute(nvtoken), ::core::mem::transmute(nvdestination), ::core::mem::transmute(source), size, flags)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory_NonVolatile\"`*"]

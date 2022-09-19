@@ -133,7 +133,7 @@ impl IEffectivePermission2 {
             pdevicesid.into(),
             pszservername.into(),
             ::core::mem::transmute(psecurityobjects),
-            ::core::mem::transmute(dwsecurityobjectcount),
+            dwsecurityobjectcount,
             ::core::mem::transmute(pusergroups.unwrap_or(::std::ptr::null())),
             ::core::mem::transmute(pauthzusergroupsoperations.unwrap_or(::std::ptr::null())),
             ::core::mem::transmute(pdevicegroups.unwrap_or(::std::ptr::null())),

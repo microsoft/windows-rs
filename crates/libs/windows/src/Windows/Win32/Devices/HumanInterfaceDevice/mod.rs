@@ -51,7 +51,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetConfiguration<'a, P0>(hiddeviceobject: P0, configuration: *mut HIDD_CONFIGURATION) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_GetConfiguration<'a, P0>(hiddeviceobject: P0, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -59,7 +59,7 @@ where
     extern "system" {
         fn HidD_GetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_GetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), configuration.len() as _)
+    HidD_GetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), configurationlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -203,7 +203,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetConfiguration<'a, P0>(hiddeviceobject: P0, configuration: *const HIDD_CONFIGURATION) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_SetConfiguration<'a, P0>(hiddeviceobject: P0, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -211,7 +211,7 @@ where
     extern "system" {
         fn HidD_SetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_SetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), configuration.len() as _)
+    HidD_SetConfiguration(hiddeviceobject.into(), ::core::mem::transmute(configuration), configurationlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -508,7 +508,7 @@ pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusa
     extern "system" {
         fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    HidP_UsageListDifference(::core::mem::transmute(previoususagelist), ::core::mem::transmute(currentusagelist), ::core::mem::transmute(breakusagelist), ::core::mem::transmute(makeusagelist), ::core::mem::transmute(usagelistlength)).ok()
+    HidP_UsageListDifference(::core::mem::transmute(previoususagelist), ::core::mem::transmute(currentusagelist), ::core::mem::transmute(breakusagelist), ::core::mem::transmute(makeusagelist), usagelistlength).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]

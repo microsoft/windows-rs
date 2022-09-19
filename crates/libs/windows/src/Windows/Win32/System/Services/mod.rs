@@ -172,7 +172,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumDependentServicesA<'a, P0>(hservice: P0, dwservicestate: ENUM_SERVICE_STATE, lpservices: ::core::option::Option<*mut ENUM_SERVICE_STATUSA>, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn EnumDependentServicesA<'a, P0>(hservice: P0, dwservicestate: ENUM_SERVICE_STATE, lpservices: ::core::option::Option<*mut ENUM_SERVICE_STATUSA>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
@@ -180,12 +180,12 @@ where
     extern "system" {
         fn EnumDependentServicesA(hservice: super::super::Security::SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    EnumDependentServicesA(hservice.into(), dwservicestate, ::core::mem::transmute(lpservices.unwrap_or(::std::ptr::null_mut())), lpservices.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned))
+    EnumDependentServicesA(hservice.into(), dwservicestate, ::core::mem::transmute(lpservices.unwrap_or(::std::ptr::null_mut())), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumDependentServicesW<'a, P0>(hservice: P0, dwservicestate: ENUM_SERVICE_STATE, lpservices: ::core::option::Option<*mut ENUM_SERVICE_STATUSW>, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn EnumDependentServicesW<'a, P0>(hservice: P0, dwservicestate: ENUM_SERVICE_STATE, lpservices: ::core::option::Option<*mut ENUM_SERVICE_STATUSW>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
@@ -193,12 +193,12 @@ where
     extern "system" {
         fn EnumDependentServicesW(hservice: super::super::Security::SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL;
     }
-    EnumDependentServicesW(hservice.into(), dwservicestate, ::core::mem::transmute(lpservices.unwrap_or(::std::ptr::null_mut())), lpservices.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned))
+    EnumDependentServicesW(hservice.into(), dwservicestate, ::core::mem::transmute(lpservices.unwrap_or(::std::ptr::null_mut())), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusA<'a, P0>(hscmanager: P0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: ::core::option::Option<*mut ENUM_SERVICE_STATUSA>, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn EnumServicesStatusA<'a, P0>(hscmanager: P0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: ::core::option::Option<*mut ENUM_SERVICE_STATUSA>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
@@ -206,7 +206,7 @@ where
     extern "system" {
         fn EnumServicesStatusA(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
     }
-    EnumServicesStatusA(hscmanager.into(), dwservicetype, dwservicestate, ::core::mem::transmute(lpservices.unwrap_or(::std::ptr::null_mut())), lpservices.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle.unwrap_or(::std::ptr::null_mut())))
+    EnumServicesStatusA(hscmanager.into(), dwservicetype, dwservicestate, ::core::mem::transmute(lpservices.unwrap_or(::std::ptr::null_mut())), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -239,7 +239,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusW<'a, P0>(hscmanager: P0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: ::core::option::Option<*mut ENUM_SERVICE_STATUSW>, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn EnumServicesStatusW<'a, P0>(hscmanager: P0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: ::core::option::Option<*mut ENUM_SERVICE_STATUSW>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
@@ -247,7 +247,7 @@ where
     extern "system" {
         fn EnumServicesStatusW(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
     }
-    EnumServicesStatusW(hscmanager.into(), dwservicetype, dwservicestate, ::core::mem::transmute(lpservices.unwrap_or(::std::ptr::null_mut())), lpservices.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle.unwrap_or(::std::ptr::null_mut())))
+    EnumServicesStatusW(hscmanager.into(), dwservicetype, dwservicestate, ::core::mem::transmute(lpservices.unwrap_or(::std::ptr::null_mut())), cbbufsize, ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
@@ -497,7 +497,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfigA<'a, P0>(hservice: P0, lpserviceconfig: ::core::option::Option<*mut QUERY_SERVICE_CONFIGA>, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn QueryServiceConfigA<'a, P0>(hservice: P0, lpserviceconfig: ::core::option::Option<*mut QUERY_SERVICE_CONFIGA>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
@@ -505,12 +505,12 @@ where
     extern "system" {
         fn QueryServiceConfigA(hservice: super::super::Security::SC_HANDLE, lpserviceconfig: *mut QUERY_SERVICE_CONFIGA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    QueryServiceConfigA(hservice.into(), ::core::mem::transmute(lpserviceconfig.unwrap_or(::std::ptr::null_mut())), lpserviceconfig.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbbytesneeded))
+    QueryServiceConfigA(hservice.into(), ::core::mem::transmute(lpserviceconfig.unwrap_or(::std::ptr::null_mut())), cbbufsize, ::core::mem::transmute(pcbbytesneeded))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfigW<'a, P0>(hservice: P0, lpserviceconfig: ::core::option::Option<*mut QUERY_SERVICE_CONFIGW>, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn QueryServiceConfigW<'a, P0>(hservice: P0, lpserviceconfig: ::core::option::Option<*mut QUERY_SERVICE_CONFIGW>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
@@ -518,7 +518,7 @@ where
     extern "system" {
         fn QueryServiceConfigW(hservice: super::super::Security::SC_HANDLE, lpserviceconfig: *mut QUERY_SERVICE_CONFIGW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    QueryServiceConfigW(hservice.into(), ::core::mem::transmute(lpserviceconfig.unwrap_or(::std::ptr::null_mut())), lpserviceconfig.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbbytesneeded))
+    QueryServiceConfigW(hservice.into(), ::core::mem::transmute(lpserviceconfig.unwrap_or(::std::ptr::null_mut())), cbbufsize, ::core::mem::transmute(pcbbytesneeded))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -536,7 +536,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceLockStatusA<'a, P0>(hscmanager: P0, lplockstatus: ::core::option::Option<*mut QUERY_SERVICE_LOCK_STATUSA>, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn QueryServiceLockStatusA<'a, P0>(hscmanager: P0, lplockstatus: ::core::option::Option<*mut QUERY_SERVICE_LOCK_STATUSA>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
@@ -544,12 +544,12 @@ where
     extern "system" {
         fn QueryServiceLockStatusA(hscmanager: super::super::Security::SC_HANDLE, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    QueryServiceLockStatusA(hscmanager.into(), ::core::mem::transmute(lplockstatus.unwrap_or(::std::ptr::null_mut())), lplockstatus.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbbytesneeded))
+    QueryServiceLockStatusA(hscmanager.into(), ::core::mem::transmute(lplockstatus.unwrap_or(::std::ptr::null_mut())), cbbufsize, ::core::mem::transmute(pcbbytesneeded))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceLockStatusW<'a, P0>(hscmanager: P0, lplockstatus: ::core::option::Option<*mut QUERY_SERVICE_LOCK_STATUSW>, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn QueryServiceLockStatusW<'a, P0>(hscmanager: P0, lplockstatus: ::core::option::Option<*mut QUERY_SERVICE_LOCK_STATUSW>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
@@ -557,12 +557,12 @@ where
     extern "system" {
         fn QueryServiceLockStatusW(hscmanager: super::super::Security::SC_HANDLE, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    QueryServiceLockStatusW(hscmanager.into(), ::core::mem::transmute(lplockstatus.unwrap_or(::std::ptr::null_mut())), lplockstatus.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbbytesneeded))
+    QueryServiceLockStatusW(hscmanager.into(), ::core::mem::transmute(lplockstatus.unwrap_or(::std::ptr::null_mut())), cbbufsize, ::core::mem::transmute(pcbbytesneeded))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceObjectSecurity<'a, P0>(hservice: P0, dwsecurityinformation: u32, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn QueryServiceObjectSecurity<'a, P0>(hservice: P0, dwsecurityinformation: u32, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
@@ -570,7 +570,7 @@ where
     extern "system" {
         fn QueryServiceObjectSecurity(hservice: super::super::Security::SC_HANDLE, dwsecurityinformation: u32, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    QueryServiceObjectSecurity(hservice.into(), dwsecurityinformation, ::core::mem::transmute(lpsecuritydescriptor), lpsecuritydescriptor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbbytesneeded))
+    QueryServiceObjectSecurity(hservice.into(), dwsecurityinformation, ::core::mem::transmute(lpsecuritydescriptor), cbbufsize, ::core::mem::transmute(pcbbytesneeded))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

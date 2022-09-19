@@ -3710,7 +3710,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiGetClassInstallParamsA<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, classinstallparams: ::core::option::Option<*mut SP_CLASSINSTALL_HEADER>, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiGetClassInstallParamsA<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, classinstallparams: ::core::option::Option<*mut SP_CLASSINSTALL_HEADER>, classinstallparamssize: u32, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
@@ -3718,12 +3718,12 @@ where
     extern "system" {
         fn SetupDiGetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    SetupDiGetClassInstallParamsA(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(classinstallparams.unwrap_or(::std::ptr::null_mut())), classinstallparams.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
+    SetupDiGetClassInstallParamsA(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(classinstallparams.unwrap_or(::std::ptr::null_mut())), classinstallparamssize, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiGetClassInstallParamsW<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, classinstallparams: ::core::option::Option<*mut SP_CLASSINSTALL_HEADER>, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiGetClassInstallParamsW<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, classinstallparams: ::core::option::Option<*mut SP_CLASSINSTALL_HEADER>, classinstallparamssize: u32, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
@@ -3731,7 +3731,7 @@ where
     extern "system" {
         fn SetupDiGetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    SetupDiGetClassInstallParamsW(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(classinstallparams.unwrap_or(::std::ptr::null_mut())), classinstallparams.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
+    SetupDiGetClassInstallParamsW(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(classinstallparams.unwrap_or(::std::ptr::null_mut())), classinstallparamssize, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
@@ -3940,7 +3940,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInterfaceDetailA<'a, P0>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: ::core::option::Option<*mut SP_DEVICE_INTERFACE_DETAIL_DATA_A>, requiredsize: ::core::option::Option<*mut u32>, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiGetDeviceInterfaceDetailA<'a, P0>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: ::core::option::Option<*mut SP_DEVICE_INTERFACE_DETAIL_DATA_A>, deviceinterfacedetaildatasize: u32, requiredsize: ::core::option::Option<*mut u32>, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
@@ -3948,12 +3948,12 @@ where
     extern "system" {
         fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
     }
-    SetupDiGetDeviceInterfaceDetailA(deviceinfoset.into(), ::core::mem::transmute(deviceinterfacedata), ::core::mem::transmute(deviceinterfacedetaildata.unwrap_or(::std::ptr::null_mut())), deviceinterfacedetaildata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null_mut())))
+    SetupDiGetDeviceInterfaceDetailA(deviceinfoset.into(), ::core::mem::transmute(deviceinterfacedata), ::core::mem::transmute(deviceinterfacedetaildata.unwrap_or(::std::ptr::null_mut())), deviceinterfacedetaildatasize, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInterfaceDetailW<'a, P0>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: ::core::option::Option<*mut SP_DEVICE_INTERFACE_DETAIL_DATA_W>, requiredsize: ::core::option::Option<*mut u32>, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiGetDeviceInterfaceDetailW<'a, P0>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: ::core::option::Option<*mut SP_DEVICE_INTERFACE_DETAIL_DATA_W>, deviceinterfacedetaildatasize: u32, requiredsize: ::core::option::Option<*mut u32>, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
@@ -3961,7 +3961,7 @@ where
     extern "system" {
         fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
     }
-    SetupDiGetDeviceInterfaceDetailW(deviceinfoset.into(), ::core::mem::transmute(deviceinterfacedata), ::core::mem::transmute(deviceinterfacedetaildata.unwrap_or(::std::ptr::null_mut())), deviceinterfacedetaildata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null_mut())))
+    SetupDiGetDeviceInterfaceDetailW(deviceinfoset.into(), ::core::mem::transmute(deviceinterfacedata), ::core::mem::transmute(deviceinterfacedetaildata.unwrap_or(::std::ptr::null_mut())), deviceinterfacedetaildatasize, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
@@ -4044,7 +4044,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiGetDriverInfoDetailA<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinfodetaildata: ::core::option::Option<*mut SP_DRVINFO_DETAIL_DATA_A>, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiGetDriverInfoDetailA<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinfodetaildata: ::core::option::Option<*mut SP_DRVINFO_DETAIL_DATA_A>, driverinfodetaildatasize: u32, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
@@ -4052,12 +4052,12 @@ where
     extern "system" {
         fn SetupDiGetDriverInfoDetailA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_A, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    SetupDiGetDriverInfoDetailA(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(driverinfodata), ::core::mem::transmute(driverinfodetaildata.unwrap_or(::std::ptr::null_mut())), driverinfodetaildata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
+    SetupDiGetDriverInfoDetailA(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(driverinfodata), ::core::mem::transmute(driverinfodetaildata.unwrap_or(::std::ptr::null_mut())), driverinfodetaildatasize, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiGetDriverInfoDetailW<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinfodetaildata: ::core::option::Option<*mut SP_DRVINFO_DETAIL_DATA_W>, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiGetDriverInfoDetailW<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinfodetaildata: ::core::option::Option<*mut SP_DRVINFO_DETAIL_DATA_W>, driverinfodetaildatasize: u32, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
@@ -4065,7 +4065,7 @@ where
     extern "system" {
         fn SetupDiGetDriverInfoDetailW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_W, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    SetupDiGetDriverInfoDetailW(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(driverinfodata), ::core::mem::transmute(driverinfodetaildata.unwrap_or(::std::ptr::null_mut())), driverinfodetaildata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
+    SetupDiGetDriverInfoDetailW(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(driverinfodata), ::core::mem::transmute(driverinfodetaildata.unwrap_or(::std::ptr::null_mut())), driverinfodetaildatasize, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4604,7 +4604,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiSetClassInstallParamsA<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, classinstallparams: ::core::option::Option<*const SP_CLASSINSTALL_HEADER>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiSetClassInstallParamsA<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, classinstallparams: ::core::option::Option<*const SP_CLASSINSTALL_HEADER>, classinstallparamssize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
@@ -4612,12 +4612,12 @@ where
     extern "system" {
         fn SetupDiSetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL;
     }
-    SetupDiSetClassInstallParamsA(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(classinstallparams.unwrap_or(::std::ptr::null())), classinstallparams.as_deref().map_or(0, |slice| slice.len() as _))
+    SetupDiSetClassInstallParamsA(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(classinstallparams.unwrap_or(::std::ptr::null())), classinstallparamssize)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiSetClassInstallParamsW<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, classinstallparams: ::core::option::Option<*const SP_CLASSINSTALL_HEADER>) -> super::super::Foundation::BOOL
+pub unsafe fn SetupDiSetClassInstallParamsW<'a, P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, classinstallparams: ::core::option::Option<*const SP_CLASSINSTALL_HEADER>, classinstallparamssize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDEVINFO>,
 {
@@ -4625,7 +4625,7 @@ where
     extern "system" {
         fn SetupDiSetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL;
     }
-    SetupDiSetClassInstallParamsW(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(classinstallparams.unwrap_or(::std::ptr::null())), classinstallparams.as_deref().map_or(0, |slice| slice.len() as _))
+    SetupDiSetClassInstallParamsW(deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(classinstallparams.unwrap_or(::std::ptr::null())), classinstallparamssize)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
@@ -5133,22 +5133,22 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupGetInfInformationA(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: ::core::option::Option<*mut SP_INF_INFORMATION>, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupGetInfInformationA(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: ::core::option::Option<*mut SP_INF_INFORMATION>, returnbuffersize: u32, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetupGetInfInformationA(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    SetupGetInfInformationA(::core::mem::transmute(infspec), searchcontrol, ::core::mem::transmute(returnbuffer.unwrap_or(::std::ptr::null_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
+    SetupGetInfInformationA(::core::mem::transmute(infspec), searchcontrol, ::core::mem::transmute(returnbuffer.unwrap_or(::std::ptr::null_mut())), returnbuffersize, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupGetInfInformationW(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: ::core::option::Option<*mut SP_INF_INFORMATION>, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupGetInfInformationW(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: ::core::option::Option<*mut SP_INF_INFORMATION>, returnbuffersize: u32, requiredsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetupGetInfInformationW(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    SetupGetInfInformationW(::core::mem::transmute(infspec), searchcontrol, ::core::mem::transmute(returnbuffer.unwrap_or(::std::ptr::null_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
+    SetupGetInfInformationW(::core::mem::transmute(infspec), searchcontrol, ::core::mem::transmute(returnbuffer.unwrap_or(::std::ptr::null_mut())), returnbuffersize, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

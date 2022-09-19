@@ -1187,7 +1187,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfAddCounters<'a, P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER) -> u32
+pub unsafe fn PerfAddCounters<'a, P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32
 where
     P0: ::std::convert::Into<PerfQueryHandle>,
 {
@@ -1195,7 +1195,7 @@ where
     extern "system" {
         fn PerfAddCounters(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     }
-    PerfAddCounters(hquery.into(), ::core::mem::transmute(pcounters), pcounters.len() as _)
+    PerfAddCounters(hquery.into(), ::core::mem::transmute(pcounters), cbcounters)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1251,7 +1251,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfDeleteCounters<'a, P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER) -> u32
+pub unsafe fn PerfDeleteCounters<'a, P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32
 where
     P0: ::std::convert::Into<PerfQueryHandle>,
 {
@@ -1259,7 +1259,7 @@ where
     extern "system" {
         fn PerfDeleteCounters(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     }
-    PerfDeleteCounters(hquery.into(), ::core::mem::transmute(pcounters), pcounters.len() as _)
+    PerfDeleteCounters(hquery.into(), ::core::mem::transmute(pcounters), cbcounters)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -1287,7 +1287,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfEnumerateCounterSetInstances<'a, P0>(szmachine: P0, pcountersetid: *const ::windows::core::GUID, pinstances: ::core::option::Option<*mut PERF_INSTANCE_HEADER>, pcbinstancesactual: *mut u32) -> u32
+pub unsafe fn PerfEnumerateCounterSetInstances<'a, P0>(szmachine: P0, pcountersetid: *const ::windows::core::GUID, pinstances: ::core::option::Option<*mut PERF_INSTANCE_HEADER>, cbinstances: u32, pcbinstancesactual: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1295,7 +1295,7 @@ where
     extern "system" {
         fn PerfEnumerateCounterSetInstances(szmachine: ::windows::core::PCWSTR, pcountersetid: *const ::windows::core::GUID, pinstances: *mut PERF_INSTANCE_HEADER, cbinstances: u32, pcbinstancesactual: *mut u32) -> u32;
     }
-    PerfEnumerateCounterSetInstances(szmachine.into(), ::core::mem::transmute(pcountersetid), ::core::mem::transmute(pinstances.unwrap_or(::std::ptr::null_mut())), pinstances.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbinstancesactual))
+    PerfEnumerateCounterSetInstances(szmachine.into(), ::core::mem::transmute(pcountersetid), ::core::mem::transmute(pinstances.unwrap_or(::std::ptr::null_mut())), cbinstances, ::core::mem::transmute(pcbinstancesactual))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1338,7 +1338,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfQueryCounterData<'a, P0>(hquery: P0, pcounterblock: ::core::option::Option<*mut PERF_DATA_HEADER>, pcbcounterblockactual: *mut u32) -> u32
+pub unsafe fn PerfQueryCounterData<'a, P0>(hquery: P0, pcounterblock: ::core::option::Option<*mut PERF_DATA_HEADER>, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32
 where
     P0: ::std::convert::Into<PerfQueryHandle>,
 {
@@ -1346,11 +1346,11 @@ where
     extern "system" {
         fn PerfQueryCounterData(hquery: PerfQueryHandle, pcounterblock: *mut PERF_DATA_HEADER, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32;
     }
-    PerfQueryCounterData(hquery.into(), ::core::mem::transmute(pcounterblock.unwrap_or(::std::ptr::null_mut())), pcounterblock.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbcounterblockactual))
+    PerfQueryCounterData(hquery.into(), ::core::mem::transmute(pcounterblock.unwrap_or(::std::ptr::null_mut())), cbcounterblock, ::core::mem::transmute(pcbcounterblockactual))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfQueryCounterInfo<'a, P0>(hquery: P0, pcounters: ::core::option::Option<*mut PERF_COUNTER_IDENTIFIER>, pcbcountersactual: *mut u32) -> u32
+pub unsafe fn PerfQueryCounterInfo<'a, P0>(hquery: P0, pcounters: ::core::option::Option<*mut PERF_COUNTER_IDENTIFIER>, cbcounters: u32, pcbcountersactual: *mut u32) -> u32
 where
     P0: ::std::convert::Into<PerfQueryHandle>,
 {
@@ -1358,7 +1358,7 @@ where
     extern "system" {
         fn PerfQueryCounterInfo(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32, pcbcountersactual: *mut u32) -> u32;
     }
-    PerfQueryCounterInfo(hquery.into(), ::core::mem::transmute(pcounters.unwrap_or(::std::ptr::null_mut())), pcounters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbcountersactual))
+    PerfQueryCounterInfo(hquery.into(), ::core::mem::transmute(pcounters.unwrap_or(::std::ptr::null_mut())), cbcounters, ::core::mem::transmute(pcbcountersactual))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -1402,7 +1402,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfSetCounterSetInfo<'a, P0>(providerhandle: P0, template: *mut PERF_COUNTERSET_INFO) -> u32
+pub unsafe fn PerfSetCounterSetInfo<'a, P0>(providerhandle: P0, template: *mut PERF_COUNTERSET_INFO, templatesize: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1410,7 +1410,7 @@ where
     extern "system" {
         fn PerfSetCounterSetInfo(providerhandle: super::super::Foundation::HANDLE, template: *mut PERF_COUNTERSET_INFO, templatesize: u32) -> u32;
     }
-    PerfSetCounterSetInfo(providerhandle.into(), ::core::mem::transmute(template), template.len() as _)
+    PerfSetCounterSetInfo(providerhandle.into(), ::core::mem::transmute(template), templatesize)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

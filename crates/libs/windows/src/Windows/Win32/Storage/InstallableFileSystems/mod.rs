@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
-pub unsafe fn FilterAttach<'a, P0, P1, P2>(lpfiltername: P0, lpvolumename: P1, lpinstancename: P2, lpcreatedinstancename: ::windows::core::PWSTR) -> ::windows::core::Result<()>
+pub unsafe fn FilterAttach<'a, P0, P1, P2>(lpfiltername: P0, lpvolumename: P1, lpinstancename: P2, dwcreatedinstancenamelength: u32, lpcreatedinstancename: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -10,11 +10,11 @@ where
     extern "system" {
         fn FilterAttach(lpfiltername: ::windows::core::PCWSTR, lpvolumename: ::windows::core::PCWSTR, lpinstancename: ::windows::core::PCWSTR, dwcreatedinstancenamelength: u32, lpcreatedinstancename: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    FilterAttach(lpfiltername.into(), lpvolumename.into(), lpinstancename.into(), lpcreatedinstancename.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpcreatedinstancename)).ok()
+    FilterAttach(lpfiltername.into(), lpvolumename.into(), lpinstancename.into(), dwcreatedinstancenamelength, ::core::mem::transmute(lpcreatedinstancename)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
-pub unsafe fn FilterAttachAtAltitude<'a, P0, P1, P2, P3>(lpfiltername: P0, lpvolumename: P1, lpaltitude: P2, lpinstancename: P3, lpcreatedinstancename: ::windows::core::PWSTR) -> ::windows::core::Result<()>
+pub unsafe fn FilterAttachAtAltitude<'a, P0, P1, P2, P3>(lpfiltername: P0, lpvolumename: P1, lpaltitude: P2, lpinstancename: P3, dwcreatedinstancenamelength: u32, lpcreatedinstancename: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -25,7 +25,7 @@ where
     extern "system" {
         fn FilterAttachAtAltitude(lpfiltername: ::windows::core::PCWSTR, lpvolumename: ::windows::core::PCWSTR, lpaltitude: ::windows::core::PCWSTR, lpinstancename: ::windows::core::PCWSTR, dwcreatedinstancenamelength: u32, lpcreatedinstancename: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    FilterAttachAtAltitude(lpfiltername.into(), lpvolumename.into(), lpaltitude.into(), lpinstancename.into(), lpcreatedinstancename.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpcreatedinstancename)).ok()
+    FilterAttachAtAltitude(lpfiltername.into(), lpvolumename.into(), lpaltitude.into(), lpinstancename.into(), dwcreatedinstancenamelength, ::core::mem::transmute(lpcreatedinstancename)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -142,7 +142,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn FilterGetMessage<'a, P0>(hport: P0, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
+pub unsafe fn FilterGetMessage<'a, P0>(hport: P0, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize: u32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -150,7 +150,7 @@ where
     extern "system" {
         fn FilterGetMessage(hport: super::super::Foundation::HANDLE, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    FilterGetMessage(hport.into(), ::core::mem::transmute(lpmessagebuffer), lpmessagebuffer.len() as _, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    FilterGetMessage(hport.into(), ::core::mem::transmute(lpmessagebuffer), dwmessagebuffersize, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -244,7 +244,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterReplyMessage<'a, P0>(hport: P0, lpreplybuffer: *const FILTER_REPLY_HEADER) -> ::windows::core::Result<()>
+pub unsafe fn FilterReplyMessage<'a, P0>(hport: P0, lpreplybuffer: *const FILTER_REPLY_HEADER, dwreplybuffersize: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -252,7 +252,7 @@ where
     extern "system" {
         fn FilterReplyMessage(hport: super::super::Foundation::HANDLE, lpreplybuffer: *const FILTER_REPLY_HEADER, dwreplybuffersize: u32) -> ::windows::core::HRESULT;
     }
-    FilterReplyMessage(hport.into(), ::core::mem::transmute(lpreplybuffer), lpreplybuffer.len() as _).ok()
+    FilterReplyMessage(hport.into(), ::core::mem::transmute(lpreplybuffer), dwreplybuffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

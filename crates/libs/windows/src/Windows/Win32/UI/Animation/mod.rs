@@ -84,7 +84,7 @@ impl IUIAnimationInterpolator2 {
         (::windows::core::Interface::vtable(self).GetDimension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetInitialValueAndVelocity(&self, initialvalue: *const f64, initialvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialValueAndVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialvalue), ::core::mem::transmute(initialvelocity), ::core::mem::transmute(cdimension)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialValueAndVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialvalue), ::core::mem::transmute(initialvelocity), cdimension).ok()
     }
     pub unsafe fn SetDuration(&self, duration: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), duration).ok()
@@ -1887,7 +1887,7 @@ impl IUIAnimationTransitionLibrary2 {
     }
     pub unsafe fn CreateCubicVectorTransition(&self, duration: f64, finalvalue: *const f64, finalvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCubicVectorTransition)(::windows::core::Interface::as_raw(self), duration, ::core::mem::transmute(finalvalue), ::core::mem::transmute(finalvelocity), ::core::mem::transmute(cdimension), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateCubicVectorTransition)(::windows::core::Interface::as_raw(self), duration, ::core::mem::transmute(finalvalue), ::core::mem::transmute(finalvelocity), cdimension, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     pub unsafe fn CreateSmoothStopTransition(&self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2338,7 +2338,7 @@ impl IUIAnimationVariableChangeHandler2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>,
     {
-        (::windows::core::Interface::vtable(self).OnValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), ::core::mem::transmute(cdimension)).ok()
+        (::windows::core::Interface::vtable(self).OnValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), cdimension).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableChangeHandler2> for ::windows::core::IUnknown {
@@ -2496,7 +2496,7 @@ impl IUIAnimationVariableIntegerChangeHandler2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>,
     {
-        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), ::core::mem::transmute(cdimension)).ok()
+        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), cdimension).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler2> for ::windows::core::IUnknown {

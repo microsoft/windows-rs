@@ -490,7 +490,7 @@ where
     extern "system" {
         fn DnsServiceConstructInstance(pservicename: ::windows::core::PCWSTR, phostname: ::windows::core::PCWSTR, pip4: *const u32, pip6: *const IP6_ADDRESS, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows::core::PWSTR, values: *const ::windows::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE;
     }
-    DnsServiceConstructInstance(pservicename.into(), phostname.into(), ::core::mem::transmute(pip4.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pip6.unwrap_or(::std::ptr::null())), wport, wpriority, wweight, ::core::mem::transmute(dwpropertiescount), ::core::mem::transmute(keys), ::core::mem::transmute(values))
+    DnsServiceConstructInstance(pservicename.into(), phostname.into(), ::core::mem::transmute(pip4.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pip6.unwrap_or(::std::ptr::null())), wport, wpriority, wweight, dwpropertiescount, ::core::mem::transmute(keys), ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
