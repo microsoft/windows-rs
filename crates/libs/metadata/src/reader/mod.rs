@@ -562,6 +562,18 @@ impl<'a> Reader<'a> {
             }
         }
 
+        // Remove any byte arrays that aren't byte-sized types.
+        for position in 0..params.len() {
+            match params[position].array_info {
+                ArrayInfo::RelativeByteLen(_) => {
+                    if !params[position].ty.is_byte_size() {
+                        params[position].array_info = ArrayInfo::Removed
+                    }
+                }
+                _ => {}
+            }
+        }
+
         let mut sets = BTreeMap::<usize, Vec<usize>>::new();
 
         // Finds sets of ptr params pointing at the same len param.

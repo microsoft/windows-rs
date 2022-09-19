@@ -127,9 +127,17 @@ impl Type {
     /// Returns `true` if the `Type` is incomplete.
     pub fn is_void(&self) -> bool {
         match self {
-            // TODO: do we care about void behind pointers?
             Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => kind.is_void(),
             Type::Void => true,
+            _ => false,
+        }
+    }
+
+    /// Returns `true` if the `Type` has a byte-sized address.
+    pub fn is_byte_size(&self) -> bool {
+        match self {
+            Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => kind.is_byte_size(),
+            Type::I8 | Type::U8 | Type::Void | Type::PSTR | Type::PCSTR => true,
             _ => false,
         }
     }
