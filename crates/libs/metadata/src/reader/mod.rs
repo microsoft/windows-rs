@@ -542,14 +542,11 @@ impl<'a> Reader<'a> {
             .collect();
 
         // Remove any byte arrays that aren't byte-sized types.
-        for position in 0..params.len() {
-            match params[position].array_info {
-                ArrayInfo::RelativeByteLen(_) => {
-                    if !params[position].ty.is_byte_size() {
-                        params[position].array_info = ArrayInfo::None
-                    }
+        for param in &mut params {
+            if let ArrayInfo::RelativeByteLen(_) = param.array_info {
+                if !param.ty.is_byte_size() {
+                    param.array_info = ArrayInfo::None
                 }
-                _ => {}
             }
         }
 
