@@ -612,7 +612,7 @@ impl IRDPSRAPIAudioStream {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: &mut u32, ptimestamp: &mut u64) -> ::windows::core::Result<()> {
+    pub unsafe fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbdata), ::core::mem::transmute(ptimestamp)).ok()
     }
     pub unsafe fn FreeBuffer(&self) -> ::windows::core::Result<()> {
@@ -1345,7 +1345,7 @@ impl IRDPSRAPISharingSession {
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDesktopSharedRect)(::windows::core::Interface::as_raw(self), left, top, right, bottom).ok()
     }
-    pub unsafe fn GetDesktopSharedRect(&self, pleft: &mut i32, ptop: &mut i32, pright: &mut i32, pbottom: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDesktopSharedRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
     }
 }
@@ -1506,7 +1506,7 @@ impl IRDPSRAPISharingSession2 {
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetDesktopSharedRect)(::windows::core::Interface::as_raw(self), left, top, right, bottom).ok()
     }
-    pub unsafe fn GetDesktopSharedRect(&self, pleft: &mut i32, ptop: &mut i32, pright: &mut i32, pbottom: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetDesktopSharedRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
     }
     pub unsafe fn ConnectUsingTransportStream<'a, P0>(&self, pstream: P0, bstrgroup: &::windows::core::BSTR, bstrauthenticatedattendeename: &::windows::core::BSTR) -> ::windows::core::Result<()>

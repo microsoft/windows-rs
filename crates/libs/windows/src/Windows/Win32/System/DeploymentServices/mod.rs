@@ -54,7 +54,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpAppendOption(preplypacket: &mut [u8], pureplypacketlen: &mut u32, boption: u8, pvalue: ::core::option::Option<&[u8]>) -> u32 {
+pub unsafe fn PxeDhcpAppendOption(preplypacket: &mut [u8], pureplypacketlen: *mut u32, boption: u8, pvalue: ::core::option::Option<&[u8]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: *const ::core::ffi::c_void) -> u32;
@@ -63,7 +63,7 @@ pub unsafe fn PxeDhcpAppendOption(preplypacket: &mut [u8], pureplypacketlen: &mu
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: &mut [u8], pureplypacketlen: &mut u32, pbuffer: &[u8]) -> u32 {
+pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: &mut [u8], pureplypacketlen: *mut u32, pbuffer: &[u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
@@ -72,25 +72,25 @@ pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: &mut [u8], pureplypacketlen: 
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpGetOptionValue(ppacket: &[u8], uinstance: u32, boption: u8, pboptionlen: ::core::option::Option<&mut u8>, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn PxeDhcpGetOptionValue(ppacket: &[u8], uinstance: u32, boption: u8, pboptionlen: ::core::option::Option<*mut u8>, ppoptionvalue: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    PxeDhcpGetOptionValue(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, uinstance, boption, ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue))
+    PxeDhcpGetOptionValue(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, uinstance, boption, ::core::mem::transmute(pboptionlen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoptionvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: &[u8], boption: u8, uinstance: u32, pboptionlen: ::core::option::Option<&mut u8>, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: &[u8], boption: u8, uinstance: u32, pboptionlen: ::core::option::Option<*mut u8>, ppoptionvalue: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    PxeDhcpGetVendorOptionValue(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, boption, uinstance, ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue))
+    PxeDhcpGetVendorOptionValue(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, boption, uinstance, ::core::mem::transmute(pboptionlen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoptionvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpInitialize(precvpacket: &[u8], preplypacket: &mut [u8], pureplypacketlen: &mut u32) -> u32 {
+pub unsafe fn PxeDhcpInitialize(precvpacket: &[u8], preplypacket: &mut [u8], pureplypacketlen: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32;
@@ -100,7 +100,7 @@ pub unsafe fn PxeDhcpInitialize(precvpacket: &[u8], preplypacket: &mut [u8], pur
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeDhcpIsValid<'a, P0>(ppacket: &[u8], brequestpacket: P0, pbpxeoptionpresent: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> u32
+pub unsafe fn PxeDhcpIsValid<'a, P0>(ppacket: &[u8], brequestpacket: P0, pbpxeoptionpresent: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -108,11 +108,11 @@ where
     extern "system" {
         fn PxeDhcpIsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
     }
-    PxeDhcpIsValid(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent))
+    PxeDhcpIsValid(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpv6AppendOption(preply: &mut [u8], pcbreplyused: &mut u32, woptiontype: u16, poption: &[u8]) -> u32 {
+pub unsafe fn PxeDhcpv6AppendOption(preply: &mut [u8], pcbreplyused: *mut u32, woptiontype: u16, poption: &[u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const ::core::ffi::c_void) -> u32;
@@ -121,7 +121,7 @@ pub unsafe fn PxeDhcpv6AppendOption(preply: &mut [u8], pcbreplyused: &mut u32, w
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: &mut [u8], pcbreplyused: &mut u32, pbuffer: &[u8]) -> u32 {
+pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: &mut [u8], pcbreplyused: *mut u32, pbuffer: &[u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, cbbuffer: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
@@ -130,7 +130,7 @@ pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: &mut [u8], pcbreplyused: &mut u32
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: &[PXE_DHCPV6_NESTED_RELAY_MESSAGE], pinnerpacket: &[u8], preplybuffer: &mut [u8], pcbreplybuffer: &mut u32) -> u32 {
+pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: &[PXE_DHCPV6_NESTED_RELAY_MESSAGE], pinnerpacket: &[u8], preplybuffer: &mut [u8], pcbreplybuffer: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pinnerpacket: *const u8, cbinnerpacket: u32, preplybuffer: *mut ::core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32;
@@ -139,25 +139,25 @@ pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: &[PXE_DHCPV6_NESTED_RELAY
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: &[u8], uinstance: u32, woption: u16, pwoptionlen: ::core::option::Option<&mut u16>, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: &[u8], uinstance: u32, woption: u16, pwoptionlen: ::core::option::Option<*mut u16>, ppoptionvalue: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    PxeDhcpv6GetOptionValue(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, uinstance, woption, ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue))
+    PxeDhcpv6GetOptionValue(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, uinstance, woption, ::core::mem::transmute(pwoptionlen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoptionvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: &[u8], dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: ::core::option::Option<&mut u16>, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: &[u8], dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: ::core::option::Option<*mut u16>, ppoptionvalue: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    PxeDhcpv6GetVendorOptionValue(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, dwenterprisenumber, woption, uinstance, ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue))
+    PxeDhcpv6GetVendorOptionValue(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, dwenterprisenumber, woption, uinstance, ::core::mem::transmute(pwoptionlen.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoptionvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpv6Initialize(prequest: &[u8], preply: &mut [u8], pcbreplyused: &mut u32) -> u32 {
+pub unsafe fn PxeDhcpv6Initialize(prequest: &[u8], preply: &mut [u8], pcbreplyused: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbrequest: u32, preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32;
@@ -167,7 +167,7 @@ pub unsafe fn PxeDhcpv6Initialize(prequest: &[u8], preply: &mut [u8], pcbreplyus
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeDhcpv6IsValid<'a, P0>(ppacket: &[u8], brequestpacket: P0, pbpxeoptionpresent: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> u32
+pub unsafe fn PxeDhcpv6IsValid<'a, P0>(ppacket: &[u8], brequestpacket: P0, pbpxeoptionpresent: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -175,11 +175,11 @@ where
     extern "system" {
         fn PxeDhcpv6IsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
     }
-    PxeDhcpv6IsValid(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent))
+    PxeDhcpv6IsValid(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: &[u8], prelaymessages: &mut [PXE_DHCPV6_NESTED_RELAY_MESSAGE], pnrelaymessages: &mut u32, ppinnerpacket: &mut *mut u8, pcbinnerpacket: &mut u32) -> u32 {
+pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: &[u8], prelaymessages: &mut [PXE_DHCPV6_NESTED_RELAY_MESSAGE], pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32;
@@ -197,7 +197,7 @@ pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: &mut [u8]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: &mut [u8], pubufferused: &mut u32) -> u32 {
+pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: &mut [u8], pubufferused: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32, pubufferused: *mut u32) -> u32;
@@ -248,7 +248,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderEnumFirst(phenum: &mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32;
@@ -258,7 +258,7 @@ pub unsafe fn PxeProviderEnumFirst(phenum: &mut super::super::Foundation::HANDLE
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderEnumNext<'a, P0>(henum: P0, ppprovider: &mut *mut PXE_PROVIDER) -> u32
+pub unsafe fn PxeProviderEnumNext<'a, P0>(henum: P0, ppprovider: *mut *mut PXE_PROVIDER) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -271,7 +271,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderFreeInfo(pprovider: &PXE_PROVIDER) -> u32 {
+pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
@@ -280,7 +280,7 @@ pub unsafe fn PxeProviderFreeInfo(pprovider: &PXE_PROVIDER) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeProviderQueryIndex<'a, P0>(pszprovidername: P0, puindex: &mut u32) -> u32
+pub unsafe fn PxeProviderQueryIndex<'a, P0>(pszprovidername: P0, puindex: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -293,7 +293,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn PxeProviderRegister<'a, P0, P1, P2>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: P2, phproviderkey: ::core::option::Option<&mut super::Registry::HKEY>) -> u32
+pub unsafe fn PxeProviderRegister<'a, P0, P1, P2>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: P2, phproviderkey: ::core::option::Option<*mut super::Registry::HKEY>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -303,7 +303,7 @@ where
     extern "system" {
         fn PxeProviderRegister(pszprovidername: ::windows::core::PCWSTR, pszmodulepath: ::windows::core::PCWSTR, index: u32, biscritical: super::super::Foundation::BOOL, phproviderkey: *mut super::Registry::HKEY) -> u32;
     }
-    PxeProviderRegister(pszprovidername.into(), pszmodulepath.into(), index, biscritical.into(), ::core::mem::transmute(phproviderkey))
+    PxeProviderRegister(pszprovidername.into(), pszmodulepath.into(), index, biscritical.into(), ::core::mem::transmute(phproviderkey.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -333,7 +333,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeRegisterCallback<'a, P0>(hprovider: P0, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32
+pub unsafe fn PxeRegisterCallback<'a, P0>(hprovider: P0, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -341,12 +341,12 @@ where
     extern "system" {
         fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32;
     }
-    PxeRegisterCallback(hprovider.into(), callbacktype, ::core::mem::transmute(pcallbackfunction), ::core::mem::transmute(pcontext))
+    PxeRegisterCallback(hprovider.into(), callbacktype, ::core::mem::transmute(pcallbackfunction), ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeSendReply<'a, P0>(hclientrequest: P0, ppacket: &[u8], paddress: &PXE_ADDRESS) -> u32
+pub unsafe fn PxeSendReply<'a, P0>(hclientrequest: P0, ppacket: &[u8], paddress: *const PXE_ADDRESS) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -359,7 +359,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeTraceV<'a, P0, P1>(hprovider: P0, severity: u32, pszformat: P1, params: &i8) -> u32
+pub unsafe fn PxeTraceV<'a, P0, P1>(hprovider: P0, severity: u32, pszformat: P1, params: *const i8) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -399,7 +399,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpGetOptionBuffer<'a, P0>(hhandle: P0, pbuffer: &mut [u8], pubytes: &mut u32) -> u32
+pub unsafe fn WdsBpGetOptionBuffer<'a, P0>(hhandle: P0, pbuffer: &mut [u8], pubytes: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -412,7 +412,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: &mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
@@ -422,27 +422,27 @@ pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: &mut super::super::Foun
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpParseInitialize(ppacket: &[u8], pbpackettype: ::core::option::Option<&mut u8>, phhandle: &mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn WdsBpParseInitialize(ppacket: &[u8], pbpackettype: ::core::option::Option<*mut u8>, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    WdsBpParseInitialize(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle))
+    WdsBpParseInitialize(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, ::core::mem::transmute(pbpackettype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phhandle))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpParseInitializev6(ppacket: &[u8], pbpackettype: ::core::option::Option<&mut u8>, phhandle: &mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn WdsBpParseInitializev6(ppacket: &[u8], pbpackettype: ::core::option::Option<*mut u8>, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    WdsBpParseInitializev6(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle))
+    WdsBpParseInitializev6(::core::mem::transmute(ppacket.as_ptr()), ppacket.len() as _, ::core::mem::transmute(pbpackettype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phhandle))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpQueryOption<'a, P0>(hhandle: P0, uoption: u32, pvalue: &mut [u8], pubytes: ::core::option::Option<&mut u32>) -> u32
+pub unsafe fn WdsBpQueryOption<'a, P0>(hhandle: P0, uoption: u32, pvalue: &mut [u8], pubytes: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -450,12 +450,12 @@ where
     extern "system" {
         fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
     }
-    WdsBpQueryOption(hhandle.into(), uoption, pvalue.len() as _, ::core::mem::transmute(pvalue.as_ptr()), ::core::mem::transmute(pubytes))
+    WdsBpQueryOption(hhandle.into(), uoption, pvalue.len() as _, ::core::mem::transmute(pvalue.as_ptr()), ::core::mem::transmute(pubytes.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliAuthorizeSession<'a, P0>(hsession: P0, pcred: ::core::option::Option<&WDS_CLI_CRED>) -> ::windows::core::Result<()>
+pub unsafe fn WdsCliAuthorizeSession<'a, P0>(hsession: P0, pcred: ::core::option::Option<*const WDS_CLI_CRED>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -463,7 +463,7 @@ where
     extern "system" {
         fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: *const WDS_CLI_CRED) -> ::windows::core::HRESULT;
     }
-    WdsCliAuthorizeSession(hsession.into(), ::core::mem::transmute(pcred)).ok()
+    WdsCliAuthorizeSession(hsession.into(), ::core::mem::transmute(pcred.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -494,7 +494,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliCreateSession<'a, P0>(pwszserver: P0, pcred: ::core::option::Option<&WDS_CLI_CRED>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WdsCliCreateSession<'a, P0>(pwszserver: P0, pcred: ::core::option::Option<*const WDS_CLI_CRED>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -503,7 +503,7 @@ where
         fn WdsCliCreateSession(pwszserver: ::windows::core::PCWSTR, pcred: *const WDS_CLI_CRED, phsession: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WdsCliCreateSession(pwszserver.into(), ::core::mem::transmute(pcred), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliCreateSession(pwszserver.into(), ::core::mem::transmute(pcred.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -599,7 +599,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageFiles<'a, P0>(hifh: P0, pppwszfiles: &mut *mut ::windows::core::PWSTR, pdwcount: &mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WdsCliGetImageFiles<'a, P0>(hifh: P0, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -696,7 +696,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageLanguages<'a, P0>(hifh: P0, pppszvalues: &mut *mut *mut i8, pdwnumvalues: &mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WdsCliGetImageLanguages<'a, P0>(hifh: P0, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -849,7 +849,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliObtainDriverPackages<'a, P0>(himage: P0, ppwszservername: &mut ::windows::core::PWSTR, pppwszdriverpackages: &mut *mut ::windows::core::PWSTR, pulcount: &mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WdsCliObtainDriverPackages<'a, P0>(himage: P0, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -862,7 +862,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliObtainDriverPackagesEx<'a, P0, P1>(hsession: P0, pwszmachineinfo: P1, ppwszservername: &mut ::windows::core::PWSTR, pppwszdriverpackages: &mut *mut ::windows::core::PWSTR, pulcount: &mut u32) -> ::windows::core::Result<()>
+pub unsafe fn WdsCliObtainDriverPackagesEx<'a, P0, P1>(hsession: P0, pwszmachineinfo: P1, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -894,7 +894,7 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliTransferFile<'a, P0, P1, P2, P3>(pwszserver: P0, pwsznamespace: P1, pwszremotefilepath: P2, pwszlocalfilepath: P3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WdsCliTransferFile<'a, P0, P1, P2, P3>(pwszserver: P0, pwsznamespace: P1, pwszremotefilepath: P2, pwszlocalfilepath: P3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -906,12 +906,12 @@ where
         fn WdsCliTransferFile(pwszserver: ::windows::core::PCWSTR, pwsznamespace: ::windows::core::PCWSTR, pwszremotefilepath: ::windows::core::PCWSTR, pwszlocalfilepath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WdsCliTransferFile(pwszserver.into(), pwsznamespace.into(), pwszremotefilepath.into(), pwszlocalfilepath.into(), dwflags, dwreserved, ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliTransferFile(pwszserver.into(), pwsznamespace.into(), pwszremotefilepath.into(), pwszlocalfilepath.into(), dwflags, dwreserved, ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliTransferImage<'a, P0, P1>(himage: P0, pwszlocalpath: P1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WdsCliTransferImage<'a, P0, P1>(himage: P0, pwszlocalpath: P1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -921,7 +921,7 @@ where
         fn WdsCliTransferImage(himage: super::super::Foundation::HANDLE, pwszlocalpath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WdsCliTransferImage(himage.into(), pwszlocalpath.into(), dwflags, dwreserved, ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliTransferImage(himage.into(), pwszlocalpath.into(), dwflags, dwreserved, ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -987,7 +987,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientCompleteReceive<'a, P0>(hsessionkey: P0, ulsize: u32, pulloffset: &u64) -> u32
+pub unsafe fn WdsTransportClientCompleteReceive<'a, P0>(hsessionkey: P0, ulsize: u32, pulloffset: *const u64) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1009,7 +1009,7 @@ pub unsafe fn WdsTransportClientInitialize() -> u32 {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: &WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::core::ffi::c_void, hsessionkey: &mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::core::ffi::c_void, hsessionkey: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::core::ffi::c_void, hsessionkey: *mut super::super::Foundation::HANDLE) -> u32;
@@ -1019,7 +1019,7 @@ pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: &WDS_TRANSPOR
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientQueryStatus<'a, P0>(hsessionkey: P0, pustatus: &mut u32, puerrorcode: &mut u32) -> u32
+pub unsafe fn WdsTransportClientQueryStatus<'a, P0>(hsessionkey: P0, pustatus: *mut u32, puerrorcode: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1141,7 +1141,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerTraceV<'a, P0, P1>(hprovider: P0, severity: u32, pwszformat: P1, params: &i8) -> ::windows::core::Result<()>
+pub unsafe fn WdsTransportServerTraceV<'a, P0, P1>(hprovider: P0, severity: u32, pwszformat: P1, params: *const i8) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,

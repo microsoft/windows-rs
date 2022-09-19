@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[inline]
-pub unsafe fn CloseIMsgSession(lpmsgsess: &mut _MSGSESS) {
+pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS);
@@ -10,7 +10,7 @@ pub unsafe fn CloseIMsgSession(lpmsgsess: &mut _MSGSESS) {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
-pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: &mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: &mut *mut SPropAttrArray) -> ::windows::core::Result<()> {
+pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows::core::HRESULT;
@@ -29,7 +29,7 @@ pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OpenIMsgOnIStg<'a, P0, P1>(lpmsgsess: &mut _MSGSESS, lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER, lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE, lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER, lpmalloc: P0, lpmapisup: *mut ::core::ffi::c_void, lpstg: P1, lpfmsgcallrelease: &mut MSGCALLRELEASE, ulcallerdata: u32, ulflags: u32, lppmsg: &mut ::core::option::Option<super::super::System::AddressBook::IMessage>) -> i32
+pub unsafe fn OpenIMsgOnIStg<'a, P0, P1>(lpmsgsess: *mut _MSGSESS, lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER, lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE, lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER, lpmalloc: P0, lpmapisup: *mut ::core::ffi::c_void, lpstg: P1, lpfmsgcallrelease: *mut MSGCALLRELEASE, ulcallerdata: u32, ulflags: u32, lppmsg: *mut ::core::option::Option<super::super::System::AddressBook::IMessage>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IMalloc>>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::StructuredStorage::IStorage>>,
@@ -43,7 +43,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OpenIMsgSession<'a, P0>(lpmalloc: P0, ulflags: u32, lppmsgsess: &mut *mut _MSGSESS) -> i32
+pub unsafe fn OpenIMsgSession<'a, P0>(lpmalloc: P0, ulflags: u32, lppmsgsess: *mut *mut _MSGSESS) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IMalloc>>,
 {
@@ -56,7 +56,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
-pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: &mut super::super::System::AddressBook::SPropTagArray, lppropattrs: &mut SPropAttrArray, lpppropproblems: &mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows::core::Result<()> {
+pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows::core::HRESULT;
@@ -2704,7 +2704,7 @@ impl IDiscMaster {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetActiveDiscMasterFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    pub unsafe fn SetActiveDiscMasterFormat(&self, riid: &::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn SetActiveDiscMasterFormat(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetActiveDiscMasterFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)).ok()
     }
     pub unsafe fn EnumDiscRecorders(&self) -> ::windows::core::Result<IEnumDiscRecorders> {
@@ -2981,15 +2981,15 @@ impl IDiscRecorder {
     pub unsafe fn Init(&self, pbyuniqueid: &[u8], nuldrivenumber: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbyuniqueid.as_ptr()), pbyuniqueid.len() as _, nuldrivenumber).ok()
     }
-    pub unsafe fn GetRecorderGUID(&self, pbyuniqueid: ::core::option::Option<&mut [u8]>, pulreturnsizerequired: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetRecorderGUID(&self, pbyuniqueid: ::core::option::Option<&mut [u8]>, pulreturnsizerequired: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRecorderGUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbyuniqueid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbyuniqueid.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pulreturnsizerequired)).ok()
     }
     pub unsafe fn GetRecorderType(&self) -> ::windows::core::Result<RECORDER_TYPES> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRecorderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RECORDER_TYPES>(result__)
     }
-    pub unsafe fn GetDisplayNames(&self, pbstrvendorid: ::core::option::Option<&mut ::windows::core::BSTR>, pbstrproductid: ::core::option::Option<&mut ::windows::core::BSTR>, pbstrrevision: ::core::option::Option<&mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrvendorid), ::core::mem::transmute(pbstrproductid), ::core::mem::transmute(pbstrrevision)).ok()
+    pub unsafe fn GetDisplayNames(&self, pbstrvendorid: ::core::option::Option<*mut ::windows::core::BSTR>, pbstrproductid: ::core::option::Option<*mut ::windows::core::BSTR>, pbstrrevision: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDisplayNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrvendorid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbstrproductid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbstrrevision.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetBasePnPID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3020,10 +3020,10 @@ impl IDiscRecorder {
     pub unsafe fn OpenExclusive(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OpenExclusive)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn QueryMediaType(&self, fmediatype: &mut MEDIA_TYPES, fmediaflags: &mut MEDIA_FLAGS) -> ::windows::core::Result<()> {
+    pub unsafe fn QueryMediaType(&self, fmediatype: *mut MEDIA_TYPES, fmediaflags: *mut MEDIA_FLAGS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmediatype), ::core::mem::transmute(fmediaflags)).ok()
     }
-    pub unsafe fn QueryMediaInfo(&self, pbsessions: &mut u8, pblasttrack: &mut u8, ulstartaddress: &mut u32, ulnextwritable: &mut u32, ulfreeblocks: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn QueryMediaInfo(&self, pbsessions: *mut u8, pblasttrack: *mut u8, ulstartaddress: *mut u32, ulnextwritable: *mut u32, ulfreeblocks: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryMediaInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbsessions), ::core::mem::transmute(pblasttrack), ::core::mem::transmute(ulstartaddress), ::core::mem::transmute(ulnextwritable), ::core::mem::transmute(ulfreeblocks)).ok()
     }
     pub unsafe fn Eject(&self) -> ::windows::core::Result<()> {
@@ -3309,36 +3309,36 @@ impl IDiscRecorder2Ex {
     pub unsafe fn SendCommandSendDataToDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendCommandSendDataToDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len() as _, ::core::mem::transmute(sensebuffer.as_ptr()), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _).ok()
     }
-    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendCommandGetDataFromDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len() as _, ::core::mem::transmute(sensebuffer.as_ptr()), timeout, ::core::mem::transmute(buffer), buffersize, ::core::mem::transmute(bufferfetched)).ok()
     }
-    pub unsafe fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReadDvdStructure)(::windows::core::Interface::as_raw(self), format, address, layer, agid, ::core::mem::transmute(data), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn SendDvdStructure(&self, format: u32, data: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendDvdStructure)(::windows::core::Interface::as_raw(self), format, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
-    pub unsafe fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAdapterDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(data), ::core::mem::transmute(bytesize)).ok()
     }
-    pub unsafe fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDeviceDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(data), ::core::mem::transmute(bytesize)).ok()
     }
-    pub unsafe fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDiscInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(discinformation), ::core::mem::transmute(bytesize)).ok()
     }
-    pub unsafe fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTrackInformation)(::windows::core::Interface::as_raw(self), address, addresstype, ::core::mem::transmute(trackinformation), ::core::mem::transmute(bytesize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFeaturePage<'a, P0>(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: P0, featuredata: *mut *mut u8, bytesize: &mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetFeaturePage<'a, P0>(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: P0, featuredata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
     {
         (::windows::core::Interface::vtable(self).GetFeaturePage)(::windows::core::Interface::as_raw(self), requestedfeature, currentfeatureonly.into(), ::core::mem::transmute(featuredata), ::core::mem::transmute(bytesize)).ok()
     }
-    pub unsafe fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetModePage)(::windows::core::Interface::as_raw(self), requestedmodepage, requesttype, ::core::mem::transmute(modepagedata), ::core::mem::transmute(bytesize)).ok()
     }
     pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &[u8]) -> ::windows::core::Result<()> {
@@ -3346,7 +3346,7 @@ impl IDiscRecorder2Ex {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSupportedFeaturePages<'a, P0>(&self, currentfeatureonly: P0, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: &mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetSupportedFeaturePages<'a, P0>(&self, currentfeatureonly: P0, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
     {
@@ -3354,13 +3354,13 @@ impl IDiscRecorder2Ex {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSupportedProfiles<'a, P0>(&self, currentonly: P0, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: &mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetSupportedProfiles<'a, P0>(&self, currentonly: P0, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
     {
         (::windows::core::Interface::vtable(self).GetSupportedProfiles)(::windows::core::Interface::as_raw(self), currentonly.into(), ::core::mem::transmute(profiletypes), ::core::mem::transmute(validprofiles)).ok()
     }
-    pub unsafe fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSupportedModePages)(::windows::core::Interface::as_raw(self), requesttype, ::core::mem::transmute(modepagetypes), ::core::mem::transmute(validpages)).ok()
     }
     pub unsafe fn GetByteAlignmentMask(&self) -> ::windows::core::Result<u32> {
@@ -3447,7 +3447,7 @@ pub struct IDiscRecorder2Ex_Vtbl {
 #[repr(transparent)]
 pub struct IEnumDiscMasterFormats(::windows::core::IUnknown);
 impl IEnumDiscMasterFormats {
-    pub unsafe fn Next(&self, cformats: u32, lpiidformatid: *mut ::windows::core::GUID, pcfetched: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, cformats: u32, lpiidformatid: *mut ::windows::core::GUID, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), cformats, ::core::mem::transmute(lpiidformatid), ::core::mem::transmute(pcfetched)).ok()
     }
     pub unsafe fn Skip(&self, cformats: u32) -> ::windows::core::Result<()> {
@@ -3509,7 +3509,7 @@ pub struct IEnumDiscMasterFormats_Vtbl {
 #[repr(transparent)]
 pub struct IEnumDiscRecorders(::windows::core::IUnknown);
 impl IEnumDiscRecorders {
-    pub unsafe fn Next(&self, crecorders: u32, pprecorder: *mut ::core::option::Option<IDiscRecorder>, pcfetched: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, crecorders: u32, pprecorder: *mut ::core::option::Option<IDiscRecorder>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), crecorders, ::core::mem::transmute(pprecorder), ::core::mem::transmute(pcfetched)).ok()
     }
     pub unsafe fn Skip(&self, crecorders: u32) -> ::windows::core::Result<()> {
@@ -3573,7 +3573,7 @@ pub struct IEnumFsiItems(::windows::core::IUnknown);
 impl IEnumFsiItems {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IFsiItem>], pceltfetched: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IFsiItem>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -3640,7 +3640,7 @@ pub struct IEnumProgressItems(::windows::core::IUnknown);
 impl IEnumProgressItems {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IProgressItem>], pceltfetched: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IProgressItem>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -3924,7 +3924,7 @@ impl IFileSystemImage {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMultisessionInterfaces(&self, newval: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMultisessionInterfaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
 }
@@ -4307,7 +4307,7 @@ impl IFileSystemImage2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMultisessionInterfaces(&self, newval: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetMultisessionInterfaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4318,7 +4318,7 @@ impl IFileSystemImage2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBootImageOptionsArray(&self, newval: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBootImageOptionsArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
 }
@@ -4638,7 +4638,7 @@ impl IFileSystemImage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMultisessionInterfaces(&self, newval: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetMultisessionInterfaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4649,7 +4649,7 @@ impl IFileSystemImage3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBootImageOptionsArray(&self, newval: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetBootImageOptionsArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     pub unsafe fn CreateRedundantUdfMetadataFiles(&self) -> ::windows::core::Result<i16> {
@@ -7403,13 +7403,13 @@ pub struct IStreamConcatenate(::windows::core::IUnknown);
 impl IStreamConcatenate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Read(&self, pv: &mut [u8], pcbread: ::core::option::Option<&mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread))
+    pub unsafe fn Read(&self, pv: &mut [u8], pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Write(&self, pv: &[u8], pcbwritten: ::core::option::Option<&mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbwritten))
+    pub unsafe fn Write(&self, pv: &[u8], pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7424,11 +7424,11 @@ impl IStreamConcatenate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<&mut u64>, pcbwritten: ::core::option::Option<&mut u64>) -> ::windows::core::Result<()>
+    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7452,7 +7452,7 @@ impl IStreamConcatenate {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
+    pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7598,13 +7598,13 @@ pub struct IStreamInterleave(::windows::core::IUnknown);
 impl IStreamInterleave {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Read(&self, pv: &mut [u8], pcbread: ::core::option::Option<&mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread))
+    pub unsafe fn Read(&self, pv: &mut [u8], pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Write(&self, pv: &[u8], pcbwritten: ::core::option::Option<&mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbwritten))
+    pub unsafe fn Write(&self, pv: &[u8], pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7619,11 +7619,11 @@ impl IStreamInterleave {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<&mut u64>, pcbwritten: ::core::option::Option<&mut u64>) -> ::windows::core::Result<()>
+    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7647,7 +7647,7 @@ impl IStreamInterleave {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
+    pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7759,13 +7759,13 @@ pub struct IStreamPseudoRandomBased(::windows::core::IUnknown);
 impl IStreamPseudoRandomBased {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Read(&self, pv: &mut [u8], pcbread: ::core::option::Option<&mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread))
+    pub unsafe fn Read(&self, pv: &mut [u8], pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Write(&self, pv: &[u8], pcbwritten: ::core::option::Option<&mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbwritten))
+    pub unsafe fn Write(&self, pv: &[u8], pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7780,11 +7780,11 @@ impl IStreamPseudoRandomBased {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<&mut u64>, pcbwritten: ::core::option::Option<&mut u64>) -> ::windows::core::Result<()>
+    pub unsafe fn CopyTo<'a, P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7808,7 +7808,7 @@ impl IStreamPseudoRandomBased {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Stat(&self, pstatstg: &mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
+    pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7827,7 +7827,7 @@ impl IStreamPseudoRandomBased {
     pub unsafe fn put_ExtendedSeed(&self, values: &[u32]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).put_ExtendedSeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(values.as_ptr()), values.len() as _).ok()
     }
-    pub unsafe fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_ExtendedSeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(values), ::core::mem::transmute(ecount)).ok()
     }
 }

@@ -30,19 +30,19 @@ fn test() -> Result<()> {
         send_buffer[..send_message.len()].copy_from_slice(send_message.as_bytes());
 
         let mut encrypted_len = 0;
-        BCryptEncrypt(encrypt_key, Some(&send_buffer), std::ptr::null(), None, None, &mut encrypted_len, Default::default())?;
+        BCryptEncrypt(encrypt_key, Some(&send_buffer), None, None, None, &mut encrypted_len, Default::default())?;
 
         let mut encrypted = vec![0; encrypted_len as _];
-        BCryptEncrypt(encrypt_key, Some(&send_buffer), std::ptr::null(), None, Some(&mut encrypted), &mut encrypted_len, Default::default())?;
+        BCryptEncrypt(encrypt_key, Some(&send_buffer), None, None, Some(&mut encrypted), &mut encrypted_len, Default::default())?;
 
         let mut decrypt_key = Default::default();
         BCryptGenerateSymmetricKey(des, &mut decrypt_key, None, &shared_secret, 0)?;
 
         let mut decrypted_len = 0;
-        BCryptDecrypt(decrypt_key, Some(&encrypted), std::ptr::null(), None, None, &mut decrypted_len, Default::default())?;
+        BCryptDecrypt(decrypt_key, Some(&encrypted), None, None, None, &mut decrypted_len, Default::default())?;
 
         let mut decrypted = vec![0; decrypted_len as _];
-        BCryptDecrypt(decrypt_key, Some(&encrypted), std::ptr::null(), None, Some(&mut decrypted), &mut decrypted_len, Default::default())?;
+        BCryptDecrypt(decrypt_key, Some(&encrypted), None, None, Some(&mut decrypted), &mut decrypted_len, Default::default())?;
 
         let receive_message = std::str::from_utf8(trim_null_end(&decrypted)).expect("Not a valid message");
         println!("`{}`", receive_message);

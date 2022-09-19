@@ -31,7 +31,7 @@ where
 #[repr(transparent)]
 pub struct IBitmapData(::windows::core::IUnknown);
 impl IBitmapData {
-    pub unsafe fn CopyBytesTo(&self, sourceoffsetinbytes: u32, pvbytes: &mut [u8], numberofbytescopied: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyBytesTo(&self, sourceoffsetinbytes: u32, pvbytes: &mut [u8], numberofbytescopied: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CopyBytesTo)(::windows::core::Interface::as_raw(self), sourceoffsetinbytes, pvbytes.len() as _, ::core::mem::transmute(pvbytes.as_ptr()), ::core::mem::transmute(numberofbytescopied)).ok()
     }
     pub unsafe fn GetStride(&self) -> ::windows::core::Result<u32> {
@@ -119,7 +119,7 @@ impl IVisualTreeService {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetEnums(&self, pcount: &mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()> {
+    pub unsafe fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEnums)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount), ::core::mem::transmute(ppenums)).ok()
     }
     pub unsafe fn CreateInstance(&self, typename: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<u64> {
@@ -128,7 +128,7 @@ impl IVisualTreeService {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: &mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: &mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
     }
     pub unsafe fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::Result<()> {
@@ -141,7 +141,7 @@ impl IVisualTreeService {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCollectionCount)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: &mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCollectionElements)(::windows::core::Interface::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
     }
     pub unsafe fn AddChild(&self, parent: u64, child: u64, index: u32) -> ::windows::core::Result<()> {
@@ -230,7 +230,7 @@ impl IVisualTreeService2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetEnums(&self, pcount: &mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()> {
+    pub unsafe fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetEnums)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount), ::core::mem::transmute(ppenums)).ok()
     }
     pub unsafe fn CreateInstance(&self, typename: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<u64> {
@@ -239,7 +239,7 @@ impl IVisualTreeService2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: &mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: &mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
     }
     pub unsafe fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::Result<()> {
@@ -252,7 +252,7 @@ impl IVisualTreeService2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCollectionCount)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: &mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetCollectionElements)(::windows::core::Interface::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
     }
     pub unsafe fn AddChild(&self, parent: u64, child: u64, index: u32) -> ::windows::core::Result<()> {
@@ -360,7 +360,7 @@ impl IVisualTreeService3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetEnums(&self, pcount: &mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()> {
+    pub unsafe fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetEnums)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount), ::core::mem::transmute(ppenums)).ok()
     }
     pub unsafe fn CreateInstance(&self, typename: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<u64> {
@@ -369,7 +369,7 @@ impl IVisualTreeService3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: &mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: &mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
     }
     pub unsafe fn SetProperty(&self, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::Result<()> {
@@ -382,7 +382,7 @@ impl IVisualTreeService3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetCollectionCount)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: &mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetCollectionElements)(::windows::core::Interface::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
     }
     pub unsafe fn AddChild(&self, parent: u64, child: u64, index: u32) -> ::windows::core::Result<()> {
@@ -666,7 +666,7 @@ impl IXamlDiagnostics {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HitTest(&self, rect: super::super::super::Foundation::RECT, pcount: &mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::Result<()> {
+    pub unsafe fn HitTest(&self, rect: super::super::super::Foundation::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HitTest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rect), ::core::mem::transmute(pcount), ::core::mem::transmute(ppinstancehandles)).ok()
     }
     pub unsafe fn RegisterInstance<'a, P0>(&self, pinstance: P0) -> ::windows::core::Result<u64>

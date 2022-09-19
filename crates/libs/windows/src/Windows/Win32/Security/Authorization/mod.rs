@@ -3,7 +3,7 @@ pub mod UI;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeObjectAccessAuditEvent<'a, P0, P1, P2, P3, P4>(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, phauditevent: &mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzInitializeObjectAccessAuditEvent<'a, P0, P1, P2, P3, P4>(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -20,7 +20,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<'a, P0, P1, P2, P3, P4, P5>(flags: u32, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, szadditionalinfo2: P5, phauditevent: &mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<'a, P0, P1, P2, P3, P4, P5>(flags: u32, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, szadditionalinfo2: P5, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -52,7 +52,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzAccessCheck<'a, P0, P1, P2>(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: P0, prequest: &AUTHZ_ACCESS_REQUEST, hauditevent: P1, psecuritydescriptor: P2, optionalsecuritydescriptorarray: ::core::option::Option<&[super::PSECURITY_DESCRIPTOR]>, preply: &mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: ::core::option::Option<&mut isize>) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzAccessCheck<'a, P0, P1, P2>(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: P0, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: P1, psecuritydescriptor: P2, optionalsecuritydescriptorarray: ::core::option::Option<&[super::PSECURITY_DESCRIPTOR]>, preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: ::core::option::Option<*mut isize>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
     P1: ::std::convert::Into<AUTHZ_AUDIT_EVENT_HANDLE>,
@@ -62,12 +62,12 @@ where
     extern "system" {
         fn AuthzAccessCheck(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount: u32, preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: *mut isize) -> super::super::Foundation::BOOL;
     }
-    AuthzAccessCheck(flags, hauthzclientcontext.into(), ::core::mem::transmute(prequest), hauditevent.into(), psecuritydescriptor.into(), ::core::mem::transmute(optionalsecuritydescriptorarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), optionalsecuritydescriptorarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(preply), ::core::mem::transmute(phaccesscheckresults))
+    AuthzAccessCheck(flags, hauthzclientcontext.into(), ::core::mem::transmute(prequest), hauditevent.into(), psecuritydescriptor.into(), ::core::mem::transmute(optionalsecuritydescriptorarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), optionalsecuritydescriptorarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(preply), ::core::mem::transmute(phaccesscheckresults.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzAddSidsToContext<'a, P0>(hauthzclientcontext: P0, sids: ::core::option::Option<&super::SID_AND_ATTRIBUTES>, sidcount: u32, restrictedsids: ::core::option::Option<&super::SID_AND_ATTRIBUTES>, restrictedsidcount: u32, phnewauthzclientcontext: &mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzAddSidsToContext<'a, P0>(hauthzclientcontext: P0, sids: ::core::option::Option<*const super::SID_AND_ATTRIBUTES>, sidcount: u32, restrictedsids: ::core::option::Option<*const super::SID_AND_ATTRIBUTES>, restrictedsidcount: u32, phnewauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
@@ -75,12 +75,12 @@ where
     extern "system" {
         fn AuthzAddSidsToContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sids: *const super::SID_AND_ATTRIBUTES, sidcount: u32, restrictedsids: *const super::SID_AND_ATTRIBUTES, restrictedsidcount: u32, phnewauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL;
     }
-    AuthzAddSidsToContext(hauthzclientcontext.into(), ::core::mem::transmute(sids), sidcount, ::core::mem::transmute(restrictedsids), restrictedsidcount, ::core::mem::transmute(phnewauthzclientcontext))
+    AuthzAddSidsToContext(hauthzclientcontext.into(), ::core::mem::transmute(sids.unwrap_or(::std::ptr::null())), sidcount, ::core::mem::transmute(restrictedsids.unwrap_or(::std::ptr::null())), restrictedsidcount, ::core::mem::transmute(phnewauthzclientcontext))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzCachedAccessCheck<'a, P0, P1>(flags: u32, haccesscheckresults: P0, prequest: &AUTHZ_ACCESS_REQUEST, hauditevent: P1, preply: &mut AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzCachedAccessCheck<'a, P0, P1>(flags: u32, haccesscheckresults: P0, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: P1, preply: *mut AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>,
     P1: ::std::convert::Into<AUTHZ_AUDIT_EVENT_HANDLE>,
@@ -94,7 +94,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: &mut AUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount: &mut u32, pdwlength: &mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount: *mut u32, pdwlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount: *mut u32, pdwlength: *mut u32) -> super::super::Foundation::BOOL;
@@ -104,7 +104,7 @@ pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: &mut AUTH
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzEvaluateSacl<'a, P0, P1>(authzclientcontext: P0, prequest: &AUTHZ_ACCESS_REQUEST, sacl: &super::ACL, grantedaccess: u32, accessgranted: P1, pbgenerateaudit: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzEvaluateSacl<'a, P0, P1>(authzclientcontext: P0, prequest: *const AUTHZ_ACCESS_REQUEST, sacl: *const super::ACL, grantedaccess: u32, accessgranted: P1, pbgenerateaudit: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -180,7 +180,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzGetInformationFromContext<'a, P0>(hauthzclientcontext: P0, infoclass: AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize: u32, psizerequired: &mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzGetInformationFromContext<'a, P0>(hauthzclientcontext: P0, infoclass: AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize: u32, psizerequired: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
@@ -193,7 +193,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeCompoundContext<'a, P0, P1>(usercontext: P0, devicecontext: P1, phcompoundcontext: &mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzInitializeCompoundContext<'a, P0, P1>(usercontext: P0, devicecontext: P1, phcompoundcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
     P1: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
@@ -207,7 +207,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeContextFromAuthzContext<'a, P0>(flags: u32, hauthzclientcontext: P0, pexpirationtime: ::core::option::Option<&i64>, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phnewauthzclientcontext: &mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzInitializeContextFromAuthzContext<'a, P0>(flags: u32, hauthzclientcontext: P0, pexpirationtime: ::core::option::Option<*const i64>, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phnewauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
@@ -215,12 +215,12 @@ where
     extern "system" {
         fn AuthzInitializeContextFromAuthzContext(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: *const i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phnewauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL;
     }
-    AuthzInitializeContextFromAuthzContext(flags, hauthzclientcontext.into(), ::core::mem::transmute(pexpirationtime), ::core::mem::transmute(identifier), ::core::mem::transmute(dynamicgroupargs), ::core::mem::transmute(phnewauthzclientcontext))
+    AuthzInitializeContextFromAuthzContext(flags, hauthzclientcontext.into(), ::core::mem::transmute(pexpirationtime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(identifier), ::core::mem::transmute(dynamicgroupargs), ::core::mem::transmute(phnewauthzclientcontext))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeContextFromSid<'a, P0, P1>(flags: u32, usersid: P0, hauthzresourcemanager: P1, pexpirationtime: ::core::option::Option<&i64>, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phauthzclientcontext: &mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzInitializeContextFromSid<'a, P0, P1>(flags: u32, usersid: P0, hauthzresourcemanager: P1, pexpirationtime: ::core::option::Option<*const i64>, identifier: super::super::Foundation::LUID, dynamicgroupargs: ::core::option::Option<*const ::core::ffi::c_void>, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
     P1: ::std::convert::Into<AUTHZ_RESOURCE_MANAGER_HANDLE>,
@@ -229,12 +229,12 @@ where
     extern "system" {
         fn AuthzInitializeContextFromSid(flags: u32, usersid: super::super::Foundation::PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: *const i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL;
     }
-    AuthzInitializeContextFromSid(flags, usersid.into(), hauthzresourcemanager.into(), ::core::mem::transmute(pexpirationtime), ::core::mem::transmute(identifier), ::core::mem::transmute(dynamicgroupargs), ::core::mem::transmute(phauthzclientcontext))
+    AuthzInitializeContextFromSid(flags, usersid.into(), hauthzresourcemanager.into(), ::core::mem::transmute(pexpirationtime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(identifier), ::core::mem::transmute(dynamicgroupargs.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phauthzclientcontext))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeContextFromToken<'a, P0, P1>(flags: u32, tokenhandle: P0, hauthzresourcemanager: P1, pexpirationtime: ::core::option::Option<&i64>, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phauthzclientcontext: &mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzInitializeContextFromToken<'a, P0, P1>(flags: u32, tokenhandle: P0, hauthzresourcemanager: P1, pexpirationtime: ::core::option::Option<*const i64>, identifier: super::super::Foundation::LUID, dynamicgroupargs: ::core::option::Option<*const ::core::ffi::c_void>, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<AUTHZ_RESOURCE_MANAGER_HANDLE>,
@@ -243,12 +243,12 @@ where
     extern "system" {
         fn AuthzInitializeContextFromToken(flags: u32, tokenhandle: super::super::Foundation::HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: *const i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL;
     }
-    AuthzInitializeContextFromToken(flags, tokenhandle.into(), hauthzresourcemanager.into(), ::core::mem::transmute(pexpirationtime), ::core::mem::transmute(identifier), ::core::mem::transmute(dynamicgroupargs), ::core::mem::transmute(phauthzclientcontext))
+    AuthzInitializeContextFromToken(flags, tokenhandle.into(), hauthzresourcemanager.into(), ::core::mem::transmute(pexpirationtime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(identifier), ::core::mem::transmute(dynamicgroupargs.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phauthzclientcontext))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: &AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: &mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL;
@@ -258,7 +258,7 @@ pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: &AUTHZ_RPC_INIT
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeResourceManager<'a, P0>(flags: u32, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: P0, phauthzresourcemanager: &mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzInitializeResourceManager<'a, P0>(flags: u32, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: P0, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -271,17 +271,17 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo: ::core::option::Option<&AUTHZ_INIT_INFO>, phauthzresourcemanager: &mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo: ::core::option::Option<*const AUTHZ_INIT_INFO>, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo: *const AUTHZ_INIT_INFO, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL;
     }
-    AuthzInitializeResourceManagerEx(flags, ::core::mem::transmute(pauthzinitinfo), ::core::mem::transmute(phauthzresourcemanager))
+    AuthzInitializeResourceManagerEx(flags, ::core::mem::transmute(pauthzinitinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phauthzresourcemanager))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: &AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: *const AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: *const AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> super::super::Foundation::BOOL;
@@ -291,7 +291,7 @@ pub unsafe fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: &AUTH
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzModifyClaims<'a, P0>(hauthzclientcontext: P0, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: &AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims: ::core::option::Option<&AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzModifyClaims<'a, P0>(hauthzclientcontext: P0, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims: ::core::option::Option<*const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
@@ -299,12 +299,12 @@ where
     extern "system" {
         fn AuthzModifyClaims(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    AuthzModifyClaims(hauthzclientcontext.into(), claimclass, ::core::mem::transmute(pclaimoperations), ::core::mem::transmute(pclaims))
+    AuthzModifyClaims(hauthzclientcontext.into(), claimclass, ::core::mem::transmute(pclaimoperations), ::core::mem::transmute(pclaims.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzModifySecurityAttributes<'a, P0>(hauthzclientcontext: P0, poperations: &AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes: ::core::option::Option<&AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzModifySecurityAttributes<'a, P0>(hauthzclientcontext: P0, poperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes: ::core::option::Option<*const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
@@ -312,12 +312,12 @@ where
     extern "system" {
         fn AuthzModifySecurityAttributes(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, poperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    AuthzModifySecurityAttributes(hauthzclientcontext.into(), ::core::mem::transmute(poperations), ::core::mem::transmute(pattributes))
+    AuthzModifySecurityAttributes(hauthzclientcontext.into(), ::core::mem::transmute(poperations), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzModifySids<'a, P0>(hauthzclientcontext: P0, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: &AUTHZ_SID_OPERATION, psids: ::core::option::Option<&super::TOKEN_GROUPS>) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzModifySids<'a, P0>(hauthzclientcontext: P0, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: *const AUTHZ_SID_OPERATION, psids: ::core::option::Option<*const super::TOKEN_GROUPS>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
@@ -325,12 +325,12 @@ where
     extern "system" {
         fn AuthzModifySids(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: *const AUTHZ_SID_OPERATION, psids: *const super::TOKEN_GROUPS) -> super::super::Foundation::BOOL;
     }
-    AuthzModifySids(hauthzclientcontext.into(), sidclass, ::core::mem::transmute(psidoperations), ::core::mem::transmute(psids))
+    AuthzModifySids(hauthzclientcontext.into(), sidclass, ::core::mem::transmute(psidoperations), ::core::mem::transmute(psids.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzOpenObjectAudit<'a, P0, P1, P2>(flags: u32, hauthzclientcontext: P0, prequest: &AUTHZ_ACCESS_REQUEST, hauditevent: P1, psecuritydescriptor: P2, optionalsecuritydescriptorarray: ::core::option::Option<&[super::PSECURITY_DESCRIPTOR]>, preply: &AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzOpenObjectAudit<'a, P0, P1, P2>(flags: u32, hauthzclientcontext: P0, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: P1, psecuritydescriptor: P2, optionalsecuritydescriptorarray: ::core::option::Option<&[super::PSECURITY_DESCRIPTOR]>, preply: *const AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_CLIENT_CONTEXT_HANDLE>,
     P1: ::std::convert::Into<AUTHZ_AUDIT_EVENT_HANDLE>,
@@ -345,17 +345,17 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
-pub unsafe fn AuthzRegisterCapChangeNotification(phcapchangesubscription: &mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__, pfncapchangecallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, pcallbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzRegisterCapChangeNotification(phcapchangesubscription: *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__, pfncapchangecallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, pcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AuthzRegisterCapChangeNotification(phcapchangesubscription: *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__, pfncapchangecallback: *mut ::core::ffi::c_void, pcallbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    AuthzRegisterCapChangeNotification(::core::mem::transmute(phcapchangesubscription), ::core::mem::transmute(pfncapchangecallback), ::core::mem::transmute(pcallbackcontext))
+    AuthzRegisterCapChangeNotification(::core::mem::transmute(phcapchangesubscription), ::core::mem::transmute(pfncapchangecallback), ::core::mem::transmute(pcallbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzRegisterSecurityEventSource<'a, P0>(dwflags: u32, szeventsourcename: P0, pheventprovider: &mut isize) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzRegisterSecurityEventSource<'a, P0>(dwflags: u32, szeventsourcename: P0, pheventprovider: *mut isize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -368,7 +368,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzReportSecurityEventFromParams<'a, P0, P1>(dwflags: u32, heventprovider: P0, dwauditid: u32, pusersid: P1, pparams: &AUDIT_PARAMS) -> super::super::Foundation::BOOL
+pub unsafe fn AuthzReportSecurityEventFromParams<'a, P0, P1>(dwflags: u32, heventprovider: P0, dwauditid: u32, pusersid: P1, pparams: *const AUDIT_PARAMS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -409,7 +409,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzUnregisterCapChangeNotification(hcapchangesubscription: &AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzUnregisterCapChangeNotification(hcapchangesubscription: *const AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AuthzUnregisterCapChangeNotification(hcapchangesubscription: *const AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__) -> super::super::Foundation::BOOL;
@@ -419,7 +419,7 @@ pub unsafe fn AuthzUnregisterCapChangeNotification(hcapchangesubscription: &AUTH
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: &mut isize) -> super::super::Foundation::BOOL {
+pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: *mut isize) -> super::super::Foundation::BOOL;
@@ -428,7 +428,7 @@ pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: 
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildExplicitAccessWithNameA<'a, P0>(pexplicitaccess: &mut EXPLICIT_ACCESS_A, ptrusteename: P0, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS)
+pub unsafe fn BuildExplicitAccessWithNameA<'a, P0>(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: P0, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -440,7 +440,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildExplicitAccessWithNameW<'a, P0>(pexplicitaccess: &mut EXPLICIT_ACCESS_W, ptrusteename: P0, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS)
+pub unsafe fn BuildExplicitAccessWithNameW<'a, P0>(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: P0, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS)
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -452,7 +452,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildImpersonateExplicitAccessWithNameA<'a, P0>(pexplicitaccess: &mut EXPLICIT_ACCESS_A, ptrusteename: P0, ptrustee: ::core::option::Option<&TRUSTEE_A>, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32)
+pub unsafe fn BuildImpersonateExplicitAccessWithNameA<'a, P0>(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: P0, ptrustee: ::core::option::Option<*const TRUSTEE_A>, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -460,11 +460,11 @@ where
     extern "system" {
         fn BuildImpersonateExplicitAccessWithNameA(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: ::windows::core::PCSTR, ptrustee: *const TRUSTEE_A, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32);
     }
-    BuildImpersonateExplicitAccessWithNameA(::core::mem::transmute(pexplicitaccess), ptrusteename.into(), ::core::mem::transmute(ptrustee), accesspermissions, accessmode, inheritance)
+    BuildImpersonateExplicitAccessWithNameA(::core::mem::transmute(pexplicitaccess), ptrusteename.into(), ::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())), accesspermissions, accessmode, inheritance)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildImpersonateExplicitAccessWithNameW<'a, P0>(pexplicitaccess: &mut EXPLICIT_ACCESS_W, ptrusteename: P0, ptrustee: ::core::option::Option<&TRUSTEE_W>, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32)
+pub unsafe fn BuildImpersonateExplicitAccessWithNameW<'a, P0>(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: P0, ptrustee: ::core::option::Option<*const TRUSTEE_W>, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32)
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -472,29 +472,29 @@ where
     extern "system" {
         fn BuildImpersonateExplicitAccessWithNameW(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: ::windows::core::PCWSTR, ptrustee: *const TRUSTEE_W, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32);
     }
-    BuildImpersonateExplicitAccessWithNameW(::core::mem::transmute(pexplicitaccess), ptrusteename.into(), ::core::mem::transmute(ptrustee), accesspermissions, accessmode, inheritance)
+    BuildImpersonateExplicitAccessWithNameW(::core::mem::transmute(pexplicitaccess), ptrusteename.into(), ::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())), accesspermissions, accessmode, inheritance)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildImpersonateTrusteeA(ptrustee: &mut TRUSTEE_A, pimpersonatetrustee: ::core::option::Option<&TRUSTEE_A>) {
+pub unsafe fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetrustee: ::core::option::Option<*const TRUSTEE_A>) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetrustee: *const TRUSTEE_A);
     }
-    BuildImpersonateTrusteeA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pimpersonatetrustee))
+    BuildImpersonateTrusteeA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pimpersonatetrustee.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildImpersonateTrusteeW(ptrustee: &mut TRUSTEE_W, pimpersonatetrustee: ::core::option::Option<&TRUSTEE_W>) {
+pub unsafe fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetrustee: ::core::option::Option<*const TRUSTEE_W>) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetrustee: *const TRUSTEE_W);
     }
-    BuildImpersonateTrusteeW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pimpersonatetrustee))
+    BuildImpersonateTrusteeW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pimpersonatetrustee.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildSecurityDescriptorA<'a, P0>(powner: ::core::option::Option<&TRUSTEE_A>, pgroup: ::core::option::Option<&TRUSTEE_A>, plistofaccessentries: ::core::option::Option<&[EXPLICIT_ACCESS_A]>, plistofauditentries: ::core::option::Option<&[EXPLICIT_ACCESS_A]>, poldsd: P0, psizenewsd: &mut u32, pnewsd: &mut super::PSECURITY_DESCRIPTOR) -> u32
+pub unsafe fn BuildSecurityDescriptorA<'a, P0>(powner: ::core::option::Option<*const TRUSTEE_A>, pgroup: ::core::option::Option<*const TRUSTEE_A>, plistofaccessentries: ::core::option::Option<&[EXPLICIT_ACCESS_A]>, plistofauditentries: ::core::option::Option<&[EXPLICIT_ACCESS_A]>, poldsd: P0, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> u32
 where
     P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
 {
@@ -503,8 +503,8 @@ where
         fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_A, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_A, poldsd: super::PSECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> u32;
     }
     BuildSecurityDescriptorA(
-        ::core::mem::transmute(powner),
-        ::core::mem::transmute(pgroup),
+        ::core::mem::transmute(powner.unwrap_or(::std::ptr::null())),
+        ::core::mem::transmute(pgroup.unwrap_or(::std::ptr::null())),
         plistofaccessentries.as_deref().map_or(0, |slice| slice.len() as _),
         ::core::mem::transmute(plistofaccessentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         plistofauditentries.as_deref().map_or(0, |slice| slice.len() as _),
@@ -516,7 +516,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildSecurityDescriptorW<'a, P0>(powner: ::core::option::Option<&TRUSTEE_W>, pgroup: ::core::option::Option<&TRUSTEE_W>, plistofaccessentries: ::core::option::Option<&[EXPLICIT_ACCESS_W]>, plistofauditentries: ::core::option::Option<&[EXPLICIT_ACCESS_W]>, poldsd: P0, psizenewsd: &mut u32, pnewsd: &mut super::PSECURITY_DESCRIPTOR) -> u32
+pub unsafe fn BuildSecurityDescriptorW<'a, P0>(powner: ::core::option::Option<*const TRUSTEE_W>, pgroup: ::core::option::Option<*const TRUSTEE_W>, plistofaccessentries: ::core::option::Option<&[EXPLICIT_ACCESS_W]>, plistofauditentries: ::core::option::Option<&[EXPLICIT_ACCESS_W]>, poldsd: P0, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> u32
 where
     P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
 {
@@ -525,8 +525,8 @@ where
         fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_W, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_W, poldsd: super::PSECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> u32;
     }
     BuildSecurityDescriptorW(
-        ::core::mem::transmute(powner),
-        ::core::mem::transmute(pgroup),
+        ::core::mem::transmute(powner.unwrap_or(::std::ptr::null())),
+        ::core::mem::transmute(pgroup.unwrap_or(::std::ptr::null())),
         plistofaccessentries.as_deref().map_or(0, |slice| slice.len() as _),
         ::core::mem::transmute(plistofaccessentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         plistofauditentries.as_deref().map_or(0, |slice| slice.len() as _),
@@ -538,7 +538,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildTrusteeWithNameA<'a, P0>(ptrustee: &mut TRUSTEE_A, pname: P0)
+pub unsafe fn BuildTrusteeWithNameA<'a, P0>(ptrustee: *mut TRUSTEE_A, pname: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -550,7 +550,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildTrusteeWithNameW<'a, P0>(ptrustee: &mut TRUSTEE_W, pname: P0)
+pub unsafe fn BuildTrusteeWithNameW<'a, P0>(ptrustee: *mut TRUSTEE_W, pname: P0)
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -562,7 +562,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildTrusteeWithObjectsAndNameA<'a, P0, P1, P2>(ptrustee: &mut TRUSTEE_A, pobjname: ::core::option::Option<&OBJECTS_AND_NAME_A>, objecttype: SE_OBJECT_TYPE, objecttypename: P0, inheritedobjecttypename: P1, name: P2)
+pub unsafe fn BuildTrusteeWithObjectsAndNameA<'a, P0, P1, P2>(ptrustee: *mut TRUSTEE_A, pobjname: ::core::option::Option<*const OBJECTS_AND_NAME_A>, objecttype: SE_OBJECT_TYPE, objecttypename: P0, inheritedobjecttypename: P1, name: P2)
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -572,11 +572,11 @@ where
     extern "system" {
         fn BuildTrusteeWithObjectsAndNameA(ptrustee: *mut TRUSTEE_A, pobjname: *const OBJECTS_AND_NAME_A, objecttype: SE_OBJECT_TYPE, objecttypename: ::windows::core::PCSTR, inheritedobjecttypename: ::windows::core::PCSTR, name: ::windows::core::PCSTR);
     }
-    BuildTrusteeWithObjectsAndNameA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjname), objecttype, objecttypename.into(), inheritedobjecttypename.into(), name.into())
+    BuildTrusteeWithObjectsAndNameA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjname.unwrap_or(::std::ptr::null())), objecttype, objecttypename.into(), inheritedobjecttypename.into(), name.into())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn BuildTrusteeWithObjectsAndNameW<'a, P0, P1, P2>(ptrustee: &mut TRUSTEE_W, pobjname: ::core::option::Option<&OBJECTS_AND_NAME_W>, objecttype: SE_OBJECT_TYPE, objecttypename: P0, inheritedobjecttypename: P1, name: P2)
+pub unsafe fn BuildTrusteeWithObjectsAndNameW<'a, P0, P1, P2>(ptrustee: *mut TRUSTEE_W, pobjname: ::core::option::Option<*const OBJECTS_AND_NAME_W>, objecttype: SE_OBJECT_TYPE, objecttypename: P0, inheritedobjecttypename: P1, name: P2)
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -586,12 +586,12 @@ where
     extern "system" {
         fn BuildTrusteeWithObjectsAndNameW(ptrustee: *mut TRUSTEE_W, pobjname: *const OBJECTS_AND_NAME_W, objecttype: SE_OBJECT_TYPE, objecttypename: ::windows::core::PCWSTR, inheritedobjecttypename: ::windows::core::PCWSTR, name: ::windows::core::PCWSTR);
     }
-    BuildTrusteeWithObjectsAndNameW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjname), objecttype, objecttypename.into(), inheritedobjecttypename.into(), name.into())
+    BuildTrusteeWithObjectsAndNameW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjname.unwrap_or(::std::ptr::null())), objecttype, objecttypename.into(), inheritedobjecttypename.into(), name.into())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildTrusteeWithObjectsAndSidA<'a, P0>(ptrustee: &mut TRUSTEE_A, pobjsid: ::core::option::Option<&OBJECTS_AND_SID>, pobjectguid: ::core::option::Option<&::windows::core::GUID>, pinheritedobjectguid: ::core::option::Option<&::windows::core::GUID>, psid: P0)
+pub unsafe fn BuildTrusteeWithObjectsAndSidA<'a, P0>(ptrustee: *mut TRUSTEE_A, pobjsid: ::core::option::Option<*const OBJECTS_AND_SID>, pobjectguid: ::core::option::Option<*const ::windows::core::GUID>, pinheritedobjectguid: ::core::option::Option<*const ::windows::core::GUID>, psid: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
 {
@@ -599,12 +599,12 @@ where
     extern "system" {
         fn BuildTrusteeWithObjectsAndSidA(ptrustee: *mut TRUSTEE_A, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const ::windows::core::GUID, pinheritedobjectguid: *const ::windows::core::GUID, psid: super::super::Foundation::PSID);
     }
-    BuildTrusteeWithObjectsAndSidA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjsid), ::core::mem::transmute(pobjectguid), ::core::mem::transmute(pinheritedobjectguid), psid.into())
+    BuildTrusteeWithObjectsAndSidA(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjsid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pobjectguid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinheritedobjectguid.unwrap_or(::std::ptr::null())), psid.into())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildTrusteeWithObjectsAndSidW<'a, P0>(ptrustee: &mut TRUSTEE_W, pobjsid: ::core::option::Option<&OBJECTS_AND_SID>, pobjectguid: ::core::option::Option<&::windows::core::GUID>, pinheritedobjectguid: ::core::option::Option<&::windows::core::GUID>, psid: P0)
+pub unsafe fn BuildTrusteeWithObjectsAndSidW<'a, P0>(ptrustee: *mut TRUSTEE_W, pobjsid: ::core::option::Option<*const OBJECTS_AND_SID>, pobjectguid: ::core::option::Option<*const ::windows::core::GUID>, pinheritedobjectguid: ::core::option::Option<*const ::windows::core::GUID>, psid: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
 {
@@ -612,12 +612,12 @@ where
     extern "system" {
         fn BuildTrusteeWithObjectsAndSidW(ptrustee: *mut TRUSTEE_W, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const ::windows::core::GUID, pinheritedobjectguid: *const ::windows::core::GUID, psid: super::super::Foundation::PSID);
     }
-    BuildTrusteeWithObjectsAndSidW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjsid), ::core::mem::transmute(pobjectguid), ::core::mem::transmute(pinheritedobjectguid), psid.into())
+    BuildTrusteeWithObjectsAndSidW(::core::mem::transmute(ptrustee), ::core::mem::transmute(pobjsid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pobjectguid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinheritedobjectguid.unwrap_or(::std::ptr::null())), psid.into())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildTrusteeWithSidA<'a, P0>(ptrustee: &mut TRUSTEE_A, psid: P0)
+pub unsafe fn BuildTrusteeWithSidA<'a, P0>(ptrustee: *mut TRUSTEE_A, psid: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
 {
@@ -630,7 +630,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildTrusteeWithSidW<'a, P0>(ptrustee: &mut TRUSTEE_W, psid: P0)
+pub unsafe fn BuildTrusteeWithSidW<'a, P0>(ptrustee: *mut TRUSTEE_W, psid: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
 {
@@ -643,7 +643,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA<'a, P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: &mut ::windows::core::PSTR, stringsecuritydescriptorlen: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA<'a, P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PSTR, stringsecuritydescriptorlen: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
 {
@@ -651,12 +651,12 @@ where
     extern "system" {
         fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: super::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor.into(), requestedstringsdrevision, securityinformation, ::core::mem::transmute(stringsecuritydescriptor), ::core::mem::transmute(stringsecuritydescriptorlen))
+    ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor.into(), requestedstringsdrevision, securityinformation, ::core::mem::transmute(stringsecuritydescriptor), ::core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW<'a, P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: &mut ::windows::core::PWSTR, stringsecuritydescriptorlen: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW<'a, P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PWSTR, stringsecuritydescriptorlen: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
 {
@@ -664,12 +664,12 @@ where
     extern "system" {
         fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: super::PSECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows::core::PWSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor.into(), requestedstringsdrevision, securityinformation, ::core::mem::transmute(stringsecuritydescriptor), ::core::mem::transmute(stringsecuritydescriptorlen))
+    ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor.into(), requestedstringsdrevision, securityinformation, ::core::mem::transmute(stringsecuritydescriptor), ::core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertSidToStringSidA<'a, P0>(sid: P0, stringsid: &mut ::windows::core::PSTR) -> super::super::Foundation::BOOL
+pub unsafe fn ConvertSidToStringSidA<'a, P0>(sid: P0, stringsid: *mut ::windows::core::PSTR) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
 {
@@ -682,7 +682,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertSidToStringSidW<'a, P0>(sid: P0, stringsid: &mut ::windows::core::PWSTR) -> super::super::Foundation::BOOL
+pub unsafe fn ConvertSidToStringSidW<'a, P0>(sid: P0, stringsid: *mut ::windows::core::PWSTR) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
 {
@@ -695,7 +695,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<'a, P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: &mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<'a, P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -703,12 +703,12 @@ where
     extern "system" {
         fn ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor: ::windows::core::PCSTR, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.into(), stringsdrevision, ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(securitydescriptorsize))
+    ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.into(), stringsdrevision, ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(securitydescriptorsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<'a, P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: &mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<'a, P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -716,12 +716,12 @@ where
     extern "system" {
         fn ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor: ::windows::core::PCWSTR, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.into(), stringsdrevision, ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(securitydescriptorsize))
+    ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.into(), stringsdrevision, ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(securitydescriptorsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertStringSidToSidA<'a, P0>(stringsid: P0, sid: &mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL
+pub unsafe fn ConvertStringSidToSidA<'a, P0>(stringsid: P0, sid: *mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -734,7 +734,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertStringSidToSidW<'a, P0>(stringsid: P0, sid: &mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL
+pub unsafe fn ConvertStringSidToSidW<'a, P0>(stringsid: P0, sid: *mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -746,16 +746,16 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn FreeInheritedFromArray(pinheritarray: &[INHERITED_FROMW], pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTS>) -> u32 {
+pub unsafe fn FreeInheritedFromArray(pinheritarray: &[INHERITED_FROMW], pfnarray: ::core::option::Option<*const FN_OBJECT_MGR_FUNCTS>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acecnt: u16, pfnarray: *const FN_OBJECT_MGR_FUNCTS) -> u32;
     }
-    FreeInheritedFromArray(::core::mem::transmute(pinheritarray.as_ptr()), pinheritarray.len() as _, ::core::mem::transmute(pfnarray))
+    FreeInheritedFromArray(::core::mem::transmute(pinheritarray.as_ptr()), pinheritarray.len() as _, ::core::mem::transmute(pfnarray.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetAuditedPermissionsFromAclA(pacl: &super::ACL, ptrustee: &TRUSTEE_A, psuccessfulauditedrights: &mut u32, pfailedauditrights: &mut u32) -> u32 {
+pub unsafe fn GetAuditedPermissionsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAuditedPermissionsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> u32;
@@ -764,7 +764,7 @@ pub unsafe fn GetAuditedPermissionsFromAclA(pacl: &super::ACL, ptrustee: &TRUSTE
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetAuditedPermissionsFromAclW(pacl: &super::ACL, ptrustee: &TRUSTEE_W, psuccessfulauditedrights: &mut u32, pfailedauditrights: &mut u32) -> u32 {
+pub unsafe fn GetAuditedPermissionsFromAclW(pacl: *const super::ACL, ptrustee: *const TRUSTEE_W, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAuditedPermissionsFromAclW(pacl: *const super::ACL, ptrustee: *const TRUSTEE_W, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> u32;
@@ -773,7 +773,7 @@ pub unsafe fn GetAuditedPermissionsFromAclW(pacl: &super::ACL, ptrustee: &TRUSTE
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetEffectiveRightsFromAclA(pacl: &super::ACL, ptrustee: &TRUSTEE_A, paccessrights: &mut u32) -> u32 {
+pub unsafe fn GetEffectiveRightsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, paccessrights: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetEffectiveRightsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, paccessrights: *mut u32) -> u32;
@@ -782,7 +782,7 @@ pub unsafe fn GetEffectiveRightsFromAclA(pacl: &super::ACL, ptrustee: &TRUSTEE_A
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetEffectiveRightsFromAclW(pacl: &super::ACL, ptrustee: &TRUSTEE_W, paccessrights: &mut u32) -> u32 {
+pub unsafe fn GetEffectiveRightsFromAclW(pacl: *const super::ACL, ptrustee: *const TRUSTEE_W, paccessrights: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetEffectiveRightsFromAclW(pacl: *const super::ACL, ptrustee: *const TRUSTEE_W, paccessrights: *mut u32) -> u32;
@@ -791,7 +791,7 @@ pub unsafe fn GetEffectiveRightsFromAclW(pacl: &super::ACL, ptrustee: &TRUSTEE_W
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetExplicitEntriesFromAclA(pacl: &super::ACL, pccountofexplicitentries: &mut u32, plistofexplicitentries: &mut *mut EXPLICIT_ACCESS_A) -> u32 {
+pub unsafe fn GetExplicitEntriesFromAclA(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_A) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetExplicitEntriesFromAclA(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_A) -> u32;
@@ -800,7 +800,7 @@ pub unsafe fn GetExplicitEntriesFromAclA(pacl: &super::ACL, pccountofexplicitent
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetExplicitEntriesFromAclW(pacl: &super::ACL, pccountofexplicitentries: &mut u32, plistofexplicitentries: &mut *mut EXPLICIT_ACCESS_W) -> u32 {
+pub unsafe fn GetExplicitEntriesFromAclW(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_W) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetExplicitEntriesFromAclW(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_W) -> u32;
@@ -810,7 +810,7 @@ pub unsafe fn GetExplicitEntriesFromAclW(pacl: &super::ACL, pccountofexplicitent
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInheritanceSourceA<'a, P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows::core::GUID]>, pacl: &super::ACL, pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTS>, pgenericmapping: &super::GENERIC_MAPPING, pinheritarray: &mut INHERITED_FROMA) -> u32
+pub unsafe fn GetInheritanceSourceA<'a, P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows::core::GUID]>, pacl: *const super::ACL, pfnarray: ::core::option::Option<*const FN_OBJECT_MGR_FUNCTS>, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -819,12 +819,12 @@ where
     extern "system" {
         fn GetInheritanceSourceA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> u32;
     }
-    GetInheritanceSourceA(pobjectname.into(), objecttype, securityinfo, container.into(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pacl), ::core::mem::transmute(pfnarray), ::core::mem::transmute(pgenericmapping), ::core::mem::transmute(pinheritarray))
+    GetInheritanceSourceA(pobjectname.into(), objecttype, securityinfo, container.into(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pacl), ::core::mem::transmute(pfnarray.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pgenericmapping), ::core::mem::transmute(pinheritarray))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInheritanceSourceW<'a, P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows::core::GUID]>, pacl: &super::ACL, pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTS>, pgenericmapping: &super::GENERIC_MAPPING, pinheritarray: &mut INHERITED_FROMW) -> u32
+pub unsafe fn GetInheritanceSourceW<'a, P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows::core::GUID]>, pacl: *const super::ACL, pfnarray: ::core::option::Option<*const FN_OBJECT_MGR_FUNCTS>, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -833,48 +833,48 @@ where
     extern "system" {
         fn GetInheritanceSourceW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> u32;
     }
-    GetInheritanceSourceW(pobjectname.into(), objecttype, securityinfo, container.into(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pacl), ::core::mem::transmute(pfnarray), ::core::mem::transmute(pgenericmapping), ::core::mem::transmute(pinheritarray))
+    GetInheritanceSourceW(pobjectname.into(), objecttype, securityinfo, container.into(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pacl), ::core::mem::transmute(pfnarray.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pgenericmapping), ::core::mem::transmute(pinheritarray))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetMultipleTrusteeA(ptrustee: ::core::option::Option<&TRUSTEE_A>) -> *mut TRUSTEE_A {
+pub unsafe fn GetMultipleTrusteeA(ptrustee: ::core::option::Option<*const TRUSTEE_A>) -> *mut TRUSTEE_A {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A;
     }
-    GetMultipleTrusteeA(::core::mem::transmute(ptrustee))
+    GetMultipleTrusteeA(::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetMultipleTrusteeOperationA(ptrustee: ::core::option::Option<&TRUSTEE_A>) -> MULTIPLE_TRUSTEE_OPERATION {
+pub unsafe fn GetMultipleTrusteeOperationA(ptrustee: ::core::option::Option<*const TRUSTEE_A>) -> MULTIPLE_TRUSTEE_OPERATION {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMultipleTrusteeOperationA(ptrustee: *const TRUSTEE_A) -> MULTIPLE_TRUSTEE_OPERATION;
     }
-    GetMultipleTrusteeOperationA(::core::mem::transmute(ptrustee))
+    GetMultipleTrusteeOperationA(::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetMultipleTrusteeOperationW(ptrustee: ::core::option::Option<&TRUSTEE_W>) -> MULTIPLE_TRUSTEE_OPERATION {
+pub unsafe fn GetMultipleTrusteeOperationW(ptrustee: ::core::option::Option<*const TRUSTEE_W>) -> MULTIPLE_TRUSTEE_OPERATION {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMultipleTrusteeOperationW(ptrustee: *const TRUSTEE_W) -> MULTIPLE_TRUSTEE_OPERATION;
     }
-    GetMultipleTrusteeOperationW(::core::mem::transmute(ptrustee))
+    GetMultipleTrusteeOperationW(::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetMultipleTrusteeW(ptrustee: ::core::option::Option<&TRUSTEE_W>) -> *mut TRUSTEE_W {
+pub unsafe fn GetMultipleTrusteeW(ptrustee: ::core::option::Option<*const TRUSTEE_W>) -> *mut TRUSTEE_W {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W;
     }
-    GetMultipleTrusteeW(::core::mem::transmute(ptrustee))
+    GetMultipleTrusteeW(::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNamedSecurityInfoA<'a, P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: ::core::option::Option<&mut super::super::Foundation::PSID>, ppsidgroup: ::core::option::Option<&mut super::super::Foundation::PSID>, ppdacl: ::core::option::Option<&mut *mut super::ACL>, ppsacl: ::core::option::Option<&mut *mut super::ACL>, ppsecuritydescriptor: &mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetNamedSecurityInfoA<'a, P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: ::core::option::Option<*mut super::super::Foundation::PSID>, ppsidgroup: ::core::option::Option<*mut super::super::Foundation::PSID>, ppdacl: ::core::option::Option<*mut *mut super::ACL>, ppsacl: ::core::option::Option<*mut *mut super::ACL>, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -882,12 +882,12 @@ where
     extern "system" {
         fn GetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR;
     }
-    GetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, ::core::mem::transmute(ppsidowner), ::core::mem::transmute(ppsidgroup), ::core::mem::transmute(ppdacl), ::core::mem::transmute(ppsacl), ::core::mem::transmute(ppsecuritydescriptor))
+    GetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, ::core::mem::transmute(ppsidowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsidgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsecuritydescriptor))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNamedSecurityInfoW<'a, P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: ::core::option::Option<&mut super::super::Foundation::PSID>, ppsidgroup: ::core::option::Option<&mut super::super::Foundation::PSID>, ppdacl: ::core::option::Option<&mut *mut super::ACL>, ppsacl: ::core::option::Option<&mut *mut super::ACL>, ppsecuritydescriptor: &mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetNamedSecurityInfoW<'a, P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: ::core::option::Option<*mut super::super::Foundation::PSID>, ppsidgroup: ::core::option::Option<*mut super::super::Foundation::PSID>, ppdacl: ::core::option::Option<*mut *mut super::ACL>, ppsacl: ::core::option::Option<*mut *mut super::ACL>, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -895,12 +895,12 @@ where
     extern "system" {
         fn GetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR;
     }
-    GetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, ::core::mem::transmute(ppsidowner), ::core::mem::transmute(ppsidgroup), ::core::mem::transmute(ppdacl), ::core::mem::transmute(ppsacl), ::core::mem::transmute(ppsecuritydescriptor))
+    GetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, ::core::mem::transmute(ppsidowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsidgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsecuritydescriptor))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityInfo<'a, P0>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: ::core::option::Option<&mut super::super::Foundation::PSID>, ppsidgroup: ::core::option::Option<&mut super::super::Foundation::PSID>, ppdacl: ::core::option::Option<&mut *mut super::ACL>, ppsacl: ::core::option::Option<&mut *mut super::ACL>, ppsecuritydescriptor: ::core::option::Option<&mut super::PSECURITY_DESCRIPTOR>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetSecurityInfo<'a, P0>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: ::core::option::Option<*mut super::super::Foundation::PSID>, ppsidgroup: ::core::option::Option<*mut super::super::Foundation::PSID>, ppdacl: ::core::option::Option<*mut *mut super::ACL>, ppsacl: ::core::option::Option<*mut *mut super::ACL>, ppsecuritydescriptor: ::core::option::Option<*mut super::PSECURITY_DESCRIPTOR>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -908,11 +908,11 @@ where
     extern "system" {
         fn GetSecurityInfo(handle: super::super::Foundation::HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR;
     }
-    GetSecurityInfo(handle.into(), objecttype, securityinfo, ::core::mem::transmute(ppsidowner), ::core::mem::transmute(ppsidgroup), ::core::mem::transmute(ppdacl), ::core::mem::transmute(ppsacl), ::core::mem::transmute(ppsecuritydescriptor))
+    GetSecurityInfo(handle.into(), objecttype, securityinfo, ::core::mem::transmute(ppsidowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsidgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsecuritydescriptor.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetTrusteeFormA(ptrustee: &TRUSTEE_A) -> TRUSTEE_FORM {
+pub unsafe fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM;
@@ -921,7 +921,7 @@ pub unsafe fn GetTrusteeFormA(ptrustee: &TRUSTEE_A) -> TRUSTEE_FORM {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetTrusteeFormW(ptrustee: &TRUSTEE_W) -> TRUSTEE_FORM {
+pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM;
@@ -930,7 +930,7 @@ pub unsafe fn GetTrusteeFormW(ptrustee: &TRUSTEE_W) -> TRUSTEE_FORM {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetTrusteeNameA(ptrustee: &TRUSTEE_A) -> ::windows::core::PSTR {
+pub unsafe fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> ::windows::core::PSTR;
@@ -939,7 +939,7 @@ pub unsafe fn GetTrusteeNameA(ptrustee: &TRUSTEE_A) -> ::windows::core::PSTR {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetTrusteeNameW(ptrustee: &TRUSTEE_W) -> ::windows::core::PWSTR {
+pub unsafe fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> ::windows::core::PWSTR;
@@ -948,25 +948,25 @@ pub unsafe fn GetTrusteeNameW(ptrustee: &TRUSTEE_W) -> ::windows::core::PWSTR {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetTrusteeTypeA(ptrustee: ::core::option::Option<&TRUSTEE_A>) -> TRUSTEE_TYPE {
+pub unsafe fn GetTrusteeTypeA(ptrustee: ::core::option::Option<*const TRUSTEE_A>) -> TRUSTEE_TYPE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE;
     }
-    GetTrusteeTypeA(::core::mem::transmute(ptrustee))
+    GetTrusteeTypeA(::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn GetTrusteeTypeW(ptrustee: ::core::option::Option<&TRUSTEE_W>) -> TRUSTEE_TYPE {
+pub unsafe fn GetTrusteeTypeW(ptrustee: ::core::option::Option<*const TRUSTEE_W>) -> TRUSTEE_TYPE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE;
     }
-    GetTrusteeTypeW(::core::mem::transmute(ptrustee))
+    GetTrusteeTypeW(::core::mem::transmute(ptrustee.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn LookupSecurityDescriptorPartsA<'a, P0>(ppowner: ::core::option::Option<&mut *mut TRUSTEE_A>, ppgroup: ::core::option::Option<&mut *mut TRUSTEE_A>, pccountofaccessentries: ::core::option::Option<&mut u32>, pplistofaccessentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_A>, pccountofauditentries: ::core::option::Option<&mut u32>, pplistofauditentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_A>, psd: P0) -> u32
+pub unsafe fn LookupSecurityDescriptorPartsA<'a, P0>(ppowner: ::core::option::Option<*mut *mut TRUSTEE_A>, ppgroup: ::core::option::Option<*mut *mut TRUSTEE_A>, pccountofaccessentries: ::core::option::Option<*mut u32>, pplistofaccessentries: ::core::option::Option<*mut *mut EXPLICIT_ACCESS_A>, pccountofauditentries: ::core::option::Option<*mut u32>, pplistofauditentries: ::core::option::Option<*mut *mut EXPLICIT_ACCESS_A>, psd: P0) -> u32
 where
     P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
 {
@@ -974,11 +974,11 @@ where
     extern "system" {
         fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: super::PSECURITY_DESCRIPTOR) -> u32;
     }
-    LookupSecurityDescriptorPartsA(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), psd.into())
+    LookupSecurityDescriptorPartsA(::core::mem::transmute(ppowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofaccessentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pplistofaccessentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofauditentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pplistofauditentries.unwrap_or(::std::ptr::null_mut())), psd.into())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn LookupSecurityDescriptorPartsW<'a, P0>(ppowner: ::core::option::Option<&mut *mut TRUSTEE_W>, ppgroup: ::core::option::Option<&mut *mut TRUSTEE_W>, pccountofaccessentries: ::core::option::Option<&mut u32>, pplistofaccessentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_W>, pccountofauditentries: ::core::option::Option<&mut u32>, pplistofauditentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_W>, psd: P0) -> u32
+pub unsafe fn LookupSecurityDescriptorPartsW<'a, P0>(ppowner: ::core::option::Option<*mut *mut TRUSTEE_W>, ppgroup: ::core::option::Option<*mut *mut TRUSTEE_W>, pccountofaccessentries: ::core::option::Option<*mut u32>, pplistofaccessentries: ::core::option::Option<*mut *mut EXPLICIT_ACCESS_W>, pccountofauditentries: ::core::option::Option<*mut u32>, pplistofauditentries: ::core::option::Option<*mut *mut EXPLICIT_ACCESS_W>, psd: P0) -> u32
 where
     P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
 {
@@ -986,30 +986,30 @@ where
     extern "system" {
         fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: super::PSECURITY_DESCRIPTOR) -> u32;
     }
-    LookupSecurityDescriptorPartsW(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), psd.into())
+    LookupSecurityDescriptorPartsW(::core::mem::transmute(ppowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofaccessentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pplistofaccessentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccountofauditentries.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pplistofauditentries.unwrap_or(::std::ptr::null_mut())), psd.into())
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn SetEntriesInAclA(plistofexplicitentries: ::core::option::Option<&[EXPLICIT_ACCESS_A]>, oldacl: ::core::option::Option<&super::ACL>, newacl: &mut *mut super::ACL) -> u32 {
+pub unsafe fn SetEntriesInAclA(plistofexplicitentries: ::core::option::Option<&[EXPLICIT_ACCESS_A]>, oldacl: ::core::option::Option<*const super::ACL>, newacl: *mut *mut super::ACL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetEntriesInAclA(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_A, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;
     }
-    SetEntriesInAclA(plistofexplicitentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plistofexplicitentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(oldacl), ::core::mem::transmute(newacl))
+    SetEntriesInAclA(plistofexplicitentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plistofexplicitentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(oldacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(newacl))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
-pub unsafe fn SetEntriesInAclW(plistofexplicitentries: ::core::option::Option<&[EXPLICIT_ACCESS_W]>, oldacl: ::core::option::Option<&super::ACL>, newacl: &mut *mut super::ACL) -> u32 {
+pub unsafe fn SetEntriesInAclW(plistofexplicitentries: ::core::option::Option<&[EXPLICIT_ACCESS_W]>, oldacl: ::core::option::Option<*const super::ACL>, newacl: *mut *mut super::ACL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetEntriesInAclW(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_W, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;
     }
-    SetEntriesInAclW(plistofexplicitentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plistofexplicitentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(oldacl), ::core::mem::transmute(newacl))
+    SetEntriesInAclW(plistofexplicitentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plistofexplicitentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(oldacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(newacl))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetNamedSecurityInfoA<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>) -> u32
+pub unsafe fn SetNamedSecurityInfoA<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -1019,12 +1019,12 @@ where
     extern "system" {
         fn SetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
     }
-    SetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl))
+    SetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetNamedSecurityInfoW<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>) -> u32
+pub unsafe fn SetNamedSecurityInfoW<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -1034,12 +1034,12 @@ where
     extern "system" {
         fn SetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
     }
-    SetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl))
+    SetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityInfo<'a, P0, P1, P2>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>) -> u32
+pub unsafe fn SetSecurityInfo<'a, P0, P1, P2>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -1049,12 +1049,12 @@ where
     extern "system" {
         fn SetSecurityInfo(handle: super::super::Foundation::HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
     }
-    SetSecurityInfo(handle.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl))
+    SetSecurityInfo(handle.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TreeResetNamedSecurityInfoA<'a, P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TreeResetNamedSecurityInfoA<'a, P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -1065,12 +1065,12 @@ where
     extern "system" {
         fn TreeResetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: super::super::Foundation::BOOL, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
     }
-    TreeResetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), keepexplicit.into(), ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
+    TreeResetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), keepexplicit.into(), ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TreeResetNamedSecurityInfoW<'a, P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TreeResetNamedSecurityInfoW<'a, P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -1081,12 +1081,12 @@ where
     extern "system" {
         fn TreeResetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: super::super::Foundation::BOOL, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
     }
-    TreeResetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), keepexplicit.into(), ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
+    TreeResetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), keepexplicit.into(), ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TreeSetNamedSecurityInfoA<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TreeSetNamedSecurityInfoA<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -1096,12 +1096,12 @@ where
     extern "system" {
         fn TreeSetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
     }
-    TreeSetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), dwaction, ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
+    TreeSetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), dwaction, ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TreeSetNamedSecurityInfoW<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
+pub unsafe fn TreeSetNamedSecurityInfoW<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
@@ -1111,7 +1111,7 @@ where
     extern "system" {
         fn TreeSetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
     }
-    TreeSetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), dwaction, ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
+    TreeSetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), dwaction, ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5383,7 +5383,7 @@ impl IAzAuthorizationStore3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsFunctionalLevelUpgradeSupported)(::windows::core::Interface::as_raw(self), lfunctionallevel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    pub unsafe fn GetSchemaVersion(&self, plmajorversion: &mut i32, plminorversion: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSchemaVersion(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSchemaVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plmajorversion), ::core::mem::transmute(plminorversion)).ok()
     }
 }
@@ -5626,7 +5626,7 @@ impl IAzBizRuleInterfaces {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInterfaceValue(&self, bstrinterfacename: &::windows::core::BSTR, linterfaceflag: &mut i32, varinterface: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetInterfaceValue(&self, bstrinterfacename: &::windows::core::BSTR, linterfaceflag: *mut i32, varinterface: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInterfaceValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrinterfacename), ::core::mem::transmute(linterfaceflag), ::core::mem::transmute(varinterface)).ok()
     }
     pub unsafe fn Remove(&self, bstrinterfacename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
@@ -6086,7 +6086,7 @@ impl IAzClientContext2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: &mut super::super::System::Com::VARIANT, pvarscopenames: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Com::VARIANT, pvarscopenames: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAssignedScopesPage)(::windows::core::Interface::as_raw(self), loptions, pagesize, ::core::mem::transmute(pvarcursor), ::core::mem::transmute(pvarscopenames)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6301,7 +6301,7 @@ impl IAzClientContext3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: &mut super::super::System::Com::VARIANT, pvarscopenames: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Com::VARIANT, pvarscopenames: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetAssignedScopesPage)(::windows::core::Interface::as_raw(self), loptions, pagesize, ::core::mem::transmute(pvarcursor), ::core::mem::transmute(pvarscopenames)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6515,12 +6515,12 @@ pub struct IAzClientContext3_Vtbl {
 pub struct IAzNameResolver(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzNameResolver {
-    pub unsafe fn NameFromSid(&self, bstrsid: &::windows::core::BSTR, psidtype: &mut i32, pbstrname: &mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn NameFromSid(&self, bstrsid: &::windows::core::BSTR, psidtype: *mut i32, pbstrname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NameFromSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrsid), ::core::mem::transmute(psidtype), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn NamesFromSids<'a, P0>(&self, vsids: P0, pvsidtypes: &mut super::super::System::Com::VARIANT, pvnames: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn NamesFromSids<'a, P0>(&self, vsids: P0, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -6607,7 +6607,7 @@ pub struct IAzObjectPicker(::windows::core::IUnknown);
 impl IAzObjectPicker {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPrincipals<'a, P0>(&self, hparentwnd: P0, bstrtitle: &::windows::core::BSTR, pvsidtypes: &mut super::super::System::Com::VARIANT, pvnames: &mut super::super::System::Com::VARIANT, pvsids: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn GetPrincipals<'a, P0>(&self, hparentwnd: P0, bstrtitle: &::windows::core::BSTR, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT, pvsids: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {

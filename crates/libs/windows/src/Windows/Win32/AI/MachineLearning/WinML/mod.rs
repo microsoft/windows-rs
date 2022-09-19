@@ -165,8 +165,8 @@ impl IMLOperatorKernelContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AllocateTemporaryData)(::windows::core::Interface::as_raw(self), size, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetExecutionInterface(&self, executionobject: ::core::option::Option<&mut ::core::option::Option<::windows::core::IUnknown>>) {
-        (::windows::core::Interface::vtable(self).GetExecutionInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(executionobject))
+    pub unsafe fn GetExecutionInterface(&self, executionobject: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) {
+        (::windows::core::Interface::vtable(self).GetExecutionInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(executionobject.unwrap_or(::std::ptr::null_mut())))
     }
 }
 impl ::core::convert::From<IMLOperatorKernelContext> for ::windows::core::IUnknown {
@@ -271,8 +271,8 @@ impl IMLOperatorKernelCreationContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTensorShapeDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMLOperatorTensorShapeDescription>(result__)
     }
-    pub unsafe fn GetExecutionInterface(&self, executionobject: ::core::option::Option<&mut ::core::option::Option<::windows::core::IUnknown>>) {
-        (::windows::core::Interface::vtable(self).GetExecutionInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(executionobject))
+    pub unsafe fn GetExecutionInterface(&self, executionobject: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) {
+        (::windows::core::Interface::vtable(self).GetExecutionInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(executionobject.unwrap_or(::std::ptr::null_mut())))
     }
 }
 impl ::core::convert::From<IMLOperatorKernelCreationContext> for ::windows::core::IUnknown {
@@ -396,14 +396,14 @@ pub struct IMLOperatorKernelFactory_Vtbl {
 #[repr(transparent)]
 pub struct IMLOperatorRegistry(::windows::core::IUnknown);
 impl IMLOperatorRegistry {
-    pub unsafe fn RegisterOperatorSetSchema<'a, P0, P1>(&self, operatorsetid: &MLOperatorSetId, baselineversion: i32, schema: ::core::option::Option<&[*const MLOperatorSchemaDescription]>, typeinferrer: P0, shapeinferrer: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterOperatorSetSchema<'a, P0, P1>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: ::core::option::Option<&[*const MLOperatorSchemaDescription]>, typeinferrer: P0, shapeinferrer: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorTypeInferrer>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorShapeInferrer>>,
     {
         (::windows::core::Interface::vtable(self).RegisterOperatorSetSchema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operatorsetid), baselineversion, ::core::mem::transmute(schema.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), schema.as_deref().map_or(0, |slice| slice.len() as _), typeinferrer.into().abi(), shapeinferrer.into().abi()).ok()
     }
-    pub unsafe fn RegisterOperatorKernel<'a, P0, P1>(&self, operatorkernel: &MLOperatorKernelDescription, operatorkernelfactory: P0, shapeinferrer: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterOperatorKernel<'a, P0, P1>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: P0, shapeinferrer: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorKernelFactory>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorShapeInferrer>>,
@@ -506,7 +506,7 @@ impl IMLOperatorShapeInferenceContext {
     pub unsafe fn GetInputTensorShape(&self, inputindex: u32, dimensions: &mut [u32]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInputTensorShape)(::windows::core::Interface::as_raw(self), inputindex, dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
     }
-    pub unsafe fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: &u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetOutputTensorShape)(::windows::core::Interface::as_raw(self), outputindex, dimensioncount, ::core::mem::transmute(dimensions)).ok()
     }
 }
@@ -647,8 +647,8 @@ impl IMLOperatorTensor {
     pub unsafe fn GetData(&self) -> *mut ::core::ffi::c_void {
         (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self))
     }
-    pub unsafe fn GetDataInterface(&self, datainterface: ::core::option::Option<&mut ::core::option::Option<::windows::core::IUnknown>>) {
-        (::windows::core::Interface::vtable(self).GetDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datainterface))
+    pub unsafe fn GetDataInterface(&self, datainterface: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>) {
+        (::windows::core::Interface::vtable(self).GetDataInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datainterface.unwrap_or(::std::ptr::null_mut())))
     }
 }
 impl ::core::convert::From<IMLOperatorTensor> for ::windows::core::IUnknown {
@@ -811,7 +811,7 @@ impl IMLOperatorTypeInferenceContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetInputEdgeDescription)(::windows::core::Interface::as_raw(self), inputindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MLOperatorEdgeDescription>(result__)
     }
-    pub unsafe fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: &MLOperatorEdgeDescription) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetOutputEdgeDescription)(::windows::core::Interface::as_raw(self), outputindex, ::core::mem::transmute(edgedescription)).ok()
     }
 }
@@ -934,7 +934,7 @@ pub struct IWinMLEvaluationContext(::windows::core::IUnknown);
 impl IWinMLEvaluationContext {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn BindValue(&self, pdescriptor: &WINML_BINDING_DESC) -> ::windows::core::Result<()> {
+    pub unsafe fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BindValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescriptor)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
@@ -1007,7 +1007,7 @@ impl IWinMLModel {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WINML_MODEL_DESC>(result__)
     }
-    pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: &mut ::windows::core::PWSTR, pvalue: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumerateMetadata)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(pkey), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

@@ -15,7 +15,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplySnapshotVhdSet<'a, P0>(virtualdiskhandle: P0, parameters: &APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn ApplySnapshotVhdSet<'a, P0>(virtualdiskhandle: P0, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -28,7 +28,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn AttachVirtualDisk<'a, P0, P1>(virtualdiskhandle: P0, securitydescriptor: P1, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: ::core::option::Option<&ATTACH_VIRTUAL_DISK_PARAMETERS>, overlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn AttachVirtualDisk<'a, P0, P1>(virtualdiskhandle: P0, securitydescriptor: P1, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: ::core::option::Option<*const ATTACH_VIRTUAL_DISK_PARAMETERS>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
@@ -37,7 +37,7 @@ where
     extern "system" {
         fn AttachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    AttachVirtualDisk(virtualdiskhandle.into(), securitydescriptor.into(), flags, providerspecificflags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped))
+    AttachVirtualDisk(virtualdiskhandle.into(), securitydescriptor.into(), flags, providerspecificflags, ::core::mem::transmute(parameters.unwrap_or(::std::ptr::null())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -55,7 +55,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CompactVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: ::core::option::Option<&COMPACT_VIRTUAL_DISK_PARAMETERS>, overlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn CompactVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: ::core::option::Option<*const COMPACT_VIRTUAL_DISK_PARAMETERS>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -63,7 +63,7 @@ where
     extern "system" {
         fn CompactVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    CompactVirtualDisk(virtualdiskhandle.into(), flags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped))
+    CompactVirtualDisk(virtualdiskhandle.into(), flags, ::core::mem::transmute(parameters.unwrap_or(::std::ptr::null())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -81,7 +81,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CreateVirtualDisk<'a, P0, P1>(virtualstoragetype: &VIRTUAL_STORAGE_TYPE, path: P0, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: P1, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: &CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>, handle: &mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn CreateVirtualDisk<'a, P0, P1>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: P0, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: P1, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
@@ -90,12 +90,12 @@ where
     extern "system" {
         fn CreateVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
     }
-    CreateVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into(), virtualdiskaccessmask, securitydescriptor.into(), flags, providerspecificflags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped), ::core::mem::transmute(handle))
+    CreateVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into(), virtualdiskaccessmask, securitydescriptor.into(), flags, providerspecificflags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), ::core::mem::transmute(handle))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteSnapshotVhdSet<'a, P0>(virtualdiskhandle: P0, parameters: &DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn DeleteSnapshotVhdSet<'a, P0>(virtualdiskhandle: P0, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -108,7 +108,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: &::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn DeleteVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: *const ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -134,7 +134,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, numberofitems: &mut u32, items: *mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn EnumerateVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, numberofitems: *mut u32, items: *mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -147,7 +147,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ExpandVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: &EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn ExpandVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -155,12 +155,12 @@ where
     extern "system" {
         fn ExpandVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    ExpandVirtualDisk(virtualdiskhandle.into(), flags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped))
+    ExpandVirtualDisk(virtualdiskhandle.into(), flags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ForkVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: FORK_VIRTUAL_DISK_FLAG, parameters: &FORK_VIRTUAL_DISK_PARAMETERS, overlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn ForkVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: FORK_VIRTUAL_DISK_FLAG, parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -173,7 +173,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: &mut u32, pathsbuffer: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR;
@@ -183,7 +183,7 @@ pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: &mu
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStorageDependencyInformation<'a, P0>(objecthandle: P0, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: &mut STORAGE_DEPENDENCY_INFO, sizeused: ::core::option::Option<&mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetStorageDependencyInformation<'a, P0>(objecthandle: P0, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -191,12 +191,12 @@ where
     extern "system" {
         fn GetStorageDependencyInformation(objecthandle: super::super::Foundation::HANDLE, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    GetStorageDependencyInformation(objecthandle.into(), flags, storagedependencyinfosize, ::core::mem::transmute(storagedependencyinfo), ::core::mem::transmute(sizeused))
+    GetStorageDependencyInformation(objecthandle.into(), flags, storagedependencyinfosize, ::core::mem::transmute(storagedependencyinfo), ::core::mem::transmute(sizeused.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVirtualDiskInformation<'a, P0>(virtualdiskhandle: P0, virtualdiskinfosize: &mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: ::core::option::Option<&mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetVirtualDiskInformation<'a, P0>(virtualdiskhandle: P0, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -204,12 +204,12 @@ where
     extern "system" {
         fn GetVirtualDiskInformation(virtualdiskhandle: super::super::Foundation::HANDLE, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    GetVirtualDiskInformation(virtualdiskhandle.into(), ::core::mem::transmute(virtualdiskinfosize), ::core::mem::transmute(virtualdiskinfo), ::core::mem::transmute(sizeused))
+    GetVirtualDiskInformation(virtualdiskhandle.into(), ::core::mem::transmute(virtualdiskinfosize), ::core::mem::transmute(virtualdiskinfo), ::core::mem::transmute(sizeused.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: &::windows::core::GUID, metadatasize: &mut u32, metadata: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: *const ::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -222,7 +222,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn GetVirtualDiskOperationProgress<'a, P0>(virtualdiskhandle: P0, overlapped: &super::super::System::IO::OVERLAPPED, progress: &mut VIRTUAL_DISK_PROGRESS) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetVirtualDiskOperationProgress<'a, P0>(virtualdiskhandle: P0, overlapped: *const super::super::System::IO::OVERLAPPED, progress: *mut VIRTUAL_DISK_PROGRESS) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -235,7 +235,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVirtualDiskPhysicalPath<'a, P0>(virtualdiskhandle: P0, diskpathsizeinbytes: &mut u32, diskpath: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetVirtualDiskPhysicalPath<'a, P0>(virtualdiskhandle: P0, diskpathsizeinbytes: *mut u32, diskpath: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -248,7 +248,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn MergeVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: &MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn MergeVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -256,12 +256,12 @@ where
     extern "system" {
         fn MergeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    MergeVirtualDisk(virtualdiskhandle.into(), flags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped))
+    MergeVirtualDisk(virtualdiskhandle.into(), flags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn MirrorVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: &MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: &super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn MirrorVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -274,7 +274,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ModifyVhdSet<'a, P0>(virtualdiskhandle: P0, parameters: &MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn ModifyVhdSet<'a, P0>(virtualdiskhandle: P0, parameters: *const MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -287,7 +287,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenVirtualDisk<'a, P0>(virtualstoragetype: &VIRTUAL_STORAGE_TYPE, path: P0, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: ::core::option::Option<&OPEN_VIRTUAL_DISK_PARAMETERS>, handle: &mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn OpenVirtualDisk<'a, P0>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: P0, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: ::core::option::Option<*const OPEN_VIRTUAL_DISK_PARAMETERS>, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -295,12 +295,12 @@ where
     extern "system" {
         fn OpenVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
     }
-    OpenVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into(), virtualdiskaccessmask, flags, ::core::mem::transmute(parameters), ::core::mem::transmute(handle))
+    OpenVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into(), virtualdiskaccessmask, flags, ::core::mem::transmute(parameters.unwrap_or(::std::ptr::null())), ::core::mem::transmute(handle))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryChangesVirtualDisk<'a, P0, P1>(virtualdiskhandle: P0, changetrackingid: P1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: &mut u32, processedlength: &mut u64) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn QueryChangesVirtualDisk<'a, P0, P1>(virtualdiskhandle: P0, changetrackingid: P1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -314,7 +314,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RawSCSIVirtualDisk<'a, P0>(virtualdiskhandle: P0, parameters: &RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: &mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RawSCSIVirtualDisk<'a, P0>(virtualdiskhandle: P0, parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -327,7 +327,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ResizeVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: &RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn ResizeVirtualDisk<'a, P0>(virtualdiskhandle: P0, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -335,12 +335,12 @@ where
     extern "system" {
         fn ResizeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    ResizeVirtualDisk(virtualdiskhandle.into(), flags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped))
+    ResizeVirtualDisk(virtualdiskhandle.into(), flags, ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVirtualDiskInformation<'a, P0>(virtualdiskhandle: P0, virtualdiskinfo: &SET_VIRTUAL_DISK_INFO) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn SetVirtualDiskInformation<'a, P0>(virtualdiskhandle: P0, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -353,7 +353,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: &::windows::core::GUID, metadata: &[u8]) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn SetVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: *const ::windows::core::GUID, metadata: &[u8]) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -366,7 +366,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TakeSnapshotVhdSet<'a, P0>(virtualdiskhandle: P0, parameters: &TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn TakeSnapshotVhdSet<'a, P0>(virtualdiskhandle: P0, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {

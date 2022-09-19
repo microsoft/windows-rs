@@ -76,7 +76,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HcsCreateComputeSystem<'a, P0, P1, P2>(id: P0, configuration: P1, operation: P2, securitydescriptor: ::core::option::Option<&super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows::core::Result<HCS_SYSTEM>
+pub unsafe fn HcsCreateComputeSystem<'a, P0, P1, P2>(id: P0, configuration: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows::core::Result<HCS_SYSTEM>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -87,11 +87,11 @@ where
         fn HcsCreateComputeSystem(id: ::windows::core::PCWSTR, configuration: ::windows::core::PCWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsCreateComputeSystem(id.into(), configuration.into(), operation.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
+    HcsCreateComputeSystem(id.into(), configuration.into(), operation.into(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCreateComputeSystemInNamespace<'a, P0, P1, P2, P3>(idnamespace: P0, id: P1, configuration: P2, operation: P3, options: ::core::option::Option<&HCS_CREATE_OPTIONS>) -> ::windows::core::Result<HCS_SYSTEM>
+pub unsafe fn HcsCreateComputeSystemInNamespace<'a, P0, P1, P2, P3>(idnamespace: P0, id: P1, configuration: P2, operation: P3, options: ::core::option::Option<*const HCS_CREATE_OPTIONS>) -> ::windows::core::Result<HCS_SYSTEM>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -103,7 +103,7 @@ where
         fn HcsCreateComputeSystemInNamespace(idnamespace: ::windows::core::PCWSTR, id: ::windows::core::PCWSTR, configuration: ::windows::core::PCWSTR, operation: HCS_OPERATION, options: *const HCS_CREATE_OPTIONS, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsCreateComputeSystemInNamespace(idnamespace.into(), id.into(), configuration.into(), operation.into(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
+    HcsCreateComputeSystemInNamespace(idnamespace.into(), id.into(), configuration.into(), operation.into(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -131,17 +131,17 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION {
+pub unsafe fn HcsCreateOperation(context: ::core::option::Option<*const ::core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> HCS_OPERATION;
     }
-    HcsCreateOperation(::core::mem::transmute(context), ::core::mem::transmute(callback))
+    HcsCreateOperation(::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(callback))
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HcsCreateProcess<'a, P0, P1, P2>(computesystem: P0, processparameters: P1, operation: P2, securitydescriptor: ::core::option::Option<&super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows::core::Result<HCS_PROCESS>
+pub unsafe fn HcsCreateProcess<'a, P0, P1, P2>(computesystem: P0, processparameters: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows::core::Result<HCS_PROCESS>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -152,7 +152,7 @@ where
         fn HcsCreateProcess(computesystem: HCS_SYSTEM, processparameters: ::windows::core::PCWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, process: *mut HCS_PROCESS) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsCreateProcess(computesystem.into(), processparameters.into(), operation.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_PROCESS>(result__)
+    HcsCreateProcess(computesystem.into(), processparameters.into(), operation.into(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_PROCESS>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -328,7 +328,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsGetOperationResultAndProcessInfo<'a, P0>(operation: P0, processinformation: ::core::option::Option<&mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<&mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+pub unsafe fn HcsGetOperationResultAndProcessInfo<'a, P0>(operation: P0, processinformation: ::core::option::Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -336,7 +336,7 @@ where
     extern "system" {
         fn HcsGetOperationResultAndProcessInfo(operation: HCS_OPERATION, processinformation: *mut HCS_PROCESS_INFORMATION, resultdocument: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    HcsGetOperationResultAndProcessInfo(operation.into(), ::core::mem::transmute(processinformation), ::core::mem::transmute(resultdocument)).ok()
+    HcsGetOperationResultAndProcessInfo(operation.into(), ::core::mem::transmute(processinformation.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -635,7 +635,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetComputeSystemCallback<'a, P0>(computesystem: P0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetComputeSystemCallback<'a, P0>(computesystem: P0, callbackoptions: HCS_EVENT_OPTIONS, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
 {
@@ -643,11 +643,11 @@ where
     extern "system" {
         fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    HcsSetComputeSystemCallback(computesystem.into(), callbackoptions, ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
+    HcsSetComputeSystemCallback(computesystem.into(), callbackoptions, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(callback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetOperationCallback<'a, P0>(operation: P0, context: *const ::core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetOperationCallback<'a, P0>(operation: P0, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -655,11 +655,11 @@ where
     extern "system" {
         fn HcsSetOperationCallback(operation: HCS_OPERATION, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    HcsSetOperationCallback(operation.into(), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
+    HcsSetOperationCallback(operation.into(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(callback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetOperationContext<'a, P0>(operation: P0, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetOperationContext<'a, P0>(operation: P0, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -667,7 +667,7 @@ where
     extern "system" {
         fn HcsSetOperationContext(operation: HCS_OPERATION, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    HcsSetOperationContext(operation.into(), ::core::mem::transmute(context)).ok()
+    HcsSetOperationContext(operation.into(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -821,7 +821,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HcsWaitForOperationResultAndProcessInfo<'a, P0>(operation: P0, timeoutms: u32, processinformation: ::core::option::Option<&mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<&mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+pub unsafe fn HcsWaitForOperationResultAndProcessInfo<'a, P0>(operation: P0, timeoutms: u32, processinformation: ::core::option::Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
@@ -829,7 +829,7 @@ where
     extern "system" {
         fn HcsWaitForOperationResultAndProcessInfo(operation: HCS_OPERATION, timeoutms: u32, processinformation: *mut HCS_PROCESS_INFORMATION, resultdocument: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    HcsWaitForOperationResultAndProcessInfo(operation.into(), timeoutms, ::core::mem::transmute(processinformation), ::core::mem::transmute(resultdocument)).ok()
+    HcsWaitForOperationResultAndProcessInfo(operation.into(), timeoutms, ::core::mem::transmute(processinformation.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]

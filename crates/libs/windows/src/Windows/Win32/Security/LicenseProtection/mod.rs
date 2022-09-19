@@ -14,7 +14,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ValidateLicenseKeyProtection<'a, P0>(licensekey: P0, notvalidbefore: &mut super::super::Foundation::FILETIME, notvalidafter: &mut super::super::Foundation::FILETIME, status: &mut LicenseProtectionStatus) -> ::windows::core::Result<()>
+pub unsafe fn ValidateLicenseKeyProtection<'a, P0>(licensekey: P0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {

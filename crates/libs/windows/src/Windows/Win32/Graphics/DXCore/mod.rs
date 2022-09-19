@@ -18,7 +18,7 @@ impl IDXCoreAdapter {
     pub unsafe fn IsValid(&self) -> bool {
         (::windows::core::Interface::vtable(self).IsValid)(::windows::core::Interface::as_raw(self))
     }
-    pub unsafe fn IsAttributeSupported(&self, attributeguid: &::windows::core::GUID) -> bool {
+    pub unsafe fn IsAttributeSupported(&self, attributeguid: *const ::windows::core::GUID) -> bool {
         (::windows::core::Interface::vtable(self).IsAttributeSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attributeguid))
     }
     pub unsafe fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool {
@@ -114,7 +114,7 @@ impl IDXCoreAdapterFactory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: &super::super::Foundation::LUID) -> ::windows::core::Result<T>
+    pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: *const super::super::Foundation::LUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -124,12 +124,12 @@ impl IDXCoreAdapterFactory {
     pub unsafe fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool {
         (::windows::core::Interface::vtable(self).IsNotificationTypeSupported)(::windows::core::Interface::as_raw(self), notificationtype)
     }
-    pub unsafe fn RegisterEventNotification<'a, P0>(&self, dxcoreobject: P0, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>
+    pub unsafe fn RegisterEventNotification<'a, P0>(&self, dxcoreobject: P0, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterEventNotification)(::windows::core::Interface::as_raw(self), dxcoreobject.into().abi(), notificationtype, ::core::mem::transmute(callbackfunction), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).RegisterEventNotification)(::windows::core::Interface::as_raw(self), dxcoreobject.into().abi(), notificationtype, ::core::mem::transmute(callbackfunction), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn UnregisterEventNotification(&self, eventcookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnregisterEventNotification)(::windows::core::Interface::as_raw(self), eventcookie).ok()

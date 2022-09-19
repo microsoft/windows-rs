@@ -80,14 +80,24 @@ pub struct ICreateDeviceAccessAsync_Vtbl {
 #[repr(transparent)]
 pub struct IDeviceIoControl(::windows::core::IUnknown);
 impl IDeviceIoControl {
-    pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>, bytesreturned: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceIoControlSync)(::windows::core::Interface::as_raw(self), iocontrolcode, ::core::mem::transmute(inputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(outputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bytesreturned)).ok()
     }
-    pub unsafe fn DeviceIoControlAsync<'a, P0>(&self, iocontrolcode: u32, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>, requestcompletioncallback: P0, cancelcontext: ::core::option::Option<&mut usize>) -> ::windows::core::Result<()>
+    pub unsafe fn DeviceIoControlAsync<'a, P0>(&self, iocontrolcode: u32, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>, requestcompletioncallback: P0, cancelcontext: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDeviceRequestCompletionCallback>>,
     {
-        (::windows::core::Interface::vtable(self).DeviceIoControlAsync)(::windows::core::Interface::as_raw(self), iocontrolcode, ::core::mem::transmute(inputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(outputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len() as _), requestcompletioncallback.into().abi(), ::core::mem::transmute(cancelcontext)).ok()
+        (::windows::core::Interface::vtable(self).DeviceIoControlAsync)(
+            ::windows::core::Interface::as_raw(self),
+            iocontrolcode,
+            ::core::mem::transmute(inputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+            inputbuffer.as_deref().map_or(0, |slice| slice.len() as _),
+            ::core::mem::transmute(outputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+            outputbuffer.as_deref().map_or(0, |slice| slice.len() as _),
+            requestcompletioncallback.into().abi(),
+            ::core::mem::transmute(cancelcontext.unwrap_or(::std::ptr::null_mut())),
+        )
+        .ok()
     }
     pub unsafe fn CancelOperation(&self, cancelcontext: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CancelOperation)(::windows::core::Interface::as_raw(self), cancelcontext).ok()

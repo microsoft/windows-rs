@@ -24,7 +24,7 @@ impl IUIAnimationInterpolator {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InterpolateVelocity)(::windows::core::Interface::as_raw(self), offset, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
-    pub unsafe fn GetDependencies(&self, initialvaluedependencies: &mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: &mut UI_ANIMATION_DEPENDENCIES, durationdependencies: &mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDependencies(&self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDependencies)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialvaluedependencies), ::core::mem::transmute(initialvelocitydependencies), ::core::mem::transmute(durationdependencies)).ok()
     }
 }
@@ -108,7 +108,7 @@ impl IUIAnimationInterpolator2 {
     {
         (::windows::core::Interface::vtable(self).GetPrimitiveInterpolation)(::windows::core::Interface::as_raw(self), interpolation.into().abi(), cdimension).ok()
     }
-    pub unsafe fn GetDependencies(&self, initialvaluedependencies: &mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: &mut UI_ANIMATION_DEPENDENCIES, durationdependencies: &mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDependencies(&self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDependencies)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialvaluedependencies), ::core::mem::transmute(initialvelocitydependencies), ::core::mem::transmute(durationdependencies)).ok()
     }
 }
@@ -867,8 +867,8 @@ impl IUIAnimationStoryboard {
     {
         (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
-    pub unsafe fn GetTag(&self, object: ::core::option::Option<&mut ::core::option::Option<::windows::core::IUnknown>>, id: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(id)).ok()
+    pub unsafe fn GetTag(&self, object: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>, id: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<UI_ANIMATION_STORYBOARD_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1026,8 +1026,8 @@ impl IUIAnimationStoryboard2 {
     {
         (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
-    pub unsafe fn GetTag(&self, object: ::core::option::Option<&mut ::core::option::Option<::windows::core::IUnknown>>, id: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(id)).ok()
+    pub unsafe fn GetTag(&self, object: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>, id: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<UI_ANIMATION_STORYBOARD_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2012,8 +2012,8 @@ impl IUIAnimationVariable {
     {
         (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
-    pub unsafe fn GetTag(&self, object: ::core::option::Option<&mut ::core::option::Option<::windows::core::IUnknown>>, id: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(id)).ok()
+    pub unsafe fn GetTag(&self, object: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>, id: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetVariableChangeHandler<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
@@ -2170,8 +2170,8 @@ impl IUIAnimationVariable2 {
     {
         (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
-    pub unsafe fn GetTag(&self, object: ::core::option::Option<&mut ::core::option::Option<::windows::core::IUnknown>>, id: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(id)).ok()
+    pub unsafe fn GetTag(&self, object: ::core::option::Option<*mut ::core::option::Option<::windows::core::IUnknown>>, id: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

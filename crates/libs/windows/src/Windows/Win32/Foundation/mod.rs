@@ -25,7 +25,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn DuplicateHandle<'a, P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: &mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL
+pub unsafe fn DuplicateHandle<'a, P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL
 where
     P0: ::std::convert::Into<HANDLE>,
     P1: ::std::convert::Into<HANDLE>,
@@ -40,7 +40,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn GetHandleInformation<'a, P0>(hobject: P0, lpdwflags: &mut u32) -> BOOL
+pub unsafe fn GetHandleInformation<'a, P0>(hobject: P0, lpdwflags: *mut u32) -> BOOL
 where
     P0: ::std::convert::Into<HANDLE>,
 {
@@ -151,7 +151,7 @@ pub unsafe fn SysFreeString(bstrstring: &::windows::core::BSTR) {
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReAllocString<'a, P0>(pbstr: &mut ::windows::core::BSTR, psz: P0) -> i32
+pub unsafe fn SysReAllocString<'a, P0>(pbstr: *mut ::windows::core::BSTR, psz: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -163,7 +163,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReAllocStringLen<'a, P0>(pbstr: &mut ::windows::core::BSTR, psz: P0, len: u32) -> i32
+pub unsafe fn SysReAllocStringLen<'a, P0>(pbstr: *mut ::windows::core::BSTR, psz: P0, len: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {

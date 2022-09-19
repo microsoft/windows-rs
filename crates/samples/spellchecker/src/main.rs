@@ -4,7 +4,7 @@ fn main() -> Result<()> {
     let input = std::env::args().nth(1).expect("Expected one command line argument for text to be spell-corrected");
     // Initialize the COM runtime for this thread
     unsafe {
-        CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED)?;
     }
 
     // Create ISpellCheckerFactory
@@ -45,7 +45,7 @@ fn main() -> Result<()> {
 
                 println!("Replace: {} with {}", substring, unsafe { replacement.display() });
 
-                unsafe { CoTaskMemFree(replacement.as_ptr() as *mut _) };
+                unsafe { CoTaskMemFree(Some(replacement.as_ptr() as *mut _)) };
             }
             CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                 // Get an enumerator for all the suggestions for a substring
@@ -64,7 +64,7 @@ fn main() -> Result<()> {
 
                     println!("Maybe replace: {} with {}", substring, unsafe { suggestion[0].display() });
 
-                    unsafe { CoTaskMemFree(suggestion[0].as_ptr() as *mut _) };
+                    unsafe { CoTaskMemFree(Some(suggestion[0].as_ptr() as *mut _)) };
                 }
             }
             _ => {}

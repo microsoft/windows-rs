@@ -11,7 +11,7 @@ use windows::{
 // activate WinRT types directly as it can do so far more efficiently.
 #[test]
 fn test() -> Result<()> {
-    unsafe { CoInitializeEx(core::ptr::null_mut(), COINIT_MULTITHREADED)? };
+    unsafe { CoInitializeEx(None, COINIT_MULTITHREADED)? };
 
     let instance: HSTRING = "Windows.Foundation.Collections.StringMap".into();
     let instance = unsafe { RoActivateInstance(&instance)? };

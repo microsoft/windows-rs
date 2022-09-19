@@ -27,7 +27,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckForHiberboot<'a, P0>(phiberboot: &mut super::super::Foundation::BOOLEAN, bclearflag: P0) -> u32
+pub unsafe fn CheckForHiberboot<'a, P0>(phiberboot: *mut super::super::Foundation::BOOLEAN, bclearflag: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -177,7 +177,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ShutdownBlockReasonQuery<'a, P0>(hwnd: P0, pwszbuff: ::windows::core::PWSTR, pcchbuff: &mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn ShutdownBlockReasonQuery<'a, P0>(hwnd: P0, pwszbuff: ::windows::core::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {

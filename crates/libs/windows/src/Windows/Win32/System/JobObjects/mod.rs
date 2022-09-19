@@ -15,7 +15,7 @@ where
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateJobObjectA<'a, P0>(lpjobattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateJobObjectA<'a, P0>(lpjobattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -23,13 +23,13 @@ where
     extern "system" {
         fn CreateJobObjectA(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateJobObjectA(::core::mem::transmute(lpjobattributes), lpname.into());
+    let result__ = CreateJobObjectA(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateJobObjectW<'a, P0>(lpjobattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateJobObjectW<'a, P0>(lpjobattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -37,7 +37,7 @@ where
     extern "system" {
         fn CreateJobObjectW(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateJobObjectW(::core::mem::transmute(lpjobattributes), lpname.into());
+    let result__ = CreateJobObjectW(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -62,7 +62,7 @@ pub unsafe fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void) {
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsProcessInJob<'a, P0, P1>(processhandle: P0, jobhandle: P1, result: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
+pub unsafe fn IsProcessInJob<'a, P0, P1>(processhandle: P0, jobhandle: P1, result: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -106,7 +106,7 @@ where
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryInformationJobObject<'a, P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: &mut [u8], lpreturnlength: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn QueryInformationJobObject<'a, P0>(hjob: P0, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: &mut [u8], lpreturnlength: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -114,12 +114,12 @@ where
     extern "system" {
         fn QueryInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut ::core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: *mut u32) -> super::super::Foundation::BOOL;
     }
-    QueryInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation.as_ptr()), lpjobobjectinformation.len() as _, ::core::mem::transmute(lpreturnlength))
+    QueryInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation.as_ptr()), lpjobobjectinformation.len() as _, ::core::mem::transmute(lpreturnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryIoRateControlInformationJobObject<'a, P0, P1>(hjob: P0, volumename: P1, infoblocks: &mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: &mut u32) -> u32
+pub unsafe fn QueryIoRateControlInformationJobObject<'a, P0, P1>(hjob: P0, volumename: P1, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -146,7 +146,7 @@ where
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIoRateControlInformationJobObject<'a, P0>(hjob: P0, ioratecontrolinfo: &JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32
+pub unsafe fn SetIoRateControlInformationJobObject<'a, P0>(hjob: P0, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {

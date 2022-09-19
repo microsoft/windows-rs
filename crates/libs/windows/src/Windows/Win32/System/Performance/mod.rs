@@ -69,7 +69,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhAddCounterA<'a, P0>(hquery: isize, szfullcounterpath: P0, dwuserdata: usize, phcounter: &mut isize) -> i32
+pub unsafe fn PdhAddCounterA<'a, P0>(hquery: isize, szfullcounterpath: P0, dwuserdata: usize, phcounter: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -81,7 +81,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhAddCounterW<'a, P0>(hquery: isize, szfullcounterpath: P0, dwuserdata: usize, phcounter: &mut isize) -> i32
+pub unsafe fn PdhAddCounterW<'a, P0>(hquery: isize, szfullcounterpath: P0, dwuserdata: usize, phcounter: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -93,7 +93,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhAddEnglishCounterA<'a, P0>(hquery: isize, szfullcounterpath: P0, dwuserdata: usize, phcounter: &mut isize) -> i32
+pub unsafe fn PdhAddEnglishCounterA<'a, P0>(hquery: isize, szfullcounterpath: P0, dwuserdata: usize, phcounter: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -105,7 +105,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhAddEnglishCounterW<'a, P0>(hquery: isize, szfullcounterpath: P0, dwuserdata: usize, phcounter: &mut isize) -> i32
+pub unsafe fn PdhAddEnglishCounterW<'a, P0>(hquery: isize, szfullcounterpath: P0, dwuserdata: usize, phcounter: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -117,7 +117,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhBindInputDataSourceA<'a, P0>(phdatasource: &mut isize, logfilenamelist: P0) -> i32
+pub unsafe fn PdhBindInputDataSourceA<'a, P0>(phdatasource: *mut isize, logfilenamelist: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -129,7 +129,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhBindInputDataSourceW<'a, P0>(phdatasource: &mut isize, logfilenamelist: P0) -> i32
+pub unsafe fn PdhBindInputDataSourceW<'a, P0>(phdatasource: *mut isize, logfilenamelist: P0) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -142,7 +142,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: &PDH_BROWSE_DLG_CONFIG_A) -> i32 {
+pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> i32;
@@ -152,7 +152,7 @@ pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: &PDH_BROWSE_DLG_CONFIG_A) -> i3
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: &PDH_BROWSE_DLG_CONFIG_HA) -> i32 {
+pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> i32;
@@ -162,7 +162,7 @@ pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: &PDH_BROWSE_DLG_CONFIG_HA) -> 
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: &PDH_BROWSE_DLG_CONFIG_HW) -> i32 {
+pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> i32;
@@ -172,7 +172,7 @@ pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: &PDH_BROWSE_DLG_CONFIG_HW) -> 
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: &PDH_BROWSE_DLG_CONFIG_W) -> i32 {
+pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> i32;
@@ -182,7 +182,7 @@ pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: &PDH_BROWSE_DLG_CONFIG_W) -> i3
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: &PDH_RAW_COUNTER, rawvalue2: &PDH_RAW_COUNTER, fmtvalue: &mut PDH_FMT_COUNTERVALUE) -> i32 {
+pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
@@ -231,7 +231,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: &mut i64) -> i32 {
+pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64) -> i32;
@@ -241,7 +241,7 @@ pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: &mut i64)
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: &PDH_RAW_COUNTER, data: &mut PDH_STATISTICS) -> i32 {
+pub unsafe fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32;
@@ -298,7 +298,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumLogSetNamesA<'a, P0>(szdatasource: P0, mszdatasetnamelist: ::windows::core::PSTR, pcchbufferlength: &mut u32) -> i32
+pub unsafe fn PdhEnumLogSetNamesA<'a, P0>(szdatasource: P0, mszdatasetnamelist: ::windows::core::PSTR, pcchbufferlength: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -310,7 +310,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumLogSetNamesW<'a, P0>(szdatasource: P0, mszdatasetnamelist: ::windows::core::PWSTR, pcchbufferlength: &mut u32) -> i32
+pub unsafe fn PdhEnumLogSetNamesW<'a, P0>(szdatasource: P0, mszdatasetnamelist: ::windows::core::PWSTR, pcchbufferlength: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -322,7 +322,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumMachinesA<'a, P0>(szdatasource: P0, mszmachinelist: ::windows::core::PSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhEnumMachinesA<'a, P0>(szdatasource: P0, mszmachinelist: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -334,7 +334,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows::core::PSTR, pcchbuffersize: &mut u32) -> i32 {
+pub unsafe fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32;
@@ -343,7 +343,7 @@ pub unsafe fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows::c
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows::core::PWSTR, pcchbuffersize: &mut u32) -> i32 {
+pub unsafe fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
@@ -352,7 +352,7 @@ pub unsafe fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows::c
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumMachinesW<'a, P0>(szdatasource: P0, mszmachinelist: ::windows::core::PWSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhEnumMachinesW<'a, P0>(szdatasource: P0, mszmachinelist: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -364,7 +364,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsA<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: &mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: &mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
+pub unsafe fn PdhEnumObjectItemsA<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -378,7 +378,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsHA<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: &mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: &mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
+pub unsafe fn PdhEnumObjectItemsHA<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -391,7 +391,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsHW<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: &mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: &mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
+pub unsafe fn PdhEnumObjectItemsHW<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -404,7 +404,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsW<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: &mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: &mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
+pub unsafe fn PdhEnumObjectItemsW<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -419,7 +419,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectsA<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: &mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P2) -> i32
+pub unsafe fn PdhEnumObjectsA<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P2) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -434,7 +434,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectsHA<'a, P0, P1>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: &mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P1) -> i32
+pub unsafe fn PdhEnumObjectsHA<'a, P0, P1>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P1) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -448,7 +448,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectsHW<'a, P0, P1>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: &mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P1) -> i32
+pub unsafe fn PdhEnumObjectsHW<'a, P0, P1>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P1) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -462,7 +462,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectsW<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: &mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P2) -> i32
+pub unsafe fn PdhEnumObjectsW<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P2) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -476,7 +476,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhExpandCounterPathA<'a, P0>(szwildcardpath: P0, mszexpandedpathlist: ::windows::core::PSTR, pcchpathlistlength: &mut u32) -> i32
+pub unsafe fn PdhExpandCounterPathA<'a, P0>(szwildcardpath: P0, mszexpandedpathlist: ::windows::core::PSTR, pcchpathlistlength: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -488,7 +488,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhExpandCounterPathW<'a, P0>(szwildcardpath: P0, mszexpandedpathlist: ::windows::core::PWSTR, pcchpathlistlength: &mut u32) -> i32
+pub unsafe fn PdhExpandCounterPathW<'a, P0>(szwildcardpath: P0, mszexpandedpathlist: ::windows::core::PWSTR, pcchpathlistlength: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -500,7 +500,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhExpandWildCardPathA<'a, P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: ::windows::core::PSTR, pcchpathlistlength: &mut u32, dwflags: u32) -> i32
+pub unsafe fn PdhExpandWildCardPathA<'a, P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: ::windows::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -513,7 +513,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhExpandWildCardPathHA<'a, P0>(hdatasource: isize, szwildcardpath: P0, mszexpandedpathlist: ::windows::core::PSTR, pcchpathlistlength: &mut u32, dwflags: u32) -> i32
+pub unsafe fn PdhExpandWildCardPathHA<'a, P0>(hdatasource: isize, szwildcardpath: P0, mszexpandedpathlist: ::windows::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -525,7 +525,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhExpandWildCardPathHW<'a, P0>(hdatasource: isize, szwildcardpath: P0, mszexpandedpathlist: ::windows::core::PWSTR, pcchpathlistlength: &mut u32, dwflags: u32) -> i32
+pub unsafe fn PdhExpandWildCardPathHW<'a, P0>(hdatasource: isize, szwildcardpath: P0, mszexpandedpathlist: ::windows::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -537,7 +537,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhExpandWildCardPathW<'a, P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: ::windows::core::PWSTR, pcchpathlistlength: &mut u32, dwflags: u32) -> i32
+pub unsafe fn PdhExpandWildCardPathW<'a, P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: ::windows::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -551,17 +551,17 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: ::core::option::Option<&i64>, prawvalue1: &PDH_RAW_COUNTER, prawvalue2: &PDH_RAW_COUNTER, pfmtvalue: &mut PDH_FMT_COUNTERVALUE) -> i32 {
+pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: ::core::option::Option<*const i64>, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
     }
-    PdhFormatFromRawValue(dwcountertype, dwformat, ::core::mem::transmute(ptimebase), ::core::mem::transmute(prawvalue1), ::core::mem::transmute(prawvalue2), ::core::mem::transmute(pfmtvalue))
+    PdhFormatFromRawValue(dwcountertype, dwformat, ::core::mem::transmute(ptimebase.unwrap_or(::std::ptr::null())), ::core::mem::transmute(prawvalue1), ::core::mem::transmute(prawvalue2), ::core::mem::transmute(pfmtvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhGetCounterInfoA<'a, P0>(hcounter: isize, bretrieveexplaintext: P0, pdwbuffersize: &mut u32, lpbuffer: ::core::option::Option<&mut PDH_COUNTER_INFO_A>) -> i32
+pub unsafe fn PdhGetCounterInfoA<'a, P0>(hcounter: isize, bretrieveexplaintext: P0, pdwbuffersize: *mut u32, lpbuffer: ::core::option::Option<*mut PDH_COUNTER_INFO_A>) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -569,12 +569,12 @@ where
     extern "system" {
         fn PdhGetCounterInfoA(hcounter: isize, bretrieveexplaintext: super::super::Foundation::BOOLEAN, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_A) -> i32;
     }
-    PdhGetCounterInfoA(hcounter, bretrieveexplaintext.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(lpbuffer))
+    PdhGetCounterInfoA(hcounter, bretrieveexplaintext.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhGetCounterInfoW<'a, P0>(hcounter: isize, bretrieveexplaintext: P0, pdwbuffersize: &mut u32, lpbuffer: ::core::option::Option<&mut PDH_COUNTER_INFO_W>) -> i32
+pub unsafe fn PdhGetCounterInfoW<'a, P0>(hcounter: isize, bretrieveexplaintext: P0, pdwbuffersize: *mut u32, lpbuffer: ::core::option::Option<*mut PDH_COUNTER_INFO_W>) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
@@ -582,11 +582,11 @@ where
     extern "system" {
         fn PdhGetCounterInfoW(hcounter: isize, bretrieveexplaintext: super::super::Foundation::BOOLEAN, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_W) -> i32;
     }
-    PdhGetCounterInfoW(hcounter, bretrieveexplaintext.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(lpbuffer))
+    PdhGetCounterInfoW(hcounter, bretrieveexplaintext.into(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: &mut i64) -> i32 {
+pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32;
@@ -595,7 +595,7 @@ pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: &mut i64) -> i32
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDataSourceTimeRangeA<'a, P0>(szdatasource: P0, pdwnumentries: &mut u32, pinfo: &mut PDH_TIME_INFO, pdwbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDataSourceTimeRangeA<'a, P0>(szdatasource: P0, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -607,7 +607,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: &mut u32, pinfo: &mut PDH_TIME_INFO, pdwbuffersize: &mut u32) -> i32 {
+pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
@@ -616,7 +616,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: &mut
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDataSourceTimeRangeW<'a, P0>(szdatasource: P0, pdwnumentries: &mut u32, pinfo: &mut PDH_TIME_INFO, pdwbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDataSourceTimeRangeW<'a, P0>(szdatasource: P0, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -628,7 +628,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDefaultPerfCounterA<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: ::windows::core::PSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDefaultPerfCounterA<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -642,7 +642,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDefaultPerfCounterHA<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, szdefaultcountername: ::windows::core::PSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDefaultPerfCounterHA<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, szdefaultcountername: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -655,7 +655,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDefaultPerfCounterHW<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, szdefaultcountername: ::windows::core::PWSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDefaultPerfCounterHW<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, szdefaultcountername: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -668,7 +668,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDefaultPerfCounterW<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: ::windows::core::PWSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDefaultPerfCounterW<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -682,7 +682,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDefaultPerfObjectA<'a, P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: ::windows::core::PSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDefaultPerfObjectA<'a, P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -695,7 +695,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDefaultPerfObjectHA<'a, P0>(hdatasource: isize, szmachinename: P0, szdefaultobjectname: ::windows::core::PSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDefaultPerfObjectHA<'a, P0>(hdatasource: isize, szmachinename: P0, szdefaultobjectname: ::windows::core::PSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -707,7 +707,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDefaultPerfObjectHW<'a, P0>(hdatasource: isize, szmachinename: P0, szdefaultobjectname: ::windows::core::PWSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDefaultPerfObjectHW<'a, P0>(hdatasource: isize, szmachinename: P0, szdefaultobjectname: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -719,7 +719,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDefaultPerfObjectW<'a, P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: ::windows::core::PWSTR, pcchbuffersize: &mut u32) -> i32
+pub unsafe fn PdhGetDefaultPerfObjectW<'a, P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: ::windows::core::PWSTR, pcchbuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -732,43 +732,43 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetDllVersion(lpdwversion: ::core::option::Option<&mut PDH_DLL_VERSION>) -> i32 {
+pub unsafe fn PdhGetDllVersion(lpdwversion: ::core::option::Option<*mut PDH_DLL_VERSION>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32;
     }
-    PdhGetDllVersion(::core::mem::transmute(lpdwversion))
+    PdhGetDllVersion(::core::mem::transmute(lpdwversion.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: &mut u32, lpdwitemcount: &mut u32, itembuffer: ::core::option::Option<&mut PDH_FMT_COUNTERVALUE_ITEM_A>) -> i32 {
+pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: ::core::option::Option<*mut PDH_FMT_COUNTERVALUE_ITEM_A>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> i32;
     }
-    PdhGetFormattedCounterArrayA(hcounter, dwformat, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer))
+    PdhGetFormattedCounterArrayA(hcounter, dwformat, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: &mut u32, lpdwitemcount: &mut u32, itembuffer: ::core::option::Option<&mut PDH_FMT_COUNTERVALUE_ITEM_W>) -> i32 {
+pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: ::core::option::Option<*mut PDH_FMT_COUNTERVALUE_ITEM_W>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> i32;
     }
-    PdhGetFormattedCounterArrayW(hcounter, dwformat, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer))
+    PdhGetFormattedCounterArrayW(hcounter, dwformat, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: ::core::option::Option<&mut u32>, pvalue: &mut PDH_FMT_COUNTERVALUE) -> i32 {
+pub unsafe fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: ::core::option::Option<*mut u32>, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
     }
-    PdhGetFormattedCounterValue(hcounter, dwformat, ::core::mem::transmute(lpdwtype), ::core::mem::transmute(pvalue))
+    PdhGetFormattedCounterValue(hcounter, dwformat, ::core::mem::transmute(lpdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: &mut i64) -> i32 {
+pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32;
@@ -777,42 +777,42 @@ pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: &mut i64) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetLogSetGUID(hlog: isize, pguid: ::core::option::Option<&mut ::windows::core::GUID>, prunid: ::core::option::Option<&mut i32>) -> i32 {
+pub unsafe fn PdhGetLogSetGUID(hlog: isize, pguid: ::core::option::Option<*mut ::windows::core::GUID>, prunid: ::core::option::Option<*mut i32>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetLogSetGUID(hlog: isize, pguid: *mut ::windows::core::GUID, prunid: *mut i32) -> i32;
     }
-    PdhGetLogSetGUID(hlog, ::core::mem::transmute(pguid), ::core::mem::transmute(prunid))
+    PdhGetLogSetGUID(hlog, ::core::mem::transmute(pguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(prunid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: &mut u32, lpdwitemcount: &mut u32, itembuffer: ::core::option::Option<&mut PDH_RAW_COUNTER_ITEM_A>) -> i32 {
+pub unsafe fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: ::core::option::Option<*mut PDH_RAW_COUNTER_ITEM_A>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_A) -> i32;
     }
-    PdhGetRawCounterArrayA(hcounter, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer))
+    PdhGetRawCounterArrayA(hcounter, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: &mut u32, lpdwitemcount: &mut u32, itembuffer: ::core::option::Option<&mut PDH_RAW_COUNTER_ITEM_W>) -> i32 {
+pub unsafe fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: ::core::option::Option<*mut PDH_RAW_COUNTER_ITEM_W>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_W) -> i32;
     }
-    PdhGetRawCounterArrayW(hcounter, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer))
+    PdhGetRawCounterArrayW(hcounter, ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: ::core::option::Option<&mut u32>, pvalue: &mut PDH_RAW_COUNTER) -> i32 {
+pub unsafe fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: ::core::option::Option<*mut u32>, pvalue: *mut PDH_RAW_COUNTER) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: *mut u32, pvalue: *mut PDH_RAW_COUNTER) -> i32;
     }
-    PdhGetRawCounterValue(hcounter, ::core::mem::transmute(lpdwtype), ::core::mem::transmute(pvalue))
+    PdhGetRawCounterValue(hcounter, ::core::mem::transmute(lpdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -826,7 +826,7 @@ pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOO
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhLookupPerfIndexByNameA<'a, P0, P1>(szmachinename: P0, sznamebuffer: P1, pdwindex: &mut u32) -> i32
+pub unsafe fn PdhLookupPerfIndexByNameA<'a, P0, P1>(szmachinename: P0, sznamebuffer: P1, pdwindex: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -839,7 +839,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhLookupPerfIndexByNameW<'a, P0, P1>(szmachinename: P0, sznamebuffer: P1, pdwindex: &mut u32) -> i32
+pub unsafe fn PdhLookupPerfIndexByNameW<'a, P0, P1>(szmachinename: P0, sznamebuffer: P1, pdwindex: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -852,7 +852,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhLookupPerfNameByIndexA<'a, P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: ::windows::core::PSTR, pcchnamebuffersize: &mut u32) -> i32
+pub unsafe fn PdhLookupPerfNameByIndexA<'a, P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: ::windows::core::PSTR, pcchnamebuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -864,7 +864,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhLookupPerfNameByIndexW<'a, P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: ::windows::core::PWSTR, pcchnamebuffersize: &mut u32) -> i32
+pub unsafe fn PdhLookupPerfNameByIndexW<'a, P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: ::windows::core::PWSTR, pcchnamebuffersize: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -876,7 +876,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: &PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows::core::PSTR, pcchbuffersize: &mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
+pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
@@ -885,7 +885,7 @@ pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: &PDH_COUNTER_PATH_ELEMEN
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: &PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows::core::PWSTR, pcchbuffersize: &mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
+pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
@@ -894,7 +894,7 @@ pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: &PDH_COUNTER_PATH_ELEMEN
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhOpenLogA<'a, P0, P1>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: &mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: P1, phlog: &mut isize) -> i32
+pub unsafe fn PdhOpenLogA<'a, P0, P1>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: P1, phlog: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -907,7 +907,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhOpenLogW<'a, P0, P1>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: &mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: P1, phlog: &mut isize) -> i32
+pub unsafe fn PdhOpenLogW<'a, P0, P1>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: P1, phlog: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -920,7 +920,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhOpenQueryA<'a, P0>(szdatasource: P0, dwuserdata: usize, phquery: &mut isize) -> i32
+pub unsafe fn PdhOpenQueryA<'a, P0>(szdatasource: P0, dwuserdata: usize, phquery: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -932,7 +932,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: &mut isize) -> i32 {
+pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> i32;
@@ -941,7 +941,7 @@ pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: &mut
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhOpenQueryW<'a, P0>(szdatasource: P0, dwuserdata: usize, phquery: &mut isize) -> i32
+pub unsafe fn PdhOpenQueryW<'a, P0>(szdatasource: P0, dwuserdata: usize, phquery: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -953,7 +953,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhParseCounterPathA<'a, P0>(szfullpathbuffer: P0, pcounterpathelements: ::core::option::Option<&mut PDH_COUNTER_PATH_ELEMENTS_A>, pdwbuffersize: &mut u32, dwflags: u32) -> i32
+pub unsafe fn PdhParseCounterPathA<'a, P0>(szfullpathbuffer: P0, pcounterpathelements: ::core::option::Option<*mut PDH_COUNTER_PATH_ELEMENTS_A>, pdwbuffersize: *mut u32, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -961,11 +961,11 @@ where
     extern "system" {
         fn PdhParseCounterPathA(szfullpathbuffer: ::windows::core::PCSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
     }
-    PdhParseCounterPathA(szfullpathbuffer.into(), ::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(pdwbuffersize), dwflags)
+    PdhParseCounterPathA(szfullpathbuffer.into(), ::core::mem::transmute(pcounterpathelements.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwbuffersize), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhParseCounterPathW<'a, P0>(szfullpathbuffer: P0, pcounterpathelements: ::core::option::Option<&mut PDH_COUNTER_PATH_ELEMENTS_W>, pdwbuffersize: &mut u32, dwflags: u32) -> i32
+pub unsafe fn PdhParseCounterPathW<'a, P0>(szfullpathbuffer: P0, pcounterpathelements: ::core::option::Option<*mut PDH_COUNTER_PATH_ELEMENTS_W>, pdwbuffersize: *mut u32, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -973,11 +973,11 @@ where
     extern "system" {
         fn PdhParseCounterPathW(szfullpathbuffer: ::windows::core::PCWSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
     }
-    PdhParseCounterPathW(szfullpathbuffer.into(), ::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(pdwbuffersize), dwflags)
+    PdhParseCounterPathW(szfullpathbuffer.into(), ::core::mem::transmute(pcounterpathelements.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwbuffersize), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhParseInstanceNameA<'a, P0>(szinstancestring: P0, szinstancename: ::windows::core::PSTR, pcchinstancenamelength: &mut u32, szparentname: ::windows::core::PSTR, pcchparentnamelength: &mut u32, lpindex: &mut u32) -> i32
+pub unsafe fn PdhParseInstanceNameA<'a, P0>(szinstancestring: P0, szinstancename: ::windows::core::PSTR, pcchinstancenamelength: *mut u32, szparentname: ::windows::core::PSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -989,7 +989,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhParseInstanceNameW<'a, P0>(szinstancestring: P0, szinstancename: ::windows::core::PWSTR, pcchinstancenamelength: &mut u32, szparentname: ::windows::core::PWSTR, pcchparentnamelength: &mut u32, lpindex: &mut u32) -> i32
+pub unsafe fn PdhParseInstanceNameW<'a, P0>(szinstancestring: P0, szinstancename: ::windows::core::PWSTR, pcchinstancenamelength: *mut u32, szparentname: ::windows::core::PWSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1002,12 +1002,12 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhReadRawLogRecord(hlog: isize, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: ::core::option::Option<&mut PDH_RAW_LOG_RECORD>, pdwbufferlength: &mut u32) -> i32 {
+pub unsafe fn PdhReadRawLogRecord(hlog: isize, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: ::core::option::Option<*mut PDH_RAW_LOG_RECORD>, pdwbufferlength: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhReadRawLogRecord(hlog: isize, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: *mut PDH_RAW_LOG_RECORD, pdwbufferlength: *mut u32) -> i32;
     }
-    PdhReadRawLogRecord(hlog, ::core::mem::transmute(ftrecord), ::core::mem::transmute(prawlogrecord), ::core::mem::transmute(pdwbufferlength))
+    PdhReadRawLogRecord(hlog, ::core::mem::transmute(ftrecord), ::core::mem::transmute(prawlogrecord.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwbufferlength))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -1021,7 +1021,7 @@ pub unsafe fn PdhRemoveCounter(hcounter: isize) -> i32 {
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhSelectDataSourceA<'a, P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PSTR, pcchbufferlength: &mut u32) -> i32
+pub unsafe fn PdhSelectDataSourceA<'a, P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PSTR, pcchbufferlength: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -1034,7 +1034,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhSelectDataSourceW<'a, P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PWSTR, pcchbufferlength: &mut u32) -> i32
+pub unsafe fn PdhSelectDataSourceW<'a, P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PWSTR, pcchbufferlength: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -1073,7 +1073,7 @@ pub unsafe fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhSetQueryTimeRange(hquery: isize, pinfo: &PDH_TIME_INFO) -> i32 {
+pub unsafe fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> i32;
@@ -1212,7 +1212,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfCreateInstance<'a, P0, P1>(providerhandle: P0, countersetguid: &::windows::core::GUID, name: P1, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
+pub unsafe fn PerfCreateInstance<'a, P0, P1>(providerhandle: P0, countersetguid: *const ::windows::core::GUID, name: P1, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
 where
     P0: ::std::convert::Into<PerfProviderHandle>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1226,7 +1226,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfDecrementULongCounterValue<'a, P0>(provider: P0, instance: &mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
+pub unsafe fn PerfDecrementULongCounterValue<'a, P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1239,7 +1239,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfDecrementULongLongCounterValue<'a, P0>(provider: P0, instance: &mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
+pub unsafe fn PerfDecrementULongLongCounterValue<'a, P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1263,7 +1263,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfDeleteInstance<'a, P0>(provider: P0, instanceblock: &PERF_COUNTERSET_INSTANCE) -> u32
+pub unsafe fn PerfDeleteInstance<'a, P0>(provider: P0, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32
 where
     P0: ::std::convert::Into<PerfProviderHandle>,
 {
@@ -1275,7 +1275,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfEnumerateCounterSet<'a, P0>(szmachine: P0, pcountersetids: ::core::option::Option<&mut [::windows::core::GUID]>, pccountersetidsactual: &mut u32) -> u32
+pub unsafe fn PerfEnumerateCounterSet<'a, P0>(szmachine: P0, pcountersetids: ::core::option::Option<&mut [::windows::core::GUID]>, pccountersetidsactual: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1287,7 +1287,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfEnumerateCounterSetInstances<'a, P0>(szmachine: P0, pcountersetid: &::windows::core::GUID, pinstances: ::core::option::Option<&mut [u8]>, pcbinstancesactual: &mut u32) -> u32
+pub unsafe fn PerfEnumerateCounterSetInstances<'a, P0>(szmachine: P0, pcountersetid: *const ::windows::core::GUID, pinstances: ::core::option::Option<&mut [u8]>, pcbinstancesactual: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1300,7 +1300,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfIncrementULongCounterValue<'a, P0>(provider: P0, instance: &mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
+pub unsafe fn PerfIncrementULongCounterValue<'a, P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1313,7 +1313,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfIncrementULongLongCounterValue<'a, P0>(provider: P0, instance: &mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
+pub unsafe fn PerfIncrementULongLongCounterValue<'a, P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1325,7 +1325,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfOpenQueryHandle<'a, P0>(szmachine: P0, phquery: &mut PerfQueryHandle) -> u32
+pub unsafe fn PerfOpenQueryHandle<'a, P0>(szmachine: P0, phquery: *mut PerfQueryHandle) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1338,7 +1338,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfQueryCounterData<'a, P0>(hquery: P0, pcounterblock: ::core::option::Option<&mut [u8]>, pcbcounterblockactual: &mut u32) -> u32
+pub unsafe fn PerfQueryCounterData<'a, P0>(hquery: P0, pcounterblock: ::core::option::Option<&mut [u8]>, pcbcounterblockactual: *mut u32) -> u32
 where
     P0: ::std::convert::Into<PerfQueryHandle>,
 {
@@ -1350,7 +1350,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfQueryCounterInfo<'a, P0>(hquery: P0, pcounters: ::core::option::Option<&mut [u8]>, pcbcountersactual: &mut u32) -> u32
+pub unsafe fn PerfQueryCounterInfo<'a, P0>(hquery: P0, pcounters: ::core::option::Option<&mut [u8]>, pcbcountersactual: *mut u32) -> u32
 where
     P0: ::std::convert::Into<PerfQueryHandle>,
 {
@@ -1362,7 +1362,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, P0>(szmachine: P0, pcountersetid: &::windows::core::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: ::core::option::Option<&mut [u8]>, pcbreginfoactual: &mut u32) -> u32
+pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, P0>(szmachine: P0, pcountersetid: *const ::windows::core::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: ::core::option::Option<&mut [u8]>, pcbreginfoactual: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1375,7 +1375,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfQueryInstance<'a, P0, P1>(providerhandle: P0, countersetguid: &::windows::core::GUID, name: P1, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
+pub unsafe fn PerfQueryInstance<'a, P0, P1>(providerhandle: P0, countersetguid: *const ::windows::core::GUID, name: P1, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1389,7 +1389,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfSetCounterRefValue<'a, P0>(provider: P0, instance: &mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const ::core::ffi::c_void) -> u32
+pub unsafe fn PerfSetCounterRefValue<'a, P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1415,7 +1415,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfSetULongCounterValue<'a, P0>(provider: P0, instance: &mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
+pub unsafe fn PerfSetULongCounterValue<'a, P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1428,7 +1428,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfSetULongLongCounterValue<'a, P0>(provider: P0, instance: &mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
+pub unsafe fn PerfSetULongLongCounterValue<'a, P0>(provider: P0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1440,7 +1440,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfStartProvider(providerguid: &::windows::core::GUID, controlcallback: PERFLIBREQUEST, phprovider: &mut PerfProviderHandle) -> u32 {
+pub unsafe fn PerfStartProvider(providerguid: *const ::windows::core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut PerfProviderHandle) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PerfStartProvider(providerguid: *const ::windows::core::GUID, controlcallback: *mut ::core::ffi::c_void, phprovider: *mut PerfProviderHandle) -> u32;
@@ -1449,12 +1449,12 @@ pub unsafe fn PerfStartProvider(providerguid: &::windows::core::GUID, controlcal
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfStartProviderEx(providerguid: &::windows::core::GUID, providercontext: ::core::option::Option<&PERF_PROVIDER_CONTEXT>, provider: &mut PerfProviderHandle) -> u32 {
+pub unsafe fn PerfStartProviderEx(providerguid: *const ::windows::core::GUID, providercontext: ::core::option::Option<*const PERF_PROVIDER_CONTEXT>, provider: *mut PerfProviderHandle) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PerfStartProviderEx(providerguid: *const ::windows::core::GUID, providercontext: *const PERF_PROVIDER_CONTEXT, provider: *mut PerfProviderHandle) -> u32;
     }
-    PerfStartProviderEx(::core::mem::transmute(providerguid), ::core::mem::transmute(providercontext), ::core::mem::transmute(provider))
+    PerfStartProviderEx(::core::mem::transmute(providerguid), ::core::mem::transmute(providercontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(provider))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -1471,7 +1471,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryPerformanceCounter(lpperformancecount: &mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> super::super::Foundation::BOOL;
@@ -1481,7 +1481,7 @@ pub unsafe fn QueryPerformanceCounter(lpperformancecount: &mut i64) -> super::su
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryPerformanceFrequency(lpfrequency: &mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL;
@@ -2061,7 +2061,7 @@ impl IAlertDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetAlertThresholds(&self, alerts: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAlertThresholds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(alerts)).ok()
     }
     pub unsafe fn EventLog(&self) -> ::windows::core::Result<i16> {
@@ -2362,7 +2362,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetIncludeModules(&self, includemodules: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetIncludeModules(&self, includemodules: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetIncludeModules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includemodules)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2373,7 +2373,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetIncludeApis(&self, includeapis: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetIncludeApis(&self, includeapis: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetIncludeApis)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includeapis)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2384,7 +2384,7 @@ impl IApiTracingDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetExcludeApis(&self, excludeapis: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExcludeApis)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(excludeapis)).ok()
     }
 }
@@ -2639,7 +2639,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFiles(&self, files: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFiles(&self, files: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(files)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2650,7 +2650,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetManagementQueries(&self, queries: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetManagementQueries(&self, queries: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetManagementQueries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(queries)).ok()
     }
     pub unsafe fn QueryNetworkAdapters(&self) -> ::windows::core::Result<i16> {
@@ -2668,7 +2668,7 @@ impl IConfigurationDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetRegistryKeys(&self, query: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRegistryKeys(&self, query: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRegistryKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(query)).ok()
     }
     pub unsafe fn RegistryMaxRecursiveDepth(&self) -> ::windows::core::Result<u32> {
@@ -2847,10 +2847,10 @@ impl ICounterItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn GetValue(&self, value: &mut f64, status: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(status)).ok()
     }
-    pub unsafe fn GetStatistics(&self, max: &mut f64, min: &mut f64, avg: &mut f64, status: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(max), ::core::mem::transmute(min), ::core::mem::transmute(avg), ::core::mem::transmute(status)).ok()
     }
 }
@@ -2946,10 +2946,10 @@ impl ICounterItem2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn GetValue(&self, value: &mut f64, status: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(status)).ok()
     }
-    pub unsafe fn GetStatistics(&self, max: &mut f64, min: &mut f64, avg: &mut f64, status: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(max), ::core::mem::transmute(min), ::core::mem::transmute(avg), ::core::mem::transmute(status)).ok()
     }
     pub unsafe fn SetSelected(&self, bstate: i16) -> ::windows::core::Result<()> {
@@ -3414,7 +3414,7 @@ impl IDataCollectorCollection {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDataCollectorFromXml(&self, bstrxml: &::windows::core::BSTR, pvalidation: &mut ::core::option::Option<IValueMap>, pcollector: &mut ::core::option::Option<IDataCollector>) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateDataCollectorFromXml(&self, bstrxml: &::windows::core::BSTR, pvalidation: *mut ::core::option::Option<IValueMap>, pcollector: *mut ::core::option::Option<IDataCollector>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateDataCollectorFromXml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrxml), ::core::mem::transmute(pvalidation), ::core::mem::transmute(pcollector)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3567,7 +3567,7 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetKeywords(&self, keywords: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetKeywords(&self, keywords: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetKeywords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keywords)).ok()
     }
     pub unsafe fn LatestOutputLocation(&self) -> ::windows::core::Result<::windows::core::BSTR> {
@@ -4785,7 +4785,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetPerformanceCounters(&self, counters: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPerformanceCounters(&self, counters: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPerformanceCounters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(counters)).ok()
     }
     pub unsafe fn LogFileFormat(&self) -> ::windows::core::Result<FileFormat> {
@@ -5958,7 +5958,7 @@ impl ISystemMonitor2 {
     pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLogViewRange)(::windows::core::Interface::as_raw(self), starttime, stoptime).ok()
     }
-    pub unsafe fn GetLogViewRange(&self, starttime: &mut f64, stoptime: &mut f64) -> ::windows::core::Result<()> {
+    pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
     }
     pub unsafe fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {
@@ -6551,7 +6551,7 @@ impl ITraceDataProvider {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetFilterData(&self, pdata: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFilterData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn Query(&self, bstrname: &::windows::core::BSTR, bstrserver: &::windows::core::BSTR) -> ::windows::core::Result<()> {
@@ -7203,10 +7203,10 @@ impl _ICounterItemUnion {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn GetValue(&self, value: &mut f64, status: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(status)).ok()
     }
-    pub unsafe fn GetStatistics(&self, max: &mut f64, min: &mut f64, avg: &mut f64, status: &mut i32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(max), ::core::mem::transmute(min), ::core::mem::transmute(avg), ::core::mem::transmute(status)).ok()
     }
     pub unsafe fn SetSelected(&self, bstate: i16) -> ::windows::core::Result<()> {
@@ -7630,7 +7630,7 @@ impl _ISystemMonitorUnion {
     pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLogViewRange)(::windows::core::Interface::as_raw(self), starttime, stoptime).ok()
     }
-    pub unsafe fn GetLogViewRange(&self, starttime: &mut f64, stoptime: &mut f64) -> ::windows::core::Result<()> {
+    pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
     }
     pub unsafe fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {

@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
-pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: &mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9> {
+pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9>;
@@ -11,7 +11,7 @@ pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: &mut D3D9ON12_
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
-pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: &mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: &mut ::core::option::Option<super::Direct3D9::IDirect3D9Ex>) -> ::windows::core::Result<()> {
+pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut ::core::option::Option<super::Direct3D9::IDirect3D9Ex>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -22,12 +22,12 @@ pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: &mut D3D9ON1
 #[repr(transparent)]
 pub struct IDirect3DDevice9On12(::windows::core::IUnknown);
 impl IDirect3DDevice9On12 {
-    pub unsafe fn GetD3D12Device(&self, riid: &::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    pub unsafe fn GetD3D12Device(&self, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetD3D12Device)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvdevice)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
-    pub unsafe fn UnwrapUnderlyingResource<'a, P0, P1>(&self, presource: P0, pcommandqueue: P1, riid: &::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn UnwrapUnderlyingResource<'a, P0, P1>(&self, presource: P0, pcommandqueue: P1, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D9::IDirect3DResource9>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D12::ID3D12CommandQueue>>,
@@ -36,7 +36,7 @@ impl IDirect3DDevice9On12 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
-    pub unsafe fn ReturnUnderlyingResource<'a, P0>(&self, presource: P0, numsync: u32, psignalvalues: &mut u64, ppfences: &mut ::core::option::Option<super::Direct3D12::ID3D12Fence>) -> ::windows::core::Result<()>
+    pub unsafe fn ReturnUnderlyingResource<'a, P0>(&self, presource: P0, numsync: u32, psignalvalues: *mut u64, ppfences: *mut ::core::option::Option<super::Direct3D12::ID3D12Fence>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D9::IDirect3DResource9>>,
     {

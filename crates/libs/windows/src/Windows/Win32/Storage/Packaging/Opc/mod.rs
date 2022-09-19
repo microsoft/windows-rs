@@ -4,17 +4,17 @@ pub struct IOpcCertificateEnumerator(::windows::core::IUnknown);
 impl IOpcCertificateEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MoveNext(&self, hasnext: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn MoveNext(&self, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hasnext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MovePrevious(&self, hasprevious: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+    pub unsafe fn MovePrevious(&self, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MovePrevious)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hasprevious)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub unsafe fn GetCurrent(&self, certificate: &*const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCurrent(&self, certificate: *const *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(certificate)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IOpcCertificateEnumerator> {
@@ -81,12 +81,12 @@ pub struct IOpcCertificateSet(::windows::core::IUnknown);
 impl IOpcCertificateSet {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub unsafe fn Add(&self, certificate: &super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
+    pub unsafe fn Add(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(certificate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub unsafe fn Remove(&self, certificate: &super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
+    pub unsafe fn Remove(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(certificate)).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IOpcCertificateEnumerator> {
@@ -147,7 +147,7 @@ pub struct IOpcCertificateSet_Vtbl {
 #[repr(transparent)]
 pub struct IOpcDigitalSignature(::windows::core::IUnknown);
 impl IOpcDigitalSignature {
-    pub unsafe fn GetNamespaces(&self, prefixes: *mut *mut ::windows::core::PWSTR, namespaces: *mut *mut ::windows::core::PWSTR, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetNamespaces(&self, prefixes: *mut *mut ::windows::core::PWSTR, namespaces: *mut *mut ::windows::core::PWSTR, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNamespaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prefixes), ::core::mem::transmute(namespaces), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn GetSignatureId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -164,10 +164,10 @@ impl IOpcDigitalSignature {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    pub unsafe fn GetCanonicalizationMethod(&self, canonicalizationmethod: &mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCanonicalizationMethod(&self, canonicalizationmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCanonicalizationMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(canonicalizationmethod)).ok()
     }
-    pub unsafe fn GetSignatureValue(&self, signaturevalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSignatureValue(&self, signaturevalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSignatureValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signaturevalue), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn GetSignaturePartReferenceEnumerator(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator> {
@@ -182,7 +182,7 @@ impl IOpcDigitalSignature {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSigningTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    pub unsafe fn GetTimeFormat(&self, timeformat: &mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetTimeFormat(&self, timeformat: *mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTimeFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timeformat)).ok()
     }
     pub unsafe fn GetPackageObjectReference(&self) -> ::windows::core::Result<IOpcSignatureReference> {
@@ -201,7 +201,7 @@ impl IOpcDigitalSignature {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomObjectEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOpcSignatureCustomObjectEnumerator>(result__)
     }
-    pub unsafe fn GetSignatureXml(&self, signaturexml: &mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSignatureXml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signaturexml), ::core::mem::transmute(count)).ok()
     }
 }
@@ -374,7 +374,7 @@ impl IOpcDigitalSignatureManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub unsafe fn Validate<'a, P0>(&self, signature: P0, certificate: &super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: &mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows::core::Result<()>
+    pub unsafe fn Validate<'a, P0>(&self, signature: P0, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IOpcDigitalSignature>>,
     {
@@ -382,7 +382,7 @@ impl IOpcDigitalSignatureManager {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-    pub unsafe fn Sign<'a, P0>(&self, certificate: &super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: P0) -> ::windows::core::Result<IOpcDigitalSignature>
+    pub unsafe fn Sign<'a, P0>(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: P0) -> ::windows::core::Result<IOpcDigitalSignature>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IOpcSigningOptions>>,
     {
@@ -391,7 +391,7 @@ impl IOpcDigitalSignatureManager {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ReplaceSignatureXml<'a, P0>(&self, signaturepartname: P0, newsignaturexml: &u8, count: u32) -> ::windows::core::Result<IOpcDigitalSignature>
+    pub unsafe fn ReplaceSignatureXml<'a, P0>(&self, signaturepartname: P0, newsignaturexml: *const u8, count: u32) -> ::windows::core::Result<IOpcDigitalSignature>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IOpcPartUri>>,
     {
@@ -486,7 +486,7 @@ impl IOpcFactory {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateStreamOnFile<'a, P0>(&self, filename: P0, iomode: OPC_STREAM_IO_MODE, securityattributes: &super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32) -> ::windows::core::Result<super::super::super::System::Com::IStream>
+    pub unsafe fn CreateStreamOnFile<'a, P0>(&self, filename: P0, iomode: OPC_STREAM_IO_MODE, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32) -> ::windows::core::Result<super::super::super::System::Com::IStream>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -905,17 +905,17 @@ pub struct IOpcPartUri(::windows::core::IUnknown);
 impl IOpcPartUri {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: &mut ::windows::core::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: *mut ::windows::core::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPropertyBSTR)(::windows::core::Interface::as_raw(self), uriprop, ::core::mem::transmute(pbstrproperty), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: &mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPropertyLength)(::windows::core::Interface::as_raw(self), uriprop, ::core::mem::transmute(pcchproperty), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: &mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPropertyDWORD)(::windows::core::Interface::as_raw(self), uriprop, ::core::mem::transmute(pdwproperty), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1661,7 +1661,7 @@ pub struct IOpcRelationshipSet_Vtbl {
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObject(::windows::core::IUnknown);
 impl IOpcSignatureCustomObject {
-    pub unsafe fn GetXml(&self, xmlmarkup: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetXml(&self, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetXml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xmlmarkup), ::core::mem::transmute(count)).ok()
     }
 }
@@ -1861,7 +1861,7 @@ impl IOpcSignaturePartReference {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDigestValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {
@@ -2089,7 +2089,7 @@ impl IOpcSignatureReference {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDigestValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
 }
@@ -2304,7 +2304,7 @@ impl IOpcSignatureRelationshipReference {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDigestMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDigestValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(digestvalue), ::core::mem::transmute(count)).ok()
     }
     pub unsafe fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD> {
@@ -2675,17 +2675,17 @@ pub struct IOpcUri(::windows::core::IUnknown);
 impl IOpcUri {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: &mut ::windows::core::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPropertyBSTR(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pbstrproperty: *mut ::windows::core::BSTR, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPropertyBSTR)(::windows::core::Interface::as_raw(self), uriprop, ::core::mem::transmute(pbstrproperty), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: &mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPropertyLength(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPropertyLength)(::windows::core::Interface::as_raw(self), uriprop, ::core::mem::transmute(pcchproperty), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: &mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetPropertyDWORD(&self, uriprop: super::super::super::System::Com::Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPropertyDWORD)(::windows::core::Interface::as_raw(self), uriprop, ::core::mem::transmute(pdwproperty), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]

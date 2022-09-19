@@ -83,7 +83,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeAccessData<'a, P0>(hdata: P0, pcbdatasize: ::core::option::Option<&mut u32>) -> *mut u8
+pub unsafe fn DdeAccessData<'a, P0>(hdata: P0, pcbdatasize: ::core::option::Option<*mut u32>) -> *mut u8
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
@@ -91,7 +91,7 @@ where
     extern "system" {
         fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: *mut u32) -> *mut u8;
     }
-    DdeAccessData(hdata.into(), ::core::mem::transmute(pcbdatasize))
+    DdeAccessData(hdata.into(), ::core::mem::transmute(pcbdatasize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -107,7 +107,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeClientTransaction<'a, P0, P1>(pdata: ::core::option::Option<&u8>, cbdata: u32, hconv: P0, hszitem: P1, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: ::core::option::Option<&mut u32>) -> HDDEDATA
+pub unsafe fn DdeClientTransaction<'a, P0, P1>(pdata: ::core::option::Option<*const u8>, cbdata: u32, hconv: P0, hszitem: P1, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: ::core::option::Option<*mut u32>) -> HDDEDATA
 where
     P0: ::std::convert::Into<HCONV>,
     P1: ::std::convert::Into<HSZ>,
@@ -116,7 +116,7 @@ where
     extern "system" {
         fn DdeClientTransaction(pdata: *const u8, cbdata: u32, hconv: HCONV, hszitem: HSZ, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA;
     }
-    DdeClientTransaction(::core::mem::transmute(pdata), cbdata, hconv.into(), hszitem.into(), wfmt, wtype, dwtimeout, ::core::mem::transmute(pdwresult))
+    DdeClientTransaction(::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), cbdata, hconv.into(), hszitem.into(), wfmt, wtype, dwtimeout, ::core::mem::transmute(pdwresult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -134,7 +134,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeConnect<'a, P0, P1>(idinst: u32, hszservice: P0, hsztopic: P1, pcc: ::core::option::Option<&CONVCONTEXT>) -> HCONV
+pub unsafe fn DdeConnect<'a, P0, P1>(idinst: u32, hszservice: P0, hsztopic: P1, pcc: ::core::option::Option<*const CONVCONTEXT>) -> HCONV
 where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
@@ -143,12 +143,12 @@ where
     extern "system" {
         fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: *const CONVCONTEXT) -> HCONV;
     }
-    DdeConnect(idinst, hszservice.into(), hsztopic.into(), ::core::mem::transmute(pcc))
+    DdeConnect(idinst, hszservice.into(), hsztopic.into(), ::core::mem::transmute(pcc.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeConnectList<'a, P0, P1, P2>(idinst: u32, hszservice: P0, hsztopic: P1, hconvlist: P2, pcc: ::core::option::Option<&CONVCONTEXT>) -> HCONVLIST
+pub unsafe fn DdeConnectList<'a, P0, P1, P2>(idinst: u32, hszservice: P0, hsztopic: P1, hconvlist: P2, pcc: ::core::option::Option<*const CONVCONTEXT>) -> HCONVLIST
 where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
@@ -158,7 +158,7 @@ where
     extern "system" {
         fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: *const CONVCONTEXT) -> HCONVLIST;
     }
-    DdeConnectList(idinst, hszservice.into(), hsztopic.into(), hconvlist.into(), ::core::mem::transmute(pcc))
+    DdeConnectList(idinst, hszservice.into(), hsztopic.into(), hconvlist.into(), ::core::mem::transmute(pcc.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -297,7 +297,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeInitializeA(pidinst: &mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
+pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdeInitializeA(pidinst: *mut u32, pfncallback: *mut ::core::ffi::c_void, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
@@ -306,7 +306,7 @@ pub unsafe fn DdeInitializeA(pidinst: &mut u32, pfncallback: PFNCALLBACK, afcmd:
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeInitializeW(pidinst: &mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
+pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdeInitializeW(pidinst: *mut u32, pfncallback: *mut ::core::ffi::c_void, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
@@ -356,7 +356,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeQueryConvInfo<'a, P0>(hconv: P0, idtransaction: u32, pconvinfo: &mut CONVINFO) -> u32
+pub unsafe fn DdeQueryConvInfo<'a, P0>(hconv: P0, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32
 where
     P0: ::std::convert::Into<HCONV>,
 {
@@ -418,7 +418,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeSetQualityOfService<'a, P0>(hwndclient: P0, pqosnew: &super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: &mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL
+pub unsafe fn DdeSetQualityOfService<'a, P0>(hwndclient: P0, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
@@ -627,7 +627,7 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[u32]) -> i32 {
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: &mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL;
@@ -870,7 +870,7 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetWinMetaFileBits<'a, P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp: ::core::option::Option<&METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
+pub unsafe fn SetWinMetaFileBits<'a, P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp: ::core::option::Option<*const METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
@@ -878,12 +878,12 @@ where
     extern "system" {
         fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
     }
-    SetWinMetaFileBits(lpmeta16data.len() as _, ::core::mem::transmute(lpmeta16data.as_ptr()), hdcref.into(), ::core::mem::transmute(lpmfp))
+    SetWinMetaFileBits(lpmeta16data.len() as _, ::core::mem::transmute(lpmeta16data.as_ptr()), hdcref.into(), ::core::mem::transmute(lpmfp.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnpackDDElParam<'a, P0>(msg: u32, lparam: P0, puilo: &mut usize, puihi: &mut usize) -> super::super::Foundation::BOOL
+pub unsafe fn UnpackDDElParam<'a, P0>(msg: u32, lparam: P0, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {

@@ -30,13 +30,13 @@ where
 #[repr(transparent)]
 pub struct IDMLBindingTable(::windows::core::IUnknown);
 impl IDMLBindingTable {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -61,16 +61,16 @@ impl IDMLBindingTable {
     pub unsafe fn BindOutputs(&self, bindings: ::core::option::Option<&[DML_BINDING_DESC]>) {
         (::windows::core::Interface::vtable(self).BindOutputs)(::windows::core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
-    pub unsafe fn BindTemporaryResource(&self, binding: ::core::option::Option<&DML_BINDING_DESC>) {
-        (::windows::core::Interface::vtable(self).BindTemporaryResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(binding))
+    pub unsafe fn BindTemporaryResource(&self, binding: ::core::option::Option<*const DML_BINDING_DESC>) {
+        (::windows::core::Interface::vtable(self).BindTemporaryResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(binding.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn BindPersistentResource(&self, binding: ::core::option::Option<&DML_BINDING_DESC>) {
-        (::windows::core::Interface::vtable(self).BindPersistentResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(binding))
+    pub unsafe fn BindPersistentResource(&self, binding: ::core::option::Option<*const DML_BINDING_DESC>) {
+        (::windows::core::Interface::vtable(self).BindPersistentResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(binding.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn Reset(&self, desc: ::core::option::Option<&DML_BINDING_TABLE_DESC>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc)).ok()
+    pub unsafe fn Reset(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 impl ::core::convert::From<IDMLBindingTable> for ::windows::core::IUnknown {
@@ -155,13 +155,13 @@ pub struct IDMLBindingTable_Vtbl {
 #[repr(transparent)]
 pub struct IDMLCommandRecorder(::windows::core::IUnknown);
 impl IDMLCommandRecorder {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -269,13 +269,13 @@ pub struct IDMLCommandRecorder_Vtbl {
 #[repr(transparent)]
 pub struct IDMLCompiledOperator(::windows::core::IUnknown);
 impl IDMLCompiledOperator {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -461,13 +461,13 @@ pub struct IDMLDebugDevice_Vtbl {
 #[repr(transparent)]
 pub struct IDMLDevice(::windows::core::IUnknown);
 impl IDMLDevice {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -482,7 +482,7 @@ impl IDMLDevice {
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydata: ::core::option::Option<&[u8]>, featuresupportdata: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, featurequerydata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(featurequerydata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), featuresupportdata.len() as _, ::core::mem::transmute(featuresupportdata.as_ptr())).ok()
     }
-    pub unsafe fn CreateOperator<T>(&self, desc: &DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
         T: ::windows::core::Interface,
     {
@@ -511,12 +511,12 @@ impl IDMLDevice {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<&DML_BINDING_TABLE_DESC>) -> ::windows::core::Result<T>
+    pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateBindingTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateBindingTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Evict)(::windows::core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
@@ -607,13 +607,13 @@ pub struct IDMLDevice_Vtbl {
 #[repr(transparent)]
 pub struct IDMLDevice1(::windows::core::IUnknown);
 impl IDMLDevice1 {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -628,7 +628,7 @@ impl IDMLDevice1 {
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydata: ::core::option::Option<&[u8]>, featuresupportdata: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, featurequerydata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(featurequerydata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), featuresupportdata.len() as _, ::core::mem::transmute(featuresupportdata.as_ptr())).ok()
     }
-    pub unsafe fn CreateOperator<T>(&self, desc: &DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
         T: ::windows::core::Interface,
     {
@@ -657,12 +657,12 @@ impl IDMLDevice1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<&DML_BINDING_TABLE_DESC>) -> ::windows::core::Result<T>
+    pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.CreateBindingTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateBindingTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Evict)(::windows::core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
@@ -680,7 +680,7 @@ impl IDMLDevice1 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.GetParentDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn CompileGraph<T>(&self, desc: &DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CompileGraph<T>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
         T: ::windows::core::Interface,
     {
@@ -762,13 +762,13 @@ pub struct IDMLDevice1_Vtbl {
 #[repr(transparent)]
 pub struct IDMLDeviceChild(::windows::core::IUnknown);
 impl IDMLDeviceChild {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -848,13 +848,13 @@ pub struct IDMLDeviceChild_Vtbl {
 #[repr(transparent)]
 pub struct IDMLDispatchable(::windows::core::IUnknown);
 impl IDMLDispatchable {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -969,13 +969,13 @@ pub struct IDMLDispatchable_Vtbl {
 #[repr(transparent)]
 pub struct IDMLObject(::windows::core::IUnknown);
 impl IDMLObject {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -1036,13 +1036,13 @@ pub struct IDMLObject_Vtbl {
 #[repr(transparent)]
 pub struct IDMLOperator(::windows::core::IUnknown);
 impl IDMLOperator {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -1136,13 +1136,13 @@ pub struct IDMLOperator_Vtbl {
 #[repr(transparent)]
 pub struct IDMLOperatorInitializer(::windows::core::IUnknown);
 impl IDMLOperatorInitializer {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -1275,13 +1275,13 @@ pub struct IDMLOperatorInitializer_Vtbl {
 #[repr(transparent)]
 pub struct IDMLPageable(::windows::core::IUnknown);
 impl IDMLPageable {
-    pub unsafe fn GetPrivateData(&self, guid: &::windows::core::GUID, datasize: &mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: &::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: &::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
