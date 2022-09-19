@@ -3750,12 +3750,12 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadCabinetState(pcs: &mut [u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadCabinetState(pcs: *mut CABINETSTATE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReadCabinetState(pcs: *mut CABINETSTATE, clength: i32) -> super::super::Foundation::BOOL;
     }
-    ReadCabinetState(::core::mem::transmute(pcs.as_ptr()), pcs.len() as _)
+    ReadCabinetState(::core::mem::transmute(pcs), pcs.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5093,7 +5093,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn SHGetFileInfoA<'a, P0>(pszpath: P0, dwfileattributes: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, psfi: ::core::option::Option<&mut [u8]>, uflags: SHGFI_FLAGS) -> usize
+pub unsafe fn SHGetFileInfoA<'a, P0>(pszpath: P0, dwfileattributes: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, psfi: ::core::option::Option<*mut SHFILEINFOA>, uflags: SHGFI_FLAGS) -> usize
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -5101,12 +5101,12 @@ where
     extern "system" {
         fn SHGetFileInfoA(pszpath: ::windows::core::PCSTR, dwfileattributes: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, psfi: *mut SHFILEINFOA, cbfileinfo: u32, uflags: SHGFI_FLAGS) -> usize;
     }
-    SHGetFileInfoA(pszpath.into(), dwfileattributes, ::core::mem::transmute(psfi.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psfi.as_deref().map_or(0, |slice| slice.len() as _), uflags)
+    SHGetFileInfoA(pszpath.into(), dwfileattributes, ::core::mem::transmute(psfi.unwrap_or(::std::ptr::null_mut())), psfi.as_deref().map_or(0, |slice| slice.len() as _), uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn SHGetFileInfoW<'a, P0>(pszpath: P0, dwfileattributes: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, psfi: ::core::option::Option<&mut [u8]>, uflags: SHGFI_FLAGS) -> usize
+pub unsafe fn SHGetFileInfoW<'a, P0>(pszpath: P0, dwfileattributes: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, psfi: ::core::option::Option<*mut SHFILEINFOW>, uflags: SHGFI_FLAGS) -> usize
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -5114,7 +5114,7 @@ where
     extern "system" {
         fn SHGetFileInfoW(pszpath: ::windows::core::PCWSTR, dwfileattributes: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, psfi: *mut SHFILEINFOW, cbfileinfo: u32, uflags: SHGFI_FLAGS) -> usize;
     }
-    SHGetFileInfoW(pszpath.into(), dwfileattributes, ::core::mem::transmute(psfi.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psfi.as_deref().map_or(0, |slice| slice.len() as _), uflags)
+    SHGetFileInfoW(pszpath.into(), dwfileattributes, ::core::mem::transmute(psfi.unwrap_or(::std::ptr::null_mut())), psfi.as_deref().map_or(0, |slice| slice.len() as _), uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]

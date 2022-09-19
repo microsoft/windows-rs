@@ -400,12 +400,12 @@ pub unsafe fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentia
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
-pub unsafe fn CredUnmarshalTargetInfo(buffer: &[u8], rettargetinfo: ::core::option::Option<*mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW>, retactualsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+pub unsafe fn CredUnmarshalTargetInfo(buffer: *const u16, rettargetinfo: ::core::option::Option<*mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW>, retactualsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: *mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, retactualsize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    CredUnmarshalTargetInfo(::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(rettargetinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(retactualsize.unwrap_or(::std::ptr::null_mut()))).ok()
+    CredUnmarshalTargetInfo(::core::mem::transmute(buffer), buffer.len() as _, ::core::mem::transmute(rettargetinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(retactualsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]

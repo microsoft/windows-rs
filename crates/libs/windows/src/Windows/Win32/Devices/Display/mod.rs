@@ -474,21 +474,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
-pub unsafe fn EngMultiByteToUnicodeN(unicodestring: &mut [u8], bytesinunicodestring: ::core::option::Option<*mut u32>, multibytestring: &[u8]) {
+pub unsafe fn EngMultiByteToUnicodeN(unicodestring: ::windows::core::PWSTR, bytesinunicodestring: ::core::option::Option<*mut u32>, multibytestring: &[u8]) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EngMultiByteToUnicodeN(unicodestring: ::windows::core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: ::windows::core::PCSTR, bytesinmultibytestring: u32);
     }
-    EngMultiByteToUnicodeN(::core::mem::transmute(unicodestring.as_ptr()), unicodestring.len() as _, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _)
+    EngMultiByteToUnicodeN(::core::mem::transmute(unicodestring), unicodestring.len() as _, ::core::mem::transmute(bytesinunicodestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
-pub unsafe fn EngMultiByteToWideChar(codepage: u32, widecharstring: ::core::option::Option<&mut [u8]>, multibytestring: ::core::option::Option<&[u8]>) -> i32 {
+pub unsafe fn EngMultiByteToWideChar(codepage: u32, widecharstring: ::windows::core::PWSTR, multibytestring: ::core::option::Option<&[u8]>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EngMultiByteToWideChar(codepage: u32, widecharstring: ::windows::core::PWSTR, bytesinwidecharstring: i32, multibytestring: ::windows::core::PCSTR, bytesinmultibytestring: i32) -> i32;
     }
-    EngMultiByteToWideChar(codepage, ::core::mem::transmute(widecharstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), widecharstring.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
+    EngMultiByteToWideChar(codepage, ::core::mem::transmute(widecharstring), widecharstring.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -606,12 +606,12 @@ pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, 
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
-pub unsafe fn EngUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: ::core::option::Option<*mut u32>, unicodestring: &[u8]) {
+pub unsafe fn EngUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: ::core::option::Option<*mut u32>, unicodestring: ::windows::core::PCWSTR) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EngUnicodeToMultiByteN(multibytestring: ::windows::core::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: ::windows::core::PCWSTR, bytesinunicodestring: u32);
     }
-    EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(unicodestring.as_ptr()), unicodestring.len() as _)
+    EngUnicodeToMultiByteN(::core::mem::transmute(multibytestring.as_ptr()), multibytestring.len() as _, ::core::mem::transmute(bytesinmultibytestring.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(unicodestring), unicodestring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -625,12 +625,12 @@ pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[inline]
-pub unsafe fn EngWideCharToMultiByte(codepage: u32, widecharstring: ::core::option::Option<&[u8]>, multibytestring: ::core::option::Option<&mut [u8]>) -> i32 {
+pub unsafe fn EngWideCharToMultiByte(codepage: u32, widecharstring: ::windows::core::PCWSTR, multibytestring: ::core::option::Option<&mut [u8]>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EngWideCharToMultiByte(codepage: u32, widecharstring: ::windows::core::PCWSTR, bytesinwidecharstring: i32, multibytestring: ::windows::core::PSTR, bytesinmultibytestring: i32) -> i32;
     }
-    EngWideCharToMultiByte(codepage, ::core::mem::transmute(widecharstring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), widecharstring.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
+    EngWideCharToMultiByte(codepage, ::core::mem::transmute(widecharstring), widecharstring.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(multibytestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

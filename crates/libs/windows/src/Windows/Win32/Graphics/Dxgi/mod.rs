@@ -6273,13 +6273,13 @@ impl IDXGIOutputDuplication {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFrameDirtyRects(&self, pdirtyrectsbuffer: &mut [u8], pdirtyrectsbuffersizerequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFrameDirtyRects)(::windows::core::Interface::as_raw(self), pdirtyrectsbuffer.len() as _, ::core::mem::transmute(pdirtyrectsbuffer.as_ptr()), ::core::mem::transmute(pdirtyrectsbuffersizerequired)).ok()
+    pub unsafe fn GetFrameDirtyRects(&self, pdirtyrectsbuffer: *mut super::super::Foundation::RECT, pdirtyrectsbuffersizerequired: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFrameDirtyRects)(::windows::core::Interface::as_raw(self), pdirtyrectsbuffer.len() as _, ::core::mem::transmute(pdirtyrectsbuffer), ::core::mem::transmute(pdirtyrectsbuffersizerequired)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFrameMoveRects(&self, pmoverectbuffer: &mut [u8], pmoverectsbuffersizerequired: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFrameMoveRects)(::windows::core::Interface::as_raw(self), pmoverectbuffer.len() as _, ::core::mem::transmute(pmoverectbuffer.as_ptr()), ::core::mem::transmute(pmoverectsbuffersizerequired)).ok()
+    pub unsafe fn GetFrameMoveRects(&self, pmoverectbuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pmoverectsbuffersizerequired: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFrameMoveRects)(::windows::core::Interface::as_raw(self), pmoverectbuffer.len() as _, ::core::mem::transmute(pmoverectbuffer), ::core::mem::transmute(pmoverectsbuffersizerequired)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -103,7 +103,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNamedPipeClientComputerNameW<'a, P0>(pipe: P0, clientcomputername: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn GetNamedPipeClientComputerNameW<'a, P0>(pipe: P0, clientcomputername: ::windows::core::PWSTR) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -111,7 +111,7 @@ where
     extern "system" {
         fn GetNamedPipeClientComputerNameW(pipe: super::super::Foundation::HANDLE, clientcomputername: ::windows::core::PWSTR, clientcomputernamelength: u32) -> super::super::Foundation::BOOL;
     }
-    GetNamedPipeClientComputerNameW(pipe.into(), ::core::mem::transmute(clientcomputername.as_ptr()), clientcomputername.len() as _)
+    GetNamedPipeClientComputerNameW(pipe.into(), ::core::mem::transmute(clientcomputername), clientcomputername.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

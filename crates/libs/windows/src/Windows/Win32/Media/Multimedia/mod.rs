@@ -229,7 +229,7 @@ where
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileInfoA<'a, P0>(pfile: P0, pfi: &mut [u8]) -> ::windows::core::Result<()>
+pub unsafe fn AVIFileInfoA<'a, P0>(pfile: P0, pfi: *mut AVIFILEINFOA) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIFile>>,
 {
@@ -237,11 +237,11 @@ where
     extern "system" {
         fn AVIFileInfoA(pfile: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::core::HRESULT;
     }
-    AVIFileInfoA(pfile.into().abi(), ::core::mem::transmute(pfi.as_ptr()), pfi.len() as _).ok()
+    AVIFileInfoA(pfile.into().abi(), ::core::mem::transmute(pfi), pfi.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
-pub unsafe fn AVIFileInfoW<'a, P0>(pfile: P0, pfi: &mut [u8]) -> ::windows::core::Result<()>
+pub unsafe fn AVIFileInfoW<'a, P0>(pfile: P0, pfi: *mut AVIFILEINFOW) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIFile>>,
 {
@@ -249,7 +249,7 @@ where
     extern "system" {
         fn AVIFileInfoW(pfile: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT;
     }
-    AVIFileInfoW(pfile.into().abi(), ::core::mem::transmute(pfi.as_ptr()), pfi.len() as _).ok()
+    AVIFileInfoW(pfile.into().abi(), ::core::mem::transmute(pfi), pfi.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -522,7 +522,7 @@ where
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamInfoA<'a, P0>(pavi: P0, psi: &mut [u8]) -> ::windows::core::Result<()>
+pub unsafe fn AVIStreamInfoA<'a, P0>(pavi: P0, psi: *mut AVISTREAMINFOA) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
@@ -530,12 +530,12 @@ where
     extern "system" {
         fn AVIStreamInfoA(pavi: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::core::HRESULT;
     }
-    AVIStreamInfoA(pavi.into().abi(), ::core::mem::transmute(psi.as_ptr()), psi.len() as _).ok()
+    AVIStreamInfoA(pavi.into().abi(), ::core::mem::transmute(psi), psi.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamInfoW<'a, P0>(pavi: P0, psi: &mut [u8]) -> ::windows::core::Result<()>
+pub unsafe fn AVIStreamInfoW<'a, P0>(pavi: P0, psi: *mut AVISTREAMINFOW) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
@@ -543,7 +543,7 @@ where
     extern "system" {
         fn AVIStreamInfoW(pavi: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::HRESULT;
     }
-    AVIStreamInfoW(pavi.into().abi(), ::core::mem::transmute(psi.as_ptr()), psi.len() as _).ok()
+    AVIStreamInfoW(pavi.into().abi(), ::core::mem::transmute(psi), psi.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -974,7 +974,7 @@ where
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditStreamSetInfoA<'a, P0>(pavi: P0, lpinfo: &[u8]) -> ::windows::core::Result<()>
+pub unsafe fn EditStreamSetInfoA<'a, P0>(pavi: P0, lpinfo: *const AVISTREAMINFOA) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
@@ -982,12 +982,12 @@ where
     extern "system" {
         fn EditStreamSetInfoA(pavi: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::core::HRESULT;
     }
-    EditStreamSetInfoA(pavi.into().abi(), ::core::mem::transmute(lpinfo.as_ptr()), lpinfo.len() as _).ok()
+    EditStreamSetInfoA(pavi.into().abi(), ::core::mem::transmute(lpinfo), lpinfo.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditStreamSetInfoW<'a, P0>(pavi: P0, lpinfo: &[u8]) -> ::windows::core::Result<()>
+pub unsafe fn EditStreamSetInfoW<'a, P0>(pavi: P0, lpinfo: *const AVISTREAMINFOW) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
@@ -995,7 +995,7 @@ where
     extern "system" {
         fn EditStreamSetInfoW(pavi: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT;
     }
-    EditStreamSetInfoW(pavi.into().abi(), ::core::mem::transmute(lpinfo.as_ptr()), lpinfo.len() as _).ok()
+    EditStreamSetInfoW(pavi.into().abi(), ::core::mem::transmute(lpinfo), lpinfo.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -1129,7 +1129,7 @@ where
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICGetInfo<'a, P0>(hic: P0, picinfo: &mut [u8]) -> super::super::Foundation::LRESULT
+pub unsafe fn ICGetInfo<'a, P0>(hic: P0, picinfo: *mut ICINFO) -> super::super::Foundation::LRESULT
 where
     P0: ::std::convert::Into<HIC>,
 {
@@ -1137,7 +1137,7 @@ where
     extern "system" {
         fn ICGetInfo(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT;
     }
-    ICGetInfo(hic.into(), ::core::mem::transmute(picinfo.as_ptr()), picinfo.len() as _)
+    ICGetInfo(hic.into(), ::core::mem::transmute(picinfo), picinfo.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1361,21 +1361,21 @@ pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], 
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: &mut [u8]) -> u32 {
+pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
     }
-    joyGetDevCapsA(ujoyid, ::core::mem::transmute(pjc.as_ptr()), pjc.len() as _)
+    joyGetDevCapsA(ujoyid, ::core::mem::transmute(pjc), pjc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
-pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: &mut [u8]) -> u32 {
+pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
     }
-    joyGetDevCapsW(ujoyid, ::core::mem::transmute(pjc.as_ptr()), pjc.len() as _)
+    joyGetDevCapsW(ujoyid, ::core::mem::transmute(pjc), pjc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -2002,8 +2002,8 @@ impl IAVIEditStream {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInfo(&self, lpinfo: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpinfo.as_ptr()), lpinfo.len() as _).ok()
+    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpinfo), lpinfo.len() as _).ok()
     }
 }
 impl ::core::convert::From<IAVIEditStream> for ::windows::core::IUnknown {
@@ -2058,8 +2058,8 @@ pub struct IAVIEditStream_Vtbl {
 #[repr(transparent)]
 pub struct IAVIFile(::windows::core::IUnknown);
 impl IAVIFile {
-    pub unsafe fn Info(&self, pfi: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Info)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfi.as_ptr()), pfi.len() as _).ok()
+    pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Info)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfi), pfi.len() as _).ok()
     }
     pub unsafe fn GetStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppstream), fcctype, lparam).ok()
@@ -2285,8 +2285,8 @@ impl IAVIStream {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Info(&self, psi: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Info)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psi.as_ptr()), psi.len() as _).ok()
+    pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Info)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psi), psi.len() as _).ok()
     }
     pub unsafe fn FindSample(&self, lpos: i32, lflags: i32) -> i32 {
         (::windows::core::Interface::vtable(self).FindSample)(::windows::core::Interface::as_raw(self), lpos, lflags)
@@ -2314,8 +2314,8 @@ impl IAVIStream {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInfo(&self, lpinfo: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpinfo.as_ptr()), lpinfo.len() as _).ok()
+    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpinfo), lpinfo.len() as _).ok()
     }
 }
 impl ::core::convert::From<IAVIStream> for ::windows::core::IUnknown {

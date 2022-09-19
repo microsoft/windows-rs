@@ -942,7 +942,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceInterruptTarget<'a, P0>(partition: P0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: &mut [u8], byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceInterruptTarget<'a, P0>(partition: P0, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, byteswritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -950,11 +950,11 @@ where
     extern "system" {
         fn WHvGetVpciDeviceInterruptTarget(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT;
     }
-    WHvGetVpciDeviceInterruptTarget(partition.into(), logicaldeviceid, index, multimessagenumber, ::core::mem::transmute(target.as_ptr()), target.len() as _, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
+    WHvGetVpciDeviceInterruptTarget(partition.into(), logicaldeviceid, index, multimessagenumber, ::core::mem::transmute(target), target.len() as _, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVpciDeviceNotification<'a, P0>(partition: P0, logicaldeviceid: u64, notification: &mut [u8]) -> ::windows::core::Result<()>
+pub unsafe fn WHvGetVpciDeviceNotification<'a, P0>(partition: P0, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -962,7 +962,7 @@ where
     extern "system" {
         fn WHvGetVpciDeviceNotification(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> ::windows::core::HRESULT;
     }
-    WHvGetVpciDeviceNotification(partition.into(), logicaldeviceid, ::core::mem::transmute(notification.as_ptr()), notification.len() as _).ok()
+    WHvGetVpciDeviceNotification(partition.into(), logicaldeviceid, ::core::mem::transmute(notification), notification.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -1040,7 +1040,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvQueryGpaRangeDirtyBitmap<'a, P0>(partition: P0, guestaddress: u64, rangesizeinbytes: u64, bitmap: ::core::option::Option<&mut [u8]>) -> ::windows::core::Result<()>
+pub unsafe fn WHvQueryGpaRangeDirtyBitmap<'a, P0>(partition: P0, guestaddress: u64, rangesizeinbytes: u64, bitmap: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
@@ -1048,7 +1048,7 @@ where
     extern "system" {
         fn WHvQueryGpaRangeDirtyBitmap(partition: WHV_PARTITION_HANDLE, guestaddress: u64, rangesizeinbytes: u64, bitmap: *mut u64, bitmapsizeinbytes: u32) -> ::windows::core::HRESULT;
     }
-    WHvQueryGpaRangeDirtyBitmap(partition.into(), guestaddress, rangesizeinbytes, ::core::mem::transmute(bitmap.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bitmap.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    WHvQueryGpaRangeDirtyBitmap(partition.into(), guestaddress, rangesizeinbytes, ::core::mem::transmute(bitmap.unwrap_or(::std::ptr::null_mut())), bitmap.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]

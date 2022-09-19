@@ -1168,17 +1168,17 @@ pub unsafe fn VirtualProtectFromApp(address: *const ::core::ffi::c_void, size: u
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
-pub unsafe fn VirtualQuery(lpaddress: ::core::option::Option<*const ::core::ffi::c_void>, lpbuffer: &mut [u8]) -> usize {
+pub unsafe fn VirtualQuery(lpaddress: ::core::option::Option<*const ::core::ffi::c_void>, lpbuffer: *mut MEMORY_BASIC_INFORMATION) -> usize {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VirtualQuery(lpaddress: *const ::core::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize;
     }
-    VirtualQuery(::core::mem::transmute(lpaddress.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+    VirtualQuery(::core::mem::transmute(lpaddress.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpbuffer), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VirtualQueryEx<'a, P0>(hprocess: P0, lpaddress: ::core::option::Option<*const ::core::ffi::c_void>, lpbuffer: &mut [u8]) -> usize
+pub unsafe fn VirtualQueryEx<'a, P0>(hprocess: P0, lpaddress: ::core::option::Option<*const ::core::ffi::c_void>, lpbuffer: *mut MEMORY_BASIC_INFORMATION) -> usize
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1186,7 +1186,7 @@ where
     extern "system" {
         fn VirtualQueryEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize;
     }
-    VirtualQueryEx(hprocess.into(), ::core::mem::transmute(lpaddress.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+    VirtualQueryEx(hprocess.into(), ::core::mem::transmute(lpaddress.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpbuffer), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

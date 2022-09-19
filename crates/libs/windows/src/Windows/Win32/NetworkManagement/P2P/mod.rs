@@ -144,12 +144,12 @@ pub unsafe fn DrtEndSearch(hsearchcontext: *const ::core::ffi::c_void) -> ::wind
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DrtGetEventData(hdrt: *const ::core::ffi::c_void, peventdata: &mut [u8]) -> ::windows::core::Result<()> {
+pub unsafe fn DrtGetEventData(hdrt: *const ::core::ffi::c_void, peventdata: *mut DRT_EVENT_DATA) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrtGetEventData(hdrt: *const ::core::ffi::c_void, uleventdatalen: u32, peventdata: *mut DRT_EVENT_DATA) -> ::windows::core::HRESULT;
     }
-    DrtGetEventData(::core::mem::transmute(hdrt), peventdata.len() as _, ::core::mem::transmute(peventdata.as_ptr())).ok()
+    DrtGetEventData(::core::mem::transmute(hdrt), peventdata.len() as _, ::core::mem::transmute(peventdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -163,12 +163,12 @@ pub unsafe fn DrtGetEventDataSize(hdrt: *const ::core::ffi::c_void) -> ::windows
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn DrtGetInstanceName(hdrt: *const ::core::ffi::c_void, pwzdrtinstancename: &mut [u8]) -> ::windows::core::Result<()> {
+pub unsafe fn DrtGetInstanceName(hdrt: *const ::core::ffi::c_void, pwzdrtinstancename: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrtGetInstanceName(hdrt: *const ::core::ffi::c_void, ulcbinstancenamesize: u32, pwzdrtinstancename: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    DrtGetInstanceName(::core::mem::transmute(hdrt), pwzdrtinstancename.len() as _, ::core::mem::transmute(pwzdrtinstancename.as_ptr())).ok()
+    DrtGetInstanceName(::core::mem::transmute(hdrt), pwzdrtinstancename.len() as _, ::core::mem::transmute(pwzdrtinstancename)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -183,12 +183,12 @@ pub unsafe fn DrtGetInstanceNameSize(hdrt: *const ::core::ffi::c_void) -> ::wind
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DrtGetSearchPath(hsearchcontext: *const ::core::ffi::c_void, psearchpath: &mut [u8]) -> ::windows::core::Result<()> {
+pub unsafe fn DrtGetSearchPath(hsearchcontext: *const ::core::ffi::c_void, psearchpath: *mut DRT_ADDRESS_LIST) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrtGetSearchPath(hsearchcontext: *const ::core::ffi::c_void, ulsearchpathsize: u32, psearchpath: *mut DRT_ADDRESS_LIST) -> ::windows::core::HRESULT;
     }
-    DrtGetSearchPath(::core::mem::transmute(hsearchcontext), psearchpath.len() as _, ::core::mem::transmute(psearchpath.as_ptr())).ok()
+    DrtGetSearchPath(::core::mem::transmute(hsearchcontext), psearchpath.len() as _, ::core::mem::transmute(psearchpath)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -202,12 +202,12 @@ pub unsafe fn DrtGetSearchPathSize(hsearchcontext: *const ::core::ffi::c_void) -
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn DrtGetSearchResult(hsearchcontext: *const ::core::ffi::c_void, psearchresult: &mut [u8]) -> ::windows::core::Result<()> {
+pub unsafe fn DrtGetSearchResult(hsearchcontext: *const ::core::ffi::c_void, psearchresult: *mut DRT_SEARCH_RESULT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrtGetSearchResult(hsearchcontext: *const ::core::ffi::c_void, ulsearchresultsize: u32, psearchresult: *mut DRT_SEARCH_RESULT) -> ::windows::core::HRESULT;
     }
-    DrtGetSearchResult(::core::mem::transmute(hsearchcontext), psearchresult.len() as _, ::core::mem::transmute(psearchresult.as_ptr())).ok()
+    DrtGetSearchResult(::core::mem::transmute(hsearchcontext), psearchresult.len() as _, ::core::mem::transmute(psearchresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]

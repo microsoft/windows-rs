@@ -721,8 +721,8 @@ impl IWICBitmapDecoderInfo {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPatterns(&self, ppatterns: ::core::option::Option<&mut [u8]>, pcpatterns: ::core::option::Option<*mut u32>, pcbpatternsactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPatterns)(::windows::core::Interface::as_raw(self), ppatterns.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppatterns.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcpatterns.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbpatternsactual)).ok()
+    pub unsafe fn GetPatterns(&self, ppatterns: ::core::option::Option<*mut WICBitmapPattern>, pcpatterns: ::core::option::Option<*mut u32>, pcbpatternsactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPatterns)(::windows::core::Interface::as_raw(self), ppatterns.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppatterns.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcpatterns.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbpatternsactual)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2482,11 +2482,11 @@ impl IWICDevelopRaw {
     {
         (::windows::core::Interface::vtable(self).SetDestinationColorContext)(::windows::core::Interface::as_raw(self), pcolorcontext.into().abi()).ok()
     }
-    pub unsafe fn SetToneCurve(&self, ptonecurve: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetToneCurve)(::windows::core::Interface::as_raw(self), ptonecurve.len() as _, ::core::mem::transmute(ptonecurve.as_ptr())).ok()
+    pub unsafe fn SetToneCurve(&self, ptonecurve: *const WICRawToneCurve) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetToneCurve)(::windows::core::Interface::as_raw(self), ptonecurve.len() as _, ::core::mem::transmute(ptonecurve)).ok()
     }
-    pub unsafe fn GetToneCurve(&self, ptonecurve: ::core::option::Option<&mut [u8]>, pcbactualtonecurvebuffersize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetToneCurve)(::windows::core::Interface::as_raw(self), ptonecurve.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ptonecurve.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcbactualtonecurvebuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetToneCurve(&self, ptonecurve: ::core::option::Option<*mut WICRawToneCurve>, pcbactualtonecurvebuffersize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetToneCurve)(::windows::core::Interface::as_raw(self), ptonecurve.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ptonecurve.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactualtonecurvebuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetRotation(&self, rotation: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRotation)(::windows::core::Interface::as_raw(self), rotation).ok()
@@ -4026,8 +4026,8 @@ impl IWICMetadataReaderInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.DoesRequireFixedSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    pub unsafe fn GetPatterns(&self, guidcontainerformat: *const ::windows::core::GUID, ppattern: ::core::option::Option<&mut [u8]>, pccount: ::core::option::Option<*mut u32>, pcbactual: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPatterns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcontainerformat), ppattern.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppattern.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pccount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPatterns(&self, guidcontainerformat: *const ::windows::core::GUID, ppattern: ::core::option::Option<*mut WICMetadataPattern>, pccount: ::core::option::Option<*mut u32>, pcbactual: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPatterns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcontainerformat), ppattern.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppattern.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4299,8 +4299,8 @@ impl IWICMetadataWriterInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.DoesRequireFixedSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    pub unsafe fn GetHeader(&self, guidcontainerformat: *const ::windows::core::GUID, pheader: ::core::option::Option<&mut [u8]>, pcbactual: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcontainerformat), pheader.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pheader.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetHeader(&self, guidcontainerformat: *const ::windows::core::GUID, pheader: ::core::option::Option<*mut WICMetadataHeader>, pcbactual: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcontainerformat), pheader.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pheader.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICMetadataWriter> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

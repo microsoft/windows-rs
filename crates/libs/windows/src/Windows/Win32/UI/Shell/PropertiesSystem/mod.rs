@@ -605,7 +605,7 @@ pub unsafe fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY) -> ::windows
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PSGetNamedPropertyFromPropertyStorage<'a, P0>(psps: &[u8], pszname: P0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
+pub unsafe fn PSGetNamedPropertyFromPropertyStorage<'a, P0>(psps: *const SERIALIZEDPROPSTORAGE, pszname: P0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -614,7 +614,7 @@ where
         fn PSGetNamedPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszname: ::windows::core::PCWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PSGetNamedPropertyFromPropertyStorage(::core::mem::transmute(psps.as_ptr()), psps.len() as _, pszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    PSGetNamedPropertyFromPropertyStorage(::core::mem::transmute(psps), psps.len() as _, pszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
@@ -652,13 +652,13 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PSGetPropertyFromPropertyStorage(psps: &[u8], rpkey: *const PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
+pub unsafe fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, rpkey: *const PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PSGetPropertyFromPropertyStorage(::core::mem::transmute(psps.as_ptr()), psps.len() as _, ::core::mem::transmute(rpkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    PSGetPropertyFromPropertyStorage(::core::mem::transmute(psps), psps.len() as _, ::core::mem::transmute(rpkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
@@ -2995,8 +2995,8 @@ impl IPersistSerializedPropStorage {
     pub unsafe fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), flags).ok()
     }
-    pub unsafe fn SetPropertyStorage(&self, psps: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPropertyStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psps.as_ptr()), psps.len() as _).ok()
+    pub unsafe fn SetPropertyStorage(&self, psps: *const SERIALIZEDPROPSTORAGE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPropertyStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psps), psps.len() as _).ok()
     }
     pub unsafe fn GetPropertyStorage(&self, ppsps: *mut *mut SERIALIZEDPROPSTORAGE, pcb: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppsps), ::core::mem::transmute(pcb)).ok()
@@ -3052,8 +3052,8 @@ impl IPersistSerializedPropStorage2 {
     pub unsafe fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetFlags)(::windows::core::Interface::as_raw(self), flags).ok()
     }
-    pub unsafe fn SetPropertyStorage(&self, psps: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPropertyStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psps.as_ptr()), psps.len() as _).ok()
+    pub unsafe fn SetPropertyStorage(&self, psps: *const SERIALIZEDPROPSTORAGE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPropertyStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psps), psps.len() as _).ok()
     }
     pub unsafe fn GetPropertyStorage(&self, ppsps: *mut *mut SERIALIZEDPROPSTORAGE, pcb: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPropertyStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppsps), ::core::mem::transmute(pcb)).ok()
@@ -3062,8 +3062,8 @@ impl IPersistSerializedPropStorage2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyStorageSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetPropertyStorageBuffer(&self, psps: &mut [u8], pcbwritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyStorageBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psps.as_ptr()), psps.len() as _, ::core::mem::transmute(pcbwritten)).ok()
+    pub unsafe fn GetPropertyStorageBuffer(&self, psps: *mut SERIALIZEDPROPSTORAGE, pcbwritten: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPropertyStorageBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psps), psps.len() as _, ::core::mem::transmute(pcbwritten)).ok()
     }
 }
 impl ::core::convert::From<IPersistSerializedPropStorage2> for ::windows::core::IUnknown {

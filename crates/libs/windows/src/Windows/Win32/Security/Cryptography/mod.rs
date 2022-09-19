@@ -2212,7 +2212,7 @@ pub unsafe fn CryptCreateHash(hprov: usize, algid: u32, hkey: usize, dwflags: u3
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptCreateKeyIdentifierFromCSP<'a, P0>(dwcertencodingtype: u32, pszpubkeyoid: P0, ppubkeystruc: &[u8], dwflags: u32, pvreserved: *mut ::core::ffi::c_void, pbhash: ::core::option::Option<*mut u8>, pcbhash: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn CryptCreateKeyIdentifierFromCSP<'a, P0>(dwcertencodingtype: u32, pszpubkeyoid: P0, ppubkeystruc: *const PUBLICKEYSTRUC, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, pbhash: ::core::option::Option<*mut u8>, pcbhash: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -2220,7 +2220,7 @@ where
     extern "system" {
         fn CryptCreateKeyIdentifierFromCSP(dwcertencodingtype: u32, pszpubkeyoid: ::windows::core::PCSTR, ppubkeystruc: *const PUBLICKEYSTRUC, cbpubkeystruc: u32, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, pbhash: *mut u8, pcbhash: *mut u32) -> super::super::Foundation::BOOL;
     }
-    CryptCreateKeyIdentifierFromCSP(dwcertencodingtype, pszpubkeyoid.into(), ::core::mem::transmute(ppubkeystruc.as_ptr()), ppubkeystruc.len() as _, dwflags, ::core::mem::transmute(pvreserved), ::core::mem::transmute(pbhash.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbhash))
+    CryptCreateKeyIdentifierFromCSP(dwcertencodingtype, pszpubkeyoid.into(), ::core::mem::transmute(ppubkeystruc), ppubkeystruc.len() as _, dwflags, ::core::mem::transmute(pvreserved), ::core::mem::transmute(pbhash.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbhash))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -493,12 +493,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
-pub unsafe fn StgPropertyLengthAsVariant(pprop: &[u8], codepage: u16, breserved: u8) -> u32 {
+pub unsafe fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, breserved: u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32;
     }
-    StgPropertyLengthAsVariant(::core::mem::transmute(pprop.as_ptr()), pprop.len() as _, codepage, breserved)
+    StgPropertyLengthAsVariant(::core::mem::transmute(pprop), pprop.len() as _, codepage, breserved)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

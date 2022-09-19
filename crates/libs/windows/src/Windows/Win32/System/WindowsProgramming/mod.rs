@@ -1965,12 +1965,12 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlUnicodeToMultiByteSize(bytesinmultibytestring: *mut u32, unicodestring: &[u8]) -> ::windows::core::Result<()> {
+pub unsafe fn RtlUnicodeToMultiByteSize(bytesinmultibytestring: *mut u32, unicodestring: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlUnicodeToMultiByteSize(bytesinmultibytestring: *mut u32, unicodestring: ::windows::core::PCWSTR, bytesinunicodestring: u32) -> super::super::Foundation::NTSTATUS;
     }
-    RtlUnicodeToMultiByteSize(::core::mem::transmute(bytesinmultibytestring), ::core::mem::transmute(unicodestring.as_ptr()), unicodestring.len() as _).ok()
+    RtlUnicodeToMultiByteSize(::core::mem::transmute(bytesinmultibytestring), ::core::mem::transmute(unicodestring), unicodestring.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]

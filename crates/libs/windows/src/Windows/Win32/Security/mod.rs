@@ -523,7 +523,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AdjustTokenGroups<'a, P0, P1>(tokenhandle: P0, resettodefault: P1, newstate: ::core::option::Option<*const TOKEN_GROUPS>, previousstate: ::core::option::Option<&mut [u8]>, returnlength: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
+pub unsafe fn AdjustTokenGroups<'a, P0, P1>(tokenhandle: P0, resettodefault: P1, newstate: ::core::option::Option<*const TOKEN_GROUPS>, previousstate: ::core::option::Option<*mut TOKEN_GROUPS>, returnlength: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -532,12 +532,12 @@ where
     extern "system" {
         fn AdjustTokenGroups(tokenhandle: super::Foundation::HANDLE, resettodefault: super::Foundation::BOOL, newstate: *const TOKEN_GROUPS, bufferlength: u32, previousstate: *mut TOKEN_GROUPS, returnlength: *mut u32) -> super::Foundation::BOOL;
     }
-    AdjustTokenGroups(tokenhandle.into(), resettodefault.into(), ::core::mem::transmute(newstate.unwrap_or(::std::ptr::null())), previousstate.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(previousstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
+    AdjustTokenGroups(tokenhandle.into(), resettodefault.into(), ::core::mem::transmute(newstate.unwrap_or(::std::ptr::null())), previousstate.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(previousstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AdjustTokenPrivileges<'a, P0, P1>(tokenhandle: P0, disableallprivileges: P1, newstate: ::core::option::Option<*const TOKEN_PRIVILEGES>, previousstate: ::core::option::Option<&mut [u8]>, returnlength: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
+pub unsafe fn AdjustTokenPrivileges<'a, P0, P1>(tokenhandle: P0, disableallprivileges: P1, newstate: ::core::option::Option<*const TOKEN_PRIVILEGES>, previousstate: ::core::option::Option<*mut TOKEN_PRIVILEGES>, returnlength: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
@@ -546,7 +546,7 @@ where
     extern "system" {
         fn AdjustTokenPrivileges(tokenhandle: super::Foundation::HANDLE, disableallprivileges: super::Foundation::BOOL, newstate: *const TOKEN_PRIVILEGES, bufferlength: u32, previousstate: *mut TOKEN_PRIVILEGES, returnlength: *mut u32) -> super::Foundation::BOOL;
     }
-    AdjustTokenPrivileges(tokenhandle.into(), disableallprivileges.into(), ::core::mem::transmute(newstate.unwrap_or(::std::ptr::null())), previousstate.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(previousstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
+    AdjustTokenPrivileges(tokenhandle.into(), disableallprivileges.into(), ::core::mem::transmute(newstate.unwrap_or(::std::ptr::null())), previousstate.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(previousstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -648,7 +648,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CopySid<'a, P0>(pdestinationsid: &mut [u8], psourcesid: P0) -> super::Foundation::BOOL
+pub unsafe fn CopySid<'a, P0>(pdestinationsid: super::Foundation::PSID, psourcesid: P0) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
@@ -656,7 +656,7 @@ where
     extern "system" {
         fn CopySid(ndestinationsidlength: u32, pdestinationsid: super::Foundation::PSID, psourcesid: super::Foundation::PSID) -> super::Foundation::BOOL;
     }
-    CopySid(pdestinationsid.len() as _, ::core::mem::transmute(pdestinationsid.as_ptr()), psourcesid.into())
+    CopySid(pdestinationsid.len() as _, ::core::mem::transmute(pdestinationsid), psourcesid.into())
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -912,7 +912,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileSecurityA<'a, P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: ::core::option::Option<&mut [u8]>, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetFileSecurityA<'a, P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -920,12 +920,12 @@ where
     extern "system" {
         fn GetFileSecurityA(lpfilename: ::windows::core::PCSTR, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
     }
-    GetFileSecurityA(lpfilename.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psecuritydescriptor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
+    GetFileSecurityA(lpfilename.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor), psecuritydescriptor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileSecurityW<'a, P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: ::core::option::Option<&mut [u8]>, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetFileSecurityW<'a, P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -933,12 +933,12 @@ where
     extern "system" {
         fn GetFileSecurityW(lpfilename: ::windows::core::PCWSTR, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
     }
-    GetFileSecurityW(lpfilename.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psecuritydescriptor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
+    GetFileSecurityW(lpfilename.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor), psecuritydescriptor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKernelObjectSecurity<'a, P0>(handle: P0, requestedinformation: u32, psecuritydescriptor: ::core::option::Option<&mut [u8]>, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetKernelObjectSecurity<'a, P0>(handle: P0, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -946,7 +946,7 @@ where
     extern "system" {
         fn GetKernelObjectSecurity(handle: super::Foundation::HANDLE, requestedinformation: u32, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
     }
-    GetKernelObjectSecurity(handle.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psecuritydescriptor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
+    GetKernelObjectSecurity(handle.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor), psecuritydescriptor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -964,7 +964,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrivateObjectSecurity<'a, P0>(objectdescriptor: P0, securityinformation: u32, resultantdescriptor: ::core::option::Option<&mut [u8]>, returnlength: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetPrivateObjectSecurity<'a, P0>(objectdescriptor: P0, securityinformation: u32, resultantdescriptor: PSECURITY_DESCRIPTOR, returnlength: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
@@ -972,7 +972,7 @@ where
     extern "system" {
         fn GetPrivateObjectSecurity(objectdescriptor: PSECURITY_DESCRIPTOR, securityinformation: u32, resultantdescriptor: PSECURITY_DESCRIPTOR, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
     }
-    GetPrivateObjectSecurity(objectdescriptor.into(), securityinformation, ::core::mem::transmute(resultantdescriptor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), resultantdescriptor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength))
+    GetPrivateObjectSecurity(objectdescriptor.into(), securityinformation, ::core::mem::transmute(resultantdescriptor), resultantdescriptor.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1127,7 +1127,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUserObjectSecurity<'a, P0>(hobj: P0, psirequested: *const u32, psid: ::core::option::Option<&mut [u8]>, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetUserObjectSecurity<'a, P0>(hobj: P0, psirequested: *const u32, psid: PSECURITY_DESCRIPTOR, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -1135,7 +1135,7 @@ where
     extern "system" {
         fn GetUserObjectSecurity(hobj: super::Foundation::HANDLE, psirequested: *const u32, psid: PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL;
     }
-    GetUserObjectSecurity(hobj.into(), ::core::mem::transmute(psirequested), ::core::mem::transmute(psid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psid.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
+    GetUserObjectSecurity(hobj.into(), ::core::mem::transmute(psirequested), ::core::mem::transmute(psid), psid.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1189,12 +1189,12 @@ pub unsafe fn ImpersonateSelf(impersonationlevel: SECURITY_IMPERSONATION_LEVEL) 
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitializeAcl(pacl: &mut [u8], dwaclrevision: u32) -> super::Foundation::BOOL {
+pub unsafe fn InitializeAcl(pacl: *mut ACL, dwaclrevision: u32) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitializeAcl(pacl: *mut ACL, nacllength: u32, dwaclrevision: u32) -> super::Foundation::BOOL;
     }
-    InitializeAcl(::core::mem::transmute(pacl.as_ptr()), pacl.len() as _, dwaclrevision)
+    InitializeAcl(::core::mem::transmute(pacl), pacl.len() as _, dwaclrevision)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

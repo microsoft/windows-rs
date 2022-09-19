@@ -739,7 +739,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetLogColorSpaceA<'a, P0>(hcolorspace: P0, lpbuffer: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn GetLogColorSpaceA<'a, P0>(hcolorspace: P0, lpbuffer: *mut LOGCOLORSPACEA) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCOLORSPACE>,
 {
@@ -747,12 +747,12 @@ where
     extern "system" {
         fn GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL;
     }
-    GetLogColorSpaceA(hcolorspace.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+    GetLogColorSpaceA(hcolorspace.into(), ::core::mem::transmute(lpbuffer), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetLogColorSpaceW<'a, P0>(hcolorspace: P0, lpbuffer: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn GetLogColorSpaceW<'a, P0>(hcolorspace: P0, lpbuffer: *mut LOGCOLORSPACEW) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCOLORSPACE>,
 {
@@ -760,7 +760,7 @@ where
     extern "system" {
         fn GetLogColorSpaceW(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL;
     }
-    GetLogColorSpaceW(hcolorspace.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+    GetLogColorSpaceW(hcolorspace.into(), ::core::mem::transmute(lpbuffer), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1275,7 +1275,7 @@ pub unsafe fn WcsGetCalibrationManagementState(pbisenabled: *mut super::super::F
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsGetDefaultColorProfile<'a, P0>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: P0, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn WcsGetDefaultColorProfile<'a, P0>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: P0, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1283,7 +1283,7 @@ where
     extern "system" {
         fn WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, cbprofilename: u32, pprofilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
     }
-    WcsGetDefaultColorProfile(scope, pdevicename.into(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pprofilename.len() as _, ::core::mem::transmute(pprofilename.as_ptr()))
+    WcsGetDefaultColorProfile(scope, pdevicename.into(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pprofilename.len() as _, ::core::mem::transmute(pprofilename))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -122,12 +122,12 @@ pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedc
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
-pub unsafe fn EapHostPeerGetEncryptedPassword(szpassword: &[u8], ppszencpassword: *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn EapHostPeerGetEncryptedPassword(szpassword: ::windows::core::PCWSTR, ppszencpassword: *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EapHostPeerGetEncryptedPassword(dwsizeofpassword: u32, szpassword: ::windows::core::PCWSTR, ppszencpassword: *mut ::windows::core::PWSTR) -> u32;
     }
-    EapHostPeerGetEncryptedPassword(szpassword.len() as _, ::core::mem::transmute(szpassword.as_ptr()), ::core::mem::transmute(ppszencpassword))
+    EapHostPeerGetEncryptedPassword(szpassword.len() as _, ::core::mem::transmute(szpassword), ::core::mem::transmute(ppszencpassword))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

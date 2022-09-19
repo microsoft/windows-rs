@@ -5089,8 +5089,8 @@ pub struct IWbemConnectorLogin_Vtbl {
 #[repr(transparent)]
 pub struct IWbemConstructClassObject(::windows::core::IUnknown);
 impl IWbemConstructClassObject {
-    pub unsafe fn SetInheritanceChain(&self, awszantecedents: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInheritanceChain)(::windows::core::Interface::as_raw(self), awszantecedents.len() as _, ::core::mem::transmute(awszantecedents.as_ptr())).ok()
+    pub unsafe fn SetInheritanceChain(&self, awszantecedents: *const ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInheritanceChain)(::windows::core::Interface::as_raw(self), awszantecedents.len() as _, ::core::mem::transmute(awszantecedents)).ok()
     }
     pub unsafe fn SetPropertyOrigin<'a, P0>(&self, wszpropertyname: P0, loriginindex: i32) -> ::windows::core::Result<()>
     where

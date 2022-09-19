@@ -601,12 +601,12 @@ pub unsafe fn TdhEnumerateProviders(pbuffer: ::core::option::Option<*mut PROVIDE
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[inline]
-pub unsafe fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: ::core::option::Option<&mut [u8]>, bufferrequired: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: ::core::option::Option<*mut PROVIDER_ENUMERATION_INFO>, bufferrequired: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: *mut PROVIDER_ENUMERATION_INFO, buffersize: u32, bufferrequired: *mut u32) -> u32;
     }
-    TdhEnumerateProvidersForDecodingSource(filter, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bufferrequired))
+    TdhEnumerateProvidersForDecodingSource(filter, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bufferrequired))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[inline]

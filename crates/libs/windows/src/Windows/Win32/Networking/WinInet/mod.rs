@@ -2774,12 +2774,12 @@ pub unsafe fn InternetTimeFromSystemTimeA(pst: *const super::super::Foundation::
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetTimeFromSystemTimeW(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: &mut [u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetTimeFromSystemTimeW(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InternetTimeFromSystemTimeW(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: ::windows::core::PWSTR, cbtime: u32) -> super::super::Foundation::BOOL;
     }
-    InternetTimeFromSystemTimeW(::core::mem::transmute(pst), dwrfc, ::core::mem::transmute(lpsztime.as_ptr()), lpsztime.len() as _)
+    InternetTimeFromSystemTimeW(::core::mem::transmute(pst), dwrfc, ::core::mem::transmute(lpsztime), lpsztime.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

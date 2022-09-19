@@ -609,7 +609,7 @@ where
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureW<'a, P0>(filename: P0, optionflags: u32, optiondata: ::core::option::Option<*const ::core::ffi::c_void>, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn GetFilePatchSignatureW<'a, P0>(filename: P0, optionflags: u32, optiondata: ::core::option::Option<*const ::core::ffi::c_void>, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: ::windows::core::PWSTR) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -626,7 +626,7 @@ where
         retainrangearray.as_deref().map_or(0, |slice| slice.len() as _),
         ::core::mem::transmute(retainrangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         signaturebuffer.len() as _,
-        ::core::mem::transmute(signaturebuffer.as_ptr()),
+        ::core::mem::transmute(signaturebuffer),
     )
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
@@ -4040,7 +4040,7 @@ pub unsafe fn NormalizeFileForPatchSignature(filebuffer: &mut [u8], optionflags:
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryActCtxSettingsW<'a, P0, P1, P2>(dwflags: u32, hactctx: P0, settingsnamespace: P1, settingname: P2, pvbuffer: ::core::option::Option<&mut [u8]>, pdwwrittenorrequired: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
+pub unsafe fn QueryActCtxSettingsW<'a, P0, P1, P2>(dwflags: u32, hactctx: P0, settingsnamespace: P1, settingname: P2, pvbuffer: ::windows::core::PWSTR, pdwwrittenorrequired: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4050,7 +4050,7 @@ where
     extern "system" {
         fn QueryActCtxSettingsW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, settingsnamespace: ::windows::core::PCWSTR, settingname: ::windows::core::PCWSTR, pvbuffer: ::windows::core::PWSTR, dwbuffer: usize, pdwwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL;
     }
-    QueryActCtxSettingsW(dwflags, hactctx.into(), settingsnamespace.into(), settingname.into(), ::core::mem::transmute(pvbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwwrittenorrequired.unwrap_or(::std::ptr::null_mut())))
+    QueryActCtxSettingsW(dwflags, hactctx.into(), settingsnamespace.into(), settingname.into(), ::core::mem::transmute(pvbuffer), pvbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwwrittenorrequired.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -1437,12 +1437,12 @@ pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LO
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExtCreateRegion(lpx: ::core::option::Option<*const XFORM>, lpdata: &[u8]) -> HRGN {
+pub unsafe fn ExtCreateRegion(lpx: ::core::option::Option<*const XFORM>, lpdata: *const RGNDATA) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGNDATA) -> HRGN;
     }
-    ExtCreateRegion(::core::mem::transmute(lpx.unwrap_or(::std::ptr::null())), lpdata.len() as _, ::core::mem::transmute(lpdata.as_ptr()))
+    ExtCreateRegion(::core::mem::transmute(lpx.unwrap_or(::std::ptr::null())), lpdata.len() as _, ::core::mem::transmute(lpdata))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2189,7 +2189,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetEnhMetaFileHeader<'a, P0>(hemf: P0, lpenhmetaheader: ::core::option::Option<&mut [u8]>) -> u32
+pub unsafe fn GetEnhMetaFileHeader<'a, P0>(hemf: P0, lpenhmetaheader: ::core::option::Option<*mut ENHMETAHEADER>) -> u32
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
 {
@@ -2197,7 +2197,7 @@ where
     extern "system" {
         fn GetEnhMetaFileHeader(hemf: HENHMETAFILE, nsize: u32, lpenhmetaheader: *mut ENHMETAHEADER) -> u32;
     }
-    GetEnhMetaFileHeader(hemf.into(), lpenhmetaheader.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpenhmetaheader.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    GetEnhMetaFileHeader(hemf.into(), lpenhmetaheader.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpenhmetaheader.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -2524,7 +2524,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetOutlineTextMetricsA<'a, P0>(hdc: P0, potm: ::core::option::Option<&mut [u8]>) -> u32
+pub unsafe fn GetOutlineTextMetricsA<'a, P0>(hdc: P0, potm: ::core::option::Option<*mut OUTLINETEXTMETRICA>) -> u32
 where
     P0: ::std::convert::Into<HDC>,
 {
@@ -2532,12 +2532,12 @@ where
     extern "system" {
         fn GetOutlineTextMetricsA(hdc: HDC, cjcopy: u32, potm: *mut OUTLINETEXTMETRICA) -> u32;
     }
-    GetOutlineTextMetricsA(hdc.into(), potm.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(potm.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    GetOutlineTextMetricsA(hdc.into(), potm.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(potm.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetOutlineTextMetricsW<'a, P0>(hdc: P0, potm: ::core::option::Option<&mut [u8]>) -> u32
+pub unsafe fn GetOutlineTextMetricsW<'a, P0>(hdc: P0, potm: ::core::option::Option<*mut OUTLINETEXTMETRICW>) -> u32
 where
     P0: ::std::convert::Into<HDC>,
 {
@@ -2545,7 +2545,7 @@ where
     extern "system" {
         fn GetOutlineTextMetricsW(hdc: HDC, cjcopy: u32, potm: *mut OUTLINETEXTMETRICW) -> u32;
     }
-    GetOutlineTextMetricsW(hdc.into(), potm.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(potm.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    GetOutlineTextMetricsW(hdc.into(), potm.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(potm.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -2625,17 +2625,17 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRasterizerCaps(lpraststat: &mut [u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32) -> super::super::Foundation::BOOL;
     }
-    GetRasterizerCaps(::core::mem::transmute(lpraststat.as_ptr()), lpraststat.len() as _)
+    GetRasterizerCaps(::core::mem::transmute(lpraststat), lpraststat.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRegionData<'a, P0>(hrgn: P0, lprgndata: ::core::option::Option<&mut [u8]>) -> u32
+pub unsafe fn GetRegionData<'a, P0>(hrgn: P0, lprgndata: ::core::option::Option<*mut RGNDATA>) -> u32
 where
     P0: ::std::convert::Into<HRGN>,
 {
@@ -2643,7 +2643,7 @@ where
     extern "system" {
         fn GetRegionData(hrgn: HRGN, ncount: u32, lprgndata: *mut RGNDATA) -> u32;
     }
-    GetRegionData(hrgn.into(), lprgndata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lprgndata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    GetRegionData(hrgn.into(), lprgndata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lprgndata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

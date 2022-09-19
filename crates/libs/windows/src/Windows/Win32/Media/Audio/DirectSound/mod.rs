@@ -604,8 +604,8 @@ impl IDirectSoundBuffer {
     pub unsafe fn GetCurrentPosition(&self, pdwcurrentplaycursor: ::core::option::Option<*mut u32>, pdwcurrentwritecursor: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcurrentplaycursor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwcurrentwritecursor.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut [u8]>, pdwsizewritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<*mut super::WAVEFORMATEX>, pdwsizewritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.unwrap_or(::std::ptr::null_mut())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetVolume(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -729,8 +729,8 @@ impl IDirectSoundBuffer8 {
     pub unsafe fn GetCurrentPosition(&self, pdwcurrentplaycursor: ::core::option::Option<*mut u32>, pdwcurrentwritecursor: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcurrentplaycursor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwcurrentwritecursor.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut [u8]>, pdwsizewritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<*mut super::WAVEFORMATEX>, pdwsizewritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.unwrap_or(::std::ptr::null_mut())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetVolume(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -924,8 +924,8 @@ impl IDirectSoundCaptureBuffer {
     pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: ::core::option::Option<*mut u32>, pdwreadposition: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcaptureposition.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwreadposition.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut [u8]>, pdwsizewritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<*mut super::WAVEFORMATEX>, pdwsizewritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.unwrap_or(::std::ptr::null_mut())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1010,8 +1010,8 @@ impl IDirectSoundCaptureBuffer8 {
     pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: ::core::option::Option<*mut u32>, pdwreadposition: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetCurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcaptureposition.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwreadposition.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<&mut [u8]>, pdwsizewritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: ::core::option::Option<*mut super::WAVEFORMATEX>, pdwsizewritten: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwfxformat.unwrap_or(::std::ptr::null_mut())), pwfxformat.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwsizewritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
