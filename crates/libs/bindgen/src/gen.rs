@@ -912,7 +912,16 @@ impl<'a> Gen<'a> {
                                     quote! { ::core::mem::transmute_copy(#name), }
                                 }
                             } else {
-                                quote! { ::core::mem::transmute(#name), }
+                                if param.ty.is_pointer() && self.reader.param_flags(param.def).optional() {
+                                    let flags = self.reader.param_flags(param.def);
+                                    if flags.output() {
+                                        quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
+                                    } else {
+                                        quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
+                                    }
+                                } else {
+                                    quote! { ::core::mem::transmute(#name), }
+                                }
                             }
                         }
                     }
@@ -997,25 +1006,11 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
-            if param.ty.is_pointer() && !param.ty.is_void() && param.array_info != ArrayInfo::Removed {
-                let param_flags = self.reader.param_flags(param.def);
-                let kind = self.type_default_name(&param.ty.deref());
-                let kind = if param_flags.output() {
-                    quote! { &mut #kind }
-                } else {
-                    quote! { &#kind }
-                };
-                if self.reader.param_flags(param.def).optional() {
-                    tokens.combine(&quote! { #name: ::core::option::Option<#kind>, });
-                } else {
-                    tokens.combine(&quote! { #name: #kind, });
-                }
-                continue;
-            }
-
             let kind = self.type_default_name(&param.ty);
 
-            if self.reader.type_is_blittable(&param.ty) {
+            if param.ty.is_pointer() && self.reader.param_flags(param.def).optional() {
+                tokens.combine(&quote! { #name: ::core::option::Option<#kind>, });
+            } else if self.reader.type_is_blittable(&param.ty) {
                 tokens.combine(&quote! { #name: #kind, });
             } else {
                 tokens.combine(&quote! { #name: &#kind, });
