@@ -911,17 +911,15 @@ impl<'a> Gen<'a> {
                                 } else {
                                     quote! { ::core::mem::transmute_copy(#name), }
                                 }
-                            } else {
-                                if param.ty.is_pointer() && self.reader.param_flags(param.def).optional() {
-                                    let flags = self.reader.param_flags(param.def);
-                                    if flags.output() {
-                                        quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
-                                    } else {
-                                        quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
-                                    }
+                            } else if param.ty.is_pointer() && self.reader.param_flags(param.def).optional() {
+                                let flags = self.reader.param_flags(param.def);
+                                if flags.output() {
+                                    quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
                                 } else {
-                                    quote! { ::core::mem::transmute(#name), }
+                                    quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
                                 }
+                            } else {
+                                quote! { ::core::mem::transmute(#name), }
                             }
                         }
                     }
