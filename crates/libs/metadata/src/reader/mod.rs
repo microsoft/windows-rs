@@ -48,7 +48,6 @@ pub enum ArrayInfo {
     RelativeByteLen(usize),
     RelativePtr(usize),
     None,
-    Removed,
 }
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -542,6 +541,18 @@ impl<'a> Reader<'a> {
             })
             .collect();
 
+        // Remove any byte arrays that aren't byte-sized types.
+        for position in 0..params.len() {
+            match params[position].array_info {
+                ArrayInfo::RelativeByteLen(_) => {
+                    if !params[position].ty.is_byte_size() {
+                        params[position].array_info = ArrayInfo::None
+                    }
+                }
+                _ => {}
+            }
+        }
+
         for position in 0..params.len() {
             // Point len params back to the corresponding ptr params.
             match params[position].array_info {
@@ -550,24 +561,12 @@ impl<'a> Reader<'a> {
                     if !self.param_flags(params[relative].def).output() && position != relative && !params[relative].ty.is_pointer() {
                         params[relative].array_info = ArrayInfo::RelativePtr(position);
                     } else {
-                        params[position].array_info = ArrayInfo::Removed;
+                        params[position].array_info = ArrayInfo::None;
                     }
                 }
                 ArrayInfo::Fixed(_) => {
                     if self.param_free_with(params[position].def).is_some() {
-                        params[position].array_info = ArrayInfo::Removed;
-                    }
-                }
-                _ => {}
-            }
-        }
-
-        // Remove any byte arrays that aren't byte-sized types.
-        for position in 0..params.len() {
-            match params[position].array_info {
-                ArrayInfo::RelativeByteLen(_) => {
-                    if !params[position].ty.is_byte_size() {
-                        params[position].array_info = ArrayInfo::Removed
+                        params[position].array_info = ArrayInfo::None;
                     }
                 }
                 _ => {}
@@ -589,9 +588,9 @@ impl<'a> Reader<'a> {
         // Remove all sets.
         for (len, ptrs) in sets {
             if ptrs.len() > 1 {
-                params[len].array_info = ArrayInfo::Removed;
+                params[len].array_info = ArrayInfo::None;
                 for ptr in ptrs {
-                    params[ptr].array_info = ArrayInfo::Removed;
+                    params[ptr].array_info = ArrayInfo::None;
                 }
             }
         }
