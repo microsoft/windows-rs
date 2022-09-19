@@ -553,6 +553,11 @@ impl<'a> Reader<'a> {
                         params[position].array_info = ArrayInfo::Removed;
                     }
                 }
+                ArrayInfo::Fixed(_) => {
+                    if self.param_free_with(params[position].def).is_some() {
+                        params[position].array_info = ArrayInfo::Removed;
+                    }
+                }
                 _ => {}
             }
         }

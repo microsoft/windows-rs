@@ -940,22 +940,20 @@ impl<'a> Gen<'a> {
             let name = self.param_name(param.def);
 
             if let ArrayInfo::Fixed(fixed) = param.array_info {
-                if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
-                    let ty = param.ty.deref();
-                    let ty = self.type_default_name(&ty);
-                    let len = Literal::u32_unsuffixed(fixed as _);
-                    let ty = if self.reader.param_flags(param.def).output() {
-                        quote! { &mut [#ty; #len] }
-                    } else {
-                        quote! { &[#ty; #len] }
-                    };
-                    if self.reader.param_flags(param.def).optional() {
-                        tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
-                    } else {
-                        tokens.combine(&quote! { #name: #ty, });
-                    }
-                    continue;
+                let ty = param.ty.deref();
+                let ty = self.type_default_name(&ty);
+                let len = Literal::u32_unsuffixed(fixed as _);
+                let ty = if self.reader.param_flags(param.def).output() {
+                    quote! { &mut [#ty; #len] }
+                } else {
+                    quote! { &[#ty; #len] }
+                };
+                if self.reader.param_flags(param.def).optional() {
+                    tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                } else {
+                    tokens.combine(&quote! { #name: #ty, });
                 }
+                continue;
             }
 
             if let ArrayInfo::RelativeLen(_) = param.array_info {
