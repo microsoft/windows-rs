@@ -125,7 +125,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn GetStateInteractionContext<'a, P0>(interactioncontext: P0, pointerinfo: ::core::option::Option<&super::Input::Pointer::POINTER_INFO>) -> ::windows::core::Result<INTERACTION_STATE>
+pub unsafe fn GetStateInteractionContext<'a, P0>(interactioncontext: P0, pointerinfo: ::core::option::Option<*const super::Input::Pointer::POINTER_INFO>) -> ::windows::core::Result<INTERACTION_STATE>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -134,7 +134,7 @@ where
         fn GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: *const super::Input::Pointer::POINTER_INFO, state: *mut INTERACTION_STATE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetStateInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INTERACTION_STATE>(result__)
+    GetStateInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INTERACTION_STATE>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -189,7 +189,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ProcessPointerFramesInteractionContext<'a, P0>(interactioncontext: P0, entriescount: u32, pointercount: u32, pointerinfo: &super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()>
+pub unsafe fn ProcessPointerFramesInteractionContext<'a, P0>(interactioncontext: P0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -202,7 +202,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext<'a, P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn RegisterOutputCallbackInteractionContext<'a, P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -210,12 +210,12 @@ where
     extern "system" {
         fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: *mut ::core::ffi::c_void, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    RegisterOutputCallbackInteractionContext(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata)).ok()
+    RegisterOutputCallbackInteractionContext(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
@@ -223,7 +223,7 @@ where
     extern "system" {
         fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: *mut ::core::ffi::c_void, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    RegisterOutputCallbackInteractionContext2(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata)).ok()
+    RegisterOutputCallbackInteractionContext2(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]

@@ -4,10 +4,10 @@ pub struct ISideShowBulkCapabilities(::windows::core::IUnknown);
 impl ISideShowBulkCapabilities {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn GetCapability(&self, in_keycapability: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: &mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
     }
-    pub unsafe fn GetCapabilities<'a, P0>(&self, in_keycollection: P0, inout_pvalues: &mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>
+    pub unsafe fn GetCapabilities<'a, P0>(&self, in_keycollection: P0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowKeyCollection>>,
     {
@@ -76,7 +76,7 @@ pub struct ISideShowCapabilities(::windows::core::IUnknown);
 impl ISideShowCapabilities {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn GetCapability(&self, in_keycapability: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: &mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
     }
 }
@@ -183,7 +183,7 @@ pub struct ISideShowCapabilitiesCollection_Vtbl {
 #[repr(transparent)]
 pub struct ISideShowContent(::windows::core::IUnknown);
 impl ISideShowContent {
-    pub unsafe fn GetContent<'a, P0>(&self, in_picapabilities: P0, out_pdwsize: &mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>
+    pub unsafe fn GetContent<'a, P0>(&self, in_picapabilities: P0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
     {
@@ -395,7 +395,7 @@ pub struct ISideShowKeyCollection(::windows::core::IUnknown);
 impl ISideShowKeyCollection {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn Add(&self, key: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
+    pub unsafe fn Add(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key)).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -403,10 +403,10 @@ impl ISideShowKeyCollection {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn GetAt(&self, dwindex: u32, pkey: &mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAt(&self, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pkey)).ok()
     }
-    pub unsafe fn GetCount(&self, pcelems: &u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelems)).ok()
     }
     pub unsafe fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()> {
@@ -517,8 +517,8 @@ impl ISideShowNotification {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExpirationTime(&self, in_ptime: ::core::option::Option<&super::super::Foundation::SYSTEMTIME>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExpirationTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_ptime)).ok()
+    pub unsafe fn SetExpirationTime(&self, in_ptime: ::core::option::Option<*const super::super::Foundation::SYSTEMTIME>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExpirationTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_ptime.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 impl ::core::convert::From<ISideShowNotification> for ::windows::core::IUnknown {
@@ -649,7 +649,7 @@ pub struct ISideShowPropVariantCollection(::windows::core::IUnknown);
 impl ISideShowPropVariantCollection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Add(&self, pvalue: &super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn Add(&self, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvalue)).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -657,10 +657,10 @@ impl ISideShowPropVariantCollection {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetAt(&self, dwindex: u32, pvalue: &mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAt(&self, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pvalue)).ok()
     }
-    pub unsafe fn GetCount(&self, pcelems: &u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelems)).ok()
     }
     pub unsafe fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()> {
@@ -722,11 +722,11 @@ pub struct ISideShowPropVariantCollection_Vtbl {
 #[repr(transparent)]
 pub struct ISideShowSession(::windows::core::IUnknown);
 impl ISideShowSession {
-    pub unsafe fn RegisterContent(&self, in_applicationid: &::windows::core::GUID, in_endpointid: &::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager> {
+    pub unsafe fn RegisterContent(&self, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RegisterContent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_applicationid), ::core::mem::transmute(in_endpointid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISideShowContentManager>(result__)
     }
-    pub unsafe fn RegisterNotifications(&self, in_applicationid: &::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager> {
+    pub unsafe fn RegisterNotifications(&self, in_applicationid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RegisterNotifications)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_applicationid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISideShowNotificationManager>(result__)
     }

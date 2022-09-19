@@ -27,7 +27,7 @@ where
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CancelIoEx<'a, P0>(hfile: P0, lpoverlapped: ::core::option::Option<&OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn CancelIoEx<'a, P0>(hfile: P0, lpoverlapped: ::core::option::Option<*const OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -35,7 +35,7 @@ where
     extern "system" {
         fn CancelIoEx(hfile: super::super::Foundation::HANDLE, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    CancelIoEx(hfile.into(), ::core::mem::transmute(lpoverlapped))
+    CancelIoEx(hfile.into(), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -68,7 +68,7 @@ where
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeviceIoControl<'a, P0>(hdevice: P0, dwiocontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<&mut u32>, lpoverlapped: ::core::option::Option<&mut OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn DeviceIoControl<'a, P0>(hdevice: P0, dwiocontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>, lpoverlapped: ::core::option::Option<*mut OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -76,12 +76,21 @@ where
     extern "system" {
         fn DeviceIoControl(hdevice: super::super::Foundation::HANDLE, dwiocontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    DeviceIoControl(hdevice.into(), dwiocontrolcode, ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped))
+    DeviceIoControl(
+        hdevice.into(),
+        dwiocontrolcode,
+        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
+        ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())),
+    )
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetOverlappedResult<'a, P0, P1>(hfile: P0, lpoverlapped: &OVERLAPPED, lpnumberofbytestransferred: &mut u32, bwait: P1) -> super::super::Foundation::BOOL
+pub unsafe fn GetOverlappedResult<'a, P0, P1>(hfile: P0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -95,7 +104,7 @@ where
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetOverlappedResultEx<'a, P0, P1>(hfile: P0, lpoverlapped: &OVERLAPPED, lpnumberofbytestransferred: &mut u32, dwmilliseconds: u32, balertable: P1) -> super::super::Foundation::BOOL
+pub unsafe fn GetOverlappedResultEx<'a, P0, P1>(hfile: P0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, dwmilliseconds: u32, balertable: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -109,7 +118,7 @@ where
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetQueuedCompletionStatus<'a, P0>(completionport: P0, lpnumberofbytestransferred: &mut u32, lpcompletionkey: &mut usize, lpoverlapped: &mut *mut OVERLAPPED, dwmilliseconds: u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetQueuedCompletionStatus<'a, P0>(completionport: P0, lpnumberofbytestransferred: *mut u32, lpcompletionkey: *mut usize, lpoverlapped: *mut *mut OVERLAPPED, dwmilliseconds: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -122,7 +131,7 @@ where
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetQueuedCompletionStatusEx<'a, P0, P1>(completionport: P0, lpcompletionportentries: &mut [OVERLAPPED_ENTRY], ulnumentriesremoved: &mut u32, dwmilliseconds: u32, falertable: P1) -> super::super::Foundation::BOOL
+pub unsafe fn GetQueuedCompletionStatusEx<'a, P0, P1>(completionport: P0, lpcompletionportentries: &mut [OVERLAPPED_ENTRY], ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -136,7 +145,7 @@ where
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PostQueuedCompletionStatus<'a, P0>(completionport: P0, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: ::core::option::Option<&OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn PostQueuedCompletionStatus<'a, P0>(completionport: P0, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: ::core::option::Option<*const OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -144,7 +153,7 @@ where
     extern "system" {
         fn PostQueuedCompletionStatus(completionport: super::super::Foundation::HANDLE, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    PostQueuedCompletionStatus(completionport.into(), dwnumberofbytestransferred, dwcompletionkey, ::core::mem::transmute(lpoverlapped))
+    PostQueuedCompletionStatus(completionport.into(), dwnumberofbytestransferred, dwcompletionkey, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null())))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]

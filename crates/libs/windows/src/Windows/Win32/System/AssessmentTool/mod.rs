@@ -81,7 +81,7 @@ impl IAccessibleWinSAT {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accHelpTopic<'a, P0>(&self, pszhelpfile: &mut ::windows::core::BSTR, varchild: P0, pidtopic: &mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn get_accHelpTopic<'a, P0>(&self, pszhelpfile: *mut ::windows::core::BSTR, varchild: P0, pidtopic: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
     {
@@ -127,7 +127,7 @@ impl IAccessibleWinSAT {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn accLocation<'a, P0>(&self, pxleft: &mut i32, pytop: &mut i32, pcxwidth: &mut i32, pcyheight: &mut i32, varchild: P0) -> ::windows::core::Result<()>
+    pub unsafe fn accLocation<'a, P0>(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
     {

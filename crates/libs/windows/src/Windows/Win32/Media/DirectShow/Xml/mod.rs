@@ -11,7 +11,7 @@ impl IXMLGraphBuilder {
     {
         (::windows::core::Interface::vtable(self).BuildFromXML)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), pxml.into().abi()).ok()
     }
-    pub unsafe fn SaveToXML<'a, P0>(&self, pgraph: P0, pbstrxml: &mut ::windows::core::BSTR) -> ::windows::core::Result<()>
+    pub unsafe fn SaveToXML<'a, P0>(&self, pgraph: P0, pbstrxml: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>,
     {

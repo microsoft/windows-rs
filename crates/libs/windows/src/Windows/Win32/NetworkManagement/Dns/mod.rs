@@ -1,25 +1,25 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: &mut DnsContextHandle) -> i32 {
+pub unsafe fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: ::core::option::Option<*const ::core::ffi::c_void>, pcontext: *mut DnsContextHandle) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32;
     }
-    DnsAcquireContextHandle_A(credentialflags, ::core::mem::transmute(credentials), ::core::mem::transmute(pcontext))
+    DnsAcquireContextHandle_A(credentialflags, ::core::mem::transmute(credentials.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pcontext))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: &mut DnsContextHandle) -> i32 {
+pub unsafe fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: ::core::option::Option<*const ::core::ffi::c_void>, pcontext: *mut DnsContextHandle) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32;
     }
-    DnsAcquireContextHandle_W(credentialflags, ::core::mem::transmute(credentials), ::core::mem::transmute(pcontext))
+    DnsAcquireContextHandle_W(credentialflags, ::core::mem::transmute(credentials.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pcontext))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsCancelQuery(pcancelhandle: &DNS_QUERY_CANCEL) -> i32 {
+pub unsafe fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32;
@@ -49,7 +49,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsConnectionFreeNameList(pnamelist: &mut DNS_CONNECTION_NAME_LIST) {
+pub unsafe fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST);
@@ -58,7 +58,7 @@ pub unsafe fn DnsConnectionFreeNameList(pnamelist: &mut DNS_CONNECTION_NAME_LIST
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: &mut DNS_CONNECTION_PROXY_INFO) {
+pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO);
@@ -68,7 +68,7 @@ pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: &mut DNS_CONNECTION_PROXY_I
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: &mut DNS_CONNECTION_PROXY_INFO_EX) {
+pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX);
@@ -77,7 +77,7 @@ pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: &mut DNS_CONNECTION_PRO
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsConnectionFreeProxyList(pproxylist: &mut DNS_CONNECTION_PROXY_LIST) {
+pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST);
@@ -86,7 +86,7 @@ pub unsafe fn DnsConnectionFreeProxyList(pproxylist: &mut DNS_CONNECTION_PROXY_L
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsConnectionGetNameList(pnamelist: &mut DNS_CONNECTION_NAME_LIST) -> u32 {
+pub unsafe fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) -> u32;
@@ -95,7 +95,7 @@ pub unsafe fn DnsConnectionGetNameList(pnamelist: &mut DNS_CONNECTION_NAME_LIST)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsConnectionGetProxyInfo<'a, P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: &mut DNS_CONNECTION_PROXY_INFO) -> u32
+pub unsafe fn DnsConnectionGetProxyInfo<'a, P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -108,7 +108,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<'a, P0>(pwszhosturl: P0, pselectioncontext: ::core::option::Option<&[u8]>, dwexplicitinterfaceindex: u32, pproxyinfoex: &mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
+pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<'a, P0>(pwszhosturl: P0, pselectioncontext: ::core::option::Option<&[u8]>, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -120,7 +120,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsConnectionGetProxyList<'a, P0>(pwszconnectionname: P0, pproxylist: &mut DNS_CONNECTION_PROXY_LIST) -> u32
+pub unsafe fn DnsConnectionGetProxyList<'a, P0>(pwszconnectionname: P0, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -132,7 +132,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: &DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32 {
+pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32;
@@ -141,7 +141,7 @@ pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLIC
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsConnectionSetProxyInfo<'a, P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: &DNS_CONNECTION_PROXY_INFO) -> u32
+pub unsafe fn DnsConnectionSetProxyInfo<'a, P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *const DNS_CONNECTION_PROXY_INFO) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -153,7 +153,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: &DNS_CONNECTION_IFINDEX_LIST) -> u32 {
+pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST) -> u32;
@@ -163,7 +163,7 @@ pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: &DNS_CO
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: &DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: &mut *mut DNS_RECORDA) -> i32 {
+pub unsafe fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32;
@@ -173,7 +173,7 @@ pub unsafe fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: &DNS_MESSAGE_BUFFER,
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsExtractRecordsFromMessage_W(pdnsbuffer: &DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: &mut *mut DNS_RECORDA) -> i32 {
+pub unsafe fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32;
@@ -182,17 +182,17 @@ pub unsafe fn DnsExtractRecordsFromMessage_W(pdnsbuffer: &DNS_MESSAGE_BUFFER, wm
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsFree(pdata: *const ::core::ffi::c_void, freetype: DNS_FREE_TYPE) {
+pub unsafe fn DnsFree(pdata: ::core::option::Option<*const ::core::ffi::c_void>, freetype: DNS_FREE_TYPE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsFree(pdata: *const ::core::ffi::c_void, freetype: DNS_FREE_TYPE);
     }
-    DnsFree(::core::mem::transmute(pdata), freetype)
+    DnsFree(::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), freetype)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsFreeCustomServers(pcservers: &mut u32, ppservers: &mut *mut DNS_CUSTOM_SERVER) {
+pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER);
@@ -211,16 +211,16 @@ pub unsafe fn DnsFreeProxyName(proxyname: ::windows::core::PCWSTR) {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsGetApplicationSettings(pcservers: &mut u32, ppdefaultservers: &mut *mut DNS_CUSTOM_SERVER, psettings: ::core::option::Option<&mut DNS_APPLICATION_SETTINGS>) -> u32 {
+pub unsafe fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER, psettings: ::core::option::Option<*mut DNS_APPLICATION_SETTINGS>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER, psettings: *mut DNS_APPLICATION_SETTINGS) -> u32;
     }
-    DnsGetApplicationSettings(::core::mem::transmute(pcservers), ::core::mem::transmute(ppdefaultservers), ::core::mem::transmute(psettings))
+    DnsGetApplicationSettings(::core::mem::transmute(pcservers), ::core::mem::transmute(ppdefaultservers), ::core::mem::transmute(psettings.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsGetProxyInformation<'a, P0>(hostname: P0, proxyinformation: &mut DNS_PROXY_INFORMATION, defaultproxyinformation: ::core::option::Option<&mut DNS_PROXY_INFORMATION>, completionroutine: DNS_PROXY_COMPLETION_ROUTINE, completioncontext: *const ::core::ffi::c_void) -> u32
+pub unsafe fn DnsGetProxyInformation<'a, P0>(hostname: P0, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: ::core::option::Option<*mut DNS_PROXY_INFORMATION>, completionroutine: DNS_PROXY_COMPLETION_ROUTINE, completioncontext: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -228,12 +228,12 @@ where
     extern "system" {
         fn DnsGetProxyInformation(hostname: ::windows::core::PCWSTR, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: *mut ::core::ffi::c_void, completioncontext: *const ::core::ffi::c_void) -> u32;
     }
-    DnsGetProxyInformation(hostname.into(), ::core::mem::transmute(proxyinformation), ::core::mem::transmute(defaultproxyinformation), ::core::mem::transmute(completionroutine), ::core::mem::transmute(completioncontext))
+    DnsGetProxyInformation(hostname.into(), ::core::mem::transmute(proxyinformation), ::core::mem::transmute(defaultproxyinformation.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(completionroutine), ::core::mem::transmute(completioncontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsModifyRecordsInSet_A<'a, P0>(paddrecords: ::core::option::Option<&DNS_RECORDA>, pdeleterecords: ::core::option::Option<&DNS_RECORDA>, options: u32, hcredentials: P0, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn DnsModifyRecordsInSet_A<'a, P0>(paddrecords: ::core::option::Option<*const DNS_RECORDA>, pdeleterecords: ::core::option::Option<*const DNS_RECORDA>, options: u32, hcredentials: P0, pextralist: ::core::option::Option<*mut ::core::ffi::c_void>, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -241,12 +241,12 @@ where
     extern "system" {
         fn DnsModifyRecordsInSet_A(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
     }
-    DnsModifyRecordsInSet_A(::core::mem::transmute(paddrecords), ::core::mem::transmute(pdeleterecords), options, hcredentials.into(), ::core::mem::transmute(pextralist), ::core::mem::transmute(preserved))
+    DnsModifyRecordsInSet_A(::core::mem::transmute(paddrecords.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdeleterecords.unwrap_or(::std::ptr::null())), options, hcredentials.into(), ::core::mem::transmute(pextralist.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsModifyRecordsInSet_UTF8<'a, P0>(paddrecords: ::core::option::Option<&DNS_RECORDA>, pdeleterecords: ::core::option::Option<&DNS_RECORDA>, options: u32, hcredentials: P0, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn DnsModifyRecordsInSet_UTF8<'a, P0>(paddrecords: ::core::option::Option<*const DNS_RECORDA>, pdeleterecords: ::core::option::Option<*const DNS_RECORDA>, options: u32, hcredentials: P0, pextralist: ::core::option::Option<*mut ::core::ffi::c_void>, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -254,12 +254,12 @@ where
     extern "system" {
         fn DnsModifyRecordsInSet_UTF8(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
     }
-    DnsModifyRecordsInSet_UTF8(::core::mem::transmute(paddrecords), ::core::mem::transmute(pdeleterecords), options, hcredentials.into(), ::core::mem::transmute(pextralist), ::core::mem::transmute(preserved))
+    DnsModifyRecordsInSet_UTF8(::core::mem::transmute(paddrecords.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdeleterecords.unwrap_or(::std::ptr::null())), options, hcredentials.into(), ::core::mem::transmute(pextralist.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsModifyRecordsInSet_W<'a, P0>(paddrecords: ::core::option::Option<&DNS_RECORDA>, pdeleterecords: ::core::option::Option<&DNS_RECORDA>, options: u32, hcredentials: P0, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn DnsModifyRecordsInSet_W<'a, P0>(paddrecords: ::core::option::Option<*const DNS_RECORDA>, pdeleterecords: ::core::option::Option<*const DNS_RECORDA>, options: u32, hcredentials: P0, pextralist: ::core::option::Option<*mut ::core::ffi::c_void>, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -267,7 +267,7 @@ where
     extern "system" {
         fn DnsModifyRecordsInSet_W(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
     }
-    DnsModifyRecordsInSet_W(::core::mem::transmute(paddrecords), ::core::mem::transmute(pdeleterecords), options, hcredentials.into(), ::core::mem::transmute(pextralist), ::core::mem::transmute(preserved))
+    DnsModifyRecordsInSet_W(::core::mem::transmute(paddrecords.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdeleterecords.unwrap_or(::std::ptr::null())), options, hcredentials.into(), ::core::mem::transmute(pextralist.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -299,7 +299,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsQueryConfig<'a, P0>(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: P0, preserved: *const ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void, pbuflen: &mut u32) -> i32
+pub unsafe fn DnsQueryConfig<'a, P0>(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: P0, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, pbuflen: *mut u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -307,22 +307,22 @@ where
     extern "system" {
         fn DnsQueryConfig(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: ::windows::core::PCWSTR, preserved: *const ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void, pbuflen: *mut u32) -> i32;
     }
-    DnsQueryConfig(config, flag, pwsadaptername.into(), ::core::mem::transmute(preserved), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pbuflen))
+    DnsQueryConfig(config, flag, pwsadaptername.into(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbuflen))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsQueryEx(pqueryrequest: &DNS_QUERY_REQUEST, pqueryresults: &mut DNS_QUERY_RESULT, pcancelhandle: ::core::option::Option<&mut DNS_QUERY_CANCEL>) -> i32 {
+pub unsafe fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: ::core::option::Option<*mut DNS_QUERY_CANCEL>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: *mut DNS_QUERY_CANCEL) -> i32;
     }
-    DnsQueryEx(::core::mem::transmute(pqueryrequest), ::core::mem::transmute(pqueryresults), ::core::mem::transmute(pcancelhandle))
+    DnsQueryEx(::core::mem::transmute(pqueryrequest), ::core::mem::transmute(pqueryresults), ::core::mem::transmute(pcancelhandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsQuery_A<'a, P0>(pszname: P0, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: ::core::option::Option<&mut *mut DNS_RECORDA>, preserved: *mut *mut ::core::ffi::c_void) -> i32
+pub unsafe fn DnsQuery_A<'a, P0>(pszname: P0, wtype: u16, options: u32, pextra: ::core::option::Option<*mut ::core::ffi::c_void>, ppqueryresults: ::core::option::Option<*mut *mut DNS_RECORDA>, preserved: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -330,12 +330,12 @@ where
     extern "system" {
         fn DnsQuery_A(pszname: ::windows::core::PCSTR, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32;
     }
-    DnsQuery_A(pszname.into(), wtype, options, ::core::mem::transmute(pextra), ::core::mem::transmute(ppqueryresults), ::core::mem::transmute(preserved))
+    DnsQuery_A(pszname.into(), wtype, options, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppqueryresults.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsQuery_UTF8<'a, P0>(pszname: P0, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: ::core::option::Option<&mut *mut DNS_RECORDA>, preserved: *mut *mut ::core::ffi::c_void) -> i32
+pub unsafe fn DnsQuery_UTF8<'a, P0>(pszname: P0, wtype: u16, options: u32, pextra: ::core::option::Option<*mut ::core::ffi::c_void>, ppqueryresults: ::core::option::Option<*mut *mut DNS_RECORDA>, preserved: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -343,12 +343,12 @@ where
     extern "system" {
         fn DnsQuery_UTF8(pszname: ::windows::core::PCSTR, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32;
     }
-    DnsQuery_UTF8(pszname.into(), wtype, options, ::core::mem::transmute(pextra), ::core::mem::transmute(ppqueryresults), ::core::mem::transmute(preserved))
+    DnsQuery_UTF8(pszname.into(), wtype, options, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppqueryresults.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsQuery_W<'a, P0>(pszname: P0, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: ::core::option::Option<&mut *mut DNS_RECORDA>, preserved: *mut *mut ::core::ffi::c_void) -> i32
+pub unsafe fn DnsQuery_W<'a, P0>(pszname: P0, wtype: u16, options: u32, pextra: ::core::option::Option<*mut ::core::ffi::c_void>, ppqueryresults: ::core::option::Option<*mut *mut DNS_RECORDA>, preserved: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -356,12 +356,12 @@ where
     extern "system" {
         fn DnsQuery_W(pszname: ::windows::core::PCWSTR, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32;
     }
-    DnsQuery_W(pszname.into(), wtype, options, ::core::mem::transmute(pextra), ::core::mem::transmute(ppqueryresults), ::core::mem::transmute(preserved))
+    DnsQuery_W(pszname.into(), wtype, options, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppqueryresults.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsRecordCompare(precord1: &DNS_RECORDA, precord2: &DNS_RECORDA) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> super::super::Foundation::BOOL;
@@ -371,7 +371,7 @@ pub unsafe fn DnsRecordCompare(precord1: &DNS_RECORDA, precord2: &DNS_RECORDA) -
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsRecordCopyEx(precord: &DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
+pub unsafe fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA;
@@ -381,17 +381,17 @@ pub unsafe fn DnsRecordCopyEx(precord: &DNS_RECORDA, charsetin: DNS_CHARSET, cha
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsRecordSetCompare(prr1: &mut DNS_RECORDA, prr2: &mut DNS_RECORDA, ppdiff1: ::core::option::Option<&mut *mut DNS_RECORDA>, ppdiff2: ::core::option::Option<&mut *mut DNS_RECORDA>) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: ::core::option::Option<*mut *mut DNS_RECORDA>, ppdiff2: ::core::option::Option<*mut *mut DNS_RECORDA>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: *mut *mut DNS_RECORDA, ppdiff2: *mut *mut DNS_RECORDA) -> super::super::Foundation::BOOL;
     }
-    DnsRecordSetCompare(::core::mem::transmute(prr1), ::core::mem::transmute(prr2), ::core::mem::transmute(ppdiff1), ::core::mem::transmute(ppdiff2))
+    DnsRecordSetCompare(::core::mem::transmute(prr1), ::core::mem::transmute(prr2), ::core::mem::transmute(ppdiff1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdiff2.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsRecordSetCopyEx(precordset: &DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
+pub unsafe fn DnsRecordSetCopyEx(precordset: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsRecordSetCopyEx(precordset: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA;
@@ -401,7 +401,7 @@ pub unsafe fn DnsRecordSetCopyEx(precordset: &DNS_RECORDA, charsetin: DNS_CHARSE
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsRecordSetDetach(precordlist: &mut DNS_RECORDA) -> *mut DNS_RECORDA {
+pub unsafe fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECORDA {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECORDA;
@@ -424,7 +424,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsReplaceRecordSetA<'a, P0>(preplaceset: &DNS_RECORDA, options: u32, hcontext: P0, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn DnsReplaceRecordSetA<'a, P0>(preplaceset: *const DNS_RECORDA, options: u32, hcontext: P0, pextrainfo: ::core::option::Option<*mut ::core::ffi::c_void>, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -432,12 +432,12 @@ where
     extern "system" {
         fn DnsReplaceRecordSetA(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
     }
-    DnsReplaceRecordSetA(::core::mem::transmute(preplaceset), options, hcontext.into(), ::core::mem::transmute(pextrainfo), ::core::mem::transmute(preserved))
+    DnsReplaceRecordSetA(::core::mem::transmute(preplaceset), options, hcontext.into(), ::core::mem::transmute(pextrainfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsReplaceRecordSetUTF8<'a, P0>(preplaceset: &DNS_RECORDA, options: u32, hcontext: P0, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn DnsReplaceRecordSetUTF8<'a, P0>(preplaceset: *const DNS_RECORDA, options: u32, hcontext: P0, pextrainfo: ::core::option::Option<*mut ::core::ffi::c_void>, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -445,12 +445,12 @@ where
     extern "system" {
         fn DnsReplaceRecordSetUTF8(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
     }
-    DnsReplaceRecordSetUTF8(::core::mem::transmute(preplaceset), options, hcontext.into(), ::core::mem::transmute(pextrainfo), ::core::mem::transmute(preserved))
+    DnsReplaceRecordSetUTF8(::core::mem::transmute(preplaceset), options, hcontext.into(), ::core::mem::transmute(pextrainfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsReplaceRecordSetW<'a, P0>(preplaceset: &DNS_RECORDA, options: u32, hcontext: P0, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn DnsReplaceRecordSetW<'a, P0>(preplaceset: *const DNS_RECORDA, options: u32, hcontext: P0, pextrainfo: ::core::option::Option<*mut ::core::ffi::c_void>, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -458,12 +458,12 @@ where
     extern "system" {
         fn DnsReplaceRecordSetW(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
     }
-    DnsReplaceRecordSetW(::core::mem::transmute(preplaceset), options, hcontext.into(), ::core::mem::transmute(pextrainfo), ::core::mem::transmute(preserved))
+    DnsReplaceRecordSetW(::core::mem::transmute(preplaceset), options, hcontext.into(), ::core::mem::transmute(pextrainfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsServiceBrowse(prequest: &DNS_SERVICE_BROWSE_REQUEST, pcancel: &mut DNS_SERVICE_CANCEL) -> i32 {
+pub unsafe fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
@@ -472,7 +472,7 @@ pub unsafe fn DnsServiceBrowse(prequest: &DNS_SERVICE_BROWSE_REQUEST, pcancel: &
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: &DNS_SERVICE_CANCEL) -> i32 {
+pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32;
@@ -481,7 +481,7 @@ pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: &DNS_SERVICE_CANCEL) -> i32 
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsServiceConstructInstance<'a, P0, P1>(pservicename: P0, phostname: P1, pip4: ::core::option::Option<&u32>, pip6: ::core::option::Option<&IP6_ADDRESS>, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows::core::PWSTR, values: *const ::windows::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE
+pub unsafe fn DnsServiceConstructInstance<'a, P0, P1>(pservicename: P0, phostname: P1, pip4: ::core::option::Option<*const u32>, pip6: ::core::option::Option<*const IP6_ADDRESS>, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows::core::PWSTR, values: *const ::windows::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -490,11 +490,11 @@ where
     extern "system" {
         fn DnsServiceConstructInstance(pservicename: ::windows::core::PCWSTR, phostname: ::windows::core::PCWSTR, pip4: *const u32, pip6: *const IP6_ADDRESS, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows::core::PWSTR, values: *const ::windows::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE;
     }
-    DnsServiceConstructInstance(pservicename.into(), phostname.into(), ::core::mem::transmute(pip4), ::core::mem::transmute(pip6), wport, wpriority, wweight, ::core::mem::transmute(dwpropertiescount), ::core::mem::transmute(keys), ::core::mem::transmute(values))
+    DnsServiceConstructInstance(pservicename.into(), phostname.into(), ::core::mem::transmute(pip4.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pip6.unwrap_or(::std::ptr::null())), wport, wpriority, wweight, ::core::mem::transmute(dwpropertiescount), ::core::mem::transmute(keys), ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsServiceCopyInstance(porig: &DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE {
+pub unsafe fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE;
@@ -504,16 +504,16 @@ pub unsafe fn DnsServiceCopyInstance(porig: &DNS_SERVICE_INSTANCE) -> *mut DNS_S
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsServiceDeRegister(prequest: &DNS_SERVICE_REGISTER_REQUEST, pcancel: ::core::option::Option<&mut DNS_SERVICE_CANCEL>) -> u32 {
+pub unsafe fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: ::core::option::Option<*mut DNS_SERVICE_CANCEL>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
     }
-    DnsServiceDeRegister(::core::mem::transmute(prequest), ::core::mem::transmute(pcancel))
+    DnsServiceDeRegister(::core::mem::transmute(prequest), ::core::mem::transmute(pcancel.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsServiceFreeInstance(pinstance: &DNS_SERVICE_INSTANCE) {
+pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE);
@@ -523,16 +523,16 @@ pub unsafe fn DnsServiceFreeInstance(pinstance: &DNS_SERVICE_INSTANCE) {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsServiceRegister(prequest: &DNS_SERVICE_REGISTER_REQUEST, pcancel: ::core::option::Option<&mut DNS_SERVICE_CANCEL>) -> u32 {
+pub unsafe fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: ::core::option::Option<*mut DNS_SERVICE_CANCEL>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
     }
-    DnsServiceRegister(::core::mem::transmute(prequest), ::core::mem::transmute(pcancel))
+    DnsServiceRegister(::core::mem::transmute(prequest), ::core::mem::transmute(pcancel.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: &DNS_SERVICE_CANCEL) -> u32 {
+pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32;
@@ -541,7 +541,7 @@ pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: &DNS_SERVICE_CANCEL) -> u3
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsServiceResolve(prequest: &DNS_SERVICE_RESOLVE_REQUEST, pcancel: &mut DNS_SERVICE_CANCEL) -> i32 {
+pub unsafe fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
@@ -550,7 +550,7 @@ pub unsafe fn DnsServiceResolve(prequest: &DNS_SERVICE_RESOLVE_REQUEST, pcancel:
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsServiceResolveCancel(pcancelhandle: &DNS_SERVICE_CANCEL) -> i32 {
+pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32;
@@ -560,17 +560,17 @@ pub unsafe fn DnsServiceResolveCancel(pcancelhandle: &DNS_SERVICE_CANCEL) -> i32
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsSetApplicationSettings(pservers: &[DNS_CUSTOM_SERVER], psettings: ::core::option::Option<&DNS_APPLICATION_SETTINGS>) -> u32 {
+pub unsafe fn DnsSetApplicationSettings(pservers: &[DNS_CUSTOM_SERVER], psettings: ::core::option::Option<*const DNS_APPLICATION_SETTINGS>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUSTOM_SERVER, psettings: *const DNS_APPLICATION_SETTINGS) -> u32;
     }
-    DnsSetApplicationSettings(pservers.len() as _, ::core::mem::transmute(pservers.as_ptr()), ::core::mem::transmute(psettings))
+    DnsSetApplicationSettings(pservers.len() as _, ::core::mem::transmute(pservers.as_ptr()), ::core::mem::transmute(psettings.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsStartMulticastQuery(pqueryrequest: &MDNS_QUERY_REQUEST, phandle: &mut MDNS_QUERY_HANDLE) -> i32 {
+pub unsafe fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, phandle: *mut MDNS_QUERY_HANDLE) -> i32;
@@ -579,7 +579,7 @@ pub unsafe fn DnsStartMulticastQuery(pqueryrequest: &MDNS_QUERY_REQUEST, phandle
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsStopMulticastQuery(phandle: &mut MDNS_QUERY_HANDLE) -> i32 {
+pub unsafe fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32;
@@ -625,7 +625,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsWriteQuestionToBuffer_UTF8<'a, P0, P1>(pdnsbuffer: &mut DNS_MESSAGE_BUFFER, pdwbuffersize: &mut u32, pszname: P0, wtype: u16, xid: u16, frecursiondesired: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DnsWriteQuestionToBuffer_UTF8<'a, P0, P1>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P0, wtype: u16, xid: u16, frecursiondesired: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -639,7 +639,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsWriteQuestionToBuffer_W<'a, P0, P1>(pdnsbuffer: &mut DNS_MESSAGE_BUFFER, pdwbuffersize: &mut u32, pszname: P0, wtype: u16, xid: u16, frecursiondesired: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DnsWriteQuestionToBuffer_W<'a, P0, P1>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: P0, wtype: u16, xid: u16, frecursiondesired: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,

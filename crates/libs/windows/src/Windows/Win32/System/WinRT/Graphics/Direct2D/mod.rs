@@ -74,7 +74,7 @@ impl IGraphicsEffectD2D1Interop {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEffectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    pub unsafe fn GetNamedPropertyMapping<'a, P0>(&self, name: P0, index: &mut u32, mapping: &mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()>
+    pub unsafe fn GetNamedPropertyMapping<'a, P0>(&self, name: P0, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {

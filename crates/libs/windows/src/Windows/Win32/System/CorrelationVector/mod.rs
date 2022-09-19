@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlExtendCorrelationVector(correlationvector: &mut CORRELATION_VECTOR) -> u32 {
+pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
@@ -11,7 +11,7 @@ pub unsafe fn RtlExtendCorrelationVector(correlationvector: &mut CORRELATION_VEC
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlIncrementCorrelationVector(correlationvector: &mut CORRELATION_VECTOR) -> u32 {
+pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
@@ -21,17 +21,17 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: &mut CORRELATION_
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlInitializeCorrelationVector(correlationvector: &mut CORRELATION_VECTOR, version: i32, guid: ::core::option::Option<&::windows::core::GUID>) -> u32 {
+pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: ::core::option::Option<*const ::windows::core::GUID>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::core::GUID) -> u32;
     }
-    RtlInitializeCorrelationVector(::core::mem::transmute(correlationvector), version, ::core::mem::transmute(guid))
+    RtlInitializeCorrelationVector(::core::mem::transmute(correlationvector), version, ::core::mem::transmute(guid.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlValidateCorrelationVector(vector: &CORRELATION_VECTOR) -> u32 {
+pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32;

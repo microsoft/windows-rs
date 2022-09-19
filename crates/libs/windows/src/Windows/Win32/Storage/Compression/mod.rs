@@ -24,7 +24,7 @@ pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foun
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Compress<'a, P0>(compressorhandle: P0, uncompresseddata: ::core::option::Option<&[u8]>, compressedbuffer: ::core::option::Option<&mut [u8]>, compresseddatasize: &mut usize) -> super::super::Foundation::BOOL
+pub unsafe fn Compress<'a, P0>(compressorhandle: P0, uncompresseddata: ::core::option::Option<&[u8]>, compressedbuffer: ::core::option::Option<&mut [u8]>, compresseddatasize: *mut usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<COMPRESSOR_HANDLE>,
 {
@@ -37,32 +37,32 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<&COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: &mut isize) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<*const COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle: *mut isize) -> super::super::Foundation::BOOL;
     }
-    CreateCompressor(algorithm, ::core::mem::transmute(allocationroutines), ::core::mem::transmute(compressorhandle))
+    CreateCompressor(algorithm, ::core::mem::transmute(allocationroutines.unwrap_or(::std::ptr::null())), ::core::mem::transmute(compressorhandle))
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<&COMPRESS_ALLOCATION_ROUTINES>, decompressorhandle: &mut isize) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<*const COMPRESS_ALLOCATION_ROUTINES>, decompressorhandle: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle: *mut isize) -> super::super::Foundation::BOOL;
     }
-    CreateDecompressor(algorithm, ::core::mem::transmute(allocationroutines), ::core::mem::transmute(decompressorhandle))
+    CreateDecompressor(algorithm, ::core::mem::transmute(allocationroutines.unwrap_or(::std::ptr::null())), ::core::mem::transmute(decompressorhandle))
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: ::core::option::Option<&[u8]>, uncompressedbuffer: ::core::option::Option<&mut [u8]>, uncompresseddatasize: ::core::option::Option<&mut usize>) -> super::super::Foundation::BOOL {
+pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: ::core::option::Option<&[u8]>, uncompressedbuffer: ::core::option::Option<&mut [u8]>, uncompresseddatasize: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Decompress(decompressorhandle: isize, compresseddata: *const ::core::ffi::c_void, compresseddatasize: usize, uncompressedbuffer: *mut ::core::ffi::c_void, uncompressedbuffersize: usize, uncompresseddatasize: *mut usize) -> super::super::Foundation::BOOL;
     }
-    Decompress(decompressorhandle, ::core::mem::transmute(compresseddata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), compresseddata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(uncompressedbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), uncompressedbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(uncompresseddatasize))
+    Decompress(decompressorhandle, ::core::mem::transmute(compresseddata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), compresseddata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(uncompressedbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), uncompressedbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(uncompresseddatasize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

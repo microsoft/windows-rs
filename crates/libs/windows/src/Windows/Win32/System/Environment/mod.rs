@@ -14,7 +14,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateEnclave<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, dwsize: usize, dwinitialcommitment: usize, flenclavetype: u32, lpenclaveinformation: &[u8], lpenclaveerror: ::core::option::Option<&mut u32>) -> *mut ::core::ffi::c_void
+pub unsafe fn CreateEnclave<'a, P0>(hprocess: P0, lpaddress: ::core::option::Option<*const ::core::ffi::c_void>, dwsize: usize, dwinitialcommitment: usize, flenclavetype: u32, lpenclaveinformation: &[u8], lpenclaveerror: ::core::option::Option<*mut u32>) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -22,7 +22,7 @@ where
     extern "system" {
         fn CreateEnclave(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, dwsize: usize, dwinitialcommitment: usize, flenclavetype: u32, lpenclaveinformation: *const ::core::ffi::c_void, dwinfolength: u32, lpenclaveerror: *mut u32) -> *mut ::core::ffi::c_void;
     }
-    CreateEnclave(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, dwinitialcommitment, flenclavetype, ::core::mem::transmute(lpenclaveinformation.as_ptr()), lpenclaveinformation.len() as _, ::core::mem::transmute(lpenclaveerror))
+    CreateEnclave(hprocess.into(), ::core::mem::transmute(lpaddress.unwrap_or(::std::ptr::null())), dwsize, dwinitialcommitment, flenclavetype, ::core::mem::transmute(lpenclaveinformation.as_ptr()), lpenclaveinformation.len() as _, ::core::mem::transmute(lpenclaveerror.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -60,12 +60,12 @@ pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const ::core::ffi::c_void)
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
-pub unsafe fn EnclaveGetAttestationReport(enclavedata: ::core::option::Option<&u8>, report: ::core::option::Option<&mut [u8]>, outputsize: &mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn EnclaveGetAttestationReport(enclavedata: ::core::option::Option<*const u8>, report: ::core::option::Option<&mut [u8]>, outputsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnclaveGetAttestationReport(enclavedata: *const u8, report: *mut ::core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    EnclaveGetAttestationReport(::core::mem::transmute(enclavedata), ::core::mem::transmute(report.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), report.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(outputsize)).ok()
+    EnclaveGetAttestationReport(::core::mem::transmute(enclavedata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(report.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), report.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(outputsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
@@ -78,7 +78,7 @@ pub unsafe fn EnclaveGetEnclaveInformation(enclaveinformation: &mut [u8]) -> ::w
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
-pub unsafe fn EnclaveSealData(datatoencrypt: &[u8], identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: ::core::option::Option<&mut [u8]>, protectedblobsize: &mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn EnclaveSealData(datatoencrypt: &[u8], identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: ::core::option::Option<&mut [u8]>, protectedblobsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnclaveSealData(datatoencrypt: *const ::core::ffi::c_void, datatoencryptsize: u32, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: *mut ::core::ffi::c_void, buffersize: u32, protectedblobsize: *mut u32) -> ::windows::core::HRESULT;
@@ -87,12 +87,12 @@ pub unsafe fn EnclaveSealData(datatoencrypt: &[u8], identitypolicy: ENCLAVE_SEAL
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
-pub unsafe fn EnclaveUnsealData(protectedblob: &[u8], decrypteddata: ::core::option::Option<&mut [u8]>, decrypteddatasize: &mut u32, sealingidentity: ::core::option::Option<&mut ENCLAVE_IDENTITY>, unsealingflags: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
+pub unsafe fn EnclaveUnsealData(protectedblob: &[u8], decrypteddata: ::core::option::Option<&mut [u8]>, decrypteddatasize: *mut u32, sealingidentity: ::core::option::Option<*mut ENCLAVE_IDENTITY>, unsealingflags: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnclaveUnsealData(protectedblob: *const ::core::ffi::c_void, protectedblobsize: u32, decrypteddata: *mut ::core::ffi::c_void, buffersize: u32, decrypteddatasize: *mut u32, sealingidentity: *mut ENCLAVE_IDENTITY, unsealingflags: *mut u32) -> ::windows::core::HRESULT;
     }
-    EnclaveUnsealData(::core::mem::transmute(protectedblob.as_ptr()), protectedblob.len() as _, ::core::mem::transmute(decrypteddata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), decrypteddata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(decrypteddatasize), ::core::mem::transmute(sealingidentity), ::core::mem::transmute(unsealingflags)).ok()
+    EnclaveUnsealData(::core::mem::transmute(protectedblob.as_ptr()), protectedblob.len() as _, ::core::mem::transmute(decrypteddata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), decrypteddata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(decrypteddatasize), ::core::mem::transmute(sealingidentity.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(unsealingflags.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
@@ -262,7 +262,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitializeEnclave<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, lpenclaveinformation: &[u8], lpenclaveerror: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn InitializeEnclave<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, lpenclaveinformation: &[u8], lpenclaveerror: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -270,7 +270,7 @@ where
     extern "system" {
         fn InitializeEnclave(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, lpenclaveinformation: *const ::core::ffi::c_void, dwinfolength: u32, lpenclaveerror: *mut u32) -> super::super::Foundation::BOOL;
     }
-    InitializeEnclave(hprocess.into(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpenclaveinformation.as_ptr()), lpenclaveinformation.len() as _, ::core::mem::transmute(lpenclaveerror))
+    InitializeEnclave(hprocess.into(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpenclaveinformation.as_ptr()), lpenclaveinformation.len() as _, ::core::mem::transmute(lpenclaveerror.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -285,7 +285,7 @@ pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> super::super::Founda
 #[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadEnclaveData<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, lpbuffer: &[u8], flprotect: u32, lppageinformation: &[u8], lpnumberofbyteswritten: &mut usize, lpenclaveerror: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn LoadEnclaveData<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, lpbuffer: &[u8], flprotect: u32, lppageinformation: &[u8], lpnumberofbyteswritten: *mut usize, lpenclaveerror: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -293,7 +293,7 @@ where
     extern "system" {
         fn LoadEnclaveData(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nsize: usize, flprotect: u32, lppageinformation: *const ::core::ffi::c_void, dwinfolength: u32, lpnumberofbyteswritten: *mut usize, lpenclaveerror: *mut u32) -> super::super::Foundation::BOOL;
     }
-    LoadEnclaveData(hprocess.into(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, flprotect, ::core::mem::transmute(lppageinformation.as_ptr()), lppageinformation.len() as _, ::core::mem::transmute(lpnumberofbyteswritten), ::core::mem::transmute(lpenclaveerror))
+    LoadEnclaveData(hprocess.into(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, flprotect, ::core::mem::transmute(lppageinformation.as_ptr()), lppageinformation.len() as _, ::core::mem::transmute(lpnumberofbyteswritten), ::core::mem::transmute(lpenclaveerror.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
