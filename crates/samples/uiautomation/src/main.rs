@@ -2,7 +2,7 @@ use windows::{core::*, Win32::System::Com::*, Win32::UI::Accessibility::*, Win32
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED)?;
         let window = FindWindowA(None, s!("Calculator"));
 
         // Start with COM API

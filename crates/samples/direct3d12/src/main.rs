@@ -88,7 +88,7 @@ where
             None, // no parent window
             None, // no menus
             instance,
-            &mut sample as *mut _ as _,
+            Some(&mut sample as *mut _ as _),
         )
     };
 
@@ -531,7 +531,7 @@ mod d3d12_hello_triangle {
         // Copy the triangle data to the vertex buffer.
         unsafe {
             let mut data = std::ptr::null_mut();
-            vertex_buffer.Map(0, None, &mut data)?;
+            vertex_buffer.Map(0, None, Some(&mut data))?;
             std::ptr::copy_nonoverlapping(vertices.as_ptr(), data as *mut Vertex, std::mem::size_of_val(&vertices));
             vertex_buffer.Unmap(0, None);
         }

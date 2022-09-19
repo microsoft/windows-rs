@@ -55,7 +55,7 @@ impl IFrameworkView_Impl for CoreAppView {
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED)?;
 
         if let Err(result) = Package::Current() {
             MessageBoxW(None, w!("This sample must be registered (via register.cmd) and launched from Start."), w!("Error"), MB_ICONSTOP | MB_OK);

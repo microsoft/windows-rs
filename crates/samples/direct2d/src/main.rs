@@ -2,7 +2,7 @@ use windows::{core::*, Foundation::Numerics::*, Win32::Foundation::*, Win32::Gra
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED)?;
     }
     let mut window = Window::new()?;
     window.run()
@@ -246,7 +246,7 @@ impl Window {
             colorContext: None,
         };
 
-        unsafe { target.CreateBitmap2(size_u, std::ptr::null(), 0, &properties) }
+        unsafe { target.CreateBitmap2(size_u, None, 0, &properties) }
     }
 
     fn resize_swapchain_bitmap(&mut self) -> Result<()> {
@@ -327,7 +327,7 @@ impl Window {
             let atom = RegisterClassA(&wc);
             debug_assert!(atom != 0);
 
-            let handle = CreateWindowExA(WINDOW_EX_STYLE::default(), window_class, s!("Sample Window"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, self as *mut _ as _);
+            let handle = CreateWindowExA(WINDOW_EX_STYLE::default(), window_class, s!("Sample Window"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, Some(self as *mut _ as _));
 
             debug_assert!(handle.0 != 0);
             debug_assert!(handle == self.handle);
