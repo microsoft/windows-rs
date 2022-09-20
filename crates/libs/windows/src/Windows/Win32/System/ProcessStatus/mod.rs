@@ -44,7 +44,7 @@ pub unsafe fn K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pco
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcessModules<'a, P0>(hprocess: P0, lphmodule: &mut [u8], lpcbneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn K32EnumProcessModules<'a, P0>(hprocess: P0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -52,12 +52,12 @@ where
     extern "system" {
         fn K32EnumProcessModules(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    K32EnumProcessModules(hprocess.into(), ::core::mem::transmute(lphmodule.as_ptr()), lphmodule.len() as _, ::core::mem::transmute(lpcbneeded))
+    K32EnumProcessModules(hprocess.into(), ::core::mem::transmute(lphmodule), cb, ::core::mem::transmute(lpcbneeded))
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcessModulesEx<'a, P0>(hprocess: P0, lphmodule: &mut [u8], lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn K32EnumProcessModulesEx<'a, P0>(hprocess: P0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -65,17 +65,17 @@ where
     extern "system" {
         fn K32EnumProcessModulesEx(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL;
     }
-    K32EnumProcessModulesEx(hprocess.into(), ::core::mem::transmute(lphmodule.as_ptr()), lphmodule.len() as _, ::core::mem::transmute(lpcbneeded), dwfilterflag)
+    K32EnumProcessModulesEx(hprocess.into(), ::core::mem::transmute(lphmodule), cb, ::core::mem::transmute(lpcbneeded), dwfilterflag)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcesses(lpidprocess: &mut [u8], lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    K32EnumProcesses(::core::mem::transmute(lpidprocess.as_ptr()), lpidprocess.len() as _, ::core::mem::transmute(lpcbneeded))
+    K32EnumProcesses(::core::mem::transmute(lpidprocess), cb, ::core::mem::transmute(lpcbneeded))
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[inline]
@@ -261,7 +261,7 @@ where
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetWsChanges<'a, P0>(hprocess: P0, lpwatchinfo: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn K32GetWsChanges<'a, P0>(hprocess: P0, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -269,7 +269,7 @@ where
     extern "system" {
         fn K32GetWsChanges(hprocess: super::super::Foundation::HANDLE, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL;
     }
-    K32GetWsChanges(hprocess.into(), ::core::mem::transmute(lpwatchinfo.as_ptr()), lpwatchinfo.len() as _)
+    K32GetWsChanges(hprocess.into(), ::core::mem::transmute(lpwatchinfo), cb)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

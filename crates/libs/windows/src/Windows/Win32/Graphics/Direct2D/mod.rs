@@ -3586,7 +3586,7 @@ impl ID2D1ComputeTransform {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MapInputRectsToOutputRect(&self, inputrects: *const super::super::Foundation::RECT, inputopaquesubrects: *const super::super::Foundation::RECT, inputrectcount: u32, outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MapInputRectsToOutputRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inputrects), ::core::mem::transmute(inputopaquesubrects), ::core::mem::transmute(inputrectcount), ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
+        (::windows::core::Interface::vtable(self).base__.MapInputRectsToOutputRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inputrects), ::core::mem::transmute(inputopaquesubrects), inputrectcount, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5872,7 +5872,7 @@ impl ID2D1DeviceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Interface::vtable(self).GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), ::core::mem::transmute(inputcount)).ok()
+        (::windows::core::Interface::vtable(self).GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6602,7 +6602,7 @@ impl ID2D1DeviceContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), ::core::mem::transmute(inputcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7268,7 +7268,7 @@ impl ID2D1DeviceContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), ::core::mem::transmute(inputcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -8048,7 +8048,7 @@ impl ID2D1DeviceContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), ::core::mem::transmute(inputcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -8827,7 +8827,7 @@ impl ID2D1DeviceContext4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), ::core::mem::transmute(inputcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -9702,7 +9702,7 @@ impl ID2D1DeviceContext5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), ::core::mem::transmute(inputcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -10607,7 +10607,7 @@ impl ID2D1DeviceContext6 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), ::core::mem::transmute(inputcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Interface::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), ::core::mem::transmute(requiredinputrects), inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -11104,7 +11104,7 @@ impl ID2D1DrawTransform {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MapInputRectsToOutputRect(&self, inputrects: *const super::super::Foundation::RECT, inputopaquesubrects: *const super::super::Foundation::RECT, inputrectcount: u32, outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MapInputRectsToOutputRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inputrects), ::core::mem::transmute(inputopaquesubrects), ::core::mem::transmute(inputrectcount), ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
+        (::windows::core::Interface::vtable(self).base__.MapInputRectsToOutputRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inputrects), ::core::mem::transmute(inputopaquesubrects), inputrectcount, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19015,7 +19015,7 @@ pub struct ID2D1Resource_Vtbl {
 pub struct ID2D1ResourceTexture(::windows::core::IUnknown);
 impl ID2D1ResourceTexture {
     pub unsafe fn Update(&self, minimumextents: ::core::option::Option<*const u32>, maximimumextents: ::core::option::Option<*const u32>, strides: ::core::option::Option<*const u32>, dimensions: u32, data: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minimumextents.unwrap_or(::std::ptr::null())), ::core::mem::transmute(maximimumextents.unwrap_or(::std::ptr::null())), ::core::mem::transmute(strides.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dimensions), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minimumextents.unwrap_or(::std::ptr::null())), ::core::mem::transmute(maximimumextents.unwrap_or(::std::ptr::null())), ::core::mem::transmute(strides.unwrap_or(::std::ptr::null())), dimensions, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
 }
 impl ::core::convert::From<ID2D1ResourceTexture> for ::windows::core::IUnknown {
@@ -19379,7 +19379,7 @@ impl ID2D1SourceTransform {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MapInputRectsToOutputRect(&self, inputrects: *const super::super::Foundation::RECT, inputopaquesubrects: *const super::super::Foundation::RECT, inputrectcount: u32, outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MapInputRectsToOutputRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inputrects), ::core::mem::transmute(inputopaquesubrects), ::core::mem::transmute(inputrectcount), ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
+        (::windows::core::Interface::vtable(self).base__.MapInputRectsToOutputRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inputrects), ::core::mem::transmute(inputopaquesubrects), inputrectcount, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19499,7 +19499,7 @@ impl ID2D1SpriteBatch {
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn GetSprites(&self, startindex: u32, spritecount: u32, destinationrectangles: ::core::option::Option<*mut Common::D2D_RECT_F>, sourcerectangles: ::core::option::Option<*mut Common::D2D_RECT_U>, colors: ::core::option::Option<*mut Common::D2D1_COLOR_F>, transforms: ::core::option::Option<*mut super::super::super::Foundation::Numerics::Matrix3x2>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSprites)(::windows::core::Interface::as_raw(self), startindex, ::core::mem::transmute(spritecount), ::core::mem::transmute(destinationrectangles.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sourcerectangles.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(colors.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(transforms.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetSprites)(::windows::core::Interface::as_raw(self), startindex, spritecount, ::core::mem::transmute(destinationrectangles.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sourcerectangles.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(colors.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(transforms.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSpriteCount(&self) -> u32 {
         (::windows::core::Interface::vtable(self).GetSpriteCount)(::windows::core::Interface::as_raw(self))
@@ -20942,7 +20942,7 @@ impl ID2D1Transform {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MapInputRectsToOutputRect(&self, inputrects: *const super::super::Foundation::RECT, inputopaquesubrects: *const super::super::Foundation::RECT, inputrectcount: u32, outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MapInputRectsToOutputRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inputrects), ::core::mem::transmute(inputopaquesubrects), ::core::mem::transmute(inputrectcount), ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
+        (::windows::core::Interface::vtable(self).MapInputRectsToOutputRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inputrects), ::core::mem::transmute(inputopaquesubrects), inputrectcount, ::core::mem::transmute(outputrect), ::core::mem::transmute(outputopaquesubrect)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

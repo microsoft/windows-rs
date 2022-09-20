@@ -108,7 +108,7 @@ pub unsafe fn D3DDecompressShaders(psrcdata: &[u8], unumshaders: u32, ustartinde
     extern "system" {
         fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut *mut ::core::ffi::c_void, ptotalshaders: *mut u32) -> ::windows::core::HRESULT;
     }
-    D3DDecompressShaders(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, ::core::mem::transmute(unumshaders), ustartindex, ::core::mem::transmute(pindices.unwrap_or(::std::ptr::null())), uflags, ::core::mem::transmute(ppshaders), ::core::mem::transmute(ptotalshaders.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3DDecompressShaders(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, unumshaders, ustartindex, ::core::mem::transmute(pindices.unwrap_or(::std::ptr::null())), uflags, ::core::mem::transmute(ppshaders), ::core::mem::transmute(ptotalshaders.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]

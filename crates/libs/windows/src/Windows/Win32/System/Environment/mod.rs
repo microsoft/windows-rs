@@ -69,12 +69,13 @@ pub unsafe fn EnclaveGetAttestationReport(enclavedata: ::core::option::Option<*c
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
-pub unsafe fn EnclaveGetEnclaveInformation(enclaveinformation: &mut [u8]) -> ::windows::core::Result<()> {
+pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32) -> ::windows::core::Result<ENCLAVE_INFORMATION> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> ::windows::core::HRESULT;
     }
-    EnclaveGetEnclaveInformation(enclaveinformation.len() as _, ::core::mem::transmute(enclaveinformation.as_ptr())).ok()
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    EnclaveGetEnclaveInformation(informationsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ENCLAVE_INFORMATION>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]

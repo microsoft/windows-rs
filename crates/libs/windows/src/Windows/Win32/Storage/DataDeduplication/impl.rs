@@ -1,5 +1,5 @@
 pub trait IDedupBackupSupport_Impl: Sized {
-    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const ::windows::core::BSTR, store: &::core::option::Option<IDedupReadFileCallback>, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const ::windows::core::BSTR, store: &::core::option::Option<IDedupReadFileCallback>, flags: u32) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 impl ::windows::core::RuntimeName for IDedupBackupSupport {}
 impl IDedupBackupSupport_Vtbl {
@@ -7,7 +7,13 @@ impl IDedupBackupSupport_Vtbl {
         unsafe extern "system" fn RestoreFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupBackupSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, store: *mut ::core::ffi::c_void, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RestoreFiles(::core::mem::transmute_copy(&numberoffiles), ::core::mem::transmute_copy(&filefullpaths), ::core::mem::transmute(&store), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&fileresults)).into()
+            match this.RestoreFiles(::core::mem::transmute_copy(&numberoffiles), ::core::mem::transmute_copy(&filefullpaths), ::core::mem::transmute(&store), ::core::mem::transmute_copy(&flags)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(fileresults, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), RestoreFiles: RestoreFiles::<Identity, Impl, OFFSET> }
     }

@@ -44,21 +44,21 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
-pub unsafe fn timeGetDevCaps(ptc: &mut [u8]) -> u32 {
+pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
     }
-    timeGetDevCaps(::core::mem::transmute(ptc.as_ptr()), ptc.len() as _)
+    timeGetDevCaps(::core::mem::transmute(ptc), cbtc)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
-pub unsafe fn timeGetSystemTime(pmmt: &mut [u8]) -> u32 {
+pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
     }
-    timeGetSystemTime(::core::mem::transmute(pmmt.as_ptr()), pmmt.len() as _)
+    timeGetSystemTime(::core::mem::transmute(pmmt), cbmmt)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]

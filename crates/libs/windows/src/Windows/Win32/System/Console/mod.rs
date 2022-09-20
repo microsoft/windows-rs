@@ -340,7 +340,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]
-pub unsafe fn GetConsoleCommandHistoryW<'a, P0>(commands: &mut [u8], exename: P0) -> u32
+pub unsafe fn GetConsoleCommandHistoryW<'a, P0>(commands: ::windows::core::PWSTR, commandbufferlength: u32, exename: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -348,7 +348,7 @@ where
     extern "system" {
         fn GetConsoleCommandHistoryW(commands: ::windows::core::PWSTR, commandbufferlength: u32, exename: ::windows::core::PCWSTR) -> u32;
     }
-    GetConsoleCommandHistoryW(::core::mem::transmute(commands.as_ptr()), commands.len() as _, exename.into())
+    GetConsoleCommandHistoryW(::core::mem::transmute(commands), commandbufferlength, exename.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
