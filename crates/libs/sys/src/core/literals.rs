@@ -2,50 +2,36 @@
 #[macro_export]
 macro_rules! s {
     ($s:literal) => {
-        $crate::core::PCSTR::from_raw(::std::concat!($s, '\0').as_ptr())
+        ::core::concat!($s, '\0').as_ptr()
     };
 }
 
 /// A literal UTF-16 wide string with a trailing null terminator.
-///
-/// Converts the literal UTF-8 string into a UTF-16 string adding a terminator and then wrapping
-/// that in an HSTRING reference so that it can be used for calling both WinRT APIs expecting an
-/// HSTRING as well as Win32 APIs expecting a PCWSTR. All of this is done at compile time so there's
-/// no run time cost at all.
 #[macro_export]
 macro_rules! w {
     ($s:literal) => {{
         const INPUT: &[u8] = $s.as_bytes();
         const OUTPUT_LEN: usize = $crate::core::utf16_len(INPUT) + 1;
-        const RESULT: $crate::core::HSTRING = {
-            if OUTPUT_LEN == 1 {
-                unsafe { ::std::mem::transmute(::std::ptr::null::<u16>()) }
-            } else {
-                const OUTPUT: &[u16; OUTPUT_LEN] = {
-                    let mut buffer = [0; OUTPUT_LEN];
-                    let mut input_pos = 0;
-                    let mut output_pos = 0;
-                    while let Some((mut code_point, new_pos)) = $crate::core::decode_utf8_char(INPUT, input_pos) {
-                        input_pos = new_pos;
-                        if code_point <= 0xffff {
-                            buffer[output_pos] = code_point as u16;
-                            output_pos += 1;
-                        } else {
-                            code_point -= 0x10000;
-                            buffer[output_pos] = 0xd800 + (code_point >> 10) as u16;
-                            output_pos += 1;
-                            buffer[output_pos] = 0xdc00 + (code_point & 0x3ff) as u16;
-                            output_pos += 1;
-                        }
-                    }
-                    &{ buffer }
-                };
-                const HEADER: $crate::core::HSTRING_HEADER = $crate::core::HSTRING_HEADER { flags: 0x11, len: (OUTPUT_LEN - 1) as u32, padding1: 0, padding2: 0, ptr: OUTPUT.as_ptr() };
-                // SAFETY: an `HSTRING` is exactly equivalent to a pointer to an `HSTRING_HEADER`
-                unsafe { ::std::mem::transmute::<&$crate::core::HSTRING_HEADER, $crate::core::HSTRING>(&HEADER) }
+        const OUTPUT: &[u16; OUTPUT_LEN] = {
+            let mut buffer = [0; OUTPUT_LEN];
+            let mut input_pos = 0;
+            let mut output_pos = 0;
+            while let Some((mut code_point, new_pos)) = $crate::core::decode_utf8_char(INPUT, input_pos) {
+                input_pos = new_pos;
+                if code_point <= 0xffff {
+                    buffer[output_pos] = code_point as u16;
+                    output_pos += 1;
+                } else {
+                    code_point -= 0x10000;
+                    buffer[output_pos] = 0xd800 + (code_point >> 10) as u16;
+                    output_pos += 1;
+                    buffer[output_pos] = 0xdc00 + (code_point & 0x3ff) as u16;
+                    output_pos += 1;
+                }
             }
+            &{ buffer }
         };
-        &RESULT
+        OUTPUT.as_ptr()
     }};
 }
 
@@ -118,16 +104,6 @@ pub const fn decode_utf8_char(bytes: &[u8], mut pos: usize) -> Option<(u32, usiz
 }
 
 #[doc(hidden)]
-#[repr(C)]
-pub struct HSTRING_HEADER {
-    pub flags: u32,
-    pub len: u32,
-    pub padding1: u32,
-    pub padding2: u32,
-    pub ptr: *const u16,
-}
-
-#[doc(hidden)]
 pub const fn utf16_len(bytes: &[u8]) -> usize {
     let mut pos = 0;
     let mut len = 0;
@@ -136,19 +112,4 @@ pub const fn utf16_len(bytes: &[u8]) -> usize {
         len += if code_point <= 0xffff { 1 } else { 2 };
     }
     len
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test() {
-        assert_eq!(decode_utf8_char(b"123", 0), Some((0x31, 1)));
-        assert_eq!(decode_utf8_char(b"123", 1), Some((0x32, 2)));
-        assert_eq!(decode_utf8_char(b"123", 2), Some((0x33, 3)));
-        assert_eq!(decode_utf8_char(b"123", 3), None);
-        assert_eq!(utf16_len(b"123"), 3);
-        assert_eq!(utf16_len("α & ω".as_bytes()), 5);
-    }
 }
