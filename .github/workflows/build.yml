@@ -125,6 +125,7 @@ jobs:
           cargo clippy -p sample_simple &&
           cargo clippy -p sample_spellchecker &&
           cargo clippy -p sample_uiautomation &&
+          cargo clippy -p sample_wmi &&
           cargo clippy -p sample_xml &&
           cargo clippy -p windows_aarch64_gnullvm &&
           cargo clippy -p windows_aarch64_msvc &&
