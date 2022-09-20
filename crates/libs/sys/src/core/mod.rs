@@ -1,3 +1,8 @@
+mod literals;
+
+#[doc(hidden)]
+pub use literals::*;
+
 #[repr(C)]
 pub struct GUID {
     pub data1: u32,

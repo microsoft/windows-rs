@@ -1,11 +1,11 @@
-use windows_sys::{Win32::Foundation::*, Win32::Graphics::Gdi::ValidateRect, Win32::System::LibraryLoader::GetModuleHandleA, Win32::UI::WindowsAndMessaging::*};
+use windows_sys::{core::*, Win32::Foundation::*, Win32::Graphics::Gdi::ValidateRect, Win32::System::LibraryLoader::GetModuleHandleA, Win32::UI::WindowsAndMessaging::*};
 
 fn main() {
     unsafe {
         let instance = GetModuleHandleA(std::ptr::null());
         debug_assert!(instance != 0);
 
-        let window_class = b"window\0".as_ptr();
+        let window_class = s!("window");
 
         let wc = WNDCLASSA {
             hCursor: LoadCursorW(0, IDC_ARROW),
@@ -23,7 +23,7 @@ fn main() {
         let atom = RegisterClassA(&wc);
         debug_assert!(atom != 0);
 
-        CreateWindowExA(0, window_class, b"This is a sample window\0".as_ptr(), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, instance, std::ptr::null());
+        CreateWindowExA(0, window_class, s!("This is a sample window"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, instance, std::ptr::null());
 
         let mut message = std::mem::zeroed();
 
