@@ -4703,8 +4703,8 @@ pub struct IFastRundown_Vtbl {
 #[repr(transparent)]
 pub struct IForegroundTransfer(::windows::core::IUnknown);
 impl IForegroundTransfer {
-    pub unsafe fn AllowForegroundTransfer(&self, lpvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AllowForegroundTransfer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvreserved)).ok()
+    pub unsafe fn AllowForegroundTransfer(&self, lpvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AllowForegroundTransfer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 impl ::core::convert::From<IForegroundTransfer> for ::windows::core::IUnknown {
@@ -7508,8 +7508,8 @@ pub struct IServiceProvider_Vtbl {
 #[repr(transparent)]
 pub struct IStdMarshalInfo(::windows::core::IUnknown);
 impl IStdMarshalInfo {
-    pub unsafe fn GetClassForHandler(&self, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetClassForHandler)(::windows::core::Interface::as_raw(self), dwdestcontext, ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(pclsid)).ok()
+    pub unsafe fn GetClassForHandler(&self, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*mut ::core::ffi::c_void>, pclsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetClassForHandler)(::windows::core::Interface::as_raw(self), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pclsid)).ok()
     }
 }
 impl ::core::convert::From<IStdMarshalInfo> for ::windows::core::IUnknown {

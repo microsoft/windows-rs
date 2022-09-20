@@ -777,12 +777,12 @@ pub unsafe fn CreateThread(lpthreadattributes: ::core::option::Option<*const sup
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CreateThreadpool(reserved: *mut ::core::ffi::c_void) -> PTP_POOL {
+pub unsafe fn CreateThreadpool(reserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> PTP_POOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateThreadpool(reserved: *mut ::core::ffi::c_void) -> PTP_POOL;
     }
-    CreateThreadpool(::core::mem::transmute(reserved))
+    CreateThreadpool(::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -2992,7 +2992,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetThreadpoolWaitEx<'a, P0>(pwa: *mut TP_WAIT, h: P0, pfttimeout: ::core::option::Option<*const super::super::Foundation::FILETIME>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn SetThreadpoolWaitEx<'a, P0>(pwa: *mut TP_WAIT, h: P0, pfttimeout: ::core::option::Option<*const super::super::Foundation::FILETIME>, reserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -3000,7 +3000,7 @@ where
     extern "system" {
         fn SetThreadpoolWaitEx(pwa: *mut TP_WAIT, h: super::super::Foundation::HANDLE, pfttimeout: *const super::super::Foundation::FILETIME, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    SetThreadpoolWaitEx(::core::mem::transmute(pwa), h.into(), ::core::mem::transmute(pfttimeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved))
+    SetThreadpoolWaitEx(::core::mem::transmute(pwa), h.into(), ::core::mem::transmute(pfttimeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

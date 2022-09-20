@@ -1268,7 +1268,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRegisterParamChange<'a, P0>(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: P0, classid: *mut DHCPCAPI_CLASSID, params: DHCPCAPI_PARAMS_ARRAY, handle: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn DhcpRegisterParamChange<'a, P0>(flags: u32, reserved: ::core::option::Option<*mut ::core::ffi::c_void>, adaptername: P0, classid: *mut DHCPCAPI_CLASSID, params: DHCPCAPI_PARAMS_ARRAY, handle: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1276,7 +1276,7 @@ where
     extern "system" {
         fn DhcpRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: ::windows::core::PCWSTR, classid: *mut DHCPCAPI_CLASSID, params: DHCPCAPI_PARAMS_ARRAY, handle: *mut ::core::ffi::c_void) -> u32;
     }
-    DhcpRegisterParamChange(flags, ::core::mem::transmute(reserved), adaptername.into(), ::core::mem::transmute(classid), ::core::mem::transmute(params), ::core::mem::transmute(handle))
+    DhcpRegisterParamChange(flags, ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), adaptername.into(), ::core::mem::transmute(classid), ::core::mem::transmute(params), ::core::mem::transmute(handle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[inline]
@@ -1936,7 +1936,7 @@ pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::core::ffi::c_voi
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[inline]
-pub unsafe fn DhcpUndoRequestParams<'a, P0, P1>(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: P0, requestidstr: P1) -> u32
+pub unsafe fn DhcpUndoRequestParams<'a, P0, P1>(flags: u32, reserved: ::core::option::Option<*mut ::core::ffi::c_void>, adaptername: P0, requestidstr: P1) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1945,7 +1945,7 @@ where
     extern "system" {
         fn DhcpUndoRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: ::windows::core::PCWSTR, requestidstr: ::windows::core::PCWSTR) -> u32;
     }
-    DhcpUndoRequestParams(flags, ::core::mem::transmute(reserved), adaptername.into(), requestidstr.into())
+    DhcpUndoRequestParams(flags, ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), adaptername.into(), requestidstr.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[inline]

@@ -9147,8 +9147,8 @@ impl IDirectXVideoDecoderService {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetDecoderConfigurations(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *mut ::core::ffi::c_void, pcount: *mut u32, ppconfigs: ::core::option::Option<*mut *mut DXVA2_ConfigPictureDecode>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDecoderConfigurations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(preserved), ::core::mem::transmute(pcount), ::core::mem::transmute(ppconfigs.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetDecoderConfigurations(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pcount: *mut u32, ppconfigs: ::core::option::Option<*mut *mut DXVA2_ConfigPictureDecode>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDecoderConfigurations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcount), ::core::mem::transmute(ppconfigs.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -28919,11 +28919,11 @@ impl IMFSourceReader {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrentMediaType)(::windows::core::Interface::as_raw(self), dwstreamindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
     }
-    pub unsafe fn SetCurrentMediaType<'a, P0>(&self, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCurrentMediaType<'a, P0>(&self, dwstreamindex: u32, pdwreserved: ::core::option::Option<*mut u32>, pmediatype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
     {
-        (::windows::core::Interface::vtable(self).SetCurrentMediaType)(::windows::core::Interface::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved), pmediatype.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCurrentMediaType)(::windows::core::Interface::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null_mut())), pmediatype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -29180,11 +29180,11 @@ impl IMFSourceReaderEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCurrentMediaType)(::windows::core::Interface::as_raw(self), dwstreamindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
     }
-    pub unsafe fn SetCurrentMediaType<'a, P0>(&self, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCurrentMediaType<'a, P0>(&self, dwstreamindex: u32, pdwreserved: ::core::option::Option<*mut u32>, pmediatype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetCurrentMediaType)(::windows::core::Interface::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved), pmediatype.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCurrentMediaType)(::windows::core::Interface::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null_mut())), pmediatype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]

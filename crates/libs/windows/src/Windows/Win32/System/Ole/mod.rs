@@ -7768,11 +7768,11 @@ impl IOleCache2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdateCache<'a, P0>(&self, pdataobject: P0, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateCache<'a, P0>(&self, pdataobject: P0, grfupdf: UPDFCACHE_FLAGS, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     {
-        (::windows::core::Interface::vtable(self).UpdateCache)(::windows::core::Interface::as_raw(self), pdataobject.into().abi(), grfupdf, ::core::mem::transmute(preserved)).ok()
+        (::windows::core::Interface::vtable(self).UpdateCache)(::windows::core::Interface::as_raw(self), pdataobject.into().abi(), grfupdf, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn DiscardCache(&self, dwdiscardoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DiscardCache)(::windows::core::Interface::as_raw(self), dwdiscardoptions).ok()
