@@ -1,11 +1,12 @@
-use windows::{core::*, Win32::System::Registry::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*};
+use windows::{core::*, Win32::Foundation::*, Win32::System::Registry::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*};
 
-/// Tests a few APIs that have reserved parameters to ensure they can be called with `None`. 
+/// Tests a few APIs that have reserved parameters to ensure they can be called with `None`.
 #[test]
 fn test() -> Result<()> {
     unsafe {
         assert_eq!(InSendMessageEx(None), ISMEX_NOSEND);
         assert!(CreateThreadpool(None).0 != 0);
+        assert_eq!(TrackPopupMenu(HMENU(0), TPM_LEFTBUTTON, 1, 2, 0, HWND(0), None), false);
 
         let mut key = HKEY::default();
         RegOpenKeyExA(HKEY_CLASSES_ROOT, s!(r".txt"), 0, KEY_QUERY_VALUE, &mut key).ok()?;
