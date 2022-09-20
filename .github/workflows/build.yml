@@ -119,6 +119,7 @@ jobs:
           cargo clippy -p sample_kernel_event &&
           cargo clippy -p sample_memory_buffer &&
           cargo clippy -p sample_message_box &&
+          cargo clippy -p sample_message_box_sys &&
           cargo clippy -p sample_ocr &&
           cargo clippy -p sample_overlapped &&
           cargo clippy -p sample_rss &&

@@ -102,6 +102,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p sample_kernel_event &&
           cargo test --target ${{ matrix.target }} -p sample_memory_buffer &&
           cargo test --target ${{ matrix.target }} -p sample_message_box &&
+          cargo test --target ${{ matrix.target }} -p sample_message_box_sys &&
           cargo test --target ${{ matrix.target }} -p sample_ocr &&
           cargo test --target ${{ matrix.target }} -p sample_overlapped &&
           cargo test --target ${{ matrix.target }} -p sample_rss &&
@@ -129,8 +130,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_class_factory &&
           cargo test --target ${{ matrix.target }} -p test_component &&
           cargo test --target ${{ matrix.target }} -p test_component_client &&
-          cargo test --target ${{ matrix.target }} -p test_const_fields &&
           cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_const_fields &&
           cargo test --target ${{ matrix.target }} -p test_core &&
           cargo test --target ${{ matrix.target }} -p test_data_object &&
           cargo test --target ${{ matrix.target }} -p test_debug &&
