@@ -911,7 +911,7 @@ impl<'a> Gen<'a> {
                                 } else {
                                     quote! { ::core::mem::transmute_copy(#name), }
                                 }
-                            } else if param.ty.is_pointer() && self.reader.param_flags(param.def).optional() {
+                            } else if param.ty.is_pointer() && (self.reader.param_flags(param.def).optional() || self.reader.param_is_reserved(param.def)) {
                                 let flags = self.reader.param_flags(param.def);
                                 if flags.output() {
                                     quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
@@ -1006,7 +1006,7 @@ impl<'a> Gen<'a> {
 
             let kind = self.type_default_name(&param.ty);
 
-            if param.ty.is_pointer() && self.reader.param_flags(param.def).optional() {
+            if param.ty.is_pointer() && (self.reader.param_flags(param.def).optional() || self.reader.param_is_reserved(param.def)) {
                 tokens.combine(&quote! { #name: ::core::option::Option<#kind>, });
             } else if self.reader.type_is_blittable(&param.ty) {
                 tokens.combine(&quote! { #name: #kind, });
