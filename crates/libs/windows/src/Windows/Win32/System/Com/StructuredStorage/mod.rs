@@ -1538,11 +1538,11 @@ impl IStorage {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateStream)(::windows::core::Interface::as_raw(self), pwcsname.into(), grfmode, reserved1, reserved2, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
     }
-    pub unsafe fn OpenStream<'a, P0>(&self, pwcsname: P0, reserved1: *mut ::core::ffi::c_void, grfmode: super::STGM, reserved2: u32, ppstm: *mut ::core::option::Option<super::IStream>) -> ::windows::core::Result<()>
+    pub unsafe fn OpenStream<'a, P0>(&self, pwcsname: P0, reserved1: ::core::option::Option<*mut ::core::ffi::c_void>, grfmode: super::STGM, reserved2: u32, ppstm: *mut ::core::option::Option<super::IStream>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OpenStream)(::windows::core::Interface::as_raw(self), pwcsname.into(), ::core::mem::transmute(reserved1), grfmode, reserved2, ::core::mem::transmute(ppstm)).ok()
+        (::windows::core::Interface::vtable(self).OpenStream)(::windows::core::Interface::as_raw(self), pwcsname.into(), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null_mut())), grfmode, reserved2, ::core::mem::transmute(ppstm)).ok()
     }
     pub unsafe fn CreateStorage<'a, P0>(&self, pwcsname: P0, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> ::windows::core::Result<IStorage>
     where
@@ -1579,8 +1579,8 @@ impl IStorage {
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Revert)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn EnumElements(&self, reserved1: u32, reserved2: *mut ::core::ffi::c_void, reserved3: u32, ppenum: *mut ::core::option::Option<IEnumSTATSTG>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumElements)(::windows::core::Interface::as_raw(self), reserved1, ::core::mem::transmute(reserved2), reserved3, ::core::mem::transmute(ppenum)).ok()
+    pub unsafe fn EnumElements(&self, reserved1: u32, reserved2: ::core::option::Option<*mut ::core::ffi::c_void>, reserved3: u32, ppenum: *mut ::core::option::Option<IEnumSTATSTG>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumElements)(::windows::core::Interface::as_raw(self), reserved1, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null_mut())), reserved3, ::core::mem::transmute(ppenum)).ok()
     }
     pub unsafe fn DestroyElement<'a, P0>(&self, pwcsname: P0) -> ::windows::core::Result<()>
     where

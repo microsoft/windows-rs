@@ -1232,7 +1232,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetRequestProvisioningPackageInstall<'a, P0>(ppackagebindata: &[u8], dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0, pvreserved: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn NetRequestProvisioningPackageInstall<'a, P0>(ppackagebindata: &[u8], dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1240,7 +1240,7 @@ where
     extern "system" {
         fn NetRequestProvisioningPackageInstall(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows::core::PCWSTR, pvreserved: *mut ::core::ffi::c_void) -> u32;
     }
-    NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len() as _, dwprovisionoptions, lpwindowspath.into(), ::core::mem::transmute(pvreserved))
+    NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len() as _, dwprovisionoptions, lpwindowspath.into(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -2359,8 +2359,8 @@ pub struct IEnumNetCfgComponent_Vtbl {
 #[repr(transparent)]
 pub struct INetCfg(::windows::core::IUnknown);
 impl INetCfg {
-    pub unsafe fn Initialize(&self, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvreserved)).ok()
+    pub unsafe fn Initialize(&self, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Uninitialize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Uninitialize)(::windows::core::Interface::as_raw(self)).ok()

@@ -1,0 +1,14 @@
+[package]
+name = "test_reserved"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "Win32_Foundation",
+    "Win32_System_Registry",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_System_Threading",
+]

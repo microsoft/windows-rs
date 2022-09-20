@@ -1650,7 +1650,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmSystemPortsSubscribe0<'a, P0>(enginehandle: P0, reserved: *mut ::core::ffi::c_void, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn FwpmSystemPortsSubscribe0<'a, P0>(enginehandle: P0, reserved: ::core::option::Option<*mut ::core::ffi::c_void>, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1658,7 +1658,7 @@ where
     extern "system" {
         fn FwpmSystemPortsSubscribe0(enginehandle: super::super::Foundation::HANDLE, reserved: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    FwpmSystemPortsSubscribe0(enginehandle.into(), ::core::mem::transmute(reserved), ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sysportshandle))
+    FwpmSystemPortsSubscribe0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sysportshandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1888,7 +1888,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, P0>(enginehandle: P0, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: ::core::option::Option<*mut super::super::Foundation::PSID>, sidgroup: ::core::option::Option<*mut super::super::Foundation::PSID>, dacl: ::core::option::Option<*mut *mut super::super::Security::ACL>, sacl: ::core::option::Option<*mut *mut super::super::Security::ACL>, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
+pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, P0>(enginehandle: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>, securityinfo: u32, sidowner: ::core::option::Option<*mut super::super::Foundation::PSID>, sidgroup: ::core::option::Option<*mut super::super::Foundation::PSID>, dacl: ::core::option::Option<*mut *mut super::super::Security::ACL>, sacl: ::core::option::Option<*mut *mut super::super::Security::ACL>, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1896,12 +1896,12 @@ where
     extern "system" {
         fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
     }
-    IPsecKeyManagerGetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(reserved), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(securitydescriptor))
+    IPsecKeyManagerGetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(securitydescriptor))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<'a, P0>(enginehandle: P0, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
+pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<'a, P0>(enginehandle: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1909,7 +1909,7 @@ where
     extern "system" {
         fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: *const ::core::ffi::c_void, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32;
     }
-    IPsecKeyManagerSetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(reserved), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    IPsecKeyManagerSetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

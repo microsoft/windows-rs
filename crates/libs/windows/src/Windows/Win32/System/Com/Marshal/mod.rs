@@ -1197,17 +1197,17 @@ pub unsafe fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, par
 #[repr(transparent)]
 pub struct IMarshal(::windows::core::IUnknown);
 impl IMarshal {
-    pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetUnmarshalClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(pcid)).ok()
+    pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*mut ::core::ffi::c_void>, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetUnmarshalClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null_mut())), mshlflags, ::core::mem::transmute(pcid)).ok()
     }
-    pub unsafe fn GetMarshalSizeMax(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(psize)).ok()
+    pub unsafe fn GetMarshalSizeMax(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*mut ::core::ffi::c_void>, mshlflags: u32, psize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null_mut())), mshlflags, ::core::mem::transmute(psize)).ok()
     }
-    pub unsafe fn MarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*mut ::core::ffi::c_void>, mshlflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags).ok()
+        (::windows::core::Interface::vtable(self).MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null_mut())), mshlflags).ok()
     }
     pub unsafe fn UnmarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -1275,17 +1275,17 @@ pub struct IMarshal_Vtbl {
 #[repr(transparent)]
 pub struct IMarshal2(::windows::core::IUnknown);
 impl IMarshal2 {
-    pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetUnmarshalClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(pcid)).ok()
+    pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*mut ::core::ffi::c_void>, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetUnmarshalClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null_mut())), mshlflags, ::core::mem::transmute(pcid)).ok()
     }
-    pub unsafe fn GetMarshalSizeMax(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(psize)).ok()
+    pub unsafe fn GetMarshalSizeMax(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*mut ::core::ffi::c_void>, mshlflags: u32, psize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null_mut())), mshlflags, ::core::mem::transmute(psize)).ok()
     }
-    pub unsafe fn MarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn MarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*mut ::core::ffi::c_void>, mshlflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).base__.MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags).ok()
+        (::windows::core::Interface::vtable(self).base__.MarshalInterface)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null_mut())), mshlflags).ok()
     }
     pub unsafe fn UnmarshalInterface<'a, P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where

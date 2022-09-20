@@ -159,7 +159,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedA<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: ::core::option::Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P3, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyTransactedA<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: ::core::option::Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P3, pextendedparemeter: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -170,12 +170,12 @@ where
     extern "system" {
         fn RegCreateKeyTransactedA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, reserved: u32, lpclass: ::windows::core::PCSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegCreateKeyTransactedA(hkey.into(), lpsubkey.into(), reserved, lpclass.into(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())), htransaction.into(), ::core::mem::transmute(pextendedparemeter))
+    RegCreateKeyTransactedA(hkey.into(), lpsubkey.into(), reserved, lpclass.into(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())), htransaction.into(), ::core::mem::transmute(pextendedparemeter.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedW<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: ::core::option::Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P3, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyTransactedW<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: ::core::option::Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P3, pextendedparemeter: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -186,7 +186,7 @@ where
     extern "system" {
         fn RegCreateKeyTransactedW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, reserved: u32, lpclass: ::windows::core::PCWSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegCreateKeyTransactedW(hkey.into(), lpsubkey.into(), reserved, lpclass.into(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())), htransaction.into(), ::core::mem::transmute(pextendedparemeter))
+    RegCreateKeyTransactedW(hkey.into(), lpsubkey.into(), reserved, lpclass.into(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())), htransaction.into(), ::core::mem::transmute(pextendedparemeter.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -247,7 +247,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegDeleteKeyTransactedA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, samdesired: u32, reserved: u32, htransaction: P2, pextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegDeleteKeyTransactedA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, samdesired: u32, reserved: u32, htransaction: P2, pextendedparameter: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -257,12 +257,12 @@ where
     extern "system" {
         fn RegDeleteKeyTransactedA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, samdesired: u32, reserved: u32, htransaction: super::super::Foundation::HANDLE, pextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegDeleteKeyTransactedA(hkey.into(), lpsubkey.into(), samdesired, reserved, htransaction.into(), ::core::mem::transmute(pextendedparameter))
+    RegDeleteKeyTransactedA(hkey.into(), lpsubkey.into(), samdesired, reserved, htransaction.into(), ::core::mem::transmute(pextendedparameter.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegDeleteKeyTransactedW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, samdesired: u32, reserved: u32, htransaction: P2, pextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegDeleteKeyTransactedW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, samdesired: u32, reserved: u32, htransaction: P2, pextendedparameter: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -272,7 +272,7 @@ where
     extern "system" {
         fn RegDeleteKeyTransactedW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, samdesired: u32, reserved: u32, htransaction: super::super::Foundation::HANDLE, pextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegDeleteKeyTransactedW(hkey.into(), lpsubkey.into(), samdesired, reserved, htransaction.into(), ::core::mem::transmute(pextendedparameter))
+    RegDeleteKeyTransactedW(hkey.into(), lpsubkey.into(), samdesired, reserved, htransaction.into(), ::core::mem::transmute(pextendedparameter.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -436,7 +436,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegEnumKeyExA<'a, P0>(hkey: P0, dwindex: u32, lpname: ::windows::core::PSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: ::windows::core::PSTR, lpcchclass: ::core::option::Option<*mut u32>, lpftlastwritetime: ::core::option::Option<*mut super::super::Foundation::FILETIME>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegEnumKeyExA<'a, P0>(hkey: P0, dwindex: u32, lpname: ::windows::core::PSTR, lpcchname: *mut u32, lpreserved: ::core::option::Option<*mut u32>, lpclass: ::windows::core::PSTR, lpcchclass: ::core::option::Option<*mut u32>, lpftlastwritetime: ::core::option::Option<*mut super::super::Foundation::FILETIME>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
 {
@@ -444,12 +444,12 @@ where
     extern "system" {
         fn RegEnumKeyExA(hkey: HKEY, dwindex: u32, lpname: ::windows::core::PSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: ::windows::core::PSTR, lpcchclass: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegEnumKeyExA(hkey.into(), dwindex, ::core::mem::transmute(lpname), ::core::mem::transmute(lpcchname), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpclass), ::core::mem::transmute(lpcchclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpftlastwritetime.unwrap_or(::std::ptr::null_mut())))
+    RegEnumKeyExA(hkey.into(), dwindex, ::core::mem::transmute(lpname), ::core::mem::transmute(lpcchname), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpclass), ::core::mem::transmute(lpcchclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpftlastwritetime.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegEnumKeyExW<'a, P0>(hkey: P0, dwindex: u32, lpname: ::windows::core::PWSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: ::windows::core::PWSTR, lpcchclass: ::core::option::Option<*mut u32>, lpftlastwritetime: ::core::option::Option<*mut super::super::Foundation::FILETIME>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegEnumKeyExW<'a, P0>(hkey: P0, dwindex: u32, lpname: ::windows::core::PWSTR, lpcchname: *mut u32, lpreserved: ::core::option::Option<*mut u32>, lpclass: ::windows::core::PWSTR, lpcchclass: ::core::option::Option<*mut u32>, lpftlastwritetime: ::core::option::Option<*mut super::super::Foundation::FILETIME>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
 {
@@ -457,7 +457,7 @@ where
     extern "system" {
         fn RegEnumKeyExW(hkey: HKEY, dwindex: u32, lpname: ::windows::core::PWSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: ::windows::core::PWSTR, lpcchclass: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegEnumKeyExW(hkey.into(), dwindex, ::core::mem::transmute(lpname), ::core::mem::transmute(lpcchname), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpclass), ::core::mem::transmute(lpcchclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpftlastwritetime.unwrap_or(::std::ptr::null_mut())))
+    RegEnumKeyExW(hkey.into(), dwindex, ::core::mem::transmute(lpname), ::core::mem::transmute(lpcchname), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpclass), ::core::mem::transmute(lpcchclass.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpftlastwritetime.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -475,7 +475,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegEnumValueA<'a, P0>(hkey: P0, dwindex: u32, lpvaluename: ::windows::core::PSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: ::core::option::Option<*mut u32>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegEnumValueA<'a, P0>(hkey: P0, dwindex: u32, lpvaluename: ::windows::core::PSTR, lpcchvaluename: *mut u32, lpreserved: ::core::option::Option<*mut u32>, lptype: ::core::option::Option<*mut u32>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
 {
@@ -483,12 +483,12 @@ where
     extern "system" {
         fn RegEnumValueA(hkey: HKEY, dwindex: u32, lpvaluename: ::windows::core::PSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegEnumValueA(hkey.into(), dwindex, ::core::mem::transmute(lpvaluename), ::core::mem::transmute(lpcchvaluename), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
+    RegEnumValueA(hkey.into(), dwindex, ::core::mem::transmute(lpvaluename), ::core::mem::transmute(lpcchvaluename), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegEnumValueW<'a, P0>(hkey: P0, dwindex: u32, lpvaluename: ::windows::core::PWSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: ::core::option::Option<*mut u32>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegEnumValueW<'a, P0>(hkey: P0, dwindex: u32, lpvaluename: ::windows::core::PWSTR, lpcchvaluename: *mut u32, lpreserved: ::core::option::Option<*mut u32>, lptype: ::core::option::Option<*mut u32>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
 {
@@ -496,7 +496,7 @@ where
     extern "system" {
         fn RegEnumValueW(hkey: HKEY, dwindex: u32, lpvaluename: ::windows::core::PWSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegEnumValueW(hkey.into(), dwindex, ::core::mem::transmute(lpvaluename), ::core::mem::transmute(lpcchvaluename), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
+    RegEnumValueW(hkey.into(), dwindex, ::core::mem::transmute(lpvaluename), ::core::mem::transmute(lpcchvaluename), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -711,7 +711,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegOpenKeyTransactedA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P2, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegOpenKeyTransactedA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P2, pextendedparemeter: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -721,12 +721,12 @@ where
     extern "system" {
         fn RegOpenKeyTransactedA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegOpenKeyTransactedA(hkey.into(), lpsubkey.into(), uloptions, samdesired, ::core::mem::transmute(phkresult), htransaction.into(), ::core::mem::transmute(pextendedparemeter))
+    RegOpenKeyTransactedA(hkey.into(), lpsubkey.into(), uloptions, samdesired, ::core::mem::transmute(phkresult), htransaction.into(), ::core::mem::transmute(pextendedparemeter.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegOpenKeyTransactedW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P2, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegOpenKeyTransactedW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P2, pextendedparemeter: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -736,7 +736,7 @@ where
     extern "system" {
         fn RegOpenKeyTransactedW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegOpenKeyTransactedW(hkey.into(), lpsubkey.into(), uloptions, samdesired, ::core::mem::transmute(phkresult), htransaction.into(), ::core::mem::transmute(pextendedparemeter))
+    RegOpenKeyTransactedW(hkey.into(), lpsubkey.into(), uloptions, samdesired, ::core::mem::transmute(phkresult), htransaction.into(), ::core::mem::transmute(pextendedparemeter.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -782,7 +782,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegQueryInfoKeyA<'a, P0>(hkey: P0, lpclass: ::windows::core::PSTR, lpcchclass: ::core::option::Option<*mut u32>, lpreserved: *mut u32, lpcsubkeys: ::core::option::Option<*mut u32>, lpcbmaxsubkeylen: ::core::option::Option<*mut u32>, lpcbmaxclasslen: ::core::option::Option<*mut u32>, lpcvalues: ::core::option::Option<*mut u32>, lpcbmaxvaluenamelen: ::core::option::Option<*mut u32>, lpcbmaxvaluelen: ::core::option::Option<*mut u32>, lpcbsecuritydescriptor: ::core::option::Option<*mut u32>, lpftlastwritetime: ::core::option::Option<*mut super::super::Foundation::FILETIME>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegQueryInfoKeyA<'a, P0>(hkey: P0, lpclass: ::windows::core::PSTR, lpcchclass: ::core::option::Option<*mut u32>, lpreserved: ::core::option::Option<*mut u32>, lpcsubkeys: ::core::option::Option<*mut u32>, lpcbmaxsubkeylen: ::core::option::Option<*mut u32>, lpcbmaxclasslen: ::core::option::Option<*mut u32>, lpcvalues: ::core::option::Option<*mut u32>, lpcbmaxvaluenamelen: ::core::option::Option<*mut u32>, lpcbmaxvaluelen: ::core::option::Option<*mut u32>, lpcbsecuritydescriptor: ::core::option::Option<*mut u32>, lpftlastwritetime: ::core::option::Option<*mut super::super::Foundation::FILETIME>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
 {
@@ -794,7 +794,7 @@ where
         hkey.into(),
         ::core::mem::transmute(lpclass),
         ::core::mem::transmute(lpcchclass.unwrap_or(::std::ptr::null_mut())),
-        ::core::mem::transmute(lpreserved),
+        ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpcsubkeys.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpcbmaxsubkeylen.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpcbmaxclasslen.unwrap_or(::std::ptr::null_mut())),
@@ -808,7 +808,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegQueryInfoKeyW<'a, P0>(hkey: P0, lpclass: ::windows::core::PWSTR, lpcchclass: ::core::option::Option<*mut u32>, lpreserved: *mut u32, lpcsubkeys: ::core::option::Option<*mut u32>, lpcbmaxsubkeylen: ::core::option::Option<*mut u32>, lpcbmaxclasslen: ::core::option::Option<*mut u32>, lpcvalues: ::core::option::Option<*mut u32>, lpcbmaxvaluenamelen: ::core::option::Option<*mut u32>, lpcbmaxvaluelen: ::core::option::Option<*mut u32>, lpcbsecuritydescriptor: ::core::option::Option<*mut u32>, lpftlastwritetime: ::core::option::Option<*mut super::super::Foundation::FILETIME>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegQueryInfoKeyW<'a, P0>(hkey: P0, lpclass: ::windows::core::PWSTR, lpcchclass: ::core::option::Option<*mut u32>, lpreserved: ::core::option::Option<*mut u32>, lpcsubkeys: ::core::option::Option<*mut u32>, lpcbmaxsubkeylen: ::core::option::Option<*mut u32>, lpcbmaxclasslen: ::core::option::Option<*mut u32>, lpcvalues: ::core::option::Option<*mut u32>, lpcbmaxvaluenamelen: ::core::option::Option<*mut u32>, lpcbmaxvaluelen: ::core::option::Option<*mut u32>, lpcbsecuritydescriptor: ::core::option::Option<*mut u32>, lpftlastwritetime: ::core::option::Option<*mut super::super::Foundation::FILETIME>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
 {
@@ -820,7 +820,7 @@ where
         hkey.into(),
         ::core::mem::transmute(lpclass),
         ::core::mem::transmute(lpcchclass.unwrap_or(::std::ptr::null_mut())),
-        ::core::mem::transmute(lpreserved),
+        ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpcsubkeys.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpcbmaxsubkeylen.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(lpcbmaxclasslen.unwrap_or(::std::ptr::null_mut())),
@@ -887,7 +887,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegQueryValueExA<'a, P0, P1>(hkey: P0, lpvaluename: P1, lpreserved: *mut u32, lptype: ::core::option::Option<*mut REG_VALUE_TYPE>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegQueryValueExA<'a, P0, P1>(hkey: P0, lpvaluename: P1, lpreserved: ::core::option::Option<*mut u32>, lptype: ::core::option::Option<*mut REG_VALUE_TYPE>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -896,12 +896,12 @@ where
     extern "system" {
         fn RegQueryValueExA(hkey: HKEY, lpvaluename: ::windows::core::PCSTR, lpreserved: *mut u32, lptype: *mut REG_VALUE_TYPE, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegQueryValueExA(hkey.into(), lpvaluename.into(), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
+    RegQueryValueExA(hkey.into(), lpvaluename.into(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegQueryValueExW<'a, P0, P1>(hkey: P0, lpvaluename: P1, lpreserved: *mut u32, lptype: ::core::option::Option<*mut REG_VALUE_TYPE>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegQueryValueExW<'a, P0, P1>(hkey: P0, lpvaluename: P1, lpreserved: ::core::option::Option<*mut u32>, lptype: ::core::option::Option<*mut REG_VALUE_TYPE>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -910,7 +910,7 @@ where
     extern "system" {
         fn RegQueryValueExW(hkey: HKEY, lpvaluename: ::windows::core::PCWSTR, lpreserved: *mut u32, lptype: *mut REG_VALUE_TYPE, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    RegQueryValueExW(hkey.into(), lpvaluename.into(), ::core::mem::transmute(lpreserved), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
+    RegQueryValueExW(hkey.into(), lpvaluename.into(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -714,6 +714,9 @@ impl<'a> Reader<'a> {
     pub fn param_is_retval(&self, row: Param) -> bool {
         self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "RetValAttribute")
     }
+    pub fn param_is_reserved(&self, row: Param) -> bool {
+        self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ReservedAttribute")
+    }
     pub fn param_free_with(&self, row: Param) -> Option<String> {
         for attribute in self.param_attributes(row) {
             if self.attribute_name(attribute) == "FreeWithAttribute" {

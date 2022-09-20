@@ -5740,7 +5740,7 @@ pub unsafe fn SHLoadInProc(rclsid: *const ::windows::core::GUID) -> ::windows::c
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn SHLoadIndirectString<'a, P0>(pszsource: P0, pszoutbuf: &mut [u16], ppvreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn SHLoadIndirectString<'a, P0>(pszsource: P0, pszoutbuf: &mut [u16], ppvreserved: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -5748,7 +5748,7 @@ where
     extern "system" {
         fn SHLoadIndirectString(pszsource: ::windows::core::PCWSTR, pszoutbuf: ::windows::core::PWSTR, cchoutbuf: u32, ppvreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    SHLoadIndirectString(pszsource.into(), ::core::mem::transmute(pszoutbuf.as_ptr()), pszoutbuf.len() as _, ::core::mem::transmute(ppvreserved)).ok()
+    SHLoadIndirectString(pszsource.into(), ::core::mem::transmute(pszoutbuf.as_ptr()), pszoutbuf.len() as _, ::core::mem::transmute(ppvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
@@ -6051,7 +6051,7 @@ pub unsafe fn SHQueryUserNotificationState() -> ::windows::core::Result<QUERY_US
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn SHQueryValueExA<'a, P0, P1>(hkey: P0, pszvalue: P1, pdwreserved: *mut u32, pdwtype: ::core::option::Option<*mut u32>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn SHQueryValueExA<'a, P0, P1>(hkey: P0, pszvalue: P1, pdwreserved: ::core::option::Option<*mut u32>, pdwtype: ::core::option::Option<*mut u32>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -6060,12 +6060,12 @@ where
     extern "system" {
         fn SHQueryValueExA(hkey: super::super::System::Registry::HKEY, pszvalue: ::windows::core::PCSTR, pdwreserved: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    SHQueryValueExA(hkey.into(), pszvalue.into(), ::core::mem::transmute(pdwreserved), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
+    SHQueryValueExA(hkey.into(), pszvalue.into(), ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn SHQueryValueExW<'a, P0, P1>(hkey: P0, pszvalue: P1, pdwreserved: *mut u32, pdwtype: ::core::option::Option<*mut u32>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn SHQueryValueExW<'a, P0, P1>(hkey: P0, pszvalue: P1, pdwreserved: ::core::option::Option<*mut u32>, pdwtype: ::core::option::Option<*mut u32>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -6074,7 +6074,7 @@ where
     extern "system" {
         fn SHQueryValueExW(hkey: super::super::System::Registry::HKEY, pszvalue: ::windows::core::PCWSTR, pdwreserved: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    SHQueryValueExW(hkey.into(), pszvalue.into(), ::core::mem::transmute(pdwreserved), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
+    SHQueryValueExW(hkey.into(), pszvalue.into(), ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16282,8 +16282,8 @@ impl IContextMenu {
     pub unsafe fn InvokeCommand(&self, pici: *const CMINVOKECOMMANDINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InvokeCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pici)).ok()
     }
-    pub unsafe fn GetCommandString(&self, idcmd: usize, utype: u32, preserved: *mut u32, pszname: ::windows::core::PSTR, cchmax: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCommandString)(::windows::core::Interface::as_raw(self), idcmd, utype, ::core::mem::transmute(preserved), ::core::mem::transmute(pszname), cchmax).ok()
+    pub unsafe fn GetCommandString(&self, idcmd: usize, utype: u32, preserved: ::core::option::Option<*mut u32>, pszname: ::windows::core::PSTR, cchmax: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCommandString)(::windows::core::Interface::as_raw(self), idcmd, utype, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszname), cchmax).ok()
     }
 }
 impl ::core::convert::From<IContextMenu> for ::windows::core::IUnknown {
@@ -16352,8 +16352,8 @@ impl IContextMenu2 {
     pub unsafe fn InvokeCommand(&self, pici: *const CMINVOKECOMMANDINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.InvokeCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pici)).ok()
     }
-    pub unsafe fn GetCommandString(&self, idcmd: usize, utype: u32, preserved: *mut u32, pszname: ::windows::core::PSTR, cchmax: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetCommandString)(::windows::core::Interface::as_raw(self), idcmd, utype, ::core::mem::transmute(preserved), ::core::mem::transmute(pszname), cchmax).ok()
+    pub unsafe fn GetCommandString(&self, idcmd: usize, utype: u32, preserved: ::core::option::Option<*mut u32>, pszname: ::windows::core::PSTR, cchmax: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetCommandString)(::windows::core::Interface::as_raw(self), idcmd, utype, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszname), cchmax).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16441,8 +16441,8 @@ impl IContextMenu3 {
     pub unsafe fn InvokeCommand(&self, pici: *const CMINVOKECOMMANDINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.InvokeCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pici)).ok()
     }
-    pub unsafe fn GetCommandString(&self, idcmd: usize, utype: u32, preserved: *mut u32, pszname: ::windows::core::PSTR, cchmax: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetCommandString)(::windows::core::Interface::as_raw(self), idcmd, utype, ::core::mem::transmute(preserved), ::core::mem::transmute(pszname), cchmax).ok()
+    pub unsafe fn GetCommandString(&self, idcmd: usize, utype: u32, preserved: ::core::option::Option<*mut u32>, pszname: ::windows::core::PSTR, cchmax: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetCommandString)(::windows::core::Interface::as_raw(self), idcmd, utype, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszname), cchmax).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32586,12 +32586,12 @@ pub struct IProgressDialog(::windows::core::IUnknown);
 impl IProgressDialog {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StartProgressDialog<'a, P0, P1>(&self, hwndparent: P0, punkenablemodless: P1, dwflags: u32, pvresevered: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn StartProgressDialog<'a, P0, P1>(&self, hwndparent: P0, punkenablemodless: P1, dwflags: u32, pvresevered: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).StartProgressDialog)(::windows::core::Interface::as_raw(self), hwndparent.into(), punkenablemodless.into().abi(), dwflags, ::core::mem::transmute(pvresevered)).ok()
+        (::windows::core::Interface::vtable(self).StartProgressDialog)(::windows::core::Interface::as_raw(self), hwndparent.into(), punkenablemodless.into().abi(), dwflags, ::core::mem::transmute(pvresevered.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn StopProgressDialog(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StopProgressDialog)(::windows::core::Interface::as_raw(self)).ok()
@@ -32623,21 +32623,21 @@ impl IProgressDialog {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLine<'a, P0, P1>(&self, dwlinenum: u32, pwzstring: P0, fcompactpath: P1, pvresevered: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn SetLine<'a, P0, P1>(&self, dwlinenum: u32, pwzstring: P0, fcompactpath: P1, pvresevered: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetLine)(::windows::core::Interface::as_raw(self), dwlinenum, pwzstring.into(), fcompactpath.into(), ::core::mem::transmute(pvresevered)).ok()
+        (::windows::core::Interface::vtable(self).SetLine)(::windows::core::Interface::as_raw(self), dwlinenum, pwzstring.into(), fcompactpath.into(), ::core::mem::transmute(pvresevered.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetCancelMsg<'a, P0>(&self, pwzcancelmsg: P0, pvresevered: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn SetCancelMsg<'a, P0>(&self, pwzcancelmsg: P0, pvresevered: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetCancelMsg)(::windows::core::Interface::as_raw(self), pwzcancelmsg.into(), ::core::mem::transmute(pvresevered)).ok()
+        (::windows::core::Interface::vtable(self).SetCancelMsg)(::windows::core::Interface::as_raw(self), pwzcancelmsg.into(), ::core::mem::transmute(pvresevered.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn Timer(&self, dwtimeraction: u32, pvresevered: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Timer)(::windows::core::Interface::as_raw(self), dwtimeraction, ::core::mem::transmute(pvresevered)).ok()
+    pub unsafe fn Timer(&self, dwtimeraction: u32, pvresevered: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Timer)(::windows::core::Interface::as_raw(self), dwtimeraction, ::core::mem::transmute(pvresevered.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 impl ::core::convert::From<IProgressDialog> for ::windows::core::IUnknown {
@@ -36908,13 +36908,13 @@ pub struct IShellFolder(::windows::core::IUnknown);
 impl IShellFolder {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn ParseDisplayName<'a, P0, P1, P2>(&self, hwnd: P0, pbc: P1, pszdisplayname: P2, pcheaten: *mut u32, ppidl: *mut *mut Common::ITEMIDLIST, pdwattributes: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn ParseDisplayName<'a, P0, P1, P2>(&self, hwnd: P0, pbc: P1, pszdisplayname: P2, pcheaten: ::core::option::Option<*mut u32>, ppidl: *mut *mut Common::ITEMIDLIST, pdwattributes: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IBindCtx>>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).ParseDisplayName)(::windows::core::Interface::as_raw(self), hwnd.into(), pbc.into().abi(), pszdisplayname.into(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppidl), ::core::mem::transmute(pdwattributes)).ok()
+        (::windows::core::Interface::vtable(self).ParseDisplayName)(::windows::core::Interface::as_raw(self), hwnd.into(), pbc.into().abi(), pszdisplayname.into(), ::core::mem::transmute(pcheaten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppidl), ::core::mem::transmute(pdwattributes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -36969,13 +36969,13 @@ impl IShellFolder {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn GetUIObjectOf<'a, P0, T>(&self, hwndowner: P0, apidl: &[*const Common::ITEMIDLIST], rgfreserved: *mut u32) -> ::windows::core::Result<T>
+    pub unsafe fn GetUIObjectOf<'a, P0, T>(&self, hwndowner: P0, apidl: &[*const Common::ITEMIDLIST], rgfreserved: ::core::option::Option<*mut u32>) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetUIObjectOf)(::windows::core::Interface::as_raw(self), hwndowner.into(), apidl.len() as _, ::core::mem::transmute(apidl.as_ptr()), &<T as ::windows::core::Interface>::IID, ::core::mem::transmute(rgfreserved), &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetUIObjectOf)(::windows::core::Interface::as_raw(self), hwndowner.into(), apidl.len() as _, ::core::mem::transmute(apidl.as_ptr()), &<T as ::windows::core::Interface>::IID, ::core::mem::transmute(rgfreserved.unwrap_or(::std::ptr::null_mut())), &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -37080,13 +37080,13 @@ pub struct IShellFolder2(::windows::core::IUnknown);
 impl IShellFolder2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn ParseDisplayName<'a, P0, P1, P2>(&self, hwnd: P0, pbc: P1, pszdisplayname: P2, pcheaten: *mut u32, ppidl: *mut *mut Common::ITEMIDLIST, pdwattributes: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn ParseDisplayName<'a, P0, P1, P2>(&self, hwnd: P0, pbc: P1, pszdisplayname: P2, pcheaten: ::core::option::Option<*mut u32>, ppidl: *mut *mut Common::ITEMIDLIST, pdwattributes: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IBindCtx>>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.ParseDisplayName)(::windows::core::Interface::as_raw(self), hwnd.into(), pbc.into().abi(), pszdisplayname.into(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppidl), ::core::mem::transmute(pdwattributes)).ok()
+        (::windows::core::Interface::vtable(self).base__.ParseDisplayName)(::windows::core::Interface::as_raw(self), hwnd.into(), pbc.into().abi(), pszdisplayname.into(), ::core::mem::transmute(pcheaten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppidl), ::core::mem::transmute(pdwattributes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -37141,13 +37141,13 @@ impl IShellFolder2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn GetUIObjectOf<'a, P0, T>(&self, hwndowner: P0, apidl: &[*const Common::ITEMIDLIST], rgfreserved: *mut u32) -> ::windows::core::Result<T>
+    pub unsafe fn GetUIObjectOf<'a, P0, T>(&self, hwndowner: P0, apidl: &[*const Common::ITEMIDLIST], rgfreserved: ::core::option::Option<*mut u32>) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.GetUIObjectOf)(::windows::core::Interface::as_raw(self), hwndowner.into(), apidl.len() as _, ::core::mem::transmute(apidl.as_ptr()), &<T as ::windows::core::Interface>::IID, ::core::mem::transmute(rgfreserved), &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.GetUIObjectOf)(::windows::core::Interface::as_raw(self), hwndowner.into(), apidl.len() as _, ::core::mem::transmute(apidl.as_ptr()), &<T as ::windows::core::Interface>::IID, ::core::mem::transmute(rgfreserved.unwrap_or(::std::ptr::null_mut())), &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]

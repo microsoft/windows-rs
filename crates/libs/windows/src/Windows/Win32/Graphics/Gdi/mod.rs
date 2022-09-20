@@ -50,12 +50,12 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddFontMemResourceEx(pfileview: &[u8], pvresrved: *mut ::core::ffi::c_void, pnumfonts: *const u32) -> super::super::Foundation::HANDLE {
+pub unsafe fn AddFontMemResourceEx(pfileview: &[u8], pvresrved: ::core::option::Option<*mut ::core::ffi::c_void>, pnumfonts: *const u32) -> super::super::Foundation::HANDLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize: u32, pvresrved: *mut ::core::ffi::c_void, pnumfonts: *const u32) -> super::super::Foundation::HANDLE;
     }
-    AddFontMemResourceEx(::core::mem::transmute(pfileview.as_ptr()), pfileview.len() as _, ::core::mem::transmute(pvresrved), ::core::mem::transmute(pnumfonts))
+    AddFontMemResourceEx(::core::mem::transmute(pfileview.as_ptr()), pfileview.len() as _, ::core::mem::transmute(pvresrved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumfonts))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -71,7 +71,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn AddFontResourceExA<'a, P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn AddFontResourceExA<'a, P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -79,11 +79,11 @@ where
     extern "system" {
         fn AddFontResourceExA(name: ::windows::core::PCSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32;
     }
-    AddFontResourceExA(name.into(), fl, ::core::mem::transmute(res))
+    AddFontResourceExA(name.into(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn AddFontResourceExW<'a, P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn AddFontResourceExW<'a, P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -91,7 +91,7 @@ where
     extern "system" {
         fn AddFontResourceExW(name: ::windows::core::PCWSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32;
     }
-    AddFontResourceExW(name.into(), fl, ::core::mem::transmute(res))
+    AddFontResourceExW(name.into(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -3857,7 +3857,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveFontResourceExA<'a, P0>(name: P0, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn RemoveFontResourceExA<'a, P0>(name: P0, fl: u32, pdv: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -3865,12 +3865,12 @@ where
     extern "system" {
         fn RemoveFontResourceExA(name: ::windows::core::PCSTR, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    RemoveFontResourceExA(name.into(), fl, ::core::mem::transmute(pdv))
+    RemoveFontResourceExA(name.into(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveFontResourceExW<'a, P0>(name: P0, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn RemoveFontResourceExW<'a, P0>(name: P0, fl: u32, pdv: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -3878,7 +3878,7 @@ where
     extern "system" {
         fn RemoveFontResourceExW(name: ::windows::core::PCWSTR, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    RemoveFontResourceExW(name.into(), fl, ::core::mem::transmute(pdv))
+    RemoveFontResourceExW(name.into(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -307,8 +307,8 @@ impl IXAudio2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDebugConfiguration(&self, pdebugconfiguration: ::core::option::Option<*const XAUDIO2_DEBUG_CONFIGURATION>, preserved: *mut ::core::ffi::c_void) {
-        (::windows::core::Interface::vtable(self).SetDebugConfiguration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdebugconfiguration.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved))
+    pub unsafe fn SetDebugConfiguration(&self, pdebugconfiguration: ::core::option::Option<*const XAUDIO2_DEBUG_CONFIGURATION>, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) {
+        (::windows::core::Interface::vtable(self).SetDebugConfiguration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdebugconfiguration.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
     }
 }
 impl ::core::convert::From<IXAudio2> for ::windows::core::IUnknown {

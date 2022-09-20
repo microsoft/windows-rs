@@ -2183,7 +2183,7 @@ pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn TranslateInfStringA<'a, P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u8]>, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn TranslateInfStringA<'a, P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u8]>, pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2194,11 +2194,11 @@ where
     extern "system" {
         fn TranslateInfStringA(pszinffilename: ::windows::core::PCSTR, pszinstallsection: ::windows::core::PCSTR, psztranslatesection: ::windows::core::PCSTR, psztranslatekey: ::windows::core::PCSTR, pszbuffer: ::windows::core::PSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    TranslateInfStringA(pszinffilename.into(), pszinstallsection.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
+    TranslateInfStringA(pszinffilename.into(), pszinstallsection.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn TranslateInfStringExA<'a, P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u8], pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn TranslateInfStringExA<'a, P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u8], pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -2208,11 +2208,11 @@ where
     extern "system" {
         fn TranslateInfStringExA(hinf: *mut ::core::ffi::c_void, pszinffilename: ::windows::core::PCSTR, psztranslatesection: ::windows::core::PCSTR, psztranslatekey: ::windows::core::PCSTR, pszbuffer: ::windows::core::PSTR, dwbuffersize: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    TranslateInfStringExA(::core::mem::transmute(hinf), pszinffilename.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
+    TranslateInfStringExA(::core::mem::transmute(hinf), pszinffilename.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn TranslateInfStringExW<'a, P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u16], pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn TranslateInfStringExW<'a, P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u16], pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2222,11 +2222,11 @@ where
     extern "system" {
         fn TranslateInfStringExW(hinf: *mut ::core::ffi::c_void, pszinffilename: ::windows::core::PCWSTR, psztranslatesection: ::windows::core::PCWSTR, psztranslatekey: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    TranslateInfStringExW(::core::mem::transmute(hinf), pszinffilename.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
+    TranslateInfStringExW(::core::mem::transmute(hinf), pszinffilename.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn TranslateInfStringW<'a, P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u16]>, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn TranslateInfStringW<'a, P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u16]>, pdwrequiredsize: *mut u32, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2237,7 +2237,7 @@ where
     extern "system" {
         fn TranslateInfStringW(pszinffilename: ::windows::core::PCWSTR, pszinstallsection: ::windows::core::PCWSTR, psztranslatesection: ::windows::core::PCWSTR, psztranslatekey: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    TranslateInfStringW(pszinffilename.into(), pszinstallsection.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
+    TranslateInfStringW(pszinffilename.into(), pszinstallsection.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]

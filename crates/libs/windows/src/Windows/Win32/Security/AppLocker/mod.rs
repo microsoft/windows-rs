@@ -28,12 +28,12 @@ where
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    SaferCreateLevel(dwscopeid, dwlevelid, openflags, ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved))
+    SaferCreateLevel(dwscopeid, dwlevelid, openflags, ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -51,12 +51,12 @@ where
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffer: &mut [u8], infobufferretsize: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffer: &mut [u8], infobufferretsize: *mut u32, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffer.len() as _, ::core::mem::transmute(infobuffer.as_ptr()), ::core::mem::transmute(infobufferretsize), ::core::mem::transmute(lpreserved))
+    SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffer.len() as _, ::core::mem::transmute(infobuffer.as_ptr()), ::core::mem::transmute(infobufferretsize), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -71,7 +71,7 @@ pub unsafe fn SaferIdentifyLevel(pcodeproperties: ::core::option::Option<&[SAFER
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferRecordEventLogEntry<'a, P0, P1>(hlevel: P0, sztargetpath: P1, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn SaferRecordEventLogEntry<'a, P0, P1>(hlevel: P0, sztargetpath: P1, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -80,7 +80,7 @@ where
     extern "system" {
         fn SaferRecordEventLogEntry(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: ::windows::core::PCWSTR, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    SaferRecordEventLogEntry(hlevel.into(), sztargetpath.into(), ::core::mem::transmute(lpreserved))
+    SaferRecordEventLogEntry(hlevel.into(), sztargetpath.into(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -98,12 +98,12 @@ where
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffer: &[u8], lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffer: &[u8], lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffer.len() as _, ::core::mem::transmute(infobuffer.as_ptr()), ::core::mem::transmute(lpreserved))
+    SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffer.len() as _, ::core::mem::transmute(infobuffer.as_ptr()), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

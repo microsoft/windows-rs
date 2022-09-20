@@ -71,16 +71,16 @@ pub unsafe fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32 {
+pub unsafe fn WcmGetProfileList(preserved: ::core::option::Option<*mut ::core::ffi::c_void>, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32;
     }
-    WcmGetProfileList(::core::mem::transmute(preserved), ::core::mem::transmute(ppprofilelist))
+    WcmGetProfileList(::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppprofilelist))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmQueryProperty<'a, P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: ::core::option::Option<*mut *mut u8>) -> u32
+pub unsafe fn WcmQueryProperty<'a, P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: ::core::option::Option<*mut *mut u8>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -88,12 +88,12 @@ where
     extern "system" {
         fn WcmQueryProperty(pinterface: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
     }
-    WcmQueryProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into(), property, ::core::mem::transmute(preserved), ::core::mem::transmute(pdwdatasize), ::core::mem::transmute(ppdata.unwrap_or(::std::ptr::null_mut())))
+    WcmQueryProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into(), property, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwdatasize), ::core::mem::transmute(ppdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcmSetProfileList<'a, P0>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: P0, preserved: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn WcmSetProfileList<'a, P0>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: P0, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -101,11 +101,11 @@ where
     extern "system" {
         fn WcmSetProfileList(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
     }
-    WcmSetProfileList(::core::mem::transmute(pprofilelist), dwposition, fignoreunknownprofiles.into(), ::core::mem::transmute(preserved))
+    WcmSetProfileList(::core::mem::transmute(pprofilelist), dwposition, fignoreunknownprofiles.into(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmSetProperty<'a, P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pbdata: ::core::option::Option<&[u8]>) -> u32
+pub unsafe fn WcmSetProperty<'a, P0>(pinterface: ::core::option::Option<*const ::windows::core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pbdata: ::core::option::Option<&[u8]>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -113,7 +113,7 @@ where
     extern "system" {
         fn WcmSetProperty(pinterface: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
     }
-    WcmSetProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into(), property, ::core::mem::transmute(preserved), pbdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    WcmSetProperty(::core::mem::transmute(pinterface.unwrap_or(::std::ptr::null())), strprofilename.into(), property, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), pbdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
