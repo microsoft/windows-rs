@@ -1,0 +1,15 @@
+[package]
+name = "sample_wmi"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "Win32_Foundation",
+    "Win32_System_Com",
+    "Win32_System_Ole",
+    "Win32_System_Wmi",
+    "Win32_System_Rpc",
+    "Win32_Security",
+]

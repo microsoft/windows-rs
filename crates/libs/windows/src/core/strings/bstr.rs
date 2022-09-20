@@ -5,7 +5,7 @@ use bindings::*;
 pub struct BSTR(*const u16);
 
 impl BSTR {
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self(core::ptr::null_mut())
     }
 
