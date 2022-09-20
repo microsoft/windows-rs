@@ -108,6 +108,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p sample_simple &&
           cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
           cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
+          cargo test --target ${{ matrix.target }} -p sample_wmi &&
           cargo test --target ${{ matrix.target }} -p sample_xml &&
           cargo test --target ${{ matrix.target }} -p windows_aarch64_gnullvm &&
           cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
