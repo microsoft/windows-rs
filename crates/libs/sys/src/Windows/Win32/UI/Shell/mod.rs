@@ -1157,7 +1157,7 @@ extern "system" {
     pub fn SHGetKnownFolderItem(rfid: *const ::windows_sys::core::GUID, flags: KNOWN_FOLDER_FLAG, htoken: super::super::Foundation::HANDLE, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHGetKnownFolderPath(rfid: *const ::windows_sys::core::GUID, dwflags: u32, htoken: super::super::Foundation::HANDLE, ppszpath: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetKnownFolderPath(rfid: *const ::windows_sys::core::GUID, dwflags: KNOWN_FOLDER_FLAG, htoken: super::super::Foundation::HANDLE, ppszpath: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     pub fn SHGetLocalizedName(pszpath: ::windows_sys::core::PCWSTR, pszresmodule: ::windows_sys::core::PWSTR, cch: u32, pidsres: *mut i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
@@ -1177,7 +1177,7 @@ extern "system" {
     pub fn SHGetPathFromIDListA(pidl: *const Common::ITEMIDLIST, pszpath: ::windows_sys::core::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub fn SHGetPathFromIDListEx(pidl: *const Common::ITEMIDLIST, pszpath: ::windows_sys::core::PWSTR, cchpath: u32, uopts: i32) -> super::super::Foundation::BOOL;
+    pub fn SHGetPathFromIDListEx(pidl: *const Common::ITEMIDLIST, pszpath: ::windows_sys::core::PWSTR, cchpath: u32, uopts: GPFIDL_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn SHGetPathFromIDListW(pidl: *const Common::ITEMIDLIST, pszpath: ::windows_sys::core::PWSTR) -> super::super::Foundation::BOOL;
@@ -1524,18 +1524,18 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn ShellAboutW(hwnd: super::super::Foundation::HWND, szapp: ::windows_sys::core::PCWSTR, szotherstuff: ::windows_sys::core::PCWSTR, hicon: super::WindowsAndMessaging::HICON) -> i32;
-    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ShellExecuteA(hwnd: super::super::Foundation::HWND, lpoperation: ::windows_sys::core::PCSTR, lpfile: ::windows_sys::core::PCSTR, lpparameters: ::windows_sys::core::PCSTR, lpdirectory: ::windows_sys::core::PCSTR, nshowcmd: i32) -> super::super::Foundation::HINSTANCE;
+    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn ShellExecuteA(hwnd: super::super::Foundation::HWND, lpoperation: ::windows_sys::core::PCSTR, lpfile: ::windows_sys::core::PCSTR, lpparameters: ::windows_sys::core::PCSTR, lpdirectory: ::windows_sys::core::PCSTR, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HINSTANCE;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn ShellExecuteExA(pexecinfo: *mut SHELLEXECUTEINFOA) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn ShellExecuteExW(pexecinfo: *mut SHELLEXECUTEINFOW) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ShellExecuteW(hwnd: super::super::Foundation::HWND, lpoperation: ::windows_sys::core::PCWSTR, lpfile: ::windows_sys::core::PCWSTR, lpparameters: ::windows_sys::core::PCWSTR, lpdirectory: ::windows_sys::core::PCWSTR, nshowcmd: i32) -> super::super::Foundation::HINSTANCE;
+    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn ShellExecuteW(hwnd: super::super::Foundation::HWND, lpoperation: ::windows_sys::core::PCWSTR, lpfile: ::windows_sys::core::PCWSTR, lpparameters: ::windows_sys::core::PCWSTR, lpdirectory: ::windows_sys::core::PCWSTR, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HINSTANCE;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     pub fn Shell_GetCachedImageIndex(pwsziconpath: ::windows_sys::core::PCWSTR, iiconindex: i32, uiconflags: u32) -> i32;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -3906,12 +3906,6 @@ pub const GIL_PERINSTANCE: u32 = 2u32;
 pub const GIL_SHIELD: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const GIL_SIMULATEDOC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const GPFIDL_ALTNAME: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const GPFIDL_DEFAULT: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const GPFIDL_UNCPRINTER: i32 = 2i32;
 pub const GenericCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 634108310, data2: 37613, data3: 17790, data4: [178, 140, 71, 116, 8, 75, 213, 98] };
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const HLINK_E_FIRST: ::windows_sys::core::HRESULT = -2147221248i32;
@@ -4129,24 +4123,6 @@ pub const NCM_SETALLOWTYPE: u32 = 1026u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NETCACHE_E_NEGATIVE_CACHE: ::windows_sys::core::HRESULT = -2144927488i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_ERROR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_ICON_MASK: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_INFO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_LARGE_ICON: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_NOSOUND: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_RESPECT_QUIET_TIME: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_USER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_WARNING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NINF_KEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NIN_BALLOONHIDE: u32 = 1027u32;
@@ -4162,10 +4138,6 @@ pub const NIN_POPUPCLOSE: u32 = 1031u32;
 pub const NIN_POPUPOPEN: u32 = 1030u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NIN_SELECT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIS_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIS_SHAREDICON: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NOTIFYICON_VERSION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -6482,6 +6454,14 @@ pub type FVTEXTTYPE = i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const FVST_EMPTYTEXT: FVTEXTTYPE = 0i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub type GPFIDL_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const GPFIDL_DEFAULT: GPFIDL_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const GPFIDL_ALTNAME: GPFIDL_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const GPFIDL_UNCPRINTER: GPFIDL_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub type HELP_INFO_TYPE = i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const HELPINFO_WINDOW: HELP_INFO_TYPE = 1i32;
@@ -6872,6 +6852,26 @@ pub const NIF_REALTIME: NOTIFY_ICON_DATA_FLAGS = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NIF_SHOWTIP: NOTIFY_ICON_DATA_FLAGS = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub type NOTIFY_ICON_INFOTIP_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_NONE: NOTIFY_ICON_INFOTIP_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_INFO: NOTIFY_ICON_INFOTIP_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_WARNING: NOTIFY_ICON_INFOTIP_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_ERROR: NOTIFY_ICON_INFOTIP_FLAGS = 3u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_USER: NOTIFY_ICON_INFOTIP_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_ICON_MASK: NOTIFY_ICON_INFOTIP_FLAGS = 15u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_NOSOUND: NOTIFY_ICON_INFOTIP_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_LARGE_ICON: NOTIFY_ICON_INFOTIP_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_RESPECT_QUIET_TIME: NOTIFY_ICON_INFOTIP_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub type NOTIFY_ICON_MESSAGE = u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NIM_ADD: NOTIFY_ICON_MESSAGE = 0u32;
@@ -6883,6 +6883,12 @@ pub const NIM_DELETE: NOTIFY_ICON_MESSAGE = 2u32;
 pub const NIM_SETFOCUS: NOTIFY_ICON_MESSAGE = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NIM_SETVERSION: NOTIFY_ICON_MESSAGE = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub type NOTIFY_ICON_STATE = u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIS_HIDDEN: NOTIFY_ICON_STATE = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIS_SHAREDICON: NOTIFY_ICON_STATE = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub type NSTCFOLDERCAPABILITIES = i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -11181,12 +11187,12 @@ pub struct NOTIFYICONDATAA {
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [super::super::Foundation::CHAR; 128],
-    pub dwState: u32,
+    pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
     pub szInfo: [super::super::Foundation::CHAR; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [super::super::Foundation::CHAR; 64],
-    pub dwInfoFlags: u32,
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
@@ -11230,12 +11236,12 @@ pub struct NOTIFYICONDATAA {
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [super::super::Foundation::CHAR; 128],
-    pub dwState: u32,
+    pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
     pub szInfo: [super::super::Foundation::CHAR; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [super::super::Foundation::CHAR; 64],
-    pub dwInfoFlags: u32,
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
@@ -11279,12 +11285,12 @@ pub struct NOTIFYICONDATAW {
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [u16; 128],
-    pub dwState: u32,
+    pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
     pub szInfo: [u16; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],
-    pub dwInfoFlags: u32,
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
@@ -11328,12 +11334,12 @@ pub struct NOTIFYICONDATAW {
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [u16; 128],
-    pub dwState: u32,
+    pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
     pub szInfo: [u16; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],
-    pub dwInfoFlags: u32,
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows_sys::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }

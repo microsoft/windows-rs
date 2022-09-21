@@ -1256,20 +1256,20 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
-pub unsafe fn UiaRaiseAutomationEvent<'a, P0>(pprovider: P0, id: i32) -> ::windows::core::Result<()>
+pub unsafe fn UiaRaiseAutomationEvent<'a, P0>(pprovider: P0, id: UIA_EVENT_ID) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn UiaRaiseAutomationEvent(pprovider: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT;
+        fn UiaRaiseAutomationEvent(pprovider: *mut ::core::ffi::c_void, id: UIA_EVENT_ID) -> ::windows::core::HRESULT;
     }
     UiaRaiseAutomationEvent(pprovider.into().abi(), id).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<'a, P0, P1, P2>(pprovider: P0, id: i32, oldvalue: P1, newvalue: P2) -> ::windows::core::Result<()>
+pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<'a, P0, P1, P2>(pprovider: P0, id: UIA_PROPERTY_ID, oldvalue: P1, newvalue: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
@@ -1277,7 +1277,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn UiaRaiseAutomationPropertyChangedEvent(pprovider: *mut ::core::ffi::c_void, id: i32, oldvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
+        fn UiaRaiseAutomationPropertyChangedEvent(pprovider: *mut ::core::ffi::c_void, id: UIA_PROPERTY_ID, oldvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     UiaRaiseAutomationPropertyChangedEvent(pprovider.into().abi(), id, oldvalue.into().abi(), newvalue.into().abi()).ok()
 }
@@ -3819,13 +3819,13 @@ impl IRawElementProviderSimple {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ProviderOptions>(result__)
     }
-    pub unsafe fn GetPatternProvider(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPatternProvider)(::windows::core::Interface::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyValue)(::windows::core::Interface::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -3874,9 +3874,9 @@ unsafe impl ::windows::core::Interface for IRawElementProviderSimple {
 pub struct IRawElementProviderSimple_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub ProviderOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ProviderOptions) -> ::windows::core::HRESULT,
-    pub GetPatternProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: i32, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPatternProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetPropertyValue: usize,
     pub HostRawElementProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3889,13 +3889,13 @@ impl IRawElementProviderSimple2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ProviderOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ProviderOptions>(result__)
     }
-    pub unsafe fn GetPatternProvider(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPatternProvider)(::windows::core::Interface::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPropertyValue)(::windows::core::Interface::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -3971,13 +3971,13 @@ impl IRawElementProviderSimple3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ProviderOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ProviderOptions>(result__)
     }
-    pub unsafe fn GetPatternProvider(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPatternProvider)(::windows::core::Interface::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPropertyValue)(::windows::core::Interface::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -20410,56 +20410,6 @@ pub const AcceleratorKey_Property_GUID: ::windows::core::GUID = ::windows::core:
 pub const AccessKey_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06827b12_a7f9_4a15_917c_ffa5ad3eb0a7);
 pub const ActiveTextPositionChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5c09e9c_c77d_4f25_b491_e5bb7017cbd4);
 pub const AnnotationObjects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310910c8_7c6e_4f20_becd_4aaf6d191156);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_AdvancedProofingIssue: i32 = 60020i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Author: i32 = 60019i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_CircularReferenceError: i32 = 60022i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Comment: i32 = 60003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_ConflictingChange: i32 = 60018i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_DataValidationError: i32 = 60021i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_DeletionChange: i32 = 60012i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_EditingLockedChange: i32 = 60016i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Endnote: i32 = 60009i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_ExternalChange: i32 = 60017i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Footer: i32 = 60007i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Footnote: i32 = 60010i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_FormatChange: i32 = 60014i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_FormulaError: i32 = 60004i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_GrammarError: i32 = 60002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Header: i32 = 60006i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Highlighted: i32 = 60008i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_InsertionChange: i32 = 60011i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Mathematics: i32 = 60023i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_MoveChange: i32 = 60013i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Sensitive: i32 = 60024i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_SpellingError: i32 = 60001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_TrackChanges: i32 = 60005i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Unknown: i32 = 60000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_UnsyncedChange: i32 = 60015i32;
 pub const AnnotationTypes_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64b71f76_53c4_4696_a219_20e940c9a176);
 pub const Annotation_AdvancedProofingIssue_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdac7b72c_c0f2_4b84_b90d_5fafc0f0ef1c);
 pub const Annotation_AnnotationTypeId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ae484f_69ef_4c48_8f5b_c4938b206ac7);
@@ -20599,26 +20549,6 @@ pub const Group_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const HasKeyboardFocus_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf8afd39_3f46_4800_9656_b2bf12529905);
 pub const HeaderItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6bc12cb_7c8e_49cf_b168_4a93a32bebb0);
 pub const Header_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b90cbce_78fb_4614_82b6_554d74718e67);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel1: i32 = 80051i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel2: i32 = 80052i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel3: i32 = 80053i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel4: i32 = 80054i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel5: i32 = 80055i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel6: i32 = 80056i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel7: i32 = 80057i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel8: i32 = 80058i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel9: i32 = 80059i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel_None: i32 = 80050i32;
 pub const HeadingLevel_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29084272_aaaf_4a30_8796_3c12f62b6bbb);
 pub const HelpText_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08555685_0977_45c7_a7a6_abaf5684121a);
 pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6bdb03e_0921_4ec5_8dcf_eae877b0426b);
@@ -20973,56 +20903,22 @@ pub const StructuredMarkup_CompositionComplete_Event_GUID: ::windows::core::GUID
 pub const StructuredMarkup_Deleted_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9d0a020_e1c1_4ecf_b9aa_52efde7e41e1);
 pub const StructuredMarkup_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabbd0878_8665_4f5c_94fc_36e7d8bb706b);
 pub const StructuredMarkup_SelectionChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7c815f7_ff9f_41c7_a3a7_ab6cbfdb4903);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_BulletedList: i32 = 70015i32;
 pub const StyleId_BulletedList_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5963ed64_6426_4632_8caf_a32ad402d91a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Custom: i32 = 70000i32;
 pub const StyleId_Custom_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef2edd3e_a999_4b7c_a378_09bbd52a3516);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Emphasis: i32 = 70013i32;
 pub const StyleId_Emphasis_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca6e7dbe_355e_4820_95a0_925f041d3470);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Heading1: i32 = 70001i32;
 pub const StyleId_Heading1_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f7e8f69_6866_4621_930c_9a5d0ca5961c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Heading2: i32 = 70002i32;
 pub const StyleId_Heading2_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbaa9b241_5c69_469d_85ad_474737b52b14);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Heading3: i32 = 70003i32;
 pub const StyleId_Heading3_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf8be9d2_d8b8_4ec5_8c52_9cfb0d035970);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Heading4: i32 = 70004i32;
 pub const StyleId_Heading4_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8436ffc0_9578_45fc_83a4_ff40053315dd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Heading5: i32 = 70005i32;
 pub const StyleId_Heading5_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x909f424d_0dbf_406e_97bb_4e773d9798f7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Heading6: i32 = 70006i32;
 pub const StyleId_Heading6_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89d23459_5d5b_4824_a420_11d3ed82e40f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Heading7: i32 = 70007i32;
 pub const StyleId_Heading7_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3790473_e9ae_422d_b8e3_3b675c6181a4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Heading8: i32 = 70008i32;
 pub const StyleId_Heading8_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc14145_a40c_4881_84ae_f2235685380c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Heading9: i32 = 70009i32;
 pub const StyleId_Heading9_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc70d9133_bb2a_43d3_8ac6_33657884b0f0);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Normal: i32 = 70012i32;
 pub const StyleId_Normal_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd14d429_e45e_4475_a1c5_7f9e6be96eba);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_NumberedList: i32 = 70016i32;
 pub const StyleId_NumberedList_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e96dbd5_64c3_43d0_b1ee_b53b06e3eddf);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Quote: i32 = 70014i32;
 pub const StyleId_Quote_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d1c21ea_8195_4f6c_87ea_5dabece64c1d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Subtitle: i32 = 70011i32;
 pub const StyleId_Subtitle_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5d9fc17_5d6f_4420_b439_7cb19ad434e2);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StyleId_Title: i32 = 70010i32;
 pub const StyleId_Title_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15d8201a_ffcf_481f_b0a1_30b63be98f07);
 pub const Styles_ExtendedProperties_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf451cda0_ba0a_4681_b0b0_0dbdb53e58f3);
 pub const Styles_FillColor_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63eff97a_a1c5_4b1d_84eb_b765f2edd632);
@@ -21119,134 +21015,6 @@ pub const Transform_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID:
 pub const TreeItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62c9feb9_8ffc_4878_a3a4_96b030315c18);
 pub const Tree_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7561349c_d241_43f4_9908_b5f091bee611);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AcceleratorKeyPropertyId: i32 = 30006i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AccessKeyPropertyId: i32 = 30007i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ActiveTextPositionChangedEventId: i32 = 20036i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AfterParagraphSpacingAttributeId: i32 = 40042i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnimationStyleAttributeId: i32 = 40000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationAnnotationTypeIdPropertyId: i32 = 30113i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationAnnotationTypeNamePropertyId: i32 = 30114i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationAuthorPropertyId: i32 = 30115i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationDateTimePropertyId: i32 = 30116i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationObjectsAttributeId: i32 = 40032i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationObjectsPropertyId: i32 = 30156i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationPatternId: i32 = 10023i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationTargetPropertyId: i32 = 30117i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationTypesAttributeId: i32 = 40031i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AnnotationTypesPropertyId: i32 = 30155i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AppBarControlTypeId: i32 = 50040i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AriaPropertiesPropertyId: i32 = 30102i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AriaRolePropertyId: i32 = 30101i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AsyncContentLoadedEventId: i32 = 20006i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AutomationFocusChangedEventId: i32 = 20005i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AutomationIdPropertyId: i32 = 30011i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_AutomationPropertyChangedEventId: i32 = 20004i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_BackgroundColorAttributeId: i32 = 40001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_BeforeParagraphSpacingAttributeId: i32 = 40041i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_BoundingRectanglePropertyId: i32 = 30001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_BulletStyleAttributeId: i32 = 40002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ButtonControlTypeId: i32 = 50000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CalendarControlTypeId: i32 = 50001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CapStyleAttributeId: i32 = 40003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CaretBidiModeAttributeId: i32 = 40039i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CaretPositionAttributeId: i32 = 40038i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CenterPointPropertyId: i32 = 30165i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ChangesEventId: i32 = 20034i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CheckBoxControlTypeId: i32 = 50002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ClassNamePropertyId: i32 = 30012i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ClickablePointPropertyId: i32 = 30014i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ComboBoxControlTypeId: i32 = 50003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ControlTypePropertyId: i32 = 30003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ControllerForPropertyId: i32 = 30104i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CultureAttributeId: i32 = 40004i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CulturePropertyId: i32 = 30015i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CustomControlTypeId: i32 = 50025i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CustomLandmarkTypeId: i32 = 80000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_CustomNavigationPatternId: i32 = 10033i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DataGridControlTypeId: i32 = 50028i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DataItemControlTypeId: i32 = 50029i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DescribedByPropertyId: i32 = 30105i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DockDockPositionPropertyId: i32 = 30069i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DockPatternId: i32 = 10011i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DocumentControlTypeId: i32 = 50030i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DragDropEffectPropertyId: i32 = 30139i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DragDropEffectsPropertyId: i32 = 30140i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DragGrabbedItemsPropertyId: i32 = 30144i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DragIsGrabbedPropertyId: i32 = 30138i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DragPatternId: i32 = 10030i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Drag_DragCancelEventId: i32 = 20027i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Drag_DragCompleteEventId: i32 = 20028i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Drag_DragStartEventId: i32 = 20026i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DropTargetDropTargetEffectPropertyId: i32 = 30142i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DropTargetDropTargetEffectsPropertyId: i32 = 30143i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DropTargetPatternId: i32 = 10031i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DropTarget_DragEnterEventId: i32 = 20029i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DropTarget_DragLeaveEventId: i32 = 20030i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_DropTarget_DroppedEventId: i32 = 20031i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_ELEMENTNOTAVAILABLE: u32 = 2147746305u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_ELEMENTNOTENABLED: u32 = 2147746304u32;
@@ -21261,565 +21029,15 @@ pub const UIA_E_PROXYASSEMBLYNOTLOADED: u32 = 2147746307u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_TIMEOUT: u32 = 2148734213u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_EditControlTypeId: i32 = 50004i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ExpandCollapseExpandCollapseStatePropertyId: i32 = 30070i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ExpandCollapsePatternId: i32 = 10005i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FillColorPropertyId: i32 = 30160i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FillTypePropertyId: i32 = 30162i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FlowsFromPropertyId: i32 = 30148i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FlowsToPropertyId: i32 = 30106i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FontNameAttributeId: i32 = 40005i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FontSizeAttributeId: i32 = 40006i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FontWeightAttributeId: i32 = 40007i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ForegroundColorAttributeId: i32 = 40008i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FormLandmarkTypeId: i32 = 80001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FrameworkIdPropertyId: i32 = 30024i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_FullDescriptionPropertyId: i32 = 30159i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GridColumnCountPropertyId: i32 = 30063i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GridItemColumnPropertyId: i32 = 30065i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GridItemColumnSpanPropertyId: i32 = 30067i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GridItemContainingGridPropertyId: i32 = 30068i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GridItemPatternId: i32 = 10007i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GridItemRowPropertyId: i32 = 30064i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GridItemRowSpanPropertyId: i32 = 30066i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GridPatternId: i32 = 10006i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GridRowCountPropertyId: i32 = 30062i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_GroupControlTypeId: i32 = 50026i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_HasKeyboardFocusPropertyId: i32 = 30008i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_HeaderControlTypeId: i32 = 50034i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_HeaderItemControlTypeId: i32 = 50035i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_HeadingLevelPropertyId: i32 = 30173i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_HelpTextPropertyId: i32 = 30013i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_HorizontalTextAlignmentAttributeId: i32 = 40009i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_HostedFragmentRootsInvalidatedEventId: i32 = 20025i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_HyperlinkControlTypeId: i32 = 50005i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IAFP_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IAFP_UNWRAP_BRIDGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ImageControlTypeId: i32 = 50006i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IndentationFirstLineAttributeId: i32 = 40010i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IndentationLeadingAttributeId: i32 = 40011i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IndentationTrailingAttributeId: i32 = 40012i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_InputDiscardedEventId: i32 = 20022i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_InputReachedOtherElementEventId: i32 = 20021i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_InputReachedTargetEventId: i32 = 20020i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_InvokePatternId: i32 = 10000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Invoke_InvokedEventId: i32 = 20009i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsActiveAttributeId: i32 = 40036i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsAnnotationPatternAvailablePropertyId: i32 = 30118i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsContentElementPropertyId: i32 = 30017i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsControlElementPropertyId: i32 = 30016i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsCustomNavigationPatternAvailablePropertyId: i32 = 30151i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsDataValidForFormPropertyId: i32 = 30103i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsDialogPropertyId: i32 = 30174i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsDockPatternAvailablePropertyId: i32 = 30027i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsDragPatternAvailablePropertyId: i32 = 30137i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsDropTargetPatternAvailablePropertyId: i32 = 30141i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsEnabledPropertyId: i32 = 30010i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsExpandCollapsePatternAvailablePropertyId: i32 = 30028i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsGridItemPatternAvailablePropertyId: i32 = 30029i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsGridPatternAvailablePropertyId: i32 = 30030i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsHiddenAttributeId: i32 = 40013i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsInvokePatternAvailablePropertyId: i32 = 30031i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsItalicAttributeId: i32 = 40014i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsItemContainerPatternAvailablePropertyId: i32 = 30108i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsKeyboardFocusablePropertyId: i32 = 30009i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsLegacyIAccessiblePatternAvailablePropertyId: i32 = 30090i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsMultipleViewPatternAvailablePropertyId: i32 = 30032i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsObjectModelPatternAvailablePropertyId: i32 = 30112i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsOffscreenPropertyId: i32 = 30022i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsPasswordPropertyId: i32 = 30019i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsPeripheralPropertyId: i32 = 30150i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsRangeValuePatternAvailablePropertyId: i32 = 30033i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsReadOnlyAttributeId: i32 = 40015i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsRequiredForFormPropertyId: i32 = 30025i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsScrollItemPatternAvailablePropertyId: i32 = 30035i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsScrollPatternAvailablePropertyId: i32 = 30034i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsSelectionItemPatternAvailablePropertyId: i32 = 30036i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsSelectionPattern2AvailablePropertyId: i32 = 30168i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsSelectionPatternAvailablePropertyId: i32 = 30037i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsSpreadsheetItemPatternAvailablePropertyId: i32 = 30132i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsSpreadsheetPatternAvailablePropertyId: i32 = 30128i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsStylesPatternAvailablePropertyId: i32 = 30127i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsSubscriptAttributeId: i32 = 40016i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsSuperscriptAttributeId: i32 = 40017i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsSynchronizedInputPatternAvailablePropertyId: i32 = 30110i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsTableItemPatternAvailablePropertyId: i32 = 30039i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsTablePatternAvailablePropertyId: i32 = 30038i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsTextChildPatternAvailablePropertyId: i32 = 30136i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsTextEditPatternAvailablePropertyId: i32 = 30149i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsTextPattern2AvailablePropertyId: i32 = 30119i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsTextPatternAvailablePropertyId: i32 = 30040i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsTogglePatternAvailablePropertyId: i32 = 30041i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsTransformPattern2AvailablePropertyId: i32 = 30134i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsTransformPatternAvailablePropertyId: i32 = 30042i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsValuePatternAvailablePropertyId: i32 = 30043i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsVirtualizedItemPatternAvailablePropertyId: i32 = 30109i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_IsWindowPatternAvailablePropertyId: i32 = 30044i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ItemContainerPatternId: i32 = 10019i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ItemStatusPropertyId: i32 = 30026i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ItemTypePropertyId: i32 = 30021i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LabeledByPropertyId: i32 = 30018i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LandmarkTypePropertyId: i32 = 30157i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LayoutInvalidatedEventId: i32 = 20008i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleChildIdPropertyId: i32 = 30091i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleDefaultActionPropertyId: i32 = 30100i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleDescriptionPropertyId: i32 = 30094i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleHelpPropertyId: i32 = 30097i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleKeyboardShortcutPropertyId: i32 = 30098i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleNamePropertyId: i32 = 30092i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessiblePatternId: i32 = 10018i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleRolePropertyId: i32 = 30095i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleSelectionPropertyId: i32 = 30099i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleStatePropertyId: i32 = 30096i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LegacyIAccessibleValuePropertyId: i32 = 30093i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LevelPropertyId: i32 = 30154i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LineSpacingAttributeId: i32 = 40040i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LinkAttributeId: i32 = 40035i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ListControlTypeId: i32 = 50008i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ListItemControlTypeId: i32 = 50007i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LiveRegionChangedEventId: i32 = 20024i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LiveSettingPropertyId: i32 = 30135i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LocalizedControlTypePropertyId: i32 = 30004i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_LocalizedLandmarkTypePropertyId: i32 = 30158i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MainLandmarkTypeId: i32 = 80002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MarginBottomAttributeId: i32 = 40018i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MarginLeadingAttributeId: i32 = 40019i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MarginTopAttributeId: i32 = 40020i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MarginTrailingAttributeId: i32 = 40021i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MenuBarControlTypeId: i32 = 50010i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MenuClosedEventId: i32 = 20007i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MenuControlTypeId: i32 = 50009i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MenuItemControlTypeId: i32 = 50011i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MenuModeEndEventId: i32 = 20019i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MenuModeStartEventId: i32 = 20018i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MenuOpenedEventId: i32 = 20003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MultipleViewCurrentViewPropertyId: i32 = 30071i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MultipleViewPatternId: i32 = 10008i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_MultipleViewSupportedViewsPropertyId: i32 = 30072i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_NamePropertyId: i32 = 30005i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_NativeWindowHandlePropertyId: i32 = 30020i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_NavigationLandmarkTypeId: i32 = 80003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_NotificationEventId: i32 = 20035i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ObjectModelPatternId: i32 = 10022i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_OptimizeForVisualContentPropertyId: i32 = 30111i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_OrientationPropertyId: i32 = 30023i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_OutlineColorPropertyId: i32 = 30161i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_OutlineStylesAttributeId: i32 = 40022i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_OutlineThicknessPropertyId: i32 = 30164i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_OverlineColorAttributeId: i32 = 40023i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_OverlineStyleAttributeId: i32 = 40024i32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_PFIA_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_PFIA_UNWRAP_BRIDGE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_PaneControlTypeId: i32 = 50033i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_PositionInSetPropertyId: i32 = 30152i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ProcessIdPropertyId: i32 = 30002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ProgressBarControlTypeId: i32 = 50012i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ProviderDescriptionPropertyId: i32 = 30107i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RadioButtonControlTypeId: i32 = 50013i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RangeValueIsReadOnlyPropertyId: i32 = 30048i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RangeValueLargeChangePropertyId: i32 = 30051i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RangeValueMaximumPropertyId: i32 = 30050i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RangeValueMinimumPropertyId: i32 = 30049i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RangeValuePatternId: i32 = 10003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RangeValueSmallChangePropertyId: i32 = 30052i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RangeValueValuePropertyId: i32 = 30047i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RotationPropertyId: i32 = 30166i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_RuntimeIdPropertyId: i32 = 30000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SayAsInterpretAsAttributeId: i32 = 40043i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SayAsInterpretAsMetadataId: i32 = 100000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ScrollBarControlTypeId: i32 = 50014i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ScrollHorizontalScrollPercentPropertyId: i32 = 30053i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ScrollHorizontalViewSizePropertyId: i32 = 30054i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ScrollHorizontallyScrollablePropertyId: i32 = 30057i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ScrollItemPatternId: i32 = 10017i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ScrollPatternId: i32 = 10004i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollPatternNoScroll: f64 = -1f64;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ScrollVerticalScrollPercentPropertyId: i32 = 30055i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ScrollVerticalViewSizePropertyId: i32 = 30056i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ScrollVerticallyScrollablePropertyId: i32 = 30058i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SearchLandmarkTypeId: i32 = 80004i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Selection2CurrentSelectedItemPropertyId: i32 = 30171i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Selection2FirstSelectedItemPropertyId: i32 = 30169i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Selection2ItemCountPropertyId: i32 = 30172i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Selection2LastSelectedItemPropertyId: i32 = 30170i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionActiveEndAttributeId: i32 = 40037i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionCanSelectMultiplePropertyId: i32 = 30060i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionIsSelectionRequiredPropertyId: i32 = 30061i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionItemIsSelectedPropertyId: i32 = 30079i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionItemPatternId: i32 = 10010i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionItemSelectionContainerPropertyId: i32 = 30080i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionItem_ElementAddedToSelectionEventId: i32 = 20010i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionItem_ElementRemovedFromSelectionEventId: i32 = 20011i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionItem_ElementSelectedEventId: i32 = 20012i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionPattern2Id: i32 = 10034i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionPatternId: i32 = 10001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SelectionSelectionPropertyId: i32 = 30059i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Selection_InvalidatedEventId: i32 = 20013i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SemanticZoomControlTypeId: i32 = 50039i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SeparatorControlTypeId: i32 = 50038i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SizeOfSetPropertyId: i32 = 30153i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SizePropertyId: i32 = 30167i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SliderControlTypeId: i32 = 50015i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SpinnerControlTypeId: i32 = 50016i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SplitButtonControlTypeId: i32 = 50031i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SpreadsheetItemAnnotationObjectsPropertyId: i32 = 30130i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SpreadsheetItemAnnotationTypesPropertyId: i32 = 30131i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SpreadsheetItemFormulaPropertyId: i32 = 30129i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SpreadsheetItemPatternId: i32 = 10027i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SpreadsheetPatternId: i32 = 10026i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StatusBarControlTypeId: i32 = 50017i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StrikethroughColorAttributeId: i32 = 40025i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StrikethroughStyleAttributeId: i32 = 40026i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StructureChangedEventId: i32 = 20002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StyleIdAttributeId: i32 = 40034i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StyleNameAttributeId: i32 = 40033i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StylesExtendedPropertiesPropertyId: i32 = 30126i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StylesFillColorPropertyId: i32 = 30122i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StylesFillPatternColorPropertyId: i32 = 30125i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StylesFillPatternStylePropertyId: i32 = 30123i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StylesPatternId: i32 = 10025i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StylesShapePropertyId: i32 = 30124i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StylesStyleIdPropertyId: i32 = 30120i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_StylesStyleNamePropertyId: i32 = 30121i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SummaryChangeId: i32 = 90000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SynchronizedInputPatternId: i32 = 10021i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_SystemAlertEventId: i32 = 20023i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TabControlTypeId: i32 = 50018i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TabItemControlTypeId: i32 = 50019i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TableColumnHeadersPropertyId: i32 = 30082i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TableControlTypeId: i32 = 50036i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TableItemColumnHeaderItemsPropertyId: i32 = 30085i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TableItemPatternId: i32 = 10013i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TableItemRowHeaderItemsPropertyId: i32 = 30084i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TablePatternId: i32 = 10012i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TableRowHeadersPropertyId: i32 = 30081i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TableRowOrColumnMajorPropertyId: i32 = 30083i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TabsAttributeId: i32 = 40027i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TextChildPatternId: i32 = 10029i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TextControlTypeId: i32 = 50020i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TextEditPatternId: i32 = 10032i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TextEdit_ConversionTargetChangedEventId: i32 = 20033i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TextEdit_TextChangedEventId: i32 = 20032i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TextFlowDirectionsAttributeId: i32 = 40028i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TextPattern2Id: i32 = 10024i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TextPatternId: i32 = 10014i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Text_TextChangedEventId: i32 = 20015i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Text_TextSelectionChangedEventId: i32 = 20014i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ThumbControlTypeId: i32 = 50027i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TitleBarControlTypeId: i32 = 50037i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TogglePatternId: i32 = 10015i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ToggleToggleStatePropertyId: i32 = 30086i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ToolBarControlTypeId: i32 = 50021i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ToolTipClosedEventId: i32 = 20001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ToolTipControlTypeId: i32 = 50022i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ToolTipOpenedEventId: i32 = 20000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Transform2CanZoomPropertyId: i32 = 30133i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Transform2ZoomLevelPropertyId: i32 = 30145i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Transform2ZoomMaximumPropertyId: i32 = 30147i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Transform2ZoomMinimumPropertyId: i32 = 30146i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TransformCanMovePropertyId: i32 = 30087i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TransformCanResizePropertyId: i32 = 30088i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TransformCanRotatePropertyId: i32 = 30089i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TransformPattern2Id: i32 = 10028i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TransformPatternId: i32 = 10016i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TreeControlTypeId: i32 = 50023i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_TreeItemControlTypeId: i32 = 50024i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_UnderlineColorAttributeId: i32 = 40029i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_UnderlineStyleAttributeId: i32 = 40030i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ValueIsReadOnlyPropertyId: i32 = 30046i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ValuePatternId: i32 = 10002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_ValueValuePropertyId: i32 = 30045i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_VirtualizedItemPatternId: i32 = 10020i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_VisualEffectsPropertyId: i32 = 30163i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_WindowCanMaximizePropertyId: i32 = 30073i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_WindowCanMinimizePropertyId: i32 = 30074i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_WindowControlTypeId: i32 = 50032i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_WindowIsModalPropertyId: i32 = 30077i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_WindowIsTopmostPropertyId: i32 = 30078i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_WindowPatternId: i32 = 10009i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_WindowWindowInteractionStatePropertyId: i32 = 30076i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_WindowWindowVisualStatePropertyId: i32 = 30075i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Window_WindowClosedEventId: i32 = 20017i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIA_Window_WindowOpenedEventId: i32 = 20016i32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UiaAppendRuntimeId: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -23700,6 +22918,1041 @@ impl ::core::fmt::Debug for TreeTraversalOptions {
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_ANNOTATIONTYPE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Unknown: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60000u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_SpellingError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60001u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_GrammarError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60002u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Comment: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60003u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_FormulaError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60004u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_TrackChanges: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60005u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Header: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60006u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Footer: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60007u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Highlighted: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60008u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Endnote: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60009u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Footnote: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60010u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_InsertionChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60011u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_DeletionChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60012u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_MoveChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60013u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_FormatChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60014u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_UnsyncedChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60015u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_EditingLockedChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60016u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_ExternalChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60017u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_ConflictingChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60018u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Author: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60019u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_AdvancedProofingIssue: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60020u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_DataValidationError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60021u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_CircularReferenceError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60022u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Mathematics: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60023u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Sensitive: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60024u32);
+impl ::core::marker::Copy for UIA_ANNOTATIONTYPE {}
+impl ::core::clone::Clone for UIA_ANNOTATIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_ANNOTATIONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_ANNOTATIONTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_ANNOTATIONTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_ANNOTATIONTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_CHANGE_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SummaryChangeId: UIA_CHANGE_ID = UIA_CHANGE_ID(90000u32);
+impl ::core::marker::Copy for UIA_CHANGE_ID {}
+impl ::core::clone::Clone for UIA_CHANGE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_CHANGE_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_CHANGE_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_CHANGE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_CHANGE_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_CONTROLTYPE_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ButtonControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50000u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CalendarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50001u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CheckBoxControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50002u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ComboBoxControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50003u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_EditControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50004u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_HyperlinkControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50005u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ImageControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50006u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ListItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50007u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ListControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50008u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MenuControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50009u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MenuBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50010u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MenuItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50011u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ProgressBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50012u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RadioButtonControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50013u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ScrollBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50014u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SliderControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50015u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SpinnerControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50016u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StatusBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50017u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TabControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50018u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TabItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50019u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TextControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50020u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ToolBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50021u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ToolTipControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50022u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TreeControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50023u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TreeItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50024u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CustomControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50025u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GroupControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50026u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ThumbControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50027u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DataGridControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50028u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DataItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50029u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DocumentControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50030u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SplitButtonControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50031u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_WindowControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50032u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_PaneControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50033u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_HeaderControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50034u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_HeaderItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50035u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TableControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50036u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TitleBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50037u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SeparatorControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50038u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SemanticZoomControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50039u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AppBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50040u32);
+impl ::core::marker::Copy for UIA_CONTROLTYPE_ID {}
+impl ::core::clone::Clone for UIA_CONTROLTYPE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_CONTROLTYPE_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_CONTROLTYPE_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_CONTROLTYPE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_CONTROLTYPE_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_EVENT_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ToolTipOpenedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20000u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ToolTipClosedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20001u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StructureChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20002u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MenuOpenedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20003u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AutomationPropertyChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20004u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AutomationFocusChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20005u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AsyncContentLoadedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20006u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MenuClosedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20007u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LayoutInvalidatedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20008u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Invoke_InvokedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20009u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionItem_ElementAddedToSelectionEventId: UIA_EVENT_ID = UIA_EVENT_ID(20010u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionItem_ElementRemovedFromSelectionEventId: UIA_EVENT_ID = UIA_EVENT_ID(20011u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionItem_ElementSelectedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20012u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Selection_InvalidatedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20013u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Text_TextSelectionChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20014u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Text_TextChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20015u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Window_WindowOpenedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20016u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Window_WindowClosedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20017u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MenuModeStartEventId: UIA_EVENT_ID = UIA_EVENT_ID(20018u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MenuModeEndEventId: UIA_EVENT_ID = UIA_EVENT_ID(20019u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_InputReachedTargetEventId: UIA_EVENT_ID = UIA_EVENT_ID(20020u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_InputReachedOtherElementEventId: UIA_EVENT_ID = UIA_EVENT_ID(20021u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_InputDiscardedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20022u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SystemAlertEventId: UIA_EVENT_ID = UIA_EVENT_ID(20023u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LiveRegionChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20024u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_HostedFragmentRootsInvalidatedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20025u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Drag_DragStartEventId: UIA_EVENT_ID = UIA_EVENT_ID(20026u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Drag_DragCancelEventId: UIA_EVENT_ID = UIA_EVENT_ID(20027u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Drag_DragCompleteEventId: UIA_EVENT_ID = UIA_EVENT_ID(20028u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DropTarget_DragEnterEventId: UIA_EVENT_ID = UIA_EVENT_ID(20029u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DropTarget_DragLeaveEventId: UIA_EVENT_ID = UIA_EVENT_ID(20030u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DropTarget_DroppedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20031u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TextEdit_TextChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20032u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TextEdit_ConversionTargetChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20033u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ChangesEventId: UIA_EVENT_ID = UIA_EVENT_ID(20034u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_NotificationEventId: UIA_EVENT_ID = UIA_EVENT_ID(20035u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ActiveTextPositionChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20036u32);
+impl ::core::marker::Copy for UIA_EVENT_ID {}
+impl ::core::clone::Clone for UIA_EVENT_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_EVENT_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_EVENT_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_EVENT_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_EVENT_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_HEADINGLEVEL_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel_None: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80050u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel1: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80051u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel2: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80052u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel3: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80053u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel4: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80054u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel5: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80055u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel6: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80056u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel7: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80057u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel8: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80058u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel9: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80059u32);
+impl ::core::marker::Copy for UIA_HEADINGLEVEL_ID {}
+impl ::core::clone::Clone for UIA_HEADINGLEVEL_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_HEADINGLEVEL_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_HEADINGLEVEL_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_HEADINGLEVEL_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_HEADINGLEVEL_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_LANDMARKTYPE_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CustomLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80000u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FormLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80001u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MainLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80002u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_NavigationLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80003u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SearchLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80004u32);
+impl ::core::marker::Copy for UIA_LANDMARKTYPE_ID {}
+impl ::core::clone::Clone for UIA_LANDMARKTYPE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_LANDMARKTYPE_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_LANDMARKTYPE_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_LANDMARKTYPE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_LANDMARKTYPE_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_METADATA_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SayAsInterpretAsMetadataId: UIA_METADATA_ID = UIA_METADATA_ID(100000u32);
+impl ::core::marker::Copy for UIA_METADATA_ID {}
+impl ::core::clone::Clone for UIA_METADATA_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_METADATA_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_METADATA_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_METADATA_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_METADATA_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_PATTERN_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_InvokePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10000u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10001u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ValuePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10002u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RangeValuePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10003u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ScrollPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10004u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ExpandCollapsePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10005u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GridPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10006u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GridItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10007u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MultipleViewPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10008u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_WindowPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10009u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10010u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DockPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10011u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TablePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10012u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TableItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10013u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TextPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10014u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TogglePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10015u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TransformPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10016u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ScrollItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10017u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessiblePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10018u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ItemContainerPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10019u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_VirtualizedItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10020u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SynchronizedInputPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10021u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ObjectModelPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10022u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10023u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TextPattern2Id: UIA_PATTERN_ID = UIA_PATTERN_ID(10024u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StylesPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10025u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SpreadsheetPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10026u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SpreadsheetItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10027u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TransformPattern2Id: UIA_PATTERN_ID = UIA_PATTERN_ID(10028u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TextChildPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10029u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DragPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10030u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DropTargetPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10031u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TextEditPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10032u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CustomNavigationPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10033u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionPattern2Id: UIA_PATTERN_ID = UIA_PATTERN_ID(10034u32);
+impl ::core::marker::Copy for UIA_PATTERN_ID {}
+impl ::core::clone::Clone for UIA_PATTERN_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_PATTERN_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_PATTERN_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_PATTERN_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_PATTERN_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_PROPERTY_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RuntimeIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30000u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_BoundingRectanglePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30001u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ProcessIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30002u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ControlTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30003u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LocalizedControlTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30004u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_NamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30005u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AcceleratorKeyPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30006u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AccessKeyPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30007u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_HasKeyboardFocusPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30008u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsKeyboardFocusablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30009u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsEnabledPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30010u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AutomationIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30011u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ClassNamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30012u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_HelpTextPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30013u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ClickablePointPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30014u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CulturePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30015u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsControlElementPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30016u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsContentElementPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30017u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LabeledByPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30018u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsPasswordPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30019u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_NativeWindowHandlePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30020u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ItemTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30021u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsOffscreenPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30022u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_OrientationPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30023u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FrameworkIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30024u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsRequiredForFormPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30025u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ItemStatusPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30026u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsDockPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30027u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsExpandCollapsePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30028u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsGridItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30029u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsGridPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30030u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsInvokePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30031u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsMultipleViewPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30032u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsRangeValuePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30033u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsScrollPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30034u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsScrollItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30035u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsSelectionItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30036u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsSelectionPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30037u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsTablePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30038u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsTableItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30039u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsTextPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30040u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsTogglePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30041u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsTransformPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30042u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsValuePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30043u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsWindowPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30044u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ValueValuePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30045u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ValueIsReadOnlyPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30046u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RangeValueValuePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30047u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RangeValueIsReadOnlyPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30048u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RangeValueMinimumPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30049u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RangeValueMaximumPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30050u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RangeValueLargeChangePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30051u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RangeValueSmallChangePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30052u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ScrollHorizontalScrollPercentPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30053u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ScrollHorizontalViewSizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30054u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ScrollVerticalScrollPercentPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30055u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ScrollVerticalViewSizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30056u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ScrollHorizontallyScrollablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30057u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ScrollVerticallyScrollablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30058u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionSelectionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30059u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionCanSelectMultiplePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30060u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionIsSelectionRequiredPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30061u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GridRowCountPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30062u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GridColumnCountPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30063u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GridItemRowPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30064u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GridItemColumnPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30065u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GridItemRowSpanPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30066u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GridItemColumnSpanPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30067u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_GridItemContainingGridPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30068u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DockDockPositionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30069u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ExpandCollapseExpandCollapseStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30070u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MultipleViewCurrentViewPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30071u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MultipleViewSupportedViewsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30072u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_WindowCanMaximizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30073u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_WindowCanMinimizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30074u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_WindowWindowVisualStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30075u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_WindowWindowInteractionStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30076u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_WindowIsModalPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30077u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_WindowIsTopmostPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30078u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionItemIsSelectedPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30079u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionItemSelectionContainerPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30080u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TableRowHeadersPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30081u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TableColumnHeadersPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30082u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TableRowOrColumnMajorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30083u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TableItemRowHeaderItemsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30084u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TableItemColumnHeaderItemsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30085u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ToggleToggleStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30086u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TransformCanMovePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30087u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TransformCanResizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30088u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TransformCanRotatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30089u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsLegacyIAccessiblePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30090u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleChildIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30091u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleNamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30092u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleValuePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30093u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleDescriptionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30094u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleRolePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30095u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30096u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleHelpPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30097u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleKeyboardShortcutPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30098u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleSelectionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30099u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LegacyIAccessibleDefaultActionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30100u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AriaRolePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30101u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AriaPropertiesPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30102u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsDataValidForFormPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30103u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ControllerForPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30104u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DescribedByPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30105u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FlowsToPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30106u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ProviderDescriptionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30107u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsItemContainerPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30108u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsVirtualizedItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30109u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsSynchronizedInputPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30110u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_OptimizeForVisualContentPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30111u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsObjectModelPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30112u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationAnnotationTypeIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30113u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationAnnotationTypeNamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30114u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationAuthorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30115u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationDateTimePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30116u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationTargetPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30117u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsAnnotationPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30118u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsTextPattern2AvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30119u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StylesStyleIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30120u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StylesStyleNamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30121u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StylesFillColorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30122u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StylesFillPatternStylePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30123u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StylesShapePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30124u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StylesFillPatternColorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30125u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StylesExtendedPropertiesPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30126u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsStylesPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30127u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsSpreadsheetPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30128u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SpreadsheetItemFormulaPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30129u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SpreadsheetItemAnnotationObjectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30130u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SpreadsheetItemAnnotationTypesPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30131u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsSpreadsheetItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30132u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Transform2CanZoomPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30133u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsTransformPattern2AvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30134u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LiveSettingPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30135u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsTextChildPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30136u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsDragPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30137u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DragIsGrabbedPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30138u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DragDropEffectPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30139u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DragDropEffectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30140u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsDropTargetPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30141u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DropTargetDropTargetEffectPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30142u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DropTargetDropTargetEffectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30143u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_DragGrabbedItemsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30144u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Transform2ZoomLevelPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30145u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Transform2ZoomMinimumPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30146u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Transform2ZoomMaximumPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30147u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FlowsFromPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30148u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsTextEditPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30149u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsPeripheralPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30150u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsCustomNavigationPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30151u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_PositionInSetPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30152u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SizeOfSetPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30153u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LevelPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30154u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationTypesPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30155u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationObjectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30156u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LandmarkTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30157u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LocalizedLandmarkTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30158u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FullDescriptionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30159u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FillColorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30160u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_OutlineColorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30161u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FillTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30162u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_VisualEffectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30163u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_OutlineThicknessPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30164u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CenterPointPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30165u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_RotationPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30166u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30167u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsSelectionPattern2AvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30168u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Selection2FirstSelectedItemPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30169u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Selection2LastSelectedItemPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30170u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Selection2CurrentSelectedItemPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30171u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_Selection2ItemCountPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30172u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_HeadingLevelPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30173u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsDialogPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30174u32);
+impl ::core::marker::Copy for UIA_PROPERTY_ID {}
+impl ::core::clone::Clone for UIA_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_PROPERTY_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_PROPERTY_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_PROPERTY_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_PROPERTY_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_STYLE_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Custom: UIA_STYLE_ID = UIA_STYLE_ID(70000u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Heading1: UIA_STYLE_ID = UIA_STYLE_ID(70001u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Heading2: UIA_STYLE_ID = UIA_STYLE_ID(70002u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Heading3: UIA_STYLE_ID = UIA_STYLE_ID(70003u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Heading4: UIA_STYLE_ID = UIA_STYLE_ID(70004u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Heading5: UIA_STYLE_ID = UIA_STYLE_ID(70005u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Heading6: UIA_STYLE_ID = UIA_STYLE_ID(70006u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Heading7: UIA_STYLE_ID = UIA_STYLE_ID(70007u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Heading8: UIA_STYLE_ID = UIA_STYLE_ID(70008u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Heading9: UIA_STYLE_ID = UIA_STYLE_ID(70009u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Title: UIA_STYLE_ID = UIA_STYLE_ID(70010u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Subtitle: UIA_STYLE_ID = UIA_STYLE_ID(70011u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Normal: UIA_STYLE_ID = UIA_STYLE_ID(70012u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Emphasis: UIA_STYLE_ID = UIA_STYLE_ID(70013u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_Quote: UIA_STYLE_ID = UIA_STYLE_ID(70014u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_BulletedList: UIA_STYLE_ID = UIA_STYLE_ID(70015u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StyleId_NumberedList: UIA_STYLE_ID = UIA_STYLE_ID(70016u32);
+impl ::core::marker::Copy for UIA_STYLE_ID {}
+impl ::core::clone::Clone for UIA_STYLE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_STYLE_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_STYLE_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_STYLE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_STYLE_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIA_TEXTATTRIBUTE_ID(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnimationStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40000u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_BackgroundColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40001u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_BulletStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40002u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CapStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40003u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CultureAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40004u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FontNameAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40005u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FontSizeAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40006u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_FontWeightAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40007u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_ForegroundColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40008u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_HorizontalTextAlignmentAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40009u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IndentationFirstLineAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40010u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IndentationLeadingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40011u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IndentationTrailingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40012u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsHiddenAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40013u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsItalicAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40014u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsReadOnlyAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40015u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsSubscriptAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40016u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsSuperscriptAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40017u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MarginBottomAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40018u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MarginLeadingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40019u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MarginTopAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40020u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_MarginTrailingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40021u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_OutlineStylesAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40022u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_OverlineColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40023u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_OverlineStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40024u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StrikethroughColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40025u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StrikethroughStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40026u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TabsAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40027u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_TextFlowDirectionsAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40028u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_UnderlineColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40029u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_UnderlineStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40030u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationTypesAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40031u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AnnotationObjectsAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40032u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StyleNameAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40033u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_StyleIdAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40034u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LinkAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40035u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_IsActiveAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40036u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SelectionActiveEndAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40037u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CaretPositionAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40038u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_CaretBidiModeAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40039u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_LineSpacingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40040u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_BeforeParagraphSpacingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40041u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_AfterParagraphSpacingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40042u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIA_SayAsInterpretAsAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40043u32);
+impl ::core::marker::Copy for UIA_TEXTATTRIBUTE_ID {}
+impl ::core::clone::Clone for UIA_TEXTATTRIBUTE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIA_TEXTATTRIBUTE_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIA_TEXTATTRIBUTE_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIA_TEXTATTRIBUTE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIA_TEXTATTRIBUTE_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIAutomationType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Int: UIAutomationType = UIAutomationType(1i32);
@@ -25091,7 +25344,7 @@ impl ::core::default::Default for UiaPoint {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct UiaPropertyChangedEventArgs {
     pub Type: EventArgsType,
-    pub EventId: i32,
+    pub EventId: UIA_EVENT_ID,
     pub PropertyId: i32,
     pub OldValue: super::super::System::Com::VARIANT,
     pub NewValue: super::super::System::Com::VARIANT,
@@ -25125,7 +25378,7 @@ impl ::core::default::Default for UiaPropertyChangedEventArgs {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct UiaPropertyCondition {
     pub ConditionType: ConditionType,
-    pub PropertyId: i32,
+    pub PropertyId: UIA_PROPERTY_ID,
     pub Value: super::super::System::Com::VARIANT,
     pub Flags: PropertyConditionFlags,
 }

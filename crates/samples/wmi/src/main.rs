@@ -22,7 +22,7 @@ fn main() -> Result<()> {
             if let Some(row) = &row[0] {
                 let mut value = Default::default();
                 row.Get(w!("Caption"), 0, &mut value, std::ptr::null_mut(), std::ptr::null_mut())?;
-                println!("{}", VarFormat(&value, None, 0, 0, 0)?);
+                println!("{}", VarFormat(&value, None, VARFORMAT_FIRST_DAY_SYSTEMDEFAULT, VARFORMAT_FIRST_WEEK_SYSTEMDEFAULT, 0)?);
 
                 // TODO: workaround for https://github.com/microsoft/windows-rs/issues/539
                 VariantClear(&mut value)?;

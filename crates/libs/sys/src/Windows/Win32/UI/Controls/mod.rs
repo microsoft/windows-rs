@@ -190,7 +190,7 @@ extern "system" {
     pub fn DrawThemeBackgroundEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: *const DTBGOPTS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DrawThemeEdge(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: u32, uflags: u32, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    pub fn DrawThemeEdge(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawThemeIcon(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: HIMAGELIST, iimageindex: i32) -> ::windows_sys::core::HRESULT;
@@ -202,10 +202,10 @@ extern "system" {
     pub fn DrawThemeParentBackgroundEx(hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: *const super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DrawThemeText(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows_sys::core::PCWSTR, cchtext: i32, dwtextflags: u32, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    pub fn DrawThemeText(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows_sys::core::PCWSTR, cchtext: i32, dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DrawThemeTextEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows_sys::core::PCWSTR, cchtext: i32, dwtextflags: u32, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows_sys::core::HRESULT;
+    pub fn DrawThemeTextEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows_sys::core::PCWSTR, cchtext: i32, dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn EnableScrollBar(hwnd: super::super::Foundation::HWND, wsbflags: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, warrows: ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation::BOOL;
@@ -364,7 +364,7 @@ extern "system" {
     pub fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: ::windows_sys::core::PWSTR, cchmaxstringchars: i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetThemeTextExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows_sys::core::PCWSTR, cchcharcount: i32, dwtextflags: u32, pboundingrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    pub fn GetThemeTextExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows_sys::core::PCWSTR, cchcharcount: i32, dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, pboundingrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetThemeTextMetrics(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows_sys::core::HRESULT;
@@ -382,7 +382,7 @@ extern "system" {
     pub fn HIMAGELIST_QueryInterface(himl: HIMAGELIST, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn HitTestThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, dwoptions: u32, prect: *const super::super::Foundation::RECT, hrgn: super::super::Graphics::Gdi::HRGN, pttest: super::super::Foundation::POINT, pwhittestcode: *mut u16) -> ::windows_sys::core::HRESULT;
+    pub fn HitTestThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: super::super::Graphics::Gdi::HRGN, pttest: super::super::Foundation::POINT, pwhittestcode: *mut u16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn ImageList_Add(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> i32;
@@ -1287,24 +1287,6 @@ pub const HOTKEY_CLASSW: &str = "msctls_hotkey32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_BACKGROUNDSEG: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_CAPTION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_FIXEDBORDER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_BOTTOM: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_LEFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_RIGHT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_TOP: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_SIZINGTEMPLATE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_SYSTEMSIZINGMARGINS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IDB_HIST_DISABLED: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IDB_HIST_HOT: u32 = 13u32;
@@ -1962,19 +1944,7 @@ pub const LVS_TYPEMASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVS_TYPESTYLEMASK: u32 = 64512u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_AUTOSIZE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_FIXEDHEIGHT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_FIXEDSIZE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_FIXEDWIDTH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIM_COLUMNS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIM_LABELMARGIN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIM_TILESIZE: u32 = 1u32;
+pub const LVTVIF_EXTENDED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LV_MAX_WORKAREAS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5816,6 +5786,28 @@ pub const CPHL_PRESSED: HELPLINKSTATES = 3i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CPHL_DISABLED: HELPLINKSTATES = 4i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub type HIT_TEST_BACKGROUND_OPTIONS = u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_BACKGROUNDSEG: HIT_TEST_BACKGROUND_OPTIONS = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_FIXEDBORDER: HIT_TEST_BACKGROUND_OPTIONS = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_CAPTION: HIT_TEST_BACKGROUND_OPTIONS = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_LEFT: HIT_TEST_BACKGROUND_OPTIONS = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_TOP: HIT_TEST_BACKGROUND_OPTIONS = 32u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_RIGHT: HIT_TEST_BACKGROUND_OPTIONS = 64u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_BOTTOM: HIT_TEST_BACKGROUND_OPTIONS = 128u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER: HIT_TEST_BACKGROUND_OPTIONS = 240u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_SIZINGTEMPLATE: HIT_TEST_BACKGROUND_OPTIONS = 256u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_SYSTEMSIZINGMARGINS: HIT_TEST_BACKGROUND_OPTIONS = 512u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type HORZSCROLLSTATES = i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HSS_NORMAL: HORZSCROLLSTATES = 1i32;
@@ -6340,7 +6332,21 @@ pub const I_GROUPIDNONE: LVITEMA_GROUP_ID = -2i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type LVTILEVIEWINFO_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_EXTENDED: LVTILEVIEWINFO_FLAGS = 4u32;
+pub const LVTVIF_AUTOSIZE: LVTILEVIEWINFO_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_FIXEDWIDTH: LVTILEVIEWINFO_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_FIXEDHEIGHT: LVTILEVIEWINFO_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_FIXEDSIZE: LVTILEVIEWINFO_FLAGS = 3u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub type LVTILEVIEWINFO_MASK = u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIM_TILESIZE: LVTILEVIEWINFO_MASK = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIM_COLUMNS: LVTILEVIEWINFO_MASK = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIM_LABELMARGIN: LVTILEVIEWINFO_MASK = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type MARKUPTEXTSTATES = i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -9994,7 +10000,7 @@ impl ::core::clone::Clone for LVTILEINFO {
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVTILEVIEWINFO {
     pub cbSize: u32,
-    pub dwMask: u32,
+    pub dwMask: LVTILEVIEWINFO_MASK,
     pub dwFlags: LVTILEVIEWINFO_FLAGS,
     pub sizeTile: super::super::Foundation::SIZE,
     pub cLines: i32,

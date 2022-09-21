@@ -2415,9 +2415,9 @@ impl ITextHost {
     pub unsafe fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetParaFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppf)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxGetSysColor(&self, nindex: i32) -> super::super::super::Foundation::COLORREF {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn TxGetSysColor(&self, nindex: super::super::super::Graphics::Gdi::SYS_COLOR_INDEX) -> super::super::super::Foundation::COLORREF {
         (::windows::core::Interface::vtable(self).TxGetSysColor)(::windows::core::Interface::as_raw(self), nindex)
     }
     pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
@@ -2596,9 +2596,9 @@ pub struct ITextHost_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     TxGetCharFormat: usize,
     pub TxGetParaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppf: *const *const PARAFORMAT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub TxGetSysColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32) -> super::super::super::Foundation::COLORREF,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub TxGetSysColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: super::super::super::Graphics::Gdi::SYS_COLOR_INDEX) -> super::super::super::Foundation::COLORREF,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     TxGetSysColor: usize,
     pub TxGetBackStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::HRESULT,
     pub TxGetMaxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plength: *mut u32) -> ::windows::core::HRESULT,
@@ -2779,9 +2779,9 @@ impl ITextHost2 {
     pub unsafe fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetParaFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppf)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TxGetSysColor(&self, nindex: i32) -> super::super::super::Foundation::COLORREF {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn TxGetSysColor(&self, nindex: super::super::super::Graphics::Gdi::SYS_COLOR_INDEX) -> super::super::super::Foundation::COLORREF {
         (::windows::core::Interface::vtable(self).base__.TxGetSysColor)(::windows::core::Interface::as_raw(self), nindex)
     }
     pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
@@ -10544,7 +10544,7 @@ pub struct CHARFORMATA {
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
     pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
-    pub bPitchAndFamily: super::super::super::Graphics::Gdi::FONT_PITCH_AND_FAMILY,
+    pub bPitchAndFamily: u8,
     pub szFaceName: [super::super::super::Foundation::CHAR; 32],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10590,7 +10590,7 @@ pub struct CHARFORMATW {
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
     pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
-    pub bPitchAndFamily: super::super::super::Graphics::Gdi::FONT_PITCH_AND_FAMILY,
+    pub bPitchAndFamily: u8,
     pub szFaceName: [u16; 32],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

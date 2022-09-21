@@ -1,4 +1,4 @@
-The Windows umbrella lib (targeting MSVC tooling) is generated using the following steps:
+The libs for MSVC are generated as follows:
 
 0. Ensure the latest Windows SDK is installed (https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/)
 1. Open a Command Prompt

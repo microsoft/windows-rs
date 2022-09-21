@@ -611,13 +611,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateFontA<'a, P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: P0) -> HFONT
+pub unsafe fn CreateFontA<'a, P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: P0) -> HFONT
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CreateFontA(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: ::windows::core::PCSTR) -> HFONT;
+        fn CreateFontA(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: ::windows::core::PCSTR) -> HFONT;
     }
     CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into())
 }
@@ -661,13 +661,13 @@ pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateFontW<'a, P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: P0) -> HFONT
+pub unsafe fn CreateFontW<'a, P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: P0) -> HFONT
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CreateFontW(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: ::windows::core::PCWSTR) -> HFONT;
+        fn CreateFontW(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: ::windows::core::PCWSTR) -> HFONT;
     }
     CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into())
 }
@@ -2685,10 +2685,19 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetSysColorBrush(nindex: i32) -> HBRUSH {
+pub unsafe fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetSysColorBrush(nindex: i32) -> HBRUSH;
+        fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32;
+    }
+    GetSysColor(nindex)
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[inline]
+pub unsafe fn GetSysColorBrush(nindex: SYS_COLOR_INDEX) -> HBRUSH {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetSysColorBrush(nindex: SYS_COLOR_INDEX) -> HBRUSH;
     }
     GetSysColorBrush(nindex)
 }
@@ -4430,6 +4439,16 @@ where
     }
     SetStretchBltMode(hdc.into(), mode)
 }
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL;
+    }
+    SetSysColors(celements, ::core::mem::transmute(lpaelements), ::core::mem::transmute(lpargbvalues))
+}
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetSystemPaletteUse<'a, P0>(hdc: P0, r#use: SYSTEM_PALETTE_USE) -> u32
@@ -5097,8 +5116,6 @@ pub const DC_EMF_COMPLIANT: u32 = 20u32;
 pub const DC_MANUFACTURER: u32 = 23u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_MODEL: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_PITCH: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEVICEDATA: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5860,8 +5877,6 @@ pub const FEATURESETTING_PROTOCOL: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_PSLEVEL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FIXED_PITCH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLI_GLYPHS: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLI_MASK: u32 = 4155u32;
@@ -6278,221 +6293,25 @@ pub const NTM_TYPE1: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OPENCHANNEL: u32 = 4110u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_SCREEN_OUTLINE_PRECIS: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PANOSE_COUNT: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_ANY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_ARMSTYLE_INDEX: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_DOUBLE_SERIF: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_HORZ: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_SINGLE_SERIF: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_VERT: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_WEDGE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_HIGH: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_INDEX: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_LOW: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_MEDIUM: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_MEDIUM_HIGH: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_MEDIUM_LOW: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_NONE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_VERY_HIGH: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_VERY_LOW: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CULTURE_LATIN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_FAMILYTYPE_INDEX: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_DECORATIVE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_PICTORIAL: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_SCRIPT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_TEXT_DISPLAY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETTERFORM_INDEX: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_BOXED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_CONTACT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_FLATTENED: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_OFF_CENTER: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_ROUNDED: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_SQUARE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_WEIGHTED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_BOXED: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_CONTACT: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_FLATTENED: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_OFF_CENTER: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_ROUNDED: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_SQUARE: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_WEIGHTED: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_CONSTANT_POINTED: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_CONSTANT_SERIFED: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_CONSTANT_TRIMMED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_HIGH_POINTED: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_HIGH_SERIFED: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_HIGH_TRIMMED: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_INDEX: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_LOW_POINTED: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_LOW_SERIFED: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_LOW_TRIMMED: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_STANDARD_POINTED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_STANDARD_SERIFED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_STANDARD_TRIMMED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_NO_FIT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROPORTION_INDEX: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_CONDENSED: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_EVEN_WIDTH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_EXPANDED: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_MODERN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_MONOSPACED: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_OLD_STYLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_VERY_CONDENSED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_VERY_EXPANDED: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIFSTYLE_INDEX: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_BONE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_COVE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_EXAGGERATED: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_FLARED: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_NORMAL_SANS: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_OBTUSE_COVE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_OBTUSE_SANS: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_OBTUSE_SQUARE_COVE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_PERP_SANS: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_ROUNDED: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_SQUARE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_SQUARE_COVE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_THIN: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_TRIANGLE: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_HORZ: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_SINGLE_SERIF: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_VERT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_WEDGE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKEVARIATION_INDEX: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_DIAG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_HORZ: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_TRAN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_VERT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_INSTANT_VERT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_RAPID_HORZ: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_RAPID_VERT: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_BLACK: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_BOLD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_BOOK: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_DEMI: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_HEAVY: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_INDEX: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_LIGHT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_MEDIUM: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_NORD: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_THIN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_VERY_LIGHT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_CONSTANT_LARGE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_CONSTANT_SMALL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_CONSTANT_STD: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_DUCKING_LARGE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_DUCKING_SMALL: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_DUCKING_STD: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_INDEX: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PASSTHROUGH: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -6847,8 +6666,6 @@ pub const TT_PRIM_CSPLINE: u32 = 3u32;
 pub const TT_PRIM_LINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TT_PRIM_QSPLINE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VARIABLE_PITCH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_FONT_LINES: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -8608,47 +8425,47 @@ impl ::core::fmt::Debug for EXT_FLOOD_FILL_TYPE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FONT_CHARSET(pub u32);
+pub struct FONT_CHARSET(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ANSI_CHARSET: FONT_CHARSET = FONT_CHARSET(0u32);
+pub const ANSI_CHARSET: FONT_CHARSET = FONT_CHARSET(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_CHARSET: FONT_CHARSET = FONT_CHARSET(1u32);
+pub const DEFAULT_CHARSET: FONT_CHARSET = FONT_CHARSET(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYMBOL_CHARSET: FONT_CHARSET = FONT_CHARSET(2u32);
+pub const SYMBOL_CHARSET: FONT_CHARSET = FONT_CHARSET(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SHIFTJIS_CHARSET: FONT_CHARSET = FONT_CHARSET(128u32);
+pub const SHIFTJIS_CHARSET: FONT_CHARSET = FONT_CHARSET(128u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HANGEUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u32);
+pub const HANGEUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HANGUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u32);
+pub const HANGUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GB2312_CHARSET: FONT_CHARSET = FONT_CHARSET(134u32);
+pub const GB2312_CHARSET: FONT_CHARSET = FONT_CHARSET(134u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CHINESEBIG5_CHARSET: FONT_CHARSET = FONT_CHARSET(136u32);
+pub const CHINESEBIG5_CHARSET: FONT_CHARSET = FONT_CHARSET(136u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OEM_CHARSET: FONT_CHARSET = FONT_CHARSET(255u32);
+pub const OEM_CHARSET: FONT_CHARSET = FONT_CHARSET(255u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const JOHAB_CHARSET: FONT_CHARSET = FONT_CHARSET(130u32);
+pub const JOHAB_CHARSET: FONT_CHARSET = FONT_CHARSET(130u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HEBREW_CHARSET: FONT_CHARSET = FONT_CHARSET(177u32);
+pub const HEBREW_CHARSET: FONT_CHARSET = FONT_CHARSET(177u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ARABIC_CHARSET: FONT_CHARSET = FONT_CHARSET(178u32);
+pub const ARABIC_CHARSET: FONT_CHARSET = FONT_CHARSET(178u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GREEK_CHARSET: FONT_CHARSET = FONT_CHARSET(161u32);
+pub const GREEK_CHARSET: FONT_CHARSET = FONT_CHARSET(161u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TURKISH_CHARSET: FONT_CHARSET = FONT_CHARSET(162u32);
+pub const TURKISH_CHARSET: FONT_CHARSET = FONT_CHARSET(162u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VIETNAMESE_CHARSET: FONT_CHARSET = FONT_CHARSET(163u32);
+pub const VIETNAMESE_CHARSET: FONT_CHARSET = FONT_CHARSET(163u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const THAI_CHARSET: FONT_CHARSET = FONT_CHARSET(222u32);
+pub const THAI_CHARSET: FONT_CHARSET = FONT_CHARSET(222u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EASTEUROPE_CHARSET: FONT_CHARSET = FONT_CHARSET(238u32);
+pub const EASTEUROPE_CHARSET: FONT_CHARSET = FONT_CHARSET(238u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RUSSIAN_CHARSET: FONT_CHARSET = FONT_CHARSET(204u32);
+pub const RUSSIAN_CHARSET: FONT_CHARSET = FONT_CHARSET(204u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MAC_CHARSET: FONT_CHARSET = FONT_CHARSET(77u32);
+pub const MAC_CHARSET: FONT_CHARSET = FONT_CHARSET(77u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BALTIC_CHARSET: FONT_CHARSET = FONT_CHARSET(186u32);
+pub const BALTIC_CHARSET: FONT_CHARSET = FONT_CHARSET(186u8);
 impl ::core::marker::Copy for FONT_CHARSET {}
 impl ::core::clone::Clone for FONT_CHARSET {
     fn clone(&self) -> Self {
@@ -8671,23 +8488,25 @@ impl ::core::fmt::Debug for FONT_CHARSET {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FONT_CLIP_PRECISION(pub u32);
+pub struct FONT_CLIP_PRECISION(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(1u32);
+pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(0u32);
+pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u32);
+pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(128u32);
+pub const CLIP_MASK: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(15u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(16u32);
+pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(16u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_MASK: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(15u32);
+pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(32u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(2u32);
+pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(32u32);
+pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(128u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_DFA_OVERRIDE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
 impl ::core::marker::Copy for FONT_CLIP_PRECISION {}
 impl ::core::clone::Clone for FONT_CLIP_PRECISION {
     fn clone(&self) -> Self {
@@ -8738,6 +8557,41 @@ impl ::core::ops::Not for FONT_CLIP_PRECISION {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FONT_FAMILY(pub u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_DECORATIVE: FONT_FAMILY = FONT_FAMILY(80u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_DONTCARE: FONT_FAMILY = FONT_FAMILY(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_MODERN: FONT_FAMILY = FONT_FAMILY(48u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_ROMAN: FONT_FAMILY = FONT_FAMILY(16u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_SCRIPT: FONT_FAMILY = FONT_FAMILY(64u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_SWISS: FONT_FAMILY = FONT_FAMILY(32u8);
+impl ::core::marker::Copy for FONT_FAMILY {}
+impl ::core::clone::Clone for FONT_FAMILY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FONT_FAMILY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FONT_FAMILY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FONT_FAMILY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FONT_FAMILY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_LICENSE_PRIVS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(4u32);
@@ -8771,27 +8625,29 @@ impl ::core::fmt::Debug for FONT_LICENSE_PRIVS {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FONT_OUTPUT_PRECISION(pub u32);
+pub struct FONT_OUTPUT_PRECISION(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(2u32);
+pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(0u32);
+pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(5u32);
+pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(8u32);
+pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_PS_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(10u32);
+pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_RASTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(6u32);
+pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(5u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(1u32);
+pub const OUT_RASTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(6u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(3u32);
+pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(7u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(7u32);
+pub const OUT_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(4u32);
+pub const OUT_SCREEN_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_PS_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(10u8);
 impl ::core::marker::Copy for FONT_OUTPUT_PRECISION {}
 impl ::core::clone::Clone for FONT_OUTPUT_PRECISION {
     fn clone(&self) -> Self {
@@ -8814,54 +8670,48 @@ impl ::core::fmt::Debug for FONT_OUTPUT_PRECISION {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FONT_PITCH_AND_FAMILY(pub u32);
+pub struct FONT_PITCH(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_DECORATIVE: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(80u32);
+pub const DEFAULT_PITCH: FONT_PITCH = FONT_PITCH(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_DONTCARE: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(0u32);
+pub const FIXED_PITCH: FONT_PITCH = FONT_PITCH(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_MODERN: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(48u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_ROMAN: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_SCRIPT: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_SWISS: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(32u32);
-impl ::core::marker::Copy for FONT_PITCH_AND_FAMILY {}
-impl ::core::clone::Clone for FONT_PITCH_AND_FAMILY {
+pub const VARIABLE_PITCH: FONT_PITCH = FONT_PITCH(2u8);
+impl ::core::marker::Copy for FONT_PITCH {}
+impl ::core::clone::Clone for FONT_PITCH {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for FONT_PITCH_AND_FAMILY {
+impl ::core::default::Default for FONT_PITCH {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FONT_PITCH_AND_FAMILY {
+unsafe impl ::windows::core::Abi for FONT_PITCH {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for FONT_PITCH_AND_FAMILY {
+impl ::core::fmt::Debug for FONT_PITCH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FONT_PITCH_AND_FAMILY").field(&self.0).finish()
+        f.debug_tuple("FONT_PITCH").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FONT_QUALITY(pub u32);
+pub struct FONT_QUALITY(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u32);
+pub const DEFAULT_QUALITY: FONT_QUALITY = FONT_QUALITY(0u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLEARTYPE_QUALITY: FONT_QUALITY = FONT_QUALITY(5u32);
+pub const DRAFT_QUALITY: FONT_QUALITY = FONT_QUALITY(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_QUALITY: FONT_QUALITY = FONT_QUALITY(0u32);
+pub const PROOF_QUALITY: FONT_QUALITY = FONT_QUALITY(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DRAFT_QUALITY: FONT_QUALITY = FONT_QUALITY(1u32);
+pub const NONANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NONANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(3u32);
+pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PROOF_QUALITY: FONT_QUALITY = FONT_QUALITY(2u32);
+pub const CLEARTYPE_QUALITY: FONT_QUALITY = FONT_QUALITY(5u8);
 impl ::core::marker::Copy for FONT_QUALITY {}
 impl ::core::clone::Clone for FONT_QUALITY {
     fn clone(&self) -> Self {
@@ -9595,6 +9445,470 @@ impl ::core::fmt::Debug for OBJ_TYPE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_ARM_STYLE(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_ARM_ANY: PAN_ARM_STYLE = PAN_ARM_STYLE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_ARM_NO_FIT: PAN_ARM_STYLE = PAN_ARM_STYLE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(11u32);
+impl ::core::marker::Copy for PAN_ARM_STYLE {}
+impl ::core::clone::Clone for PAN_ARM_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_ARM_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_ARM_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_ARM_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_ARM_STYLE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_CONTRAST(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_ANY: PAN_CONTRAST = PAN_CONTRAST(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_NO_FIT: PAN_CONTRAST = PAN_CONTRAST(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_INDEX: PAN_CONTRAST = PAN_CONTRAST(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_NONE: PAN_CONTRAST = PAN_CONTRAST(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_VERY_LOW: PAN_CONTRAST = PAN_CONTRAST(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_LOW: PAN_CONTRAST = PAN_CONTRAST(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_MEDIUM_LOW: PAN_CONTRAST = PAN_CONTRAST(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_MEDIUM: PAN_CONTRAST = PAN_CONTRAST(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_MEDIUM_HIGH: PAN_CONTRAST = PAN_CONTRAST(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_HIGH: PAN_CONTRAST = PAN_CONTRAST(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_VERY_HIGH: PAN_CONTRAST = PAN_CONTRAST(9u32);
+impl ::core::marker::Copy for PAN_CONTRAST {}
+impl ::core::clone::Clone for PAN_CONTRAST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_CONTRAST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_CONTRAST {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_CONTRAST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_CONTRAST").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_FAMILY_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_ANY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_NO_FIT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_TEXT_DISPLAY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_SCRIPT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_DECORATIVE: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_PICTORIAL: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(5u32);
+impl ::core::marker::Copy for PAN_FAMILY_TYPE {}
+impl ::core::clone::Clone for PAN_FAMILY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_FAMILY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_FAMILY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_FAMILY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_FAMILY_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_LETT_FORM(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_FORM_ANY: PAN_LETT_FORM = PAN_LETT_FORM(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_FORM_NO_FIT: PAN_LETT_FORM = PAN_LETT_FORM(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(11u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(12u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(13u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(14u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(15u32);
+impl ::core::marker::Copy for PAN_LETT_FORM {}
+impl ::core::clone::Clone for PAN_LETT_FORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_LETT_FORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_LETT_FORM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_LETT_FORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_LETT_FORM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_MIDLINE(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_ANY: PAN_MIDLINE = PAN_MIDLINE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_NO_FIT: PAN_MIDLINE = PAN_MIDLINE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_INDEX: PAN_MIDLINE = PAN_MIDLINE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_STANDARD_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_STANDARD_POINTED: PAN_MIDLINE = PAN_MIDLINE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_STANDARD_SERIFED: PAN_MIDLINE = PAN_MIDLINE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_HIGH_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_HIGH_POINTED: PAN_MIDLINE = PAN_MIDLINE(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_HIGH_SERIFED: PAN_MIDLINE = PAN_MIDLINE(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_CONSTANT_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_CONSTANT_POINTED: PAN_MIDLINE = PAN_MIDLINE(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_CONSTANT_SERIFED: PAN_MIDLINE = PAN_MIDLINE(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_LOW_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(11u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_LOW_POINTED: PAN_MIDLINE = PAN_MIDLINE(12u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_LOW_SERIFED: PAN_MIDLINE = PAN_MIDLINE(13u32);
+impl ::core::marker::Copy for PAN_MIDLINE {}
+impl ::core::clone::Clone for PAN_MIDLINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_MIDLINE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_MIDLINE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_MIDLINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_MIDLINE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_PROPORTION(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_ANY: PAN_PROPORTION = PAN_PROPORTION(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_NO_FIT: PAN_PROPORTION = PAN_PROPORTION(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_OLD_STYLE: PAN_PROPORTION = PAN_PROPORTION(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_MODERN: PAN_PROPORTION = PAN_PROPORTION(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_EVEN_WIDTH: PAN_PROPORTION = PAN_PROPORTION(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_VERY_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_VERY_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_MONOSPACED: PAN_PROPORTION = PAN_PROPORTION(9u32);
+impl ::core::marker::Copy for PAN_PROPORTION {}
+impl ::core::clone::Clone for PAN_PROPORTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_PROPORTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_PROPORTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_PROPORTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_PROPORTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_SERIF_STYLE(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_ANY: PAN_SERIF_STYLE = PAN_SERIF_STYLE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_NO_FIT: PAN_SERIF_STYLE = PAN_SERIF_STYLE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_OBTUSE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_OBTUSE_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_SQUARE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_THIN: PAN_SERIF_STYLE = PAN_SERIF_STYLE(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_BONE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_EXAGGERATED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_TRIANGLE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_NORMAL_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(11u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_OBTUSE_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(12u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_PERP_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(13u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_FLARED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(14u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_ROUNDED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(15u32);
+impl ::core::marker::Copy for PAN_SERIF_STYLE {}
+impl ::core::clone::Clone for PAN_SERIF_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_SERIF_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_SERIF_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_SERIF_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_SERIF_STYLE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_STROKE_VARIATION(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_ANY: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_NO_FIT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_GRADUAL_DIAG: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_GRADUAL_TRAN: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_GRADUAL_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_GRADUAL_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_RAPID_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_RAPID_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_INSTANT_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(8u32);
+impl ::core::marker::Copy for PAN_STROKE_VARIATION {}
+impl ::core::clone::Clone for PAN_STROKE_VARIATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_STROKE_VARIATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_STROKE_VARIATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_STROKE_VARIATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_STROKE_VARIATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_WEIGHT(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_ANY: PAN_WEIGHT = PAN_WEIGHT(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_NO_FIT: PAN_WEIGHT = PAN_WEIGHT(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_INDEX: PAN_WEIGHT = PAN_WEIGHT(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_VERY_LIGHT: PAN_WEIGHT = PAN_WEIGHT(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_LIGHT: PAN_WEIGHT = PAN_WEIGHT(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_THIN: PAN_WEIGHT = PAN_WEIGHT(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_BOOK: PAN_WEIGHT = PAN_WEIGHT(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_MEDIUM: PAN_WEIGHT = PAN_WEIGHT(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_DEMI: PAN_WEIGHT = PAN_WEIGHT(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_BOLD: PAN_WEIGHT = PAN_WEIGHT(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_HEAVY: PAN_WEIGHT = PAN_WEIGHT(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_BLACK: PAN_WEIGHT = PAN_WEIGHT(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_NORD: PAN_WEIGHT = PAN_WEIGHT(11u32);
+impl ::core::marker::Copy for PAN_WEIGHT {}
+impl ::core::clone::Clone for PAN_WEIGHT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_WEIGHT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_WEIGHT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_WEIGHT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_WEIGHT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAN_XHEIGHT(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_ANY: PAN_XHEIGHT = PAN_XHEIGHT(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_NO_FIT: PAN_XHEIGHT = PAN_XHEIGHT(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_INDEX: PAN_XHEIGHT = PAN_XHEIGHT(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_CONSTANT_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_CONSTANT_STD: PAN_XHEIGHT = PAN_XHEIGHT(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_CONSTANT_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_DUCKING_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_DUCKING_STD: PAN_XHEIGHT = PAN_XHEIGHT(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_DUCKING_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(7u32);
+impl ::core::marker::Copy for PAN_XHEIGHT {}
+impl ::core::clone::Clone for PAN_XHEIGHT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAN_XHEIGHT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PAN_XHEIGHT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PAN_XHEIGHT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAN_XHEIGHT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEN_STYLE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_GEOMETRIC: PEN_STYLE = PEN_STYLE(65536u32);
@@ -10036,6 +10350,101 @@ unsafe impl ::windows::core::Abi for SYSTEM_PALETTE_USE {
 impl ::core::fmt::Debug for SYSTEM_PALETTE_USE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYSTEM_PALETTE_USE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYS_COLOR_INDEX(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+impl ::core::marker::Copy for SYS_COLOR_INDEX {}
+impl ::core::clone::Clone for SYS_COLOR_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYS_COLOR_INDEX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SYS_COLOR_INDEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYS_COLOR_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYS_COLOR_INDEX").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -15765,15 +16174,15 @@ pub struct LOGFONTA {
     pub lfWidth: i32,
     pub lfEscapement: i32,
     pub lfOrientation: i32,
-    pub lfWeight: FONT_WEIGHT,
+    pub lfWeight: i32,
     pub lfItalic: u8,
     pub lfUnderline: u8,
     pub lfStrikeOut: u8,
-    pub lfCharSet: u8,
+    pub lfCharSet: FONT_CHARSET,
     pub lfOutPrecision: FONT_OUTPUT_PRECISION,
     pub lfClipPrecision: FONT_CLIP_PRECISION,
     pub lfQuality: FONT_QUALITY,
-    pub lfPitchAndFamily: FONT_PITCH_AND_FAMILY,
+    pub lfPitchAndFamily: u8,
     pub lfFaceName: [super::super::Foundation::CHAR; 32],
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15830,7 +16239,7 @@ pub struct LOGFONTW {
     pub lfWidth: i32,
     pub lfEscapement: i32,
     pub lfOrientation: i32,
-    pub lfWeight: FONT_WEIGHT,
+    pub lfWeight: i32,
     pub lfItalic: u8,
     pub lfUnderline: u8,
     pub lfStrikeOut: u8,
@@ -15838,7 +16247,7 @@ pub struct LOGFONTW {
     pub lfOutPrecision: FONT_OUTPUT_PRECISION,
     pub lfClipPrecision: FONT_CLIP_PRECISION,
     pub lfQuality: FONT_QUALITY,
-    pub lfPitchAndFamily: FONT_PITCH_AND_FAMILY,
+    pub lfPitchAndFamily: u8,
     pub lfFaceName: [u16; 32],
 }
 impl ::core::marker::Copy for LOGFONTW {}
@@ -16607,16 +17016,16 @@ impl ::core::default::Default for PALETTEENTRY {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct PANOSE {
-    pub bFamilyType: u8,
-    pub bSerifStyle: u8,
-    pub bWeight: u8,
-    pub bProportion: u8,
-    pub bContrast: u8,
-    pub bStrokeVariation: u8,
-    pub bArmStyle: u8,
-    pub bLetterform: u8,
-    pub bMidline: u8,
-    pub bXHeight: u8,
+    pub bFamilyType: PAN_FAMILY_TYPE,
+    pub bSerifStyle: PAN_SERIF_STYLE,
+    pub bWeight: PAN_WEIGHT,
+    pub bProportion: PAN_PROPORTION,
+    pub bContrast: PAN_CONTRAST,
+    pub bStrokeVariation: PAN_STROKE_VARIATION,
+    pub bArmStyle: PAN_ARM_STYLE,
+    pub bLetterform: PAN_LETT_FORM,
+    pub bMidline: PAN_MIDLINE,
+    pub bXHeight: PAN_XHEIGHT,
 }
 impl ::core::marker::Copy for PANOSE {}
 impl ::core::clone::Clone for PANOSE {

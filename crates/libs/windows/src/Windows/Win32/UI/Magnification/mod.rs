@@ -57,13 +57,13 @@ pub unsafe fn MagGetInputTransform(pfenabled: *mut super::super::Foundation::BOO
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MagGetWindowFilterList<'a, P0>(hwnd: P0, pdwfiltermode: *mut u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> i32
+pub unsafe fn MagGetWindowFilterList<'a, P0>(hwnd: P0, pdwfiltermode: *mut MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn MagGetWindowFilterList(hwnd: super::super::Foundation::HWND, pdwfiltermode: *mut u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> i32;
+        fn MagGetWindowFilterList(hwnd: super::super::Foundation::HWND, pdwfiltermode: *mut MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> i32;
     }
     MagGetWindowFilterList(hwnd.into(), ::core::mem::transmute(pdwfiltermode), count, ::core::mem::transmute(phwnd))
 }
@@ -165,13 +165,13 @@ where
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MagSetWindowFilterList<'a, P0>(hwnd: P0, dwfiltermode: u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> super::super::Foundation::BOOL
+pub unsafe fn MagSetWindowFilterList<'a, P0>(hwnd: P0, dwfiltermode: MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn MagSetWindowFilterList(hwnd: super::super::Foundation::HWND, dwfiltermode: u32, count: i32, phwnd: *mut super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+        fn MagSetWindowFilterList(hwnd: super::super::Foundation::HWND, dwfiltermode: MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
     MagSetWindowFilterList(hwnd.into(), dwfiltermode, count, ::core::mem::transmute(phwnd))
 }
@@ -231,15 +231,38 @@ pub const MS_INVERTCOLORS: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const MW_FILTERMODE_EXCLUDE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const MW_FILTERMODE_INCLUDE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const WC_MAGNIFIER: &str = "Magnifier";
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const WC_MAGNIFIERA: &str = "Magnifier";
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const WC_MAGNIFIERW: &str = "Magnifier";
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MW_FILTERMODE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
+pub const MW_FILTERMODE_EXCLUDE: MW_FILTERMODE = MW_FILTERMODE(0u32);
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
+pub const MW_FILTERMODE_INCLUDE: MW_FILTERMODE = MW_FILTERMODE(1u32);
+impl ::core::marker::Copy for MW_FILTERMODE {}
+impl ::core::clone::Clone for MW_FILTERMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MW_FILTERMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MW_FILTERMODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MW_FILTERMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MW_FILTERMODE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub struct MAGCOLOREFFECT {
