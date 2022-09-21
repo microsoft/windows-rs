@@ -98,12 +98,12 @@ impl TearOff {
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_Vtbl = IWeakReferenceSource_Vtbl {
-        base__: IUnknownVtbl { QueryInterface: Self::StrongQueryInterface, AddRef: Self::StrongAddRef, Release: Self::StrongRelease },
+        base__: IUnknown_Vtbl { QueryInterface: Self::StrongQueryInterface, AddRef: Self::StrongAddRef, Release: Self::StrongRelease },
         GetWeakReference: Self::StrongDowngrade,
     };
 
     const WEAK_VTABLE: IWeakReference_Vtbl = IWeakReference_Vtbl {
-        base__: IUnknownVtbl { QueryInterface: Self::WeakQueryInterface, AddRef: Self::WeakAddRef, Release: Self::WeakRelease },
+        base__: IUnknown_Vtbl { QueryInterface: Self::WeakQueryInterface, AddRef: Self::WeakAddRef, Release: Self::WeakRelease },
         Resolve: Self::WeakUpgrade,
     };
 
@@ -120,7 +120,7 @@ impl TearOff {
     }
 
     unsafe fn query_interface(&self, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
-        ((*(*(self.object as *mut *mut _) as *mut IUnknownVtbl)).QueryInterface)(self.object, iid, interface)
+        ((*(*(self.object as *mut *mut _) as *mut IUnknown_Vtbl)).QueryInterface)(self.object, iid, interface)
     }
 
     unsafe extern "system" fn StrongQueryInterface(ptr: *mut core::ffi::c_void, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
@@ -177,7 +177,7 @@ impl TearOff {
 
         // Forward strong `Release` to the object so that it can destroy itself. It will then
         // decrement its weak reference and allow the tear-off to be released as needed.
-        ((*(*(this.object as *mut *mut _) as *mut IUnknownVtbl)).Release)((*this).object)
+        ((*(*(this.object as *mut *mut _) as *mut IUnknown_Vtbl)).Release)((*this).object)
     }
 
     unsafe extern "system" fn WeakRelease(ptr: *mut core::ffi::c_void) -> u32 {

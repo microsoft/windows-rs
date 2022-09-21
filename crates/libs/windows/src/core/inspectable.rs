@@ -23,7 +23,7 @@ impl IInspectable {
 #[doc(hidden)]
 #[repr(C)]
 pub struct IInspectableVtbl {
-    pub base: IUnknownVtbl,
+    pub base: IUnknown_Vtbl,
     pub GetIids: unsafe extern "system" fn(this: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
     pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> HRESULT,
     pub GetTrustLevel: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
@@ -150,6 +150,6 @@ impl IInspectableVtbl {
             *value = 0;
             HRESULT(0)
         }
-        Self { base: IUnknownVtbl::new::<Identity, OFFSET>(), GetIids, GetRuntimeClassName: GetRuntimeClassName::<Name>, GetTrustLevel }
+        Self { base: IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIids, GetRuntimeClassName: GetRuntimeClassName::<Name>, GetTrustLevel }
     }
 }
