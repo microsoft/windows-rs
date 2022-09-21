@@ -22,6 +22,7 @@ mod runtime_type;
 mod sha1;
 mod strings;
 mod unknown;
+mod vtable;
 mod waiter;
 mod weak;
 mod weak_ref_count;
@@ -57,6 +58,7 @@ pub use runtime_type::*;
 pub use sha1::*;
 pub use strings::*;
 pub use unknown::*;
+pub use vtable::*;
 #[doc(hidden)]
 pub use waiter::*;
 pub use weak::*;

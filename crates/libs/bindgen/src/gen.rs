@@ -713,8 +713,11 @@ impl<'a> Gen<'a> {
             let vtbl = self.type_vtbl_name(&default);
             quote! {
                 #features
-                unsafe impl ::windows::core::Interface for #ident {
+                unsafe impl ::windows::core::Vtable for #ident {
                     type Vtable = #vtbl;
+                }
+                #features
+                unsafe impl ::windows::core::Interface for #ident {
                     const IID: ::windows::core::GUID = <#default_name as ::windows::core::Interface>::IID;
                 }
             }
@@ -736,8 +739,11 @@ impl<'a> Gen<'a> {
             };
             quote! {
                 #features
-                unsafe impl<#constraints> ::windows::core::Interface for #ident {
+                unsafe impl<#constraints> ::windows::core::Vtable for #ident {
                     type Vtable = #vtbl;
+                }
+                #features
+                unsafe impl<#constraints> ::windows::core::Interface for #ident {
                     const IID: ::windows::core::GUID = #guid;
                 }
             }
@@ -752,7 +758,7 @@ impl<'a> Gen<'a> {
 
         match self.reader.type_def_vtables(def).last() {
             Some(Type::IUnknown) => methods.combine(&quote! { pub base__: ::windows::core::IUnknown_Vtbl, }),
-            Some(Type::IInspectable) => methods.combine(&quote! { pub base__: ::windows::core::IInspectableVtbl, }),
+            Some(Type::IInspectable) => methods.combine(&quote! { pub base__: ::windows::core::IInspectable_Vtbl, }),
             Some(Type::TypeDef((def, _))) => {
                 let vtbl = self.type_def_vtbl_name(*def, &[]);
                 methods.combine(&quote! { pub base__: #vtbl, });
