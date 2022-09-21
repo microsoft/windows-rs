@@ -27,12 +27,12 @@ impl ITestPersistMemory_Impl for Test {
 #[test]
 fn test() -> Result<()> {
     unsafe {
-    let p: IPersist = Test.into();
-    assert_eq!(p.GetClassID()?, "CEE1D356-0860-4262-90D4-C77423F0E352".into());
+        let p: IPersist = Test.into();
+        assert_eq!(p.GetClassID()?, "CEE1D356-0860-4262-90D4-C77423F0E352".into());
 
-    let m: ITestPersistMemory = p.cast()?;
-    assert_eq!(m.IsDirty(), S_FALSE);
+        let m: ITestPersistMemory = p.cast()?;
+        assert_eq!(m.IsDirty(), S_FALSE);
 
-    Ok(())
+        Ok(())
     }
 }
