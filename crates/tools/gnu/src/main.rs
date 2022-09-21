@@ -109,11 +109,7 @@ EXPORTS
         });
         // Ensure consistency in the prefixes used by dlltool.
         cmd.arg("-t");
-        if library.contains('.') {
-            cmd.arg(format!("{}_", library).replace('.', "_").replace('-', "_"));
-        } else {
-            cmd.arg(format!("{}_dll_", library).replace('-', "_"));
-        }
+        cmd.arg(format!("{}_", library).replace('.', "_").replace('-', "_"));
     }
     cmd.output().unwrap();
 
