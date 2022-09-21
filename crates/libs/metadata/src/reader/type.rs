@@ -137,7 +137,7 @@ impl Type {
     pub fn is_byte_size(&self) -> bool {
         match self {
             Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => kind.is_byte_size(),
-            Type::I8 | Type::U8 | Type::Void | Type::PSTR | Type::PCSTR => true,
+            Type::I8 | Type::U8 | Type::PSTR | Type::PCSTR => true,
             _ => false,
         }
     }
