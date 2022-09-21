@@ -537,7 +537,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BCryptProcessMultiOperations<'a, P0>(hobject: P0, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: &[u8], dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn BCryptProcessMultiOperations<'a, P0>(hobject: P0, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: *const ::core::ffi::c_void, cboperations: u32, dwflags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<BCRYPT_HANDLE>,
 {
@@ -545,7 +545,7 @@ where
     extern "system" {
         fn BCryptProcessMultiOperations(hobject: BCRYPT_HANDLE, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: *const ::core::ffi::c_void, cboperations: u32, dwflags: u32) -> super::super::Foundation::NTSTATUS;
     }
-    BCryptProcessMultiOperations(hobject.into(), operationtype, ::core::mem::transmute(poperations.as_ptr()), poperations.len() as _, dwflags).ok()
+    BCryptProcessMultiOperations(hobject.into(), operationtype, ::core::mem::transmute(poperations), cboperations, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -110,21 +110,21 @@ pub unsafe fn CM_Add_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulf
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Add_Res_Des(prdresdes: ::core::option::Option<*mut usize>, lclogconf: usize, resourceid: u32, resourcedata: &[u8], ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Add_Res_Des(prdresdes: ::core::option::Option<*mut usize>, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Add_Res_Des(prdresdes: *mut usize, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Add_Res_Des(::core::mem::transmute(prdresdes.unwrap_or(::std::ptr::null_mut())), lclogconf, resourceid, ::core::mem::transmute(resourcedata.as_ptr()), resourcedata.len() as _, ulflags)
+    CM_Add_Res_Des(::core::mem::transmute(prdresdes.unwrap_or(::std::ptr::null_mut())), lclogconf, resourceid, ::core::mem::transmute(resourcedata), resourcelen, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Add_Res_Des_Ex(prdresdes: ::core::option::Option<*mut usize>, lclogconf: usize, resourceid: u32, resourcedata: &[u8], ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Add_Res_Des_Ex(prdresdes: ::core::option::Option<*mut usize>, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Add_Res_Des_Ex(prdresdes: *mut usize, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Add_Res_Des_Ex(::core::mem::transmute(prdresdes.unwrap_or(::std::ptr::null_mut())), lclogconf, resourceid, ::core::mem::transmute(resourcedata.as_ptr()), resourcedata.len() as _, ulflags, hmachine)
+    CM_Add_Res_Des_Ex(::core::mem::transmute(prdresdes.unwrap_or(::std::ptr::null_mut())), lclogconf, resourceid, ::core::mem::transmute(resourcedata), resourcelen, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -303,22 +303,22 @@ pub unsafe fn CM_Delete_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, 
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CM_Detect_Resource_Conflict(dndevinst: u32, resourceid: u32, resourcedata: &[u8], pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Detect_Resource_Conflict(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Detect_Resource_Conflict(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32) -> CONFIGRET;
     }
-    CM_Detect_Resource_Conflict(dndevinst, resourceid, ::core::mem::transmute(resourcedata.as_ptr()), resourcedata.len() as _, ::core::mem::transmute(pbconflictdetected), ulflags)
+    CM_Detect_Resource_Conflict(dndevinst, resourceid, ::core::mem::transmute(resourcedata), resourcelen, ::core::mem::transmute(pbconflictdetected), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CM_Detect_Resource_Conflict_Ex(dndevinst: u32, resourceid: u32, resourcedata: &[u8], pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Detect_Resource_Conflict_Ex(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Detect_Resource_Conflict_Ex(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Detect_Resource_Conflict_Ex(dndevinst, resourceid, ::core::mem::transmute(resourcedata.as_ptr()), resourcedata.len() as _, ::core::mem::transmute(pbconflictdetected), ulflags, hmachine)
+    CM_Detect_Resource_Conflict_Ex(dndevinst, resourceid, ::core::mem::transmute(resourcedata), resourcelen, ::core::mem::transmute(pbconflictdetected), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -1368,21 +1368,21 @@ pub unsafe fn CM_Get_Parent_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u3
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Res_Des_Data(rdresdes: usize, buffer: &mut [u8], ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Res_Des_Data(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Get_Res_Des_Data(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Get_Res_Des_Data(rdresdes, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags)
+    CM_Get_Res_Des_Data(rdresdes, ::core::mem::transmute(buffer), bufferlen, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Res_Des_Data_Ex(rdresdes: usize, buffer: &mut [u8], ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Get_Res_Des_Data_Ex(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Get_Res_Des_Data_Ex(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Get_Res_Des_Data_Ex(rdresdes, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags, hmachine)
+    CM_Get_Res_Des_Data_Ex(rdresdes, ::core::mem::transmute(buffer), bufferlen, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -1592,21 +1592,21 @@ pub unsafe fn CM_Merge_Range_List(rlhold1: usize, rlhold2: usize, rlhnew: usize,
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Modify_Res_Des(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: &[u8], ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Modify_Res_Des(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Modify_Res_Des(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Modify_Res_Des(::core::mem::transmute(prdresdes), rdresdes, resourceid, ::core::mem::transmute(resourcedata.as_ptr()), resourcedata.len() as _, ulflags)
+    CM_Modify_Res_Des(::core::mem::transmute(prdresdes), rdresdes, resourceid, ::core::mem::transmute(resourcedata), resourcelen, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Modify_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: &[u8], ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Modify_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Modify_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Modify_Res_Des_Ex(::core::mem::transmute(prdresdes), rdresdes, resourceid, ::core::mem::transmute(resourcedata.as_ptr()), resourcedata.len() as _, ulflags, hmachine)
+    CM_Modify_Res_Des_Ex(::core::mem::transmute(prdresdes), rdresdes, resourceid, ::core::mem::transmute(resourcedata), resourcelen, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -1797,21 +1797,21 @@ pub unsafe fn CM_Query_And_Remove_SubTree_ExW(dnancestor: u32, pvetotype: ::core
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Query_Arbitrator_Free_Data(pdata: &mut [u8], dndevinst: u32, resourceid: u32, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Query_Arbitrator_Free_Data(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Query_Arbitrator_Free_Data(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Query_Arbitrator_Free_Data(::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, dndevinst, resourceid, ulflags)
+    CM_Query_Arbitrator_Free_Data(::core::mem::transmute(pdata), datalen, dndevinst, resourceid, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Query_Arbitrator_Free_Data_Ex(pdata: &mut [u8], dndevinst: u32, resourceid: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Query_Arbitrator_Free_Data_Ex(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Query_Arbitrator_Free_Data_Ex(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Query_Arbitrator_Free_Data_Ex(::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, dndevinst, resourceid, ulflags, hmachine)
+    CM_Query_Arbitrator_Free_Data_Ex(::core::mem::transmute(pdata), datalen, dndevinst, resourceid, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -1851,12 +1851,12 @@ pub unsafe fn CM_Query_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Query_Resource_Conflict_List(pclconflictlist: *mut usize, dndevinst: u32, resourceid: u32, resourcedata: &[u8], ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Query_Resource_Conflict_List(pclconflictlist: *mut usize, dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Query_Resource_Conflict_List(pclconflictlist: *mut usize, dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Query_Resource_Conflict_List(::core::mem::transmute(pclconflictlist), dndevinst, resourceid, ::core::mem::transmute(resourcedata.as_ptr()), resourcedata.len() as _, ulflags, hmachine)
+    CM_Query_Resource_Conflict_List(::core::mem::transmute(pclconflictlist), dndevinst, resourceid, ::core::mem::transmute(resourcedata), resourcelen, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -2064,21 +2064,21 @@ pub unsafe fn CM_Set_Class_Property_ExW(classguid: *const ::windows::core::GUID,
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_Class_Registry_PropertyA(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Set_Class_Registry_PropertyA(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: ::core::option::Option<*const ::core::ffi::c_void>, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Set_Class_Registry_PropertyA(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Set_Class_Registry_PropertyA(::core::mem::transmute(classguid), ulproperty, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags, hmachine)
+    CM_Set_Class_Registry_PropertyA(::core::mem::transmute(classguid), ulproperty, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), ullength, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_Class_Registry_PropertyW(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Set_Class_Registry_PropertyW(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: ::core::option::Option<*const ::core::ffi::c_void>, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Set_Class_Registry_PropertyW(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Set_Class_Registry_PropertyW(::core::mem::transmute(classguid), ulproperty, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags, hmachine)
+    CM_Set_Class_Registry_PropertyW(::core::mem::transmute(classguid), ulproperty, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), ullength, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -2120,39 +2120,39 @@ pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: u32, propertykey: *const su
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32, buffer: ::core::option::Option<&[u8]>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Set_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32, buffer: ::core::option::Option<*const ::core::ffi::c_void>, ullength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Set_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Set_DevNode_Registry_PropertyA(dndevinst, ulproperty, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags)
+    CM_Set_DevNode_Registry_PropertyA(dndevinst, ulproperty, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), ullength, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32, buffer: ::core::option::Option<&[u8]>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Set_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32, buffer: ::core::option::Option<*const ::core::ffi::c_void>, ullength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Set_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Set_DevNode_Registry_PropertyW(dndevinst, ulproperty, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags)
+    CM_Set_DevNode_Registry_PropertyW(dndevinst, ulproperty, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), ullength, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u32, buffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Set_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u32, buffer: ::core::option::Option<*const ::core::ffi::c_void>, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Set_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Set_DevNode_Registry_Property_ExA(dndevinst, ulproperty, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags, hmachine)
+    CM_Set_DevNode_Registry_Property_ExA(dndevinst, ulproperty, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), ullength, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u32, buffer: ::core::option::Option<&[u8]>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u32, buffer: ::core::option::Option<*const ::core::ffi::c_void>, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Set_DevNode_Registry_Property_ExW(dndevinst, ulproperty, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ulflags, hmachine)
+    CM_Set_DevNode_Registry_Property_ExW(dndevinst, ulproperty, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), ullength, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]

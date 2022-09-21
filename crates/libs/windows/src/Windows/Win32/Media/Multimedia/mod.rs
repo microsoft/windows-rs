@@ -54,7 +54,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
-pub unsafe fn ICDraw<'a, P0>(hic: P0, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: ::core::option::Option<&[u8]>, ltime: i32) -> u32
+pub unsafe fn ICDraw<'a, P0>(hic: P0, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, cbdata: u32, ltime: i32) -> u32
 where
     P0: ::std::convert::Into<HIC>,
 {
@@ -62,7 +62,7 @@ where
     extern "cdecl" {
         fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
     }
-    ICDraw(hic.into(), dwflags, ::core::mem::transmute(lpformat), ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _), ltime)
+    ICDraw(hic.into(), dwflags, ::core::mem::transmute(lpformat), ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cbdata, ltime)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -310,7 +310,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
-pub unsafe fn AVIFileWriteData<'a, P0>(pfile: P0, ckid: u32, lpdata: &[u8]) -> ::windows::core::Result<()>
+pub unsafe fn AVIFileWriteData<'a, P0>(pfile: P0, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIFile>>,
 {
@@ -318,7 +318,7 @@ where
     extern "system" {
         fn AVIFileWriteData(pfile: *mut ::core::ffi::c_void, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::HRESULT;
     }
-    AVIFileWriteData(pfile.into().abi(), ckid, ::core::mem::transmute(lpdata.as_ptr()), lpdata.len() as _).ok()
+    AVIFileWriteData(pfile.into().abi(), ckid, ::core::mem::transmute(lpdata), cbdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -583,7 +583,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
-pub unsafe fn AVIStreamRead<'a, P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: ::core::option::Option<&mut [u8]>, plbytes: ::core::option::Option<*mut i32>, plsamples: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()>
+pub unsafe fn AVIStreamRead<'a, P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cbbuffer: i32, plbytes: ::core::option::Option<*mut i32>, plsamples: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
@@ -591,7 +591,7 @@ where
     extern "system" {
         fn AVIStreamRead(pavi: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::HRESULT;
     }
-    AVIStreamRead(pavi.into().abi(), lstart, lsamples, ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plsamples.unwrap_or(::std::ptr::null_mut()))).ok()
+    AVIStreamRead(pavi.into().abi(), lstart, lsamples, ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null_mut())), cbbuffer, ::core::mem::transmute(plbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plsamples.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -643,7 +643,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
-pub unsafe fn AVIStreamSetFormat<'a, P0>(pavi: P0, lpos: i32, lpformat: &[u8]) -> ::windows::core::Result<()>
+pub unsafe fn AVIStreamSetFormat<'a, P0>(pavi: P0, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
@@ -651,7 +651,7 @@ where
     extern "system" {
         fn AVIStreamSetFormat(pavi: *mut ::core::ffi::c_void, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::HRESULT;
     }
-    AVIStreamSetFormat(pavi.into().abi(), lpos, ::core::mem::transmute(lpformat.as_ptr()), lpformat.len() as _).ok()
+    AVIStreamSetFormat(pavi.into().abi(), lpos, ::core::mem::transmute(lpformat), cbformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -679,7 +679,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
-pub unsafe fn AVIStreamWrite<'a, P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: &[u8], dwflags: u32, plsampwritten: ::core::option::Option<*mut i32>, plbyteswritten: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()>
+pub unsafe fn AVIStreamWrite<'a, P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: ::core::option::Option<*mut i32>, plbyteswritten: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
@@ -687,11 +687,11 @@ where
     extern "system" {
         fn AVIStreamWrite(pavi: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::HRESULT;
     }
-    AVIStreamWrite(pavi.into().abi(), lstart, lsamples, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, dwflags, ::core::mem::transmute(plsampwritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plbyteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
+    AVIStreamWrite(pavi.into().abi(), lstart, lsamples, ::core::mem::transmute(lpbuffer), cbbuffer, dwflags, ::core::mem::transmute(plsampwritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plbyteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
-pub unsafe fn AVIStreamWriteData<'a, P0>(pavi: P0, fcc: u32, lp: &[u8]) -> ::windows::core::Result<()>
+pub unsafe fn AVIStreamWriteData<'a, P0>(pavi: P0, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
@@ -699,7 +699,7 @@ where
     extern "system" {
         fn AVIStreamWriteData(pavi: *mut ::core::ffi::c_void, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::HRESULT;
     }
-    AVIStreamWriteData(pavi.into().abi(), fcc, ::core::mem::transmute(lp.as_ptr()), lp.len() as _).ok()
+    AVIStreamWriteData(pavi.into().abi(), fcc, ::core::mem::transmute(lp), cb).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2069,8 +2069,8 @@ impl IAVIFile {
     pub unsafe fn CreateStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppstream), ::core::mem::transmute(psi)).ok()
     }
-    pub unsafe fn WriteData(&self, ckid: u32, lpdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), ckid, ::core::mem::transmute(lpdata.as_ptr()), lpdata.len() as _).ok()
+    pub unsafe fn WriteData(&self, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), ckid, ::core::mem::transmute(lpdata), cbdata).ok()
     }
     pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReadData)(::windows::core::Interface::as_raw(self), ckid, ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
@@ -2294,14 +2294,14 @@ impl IAVIStream {
     pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: ::core::option::Option<*mut ::core::ffi::c_void>, lpcbformat: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReadFormat)(::windows::core::Interface::as_raw(self), lpos, ::core::mem::transmute(lpformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcbformat)).ok()
     }
-    pub unsafe fn SetFormat(&self, lpos: i32, lpformat: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormat)(::windows::core::Interface::as_raw(self), lpos, ::core::mem::transmute(lpformat.as_ptr()), lpformat.len() as _).ok()
+    pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormat)(::windows::core::Interface::as_raw(self), lpos, ::core::mem::transmute(lpformat), cbformat).ok()
     }
-    pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: ::core::option::Option<&mut [u8]>, plbytes: ::core::option::Option<*mut i32>, plsamples: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), lstart, lsamples, ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plsamples.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cbbuffer: i32, plbytes: ::core::option::Option<*mut i32>, plsamples: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), lstart, lsamples, ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null_mut())), cbbuffer, ::core::mem::transmute(plbytes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plsamples.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: &[u8], dwflags: u32, plsampwritten: ::core::option::Option<*mut i32>, plbyteswritten: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Write)(::windows::core::Interface::as_raw(self), lstart, lsamples, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, dwflags, ::core::mem::transmute(plsampwritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plbyteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: ::core::option::Option<*mut i32>, plbyteswritten: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Write)(::windows::core::Interface::as_raw(self), lstart, lsamples, ::core::mem::transmute(lpbuffer), cbbuffer, dwflags, ::core::mem::transmute(plsampwritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plbyteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), lstart, lsamples).ok()
@@ -2309,8 +2309,8 @@ impl IAVIStream {
     pub unsafe fn ReadData(&self, fcc: u32, lp: ::core::option::Option<*mut ::core::ffi::c_void>, lpcb: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReadData)(::windows::core::Interface::as_raw(self), fcc, ::core::mem::transmute(lp.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcb)).ok()
     }
-    pub unsafe fn WriteData(&self, fcc: u32, lp: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), fcc, ::core::mem::transmute(lp.as_ptr()), lp.len() as _).ok()
+    pub unsafe fn WriteData(&self, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), fcc, ::core::mem::transmute(lp), cb).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

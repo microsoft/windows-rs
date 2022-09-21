@@ -14,12 +14,12 @@ where
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumDeviceDrivers(lpimagebase: &mut [u8], lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::core::ffi::c_void, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::core::ffi::c_void, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    K32EnumDeviceDrivers(::core::mem::transmute(lpimagebase.as_ptr()), lpimagebase.len() as _, ::core::mem::transmute(lpcbneeded))
+    K32EnumDeviceDrivers(::core::mem::transmute(lpimagebase), cb, ::core::mem::transmute(lpcbneeded))
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -300,7 +300,7 @@ where
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32QueryWorkingSet<'a, P0>(hprocess: P0, pv: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn K32QueryWorkingSet<'a, P0>(hprocess: P0, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -308,12 +308,12 @@ where
     extern "system" {
         fn K32QueryWorkingSet(hprocess: super::super::Foundation::HANDLE, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
     }
-    K32QueryWorkingSet(hprocess.into(), ::core::mem::transmute(pv.as_ptr()), pv.len() as _)
+    K32QueryWorkingSet(hprocess.into(), ::core::mem::transmute(pv), cb)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32QueryWorkingSetEx<'a, P0>(hprocess: P0, pv: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn K32QueryWorkingSetEx<'a, P0>(hprocess: P0, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -321,7 +321,7 @@ where
     extern "system" {
         fn K32QueryWorkingSetEx(hprocess: super::super::Foundation::HANDLE, pv: *mut ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
     }
-    K32QueryWorkingSetEx(hprocess.into(), ::core::mem::transmute(pv.as_ptr()), pv.len() as _)
+    K32QueryWorkingSetEx(hprocess.into(), ::core::mem::transmute(pv), cb)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const PSAPI_VERSION: u32 = 2u32;

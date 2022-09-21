@@ -1383,7 +1383,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FlushPrinter<'a, P0>(hprinter: P0, pbuf: ::core::option::Option<&[u8]>, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL
+pub unsafe fn FlushPrinter<'a, P0>(hprinter: P0, pbuf: ::core::option::Option<*const ::core::ffi::c_void>, cbbuf: u32, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1391,7 +1391,7 @@ where
     extern "system" {
         fn FlushPrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL;
     }
-    FlushPrinter(hprinter.into(), ::core::mem::transmute(pbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuf.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcwritten), csleep)
+    FlushPrinter(hprinter.into(), ::core::mem::transmute(pbuf.unwrap_or(::std::ptr::null())), cbbuf, ::core::mem::transmute(pcwritten), csleep)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -2231,7 +2231,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadPrinter<'a, P0>(hprinter: P0, pbuf: &mut [u8], pnobytesread: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn ReadPrinter<'a, P0>(hprinter: P0, pbuf: *mut ::core::ffi::c_void, cbbuf: u32, pnobytesread: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -2239,7 +2239,7 @@ where
     extern "system" {
         fn ReadPrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *mut ::core::ffi::c_void, cbbuf: u32, pnobytesread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ReadPrinter(hprinter.into(), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pnobytesread))
+    ReadPrinter(hprinter.into(), ::core::mem::transmute(pbuf), cbbuf, ::core::mem::transmute(pnobytesread))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2847,7 +2847,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WritePrinter<'a, P0>(hprinter: P0, pbuf: &[u8], pcwritten: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn WritePrinter<'a, P0>(hprinter: P0, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -2855,7 +2855,7 @@ where
     extern "system" {
         fn WritePrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    WritePrinter(hprinter.into(), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcwritten))
+    WritePrinter(hprinter.into(), ::core::mem::transmute(pbuf), cbbuf, ::core::mem::transmute(pcwritten))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6190,8 +6190,8 @@ pub struct IPrintJobCollection_Vtbl {
 #[repr(transparent)]
 pub struct IPrintOemCommon(::windows::core::IUnknown);
 impl IPrintOemCommon {
-    pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: &mut [u8], pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self), dwmode, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ::core::mem::transmute(pcbneeded)).ok()
+    pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self), dwmode, ::core::mem::transmute(pbuffer), cbsize, ::core::mem::transmute(pcbneeded)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6318,8 +6318,8 @@ pub struct IPrintOemDriverUI_Vtbl {
 #[repr(transparent)]
 pub struct IPrintOemUI(::windows::core::IUnknown);
 impl IPrintOemUI {
-    pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: &mut [u8], pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self), dwmode, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ::core::mem::transmute(pcbneeded)).ok()
+    pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self), dwmode, ::core::mem::transmute(pbuffer), cbsize, ::core::mem::transmute(pcbneeded)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6517,8 +6517,8 @@ pub struct IPrintOemUI_Vtbl {
 #[repr(transparent)]
 pub struct IPrintOemUI2(::windows::core::IUnknown);
 impl IPrintOemUI2 {
-    pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: &mut [u8], pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetInfo)(::windows::core::Interface::as_raw(self), dwmode, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ::core::mem::transmute(pcbneeded)).ok()
+    pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetInfo)(::windows::core::Interface::as_raw(self), dwmode, ::core::mem::transmute(pbuffer), cbsize, ::core::mem::transmute(pcbneeded)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7124,8 +7124,8 @@ impl IPrintReadStream {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReadBytes(&self, pvbuffer: &mut [u8], pcbread: *mut u32, pbendoffile: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadBytes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvbuffer.as_ptr()), pvbuffer.len() as _, ::core::mem::transmute(pcbread), ::core::mem::transmute(pbendoffile)).ok()
+    pub unsafe fn ReadBytes(&self, pvbuffer: *mut ::core::ffi::c_void, cbrequested: u32, pcbread: *mut u32, pbendoffile: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadBytes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvbuffer), cbrequested, ::core::mem::transmute(pcbread), ::core::mem::transmute(pbendoffile)).ok()
     }
 }
 impl ::core::convert::From<IPrintReadStream> for ::windows::core::IUnknown {
@@ -9775,9 +9775,9 @@ pub struct IPrintUnidiAsyncNotifyRegistration_Vtbl {
 #[repr(transparent)]
 pub struct IPrintWriteStream(::windows::core::IUnknown);
 impl IPrintWriteStream {
-    pub unsafe fn WriteBytes(&self, pvbuffer: &[u8]) -> ::windows::core::Result<u32> {
+    pub unsafe fn WriteBytes(&self, pvbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).WriteBytes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvbuffer.as_ptr()), pvbuffer.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).WriteBytes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvbuffer), cbbuffer, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn Close(&self) {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self))

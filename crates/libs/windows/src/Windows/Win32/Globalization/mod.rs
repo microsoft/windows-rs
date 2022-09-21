@@ -10951,12 +10951,12 @@ pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: &[u16]) -> super
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsTextUnicode(lpv: &[u8], lpiresult: ::core::option::Option<*mut IS_TEXT_UNICODE_RESULT>) -> super::Foundation::BOOL {
+pub unsafe fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: ::core::option::Option<*mut IS_TEXT_UNICODE_RESULT>) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation::BOOL;
     }
-    IsTextUnicode(::core::mem::transmute(lpv.as_ptr()), lpv.len() as _, ::core::mem::transmute(lpiresult.unwrap_or(::std::ptr::null_mut())))
+    IsTextUnicode(::core::mem::transmute(lpv), isize, ::core::mem::transmute(lpiresult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

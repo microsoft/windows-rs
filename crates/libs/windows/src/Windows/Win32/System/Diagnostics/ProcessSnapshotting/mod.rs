@@ -42,7 +42,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
-pub unsafe fn PssQuerySnapshot<'a, P0>(snapshothandle: P0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: &mut [u8]) -> u32
+pub unsafe fn PssQuerySnapshot<'a, P0>(snapshothandle: P0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32
 where
     P0: ::std::convert::Into<HPSS>,
 {
@@ -50,7 +50,7 @@ where
     extern "system" {
         fn PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
     }
-    PssQuerySnapshot(snapshothandle.into(), informationclass, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
+    PssQuerySnapshot(snapshothandle.into(), informationclass, ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]

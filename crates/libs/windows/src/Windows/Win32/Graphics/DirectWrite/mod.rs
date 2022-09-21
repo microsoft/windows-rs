@@ -429,12 +429,12 @@ impl IDWriteFactory {
     {
         (::windows::core::Interface::vtable(self).GetSystemFontCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontcollection), checkforupdates.into()).ok()
     }
-    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: &[u8]) -> ::windows::core::Result<IDWriteFontCollection>
+    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows::core::Result<IDWriteFontCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontCollectionLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey.as_ptr()), collectionkey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
+        (::windows::core::Interface::vtable(self).CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
     }
     pub unsafe fn RegisterFontCollectionLoader<'a, P0>(&self, fontcollectionloader: P0) -> ::windows::core::Result<()>
     where
@@ -457,12 +457,12 @@ impl IDWriteFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateFontFileReference)(::windows::core::Interface::as_raw(self), filepath.into(), ::core::mem::transmute(lastwritetime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
-    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: &[u8], fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
+    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontFileLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
+        (::windows::core::Interface::vtable(self).CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
     pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, fontfiles: &[::core::option::Option<IDWriteFontFile>], faceindex: u32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFace> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -650,12 +650,12 @@ impl IDWriteFactory1 {
     {
         (::windows::core::Interface::vtable(self).base__.GetSystemFontCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontcollection), checkforupdates.into()).ok()
     }
-    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: &[u8]) -> ::windows::core::Result<IDWriteFontCollection>
+    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows::core::Result<IDWriteFontCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontCollectionLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey.as_ptr()), collectionkey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
     }
     pub unsafe fn RegisterFontCollectionLoader<'a, P0>(&self, fontcollectionloader: P0) -> ::windows::core::Result<()>
     where
@@ -678,12 +678,12 @@ impl IDWriteFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateFontFileReference)(::windows::core::Interface::as_raw(self), filepath.into(), ::core::mem::transmute(lastwritetime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
-    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: &[u8], fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
+    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontFileLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
     pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, fontfiles: &[::core::option::Option<IDWriteFontFile>], faceindex: u32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFace> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -864,12 +864,12 @@ impl IDWriteFactory2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.GetSystemFontCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontcollection), checkforupdates.into()).ok()
     }
-    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: &[u8]) -> ::windows::core::Result<IDWriteFontCollection>
+    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows::core::Result<IDWriteFontCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontCollectionLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey.as_ptr()), collectionkey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
     }
     pub unsafe fn RegisterFontCollectionLoader<'a, P0>(&self, fontcollectionloader: P0) -> ::windows::core::Result<()>
     where
@@ -892,12 +892,12 @@ impl IDWriteFactory2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateFontFileReference)(::windows::core::Interface::as_raw(self), filepath.into(), ::core::mem::transmute(lastwritetime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
-    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: &[u8], fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
+    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontFileLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
     pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, fontfiles: &[::core::option::Option<IDWriteFontFile>], faceindex: u32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFace> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1123,12 +1123,12 @@ impl IDWriteFactory3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetSystemFontCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontcollection), checkforupdates.into()).ok()
     }
-    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: &[u8]) -> ::windows::core::Result<IDWriteFontCollection>
+    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows::core::Result<IDWriteFontCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontCollectionLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey.as_ptr()), collectionkey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
     }
     pub unsafe fn RegisterFontCollectionLoader<'a, P0>(&self, fontcollectionloader: P0) -> ::windows::core::Result<()>
     where
@@ -1151,12 +1151,12 @@ impl IDWriteFactory3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CreateFontFileReference)(::windows::core::Interface::as_raw(self), filepath.into(), ::core::mem::transmute(lastwritetime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
-    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: &[u8], fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
+    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontFileLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
     pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, fontfiles: &[::core::option::Option<IDWriteFontFile>], faceindex: u32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFace> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1458,12 +1458,12 @@ impl IDWriteFactory4 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetSystemFontCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontcollection), checkforupdates.into()).ok()
     }
-    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: &[u8]) -> ::windows::core::Result<IDWriteFontCollection>
+    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows::core::Result<IDWriteFontCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontCollectionLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey.as_ptr()), collectionkey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
     }
     pub unsafe fn RegisterFontCollectionLoader<'a, P0>(&self, fontcollectionloader: P0) -> ::windows::core::Result<()>
     where
@@ -1486,12 +1486,12 @@ impl IDWriteFactory4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateFontFileReference)(::windows::core::Interface::as_raw(self), filepath.into(), ::core::mem::transmute(lastwritetime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
-    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: &[u8], fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
+    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontFileLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
     pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, fontfiles: &[::core::option::Option<IDWriteFontFile>], faceindex: u32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFace> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1820,12 +1820,12 @@ impl IDWriteFactory5 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetSystemFontCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontcollection), checkforupdates.into()).ok()
     }
-    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: &[u8]) -> ::windows::core::Result<IDWriteFontCollection>
+    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows::core::Result<IDWriteFontCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontCollectionLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey.as_ptr()), collectionkey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
     }
     pub unsafe fn RegisterFontCollectionLoader<'a, P0>(&self, fontcollectionloader: P0) -> ::windows::core::Result<()>
     where
@@ -1848,12 +1848,12 @@ impl IDWriteFactory5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateFontFileReference)(::windows::core::Interface::as_raw(self), filepath.into(), ::core::mem::transmute(lastwritetime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
-    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: &[u8], fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
+    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontFileLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
     pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, fontfiles: &[::core::option::Option<IDWriteFontFile>], faceindex: u32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFace> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2073,12 +2073,12 @@ impl IDWriteFactory5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateHttpFontFileLoader)(::windows::core::Interface::as_raw(self), referrerurl.into(), extraheaders.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteRemoteFontFileLoader>(result__)
     }
-    pub unsafe fn AnalyzeContainerType(&self, filedata: &[u8]) -> DWRITE_CONTAINER_TYPE {
-        (::windows::core::Interface::vtable(self).AnalyzeContainerType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filedata.as_ptr()), filedata.len() as _)
+    pub unsafe fn AnalyzeContainerType(&self, filedata: *const ::core::ffi::c_void, filedatasize: u32) -> DWRITE_CONTAINER_TYPE {
+        (::windows::core::Interface::vtable(self).AnalyzeContainerType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filedata), filedatasize)
     }
-    pub unsafe fn UnpackFontFile(&self, containertype: DWRITE_CONTAINER_TYPE, filedata: &[u8]) -> ::windows::core::Result<IDWriteFontFileStream> {
+    pub unsafe fn UnpackFontFile(&self, containertype: DWRITE_CONTAINER_TYPE, filedata: *const ::core::ffi::c_void, filedatasize: u32) -> ::windows::core::Result<IDWriteFontFileStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).UnpackFontFile)(::windows::core::Interface::as_raw(self), containertype, ::core::mem::transmute(filedata.as_ptr()), filedata.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
+        (::windows::core::Interface::vtable(self).UnpackFontFile)(::windows::core::Interface::as_raw(self), containertype, ::core::mem::transmute(filedata), filedatasize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
     }
 }
 impl ::core::convert::From<IDWriteFactory5> for ::windows::core::IUnknown {
@@ -2213,12 +2213,12 @@ impl IDWriteFactory6 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetSystemFontCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontcollection), checkforupdates.into()).ok()
     }
-    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: &[u8]) -> ::windows::core::Result<IDWriteFontCollection>
+    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows::core::Result<IDWriteFontCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontCollectionLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey.as_ptr()), collectionkey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
     }
     pub unsafe fn RegisterFontCollectionLoader<'a, P0>(&self, fontcollectionloader: P0) -> ::windows::core::Result<()>
     where
@@ -2241,12 +2241,12 @@ impl IDWriteFactory6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateFontFileReference)(::windows::core::Interface::as_raw(self), filepath.into(), ::core::mem::transmute(lastwritetime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
-    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: &[u8], fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
+    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontFileLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
     pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, fontfiles: &[::core::option::Option<IDWriteFontFile>], faceindex: u32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFace> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2466,12 +2466,12 @@ impl IDWriteFactory6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateHttpFontFileLoader)(::windows::core::Interface::as_raw(self), referrerurl.into(), extraheaders.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteRemoteFontFileLoader>(result__)
     }
-    pub unsafe fn AnalyzeContainerType(&self, filedata: &[u8]) -> DWRITE_CONTAINER_TYPE {
-        (::windows::core::Interface::vtable(self).base__.AnalyzeContainerType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filedata.as_ptr()), filedata.len() as _)
+    pub unsafe fn AnalyzeContainerType(&self, filedata: *const ::core::ffi::c_void, filedatasize: u32) -> DWRITE_CONTAINER_TYPE {
+        (::windows::core::Interface::vtable(self).base__.AnalyzeContainerType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filedata), filedatasize)
     }
-    pub unsafe fn UnpackFontFile(&self, containertype: DWRITE_CONTAINER_TYPE, filedata: &[u8]) -> ::windows::core::Result<IDWriteFontFileStream> {
+    pub unsafe fn UnpackFontFile(&self, containertype: DWRITE_CONTAINER_TYPE, filedata: *const ::core::ffi::c_void, filedatasize: u32) -> ::windows::core::Result<IDWriteFontFileStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.UnpackFontFile)(::windows::core::Interface::as_raw(self), containertype, ::core::mem::transmute(filedata.as_ptr()), filedata.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.UnpackFontFile)(::windows::core::Interface::as_raw(self), containertype, ::core::mem::transmute(filedata), filedatasize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
     }
     pub unsafe fn CreateFontFaceReference3<'a, P0>(&self, fontfile: P0, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> ::windows::core::Result<IDWriteFontFaceReference1>
     where
@@ -2681,12 +2681,12 @@ impl IDWriteFactory7 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetSystemFontCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontcollection), checkforupdates.into()).ok()
     }
-    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: &[u8]) -> ::windows::core::Result<IDWriteFontCollection>
+    pub unsafe fn CreateCustomFontCollection<'a, P0>(&self, collectionloader: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows::core::Result<IDWriteFontCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontCollectionLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey.as_ptr()), collectionkey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateCustomFontCollection)(::windows::core::Interface::as_raw(self), collectionloader.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection>(result__)
     }
     pub unsafe fn RegisterFontCollectionLoader<'a, P0>(&self, fontcollectionloader: P0) -> ::windows::core::Result<()>
     where
@@ -2709,12 +2709,12 @@ impl IDWriteFactory7 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateFontFileReference)(::windows::core::Interface::as_raw(self), filepath.into(), ::core::mem::transmute(lastwritetime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
-    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: &[u8], fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
+    pub unsafe fn CreateCustomFontFileReference<'a, P0>(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: P0) -> ::windows::core::Result<IDWriteFontFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFontFileLoader>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateCustomFontFileReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, fontfileloader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
     pub unsafe fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, fontfiles: &[::core::option::Option<IDWriteFontFile>], faceindex: u32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFace> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2934,12 +2934,12 @@ impl IDWriteFactory7 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateHttpFontFileLoader)(::windows::core::Interface::as_raw(self), referrerurl.into(), extraheaders.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteRemoteFontFileLoader>(result__)
     }
-    pub unsafe fn AnalyzeContainerType(&self, filedata: &[u8]) -> DWRITE_CONTAINER_TYPE {
-        (::windows::core::Interface::vtable(self).base__.base__.AnalyzeContainerType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filedata.as_ptr()), filedata.len() as _)
+    pub unsafe fn AnalyzeContainerType(&self, filedata: *const ::core::ffi::c_void, filedatasize: u32) -> DWRITE_CONTAINER_TYPE {
+        (::windows::core::Interface::vtable(self).base__.base__.AnalyzeContainerType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filedata), filedatasize)
     }
-    pub unsafe fn UnpackFontFile(&self, containertype: DWRITE_CONTAINER_TYPE, filedata: &[u8]) -> ::windows::core::Result<IDWriteFontFileStream> {
+    pub unsafe fn UnpackFontFile(&self, containertype: DWRITE_CONTAINER_TYPE, filedata: *const ::core::ffi::c_void, filedatasize: u32) -> ::windows::core::Result<IDWriteFontFileStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.UnpackFontFile)(::windows::core::Interface::as_raw(self), containertype, ::core::mem::transmute(filedata.as_ptr()), filedata.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.UnpackFontFile)(::windows::core::Interface::as_raw(self), containertype, ::core::mem::transmute(filedata), filedatasize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
     }
     pub unsafe fn CreateFontFaceReference3<'a, P0>(&self, fontfile: P0, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: &[DWRITE_FONT_AXIS_VALUE]) -> ::windows::core::Result<IDWriteFontFaceReference1>
     where
@@ -4178,12 +4178,12 @@ pub struct IDWriteFontCollection3_Vtbl {
 #[repr(transparent)]
 pub struct IDWriteFontCollectionLoader(::windows::core::IUnknown);
 impl IDWriteFontCollectionLoader {
-    pub unsafe fn CreateEnumeratorFromKey<'a, P0>(&self, factory: P0, collectionkey: &[u8]) -> ::windows::core::Result<IDWriteFontFileEnumerator>
+    pub unsafe fn CreateEnumeratorFromKey<'a, P0>(&self, factory: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows::core::Result<IDWriteFontFileEnumerator>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFactory>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateEnumeratorFromKey)(::windows::core::Interface::as_raw(self), factory.into().abi(), ::core::mem::transmute(collectionkey.as_ptr()), collectionkey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).CreateEnumeratorFromKey)(::windows::core::Interface::as_raw(self), factory.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileEnumerator>(result__)
     }
 }
 impl ::core::convert::From<IDWriteFontCollectionLoader> for ::windows::core::IUnknown {
@@ -7434,9 +7434,9 @@ pub struct IDWriteFontFileEnumerator_Vtbl {
 #[repr(transparent)]
 pub struct IDWriteFontFileLoader(::windows::core::IUnknown);
 impl IDWriteFontFileLoader {
-    pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: &[u8]) -> ::windows::core::Result<IDWriteFontFileStream> {
+    pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::core::Result<IDWriteFontFileStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
+        (::windows::core::Interface::vtable(self).CreateStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
     }
 }
 impl ::core::convert::From<IDWriteFontFileLoader> for ::windows::core::IUnknown {
@@ -9259,17 +9259,17 @@ pub struct IDWriteGlyphRunAnalysis_Vtbl {
 #[repr(transparent)]
 pub struct IDWriteInMemoryFontFileLoader(::windows::core::IUnknown);
 impl IDWriteInMemoryFontFileLoader {
-    pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: &[u8]) -> ::windows::core::Result<IDWriteFontFileStream> {
+    pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::core::Result<IDWriteFontFileStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
     }
-    pub unsafe fn CreateInMemoryFontFileReference<'a, P0, P1>(&self, factory: P0, fontdata: &[u8], ownerobject: P1) -> ::windows::core::Result<IDWriteFontFile>
+    pub unsafe fn CreateInMemoryFontFileReference<'a, P0, P1>(&self, factory: P0, fontdata: *const ::core::ffi::c_void, fontdatasize: u32, ownerobject: P1) -> ::windows::core::Result<IDWriteFontFile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteFactory>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInMemoryFontFileReference)(::windows::core::Interface::as_raw(self), factory.into().abi(), ::core::mem::transmute(fontdata.as_ptr()), fontdata.len() as _, ownerobject.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
+        (::windows::core::Interface::vtable(self).CreateInMemoryFontFileReference)(::windows::core::Interface::as_raw(self), factory.into().abi(), ::core::mem::transmute(fontdata), fontdatasize, ownerobject.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
     pub unsafe fn GetFileCount(&self) -> u32 {
         (::windows::core::Interface::vtable(self).GetFileCount)(::windows::core::Interface::as_raw(self))
@@ -9415,22 +9415,22 @@ pub struct IDWriteInlineObject_Vtbl {
 #[repr(transparent)]
 pub struct IDWriteLocalFontFileLoader(::windows::core::IUnknown);
 impl IDWriteLocalFontFileLoader {
-    pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: &[u8]) -> ::windows::core::Result<IDWriteFontFileStream> {
+    pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::core::Result<IDWriteFontFileStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
     }
-    pub unsafe fn GetFilePathLengthFromKey(&self, fontfilereferencekey: &[u8]) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetFilePathLengthFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilePathLengthFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetFilePathLengthFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetFilePathFromKey(&self, fontfilereferencekey: &[u8], filepath: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFilePathFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _).ok()
+    pub unsafe fn GetFilePathFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, filepath: &mut [u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFilePathFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(filepath.as_ptr()), filepath.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLastWriteTimeFromKey(&self, fontfilereferencekey: &[u8]) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
+    pub unsafe fn GetLastWriteTimeFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastWriteTimeFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Interface::vtable(self).GetLastWriteTimeFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
 }
 impl ::core::convert::From<IDWriteLocalFontFileLoader> for ::windows::core::IUnknown {
@@ -9686,17 +9686,17 @@ pub struct IDWritePixelSnapping_Vtbl {
 #[repr(transparent)]
 pub struct IDWriteRemoteFontFileLoader(::windows::core::IUnknown);
 impl IDWriteRemoteFontFileLoader {
-    pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: &[u8]) -> ::windows::core::Result<IDWriteFontFileStream> {
+    pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::core::Result<IDWriteFontFileStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
     }
-    pub unsafe fn CreateRemoteStreamFromKey(&self, fontfilereferencekey: &[u8]) -> ::windows::core::Result<IDWriteRemoteFontFileStream> {
+    pub unsafe fn CreateRemoteStreamFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::core::Result<IDWriteRemoteFontFileStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRemoteStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteRemoteFontFileStream>(result__)
+        (::windows::core::Interface::vtable(self).CreateRemoteStreamFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteRemoteFontFileStream>(result__)
     }
-    pub unsafe fn GetLocalityFromKey(&self, fontfilereferencekey: &[u8]) -> ::windows::core::Result<DWRITE_LOCALITY> {
+    pub unsafe fn GetLocalityFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows::core::Result<DWRITE_LOCALITY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetLocalityFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey.as_ptr()), fontfilereferencekey.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWRITE_LOCALITY>(result__)
+        (::windows::core::Interface::vtable(self).GetLocalityFromKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWRITE_LOCALITY>(result__)
     }
     pub unsafe fn CreateFontFileReferenceFromUrl<'a, P0, P1, P2>(&self, factory: P0, baseurl: P1, fontfileurl: P2) -> ::windows::core::Result<IDWriteFontFile>
     where

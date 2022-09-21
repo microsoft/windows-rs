@@ -18,7 +18,7 @@ fn main() -> Result<()> {
 
         let mut buffer: [u8; 12] = Default::default();
 
-        let read_ok = ReadFile(file, Some(&mut buffer), None, Some(&mut overlapped));
+        let read_ok = ReadFile(file, Some(buffer.as_mut_ptr() as _), buffer.len() as _, None, Some(&mut overlapped));
 
         if !read_ok.as_bool() {
             assert_eq!(GetLastError(), ERROR_IO_PENDING);

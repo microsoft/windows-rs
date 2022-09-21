@@ -38,12 +38,12 @@ pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
-pub unsafe fn Tbsi_GetDeviceInfo(info: &mut [u8]) -> u32 {
+pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::core::ffi::c_void) -> u32;
     }
-    Tbsi_GetDeviceInfo(info.len() as _, ::core::mem::transmute(info.as_ptr()))
+    Tbsi_GetDeviceInfo(size, ::core::mem::transmute(info))
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]

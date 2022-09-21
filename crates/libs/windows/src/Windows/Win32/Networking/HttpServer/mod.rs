@@ -155,7 +155,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpDeleteServiceConfiguration<'a, P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: &[u8], poverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
+pub unsafe fn HttpDeleteServiceConfiguration<'a, P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -163,7 +163,7 @@ where
     extern "system" {
         fn HttpDeleteServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    HttpDeleteServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pconfiginformation.as_ptr()), pconfiginformation.len() as _, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null_mut())))
+    HttpDeleteServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pconfiginformation), configinformationlength, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -236,7 +236,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpQueryRequestQueueProperty<'a, P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: ::core::option::Option<&mut [u8]>, reserved1: u32, returnlength: ::core::option::Option<*mut u32>, reserved2: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
+pub unsafe fn HttpQueryRequestQueueProperty<'a, P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: ::core::option::Option<*mut ::core::ffi::c_void>, propertyinformationlength: u32, reserved1: u32, returnlength: ::core::option::Option<*mut u32>, reserved2: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -244,21 +244,21 @@ where
     extern "system" {
         fn HttpQueryRequestQueueProperty(requestqueuehandle: super::super::Foundation::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, returnlength: *mut u32, reserved2: *mut ::core::ffi::c_void) -> u32;
     }
-    HttpQueryRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertyinformation.as_deref().map_or(0, |slice| slice.len() as _), reserved1, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null_mut())))
+    HttpQueryRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation.unwrap_or(::std::ptr::null_mut())), propertyinformationlength, reserved1, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
-pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: ::core::option::Option<&mut [u8]>, returnlength: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: ::core::option::Option<*mut ::core::ffi::c_void>, propertyinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32;
     }
-    HttpQueryServerSessionProperty(serversessionid, property, ::core::mem::transmute(propertyinformation.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertyinformation.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
+    HttpQueryServerSessionProperty(serversessionid, property, ::core::mem::transmute(propertyinformation.unwrap_or(::std::ptr::null_mut())), propertyinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpQueryServiceConfiguration<'a, P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pinput: ::core::option::Option<&[u8]>, poutput: ::core::option::Option<&mut [u8]>, preturnlength: ::core::option::Option<*mut u32>, poverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
+pub unsafe fn HttpQueryServiceConfiguration<'a, P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pinput: ::core::option::Option<*const ::core::ffi::c_void>, inputlength: u32, poutput: ::core::option::Option<*mut ::core::ffi::c_void>, outputlength: u32, preturnlength: ::core::option::Option<*mut u32>, poverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -266,21 +266,21 @@ where
     extern "system" {
         fn HttpQueryServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pinput: *const ::core::ffi::c_void, inputlength: u32, poutput: *mut ::core::ffi::c_void, outputlength: u32, preturnlength: *mut u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    HttpQueryServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pinput.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinput.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutput.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutput.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(preturnlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null_mut())))
+    HttpQueryServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pinput.unwrap_or(::std::ptr::null())), inputlength, ::core::mem::transmute(poutput.unwrap_or(::std::ptr::null_mut())), outputlength, ::core::mem::transmute(preturnlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
-pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: ::core::option::Option<&mut [u8]>, returnlength: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: ::core::option::Option<*mut ::core::ffi::c_void>, propertyinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::core::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32;
     }
-    HttpQueryUrlGroupProperty(urlgroupid, property, ::core::mem::transmute(propertyinformation.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertyinformation.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
+    HttpQueryUrlGroupProperty(urlgroupid, property, ::core::mem::transmute(propertyinformation.unwrap_or(::std::ptr::null_mut())), propertyinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReadFragmentFromCache<'a, P0, P1>(requestqueuehandle: P0, urlprefix: P1, byterange: *mut HTTP_BYTE_RANGE, buffer: &mut [u8], bytesread: ::core::option::Option<*mut u32>, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
+pub unsafe fn HttpReadFragmentFromCache<'a, P0, P1>(requestqueuehandle: P0, urlprefix: P1, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: ::core::option::Option<*mut u32>, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -289,7 +289,7 @@ where
     extern "system" {
         fn HttpReadFragmentFromCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: ::windows::core::PCWSTR, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    HttpReadFragmentFromCache(requestqueuehandle.into(), urlprefix.into(), ::core::mem::transmute(byterange), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped))
+    HttpReadFragmentFromCache(requestqueuehandle.into(), urlprefix.into(), ::core::mem::transmute(byterange), ::core::mem::transmute(buffer), bufferlength, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -320,7 +320,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReceiveRequestEntityBody<'a, P0>(requestqueuehandle: P0, requestid: u64, flags: u32, entitybuffer: &mut [u8], bytesreturned: ::core::option::Option<*mut u32>, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
+pub unsafe fn HttpReceiveRequestEntityBody<'a, P0>(requestqueuehandle: P0, requestid: u64, flags: u32, entitybuffer: *mut ::core::ffi::c_void, entitybufferlength: u32, bytesreturned: ::core::option::Option<*mut u32>, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -328,7 +328,7 @@ where
     extern "system" {
         fn HttpReceiveRequestEntityBody(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: u32, entitybuffer: *mut ::core::ffi::c_void, entitybufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    HttpReceiveRequestEntityBody(requestqueuehandle.into(), requestid, flags, ::core::mem::transmute(entitybuffer.as_ptr()), entitybuffer.len() as _, ::core::mem::transmute(bytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped))
+    HttpReceiveRequestEntityBody(requestqueuehandle.into(), requestid, flags, ::core::mem::transmute(entitybuffer), entitybufferlength, ::core::mem::transmute(bytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -385,7 +385,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSetRequestProperty<'a, P0>(requestqueuehandle: P0, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: ::core::option::Option<&[u8]>, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32
+pub unsafe fn HttpSetRequestProperty<'a, P0>(requestqueuehandle: P0, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: ::core::option::Option<*const ::core::ffi::c_void>, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -393,12 +393,12 @@ where
     extern "system" {
         fn HttpSetRequestProperty(requestqueuehandle: super::super::Foundation::HANDLE, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: *const ::core::ffi::c_void, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    HttpSetRequestProperty(requestqueuehandle.into(), id, propertyid, ::core::mem::transmute(input.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), input.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(overlapped))
+    HttpSetRequestProperty(requestqueuehandle.into(), id, propertyid, ::core::mem::transmute(input.unwrap_or(::std::ptr::null())), inputpropertysize, ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpSetRequestQueueProperty<'a, P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: &[u8], reserved1: u32, reserved2: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
+pub unsafe fn HttpSetRequestQueueProperty<'a, P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -406,21 +406,21 @@ where
     extern "system" {
         fn HttpSetRequestQueueProperty(requestqueuehandle: super::super::Foundation::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> u32;
     }
-    HttpSetRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation.as_ptr()), propertyinformation.len() as _, reserved1, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null_mut())))
+    HttpSetRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation), propertyinformationlength, reserved1, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
-pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: &[u8]) -> u32 {
+pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32;
     }
-    HttpSetServerSessionProperty(serversessionid, property, ::core::mem::transmute(propertyinformation.as_ptr()), propertyinformation.len() as _)
+    HttpSetServerSessionProperty(serversessionid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSetServiceConfiguration<'a, P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: &[u8], poverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
+pub unsafe fn HttpSetServiceConfiguration<'a, P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -428,16 +428,16 @@ where
     extern "system" {
         fn HttpSetServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    HttpSetServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pconfiginformation.as_ptr()), pconfiginformation.len() as _, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null_mut())))
+    HttpSetServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pconfiginformation), configinformationlength, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
-pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: &[u8]) -> u32 {
+pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32;
     }
-    HttpSetUrlGroupProperty(urlgroupid, property, ::core::mem::transmute(propertyinformation.as_ptr()), propertyinformation.len() as _)
+    HttpSetUrlGroupProperty(urlgroupid, property, ::core::mem::transmute(propertyinformation), propertyinformationlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -464,7 +464,7 @@ pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: ::core::option::O
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpUpdateServiceConfiguration<'a, P0>(handle: P0, configid: HTTP_SERVICE_CONFIG_ID, configinfo: &[u8], overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
+pub unsafe fn HttpUpdateServiceConfiguration<'a, P0>(handle: P0, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::core::ffi::c_void, configinfolength: u32, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -472,7 +472,7 @@ where
     extern "system" {
         fn HttpUpdateServiceConfiguration(handle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::core::ffi::c_void, configinfolength: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    HttpUpdateServiceConfiguration(handle.into(), configid, ::core::mem::transmute(configinfo.as_ptr()), configinfo.len() as _, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut())))
+    HttpUpdateServiceConfiguration(handle.into(), configid, ::core::mem::transmute(configinfo), configinfolength, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]

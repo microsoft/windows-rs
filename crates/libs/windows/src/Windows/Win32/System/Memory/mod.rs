@@ -401,7 +401,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HeapQueryInformation<'a, P0>(heaphandle: P0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: ::core::option::Option<&mut [u8]>, returnlength: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
+pub unsafe fn HeapQueryInformation<'a, P0>(heaphandle: P0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: ::core::option::Option<*mut ::core::ffi::c_void>, heapinformationlength: usize, returnlength: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
 {
@@ -409,7 +409,7 @@ where
     extern "system" {
         fn HeapQueryInformation(heaphandle: HeapHandle, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *mut ::core::ffi::c_void, heapinformationlength: usize, returnlength: *mut usize) -> super::super::Foundation::BOOL;
     }
-    HeapQueryInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), heapinformation.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
+    HeapQueryInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation.unwrap_or(::std::ptr::null_mut())), heapinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -426,7 +426,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HeapSetInformation<'a, P0>(heaphandle: P0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL
+pub unsafe fn HeapSetInformation<'a, P0>(heaphandle: P0, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: ::core::option::Option<*const ::core::ffi::c_void>, heapinformationlength: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
 {
@@ -434,7 +434,7 @@ where
     extern "system" {
         fn HeapSetInformation(heaphandle: HeapHandle, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *const ::core::ffi::c_void, heapinformationlength: usize) -> super::super::Foundation::BOOL;
     }
-    HeapSetInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), heapinformation.as_deref().map_or(0, |slice| slice.len() as _))
+    HeapSetInformation(heaphandle.into(), heapinformationclass, ::core::mem::transmute(heapinformation.unwrap_or(::std::ptr::null())), heapinformationlength)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -840,7 +840,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryPartitionInformation<'a, P0>(partition: P0, partitioninformationclass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn QueryPartitionInformation<'a, P0>(partition: P0, partitioninformationclass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation: *mut ::core::ffi::c_void, partitioninformationlength: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -848,12 +848,12 @@ where
     extern "system" {
         fn QueryPartitionInformation(partition: super::super::Foundation::HANDLE, partitioninformationclass: WIN32_MEMORY_PARTITION_INFORMATION_CLASS, partitioninformation: *mut ::core::ffi::c_void, partitioninformationlength: u32) -> super::super::Foundation::BOOL;
     }
-    QueryPartitionInformation(partition.into(), partitioninformationclass, ::core::mem::transmute(partitioninformation.as_ptr()), partitioninformation.len() as _)
+    QueryPartitionInformation(partition.into(), partitioninformationclass, ::core::mem::transmute(partitioninformation), partitioninformationlength)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryVirtualMemoryInformation<'a, P0>(process: P0, virtualaddress: *const ::core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: &mut [u8], returnsize: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
+pub unsafe fn QueryVirtualMemoryInformation<'a, P0>(process: P0, virtualaddress: *const ::core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut ::core::ffi::c_void, memoryinformationsize: usize, returnsize: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -861,7 +861,7 @@ where
     extern "system" {
         fn QueryVirtualMemoryInformation(process: super::super::Foundation::HANDLE, virtualaddress: *const ::core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut ::core::ffi::c_void, memoryinformationsize: usize, returnsize: *mut usize) -> super::super::Foundation::BOOL;
     }
-    QueryVirtualMemoryInformation(process.into(), ::core::mem::transmute(virtualaddress), memoryinformationclass, ::core::mem::transmute(memoryinformation.as_ptr()), memoryinformation.len() as _, ::core::mem::transmute(returnsize.unwrap_or(::std::ptr::null_mut())))
+    QueryVirtualMemoryInformation(process.into(), ::core::mem::transmute(virtualaddress), memoryinformationclass, ::core::mem::transmute(memoryinformation), memoryinformationsize, ::core::mem::transmute(returnsize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -911,21 +911,21 @@ pub unsafe fn RtlCompareMemory(source1: *const ::core::ffi::c_void, source2: *co
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
-pub unsafe fn RtlCrc32(buffer: &[u8], initialcrc: u32) -> u32 {
+pub unsafe fn RtlCrc32(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlCrc32(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u32) -> u32;
     }
-    RtlCrc32(::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, initialcrc)
+    RtlCrc32(::core::mem::transmute(buffer), size, initialcrc)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
-pub unsafe fn RtlCrc64(buffer: &[u8], initialcrc: u64) -> u64 {
+pub unsafe fn RtlCrc64(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u64) -> u64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlCrc64(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u64) -> u64;
     }
-    RtlCrc64(::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, initialcrc)
+    RtlCrc64(::core::mem::transmute(buffer), size, initialcrc)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

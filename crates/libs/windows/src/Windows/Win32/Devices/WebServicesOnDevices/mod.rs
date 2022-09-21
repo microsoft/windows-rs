@@ -256,21 +256,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
-pub unsafe fn WSDGetConfigurationOption(dwoption: u32, pvoid: &mut [u8]) -> ::windows::core::Result<()> {
+pub unsafe fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::c_void, cboutbuffer: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::c_void, cboutbuffer: u32) -> ::windows::core::HRESULT;
     }
-    WSDGetConfigurationOption(dwoption, ::core::mem::transmute(pvoid.as_ptr()), pvoid.len() as _).ok()
+    WSDGetConfigurationOption(dwoption, ::core::mem::transmute(pvoid), cboutbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
-pub unsafe fn WSDSetConfigurationOption(dwoption: u32, pvoid: &[u8]) -> ::windows::core::Result<()> {
+pub unsafe fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi::c_void, cbinbuffer: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi::c_void, cbinbuffer: u32) -> ::windows::core::HRESULT;
     }
-    WSDSetConfigurationOption(dwoption, ::core::mem::transmute(pvoid.as_ptr()), pvoid.len() as _).ok()
+    WSDSetConfigurationOption(dwoption, ::core::mem::transmute(pvoid), cbinbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]

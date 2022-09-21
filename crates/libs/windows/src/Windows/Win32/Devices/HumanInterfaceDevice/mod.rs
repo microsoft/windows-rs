@@ -64,7 +64,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetFeature<'a, P0>(hiddeviceobject: P0, reportbuffer: &mut [u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_GetFeature<'a, P0>(hiddeviceobject: P0, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -72,7 +72,7 @@ where
     extern "system" {
         fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_GetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer.as_ptr()), reportbuffer.len() as _)
+    HidD_GetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 #[inline]
@@ -86,7 +86,7 @@ pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::core::GUID) {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetIndexedString<'a, P0>(hiddeviceobject: P0, stringindex: u32, buffer: &mut [u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_GetIndexedString<'a, P0>(hiddeviceobject: P0, stringindex: u32, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -94,12 +94,12 @@ where
     extern "system" {
         fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_GetIndexedString(hiddeviceobject.into(), stringindex, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
+    HidD_GetIndexedString(hiddeviceobject.into(), stringindex, ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetInputReport<'a, P0>(hiddeviceobject: P0, reportbuffer: &mut [u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_GetInputReport<'a, P0>(hiddeviceobject: P0, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -107,12 +107,12 @@ where
     extern "system" {
         fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_GetInputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer.as_ptr()), reportbuffer.len() as _)
+    HidD_GetInputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetManufacturerString<'a, P0>(hiddeviceobject: P0, buffer: &mut [u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_GetManufacturerString<'a, P0>(hiddeviceobject: P0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -120,12 +120,12 @@ where
     extern "system" {
         fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_GetManufacturerString(hiddeviceobject.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
+    HidD_GetManufacturerString(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetMsGenreDescriptor<'a, P0>(hiddeviceobject: P0, buffer: &mut [u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_GetMsGenreDescriptor<'a, P0>(hiddeviceobject: P0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -133,7 +133,7 @@ where
     extern "system" {
         fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_GetMsGenreDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
+    HidD_GetMsGenreDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -151,7 +151,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetPhysicalDescriptor<'a, P0>(hiddeviceobject: P0, buffer: &mut [u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_GetPhysicalDescriptor<'a, P0>(hiddeviceobject: P0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -159,7 +159,7 @@ where
     extern "system" {
         fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_GetPhysicalDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
+    HidD_GetPhysicalDescriptor(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -177,7 +177,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetProductString<'a, P0>(hiddeviceobject: P0, buffer: &mut [u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_GetProductString<'a, P0>(hiddeviceobject: P0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -185,12 +185,12 @@ where
     extern "system" {
         fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_GetProductString(hiddeviceobject.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
+    HidD_GetProductString(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetSerialNumberString<'a, P0>(hiddeviceobject: P0, buffer: &mut [u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_GetSerialNumberString<'a, P0>(hiddeviceobject: P0, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -198,7 +198,7 @@ where
     extern "system" {
         fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_GetSerialNumberString(hiddeviceobject.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _)
+    HidD_GetSerialNumberString(hiddeviceobject.into(), ::core::mem::transmute(buffer), bufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -216,7 +216,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetFeature<'a, P0>(hiddeviceobject: P0, reportbuffer: &[u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_SetFeature<'a, P0>(hiddeviceobject: P0, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -224,7 +224,7 @@ where
     extern "system" {
         fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_SetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer.as_ptr()), reportbuffer.len() as _)
+    HidD_SetFeature(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -242,7 +242,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetOutputReport<'a, P0>(hiddeviceobject: P0, reportbuffer: &[u8]) -> super::super::Foundation::BOOLEAN
+pub unsafe fn HidD_SetOutputReport<'a, P0>(hiddeviceobject: P0, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -250,7 +250,7 @@ where
     extern "system" {
         fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
     }
-    HidD_SetOutputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer.as_ptr()), reportbuffer.len() as _)
+    HidD_SetOutputReport(hiddeviceobject.into(), ::core::mem::transmute(reportbuffer), reportbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

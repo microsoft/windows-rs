@@ -653,8 +653,8 @@ impl IDirectSoundBuffer {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Unlock(&self, pvaudioptr1: &[u8], pvaudioptr2: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1.as_ptr()), pvaudioptr1.len() as _, ::core::mem::transmute(pvaudioptr2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvaudioptr2.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: ::core::option::Option<*const ::core::ffi::c_void>, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2.unwrap_or(::std::ptr::null())), dwaudiobytes2).ok()
     }
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self)).ok()
@@ -778,8 +778,8 @@ impl IDirectSoundBuffer8 {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Unlock(&self, pvaudioptr1: &[u8], pvaudioptr2: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1.as_ptr()), pvaudioptr1.len() as _, ::core::mem::transmute(pvaudioptr2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvaudioptr2.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: ::core::option::Option<*const ::core::ffi::c_void>, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2.unwrap_or(::std::ptr::null())), dwaudiobytes2).ok()
     }
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Restore)(::windows::core::Interface::as_raw(self)).ok()
@@ -947,8 +947,8 @@ impl IDirectSoundCaptureBuffer {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Unlock(&self, pvaudioptr1: &[u8], pvaudioptr2: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1.as_ptr()), pvaudioptr1.len() as _, ::core::mem::transmute(pvaudioptr2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvaudioptr2.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: ::core::option::Option<*const ::core::ffi::c_void>, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2.unwrap_or(::std::ptr::null())), dwaudiobytes2).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundCaptureBuffer> for ::windows::core::IUnknown {
@@ -1033,8 +1033,8 @@ impl IDirectSoundCaptureBuffer8 {
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Unlock(&self, pvaudioptr1: &[u8], pvaudioptr2: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1.as_ptr()), pvaudioptr1.len() as _, ::core::mem::transmute(pvaudioptr2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvaudioptr2.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: ::core::option::Option<*const ::core::ffi::c_void>, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvaudioptr1), dwaudiobytes1, ::core::mem::transmute(pvaudioptr2.unwrap_or(::std::ptr::null())), dwaudiobytes2).ok()
     }
     pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectInPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidobject), dwindex, ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()

@@ -1116,7 +1116,7 @@ pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASS
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAIoctl<'a, P0>(s: P0, dwiocontrolcode: u32, lpvinbuffer: ::core::option::Option<&[u8]>, lpvoutbuffer: ::core::option::Option<&mut [u8]>, lpcbbytesreturned: *mut u32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
+pub unsafe fn WSAIoctl<'a, P0>(s: P0, dwiocontrolcode: u32, lpvinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbinbuffer: u32, lpvoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
 where
     P0: ::std::convert::Into<SOCKET>,
 {
@@ -1124,17 +1124,7 @@ where
     extern "system" {
         fn WSAIoctl(s: SOCKET, dwiocontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void) -> i32;
     }
-    WSAIoctl(
-        s.into(),
-        dwiocontrolcode,
-        ::core::mem::transmute(lpvinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpvinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpvoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpvoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpcbbytesreturned),
-        ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())),
-        ::core::mem::transmute(lpcompletionroutine),
-    )
+    WSAIoctl(s.into(), dwiocontrolcode, ::core::mem::transmute(lpvinbuffer.unwrap_or(::std::ptr::null())), cbinbuffer, ::core::mem::transmute(lpvoutbuffer.unwrap_or(::std::ptr::null_mut())), cboutbuffer, ::core::mem::transmute(lpcbbytesreturned), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpcompletionroutine))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1221,7 +1211,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSANSPIoctl<'a, P0>(hlookup: P0, dwcontrolcode: u32, lpvinbuffer: ::core::option::Option<&[u8]>, lpvoutbuffer: ::core::option::Option<&mut [u8]>, lpcbbytesreturned: *mut u32, lpcompletion: ::core::option::Option<*const WSACOMPLETION>) -> i32
+pub unsafe fn WSANSPIoctl<'a, P0>(hlookup: P0, dwcontrolcode: u32, lpvinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbinbuffer: u32, lpvoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: ::core::option::Option<*const WSACOMPLETION>) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1229,7 +1219,7 @@ where
     extern "system" {
         fn WSANSPIoctl(hlookup: super::super::Foundation::HANDLE, dwcontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: *const WSACOMPLETION) -> i32;
     }
-    WSANSPIoctl(hlookup.into(), dwcontrolcode, ::core::mem::transmute(lpvinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpvinbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpvoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpvoutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpcbbytesreturned), ::core::mem::transmute(lpcompletion.unwrap_or(::std::ptr::null())))
+    WSANSPIoctl(hlookup.into(), dwcontrolcode, ::core::mem::transmute(lpvinbuffer.unwrap_or(::std::ptr::null())), cbinbuffer, ::core::mem::transmute(lpvoutbuffer.unwrap_or(::std::ptr::null_mut())), cboutbuffer, ::core::mem::transmute(lpcbbytesreturned), ::core::mem::transmute(lpcompletion.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]

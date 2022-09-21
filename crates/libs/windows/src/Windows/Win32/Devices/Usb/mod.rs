@@ -155,12 +155,12 @@ pub unsafe fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor: *cons
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[inline]
-pub unsafe fn WinUsb_ParseDescriptors(descriptorbuffer: &[u8], startposition: *const ::core::ffi::c_void, descriptortype: i32) -> *mut USB_COMMON_DESCRIPTOR {
+pub unsafe fn WinUsb_ParseDescriptors(descriptorbuffer: *const ::core::ffi::c_void, totallength: u32, startposition: *const ::core::ffi::c_void, descriptortype: i32) -> *mut USB_COMMON_DESCRIPTOR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WinUsb_ParseDescriptors(descriptorbuffer: *const ::core::ffi::c_void, totallength: u32, startposition: *const ::core::ffi::c_void, descriptortype: i32) -> *mut USB_COMMON_DESCRIPTOR;
     }
-    WinUsb_ParseDescriptors(::core::mem::transmute(descriptorbuffer.as_ptr()), descriptorbuffer.len() as _, ::core::mem::transmute(startposition), descriptortype)
+    WinUsb_ParseDescriptors(::core::mem::transmute(descriptorbuffer), totallength, ::core::mem::transmute(startposition), descriptortype)
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -268,22 +268,22 @@ pub unsafe fn WinUsb_SetCurrentAlternateSetting(interfacehandle: *const ::core::
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_SetPipePolicy(interfacehandle: *const ::core::ffi::c_void, pipeid: u8, policytype: u32, value: &[u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_SetPipePolicy(interfacehandle: *const ::core::ffi::c_void, pipeid: u8, policytype: u32, valuelength: u32, value: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WinUsb_SetPipePolicy(interfacehandle: *const ::core::ffi::c_void, pipeid: u8, policytype: u32, valuelength: u32, value: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    WinUsb_SetPipePolicy(::core::mem::transmute(interfacehandle), pipeid, policytype, value.len() as _, ::core::mem::transmute(value.as_ptr()))
+    WinUsb_SetPipePolicy(::core::mem::transmute(interfacehandle), pipeid, policytype, valuelength, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_SetPowerPolicy(interfacehandle: *const ::core::ffi::c_void, policytype: u32, value: &[u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_SetPowerPolicy(interfacehandle: *const ::core::ffi::c_void, policytype: u32, valuelength: u32, value: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WinUsb_SetPowerPolicy(interfacehandle: *const ::core::ffi::c_void, policytype: u32, valuelength: u32, value: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    WinUsb_SetPowerPolicy(::core::mem::transmute(interfacehandle), policytype, value.len() as _, ::core::mem::transmute(value.as_ptr()))
+    WinUsb_SetPowerPolicy(::core::mem::transmute(interfacehandle), policytype, valuelength, ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
