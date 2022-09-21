@@ -123,10 +123,10 @@ fn bool_as_error() {
 fn com() -> windows::core::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(0, true)?;
-        let values = vec![1, 2, 3, 4];
+        let values = vec![1u8, 2u8, 3u8, 4u8];
 
         let mut copied = 0;
-        stream.Write(&values, Some(&mut copied)).ok()?;
+        stream.Write(values.as_ptr() as _, values.len() as _, Some(&mut copied)).ok()?;
         assert!(copied == 4);
 
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
@@ -134,9 +134,9 @@ fn com() -> windows::core::Result<()> {
 
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
-        stream.Read(&mut values, Some(&mut copied)).ok()?;
+        stream.Read(values.as_mut_ptr() as _, values.len() as _, Some(&mut copied)).ok()?;
         assert!(copied == 4);
-        assert!(values == vec![1, 2, 3, 4]);
+        assert_eq!(values, vec![1u8, 2u8, 3u8, 4u8]);
     }
 
     Ok(())
@@ -178,7 +178,7 @@ fn onecore_imports() -> windows::core::Result<()> {
         let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, None, None, None);
         assert!(!result.as_bool());
 
-        assert!(D3DDisassemble11Trace(&[], None, 0, 0, 0).is_err());
+        assert!(D3DDisassemble11Trace(std::ptr::null(), 0, None, 0, 0, 0).is_err());
 
         Ok(())
     }
