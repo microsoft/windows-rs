@@ -107,6 +107,17 @@ jobs:
 
     yml.truncate(yml.len() - 3);
 
+    // Enable running the debugger_visualizer tests against nightly only
+    // since it requires the unstable debugger_visualizer feature.
+    // https://github.com/rust-lang/rust/issues/95939
+    yml.push_str(
+        r#"
+
+      - name: Test debugger_visualizer feature
+        run: cargo test --target ${{ matrix.target }} -p test_debugger_visualizer -- --test-threads=1
+        if: matrix.version == 'nightly' && endsWith(matrix.target, '-msvc')"#,
+    );
+
     yml.push_str(
         r#"
 
@@ -245,8 +256,7 @@ jobs:
         write!(&mut yml, "\n          cargo clippy -p {} &&", name).unwrap();
     }
 
-    yml.truncate(yml.len() - 3);
-    yml.push('\n');
+    write!(&mut yml, "\n          cargo clippy -p test_debugger_visualizer\n").unwrap();
 
     std::fs::write(".github/workflows/build.yml", yml.as_bytes()).unwrap();
 }
@@ -271,7 +281,9 @@ fn crates() -> Vec<String> {
     }
 
     for dir in dirs("crates/tests") {
-        crates.push(format!("test_{}", dir));
+        if dir != "debugger_visualizer" {
+            crates.push(format!("test_{}", dir));
+        }
     }
 
     for dir in dirs("crates/tools") {

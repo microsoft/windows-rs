@@ -116,6 +116,17 @@ interface = ["windows-interface"]
         }
     }
 
+    file.write_all(
+        r#"
+# UNSTABLE FEATURES (requires Rust nightly)
+# Enable to use the #[debugger_visualizer] attribute.
+debugger_visualizer = []
+
+"#
+        .as_bytes(),
+    )
+    .unwrap();
+
     std::fs::copy("license-mit", "crates/libs/windows/license-mit").unwrap();
     std::fs::copy("license-apache-2.0", "crates/libs/windows/license-apache-2.0").unwrap();
 }

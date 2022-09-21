@@ -195,4 +195,5 @@ jobs:
           cargo clippy -p tool_msvc &&
           cargo clippy -p tool_sys &&
           cargo clippy -p tool_windows &&
-          cargo clippy -p tool_yml
+          cargo clippy -p tool_yml &&
+          cargo clippy -p test_debugger_visualizer
