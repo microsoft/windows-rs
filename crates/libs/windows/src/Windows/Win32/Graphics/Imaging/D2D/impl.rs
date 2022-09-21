@@ -25,7 +25,7 @@ impl IWICImageEncoder_Vtbl {
             this.WriteThumbnail(::core::mem::transmute(&pimage), ::core::mem::transmute(&pencoder), ::core::mem::transmute_copy(&pimageparameters)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             WriteFrame: WriteFrame::<Identity, Impl, OFFSET>,
             WriteFrameThumbnail: WriteFrameThumbnail::<Identity, Impl, OFFSET>,
             WriteThumbnail: WriteThumbnail::<Identity, Impl, OFFSET>,

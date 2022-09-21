@@ -202,7 +202,7 @@ impl IDiskQuotaEvents_Vtbl {
             let this = (*this).get_impl();
             this.OnUserNameChanged(::core::mem::transmute(&puser)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDiskQuotaEvents as ::windows::core::Interface>::IID
@@ -307,7 +307,7 @@ impl IDiskQuotaUser_Vtbl {
             this.GetAccountStatus(::core::mem::transmute_copy(&pdwstatus)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetID: GetID::<Identity, Impl, OFFSET>,
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetSidLength: GetSidLength::<Identity, Impl, OFFSET>,
@@ -359,7 +359,7 @@ impl IDiskQuotaUserBatch_Vtbl {
             this.FlushToDisk().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             RemoveAll: RemoveAll::<Identity, Impl, OFFSET>,
@@ -406,7 +406,7 @@ impl IEnumDiskQuotaUsers_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,

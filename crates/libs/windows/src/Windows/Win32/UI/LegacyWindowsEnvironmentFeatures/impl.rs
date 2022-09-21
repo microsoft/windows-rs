@@ -31,7 +31,7 @@ impl IADesktopP2_Vtbl {
             this.MakeDynamicChanges(::core::mem::transmute(&poleobj)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ReReadWallpaper: ReReadWallpaper::<Identity, Impl, OFFSET>,
             GetADObjectFlags: GetADObjectFlags::<Identity, Impl, OFFSET>,
             UpdateAllDesktopSubscriptions: UpdateAllDesktopSubscriptions::<Identity, Impl, OFFSET>,
@@ -72,7 +72,7 @@ impl IActiveDesktopP_Vtbl {
             this.GetScheme(::core::mem::transmute_copy(&pwszschemename), ::core::mem::transmute_copy(&pdwcchbuffer), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetSafeMode: SetSafeMode::<Identity, Impl, OFFSET>,
             EnsureUpdateHTML: EnsureUpdateHTML::<Identity, Impl, OFFSET>,
             SetScheme: SetScheme::<Identity, Impl, OFFSET>,
@@ -97,7 +97,7 @@ impl IBriefcaseInitiator_Vtbl {
             let this = (*this).get_impl();
             this.IsMonikerInBriefcase(::core::mem::transmute(&pmk)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsMonikerInBriefcase: IsMonikerInBriefcase::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsMonikerInBriefcase: IsMonikerInBriefcase::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBriefcaseInitiator as ::windows::core::Interface>::IID
@@ -148,7 +148,7 @@ impl IEmptyVolumeCache_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetSpaceUsed: GetSpaceUsed::<Identity, Impl, OFFSET>,
             Purge: Purge::<Identity, Impl, OFFSET>,
@@ -198,7 +198,7 @@ impl IEmptyVolumeCacheCallBack_Vtbl {
             this.PurgeProgress(::core::mem::transmute_copy(&dwlspacefreed), ::core::mem::transmute_copy(&dwlspacetofree), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pcwszstatus)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ScanProgress: ScanProgress::<Identity, Impl, OFFSET>,
             PurgeProgress: PurgeProgress::<Identity, Impl, OFFSET>,
         }
@@ -234,7 +234,7 @@ impl IReconcilableObject_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Reconcile: Reconcile::<Identity, Impl, OFFSET>,
             GetProgressFeedbackMaxEstimate: GetProgressFeedbackMaxEstimate::<Identity, Impl, OFFSET>,
         }
@@ -261,7 +261,7 @@ impl IReconcileInitiator_Vtbl {
             this.SetProgressFeedback(::core::mem::transmute_copy(&ulprogress), ::core::mem::transmute_copy(&ulprogressmax)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetAbortCallback: SetAbortCallback::<Identity, Impl, OFFSET>,
             SetProgressFeedback: SetProgressFeedback::<Identity, Impl, OFFSET>,
         }

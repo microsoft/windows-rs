@@ -1388,7 +1388,7 @@ unsafe impl ::windows::core::Interface for ICloneViewHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICloneViewHelper_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetConnectedIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows::core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::HRESULT,
     pub GetActiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows::core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::HRESULT,
     pub SetActiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows::core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::HRESULT,
@@ -1473,7 +1473,7 @@ unsafe impl ::windows::core::Interface for IViewHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewHelper_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetConnectedIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows::core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::HRESULT,
     pub GetActiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows::core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::HRESULT,
     pub SetActiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows::core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::HRESULT,

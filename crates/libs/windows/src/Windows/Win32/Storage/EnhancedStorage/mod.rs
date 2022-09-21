@@ -62,7 +62,7 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageACT {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACT_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Authorize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: u32, dwflags: u32) -> ::windows::core::HRESULT,
     pub Unauthorize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAuthorizationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows::core::HRESULT,
@@ -359,7 +359,7 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageSilo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSilo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psiloinfo: *mut SILO_INFO) -> ::windows::core::HRESULT,
     pub GetActions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesiloactions: *mut *mut *mut ::core::ffi::c_void, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::HRESULT,
     pub SendCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::HRESULT,
@@ -423,7 +423,7 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageSiloAction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSiloAction_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactionname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactiondescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -481,7 +481,7 @@ unsafe impl ::windows::core::Interface for IEnumEnhancedStorageACT {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumEnhancedStorageACT_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetACTs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut *mut ::core::ffi::c_void, pcenhancedstorageacts: *mut u32) -> ::windows::core::HRESULT,
     pub GetMatchingACT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvolume: ::windows::core::PCWSTR, ppienhancedstorageact: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

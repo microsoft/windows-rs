@@ -5248,7 +5248,7 @@ unsafe impl ::windows::core::Interface for ICanHandleException {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICanHandleException_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub CanHandleException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -5416,7 +5416,7 @@ unsafe impl ::windows::core::Interface for IContinue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContinue_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -5471,7 +5471,7 @@ unsafe impl ::windows::core::Interface for IContinueCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContinueCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FContinuePrinting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncntprinted: i32, ncurpage: i32, pwszprintstatus: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
@@ -5542,7 +5542,7 @@ unsafe impl ::windows::core::Interface for ICreateErrorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateErrorInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szsource: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdescription: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -5693,7 +5693,7 @@ unsafe impl ::windows::core::Interface for ICreateTypeInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateTypeInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetTypeFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, utypeflags: u32) -> ::windows::core::HRESULT,
     pub SetDocString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdoc: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -6075,7 +6075,7 @@ unsafe impl ::windows::core::Interface for ICreateTypeLib {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateTypeLib_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::windows::core::PCWSTR, tkind: super::Com::TYPEKIND, ppctinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6288,7 +6288,7 @@ unsafe impl ::windows::core::Interface for IDispError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDispError_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guiderrortype: ::windows::core::GUID, ppde: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppde: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetHresult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -6469,7 +6469,7 @@ unsafe impl ::windows::core::Interface for IDropSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropSource_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub QueryContinueDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fescapepressed: super::super::Foundation::BOOL, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))]
@@ -6530,7 +6530,7 @@ unsafe impl ::windows::core::Interface for IDropSourceNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropSourceNotify_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DragEnterTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndtarget: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6604,7 +6604,7 @@ unsafe impl ::windows::core::Interface for IDropTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDropTarget_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
     pub DragEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobj: *mut ::core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_SystemServices")))]
@@ -6674,7 +6674,7 @@ unsafe impl ::windows::core::Interface for IEnterpriseDropTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseDropTarget_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetDropSourceEnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identity: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsEvaluatingEdpPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -6739,7 +6739,7 @@ unsafe impl ::windows::core::Interface for IEnumOLEVERB {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumOLEVERB_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut OLEVERB, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
@@ -6804,7 +6804,7 @@ unsafe impl ::windows::core::Interface for IEnumOleDocumentViews {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumOleDocumentViews_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cviews: u32, rgpview: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cviews: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6866,7 +6866,7 @@ unsafe impl ::windows::core::Interface for IEnumOleUndoUnits {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumOleUndoUnits_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6930,7 +6930,7 @@ unsafe impl ::windows::core::Interface for IEnumVARIANT {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumVARIANT_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -7119,7 +7119,7 @@ unsafe impl ::windows::core::Interface for IFont {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFont_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -7382,7 +7382,7 @@ unsafe impl ::windows::core::Interface for IGetOleObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetOleObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetOleObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -7431,7 +7431,7 @@ unsafe impl ::windows::core::Interface for IGetVBAObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetVBAObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -7483,7 +7483,7 @@ unsafe impl ::windows::core::Interface for IObjectIdentity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectIdentity_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub IsEqualObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -7542,7 +7542,7 @@ unsafe impl ::windows::core::Interface for IObjectWithSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectWithSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punksite: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -7621,7 +7621,7 @@ unsafe impl ::windows::core::Interface for IOleAdviseHolder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleAdviseHolder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padvise: *mut ::core::ffi::c_void, pdwconnection: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7712,7 +7712,7 @@ unsafe impl ::windows::core::Interface for IOleCache {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleCache_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Cache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, advf: u32, pdwconnection: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7892,7 +7892,7 @@ unsafe impl ::windows::core::Interface for IOleCacheControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleCacheControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7969,7 +7969,7 @@ unsafe impl ::windows::core::Interface for IOleClientSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleClientSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SaveObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwassign: OLEGETMONIKER, dwwhichmoniker: OLEWHICHMK, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8034,7 +8034,7 @@ unsafe impl ::windows::core::Interface for IOleCommandTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleCommandTarget_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Exec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -8196,7 +8196,7 @@ unsafe impl ::windows::core::Interface for IOleControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub GetControlInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pci: *mut CONTROLINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
@@ -8292,7 +8292,7 @@ unsafe impl ::windows::core::Interface for IOleControlSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleControlSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnControlInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub LockInPlaceActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -8376,7 +8376,7 @@ unsafe impl ::windows::core::Interface for IOleDocument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleDocument_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipsite: *mut ::core::ffi::c_void, pstm: *mut ::core::ffi::c_void, dwreserved: u32, ppview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8433,7 +8433,7 @@ unsafe impl ::windows::core::Interface for IOleDocumentSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleDocumentSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ActivateMe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pviewtoactivate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -8554,7 +8554,7 @@ unsafe impl ::windows::core::Interface for IOleDocumentView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleDocumentView_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetInPlaceSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipsite: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetInPlaceSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppipsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10029,7 +10029,7 @@ unsafe impl ::windows::core::Interface for IOleLink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleLink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwupdateopt: u32) -> ::windows::core::HRESULT,
     pub GetUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -10211,7 +10211,7 @@ unsafe impl ::windows::core::Interface for IOleObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetClientSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclientsite: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetClientSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclientsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetHostNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcontainerapp: ::windows::core::PCWSTR, szcontainerobj: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -10461,7 +10461,7 @@ unsafe impl ::windows::core::Interface for IOleUILinkContainerA {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleUILinkContainerA_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNextLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> u32,
     pub SetLinkUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, dwupdateopt: u32) -> ::windows::core::HRESULT,
     pub GetLinkUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
@@ -10562,7 +10562,7 @@ unsafe impl ::windows::core::Interface for IOleUILinkContainerW {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleUILinkContainerW_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNextLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32) -> u32,
     pub SetLinkUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, dwupdateopt: u32) -> ::windows::core::HRESULT,
     pub GetLinkUpdateOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlink: u32, lpdwupdateopt: *mut u32) -> ::windows::core::HRESULT,
@@ -10862,7 +10862,7 @@ unsafe impl ::windows::core::Interface for IOleUIObjInfoA {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleUIObjInfoA_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut ::windows::core::PSTR, lplpsztype: *mut ::windows::core::PSTR, lplpszshorttype: *mut ::windows::core::PSTR, lplpszlocation: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT,
     pub GetConvertInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -10935,7 +10935,7 @@ unsafe impl ::windows::core::Interface for IOleUIObjInfoW {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleUIObjInfoW_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut ::windows::core::PWSTR, lplpsztype: *mut ::windows::core::PWSTR, lplpszshorttype: *mut ::windows::core::PWSTR, lplpszlocation: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetConvertInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, lpclassid: *mut ::windows::core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut ::windows::core::GUID, lplpclsidexclude: *mut *mut ::windows::core::GUID, lpcclsidexclude: *mut u32) -> ::windows::core::HRESULT,
     pub ConvertObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwobject: u32, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -11055,7 +11055,7 @@ unsafe impl ::windows::core::Interface for IOleUndoManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleUndoManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuu: *mut ::core::ffi::c_void, fcommit: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -11134,7 +11134,7 @@ unsafe impl ::windows::core::Interface for IOleUndoUnit {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleUndoUnit_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Do: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pundomanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetUnitType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID, plid: *mut i32) -> ::windows::core::HRESULT,
@@ -11197,7 +11197,7 @@ unsafe impl ::windows::core::Interface for IOleWindow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOleWindow_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11259,7 +11259,7 @@ unsafe impl ::windows::core::Interface for IParseDisplayName {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IParseDisplayName_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ParseDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, pszdisplayname: ::windows::core::PCWSTR, pcheaten: *mut u32, ppmkout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11325,7 +11325,7 @@ unsafe impl ::windows::core::Interface for IPerPropertyBrowsing {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerPropertyBrowsing_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub MapPropertyToPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetPredefinedStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows::core::HRESULT,
@@ -11679,7 +11679,7 @@ unsafe impl ::windows::core::Interface for IPicture {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPicture_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut u32) -> ::windows::core::HRESULT,
     pub hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phpal: *mut u32) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i16) -> ::windows::core::HRESULT,
@@ -11832,7 +11832,7 @@ unsafe impl ::windows::core::Interface for IPicture2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPicture2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT,
     pub hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phpal: *mut usize) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i16) -> ::windows::core::HRESULT,
@@ -11999,7 +11999,7 @@ unsafe impl ::windows::core::Interface for IPointerInactive {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPointerInactive_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetActivationPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpolicy: *mut POINTERINACTIVE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub OnInactiveMouseMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, grfkeystate: u32) -> ::windows::core::HRESULT,
@@ -12067,7 +12067,7 @@ unsafe impl ::windows::core::Interface for IPrint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetInitialPageNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nfirstpage: i32) -> ::windows::core::HRESULT,
     pub GetPageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnfirstpage: *mut i32, pcpages: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -12124,7 +12124,7 @@ unsafe impl ::windows::core::Interface for IPropertyNotifySink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyNotifySink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
     pub OnRequestEdit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32) -> ::windows::core::HRESULT,
 }
@@ -12223,7 +12223,7 @@ unsafe impl ::windows::core::Interface for IPropertyPage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyPage_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetPageSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppagesite: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, prect: *const super::super::Foundation::RECT, bmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -12423,7 +12423,7 @@ unsafe impl ::windows::core::Interface for IPropertyPageSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyPageSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: PROPPAGESTATUS) -> ::windows::core::HRESULT,
     pub GetLocaleID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocaleid: *mut u32) -> ::windows::core::HRESULT,
     pub GetPageContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12481,7 +12481,7 @@ unsafe impl ::windows::core::Interface for IProtectFocus {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectFocus_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AllowFocusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfallow: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12555,7 +12555,7 @@ unsafe impl ::windows::core::Interface for IProtectedModeMenuServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectedModeMenuServices_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub CreateMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
@@ -12618,7 +12618,7 @@ unsafe impl ::windows::core::Interface for IProvideClassInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideClassInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetClassInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppti: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12840,7 +12840,7 @@ unsafe impl ::windows::core::Interface for IProvideRuntimeContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideRuntimeContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCurrentSourceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -12902,7 +12902,7 @@ unsafe impl ::windows::core::Interface for IQuickActivate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuickActivate_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub QuickActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
@@ -13039,7 +13039,7 @@ unsafe impl ::windows::core::Interface for IRecordInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRecordInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RecordInit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvnew: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RecordClear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvexisting: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RecordCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvexisting: *const ::core::ffi::c_void, pvnew: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -13138,7 +13138,7 @@ unsafe impl ::windows::core::Interface for ISimpleFrameSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleFrameSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PreMessageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wp: super::super::Foundation::WPARAM, lp: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13195,7 +13195,7 @@ unsafe impl ::windows::core::Interface for ISpecifyPropertyPages {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpecifyPropertyPages_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppages: *mut CAUUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -13260,7 +13260,7 @@ unsafe impl ::windows::core::Interface for ITypeChangeEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypeChangeEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub RequestTypeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changekind: CHANGEKIND, ptinfobefore: *mut ::core::ffi::c_void, pstrname: ::windows::core::PCWSTR, pfcancel: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -13322,7 +13322,7 @@ unsafe impl ::windows::core::Interface for ITypeFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypeFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateFromTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypeinfo: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -13384,7 +13384,7 @@ unsafe impl ::windows::core::Interface for ITypeMarshal {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITypeMarshal_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, psize: *mut u32) -> ::windows::core::HRESULT,
     pub Marshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
     pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtype: *mut ::core::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> ::windows::core::HRESULT,
@@ -13438,7 +13438,7 @@ unsafe impl ::windows::core::Interface for IVBFormat {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBFormat_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdata: *mut super::Com::VARIANT, bstrformat: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -13493,7 +13493,7 @@ unsafe impl ::windows::core::Interface for IVBGetControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVBGetControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub EnumControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwolecontf: OLECONTF, dwwhich: ENUM_CONTROLS_WHICH_FLAGS, ppenumunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -13547,7 +13547,7 @@ unsafe impl ::windows::core::Interface for IVariantChangeType {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVariantChangeType_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardst: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, vtnew: super::Com::VARENUM) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -13632,7 +13632,7 @@ unsafe impl ::windows::core::Interface for IViewObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdrawaspect: u32, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: super::super::Graphics::Gdi::HDC, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
@@ -13969,7 +13969,7 @@ unsafe impl ::windows::core::Interface for IZoomEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IZoomEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnZoomPercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulzoompercent: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]

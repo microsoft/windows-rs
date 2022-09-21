@@ -37,7 +37,7 @@ impl IEnumACDGroup_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -87,7 +87,7 @@ impl IEnumAddress_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -137,7 +137,7 @@ impl IEnumAgent_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -187,7 +187,7 @@ impl IEnumAgentHandler_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -237,7 +237,7 @@ impl IEnumAgentSession_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -284,7 +284,7 @@ impl IEnumBstr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -334,7 +334,7 @@ impl IEnumCall_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -384,7 +384,7 @@ impl IEnumCallHub_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -434,7 +434,7 @@ impl IEnumCallingCard_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -481,7 +481,7 @@ impl IEnumDialableAddrs_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -531,7 +531,7 @@ impl IEnumDirectory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -581,7 +581,7 @@ impl IEnumDirectoryObject_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -631,7 +631,7 @@ impl IEnumLocation_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -681,7 +681,7 @@ impl IEnumMcastScope_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -731,7 +731,7 @@ impl IEnumPhone_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -781,7 +781,7 @@ impl IEnumPluggableSuperclassInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -831,7 +831,7 @@ impl IEnumPluggableTerminalClassInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -881,7 +881,7 @@ impl IEnumQueue_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -931,7 +931,7 @@ impl IEnumStream_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -981,7 +981,7 @@ impl IEnumSubStream_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1031,7 +1031,7 @@ impl IEnumTerminal_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1078,7 +1078,7 @@ impl IEnumTerminalClass_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1529,7 +1529,7 @@ impl ITAMMediaFormat_Vtbl {
             this.SetMediaFormat(::core::mem::transmute_copy(&pmt)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             MediaFormat: MediaFormat::<Identity, Impl, OFFSET>,
             SetMediaFormat: SetMediaFormat::<Identity, Impl, OFFSET>,
         }
@@ -3091,7 +3091,7 @@ impl ITAllocatorProperties_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetAllocatorProperties: SetAllocatorProperties::<Identity, Impl, OFFSET>,
             GetAllocatorProperties: GetAllocatorProperties::<Identity, Impl, OFFSET>,
             SetAllocateBuffers: SetAllocateBuffers::<Identity, Impl, OFFSET>,
@@ -5712,7 +5712,7 @@ impl ITLegacyAddressMediaControl_Vtbl {
             this.SetDevConfig(::core::mem::transmute(&pdeviceclass), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdeviceconfig)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetID: GetID::<Identity, Impl, OFFSET>,
             GetDevConfig: GetDevConfig::<Identity, Impl, OFFSET>,
             SetDevConfig: SetDevConfig::<Identity, Impl, OFFSET>,
@@ -6140,7 +6140,7 @@ impl ITMSPAddress_Vtbl {
             this.GetEvent(::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&peventbuffer)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
             CreateMSPCall: CreateMSPCall::<Identity, Impl, OFFSET>,
@@ -7094,7 +7094,7 @@ impl ITPluggableTerminalEventSink_Vtbl {
             let this = (*this).get_impl();
             this.FireEvent(::core::mem::transmute_copy(&pmspeventinfo)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FireEvent: FireEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FireEvent: FireEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITPluggableTerminalEventSink as ::windows::core::Interface>::IID
@@ -7118,7 +7118,7 @@ impl ITPluggableTerminalEventSinkRegistration_Vtbl {
             this.UnregisterSink().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterSink: RegisterSink::<Identity, Impl, OFFSET>,
             UnregisterSink: UnregisterSink::<Identity, Impl, OFFSET>,
         }
@@ -8487,7 +8487,7 @@ impl ITTAPIEventNotification_Vtbl {
             let this = (*this).get_impl();
             this.Event(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute(&pevent)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITTAPIEventNotification as ::windows::core::Interface>::IID
@@ -9078,7 +9078,7 @@ impl ITnef_Vtbl {
             this.FinishComponent(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&ulcomponentid), ::core::mem::transmute_copy(&lpcustomproplist), ::core::mem::transmute_copy(&lpcustomprops), ::core::mem::transmute_copy(&lpproplist), ::core::mem::transmute_copy(&lpproblems)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddProps: AddProps::<Identity, Impl, OFFSET>,
             ExtractProps: ExtractProps::<Identity, Impl, OFFSET>,
             Finish: Finish::<Identity, Impl, OFFSET>,

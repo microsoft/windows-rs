@@ -57,7 +57,7 @@ impl IWPCProviderConfig_Vtbl {
             this.RequestOverride(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&bstrpath), ::core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetUserSummary: GetUserSummary::<Identity, Impl, OFFSET>,
             Configure: Configure::<Identity, Impl, OFFSET>,
             RequestOverride: RequestOverride::<Identity, Impl, OFFSET>,
@@ -85,7 +85,7 @@ impl IWPCProviderState_Vtbl {
             this.Disable().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Enable: Enable::<Identity, Impl, OFFSET>,
             Disable: Disable::<Identity, Impl, OFFSET>,
         }
@@ -111,7 +111,7 @@ impl IWPCProviderSupport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetCurrent: GetCurrent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCurrent: GetCurrent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWPCProviderSupport as ::windows::core::Interface>::IID
@@ -162,7 +162,7 @@ impl IWPCSettings_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsLoggingRequired: IsLoggingRequired::<Identity, Impl, OFFSET>,
             GetLastSettingsChangeTime: GetLastSettingsChangeTime::<Identity, Impl, OFFSET>,
             GetRestrictions: GetRestrictions::<Identity, Impl, OFFSET>,
@@ -285,7 +285,7 @@ impl IWindowsParentalControlsCore_Vtbl {
             this.GetWebFilterInfo(::core::mem::transmute_copy(&pguidid), ::core::mem::transmute_copy(&ppszname)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetVisibility: GetVisibility::<Identity, Impl, OFFSET>,
             GetUserSettings: GetUserSettings::<Identity, Impl, OFFSET>,
             GetWebSettings: GetWebSettings::<Identity, Impl, OFFSET>,

@@ -878,7 +878,7 @@ struct UICommandInvokedHandlerBox<F: FnMut(&::core::option::Option<IUICommand>) 
 }
 impl<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> UICommandInvokedHandlerBox<F> {
     const VTABLE: UICommandInvokedHandler_Vtbl = UICommandInvokedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -938,7 +938,7 @@ unsafe impl ::windows::core::RuntimeType for UICommandInvokedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct UICommandInvokedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

@@ -929,7 +929,7 @@ unsafe impl ::windows::core::Interface for ID3D10Debug {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Debug_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetFeatureMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: u32) -> ::windows::core::HRESULT,
     pub GetFeatureMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub SetPresentPerRenderOpDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, milliseconds: u32) -> ::windows::core::HRESULT,
@@ -1599,7 +1599,7 @@ unsafe impl ::windows::core::Interface for ID3D10Device {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Device_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub VSSetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void),
     pub PSSetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *const *mut ::core::ffi::c_void),
     pub PSSetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppixelshader: *mut ::core::ffi::c_void),
@@ -2331,7 +2331,7 @@ unsafe impl ::windows::core::Interface for ID3D10DeviceChild {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10DeviceChild_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void),
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2443,7 +2443,7 @@ unsafe impl ::windows::core::Interface for ID3D10Effect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Effect_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3369,7 +3369,7 @@ unsafe impl ::windows::core::Interface for ID3D10EffectPool {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectPool_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AsEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10Effect>,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
@@ -5258,7 +5258,7 @@ unsafe impl ::windows::core::Interface for ID3D10InfoQueue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10InfoQueue_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetMessageCountLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagecountlimit: u64) -> ::windows::core::HRESULT,
     pub ClearStoredMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub GetMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messageindex: u64, pmessage: *mut D3D10_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::HRESULT,
@@ -5460,7 +5460,7 @@ unsafe impl ::windows::core::Interface for ID3D10Multithread {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10Multithread_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Enter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub Leave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(feature = "Win32_Foundation")]
@@ -6217,7 +6217,7 @@ unsafe impl ::windows::core::Interface for ID3D10ShaderReflection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
@@ -6364,7 +6364,7 @@ unsafe impl ::windows::core::Interface for ID3D10ShaderReflection1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflection1_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
@@ -6838,7 +6838,7 @@ unsafe impl ::windows::core::Interface for ID3D10StateBlock {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10StateBlock_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Capture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ReleaseAllDeviceObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6902,7 +6902,7 @@ unsafe impl ::windows::core::Interface for ID3D10SwitchToRef {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10SwitchToRef_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetUseRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]

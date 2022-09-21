@@ -16,7 +16,7 @@ impl IKsAggregateControl_Vtbl {
             this.KsRemoveAggregate(::core::mem::transmute_copy(&aggregateclass)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             KsAddAggregate: KsAddAggregate::<Identity, Impl, OFFSET>,
             KsRemoveAggregate: KsRemoveAggregate::<Identity, Impl, OFFSET>,
         }
@@ -49,7 +49,7 @@ impl IKsControl_Vtbl {
             this.KsEvent(::core::mem::transmute_copy(&event), ::core::mem::transmute_copy(&eventlength), ::core::mem::transmute_copy(&eventdata), ::core::mem::transmute_copy(&datalength), ::core::mem::transmute_copy(&bytesreturned)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             KsProperty: KsProperty::<Identity, Impl, OFFSET>,
             KsMethod: KsMethod::<Identity, Impl, OFFSET>,
             KsEvent: KsEvent::<Identity, Impl, OFFSET>,
@@ -86,7 +86,7 @@ impl IKsFormatSupport_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsFormatSupported: IsFormatSupported::<Identity, Impl, OFFSET>,
             GetDevicePreferredFormat: GetDevicePreferredFormat::<Identity, Impl, OFFSET>,
         }
@@ -112,7 +112,7 @@ impl IKsJackContainerId_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetJackContainerId: GetJackContainerId::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackContainerId: GetJackContainerId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsJackContainerId as ::windows::core::Interface>::IID
@@ -151,7 +151,7 @@ impl IKsJackDescription_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetJackCount: GetJackCount::<Identity, Impl, OFFSET>,
             GetJackDescription: GetJackDescription::<Identity, Impl, OFFSET>,
         }
@@ -190,7 +190,7 @@ impl IKsJackDescription2_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetJackCount: GetJackCount::<Identity, Impl, OFFSET>,
             GetJackDescription2: GetJackDescription2::<Identity, Impl, OFFSET>,
         }
@@ -219,7 +219,7 @@ impl IKsJackSinkInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetJackSinkInformation: GetJackSinkInformation::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackSinkInformation: GetJackSinkInformation::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsJackSinkInformation as ::windows::core::Interface>::IID
@@ -255,7 +255,7 @@ impl IKsPropertySet_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Set: Set::<Identity, Impl, OFFSET>,
             Get: Get::<Identity, Impl, OFFSET>,
             QuerySupported: QuerySupported::<Identity, Impl, OFFSET>,
@@ -276,7 +276,7 @@ impl IKsTopology_Vtbl {
             let this = (*this).get_impl();
             this.CreateNodeInstance(::core::mem::transmute_copy(&nodeid), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&desiredaccess), ::core::mem::transmute(&unkouter), ::core::mem::transmute_copy(&interfaceid), ::core::mem::transmute_copy(&interface)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateNodeInstance: CreateNodeInstance::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateNodeInstance: CreateNodeInstance::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKsTopology as ::windows::core::Interface>::IID

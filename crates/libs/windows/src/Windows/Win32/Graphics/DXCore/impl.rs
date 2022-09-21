@@ -70,7 +70,7 @@ impl IDXCoreAdapter_Vtbl {
             this.GetFactory(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvfactory)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsValid: IsValid::<Identity, Impl, OFFSET>,
             IsAttributeSupported: IsAttributeSupported::<Identity, Impl, OFFSET>,
             IsPropertySupported: IsPropertySupported::<Identity, Impl, OFFSET>,
@@ -132,7 +132,7 @@ impl IDXCoreAdapterFactory_Vtbl {
             this.UnregisterEventNotification(::core::mem::transmute_copy(&eventcookie)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateAdapterList: CreateAdapterList::<Identity, Impl, OFFSET>,
             GetAdapterByLuid: GetAdapterByLuid::<Identity, Impl, OFFSET>,
             IsNotificationTypeSupported: IsNotificationTypeSupported::<Identity, Impl, OFFSET>,
@@ -186,7 +186,7 @@ impl IDXCoreAdapterList_Vtbl {
             this.IsAdapterPreferenceSupported(::core::mem::transmute_copy(&preference))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetAdapter: GetAdapter::<Identity, Impl, OFFSET>,
             GetAdapterCount: GetAdapterCount::<Identity, Impl, OFFSET>,
             IsStale: IsStale::<Identity, Impl, OFFSET>,

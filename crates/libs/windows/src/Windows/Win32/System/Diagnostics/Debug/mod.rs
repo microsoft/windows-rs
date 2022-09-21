@@ -4258,7 +4258,7 @@ unsafe impl ::windows::core::Interface for AsyncIDebugApplicationNodeEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIDebugApplicationNodeEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Begin_onAddChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prddpchild: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Finish_onAddChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Begin_onRemoveChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prddpchild: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4611,7 +4611,7 @@ unsafe impl ::windows::core::Interface for IActiveScript {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScript_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetScriptSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pass: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetScriptSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetScriptState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ss: SCRIPTSTATE) -> ::windows::core::HRESULT,
@@ -4765,7 +4765,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptAuthor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptAuthor_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub AddNamedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, dwflags: u32, pdisp: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4846,7 +4846,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptAuthorProcedure {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptAuthorProcedure_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ParseProcedureText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: ::windows::core::PCWSTR, pszformalparams: ::windows::core::PCWSTR, pszprocedurename: ::windows::core::PCWSTR, pszitemname: ::windows::core::PCWSTR, pszdelimiter: ::windows::core::PCWSTR, dwcookie: u32, dwflags: u32, pdispfor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4913,7 +4913,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptDebug32 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptDebug32_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetScriptTextAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows::core::HRESULT,
     pub GetScriptletTextAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows::core::HRESULT,
     pub EnumCodeContextsOfPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32, ppescc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4979,7 +4979,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptDebug64 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptDebug64_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetScriptTextAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows::core::HRESULT,
     pub GetScriptletTextAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows::core::HRESULT,
     pub EnumCodeContextsOfPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32, ppescc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5042,7 +5042,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptEncode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptEncode_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EncodeSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchin: ::windows::core::PCWSTR, cchin: u32, pchout: ::windows::core::PWSTR, cchout: u32, pcchret: *mut u32) -> ::windows::core::HRESULT,
     pub DecodeScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchin: ::windows::core::PCWSTR, cchin: u32, pchout: ::windows::core::PWSTR, cchout: u32, pcchret: *mut u32) -> ::windows::core::HRESULT,
     pub GetEncodeProgId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -5103,7 +5103,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptError_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetExceptionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5318,7 +5318,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptErrorDebug110 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptErrorDebug110_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetExceptionThrownKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexceptionkind: *mut SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -5367,7 +5367,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptGarbageCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptGarbageCollector_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CollectGarbage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptgctype: SCRIPTGCTYPE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -5416,7 +5416,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptHostEncode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptHostEncode_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EncodeScriptHostFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstroutfile: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, cflags: u32, bstrdefaultlang: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -5489,7 +5489,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptParse32 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptParse32_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
@@ -5570,7 +5570,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptParse64 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptParse64_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
@@ -5786,7 +5786,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptParseProcedure32 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptParseProcedure32_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ParseProcedureText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstrformalparams: ::windows::core::PCWSTR, pstrprocedurename: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5849,7 +5849,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptParseProcedure64 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptParseProcedure64_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ParseProcedureText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstrformalparams: ::windows::core::PCWSTR, pstrprocedurename: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5911,7 +5911,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptParseProcedureOld32 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptParseProcedureOld32_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ParseProcedureText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstrformalparams: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5973,7 +5973,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptParseProcedureOld64 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptParseProcedureOld64_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub ParseProcedureText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstrformalparams: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6048,7 +6048,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptProfilerCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptProfilerCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcontext: u32) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrreason: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub ScriptCompiled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptid: i32, r#type: PROFILER_SCRIPT_TYPE, pidebugdocumentcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6325,7 +6325,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptProfilerControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptProfilerControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartProfiling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsidprofilerobject: *const ::windows::core::GUID, dweventmask: u32, dwcontext: u32) -> ::windows::core::HRESULT,
     pub SetProfilerEventMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweventmask: u32) -> ::windows::core::HRESULT,
     pub StopProfiling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrshutdownreason: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -6802,7 +6802,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptProfilerHeapEnum {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptProfilerHeapEnum_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, heapobjects: *mut *mut PROFILER_HEAP_OBJECT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub GetOptionalInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, heapobject: *const PROFILER_HEAP_OBJECT, celt: u32, optionalinfo: *mut PROFILER_HEAP_OBJECT_OPTIONAL_INFO) -> ::windows::core::HRESULT,
     pub FreeObjectAndOptionalInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, heapobjects: *const *const PROFILER_HEAP_OBJECT) -> ::windows::core::HRESULT,
@@ -6862,7 +6862,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptProperty_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6919,7 +6919,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSIPInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSIPInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSIPOID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poid_sip: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -7001,7 +7001,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLCID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrname: ::windows::core::PCWSTR, dwreturnmask: u32, ppiunkitem: *mut *mut ::core::ffi::c_void, ppti: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7080,7 +7080,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSiteDebug32 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSiteDebug32_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDocumentContextFromPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32, ppsc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRootApplicationNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdanroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7152,7 +7152,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSiteDebug64 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSiteDebug64_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDocumentContextFromPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32, ppsc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRootApplicationNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdanroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7213,7 +7213,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSiteDebugEx {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSiteDebugEx_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnCanNotJITScriptErrorDebug: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrordebug: *mut ::core::ffi::c_void, pfcallonscripterrorwhencontinuing: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7265,7 +7265,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSiteInterruptPoll {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSiteInterruptPoll_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryContinue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -7314,7 +7314,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSiteTraceInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSiteTraceInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SendScriptTraceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stieventtype: SCRIPTTRACEINFO, guidcontextid: ::windows::core::GUID, dwscriptcontextcookie: u32, lscriptstatementstart: i32, lscriptstatementend: i32, dwreserved: u64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -7364,7 +7364,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSiteUIControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSiteUIControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetUIBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicitem: SCRIPTUICITEM, puichandling: *mut SCRIPTUICHANDLING) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -7424,7 +7424,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSiteWindow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSiteWindow_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7486,7 +7486,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptStats {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptStats_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stid: u32, pluhi: *mut u32, plulo: *mut u32) -> ::windows::core::HRESULT,
     pub GetStatEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pluhi: *mut u32, plulo: *mut u32) -> ::windows::core::HRESULT,
     pub ResetStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7538,7 +7538,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptStringCompare {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptStringCompare_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StrComp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszstr1: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bszstr2: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iret: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -7593,7 +7593,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptTraceInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptTraceInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartScriptTracing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psitetraceinfo: *mut ::core::ffi::c_void, guidcontextid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub StopScriptTracing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -7760,7 +7760,7 @@ unsafe impl ::windows::core::Interface for IApplicationDebugger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationDebugger_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryAlive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateInstanceAtDebugger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub onDebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstr: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -7823,7 +7823,7 @@ unsafe impl ::windows::core::Interface for IApplicationDebuggerUI {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationDebuggerUI_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BringDocumentToTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pddt: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BringDocumentContextToTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pddc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -7879,7 +7879,7 @@ unsafe impl ::windows::core::Interface for IBindEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub BindHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: ::windows::core::PCWSTR, pdisp: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7935,7 +7935,7 @@ unsafe impl ::windows::core::Interface for ICodeAddressConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICodeAddressConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetContainingSymbol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextobject: *mut ::core::ffi::c_void, ppsymbol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -7989,7 +7989,7 @@ unsafe impl ::windows::core::Interface for IComparableConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComparableConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CompareObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, otherobject: *mut ::core::ffi::c_void, comparisonresult: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -8047,7 +8047,7 @@ unsafe impl ::windows::core::Interface for IDataModelConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitializeObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelobject: *mut ::core::ffi::c_void, matchingtypesignature: *mut ::core::ffi::c_void, wildcardmatches: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
@@ -8225,7 +8225,7 @@ unsafe impl ::windows::core::Interface for IDataModelManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateNoValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateErrorObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, pwszmessage: ::windows::core::PCWSTR, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8540,7 +8540,7 @@ unsafe impl ::windows::core::Interface for IDataModelNameBinder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelNameBinder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BindValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, value: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BindReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, reference: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, enumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8626,7 +8626,7 @@ unsafe impl ::windows::core::Interface for IDataModelScript {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScript_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Rename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -8687,7 +8687,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errclass: ErrorClass, hrfail: ::windows::core::HRESULT, message: ::windows::core::PCWSTR, line: u32, position: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -8774,7 +8774,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebug {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebug_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDebugState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ScriptDebugState,
     pub GetCurrentPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentposition: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetStack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stack: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8956,7 +8956,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugBreakpoint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugBreakpoint_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> bool,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -9014,7 +9014,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugBreakpointEnumer
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugBreakpointEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, breakpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -9068,7 +9068,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub NotifyDebugEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventinfo: *const ScriptDebugEventInformation, pscript: *mut ::core::ffi::c_void, peventdataobject: *mut ::core::ffi::c_void, resumeeventkind: *mut ScriptExecutionKind) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -9121,7 +9121,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugStack {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugStack_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFrameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub GetStackFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framenumber: u64, stackframe: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -9197,7 +9197,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugStackFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugStackFrame_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub IsTransitionPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransitionpoint: *mut bool) -> ::windows::core::HRESULT,
@@ -9255,7 +9255,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugVariableSetEnume
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugVariableSetEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, variablevalue: *mut *mut ::core::ffi::c_void, variablemetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -9312,7 +9312,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptHostContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptHostContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub NotifyScriptChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, script: *mut ::core::ffi::c_void, changekind: ScriptChangeKind) -> ::windows::core::HRESULT,
     pub GetNamespaceObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -9393,7 +9393,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDefaultNameBinder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnamebinder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RegisterScriptProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnregisterScriptProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9464,7 +9464,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extension: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CreateScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, script: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9521,7 +9521,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptProviderEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptProviderEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -9582,7 +9582,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptTemplate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptTemplate_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatedescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -9640,7 +9640,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptTemplateEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptTemplateEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatecontent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -9693,7 +9693,7 @@ unsafe impl ::windows::core::Interface for IDebugAdvanced {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAdvanced_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     pub SetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
 }
@@ -9767,7 +9767,7 @@ unsafe impl ::windows::core::Interface for IDebugAdvanced2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAdvanced2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     pub SetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: u32, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> ::windows::core::HRESULT,
@@ -9861,7 +9861,7 @@ unsafe impl ::windows::core::Interface for IDebugAdvanced3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAdvanced3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     pub SetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: u32, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> ::windows::core::HRESULT,
@@ -9974,7 +9974,7 @@ unsafe impl ::windows::core::Interface for IDebugAdvanced4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAdvanced4_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     pub SetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: u32, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> ::windows::core::HRESULT,
@@ -10820,7 +10820,7 @@ unsafe impl ::windows::core::Interface for IDebugApplicationNode100 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugApplicationNode100_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetFilterForEventSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32, filter: APPLICATION_NODE_EVENT_FILTER) -> ::windows::core::HRESULT,
     pub GetExcludedDocuments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: APPLICATION_NODE_EVENT_FILTER, pdocuments: *mut TEXT_DOCUMENT_ARRAY) -> ::windows::core::HRESULT,
     pub QueryIsChildNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchkey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10889,7 +10889,7 @@ unsafe impl ::windows::core::Interface for IDebugApplicationNodeEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugApplicationNodeEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub onAddChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prddpchild: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub onRemoveChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prddpchild: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub onDetach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11087,7 +11087,7 @@ unsafe impl ::windows::core::Interface for IDebugApplicationThread11032 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugApplicationThread11032_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetActiveThreadRequestCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puithreadrequests: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsSuspendedForBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfissuspended: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -11164,7 +11164,7 @@ unsafe impl ::windows::core::Interface for IDebugApplicationThread11064 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugApplicationThread11064_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetActiveThreadRequestCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puithreadrequests: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsSuspendedForBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfissuspended: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -11375,7 +11375,7 @@ unsafe impl ::windows::core::Interface for IDebugApplicationThreadEvents110 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugApplicationThreadEvents110_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnSuspendForBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnResumeFromBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnThreadRequestComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11443,7 +11443,7 @@ unsafe impl ::windows::core::Interface for IDebugAsyncOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAsyncOperation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSyncDebugOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsdo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padocb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11496,7 +11496,7 @@ unsafe impl ::windows::core::Interface for IDebugAsyncOperationCallBack {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAsyncOperationCallBack_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub onComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -11619,7 +11619,7 @@ unsafe impl ::windows::core::Interface for IDebugBreakpoint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugBreakpoint_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, breaktype: *mut u32, proctype: *mut u32) -> ::windows::core::HRESULT,
     pub GetAdder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11780,7 +11780,7 @@ unsafe impl ::windows::core::Interface for IDebugBreakpoint2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugBreakpoint2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, breaktype: *mut u32, proctype: *mut u32) -> ::windows::core::HRESULT,
     pub GetAdder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11949,7 +11949,7 @@ unsafe impl ::windows::core::Interface for IDebugBreakpoint3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugBreakpoint3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, breaktype: *mut u32, proctype: *mut u32) -> ::windows::core::HRESULT,
     pub GetAdder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12235,7 +12235,7 @@ unsafe impl ::windows::core::Interface for IDebugClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, connectoptions: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows::core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -12571,7 +12571,7 @@ unsafe impl ::windows::core::Interface for IDebugClient2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, connectoptions: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows::core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -12949,7 +12949,7 @@ unsafe impl ::windows::core::Interface for IDebugClient3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, connectoptions: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows::core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -13360,7 +13360,7 @@ unsafe impl ::windows::core::Interface for IDebugClient4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient4_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, connectoptions: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows::core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -13934,7 +13934,7 @@ unsafe impl ::windows::core::Interface for IDebugClient5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient5_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, connectoptions: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows::core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -14543,7 +14543,7 @@ unsafe impl ::windows::core::Interface for IDebugClient6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient6_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, connectoptions: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows::core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -15156,7 +15156,7 @@ unsafe impl ::windows::core::Interface for IDebugClient7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient7_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, connectoptions: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows::core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -15776,7 +15776,7 @@ unsafe impl ::windows::core::Interface for IDebugClient8 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient8_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachKernel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, connectoptions: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::PSTR, buffersize: u32, optionssize: *mut u32) -> ::windows::core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -15923,7 +15923,7 @@ unsafe impl ::windows::core::Interface for IDebugCodeContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugCodeContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDocumentContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bps: BREAKPOINT_STATE) -> ::windows::core::HRESULT,
 }
@@ -16395,7 +16395,7 @@ unsafe impl ::windows::core::Interface for IDebugControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT,
@@ -17033,7 +17033,7 @@ unsafe impl ::windows::core::Interface for IDebugControl2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT,
@@ -17741,7 +17741,7 @@ unsafe impl ::windows::core::Interface for IDebugControl3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT,
@@ -18767,7 +18767,7 @@ unsafe impl ::windows::core::Interface for IDebugControl4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl4_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT,
@@ -19888,7 +19888,7 @@ unsafe impl ::windows::core::Interface for IDebugControl5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl5_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT,
@@ -21033,7 +21033,7 @@ unsafe impl ::windows::core::Interface for IDebugControl6 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl6_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT,
@@ -22183,7 +22183,7 @@ unsafe impl ::windows::core::Interface for IDebugControl7 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl7_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT,
@@ -22465,7 +22465,7 @@ unsafe impl ::windows::core::Interface for IDebugCookie {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugCookie_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetDebugCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdebugappcookie: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -22579,7 +22579,7 @@ unsafe impl ::windows::core::Interface for IDebugDataSpaces {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDataSpaces_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::HRESULT,
     pub WriteVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT,
     pub SearchVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> ::windows::core::HRESULT,
@@ -22736,7 +22736,7 @@ unsafe impl ::windows::core::Interface for IDebugDataSpaces2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDataSpaces2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::HRESULT,
     pub WriteVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT,
     pub SearchVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> ::windows::core::HRESULT,
@@ -22921,7 +22921,7 @@ unsafe impl ::windows::core::Interface for IDebugDataSpaces3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDataSpaces3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::HRESULT,
     pub WriteVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT,
     pub SearchVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> ::windows::core::HRESULT,
@@ -23147,7 +23147,7 @@ unsafe impl ::windows::core::Interface for IDebugDataSpaces4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDataSpaces4_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::HRESULT,
     pub WriteVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT,
     pub SearchVirtual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> ::windows::core::HRESULT,
@@ -23315,7 +23315,7 @@ unsafe impl ::windows::core::Interface for IDebugDocumentContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDocumentContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsd: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumCodeContexts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppescc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -23451,7 +23451,7 @@ unsafe impl ::windows::core::Interface for IDebugDocumentHelper32 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDocumentHelper32_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, pszshortname: ::windows::core::PCWSTR, pszlongname: ::windows::core::PCWSTR, docattr: u32) -> ::windows::core::HRESULT,
     pub Attach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pddhparent: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Detach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -23606,7 +23606,7 @@ unsafe impl ::windows::core::Interface for IDebugDocumentHelper64 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDocumentHelper64_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, pszshortname: ::windows::core::PCWSTR, pszlongname: ::windows::core::PCWSTR, docattr: u32) -> ::windows::core::HRESULT,
     pub Attach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pddhparent: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Detach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -23698,7 +23698,7 @@ unsafe impl ::windows::core::Interface for IDebugDocumentHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDocumentHost_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDeferredText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtextstartcookie: u32, pchartext: ::windows::core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows::core::HRESULT,
     pub GetScriptTextAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows::core::HRESULT,
     pub OnCreateDocumentContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkouter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -23760,7 +23760,7 @@ unsafe impl ::windows::core::Interface for IDebugDocumentInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDocumentInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnt: DOCUMENTNAMETYPE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetDocumentClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsiddocument: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -24152,7 +24152,7 @@ unsafe impl ::windows::core::Interface for IDebugDocumentTextEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDocumentTextEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub onDestroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub onInsertText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccharacterposition: u32, cnumtoinsert: u32) -> ::windows::core::HRESULT,
     pub onRemoveText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccharacterposition: u32, cnumtoremove: u32) -> ::windows::core::HRESULT,
@@ -24215,7 +24215,7 @@ unsafe impl ::windows::core::Interface for IDebugDocumentTextExternalAuthor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDocumentTextExternalAuthor_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlongname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -24325,7 +24325,7 @@ unsafe impl ::windows::core::Interface for IDebugEventCallbacks {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugEventCallbacks_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: *mut u32) -> ::windows::core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bp: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -24446,7 +24446,7 @@ unsafe impl ::windows::core::Interface for IDebugEventCallbacksWide {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugEventCallbacksWide_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: *mut u32) -> ::windows::core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bp: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -24567,7 +24567,7 @@ unsafe impl ::windows::core::Interface for IDebugEventContextCallbacks {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugEventContextCallbacks_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: *mut u32) -> ::windows::core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bp: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -24647,7 +24647,7 @@ unsafe impl ::windows::core::Interface for IDebugExpression {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugExpression_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub QueryIsComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -24700,7 +24700,7 @@ unsafe impl ::windows::core::Interface for IDebugExpressionCallBack {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugExpressionCallBack_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub onComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -24757,7 +24757,7 @@ unsafe impl ::windows::core::Interface for IDebugExpressionContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugExpressionContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ParseLanguageText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, nradix: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, ppe: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetLanguageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlanguagename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, planguageid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -24924,7 +24924,7 @@ unsafe impl ::windows::core::Interface for IDebugFormatter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugFormatter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetStringForVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, nradix: u32, pbstrvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -25011,7 +25011,7 @@ unsafe impl ::windows::core::Interface for IDebugHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHelper_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub CreatePropertyBrowser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, bstrname: ::windows::core::PCWSTR, pdat: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -25080,7 +25080,7 @@ unsafe impl ::windows::core::Interface for IDebugHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHost_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetHostDefinedInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDefaultMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaultmetadatastore: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -25338,7 +25338,7 @@ unsafe impl ::windows::core::Interface for IDebugHostContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub IsEqualTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void, pisequal: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -25504,7 +25504,7 @@ unsafe impl ::windows::core::Interface for IDebugHostErrorSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostErrorSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errclass: ErrorClass, hrerror: ::windows::core::HRESULT, message: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -25566,7 +25566,7 @@ unsafe impl ::windows::core::Interface for IDebugHostEvaluator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostEvaluator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EvaluateExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, expression: ::windows::core::PCWSTR, bindingcontext: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EvaluateExtendedExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, expression: ::windows::core::PCWSTR, bindingcontext: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -25710,7 +25710,7 @@ unsafe impl ::windows::core::Interface for IDebugHostExtensibility {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostExtensibility_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateFunctionAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aliasname: ::windows::core::PCWSTR, functionobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DestroyFunctionAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aliasname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
@@ -25908,7 +25908,7 @@ unsafe impl ::windows::core::Interface for IDebugHostMemory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostMemory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReadBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, buffer: *mut ::core::ffi::c_void, buffersize: u64, bytesread: *mut u64) -> ::windows::core::HRESULT,
     pub WriteBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, buffer: *const ::core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> ::windows::core::HRESULT,
     pub ReadPointers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, count: u64, pointers: *mut u64) -> ::windows::core::HRESULT,
@@ -26336,7 +26336,7 @@ unsafe impl ::windows::core::Interface for IDebugHostModuleSignature {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostModuleSignature_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub IsMatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmodule: *mut ::core::ffi::c_void, ismatch: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -26493,7 +26493,7 @@ unsafe impl ::windows::core::Interface for IDebugHostScriptHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostScriptHost_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, script: *mut ::core::ffi::c_void, scriptcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -26543,7 +26543,7 @@ unsafe impl ::windows::core::Interface for IDebugHostStatus {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostStatus_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub PollUserInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interruptrequested: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -26623,7 +26623,7 @@ unsafe impl ::windows::core::Interface for IDebugHostSymbol {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostSymbol_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: SymbolKind, name: ::windows::core::PCWSTR, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSymbolKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut SymbolKind) -> ::windows::core::HRESULT,
@@ -26781,7 +26781,7 @@ unsafe impl ::windows::core::Interface for IDebugHostSymbolEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostSymbolEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -26884,7 +26884,7 @@ unsafe impl ::windows::core::Interface for IDebugHostSymbols {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostSymbols_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateModuleSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszmodulename: ::windows::core::PCWSTR, pwszminversion: ::windows::core::PCWSTR, pwszmaxversion: ::windows::core::PCWSTR, ppmodulesignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateTypeSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturespecification: ::windows::core::PCWSTR, module: *mut ::core::ffi::c_void, typesignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateTypeSignatureForModuleRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturespecification: ::windows::core::PCWSTR, modulename: ::windows::core::PCWSTR, minversion: ::windows::core::PCWSTR, maxversion: ::windows::core::PCWSTR, typesignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -27346,7 +27346,7 @@ unsafe impl ::windows::core::Interface for IDebugHostTypeSignature {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostTypeSignature_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetHashCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hashcode: *mut u32) -> ::windows::core::HRESULT,
     pub IsMatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, ismatch: *mut bool, wildcardmatches: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CompareAgainst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: *mut ::core::ffi::c_void, result: *mut SignatureComparison) -> ::windows::core::HRESULT,
@@ -27400,7 +27400,7 @@ unsafe impl ::windows::core::Interface for IDebugInputCallbacks {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugInputCallbacks_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT,
     pub EndInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -27453,7 +27453,7 @@ unsafe impl ::windows::core::Interface for IDebugOutputCallbacks {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugOutputCallbacks_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: u32, text: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -27515,7 +27515,7 @@ unsafe impl ::windows::core::Interface for IDebugOutputCallbacks2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugOutputCallbacks2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: u32, text: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
     pub GetInterestMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: *mut u32) -> ::windows::core::HRESULT,
     pub Output2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, flags: u32, arg: u64, text: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -27569,7 +27569,7 @@ unsafe impl ::windows::core::Interface for IDebugOutputCallbacksWide {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugOutputCallbacksWide_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: u32, text: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -27621,7 +27621,7 @@ unsafe impl ::windows::core::Interface for IDebugOutputStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugOutputStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -27675,7 +27675,7 @@ unsafe impl ::windows::core::Interface for IDebugPlmClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugPlmClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: ::windows::core::PCWSTR, appname: ::windows::core::PCWSTR, arguments: ::windows::core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -27736,7 +27736,7 @@ unsafe impl ::windows::core::Interface for IDebugPlmClient2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugPlmClient2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: ::windows::core::PCWSTR, appname: ::windows::core::PCWSTR, arguments: ::windows::core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows::core::HRESULT,
     pub LaunchPlmBgTaskForDebugWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: ::windows::core::PCWSTR, backgroundtaskid: ::windows::core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -27856,7 +27856,7 @@ unsafe impl ::windows::core::Interface for IDebugPlmClient3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugPlmClient3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: ::windows::core::PCWSTR, appname: ::windows::core::PCWSTR, arguments: ::windows::core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows::core::HRESULT,
     pub LaunchPlmBgTaskForDebugWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: ::windows::core::PCWSTR, backgroundtaskid: ::windows::core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows::core::HRESULT,
     pub QueryPlmPackageWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, packagefullname: ::windows::core::PCWSTR, stream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -27936,7 +27936,7 @@ unsafe impl ::windows::core::Interface for IDebugProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugProperty_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetExtendedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -27993,7 +27993,7 @@ unsafe impl ::windows::core::Interface for IDebugPropertyEnumType_All {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugPropertyEnumType_All_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -28346,7 +28346,7 @@ unsafe impl ::windows::core::Interface for IDebugRegisters {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugRegisters_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNumberRegisters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: *mut u32) -> ::windows::core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, register: u32, namebuffer: ::windows::core::PSTR, namebuffersize: u32, namesize: *mut u32, desc: *mut DEBUG_REGISTER_DESCRIPTION) -> ::windows::core::HRESULT,
     pub GetIndexByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, index: *mut u32) -> ::windows::core::HRESULT,
@@ -28536,7 +28536,7 @@ unsafe impl ::windows::core::Interface for IDebugRegisters2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugRegisters2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNumberRegisters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: *mut u32) -> ::windows::core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, register: u32, namebuffer: ::windows::core::PSTR, namebuffersize: u32, namesize: *mut u32, desc: *mut DEBUG_REGISTER_DESCRIPTION) -> ::windows::core::HRESULT,
     pub GetIndexByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, index: *mut u32) -> ::windows::core::HRESULT,
@@ -28637,7 +28637,7 @@ unsafe impl ::windows::core::Interface for IDebugSessionProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSessionProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartDebugSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -28713,7 +28713,7 @@ unsafe impl ::windows::core::Interface for IDebugStackFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugStackFrame_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCodeContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetDescriptionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flong: super::super::super::Foundation::BOOL, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -28873,7 +28873,7 @@ unsafe impl ::windows::core::Interface for IDebugStackFrameSniffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugStackFrameSniffer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EnumStackFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedsf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -29105,7 +29105,7 @@ unsafe impl ::windows::core::Interface for IDebugSymbolGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbolGroup_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNumberSymbols: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: *mut u32) -> ::windows::core::HRESULT,
     pub AddSymbol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, index: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveSymbolByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -29266,7 +29266,7 @@ unsafe impl ::windows::core::Interface for IDebugSymbolGroup2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbolGroup2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNumberSymbols: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: *mut u32) -> ::windows::core::HRESULT,
     pub AddSymbol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, index: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveSymbolByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -29570,7 +29570,7 @@ unsafe impl ::windows::core::Interface for IDebugSymbols {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut u32) -> ::windows::core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
@@ -29931,7 +29931,7 @@ unsafe impl ::windows::core::Interface for IDebugSymbols2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut u32) -> ::windows::core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
@@ -30608,7 +30608,7 @@ unsafe impl ::windows::core::Interface for IDebugSymbols3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut u32) -> ::windows::core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
@@ -31376,7 +31376,7 @@ unsafe impl ::windows::core::Interface for IDebugSymbols4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols4_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut u32) -> ::windows::core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
@@ -32164,7 +32164,7 @@ unsafe impl ::windows::core::Interface for IDebugSymbols5 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols5_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut u32) -> ::windows::core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
@@ -32364,7 +32364,7 @@ unsafe impl ::windows::core::Interface for IDebugSyncOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSyncOperation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetTargetThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppattarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Execute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InProgressAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -32522,7 +32522,7 @@ unsafe impl ::windows::core::Interface for IDebugSystemObjects {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSystemObjects_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetEventProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetCurrentThreadId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
@@ -32724,7 +32724,7 @@ unsafe impl ::windows::core::Interface for IDebugSystemObjects2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSystemObjects2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetEventProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetCurrentThreadId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
@@ -32963,7 +32963,7 @@ unsafe impl ::windows::core::Interface for IDebugSystemObjects3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSystemObjects3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetEventProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetCurrentThreadId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
@@ -33217,7 +33217,7 @@ unsafe impl ::windows::core::Interface for IDebugSystemObjects4 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSystemObjects4_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetEventThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetEventProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
     pub GetCurrentThreadId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::HRESULT,
@@ -33310,7 +33310,7 @@ unsafe impl ::windows::core::Interface for IDebugThreadCall32 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugThreadCall32_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ThreadCallHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -33359,7 +33359,7 @@ unsafe impl ::windows::core::Interface for IDebugThreadCall64 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugThreadCall64_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ThreadCallHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -33434,7 +33434,7 @@ unsafe impl ::windows::core::Interface for IDynamicConceptProviderConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicConceptProviderConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetConcept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, conceptid: *const ::windows::core::GUID, conceptinterface: *mut *mut ::core::ffi::c_void, conceptmetadata: *mut *mut ::core::ffi::c_void, hasconcept: *mut bool) -> ::windows::core::HRESULT,
     pub SetConcept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, conceptid: *const ::windows::core::GUID, conceptinterface: *mut ::core::ffi::c_void, conceptmetadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parentmodel: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33507,7 +33507,7 @@ unsafe impl ::windows::core::Interface for IDynamicKeyProviderConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicKeyProviderConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, key: ::windows::core::PCWSTR, keyvalue: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void, haskey: *mut bool) -> ::windows::core::HRESULT,
     pub SetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, key: ::windows::core::PCWSTR, keyvalue: *mut ::core::ffi::c_void, metadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, ppenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33568,7 +33568,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugApplicationNodes {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDebugApplicationNodes_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pprddp: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33630,7 +33630,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugCodeContexts {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDebugCodeContexts_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pscc: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33692,7 +33692,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugExpressionContexts {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDebugExpressionContexts_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppdec: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33760,7 +33760,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugExtendedPropertyInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))]
@@ -33830,7 +33830,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugPropertyInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDebugPropertyInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pi: *mut DebugPropertyInfo, pceltsfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33895,7 +33895,7 @@ unsafe impl ::windows::core::Interface for IEnumDebugStackFrames {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumDebugStackFrames_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -34037,7 +34037,7 @@ unsafe impl ::windows::core::Interface for IEnumJsStackFrames {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumJsStackFrames_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cframecount: u32, pframes: *mut JS_NATIVE_FRAME, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -34097,7 +34097,7 @@ unsafe impl ::windows::core::Interface for IEnumRemoteDebugApplicationThreads {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumRemoteDebugApplicationThreads_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pprdat: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -34159,7 +34159,7 @@ unsafe impl ::windows::core::Interface for IEnumRemoteDebugApplications {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumRemoteDebugApplications_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppda: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -34216,7 +34216,7 @@ unsafe impl ::windows::core::Interface for IEquatableConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEquatableConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AreObjectsEqual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, otherobject: *mut ::core::ffi::c_void, isequal: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -34265,7 +34265,7 @@ unsafe impl ::windows::core::Interface for IHostDataModelAccess {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostDataModelAccess_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDataModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manager: *mut *mut ::core::ffi::c_void, host: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -34331,7 +34331,7 @@ unsafe impl ::windows::core::Interface for IIndexableConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIndexableConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDimensionality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, dimensionality: *mut u64) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, indexercount: u64, indexers: *const *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, indexercount: u64, indexers: *const *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -34393,7 +34393,7 @@ unsafe impl ::windows::core::Interface for IIterableConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIterableConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDefaultIndexDimensionality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, dimensionality: *mut u64) -> ::windows::core::HRESULT,
     pub GetIterator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, iterator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -34447,7 +34447,7 @@ unsafe impl ::windows::core::Interface for IJsDebug {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsDebug_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OpenVirtualProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processid: u32, runtimejsbaseaddress: u64, pdatatarget: *mut ::core::ffi::c_void, ppprocess: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -34511,7 +34511,7 @@ unsafe impl ::windows::core::Interface for IJsDebugBreakPoint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsDebugBreakPoint_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -34596,7 +34596,7 @@ unsafe impl ::windows::core::Interface for IJsDebugDataTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsDebugDataTarget_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReadMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, flags: JsDebugReadMemoryFlags, pbuffer: *mut u8, size: u32, pbytesread: *mut u32) -> ::windows::core::HRESULT,
     pub WriteMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, pmemory: *const u8, size: u32) -> ::windows::core::HRESULT,
     pub AllocateVirtualMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, size: u32, allocationtype: u32, pageprotection: u32, pallocatedaddress: *mut u64) -> ::windows::core::HRESULT,
@@ -34677,7 +34677,7 @@ unsafe impl ::windows::core::Interface for IJsDebugFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsDebugFrame_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStackRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstart: *mut u64, pend: *mut u64) -> ::windows::core::HRESULT,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetDocumentPositionWithId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdocumentid: *mut u64, pcharacteroffset: *mut u32, pstatementcharcount: *mut u32) -> ::windows::core::HRESULT,
@@ -34749,7 +34749,7 @@ unsafe impl ::windows::core::Interface for IJsDebugProcess {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsDebugProcess_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateStackWalker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32, ppstackwalker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentid: u64, characteroffset: u32, charactercount: u32, isenabled: super::super::super::Foundation::BOOL, ppdebugbreakpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -34809,7 +34809,7 @@ unsafe impl ::windows::core::Interface for IJsDebugProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsDebugProperty_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nradix: u32, ppropertyinfo: *mut JsDebugPropertyInfo) -> ::windows::core::HRESULT,
     pub GetMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, members: JS_PROPERTY_MEMBERS, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -34860,7 +34860,7 @@ unsafe impl ::windows::core::Interface for IJsDebugStackWalker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsDebugStackWalker_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppframe: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -34913,7 +34913,7 @@ unsafe impl ::windows::core::Interface for IJsEnumDebugProperty {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsEnumDebugProperty_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppdebugproperty: *mut *mut ::core::ffi::c_void, pactualcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -34966,7 +34966,7 @@ unsafe impl ::windows::core::Interface for IKeyEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -35043,7 +35043,7 @@ unsafe impl ::windows::core::Interface for IKeyStore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyStore_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows::core::PCWSTR, object: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows::core::PCWSTR, object: *mut ::core::ffi::c_void, metadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetKeyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows::core::PCWSTR, object: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -35107,7 +35107,7 @@ unsafe impl ::windows::core::Interface for IMachineDebugManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMachineDebugManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, pdwappcookie: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwappcookie: u32) -> ::windows::core::HRESULT,
     pub EnumApplications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -35169,7 +35169,7 @@ unsafe impl ::windows::core::Interface for IMachineDebugManagerCookie {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMachineDebugManagerCookie_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, dwdebugappcookie: u32, pdwappcookie: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdebugappcookie: u32, dwappcookie: u32) -> ::windows::core::HRESULT,
     pub EnumApplications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -35229,7 +35229,7 @@ unsafe impl ::windows::core::Interface for IMachineDebugManagerEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMachineDebugManagerEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub onAddApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, dwappcookie: u32) -> ::windows::core::HRESULT,
     pub onRemoveApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, dwappcookie: u32) -> ::windows::core::HRESULT,
 }
@@ -35282,7 +35282,7 @@ unsafe impl ::windows::core::Interface for IModelIterator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelIterator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, dimensions: u64, indexers: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -35360,7 +35360,7 @@ unsafe impl ::windows::core::Interface for IModelKeyReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelKeyReference_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetOriginalObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, originalobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetContextObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containingobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -35516,7 +35516,7 @@ unsafe impl ::windows::core::Interface for IModelMethod {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelMethod_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Call: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextobject: *mut ::core::ffi::c_void, argcount: u64, pparguments: *const *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void, ppmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -35732,7 +35732,7 @@ unsafe impl ::windows::core::Interface for IModelObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut ModelObjectKind) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35832,7 +35832,7 @@ unsafe impl ::windows::core::Interface for IModelPropertyAccessor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelPropertyAccessor_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows::core::PCWSTR, contextobject: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows::core::PCWSTR, contextobject: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -35885,7 +35885,7 @@ unsafe impl ::windows::core::Interface for IObjectSafety {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectSafety_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterfaceSafetyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> ::windows::core::HRESULT,
     pub SetInterfaceSafetyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwoptionsetmask: u32, dwenabledoptions: u32) -> ::windows::core::HRESULT,
 }
@@ -35948,7 +35948,7 @@ unsafe impl ::windows::core::Interface for IPerPropertyBrowsing2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerPropertyBrowsing2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub MapPropertyToPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsidproppage: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Ole")]
@@ -36007,7 +36007,7 @@ unsafe impl ::windows::core::Interface for IPreferredRuntimeTypeConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPreferredRuntimeTypeConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CastToPreferredRuntimeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -36078,7 +36078,7 @@ unsafe impl ::windows::core::Interface for IProcessDebugManager32 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDebugManager32_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDefaultApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, pdwappcookie: *mut u32) -> ::windows::core::HRESULT,
@@ -36153,7 +36153,7 @@ unsafe impl ::windows::core::Interface for IProcessDebugManager64 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDebugManager64_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDefaultApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut ::core::ffi::c_void, pdwappcookie: *mut u32) -> ::windows::core::HRESULT,
@@ -36207,7 +36207,7 @@ unsafe impl ::windows::core::Interface for IProvideExpressionContexts {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideExpressionContexts_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EnumExpressionContexts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedec: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -36259,7 +36259,7 @@ unsafe impl ::windows::core::Interface for IRawEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, kind: *mut SymbolKind, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -36354,7 +36354,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugApplication {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDebugApplication_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ResumeFromBreakPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prptfocus: *mut ::core::ffi::c_void, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> ::windows::core::HRESULT,
     pub CauseBreak: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ConnectDebugger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pad: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -36421,7 +36421,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugApplication110 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDebugApplication110_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetDebuggerOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: SCRIPT_DEBUGGER_OPTIONS, value: SCRIPT_DEBUGGER_OPTIONS) -> ::windows::core::HRESULT,
     pub GetCurrentDebuggerOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcurrentoptions: *mut SCRIPT_DEBUGGER_OPTIONS) -> ::windows::core::HRESULT,
     pub GetMainThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppthread: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -36523,7 +36523,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugApplicationEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDebugApplicationEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnConnectDebugger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pad: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnDisconnectDebugger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnSetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -36616,7 +36616,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugApplicationThread {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDebugApplicationThread_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSystemThreadId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwthreadid: *mut u32) -> ::windows::core::HRESULT,
     pub GetApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumStackFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedsf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -36673,7 +36673,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugCriticalErrorEvent110 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDebugCriticalErrorEvent110_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pmessageid: *mut i32, pbstrmessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -36722,7 +36722,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugInfoEvent110 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDebugInfoEvent110_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetEventInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -36962,7 +36962,7 @@ unsafe impl ::windows::core::Interface for IScriptInvocationContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScriptInvocationContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetContextType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinvocationcontexttype: *mut SCRIPT_INVOCATION_CONTEXT_TYPE) -> ::windows::core::HRESULT,
     pub GetContextDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetContextObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontextobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -37059,7 +37059,7 @@ unsafe impl ::windows::core::Interface for IScriptNode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScriptNode_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Alive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsnparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -37352,7 +37352,7 @@ unsafe impl ::windows::core::Interface for ISimpleConnectionPoint {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleConnectionPoint_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetEventCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcount: *mut u32) -> ::windows::core::HRESULT,
     pub DescribeEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pceventsfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -37412,7 +37412,7 @@ unsafe impl ::windows::core::Interface for IStringDisplayableConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStringDisplayableConcept_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ToDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, metadata: *mut ::core::ffi::c_void, displaystring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -37466,7 +37466,7 @@ unsafe impl ::windows::core::Interface for ITridentEventSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITridentEventSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub FireEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: ::windows::core::PCWSTR, pdp: *const super::super::Com::DISPPARAMS, pvarres: *mut super::super::Com::VARIANT, pei: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -37524,7 +37524,7 @@ unsafe impl ::windows::core::Interface for IWebAppDiagnosticsObjectInitializatio
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAppDiagnosticsObjectInitialization_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpassedhandle: super::super::super::Foundation::HANDLE_PTR, pdebugapplication: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -37580,7 +37580,7 @@ unsafe impl ::windows::core::Interface for IWebAppDiagnosticsSetup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebAppDiagnosticsSetup_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub DiagnosticsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT,
     pub CreateObjectWithSiteAtWebApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, hpasstoobject: usize) -> ::windows::core::HRESULT,
 }

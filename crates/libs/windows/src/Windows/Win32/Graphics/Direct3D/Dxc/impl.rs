@@ -15,7 +15,7 @@ impl IDxcAssembler_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AssembleToContainer: AssembleToContainer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AssembleToContainer: AssembleToContainer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDxcAssembler as ::windows::core::Interface>::IID
@@ -39,7 +39,7 @@ impl IDxcBlob_Vtbl {
             this.GetBufferSize()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetBufferPointer: GetBufferPointer::<Identity, Impl, OFFSET>,
             GetBufferSize: GetBufferSize::<Identity, Impl, OFFSET>,
         }
@@ -170,7 +170,7 @@ impl IDxcCompiler_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Compile: Compile::<Identity, Impl, OFFSET>,
             Preprocess: Preprocess::<Identity, Impl, OFFSET>,
             Disassemble: Disassemble::<Identity, Impl, OFFSET>,
@@ -229,7 +229,7 @@ impl IDxcCompiler3_Vtbl {
             this.Disassemble(::core::mem::transmute_copy(&pobject), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppresult)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Compile: Compile::<Identity, Impl, OFFSET>,
             Disassemble: Disassemble::<Identity, Impl, OFFSET>,
         }
@@ -274,7 +274,7 @@ impl IDxcCompilerArgs_Vtbl {
             this.AddDefines(::core::mem::transmute_copy(&pdefines), ::core::mem::transmute_copy(&definecount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetArguments: GetArguments::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             AddArguments: AddArguments::<Identity, Impl, OFFSET>,
@@ -322,7 +322,7 @@ impl IDxcContainerBuilder_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Load: Load::<Identity, Impl, OFFSET>,
             AddPart: AddPart::<Identity, Impl, OFFSET>,
             RemovePart: RemovePart::<Identity, Impl, OFFSET>,
@@ -399,7 +399,7 @@ impl IDxcContainerReflection_Vtbl {
             this.GetPartReflection(::core::mem::transmute_copy(&idx), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&ppvobject)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Load: Load::<Identity, Impl, OFFSET>,
             GetPartCount: GetPartCount::<Identity, Impl, OFFSET>,
             GetPartKind: GetPartKind::<Identity, Impl, OFFSET>,
@@ -430,7 +430,7 @@ impl IDxcExtraOutputs_Vtbl {
             this.GetOutput(::core::mem::transmute_copy(&uindex), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&ppvobject), ::core::mem::transmute_copy(&ppoutputtype), ::core::mem::transmute_copy(&ppoutputname)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetOutputCount: GetOutputCount::<Identity, Impl, OFFSET>,
             GetOutput: GetOutput::<Identity, Impl, OFFSET>,
         }
@@ -456,7 +456,7 @@ impl IDxcIncludeHandler_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LoadSource: LoadSource::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadSource: LoadSource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDxcIncludeHandler as ::windows::core::Interface>::IID
@@ -585,7 +585,7 @@ impl IDxcLibrary_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetMalloc: SetMalloc::<Identity, Impl, OFFSET>,
             CreateBlobFromBlob: CreateBlobFromBlob::<Identity, Impl, OFFSET>,
             CreateBlobFromFile: CreateBlobFromFile::<Identity, Impl, OFFSET>,
@@ -626,7 +626,7 @@ impl IDxcLinker_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterLibrary: RegisterLibrary::<Identity, Impl, OFFSET>,
             Link: Link::<Identity, Impl, OFFSET>,
         }
@@ -677,7 +677,7 @@ impl IDxcOperationResult_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             GetResult: GetResult::<Identity, Impl, OFFSET>,
             GetErrorBuffer: GetErrorBuffer::<Identity, Impl, OFFSET>,
@@ -723,7 +723,7 @@ impl IDxcOptimizer_Vtbl {
             this.RunOptimizer(::core::mem::transmute(&pblob), ::core::mem::transmute_copy(&ppoptions), ::core::mem::transmute_copy(&optioncount), ::core::mem::transmute_copy(&poutputmodule), ::core::mem::transmute_copy(&ppoutputtext)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetAvailablePassCount: GetAvailablePassCount::<Identity, Impl, OFFSET>,
             GetAvailablePass: GetAvailablePass::<Identity, Impl, OFFSET>,
             RunOptimizer: RunOptimizer::<Identity, Impl, OFFSET>,
@@ -799,7 +799,7 @@ impl IDxcOptimizerPass_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetOptionName: GetOptionName::<Identity, Impl, OFFSET>,
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
             GetOptionArgCount: GetOptionArgCount::<Identity, Impl, OFFSET>,
@@ -1072,7 +1072,7 @@ impl IDxcPdbUtils_Vtbl {
             this.OverrideRootSignature(::core::mem::transmute(&prootsignature)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Load: Load::<Identity, Impl, OFFSET>,
             GetSourceCount: GetSourceCount::<Identity, Impl, OFFSET>,
             GetSource: GetSource::<Identity, Impl, OFFSET>,
@@ -1301,7 +1301,7 @@ impl IDxcUtils_Vtbl {
             this.GetPDBContents(::core::mem::transmute(&ppdbblob), ::core::mem::transmute_copy(&pphash), ::core::mem::transmute_copy(&ppcontainer)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateBlobFromBlob: CreateBlobFromBlob::<Identity, Impl, OFFSET>,
             CreateBlobFromPinned: CreateBlobFromPinned::<Identity, Impl, OFFSET>,
             MoveToBlob: MoveToBlob::<Identity, Impl, OFFSET>,
@@ -1338,7 +1338,7 @@ impl IDxcValidator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Validate: Validate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Validate: Validate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDxcValidator as ::windows::core::Interface>::IID
@@ -1391,7 +1391,7 @@ impl IDxcVersionInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetVersion: GetVersion::<Identity, Impl, OFFSET>,
             GetFlags: GetFlags::<Identity, Impl, OFFSET>,
         }
@@ -1434,7 +1434,7 @@ impl IDxcVersionInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetCustomVersionString: GetCustomVersionString::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCustomVersionString: GetCustomVersionString::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDxcVersionInfo3 as ::windows::core::Interface>::IID

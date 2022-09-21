@@ -25,7 +25,7 @@ impl ID3D11On12Device_Vtbl {
             this.AcquireWrappedResources(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&numresources))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateWrappedResource: CreateWrappedResource::<Identity, Impl, OFFSET>,
             ReleaseWrappedResources: ReleaseWrappedResources::<Identity, Impl, OFFSET>,
             AcquireWrappedResources: AcquireWrappedResources::<Identity, Impl, OFFSET>,

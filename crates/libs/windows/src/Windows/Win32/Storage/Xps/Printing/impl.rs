@@ -45,7 +45,7 @@ impl IPrintDocumentPackageTarget_Vtbl {
             this.Cancel().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPackageTargetTypes: GetPackageTargetTypes::<Identity, Impl, OFFSET>,
             GetPackageTarget: GetPackageTarget::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
@@ -76,7 +76,7 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateDocumentPackageTargetForPrintJob: CreateDocumentPackageTargetForPrintJob::<Identity, Impl, OFFSET>,
         }
     }
@@ -108,7 +108,7 @@ impl IXpsPrintJob_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Cancel: Cancel::<Identity, Impl, OFFSET>,
             GetJobStatus: GetJobStatus::<Identity, Impl, OFFSET>,
         }

@@ -3949,7 +3949,7 @@ struct AsyncActionCompletedHandlerBox<F: FnMut(&::core::option::Option<IAsyncAct
 }
 impl<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> AsyncActionCompletedHandlerBox<F> {
     const VTABLE: AsyncActionCompletedHandler_Vtbl = AsyncActionCompletedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4009,7 +4009,7 @@ unsafe impl ::windows::core::RuntimeType for AsyncActionCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncActionCompletedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4043,7 +4043,7 @@ where
 }
 impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncActionWithProgress<TProgress>>, &<TProgress as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> AsyncActionProgressHandlerBox<TProgress, F> {
     const VTABLE: AsyncActionProgressHandler_Vtbl<TProgress> = AsyncActionProgressHandler_Vtbl::<TProgress> {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TProgress: ::core::marker::PhantomData::<TProgress>,
     };
@@ -4107,7 +4107,7 @@ pub struct AsyncActionProgressHandler_Vtbl<TProgress>
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, progressinfo: <TProgress as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
@@ -4141,7 +4141,7 @@ where
 }
 impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncActionWithProgress<TProgress>>, AsyncStatus) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> AsyncActionWithProgressCompletedHandlerBox<TProgress, F> {
     const VTABLE: AsyncActionWithProgressCompletedHandler_Vtbl<TProgress> = AsyncActionWithProgressCompletedHandler_Vtbl::<TProgress> {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TProgress: ::core::marker::PhantomData::<TProgress>,
     };
@@ -4205,7 +4205,7 @@ pub struct AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
@@ -4239,7 +4239,7 @@ where
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncOperation<TResult>>, AsyncStatus) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> AsyncOperationCompletedHandlerBox<TResult, F> {
     const VTABLE: AsyncOperationCompletedHandler_Vtbl<TResult> = AsyncOperationCompletedHandler_Vtbl::<TResult> {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TResult: ::core::marker::PhantomData::<TResult>,
     };
@@ -4303,7 +4303,7 @@ pub struct AsyncOperationCompletedHandler_Vtbl<TResult>
 where
     TResult: ::windows::core::RuntimeType + 'static,
 {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT,
     pub TResult: ::core::marker::PhantomData<TResult>,
 }
@@ -4340,7 +4340,7 @@ where
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncOperationWithProgress<TResult, TProgress>>, &<TProgress as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> AsyncOperationProgressHandlerBox<TResult, TProgress, F> {
     const VTABLE: AsyncOperationProgressHandler_Vtbl<TResult, TProgress> = AsyncOperationProgressHandler_Vtbl::<TResult, TProgress> {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TResult: ::core::marker::PhantomData::<TResult>,
         TProgress: ::core::marker::PhantomData::<TProgress>,
@@ -4406,7 +4406,7 @@ where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, progressinfo: <TProgress as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub TResult: ::core::marker::PhantomData<TResult>,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
@@ -4443,7 +4443,7 @@ where
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IAsyncOperationWithProgress<TResult, TProgress>>, AsyncStatus) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> AsyncOperationWithProgressCompletedHandlerBox<TResult, TProgress, F> {
     const VTABLE: AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress> = AsyncOperationWithProgressCompletedHandler_Vtbl::<TResult, TProgress> {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TResult: ::core::marker::PhantomData::<TResult>,
         TProgress: ::core::marker::PhantomData::<TProgress>,
@@ -4509,7 +4509,7 @@ where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT,
     pub TResult: ::core::marker::PhantomData<TResult>,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
@@ -4535,7 +4535,7 @@ struct DeferralCompletedHandlerBox<F: FnMut() -> ::windows::core::Result<()> + :
 }
 impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DeferralCompletedHandlerBox<F> {
     const VTABLE: DeferralCompletedHandler_Vtbl = DeferralCompletedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4595,7 +4595,7 @@ unsafe impl ::windows::core::RuntimeType for DeferralCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DeferralCompletedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4628,7 +4628,7 @@ where
 }
 impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> EventHandlerBox<T, F> {
     const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         T: ::core::marker::PhantomData::<T>,
     };
@@ -4692,7 +4692,7 @@ pub struct EventHandler_Vtbl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, args: <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
@@ -4728,7 +4728,7 @@ where
 }
 impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static, F: FnMut(&<TSender as ::windows::core::RuntimeType>::DefaultType, &<TResult as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> TypedEventHandlerBox<TSender, TResult, F> {
     const VTABLE: TypedEventHandler_Vtbl<TSender, TResult> = TypedEventHandler_Vtbl::<TSender, TResult> {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
         TSender: ::core::marker::PhantomData::<TSender>,
         TResult: ::core::marker::PhantomData::<TResult>,
@@ -4794,7 +4794,7 @@ where
     TSender: ::windows::core::RuntimeType + 'static,
     TResult: ::windows::core::RuntimeType + 'static,
 {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: <TSender as ::windows::core::Abi>::Abi, args: <TResult as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub TSender: ::core::marker::PhantomData<TSender>,
     pub TResult: ::core::marker::PhantomData<TResult>,

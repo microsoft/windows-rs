@@ -37,7 +37,7 @@ impl IPhotoAcquire_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreatePhotoSource: CreatePhotoSource::<Identity, Impl, OFFSET>,
             Acquire: Acquire::<Identity, Impl, OFFSET>,
             EnumResults: EnumResults::<Identity, Impl, OFFSET>,
@@ -74,7 +74,7 @@ impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
             this.DoModal(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwdeviceflags), ::core::mem::transmute_copy(&pbstrdeviceid), ::core::mem::transmute_copy(&pndevicetype)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetTitle: SetTitle::<Identity, Impl, OFFSET>,
             SetSubmitButtonText: SetSubmitButtonText::<Identity, Impl, OFFSET>,
             DoModal: DoModal::<Identity, Impl, OFFSET>,
@@ -189,7 +189,7 @@ impl IPhotoAcquireItem_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetItemName: GetItemName::<Identity, Impl, OFFSET>,
             GetThumbnail: GetThumbnail::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
@@ -250,7 +250,7 @@ impl IPhotoAcquireOptionsDialog_Vtbl {
             this.SaveData().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Create: Create::<Identity, Impl, OFFSET>,
             Destroy: Destroy::<Identity, Impl, OFFSET>,
@@ -295,7 +295,7 @@ impl IPhotoAcquirePlugin_Vtbl {
             this.DisplayConfigureDialog(::core::mem::transmute_copy(&hwndparent)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ProcessItem: ProcessItem::<Identity, Impl, OFFSET>,
             TransferComplete: TransferComplete::<Identity, Impl, OFFSET>,
@@ -447,7 +447,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
             this.GetUserInput(::core::mem::transmute_copy(&riidtype), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&ppropvarresult), ::core::mem::transmute_copy(&ppropvardefault)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Cancelled: Cancelled::<Identity, Impl, OFFSET>,
             StartEnumeration: StartEnumeration::<Identity, Impl, OFFSET>,
             FoundItem: FoundItem::<Identity, Impl, OFFSET>,
@@ -596,7 +596,7 @@ impl IPhotoAcquireSettings_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             InitializeFromRegistry: InitializeFromRegistry::<Identity, Impl, OFFSET>,
             SetFlags: SetFlags::<Identity, Impl, OFFSET>,
             SetOutputFilenameTemplate: SetOutputFilenameTemplate::<Identity, Impl, OFFSET>,
@@ -703,7 +703,7 @@ impl IPhotoAcquireSource_Vtbl {
             this.BindToObject(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFriendlyName: GetFriendlyName::<Identity, Impl, OFFSET>,
             GetDeviceIcons: GetDeviceIcons::<Identity, Impl, OFFSET>,
             InitializeItemList: InitializeItemList::<Identity, Impl, OFFSET>,
@@ -732,7 +732,7 @@ impl IPhotoProgressActionCB_Vtbl {
             let this = (*this).get_impl();
             this.DoAction(::core::mem::transmute_copy(&hwndparent)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DoAction: DoAction::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoAction: DoAction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPhotoProgressActionCB as ::windows::core::Interface>::IID
@@ -873,7 +873,7 @@ impl IPhotoProgressDialog_Vtbl {
             this.GetUserInput(::core::mem::transmute_copy(&riidtype), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&ppropvarresult), ::core::mem::transmute_copy(&ppropvardefault)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Create: Create::<Identity, Impl, OFFSET>,
             GetWindow: GetWindow::<Identity, Impl, OFFSET>,
             Destroy: Destroy::<Identity, Impl, OFFSET>,
@@ -1021,7 +1021,7 @@ impl IUserInputString_Vtbl {
             this.GetImage(::core::mem::transmute_copy(&nsize), ::core::mem::transmute_copy(&phbitmap), ::core::mem::transmute_copy(&phicon)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSubmitButtonText: GetSubmitButtonText::<Identity, Impl, OFFSET>,
             GetPrompt: GetPrompt::<Identity, Impl, OFFSET>,
             GetStringId: GetStringId::<Identity, Impl, OFFSET>,

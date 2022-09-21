@@ -7362,7 +7362,7 @@ unsafe impl ::windows::core::Interface for ICertRequestD {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertRequestD_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pwszauthority: ::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: ::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
     pub GetCACert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fchain: u32, pwszauthority: ::windows::core::PCWSTR, pctbout: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT,
     pub Ping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszauthority: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -10188,7 +10188,7 @@ unsafe impl ::windows::core::Interface for IEnroll {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnroll_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub createFilePKCS10WStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, wszpkcs10filename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub acceptFilePKCS7WStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpkcs7filename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub createPKCS10WStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnname: ::windows::core::PCWSTR, usage: ::windows::core::PCWSTR, ppkcs10blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT,
@@ -12054,7 +12054,7 @@ unsafe impl ::windows::core::Interface for INDESPolicy {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INDESPolicy_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GenerateChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwsztemplate: ::windows::core::PCWSTR, pwszparams: ::windows::core::PCWSTR, ppwszresponse: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,

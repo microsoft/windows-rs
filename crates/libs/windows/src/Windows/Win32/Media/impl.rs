@@ -49,7 +49,7 @@ impl IReferenceClock_Vtbl {
             this.Unadvise(::core::mem::transmute_copy(&dwadvisecookie)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetTime: GetTime::<Identity, Impl, OFFSET>,
             AdviseTime: AdviseTime::<Identity, Impl, OFFSET>,
             AdvisePeriodic: AdvisePeriodic::<Identity, Impl, OFFSET>,
@@ -97,7 +97,7 @@ impl IReferenceClockTimerControl_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetDefaultTimerResolution: SetDefaultTimerResolution::<Identity, Impl, OFFSET>,
             GetDefaultTimerResolution: GetDefaultTimerResolution::<Identity, Impl, OFFSET>,
         }

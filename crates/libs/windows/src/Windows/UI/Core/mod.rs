@@ -7481,7 +7481,7 @@ struct DispatchedHandlerBox<F: FnMut() -> ::windows::core::Result<()> + ::core::
 }
 impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DispatchedHandlerBox<F> {
     const VTABLE: DispatchedHandler_Vtbl = DispatchedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7541,7 +7541,7 @@ unsafe impl ::windows::core::RuntimeType for DispatchedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DispatchedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -7568,7 +7568,7 @@ struct IdleDispatchedHandlerBox<F: FnMut(&::core::option::Option<IdleDispatchedH
 }
 impl<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> IdleDispatchedHandlerBox<F> {
     const VTABLE: IdleDispatchedHandler_Vtbl = IdleDispatchedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7628,7 +7628,7 @@ unsafe impl ::windows::core::RuntimeType for IdleDispatchedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IdleDispatchedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

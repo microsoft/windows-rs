@@ -22,7 +22,7 @@ impl IGetClusterDataInfo_Vtbl {
             this.GetObjectCount()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetClusterName: GetClusterName::<Identity, Impl, OFFSET>,
             GetClusterHandle: GetClusterHandle::<Identity, Impl, OFFSET>,
             GetObjectCount: GetObjectCount::<Identity, Impl, OFFSET>,
@@ -43,7 +43,7 @@ impl IGetClusterGroupInfo_Vtbl {
             let this = (*this).get_impl();
             this.GetGroupHandle(::core::mem::transmute_copy(&lobjindex))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetGroupHandle: GetGroupHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetGroupHandle: GetGroupHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetClusterGroupInfo as ::windows::core::Interface>::IID
@@ -60,7 +60,7 @@ impl IGetClusterNetInterfaceInfo_Vtbl {
             let this = (*this).get_impl();
             this.GetNetInterfaceHandle(::core::mem::transmute_copy(&lobjindex))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNetInterfaceHandle: GetNetInterfaceHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNetInterfaceHandle: GetNetInterfaceHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetClusterNetInterfaceInfo as ::windows::core::Interface>::IID
@@ -77,7 +77,7 @@ impl IGetClusterNetworkInfo_Vtbl {
             let this = (*this).get_impl();
             this.GetNetworkHandle(::core::mem::transmute_copy(&lobjindex))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNetworkHandle: GetNetworkHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNetworkHandle: GetNetworkHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetClusterNetworkInfo as ::windows::core::Interface>::IID
@@ -94,7 +94,7 @@ impl IGetClusterNodeInfo_Vtbl {
             let this = (*this).get_impl();
             this.GetNodeHandle(::core::mem::transmute_copy(&lobjindex))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetNodeHandle: GetNodeHandle::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNodeHandle: GetNodeHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetClusterNodeInfo as ::windows::core::Interface>::IID
@@ -118,7 +118,7 @@ impl IGetClusterObjectInfo_Vtbl {
             this.GetObjectType(::core::mem::transmute_copy(&lobjindex))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetObjectName: GetObjectName::<Identity, Impl, OFFSET>,
             GetObjectType: GetObjectType::<Identity, Impl, OFFSET>,
         }
@@ -154,7 +154,7 @@ impl IGetClusterResourceInfo_Vtbl {
             this.GetResourceNetworkName(::core::mem::transmute_copy(&lobjindex), ::core::mem::transmute_copy(&lpsznetname), ::core::mem::transmute_copy(&pcchnetname))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetResourceHandle: GetResourceHandle::<Identity, Impl, OFFSET>,
             GetResourceTypeName: GetResourceTypeName::<Identity, Impl, OFFSET>,
             GetResourceNetworkName: GetResourceNetworkName::<Identity, Impl, OFFSET>,
@@ -197,7 +197,7 @@ impl IGetClusterUIInfo_Vtbl {
             this.GetIcon()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetClusterName: GetClusterName::<Identity, Impl, OFFSET>,
             GetLocale: GetLocale::<Identity, Impl, OFFSET>,
             GetFont: GetFont::<Identity, Impl, OFFSET>,
@@ -4382,7 +4382,7 @@ impl IWCContextMenuCallback_Vtbl {
             let this = (*this).get_impl();
             this.AddExtensionMenuItem(::core::mem::transmute(&lpszname), ::core::mem::transmute(&lpszstatusbartext), ::core::mem::transmute_copy(&ncommandid), ::core::mem::transmute_copy(&nsubmenucommandid), ::core::mem::transmute_copy(&uflags)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddExtensionMenuItem: AddExtensionMenuItem::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddExtensionMenuItem: AddExtensionMenuItem::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWCContextMenuCallback as ::windows::core::Interface>::IID
@@ -4399,7 +4399,7 @@ impl IWCPropertySheetCallback_Vtbl {
             let this = (*this).get_impl();
             this.AddPropertySheetPage(::core::mem::transmute_copy(&hpage)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddPropertySheetPage: AddPropertySheetPage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddPropertySheetPage: AddPropertySheetPage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWCPropertySheetCallback as ::windows::core::Interface>::IID
@@ -4426,7 +4426,7 @@ impl IWCWizard97Callback_Vtbl {
             this.EnableNext(::core::mem::transmute_copy(&hpage), ::core::mem::transmute_copy(&benable)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddWizard97Page: AddWizard97Page::<Identity, Impl, OFFSET>,
             EnableNext: EnableNext::<Identity, Impl, OFFSET>,
         }
@@ -4456,7 +4456,7 @@ impl IWCWizardCallback_Vtbl {
             this.EnableNext(::core::mem::transmute_copy(&hpage), ::core::mem::transmute_copy(&benable)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddWizardPage: AddWizardPage::<Identity, Impl, OFFSET>,
             EnableNext: EnableNext::<Identity, Impl, OFFSET>,
         }
@@ -4476,7 +4476,7 @@ impl IWEExtendContextMenu_Vtbl {
             let this = (*this).get_impl();
             this.AddContextMenuItems(::core::mem::transmute(&pidata), ::core::mem::transmute(&picallback)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AddContextMenuItems: AddContextMenuItems::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddContextMenuItems: AddContextMenuItems::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEExtendContextMenu as ::windows::core::Interface>::IID
@@ -4493,7 +4493,7 @@ impl IWEExtendPropertySheet_Vtbl {
             let this = (*this).get_impl();
             this.CreatePropertySheetPages(::core::mem::transmute(&pidata), ::core::mem::transmute(&picallback)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreatePropertySheetPages: CreatePropertySheetPages::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreatePropertySheetPages: CreatePropertySheetPages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEExtendPropertySheet as ::windows::core::Interface>::IID
@@ -4510,7 +4510,7 @@ impl IWEExtendWizard_Vtbl {
             let this = (*this).get_impl();
             this.CreateWizardPages(::core::mem::transmute(&pidata), ::core::mem::transmute(&picallback)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateWizardPages: CreateWizardPages::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateWizardPages: CreateWizardPages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEExtendWizard as ::windows::core::Interface>::IID
@@ -4527,7 +4527,7 @@ impl IWEExtendWizard97_Vtbl {
             let this = (*this).get_impl();
             this.CreateWizard97Pages(::core::mem::transmute(&pidata), ::core::mem::transmute(&picallback)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateWizard97Pages: CreateWizard97Pages::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateWizard97Pages: CreateWizard97Pages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEExtendWizard97 as ::windows::core::Interface>::IID
@@ -4544,7 +4544,7 @@ impl IWEInvokeCommand_Vtbl {
             let this = (*this).get_impl();
             this.InvokeCommand(::core::mem::transmute_copy(&ncommandid), ::core::mem::transmute(&pidata)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), InvokeCommand: InvokeCommand::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InvokeCommand: InvokeCommand::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWEInvokeCommand as ::windows::core::Interface>::IID

@@ -1043,7 +1043,7 @@ struct GameListChangedEventHandlerBox<F: FnMut(&::core::option::Option<GameListE
 }
 impl<F: FnMut(&::core::option::Option<GameListEntry>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> GameListChangedEventHandlerBox<F> {
     const VTABLE: GameListChangedEventHandler_Vtbl = GameListChangedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1103,7 +1103,7 @@ unsafe impl ::windows::core::RuntimeType for GameListChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct GameListChangedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, game: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
@@ -1127,7 +1127,7 @@ struct GameListRemovedEventHandlerBox<F: FnMut(&::windows::core::HSTRING) -> ::w
 }
 impl<F: FnMut(&::windows::core::HSTRING) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> GameListRemovedEventHandlerBox<F> {
     const VTABLE: GameListRemovedEventHandler_Vtbl = GameListRemovedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1187,7 +1187,7 @@ unsafe impl ::windows::core::RuntimeType for GameListRemovedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct GameListRemovedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

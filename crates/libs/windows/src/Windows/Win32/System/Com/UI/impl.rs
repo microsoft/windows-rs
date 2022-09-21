@@ -12,7 +12,7 @@ impl IDummyHICONIncluder_Vtbl {
             let this = (*this).get_impl();
             this.Dummy(::core::mem::transmute_copy(&h1), ::core::mem::transmute_copy(&h2)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Dummy: Dummy::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Dummy: Dummy::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDummyHICONIncluder as ::windows::core::Interface>::IID
@@ -39,7 +39,7 @@ impl IThumbnailExtractor_Vtbl {
             this.OnFileUpdated(::core::mem::transmute(&pstg)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ExtractThumbnail: ExtractThumbnail::<Identity, Impl, OFFSET>,
             OnFileUpdated: OnFileUpdated::<Identity, Impl, OFFSET>,
         }

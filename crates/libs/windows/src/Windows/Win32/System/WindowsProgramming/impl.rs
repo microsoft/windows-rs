@@ -79,7 +79,7 @@ impl ICameraUIControl_Vtbl {
             this.RemoveCapturedItem(::core::mem::transmute(&pszpath)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Show: Show::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             Suspend: Suspend::<Identity, Impl, OFFSET>,
@@ -130,7 +130,7 @@ impl ICameraUIControlEventCallback_Vtbl {
             this.OnClosed()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStartupComplete: OnStartupComplete::<Identity, Impl, OFFSET>,
             OnSuspendComplete: OnSuspendComplete::<Identity, Impl, OFFSET>,
             OnItemCaptured: OnItemCaptured::<Identity, Impl, OFFSET>,
@@ -153,7 +153,7 @@ impl IClipServiceNotificationHelper_Vtbl {
             let this = (*this).get_impl();
             this.ShowToast(::core::mem::transmute(&titletext), ::core::mem::transmute(&bodytext), ::core::mem::transmute(&packagename), ::core::mem::transmute(&appid), ::core::mem::transmute(&launchcommand)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ShowToast: ShowToast::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ShowToast: ShowToast::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IClipServiceNotificationHelper as ::windows::core::Interface>::IID
@@ -176,7 +176,7 @@ impl IContainerActivationHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CanActivateClientVM: CanActivateClientVM::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CanActivateClientVM: CanActivateClientVM::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IContainerActivationHelper as ::windows::core::Interface>::IID
@@ -196,7 +196,7 @@ impl IDefaultBrowserSyncSettings_Vtbl {
             let this = (*this).get_impl();
             this.IsEnabled()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsEnabled: IsEnabled::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsEnabled: IsEnabled::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDefaultBrowserSyncSettings as ::windows::core::Interface>::IID
@@ -213,7 +213,7 @@ impl IDeleteBrowsingHistory_Vtbl {
             let this = (*this).get_impl();
             this.DeleteBrowsingHistory(::core::mem::transmute_copy(&dwflags)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DeleteBrowsingHistory: DeleteBrowsingHistory::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DeleteBrowsingHistory: DeleteBrowsingHistory::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeleteBrowsingHistory as ::windows::core::Interface>::IID
@@ -249,7 +249,7 @@ impl IEditionUpgradeBroker_Vtbl {
             this.CanUpgrade().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             InitializeParentWindow: InitializeParentWindow::<Identity, Impl, OFFSET>,
             UpdateOperatingSystem: UpdateOperatingSystem::<Identity, Impl, OFFSET>,
             ShowProductKeyUI: ShowProductKeyUI::<Identity, Impl, OFFSET>,
@@ -317,7 +317,7 @@ impl IEditionUpgradeHelper_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CanUpgrade: CanUpgrade::<Identity, Impl, OFFSET>,
             UpdateOperatingSystem: UpdateOperatingSystem::<Identity, Impl, OFFSET>,
             ShowProductKeyUI: ShowProductKeyUI::<Identity, Impl, OFFSET>,
@@ -349,7 +349,7 @@ impl IWindowsLockModeHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetSMode: GetSMode::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSMode: GetSMode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWindowsLockModeHelper as ::windows::core::Interface>::IID

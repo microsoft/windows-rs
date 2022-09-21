@@ -61,7 +61,7 @@ impl IGPEInformation_Vtbl {
             this.PolicyChanged(::core::mem::transmute_copy(&bmachine), ::core::mem::transmute_copy(&badd), ::core::mem::transmute_copy(&pguidextension), ::core::mem::transmute_copy(&pguidsnapin)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET>,
             GetRegistryKey: GetRegistryKey::<Identity, Impl, OFFSET>,
@@ -4751,7 +4751,7 @@ impl IGroupPolicyObject_Vtbl {
             this.GetPropertySheetPages(::core::mem::transmute_copy(&hpages), ::core::mem::transmute_copy(&upagecount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             New: New::<Identity, Impl, OFFSET>,
             OpenDSGPO: OpenDSGPO::<Identity, Impl, OFFSET>,
             OpenLocalMachineGPO: OpenLocalMachineGPO::<Identity, Impl, OFFSET>,
@@ -4806,7 +4806,7 @@ impl IRSOPInformation_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetNamespace: GetNamespace::<Identity, Impl, OFFSET>,
             GetFlags: GetFlags::<Identity, Impl, OFFSET>,
             GetEventLogEntryText: GetEventLogEntryText::<Identity, Impl, OFFSET>,

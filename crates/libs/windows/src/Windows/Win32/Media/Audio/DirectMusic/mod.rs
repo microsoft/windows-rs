@@ -87,7 +87,7 @@ unsafe impl ::windows::core::Interface for IDirectMusic {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusic_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EnumPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::HRESULT,
     pub CreateMusicBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -302,7 +302,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicBuffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicBuffer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TotalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prttime: *mut i64) -> ::windows::core::HRESULT,
     pub PackStructured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> ::windows::core::HRESULT,
@@ -370,7 +370,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicCollection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInstrument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpatch: u32, ppinstrument: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumInstrument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pdwpatch: *mut u32, pwszname: ::windows::core::PCWSTR, dwnamelen: u32) -> ::windows::core::HRESULT,
 }
@@ -420,7 +420,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicDownload {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicDownload_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
@@ -465,7 +465,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicDownloadedInstrument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicDownloadedInstrument_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 #[repr(transparent)]
@@ -516,7 +516,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicInstrument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicInstrument_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpatch: *mut u32) -> ::windows::core::HRESULT,
     pub SetPatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpatch: u32) -> ::windows::core::HRESULT,
 }
@@ -645,7 +645,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicPort {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicPort_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub PlayBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetReadNotificationHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hevent: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
@@ -745,7 +745,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicPortDownload {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicPortDownload_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdlid: u32, ppidmdownload: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AllocateBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsize: u32, ppidmdownload: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDLId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows::core::HRESULT,
@@ -869,7 +869,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicSynth {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicSynth_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1143,7 +1143,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicSynthSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicSynthSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psynth: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetMasterClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclock: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetLatencyClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclock: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1208,7 +1208,7 @@ unsafe impl ::windows::core::Interface for IDirectMusicThru {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicThru_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ThruChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 pub const CLSID_DirectMusic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x636b9f10_0c7d_11d1_95b2_0020afdc7421);

@@ -566,7 +566,7 @@ impl IDownloadCompletedCallback_Vtbl {
             let this = (*this).get_impl();
             this.Invoke(::core::mem::transmute(&downloadjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadCompletedCallback as ::windows::core::Interface>::IID
@@ -814,7 +814,7 @@ impl IDownloadProgressChangedCallback_Vtbl {
             let this = (*this).get_impl();
             this.Invoke(::core::mem::transmute(&downloadjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDownloadProgressChangedCallback as ::windows::core::Interface>::IID
@@ -1074,7 +1074,7 @@ impl IInstallationCompletedCallback_Vtbl {
             let this = (*this).get_impl();
             this.Invoke(::core::mem::transmute(&installationjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstallationCompletedCallback as ::windows::core::Interface>::IID
@@ -1257,7 +1257,7 @@ impl IInstallationProgressChangedCallback_Vtbl {
             let this = (*this).get_impl();
             this.Invoke(::core::mem::transmute(&installationjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInstallationProgressChangedCallback as ::windows::core::Interface>::IID
@@ -1397,7 +1397,7 @@ impl ISearchCompletedCallback_Vtbl {
             let this = (*this).get_impl();
             this.Invoke(::core::mem::transmute(&searchjob), ::core::mem::transmute(&callbackargs)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISearchCompletedCallback as ::windows::core::Interface>::IID
@@ -3694,7 +3694,7 @@ impl IUpdateLockdown_Vtbl {
             let this = (*this).get_impl();
             this.LockDown(::core::mem::transmute_copy(&flags)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), LockDown: LockDown::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LockDown: LockDown::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUpdateLockdown as ::windows::core::Interface>::IID

@@ -69,7 +69,7 @@ unsafe impl ::windows::core::Interface for IEnumWbemClassObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWbemClassObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltimeout: i32, ucount: u32, apobjects: *mut *mut ::core::ffi::c_void, pureturned: *mut u32) -> ::windows::core::HRESULT,
     pub NextAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucount: u32, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -146,7 +146,7 @@ unsafe impl ::windows::core::Interface for IMofCompiler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMofCompiler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CompileFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows::core::PCWSTR, serverandnamespace: ::windows::core::PCWSTR, user: ::windows::core::PCWSTR, authority: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::HRESULT,
     pub CompileBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffsize: i32, pbuffer: *const u8, serverandnamespace: ::windows::core::PCWSTR, user: ::windows::core::PCWSTR, authority: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::HRESULT,
     pub CreateBMOF: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textfilename: ::windows::core::PCWSTR, bmoffilename: ::windows::core::PCWSTR, serverandnamespace: ::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::HRESULT,
@@ -4254,7 +4254,7 @@ unsafe impl ::windows::core::Interface for IUnsecuredApartment {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnsecuredApartment_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateObjectStub: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, ppstub: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
@@ -4405,7 +4405,7 @@ unsafe impl ::windows::core::Interface for IWbemAddressResolution {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemAddressResolution_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsznamespacepath: ::windows::core::PCWSTR, wszaddresstype: ::windows::core::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -4463,7 +4463,7 @@ unsafe impl ::windows::core::Interface for IWbemBackupRestore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemBackupRestore_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Backup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strbackuptofile: ::windows::core::PCWSTR, lflags: i32) -> ::windows::core::HRESULT,
     pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strrestorefromfile: ::windows::core::PCWSTR, lflags: i32) -> ::windows::core::HRESULT,
 }
@@ -4606,7 +4606,7 @@ unsafe impl ::windows::core::Interface for IWbemCallResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemCallResult_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetResultObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltimeout: i32, ppresultobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetResultString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltimeout: i32, pstrresultstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetResultServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltimeout: i32, ppservices: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4786,7 +4786,7 @@ unsafe impl ::windows::core::Interface for IWbemClassObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemClassObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetQualifierSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqualset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszname: ::windows::core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows::core::HRESULT,
@@ -4888,7 +4888,7 @@ unsafe impl ::windows::core::Interface for IWbemClientConnectionTransport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemClientConnectionTransport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, straddresstype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: ::core::mem::ManuallyDrop<::windows::core::BSTR>, struser: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocale: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void, pcallres: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OpenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, straddresstype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: ::core::mem::ManuallyDrop<::windows::core::BSTR>, struser: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocale: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, presponsehandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, phandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4943,7 +4943,7 @@ unsafe impl ::windows::core::Interface for IWbemClientTransport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemClientTransport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ConnectServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, straddresstype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: ::core::mem::ManuallyDrop<::windows::core::BSTR>, struser: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocale: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lsecurityflags: i32, strauthority: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pctx: *mut ::core::ffi::c_void, ppnamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -5022,7 +5022,7 @@ unsafe impl ::windows::core::Interface for IWbemConfigureRefresher {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemConfigureRefresher_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddObjectByPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamespace: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, lflags: i32, pcontext: *mut ::core::ffi::c_void, pprefreshable: *mut *mut ::core::ffi::c_void, plid: *mut i32) -> ::windows::core::HRESULT,
     pub AddObjectByTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamespace: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void, lflags: i32, pcontext: *mut ::core::ffi::c_void, pprefreshable: *mut *mut ::core::ffi::c_void, plid: *mut i32) -> ::windows::core::HRESULT,
     pub AddRefresher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefresher: *mut ::core::ffi::c_void, lflags: i32, plid: *mut i32) -> ::windows::core::HRESULT,
@@ -5082,7 +5082,7 @@ unsafe impl ::windows::core::Interface for IWbemConnectorLogin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemConnectorLogin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ConnectorLogin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsznetworkresource: ::windows::core::PCWSTR, wszpreferredlocale: ::windows::core::PCWSTR, lflags: i32, pctx: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -5150,7 +5150,7 @@ unsafe impl ::windows::core::Interface for IWbemConstructClassObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemConstructClassObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetInheritanceChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnumantecedents: i32, awszantecedents: *const ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetPropertyOrigin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpropertyname: ::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::HRESULT,
     pub SetMethodOrigin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszmethodname: ::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::HRESULT,
@@ -5246,7 +5246,7 @@ unsafe impl ::windows::core::Interface for IWbemContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewcopy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pnames: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
@@ -5416,7 +5416,7 @@ unsafe impl ::windows::core::Interface for IWbemDecoupledRegistrar {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemDecoupledRegistrar_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_flags: i32, a_context: *mut ::core::ffi::c_void, a_user: ::windows::core::PCWSTR, a_locale: ::windows::core::PCWSTR, a_scope: ::windows::core::PCWSTR, a_registration: ::windows::core::PCWSTR, piunknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnRegister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5470,7 +5470,7 @@ unsafe impl ::windows::core::Interface for IWbemEventConsumerProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemEventConsumerProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FindConsumer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogicalconsumer: *mut ::core::ffi::c_void, ppconsumer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -5522,7 +5522,7 @@ unsafe impl ::windows::core::Interface for IWbemEventProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemEventProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ProvideEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -5574,7 +5574,7 @@ unsafe impl ::windows::core::Interface for IWbemEventProviderQuerySink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemEventProviderQuerySink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub NewQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwid: u32, wszquerylanguage: *const u16, wszquery: *const u16) -> ::windows::core::HRESULT,
     pub CancelQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwid: u32) -> ::windows::core::HRESULT,
 }
@@ -5624,7 +5624,7 @@ unsafe impl ::windows::core::Interface for IWbemEventProviderSecurity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemEventProviderSecurity_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AccessCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszquerylanguage: *const u16, wszquery: *const u16, lsidlength: i32, psid: *const u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -5771,7 +5771,7 @@ unsafe impl ::windows::core::Interface for IWbemHiPerfEnum {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemHiPerfEnum_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, unumobjects: u32, apids: *const i32, apobj: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, unumobjects: u32, apids: *const i32) -> ::windows::core::HRESULT,
     pub GetObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, unumobjects: u32, apobj: *mut *mut ::core::ffi::c_void, pureturned: *mut u32) -> ::windows::core::HRESULT,
@@ -5869,7 +5869,7 @@ unsafe impl ::windows::core::Interface for IWbemHiPerfProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemHiPerfProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryInstances: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamespace: *mut ::core::ffi::c_void, wszclass: ::windows::core::PCWSTR, lflags: i32, pctx: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateRefresher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamespace: *mut ::core::ffi::c_void, lflags: i32, pprefresher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateRefreshableObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamespace: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void, prefresher: *mut ::core::ffi::c_void, lflags: i32, pcontext: *mut ::core::ffi::c_void, pprefreshable: *mut *mut ::core::ffi::c_void, plid: *mut i32) -> ::windows::core::HRESULT,
@@ -5952,7 +5952,7 @@ unsafe impl ::windows::core::Interface for IWbemLevel1Login {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemLevel1Login_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EstablishPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszlocalelist: ::windows::core::PCWSTR, dwnumlocales: u32, reserved: *mut u32) -> ::windows::core::HRESULT,
     pub RequestChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsznetworkresource: ::windows::core::PCWSTR, wszuser: ::windows::core::PCWSTR, nonce: *mut u8) -> ::windows::core::HRESULT,
     pub WBEMLogin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpreferredlocale: ::windows::core::PCWSTR, accesstoken: *const u8, lflags: i32, pctx: *mut ::core::ffi::c_void, ppnamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6008,7 +6008,7 @@ unsafe impl ::windows::core::Interface for IWbemLocator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemLocator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ConnectServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strnetworkresource: ::core::mem::ManuallyDrop<::windows::core::BSTR>, struser: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocale: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lsecurityflags: i32, strauthority: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pctx: *mut ::core::ffi::c_void, ppnamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -6299,7 +6299,7 @@ unsafe impl ::windows::core::Interface for IWbemObjectSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemObjectSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Indicate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjectcount: i32, apobjarray: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, hresult: ::windows::core::HRESULT, strparam: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pobjparam: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -6460,7 +6460,7 @@ unsafe impl ::windows::core::Interface for IWbemObjectTextSrc {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemObjectTextSrc_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pobj: *mut ::core::ffi::c_void, uobjtextformat: u32, pctx: *mut ::core::ffi::c_void, strtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CreateFromText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, strtext: ::core::mem::ManuallyDrop<::windows::core::BSTR>, uobjtextformat: u32, pctx: *mut ::core::ffi::c_void, pnewobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -6632,7 +6632,7 @@ unsafe impl ::windows::core::Interface for IWbemPath {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemPath_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, umode: u32, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pubufflength: *mut u32, psztext: ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urequestedinfo: u32, puresponse: *mut u64) -> ::windows::core::HRESULT,
@@ -6760,7 +6760,7 @@ unsafe impl ::windows::core::Interface for IWbemPathKeyList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemPathKeyList_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pukeycount: *mut u32) -> ::windows::core::HRESULT,
     pub SetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszname: ::windows::core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6832,7 +6832,7 @@ unsafe impl ::windows::core::Interface for IWbemPropertyProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemPropertyProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, strlocale: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strclassmapping: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strinstmapping: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpropmapping: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvvalue: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6891,7 +6891,7 @@ unsafe impl ::windows::core::Interface for IWbemProviderIdentity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemProviderIdentity_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetRegistrationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pprovreg: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -6948,7 +6948,7 @@ unsafe impl ::windows::core::Interface for IWbemProviderInit {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemProviderInit_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszuser: ::windows::core::PCWSTR, lflags: i32, wsznamespace: ::windows::core::PCWSTR, wszlocale: ::windows::core::PCWSTR, pnamespace: *mut ::core::ffi::c_void, pctx: *mut ::core::ffi::c_void, pinitsink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -6997,7 +6997,7 @@ unsafe impl ::windows::core::Interface for IWbemProviderInitSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemProviderInitSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstatus: i32, lflags: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -7082,7 +7082,7 @@ unsafe impl ::windows::core::Interface for IWbemQualifierSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemQualifierSet_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszname: ::windows::core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -7171,7 +7171,7 @@ unsafe impl ::windows::core::Interface for IWbemQuery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemQuery_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Empty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetLanguageFeatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uflags: u32, uarraysize: u32, pufeatures: *const u32) -> ::windows::core::HRESULT,
     pub TestLanguageFeatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uflags: u32, uarraysize: *mut u32, pufeatures: *mut u32) -> ::windows::core::HRESULT,
@@ -7226,7 +7226,7 @@ unsafe impl ::windows::core::Interface for IWbemRefresher {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemRefresher_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -7428,7 +7428,7 @@ unsafe impl ::windows::core::Interface for IWbemServices {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemServices_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OpenNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strnamespace: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, ppworkingnamespace: *mut *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CancelAsyncCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub QueryObjectSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppresponsehandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7502,7 +7502,7 @@ unsafe impl ::windows::core::Interface for IWbemShutdown {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemShutdown_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ureason: i32, umaxmilliseconds: u32, pctx: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -7556,7 +7556,7 @@ unsafe impl ::windows::core::Interface for IWbemStatusCodeText {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemStatusCodeText_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetErrorCodeText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hres: ::windows::core::HRESULT, localeid: u32, lflags: i32, messagetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetFacilityCodeText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hres: ::windows::core::HRESULT, localeid: u32, lflags: i32, messagetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
@@ -7606,7 +7606,7 @@ unsafe impl ::windows::core::Interface for IWbemTransport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemTransport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -7658,7 +7658,7 @@ unsafe impl ::windows::core::Interface for IWbemUnboundObjectSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemUnboundObjectSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub IndicateToConsumer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogicalconsumer: *mut ::core::ffi::c_void, lnumobjects: i32, apobjects: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]

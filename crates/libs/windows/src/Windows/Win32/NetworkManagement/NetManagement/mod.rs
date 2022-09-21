@@ -2225,7 +2225,7 @@ unsafe impl ::windows::core::Interface for IEnumNetCfgBindingInterface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingInterface_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2287,7 +2287,7 @@ unsafe impl ::windows::core::Interface for IEnumNetCfgBindingPath {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingPath_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2349,7 +2349,7 @@ unsafe impl ::windows::core::Interface for IEnumNetCfgComponent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgComponent_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2424,7 +2424,7 @@ unsafe impl ::windows::core::Interface for INetCfg {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfg_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2488,7 +2488,7 @@ unsafe impl ::windows::core::Interface for INetCfgBindingInterface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgBindingInterface_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszwinterfacename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetUpperComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnccitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetLowerComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnccitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2575,7 +2575,7 @@ unsafe impl ::windows::core::Interface for INetCfgBindingPath {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgBindingPath_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub IsSamePathAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsSubPathOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2642,7 +2642,7 @@ unsafe impl ::windows::core::Interface for INetCfgClass {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClass_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FindComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwinfid: ::windows::core::PCWSTR, ppnccitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumcomponent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2717,7 +2717,7 @@ unsafe impl ::windows::core::Interface for INetCfgClassSetup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClassSetup_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SelectAndInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, pobotoken: *const OBO_TOKEN, ppnccitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2926,7 +2926,7 @@ unsafe impl ::windows::core::Interface for INetCfgComponent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponent_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszwdisplayname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwdisplayname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetHelpText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwhelptext: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
@@ -3037,7 +3037,7 @@ unsafe impl ::windows::core::Interface for INetCfgComponentBindings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentBindings_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BindTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnccitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnbindFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnccitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SupportsBindingInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pszwinterfacename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -3112,7 +3112,7 @@ unsafe impl ::windows::core::Interface for INetCfgComponentControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, picomp: *mut ::core::ffi::c_void, pinetcfg: *mut ::core::ffi::c_void, finstalling: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3176,7 +3176,7 @@ unsafe impl ::windows::core::Interface for INetCfgComponentNotifyBinding {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentNotifyBinding_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryBindingPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchangeflag: u32, pipath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyBindingPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchangeflag: u32, pipath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3245,7 +3245,7 @@ unsafe impl ::windows::core::Interface for INetCfgComponentNotifyGlobal {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentNotifyGlobal_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSupportedNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnotifications: *mut u32) -> ::windows::core::HRESULT,
     pub SysQueryBindingPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchangeflag: u32, pipath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SysNotifyBindingPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchangeflag: u32, pipath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3328,7 +3328,7 @@ unsafe impl ::windows::core::Interface for INetCfgComponentPropertyUi {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentPropertyUi_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryPropertyUi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3401,7 +3401,7 @@ unsafe impl ::windows::core::Interface for INetCfgComponentSetup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentSetup_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Install: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsetupflags: u32) -> ::windows::core::HRESULT,
     pub Upgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::core::HRESULT,
     pub ReadAnswerFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwanswerfile: ::windows::core::PCWSTR, pszwanswersections: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -3464,7 +3464,7 @@ unsafe impl ::windows::core::Interface for INetCfgComponentSysPrep {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentSysPrep_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SaveAdapterParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pncsp: *mut ::core::ffi::c_void, pszwanswersections: ::windows::core::PCWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub RestoreAdapterParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwanswerfile: ::windows::core::PCWSTR, pszwanswersection: ::windows::core::PCWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -3529,7 +3529,7 @@ unsafe impl ::windows::core::Interface for INetCfgComponentUpperEdge {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentUpperEdge_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInterfaceIdsForAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: *mut ::core::ffi::c_void, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub AddInterfacesToAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: *mut ::core::ffi::c_void, dwnuminterfaces: u32) -> ::windows::core::HRESULT,
     pub RemoveInterfacesFromAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: *mut ::core::ffi::c_void, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -3591,7 +3591,7 @@ unsafe impl ::windows::core::Interface for INetCfgLock {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgLock_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AcquireWriteLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmstimeout: u32, pszwclientdescription: ::windows::core::PCWSTR, ppszwclientdescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub ReleaseWriteLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsWriteLocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszwclientdescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
@@ -3646,7 +3646,7 @@ unsafe impl ::windows::core::Interface for INetCfgPnpReconfigCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgPnpReconfigCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SendPnpReconfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layer: NCPNP_RECONFIG_LAYER, pszwupper: ::windows::core::PCWSTR, pszwlower: ::windows::core::PCWSTR, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -3725,7 +3725,7 @@ unsafe impl ::windows::core::Interface for INetCfgSysPrep {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgSysPrep_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub HrSetupSetFirstDword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsection: ::windows::core::PCWSTR, pwszkey: ::windows::core::PCWSTR, dwvalue: u32) -> ::windows::core::HRESULT,
     pub HrSetupSetFirstString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsection: ::windows::core::PCWSTR, pwszkey: ::windows::core::PCWSTR, pwszvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3781,7 +3781,7 @@ unsafe impl ::windows::core::Interface for INetLanConnectionUiInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetLanConnectionUiInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDeviceGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -3833,7 +3833,7 @@ unsafe impl ::windows::core::Interface for INetRasConnectionIpUiInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetRasConnectionIpUiInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetUiInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut RASCON_IPUI) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3899,7 +3899,7 @@ unsafe impl ::windows::core::Interface for IProvisioningDomain {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisioningDomain_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwpathtofolder: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub Query: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwdomain: ::windows::core::PCWSTR, pszwlanguage: ::windows::core::PCWSTR, pszwxpathquery: ::windows::core::PCWSTR, nodes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3953,7 +3953,7 @@ unsafe impl ::windows::core::Interface for IProvisioningProfileWireless {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisioningProfileWireless_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrxmlconnectionconfigprofile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]

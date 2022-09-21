@@ -72,7 +72,7 @@ impl IAgileReference_Vtbl {
             let this = (*this).get_impl();
             this.Resolve(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvobjectreference)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAgileReference as ::windows::core::Interface>::IID
@@ -89,7 +89,7 @@ impl IApartmentShutdown_Vtbl {
             let this = (*this).get_impl();
             this.OnUninitialize(::core::mem::transmute_copy(&ui64apartmentidentifier))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnUninitialize: OnUninitialize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUninitialize: OnUninitialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApartmentShutdown as ::windows::core::Interface>::IID
@@ -107,7 +107,7 @@ impl IAppServiceConnectionExtendedExecution_Vtbl {
             this.OpenForExtendedExecutionAsync(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&operation)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OpenForExtendedExecutionAsync: OpenForExtendedExecutionAsync::<Identity, Impl, OFFSET>,
         }
     }
@@ -132,7 +132,7 @@ impl IBufferByteAccess_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Buffer: Buffer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Buffer: Buffer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBufferByteAccess as ::windows::core::Interface>::IID
@@ -180,7 +180,7 @@ impl ICastingController_Vtbl {
             this.UnAdvise(::core::mem::transmute_copy(&cookie)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Connect: Connect::<Identity, Impl, OFFSET>,
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
@@ -210,7 +210,7 @@ impl ICastingEventHandler_Vtbl {
             this.OnError(::core::mem::transmute_copy(&errorstatus), ::core::mem::transmute(&errormessage)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStateChanged: OnStateChanged::<Identity, Impl, OFFSET>,
             OnError: OnError::<Identity, Impl, OFFSET>,
         }
@@ -252,7 +252,7 @@ impl ICastingSourceInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetController: GetController::<Identity, Impl, OFFSET>,
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
         }
@@ -279,7 +279,7 @@ impl ICoreInputInterop_Vtbl {
             this.SetMessageHandled(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetInputSource: SetInputSource::<Identity, Impl, OFFSET>,
             SetMessageHandled: SetMessageHandled::<Identity, Impl, OFFSET>,
         }
@@ -426,7 +426,7 @@ impl ICoreWindowComponentInterop_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ConfigureComponentInput: ConfigureComponentInput::<Identity, Impl, OFFSET>,
             GetViewInstanceId: GetViewInstanceId::<Identity, Impl, OFFSET>,
         }
@@ -462,7 +462,7 @@ impl ICoreWindowInterop_Vtbl {
             this.SetMessageHandled(::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             WindowHandle: WindowHandle::<Identity, Impl, OFFSET>,
             SetMessageHandled: SetMessageHandled::<Identity, Impl, OFFSET>,
         }
@@ -534,7 +534,7 @@ impl ICorrelationVectorSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CorrelationVector: CorrelationVector::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CorrelationVector: CorrelationVector::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICorrelationVectorSource as ::windows::core::Interface>::IID
@@ -623,7 +623,7 @@ impl ILanguageExceptionErrorInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetLanguageException: GetLanguageException::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLanguageException: GetLanguageException::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageExceptionErrorInfo as ::windows::core::Interface>::IID
@@ -686,7 +686,7 @@ impl ILanguageExceptionStackBackTrace_Vtbl {
             let this = (*this).get_impl();
             this.GetStackBackTrace(::core::mem::transmute_copy(&maxframestocapture), ::core::mem::transmute_copy(&stackbacktrace), ::core::mem::transmute_copy(&framescaptured)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetStackBackTrace: GetStackBackTrace::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetStackBackTrace: GetStackBackTrace::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILanguageExceptionStackBackTrace as ::windows::core::Interface>::IID
@@ -710,7 +710,7 @@ impl ILanguageExceptionTransform_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetTransformedRestrictedErrorInfo: GetTransformedRestrictedErrorInfo::<Identity, Impl, OFFSET>,
         }
     }
@@ -729,7 +729,7 @@ impl IMemoryBufferByteAccess_Vtbl {
             let this = (*this).get_impl();
             this.GetBuffer(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&capacity)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetBuffer: GetBuffer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetBuffer: GetBuffer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMemoryBufferByteAccess as ::windows::core::Interface>::IID
@@ -806,7 +806,7 @@ impl IRestrictedErrorInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetErrorDetails: GetErrorDetails::<Identity, Impl, OFFSET>,
             GetReference: GetReference::<Identity, Impl, OFFSET>,
         }
@@ -934,7 +934,7 @@ impl IShareWindowCommandEventArgsInterop_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IShareWindowCommandEventArgsInterop as ::windows::core::Interface>::IID
@@ -954,7 +954,7 @@ impl IShareWindowCommandSourceInterop_Vtbl {
             let this = (*this).get_impl();
             this.GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&sharewindowcommandsource)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetForWindow: GetForWindow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetForWindow: GetForWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IShareWindowCommandSourceInterop as ::windows::core::Interface>::IID
@@ -1129,7 +1129,7 @@ impl IWeakReference_Vtbl {
             let this = (*this).get_impl();
             this.Resolve(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&objectreference)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWeakReference as ::windows::core::Interface>::IID
@@ -1152,7 +1152,7 @@ impl IWeakReferenceSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetWeakReference: GetWeakReference::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWeakReference: GetWeakReference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWeakReferenceSource as ::windows::core::Interface>::IID

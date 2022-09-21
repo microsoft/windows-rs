@@ -133,7 +133,7 @@ impl IDynamicRenderer_Vtbl {
             this.Draw(::core::mem::transmute_copy(&hdc)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Enabled: Enabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
             HWND: HWND::<Identity, Impl, OFFSET>,
@@ -212,7 +212,7 @@ impl IGestureRecognizer_Vtbl {
             this.Reset().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Enabled: Enabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
             MaxStrokeCount: MaxStrokeCount::<Identity, Impl, OFFSET>,
@@ -246,7 +246,7 @@ impl IHandwrittenTextInsertion_Vtbl {
             this.InsertInkRecognitionResult(::core::mem::transmute(&piinkrecoresult), ::core::mem::transmute_copy(&locale), ::core::mem::transmute_copy(&falternatecontainsautospacinginformation)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             InsertRecognitionResultsArray: InsertRecognitionResultsArray::<Identity, Impl, OFFSET>,
             InsertInkRecognitionResult: InsertInkRecognitionResult::<Identity, Impl, OFFSET>,
         }
@@ -2810,7 +2810,7 @@ impl IInkLineInfo_Vtbl {
             this.Recognize().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetFormat: SetFormat::<Identity, Impl, OFFSET>,
             GetFormat: GetFormat::<Identity, Impl, OFFSET>,
             GetInkExtent: GetInkExtent::<Identity, Impl, OFFSET>,
@@ -6371,7 +6371,7 @@ impl IInputPanelWindowHandle_Vtbl {
             this.SetAttachedEditWindow64(::core::mem::transmute_copy(&attachededitwindow)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AttachedEditWindow32: AttachedEditWindow32::<Identity, Impl, OFFSET>,
             SetAttachedEditWindow32: SetAttachedEditWindow32::<Identity, Impl, OFFSET>,
             AttachedEditWindow64: AttachedEditWindow64::<Identity, Impl, OFFSET>,
@@ -7077,7 +7077,7 @@ impl IRealTimeStylus_Vtbl {
             this.GetPacketDescriptionData(::core::mem::transmute_copy(&tcid), ::core::mem::transmute_copy(&pfinktodevicescalex), ::core::mem::transmute_copy(&pfinktodevicescaley), ::core::mem::transmute_copy(&pcpacketproperties), ::core::mem::transmute_copy(&pppacketproperties)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Enabled: Enabled::<Identity, Impl, OFFSET>,
             SetEnabled: SetEnabled::<Identity, Impl, OFFSET>,
             HWND: HWND::<Identity, Impl, OFFSET>,
@@ -7142,7 +7142,7 @@ impl IRealTimeStylus2_Vtbl {
             this.SetFlicksEnabled(::core::mem::transmute_copy(&fenable)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             FlicksEnabled: FlicksEnabled::<Identity, Impl, OFFSET>,
             SetFlicksEnabled: SetFlicksEnabled::<Identity, Impl, OFFSET>,
         }
@@ -7178,7 +7178,7 @@ impl IRealTimeStylus3_Vtbl {
             this.SetMultiTouchEnabled(::core::mem::transmute_copy(&fenable)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             MultiTouchEnabled: MultiTouchEnabled::<Identity, Impl, OFFSET>,
             SetMultiTouchEnabled: SetMultiTouchEnabled::<Identity, Impl, OFFSET>,
         }
@@ -7205,7 +7205,7 @@ impl IRealTimeStylusSynchronization_Vtbl {
             this.ReleaseLock(::core::mem::transmute_copy(&lock)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AcquireLock: AcquireLock::<Identity, Impl, OFFSET>,
             ReleaseLock: ReleaseLock::<Identity, Impl, OFFSET>,
         }
@@ -7278,7 +7278,7 @@ impl IStrokeBuilder_Vtbl {
             this.putref_Ink(::core::mem::transmute(&piinkobj)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateStroke: CreateStroke::<Identity, Impl, OFFSET>,
             BeginStroke: BeginStroke::<Identity, Impl, OFFSET>,
             AppendPackets: AppendPackets::<Identity, Impl, OFFSET>,
@@ -7421,7 +7421,7 @@ impl IStylusPlugin_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RealTimeStylusEnabled: RealTimeStylusEnabled::<Identity, Impl, OFFSET>,
             RealTimeStylusDisabled: RealTimeStylusDisabled::<Identity, Impl, OFFSET>,
             StylusInRange: StylusInRange::<Identity, Impl, OFFSET>,
@@ -7695,7 +7695,7 @@ impl ITextInputPanel_Vtbl {
             this.Unadvise(::core::mem::transmute(&eventsink)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AttachedEditWindow: AttachedEditWindow::<Identity, Impl, OFFSET>,
             SetAttachedEditWindow: SetAttachedEditWindow::<Identity, Impl, OFFSET>,
             CurrentInteractionMode: CurrentInteractionMode::<Identity, Impl, OFFSET>,
@@ -7808,7 +7808,7 @@ impl ITextInputPanelEventSink_Vtbl {
             this.TextInserted(::core::mem::transmute_copy(&ink)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             InPlaceStateChanging: InPlaceStateChanging::<Identity, Impl, OFFSET>,
             InPlaceStateChanged: InPlaceStateChanged::<Identity, Impl, OFFSET>,
             InPlaceSizeChanging: InPlaceSizeChanging::<Identity, Impl, OFFSET>,
@@ -7847,7 +7847,7 @@ impl ITextInputPanelRunInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsTipRunning: IsTipRunning::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsTipRunning: IsTipRunning::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITextInputPanelRunInfo as ::windows::core::Interface>::IID
@@ -7898,7 +7898,7 @@ impl ITipAutoCompleteClient_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseProvider: AdviseProvider::<Identity, Impl, OFFSET>,
             UnadviseProvider: UnadviseProvider::<Identity, Impl, OFFSET>,
             UserSelection: UserSelection::<Identity, Impl, OFFSET>,
@@ -7931,7 +7931,7 @@ impl ITipAutoCompleteProvider_Vtbl {
             this.Show(::core::mem::transmute_copy(&fshow)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             UpdatePendingText: UpdatePendingText::<Identity, Impl, OFFSET>,
             Show: Show::<Identity, Impl, OFFSET>,
         }

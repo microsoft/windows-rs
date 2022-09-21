@@ -103,7 +103,7 @@ impl IDeviceModelPlugIn_Vtbl {
             this.GetNeutralAxis(::core::mem::transmute_copy(&ccolors), ::core::mem::transmute_copy(&pxyzcolors)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetNumChannels: GetNumChannels::<Identity, Impl, OFFSET>,
             DeviceToColorimetricColors: DeviceToColorimetricColors::<Identity, Impl, OFFSET>,
@@ -145,7 +145,7 @@ impl IGamutMapModelPlugIn_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             SourceToDestinationAppearanceColors: SourceToDestinationAppearanceColors::<Identity, Impl, OFFSET>,
         }

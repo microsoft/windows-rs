@@ -40,7 +40,7 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
             this.Finish_JobModification().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin_JobTransferred: Begin_JobTransferred::<Identity, Impl, OFFSET>,
             Finish_JobTransferred: Finish_JobTransferred::<Identity, Impl, OFFSET>,
             Begin_JobError: Begin_JobError::<Identity, Impl, OFFSET>,
@@ -159,7 +159,7 @@ impl IBackgroundCopyCallback_Vtbl {
             this.JobModification(::core::mem::transmute(&pjob), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             JobTransferred: JobTransferred::<Identity, Impl, OFFSET>,
             JobError: JobError::<Identity, Impl, OFFSET>,
             JobModification: JobModification::<Identity, Impl, OFFSET>,
@@ -193,7 +193,7 @@ impl IBackgroundCopyCallback1_Vtbl {
             this.OnProgressEx(::core::mem::transmute_copy(&progresstype), ::core::mem::transmute(&pgroup), ::core::mem::transmute(&pjob), ::core::mem::transmute_copy(&dwfileindex), ::core::mem::transmute_copy(&dwprogressvalue), ::core::mem::transmute_copy(&dwbytearraysize), ::core::mem::transmute_copy(&pbyte)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStatus: OnStatus::<Identity, Impl, OFFSET>,
             OnProgress: OnProgress::<Identity, Impl, OFFSET>,
             OnProgressEx: OnProgressEx::<Identity, Impl, OFFSET>,
@@ -297,7 +297,7 @@ impl IBackgroundCopyError_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetError: GetError::<Identity, Impl, OFFSET>,
             GetFile: GetFile::<Identity, Impl, OFFSET>,
             GetErrorDescription: GetErrorDescription::<Identity, Impl, OFFSET>,
@@ -354,7 +354,7 @@ impl IBackgroundCopyFile_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRemoteName: GetRemoteName::<Identity, Impl, OFFSET>,
             GetLocalName: GetLocalName::<Identity, Impl, OFFSET>,
             GetProgress: GetProgress::<Identity, Impl, OFFSET>,
@@ -696,7 +696,7 @@ impl IBackgroundCopyGroup_Vtbl {
             this.SetNotificationPointer(::core::mem::transmute_copy(&iid), ::core::mem::transmute(&punk)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetProp: GetProp::<Identity, Impl, OFFSET>,
             SetProp: SetProp::<Identity, Impl, OFFSET>,
             GetProgress: GetProgress::<Identity, Impl, OFFSET>,
@@ -1015,7 +1015,7 @@ impl IBackgroundCopyJob_Vtbl {
             this.TakeOwnership().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddFileSet: AddFileSet::<Identity, Impl, OFFSET>,
             AddFile: AddFile::<Identity, Impl, OFFSET>,
             EnumFiles: EnumFiles::<Identity, Impl, OFFSET>,
@@ -1132,7 +1132,7 @@ impl IBackgroundCopyJob1_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CancelJob: CancelJob::<Identity, Impl, OFFSET>,
             GetProgress: GetProgress::<Identity, Impl, OFFSET>,
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
@@ -1459,7 +1459,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetClientCertificateByID: SetClientCertificateByID::<Identity, Impl, OFFSET>,
             SetClientCertificateByName: SetClientCertificateByName::<Identity, Impl, OFFSET>,
             RemoveClientCertificate: RemoveClientCertificate::<Identity, Impl, OFFSET>,
@@ -1582,7 +1582,7 @@ impl IBackgroundCopyManager_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateJob: CreateJob::<Identity, Impl, OFFSET>,
             GetJob: GetJob::<Identity, Impl, OFFSET>,
             EnumJobs: EnumJobs::<Identity, Impl, OFFSET>,
@@ -1635,7 +1635,7 @@ impl IBackgroundCopyQMgr_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateGroup: CreateGroup::<Identity, Impl, OFFSET>,
             GetGroup: GetGroup::<Identity, Impl, OFFSET>,
             EnumGroups: EnumGroups::<Identity, Impl, OFFSET>,
@@ -1656,7 +1656,10 @@ impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
             let this = (*this).get_impl();
             this.ValidateServerCertificate(::core::mem::transmute(&job), ::core::mem::transmute(&file), ::core::mem::transmute_copy(&certlength), ::core::mem::transmute_copy(&certdata), ::core::mem::transmute_copy(&certencodingtype), ::core::mem::transmute_copy(&certstorelength), ::core::mem::transmute_copy(&certstoredata)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ValidateServerCertificate: ValidateServerCertificate::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            ValidateServerCertificate: ValidateServerCertificate::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBackgroundCopyServerCertificateValidationCallback as ::windows::core::Interface>::IID
@@ -1707,7 +1710,7 @@ impl IBitsPeer_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPeerName: GetPeerName::<Identity, Impl, OFFSET>,
             IsAuthenticated: IsAuthenticated::<Identity, Impl, OFFSET>,
             IsAvailable: IsAvailable::<Identity, Impl, OFFSET>,
@@ -1843,7 +1846,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
             this.DiscoverPeers().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetMaximumCacheSize: GetMaximumCacheSize::<Identity, Impl, OFFSET>,
             SetMaximumCacheSize: SetMaximumCacheSize::<Identity, Impl, OFFSET>,
             GetMaximumContentAge: GetMaximumContentAge::<Identity, Impl, OFFSET>,
@@ -1945,7 +1948,7 @@ impl IBitsPeerCacheRecord_Vtbl {
             this.GetFileRanges(::core::mem::transmute_copy(&prangecount), ::core::mem::transmute_copy(&ppranges)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetId: GetId::<Identity, Impl, OFFSET>,
             GetOriginUrl: GetOriginUrl::<Identity, Impl, OFFSET>,
             GetFileSize: GetFileSize::<Identity, Impl, OFFSET>,
@@ -2007,7 +2010,7 @@ impl IBitsTokenOptions_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetHelperTokenFlags: SetHelperTokenFlags::<Identity, Impl, OFFSET>,
             GetHelperTokenFlags: GetHelperTokenFlags::<Identity, Impl, OFFSET>,
             SetHelperToken: SetHelperToken::<Identity, Impl, OFFSET>,
@@ -2067,7 +2070,7 @@ impl IEnumBackgroundCopyFiles_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2127,7 +2130,7 @@ impl IEnumBackgroundCopyGroups_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2187,7 +2190,7 @@ impl IEnumBackgroundCopyJobs_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2247,7 +2250,7 @@ impl IEnumBackgroundCopyJobs1_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2307,7 +2310,7 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2367,7 +2370,7 @@ impl IEnumBitsPeers_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,

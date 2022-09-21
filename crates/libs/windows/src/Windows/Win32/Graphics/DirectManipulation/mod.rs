@@ -44,7 +44,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationAutoScrollBehavior
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationAutoScrollBehavior_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
@@ -114,7 +114,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationCompositor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationCompositor_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, parentvisual: *mut ::core::ffi::c_void, childvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetUpdateManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updatemanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -296,7 +296,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationContent_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetContentRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentsize: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -364,7 +364,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationDeferContactServic
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationDeferContactService_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub DeferContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32, timeout: u32) -> ::windows::core::HRESULT,
     pub CancelContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT,
     pub CancelDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT,
@@ -419,7 +419,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationDragDropBehavior {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationDragDropBehavior_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> ::windows::core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT,
 }
@@ -472,7 +472,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationDragDropEventHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationDragDropEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnDragDropStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
@@ -521,7 +521,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationFrameInfoProvider 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationFrameInfoProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNextFrameInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
@@ -573,7 +573,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationInteractionEventHa
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationInteractionEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnInteraction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
@@ -676,7 +676,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1042,7 +1042,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationPrimaryContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationPrimaryContent_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetSnapInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> ::windows::core::HRESULT,
     pub SetSnapPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, motion: DIRECTMANIPULATION_MOTION_TYPES, points: *const f32, pointcount: u32) -> ::windows::core::HRESULT,
     pub SetSnapType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> ::windows::core::HRESULT,
@@ -1099,7 +1099,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationUpdateHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationUpdateHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
@@ -1164,7 +1164,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationUpdateManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationUpdateManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RegisterWaitHandleCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: super::super::Foundation::HANDLE, eventhandler: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1333,7 +1333,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationViewport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationViewport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT,
@@ -1631,7 +1631,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationViewportEventHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationViewportEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnViewportStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> ::windows::core::HRESULT,
     pub OnViewportUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnContentUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

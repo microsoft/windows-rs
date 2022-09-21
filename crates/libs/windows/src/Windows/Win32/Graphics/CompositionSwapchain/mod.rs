@@ -239,7 +239,7 @@ unsafe impl ::windows::core::Interface for IPresentStatistics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentStatistics_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPresentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub GetKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> PresentStatisticsKind,
 }
@@ -370,7 +370,7 @@ unsafe impl ::windows::core::Interface for IPresentationBuffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationBuffer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAvailableEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, availableeventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -423,7 +423,7 @@ unsafe impl ::windows::core::Interface for IPresentationContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationContent_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: usize),
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
@@ -479,7 +479,7 @@ unsafe impl ::windows::core::Interface for IPresentationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub IsPresentationSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u8,
     pub IsPresentationSupportedWithIndependentFlip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u8,
     pub CreatePresentationManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -584,7 +584,7 @@ unsafe impl ::windows::core::Interface for IPresentationManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddBufferFromResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resource: *mut ::core::ffi::c_void, presentationbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CreatePresentationSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositionsurfacehandle: super::super::Foundation::HANDLE, presentationsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

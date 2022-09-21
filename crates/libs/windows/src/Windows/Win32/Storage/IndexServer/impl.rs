@@ -37,7 +37,7 @@ impl IFilter_Vtbl {
             this.BindRegion(::core::mem::transmute(&origpos), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppunk))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             GetChunk: GetChunk::<Identity, Impl, OFFSET>,
             GetText: GetText::<Identity, Impl, OFFSET>,
@@ -67,7 +67,7 @@ impl IPhraseSink_Vtbl {
             this.PutPhrase(::core::mem::transmute(&pwcphrase), ::core::mem::transmute_copy(&cwcphrase)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             PutSmallPhrase: PutSmallPhrase::<Identity, Impl, OFFSET>,
             PutPhrase: PutPhrase::<Identity, Impl, OFFSET>,
         }

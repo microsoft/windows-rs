@@ -705,7 +705,7 @@ impl ICounterItem_Vtbl {
             this.GetStatistics(::core::mem::transmute_copy(&max), ::core::mem::transmute_copy(&min), ::core::mem::transmute_copy(&avg), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetColor: SetColor::<Identity, Impl, OFFSET>,
             Color: Color::<Identity, Impl, OFFSET>,
@@ -2460,7 +2460,7 @@ impl ILogFileItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Path: Path::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Path: Path::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILogFileItem as ::windows::core::Interface>::IID
@@ -3530,7 +3530,7 @@ impl ISystemMonitor_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Appearance: Appearance::<Identity, Impl, OFFSET>,
             SetAppearance: SetAppearance::<Identity, Impl, OFFSET>,
             BackColor: BackColor::<Identity, Impl, OFFSET>,
@@ -3847,7 +3847,7 @@ impl ISystemMonitorEvents_Vtbl {
             this.OnDblClick(::core::mem::transmute_copy(&index))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnCounterSelected: OnCounterSelected::<Identity, Impl, OFFSET>,
             OnCounterAdded: OnCounterAdded::<Identity, Impl, OFFSET>,
             OnCounterDeleted: OnCounterDeleted::<Identity, Impl, OFFSET>,
@@ -5043,7 +5043,7 @@ impl _ICounterItemUnion_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Value: Value::<Identity, Impl, OFFSET>,
             SetColor: SetColor::<Identity, Impl, OFFSET>,
             Color: Color::<Identity, Impl, OFFSET>,
@@ -5910,7 +5910,7 @@ impl _ISystemMonitorUnion_Vtbl {
             this.LoadSettings(::core::mem::transmute(&bstrsettingfilename)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Appearance: Appearance::<Identity, Impl, OFFSET>,
             SetAppearance: SetAppearance::<Identity, Impl, OFFSET>,
             BackColor: BackColor::<Identity, Impl, OFFSET>,

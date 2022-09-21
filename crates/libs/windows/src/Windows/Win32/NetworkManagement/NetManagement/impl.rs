@@ -34,7 +34,7 @@ impl IEnumNetCfgBindingInterface_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -81,7 +81,7 @@ impl IEnumNetCfgBindingPath_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -128,7 +128,7 @@ impl IEnumNetCfgComponent_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -199,7 +199,7 @@ impl INetCfg_Vtbl {
             this.QueryNetCfgClass(::core::mem::transmute_copy(&pguidclass), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvobject)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             Apply: Apply::<Identity, Impl, OFFSET>,
@@ -255,7 +255,7 @@ impl INetCfgBindingInterface_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetName: GetName::<Identity, Impl, OFFSET>,
             GetUpperComponent: GetUpperComponent::<Identity, Impl, OFFSET>,
             GetLowerComponent: GetLowerComponent::<Identity, Impl, OFFSET>,
@@ -346,7 +346,7 @@ impl INetCfgBindingPath_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsSamePathAs: IsSamePathAs::<Identity, Impl, OFFSET>,
             IsSubPathOf: IsSubPathOf::<Identity, Impl, OFFSET>,
             IsEnabled: IsEnabled::<Identity, Impl, OFFSET>,
@@ -391,7 +391,7 @@ impl INetCfgClass_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             FindComponent: FindComponent::<Identity, Impl, OFFSET>,
             EnumComponents: EnumComponents::<Identity, Impl, OFFSET>,
         }
@@ -439,7 +439,7 @@ impl INetCfgClassSetup_Vtbl {
             this.DeInstall(::core::mem::transmute(&pcomponent), ::core::mem::transmute_copy(&pobotoken), ::core::mem::transmute_copy(&pmszwrefs)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SelectAndInstall: SelectAndInstall::<Identity, Impl, OFFSET>,
             Install: Install::<Identity, Impl, OFFSET>,
             DeInstall: DeInstall::<Identity, Impl, OFFSET>,
@@ -613,7 +613,7 @@ impl INetCfgComponent_Vtbl {
             this.RaisePropertyUi(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&punkcontext)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET>,
             SetDisplayName: SetDisplayName::<Identity, Impl, OFFSET>,
             GetHelpText: GetHelpText::<Identity, Impl, OFFSET>,
@@ -692,7 +692,7 @@ impl INetCfgComponentBindings_Vtbl {
             this.MoveAfter(::core::mem::transmute(&pncbitemsrc), ::core::mem::transmute(&pncbitemdest)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BindTo: BindTo::<Identity, Impl, OFFSET>,
             UnbindFrom: UnbindFrom::<Identity, Impl, OFFSET>,
             SupportsBindingInterface: SupportsBindingInterface::<Identity, Impl, OFFSET>,
@@ -740,7 +740,7 @@ impl INetCfgComponentControl_Vtbl {
             this.CancelChanges().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ApplyRegistryChanges: ApplyRegistryChanges::<Identity, Impl, OFFSET>,
             ApplyPnpChanges: ApplyPnpChanges::<Identity, Impl, OFFSET>,
@@ -769,7 +769,7 @@ impl INetCfgComponentNotifyBinding_Vtbl {
             this.NotifyBindingPath(::core::mem::transmute_copy(&dwchangeflag), ::core::mem::transmute(&pipath)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             QueryBindingPath: QueryBindingPath::<Identity, Impl, OFFSET>,
             NotifyBindingPath: NotifyBindingPath::<Identity, Impl, OFFSET>,
         }
@@ -814,7 +814,7 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
             this.SysNotifyComponent(::core::mem::transmute_copy(&dwchangeflag), ::core::mem::transmute(&picomp)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSupportedNotifications: GetSupportedNotifications::<Identity, Impl, OFFSET>,
             SysQueryBindingPath: SysQueryBindingPath::<Identity, Impl, OFFSET>,
             SysNotifyBindingPath: SysNotifyBindingPath::<Identity, Impl, OFFSET>,
@@ -870,7 +870,7 @@ impl INetCfgComponentPropertyUi_Vtbl {
             this.CancelProperties().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             QueryPropertyUi: QueryPropertyUi::<Identity, Impl, OFFSET>,
             SetContext: SetContext::<Identity, Impl, OFFSET>,
             MergePropPages: MergePropPages::<Identity, Impl, OFFSET>,
@@ -913,7 +913,7 @@ impl INetCfgComponentSetup_Vtbl {
             this.Removing().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Install: Install::<Identity, Impl, OFFSET>,
             Upgrade: Upgrade::<Identity, Impl, OFFSET>,
             ReadAnswerFile: ReadAnswerFile::<Identity, Impl, OFFSET>,
@@ -942,7 +942,7 @@ impl INetCfgComponentSysPrep_Vtbl {
             this.RestoreAdapterParameters(::core::mem::transmute(&pszwanswerfile), ::core::mem::transmute(&pszwanswersection), ::core::mem::transmute_copy(&padapterinstanceguid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SaveAdapterParameters: SaveAdapterParameters::<Identity, Impl, OFFSET>,
             RestoreAdapterParameters: RestoreAdapterParameters::<Identity, Impl, OFFSET>,
         }
@@ -975,7 +975,7 @@ impl INetCfgComponentUpperEdge_Vtbl {
             this.RemoveInterfacesFromAdapter(::core::mem::transmute(&padapter), ::core::mem::transmute_copy(&dwnuminterfaces), ::core::mem::transmute_copy(&pguidinterfaceids)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetInterfaceIdsForAdapter: GetInterfaceIdsForAdapter::<Identity, Impl, OFFSET>,
             AddInterfacesToAdapter: AddInterfacesToAdapter::<Identity, Impl, OFFSET>,
             RemoveInterfacesFromAdapter: RemoveInterfacesFromAdapter::<Identity, Impl, OFFSET>,
@@ -1021,7 +1021,7 @@ impl INetCfgLock_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AcquireWriteLock: AcquireWriteLock::<Identity, Impl, OFFSET>,
             ReleaseWriteLock: ReleaseWriteLock::<Identity, Impl, OFFSET>,
             IsWriteLocked: IsWriteLocked::<Identity, Impl, OFFSET>,
@@ -1042,7 +1042,7 @@ impl INetCfgPnpReconfigCallback_Vtbl {
             let this = (*this).get_impl();
             this.SendPnpReconfig(::core::mem::transmute_copy(&layer), ::core::mem::transmute(&pszwupper), ::core::mem::transmute(&pszwlower), ::core::mem::transmute_copy(&pvdata), ::core::mem::transmute_copy(&dwsizeofdata)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SendPnpReconfig: SendPnpReconfig::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SendPnpReconfig: SendPnpReconfig::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetCfgPnpReconfigCallback as ::windows::core::Interface>::IID
@@ -1081,7 +1081,7 @@ impl INetCfgSysPrep_Vtbl {
             this.HrSetupSetFirstMultiSzField(::core::mem::transmute(&pwszsection), ::core::mem::transmute(&pwszkey), ::core::mem::transmute(&pmszvalue)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             HrSetupSetFirstDword: HrSetupSetFirstDword::<Identity, Impl, OFFSET>,
             HrSetupSetFirstString: HrSetupSetFirstString::<Identity, Impl, OFFSET>,
             HrSetupSetFirstStringAsBool: HrSetupSetFirstStringAsBool::<Identity, Impl, OFFSET>,
@@ -1109,7 +1109,7 @@ impl INetLanConnectionUiInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetDeviceGuid: GetDeviceGuid::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDeviceGuid: GetDeviceGuid::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetLanConnectionUiInfo as ::windows::core::Interface>::IID
@@ -1135,7 +1135,7 @@ impl INetRasConnectionIpUiInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetUiInfo: GetUiInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUiInfo: GetUiInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<INetRasConnectionIpUiInfo as ::windows::core::Interface>::IID
@@ -1167,7 +1167,7 @@ impl IProvisioningDomain_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET>, Query: Query::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET>, Query: Query::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvisioningDomain as ::windows::core::Interface>::IID
@@ -1190,7 +1190,7 @@ impl IProvisioningProfileWireless_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateProfile: CreateProfile::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProfile: CreateProfile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvisioningProfileWireless as ::windows::core::Interface>::IID

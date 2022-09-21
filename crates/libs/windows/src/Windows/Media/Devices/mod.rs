@@ -8003,7 +8003,7 @@ struct CallControlEventHandlerBox<F: FnMut(&::core::option::Option<CallControl>)
 }
 impl<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> CallControlEventHandlerBox<F> {
     const VTABLE: CallControlEventHandler_Vtbl = CallControlEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -8063,7 +8063,7 @@ unsafe impl ::windows::core::RuntimeType for CallControlEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct CallControlEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -8091,7 +8091,7 @@ struct DialRequestedEventHandlerBox<F: FnMut(&::core::option::Option<CallControl
 }
 impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DialRequestedEventHandlerBox<F> {
     const VTABLE: DialRequestedEventHandler_Vtbl = DialRequestedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -8151,7 +8151,7 @@ unsafe impl ::windows::core::RuntimeType for DialRequestedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DialRequestedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -8179,7 +8179,7 @@ struct KeypadPressedEventHandlerBox<F: FnMut(&::core::option::Option<CallControl
 }
 impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> KeypadPressedEventHandlerBox<F> {
     const VTABLE: KeypadPressedEventHandler_Vtbl = KeypadPressedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -8239,7 +8239,7 @@ unsafe impl ::windows::core::RuntimeType for KeypadPressedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct KeypadPressedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -8267,7 +8267,7 @@ struct RedialRequestedEventHandlerBox<F: FnMut(&::core::option::Option<CallContr
 }
 impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> RedialRequestedEventHandlerBox<F> {
     const VTABLE: RedialRequestedEventHandler_Vtbl = RedialRequestedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -8327,7 +8327,7 @@ unsafe impl ::windows::core::RuntimeType for RedialRequestedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RedialRequestedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

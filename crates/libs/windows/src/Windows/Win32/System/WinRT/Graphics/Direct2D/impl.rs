@@ -31,7 +31,7 @@ impl IGeometrySource2DInterop_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetGeometry: GetGeometry::<Identity, Impl, OFFSET>,
             TryGetGeometryUsingFactory: TryGetGeometryUsingFactory::<Identity, Impl, OFFSET>,
         }
@@ -115,7 +115,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetEffectId: GetEffectId::<Identity, Impl, OFFSET>,
             GetNamedPropertyMapping: GetNamedPropertyMapping::<Identity, Impl, OFFSET>,
             GetPropertyCount: GetPropertyCount::<Identity, Impl, OFFSET>,

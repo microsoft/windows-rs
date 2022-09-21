@@ -9,7 +9,7 @@ impl ID2D1AnalysisTransform_Vtbl {
             let this = (*this).get_impl();
             this.ProcessAnalysisResults(::core::mem::transmute_copy(&analysisdata), ::core::mem::transmute_copy(&analysisdatacount)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ProcessAnalysisResults: ProcessAnalysisResults::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProcessAnalysisResults: ProcessAnalysisResults::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1AnalysisTransform as ::windows::core::Interface>::IID
@@ -678,7 +678,7 @@ impl ID2D1CommandSink_Vtbl {
             this.PopLayer().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginDraw: BeginDraw::<Identity, Impl, OFFSET>,
             EndDraw: EndDraw::<Identity, Impl, OFFSET>,
             SetAntialiasMode: SetAntialiasMode::<Identity, Impl, OFFSET>,
@@ -2367,7 +2367,7 @@ impl ID2D1EffectContext_Vtbl {
             this.IsBufferPrecisionSupported(::core::mem::transmute_copy(&bufferprecision))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDpi: GetDpi::<Identity, Impl, OFFSET>,
             CreateEffect: CreateEffect::<Identity, Impl, OFFSET>,
             GetMaximumSupportedFeatureLevel: GetMaximumSupportedFeatureLevel::<Identity, Impl, OFFSET>,
@@ -2487,7 +2487,7 @@ impl ID2D1EffectImpl_Vtbl {
             this.SetGraph(::core::mem::transmute(&transformgraph)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             PrepareForRender: PrepareForRender::<Identity, Impl, OFFSET>,
             SetGraph: SetGraph::<Identity, Impl, OFFSET>,
@@ -2682,7 +2682,7 @@ impl ID2D1Factory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ReloadSystemMetrics: ReloadSystemMetrics::<Identity, Impl, OFFSET>,
             GetDesktopDpi: GetDesktopDpi::<Identity, Impl, OFFSET>,
             CreateRectangleGeometry: CreateRectangleGeometry::<Identity, Impl, OFFSET>,
@@ -3008,7 +3008,7 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
             this.ReleaseDC(::core::mem::transmute_copy(&update)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDC: GetDC::<Identity, Impl, OFFSET>,
             ReleaseDC: ReleaseDC::<Identity, Impl, OFFSET>,
         }
@@ -3100,7 +3100,7 @@ impl ID2D1GdiMetafileSink_Vtbl {
             let this = (*this).get_impl();
             this.ProcessRecord(::core::mem::transmute_copy(&recordtype), ::core::mem::transmute_copy(&recorddata), ::core::mem::transmute_copy(&recorddatasize)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ProcessRecord: ProcessRecord::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProcessRecord: ProcessRecord::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1GdiMetafileSink as ::windows::core::Interface>::IID
@@ -3968,7 +3968,7 @@ impl ID2D1Multithread_Vtbl {
             this.Leave()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetMultithreadProtected: GetMultithreadProtected::<Identity, Impl, OFFSET>,
             Enter: Enter::<Identity, Impl, OFFSET>,
             Leave: Leave::<Identity, Impl, OFFSET>,
@@ -4120,7 +4120,7 @@ impl ID2D1PrintControl_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddPage: AddPage::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -4207,7 +4207,7 @@ impl ID2D1Properties_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPropertyCount: GetPropertyCount::<Identity, Impl, OFFSET>,
             GetPropertyName: GetPropertyName::<Identity, Impl, OFFSET>,
             GetPropertyNameLength: GetPropertyNameLength::<Identity, Impl, OFFSET>,
@@ -4357,7 +4357,7 @@ impl ID2D1RenderInfo_Vtbl {
             this.SetInstructionCountHint(::core::mem::transmute_copy(&instructioncount))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetInputDescription: SetInputDescription::<Identity, Impl, OFFSET>,
             SetOutputBuffer: SetOutputBuffer::<Identity, Impl, OFFSET>,
             SetCached: SetCached::<Identity, Impl, OFFSET>,
@@ -4826,7 +4826,7 @@ impl ID2D1Resource_Vtbl {
             let this = (*this).get_impl();
             this.GetFactory(::core::mem::transmute_copy(&factory))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetFactory: GetFactory::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetFactory: GetFactory::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1Resource as ::windows::core::Interface>::IID
@@ -4843,7 +4843,7 @@ impl ID2D1ResourceTexture_Vtbl {
             let this = (*this).get_impl();
             this.Update(::core::mem::transmute_copy(&minimumextents), ::core::mem::transmute_copy(&maximimumextents), ::core::mem::transmute_copy(&strides), ::core::mem::transmute_copy(&dimensions), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datacount)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1ResourceTexture as ::windows::core::Interface>::IID
@@ -5804,7 +5804,7 @@ impl ID2D1TessellationSink_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddTriangles: AddTriangles::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
         }
@@ -5916,7 +5916,7 @@ impl ID2D1TransformGraph_Vtbl {
             this.SetPassthroughGraph(::core::mem::transmute_copy(&effectinputindex)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetInputCount: GetInputCount::<Identity, Impl, OFFSET>,
             SetSingleTransformNode: SetSingleTransformNode::<Identity, Impl, OFFSET>,
             AddNode: AddNode::<Identity, Impl, OFFSET>,
@@ -5943,7 +5943,7 @@ impl ID2D1TransformNode_Vtbl {
             let this = (*this).get_impl();
             this.GetInputCount()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetInputCount: GetInputCount::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInputCount: GetInputCount::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1TransformNode as ::windows::core::Interface>::IID
@@ -6023,7 +6023,7 @@ impl ID2D1VertexBuffer_Vtbl {
             let this = (*this).get_impl();
             this.Unmap().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Map: Map::<Identity, Impl, OFFSET>, Unmap: Unmap::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Map: Map::<Identity, Impl, OFFSET>, Unmap: Unmap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID2D1VertexBuffer as ::windows::core::Interface>::IID

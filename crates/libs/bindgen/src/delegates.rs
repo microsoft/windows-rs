@@ -96,7 +96,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         #features
         impl<#constraints #fn_constraint> #boxed<#generic_names F> {
             const VTABLE: #vtbl<#generic_names> = #vtbl::<#generic_names>{
-                base__: ::windows::core::IUnknownVtbl{QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release},
+                base__: ::windows::core::IUnknown_Vtbl{QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release},
                 Invoke: Self::Invoke,
                 #(#named_phantoms)*
             };

@@ -1750,7 +1750,7 @@ struct SelectableWordSegmentsTokenizingHandlerBox<F: FnMut(&::core::option::Opti
 #[cfg(feature = "Foundation_Collections")]
 impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
     const VTABLE: SelectableWordSegmentsTokenizingHandler_Vtbl = SelectableWordSegmentsTokenizingHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1817,7 +1817,7 @@ unsafe impl ::windows::core::RuntimeType for SelectableWordSegmentsTokenizingHan
 #[repr(C)]
 #[doc(hidden)]
 pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -1856,7 +1856,7 @@ struct WordSegmentsTokenizingHandlerBox<F: FnMut(&::core::option::Option<super::
 #[cfg(feature = "Foundation_Collections")]
 impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> WordSegmentsTokenizingHandlerBox<F> {
     const VTABLE: WordSegmentsTokenizingHandler_Vtbl = WordSegmentsTokenizingHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1923,7 +1923,7 @@ unsafe impl ::windows::core::RuntimeType for WordSegmentsTokenizingHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct WordSegmentsTokenizingHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
