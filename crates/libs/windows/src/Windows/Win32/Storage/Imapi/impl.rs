@@ -369,7 +369,7 @@ impl IBurnVerification_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetBurnVerificationLevel: SetBurnVerificationLevel::<Identity, Impl, OFFSET>,
             BurnVerificationLevel: BurnVerificationLevel::<Identity, Impl, OFFSET>,
         }
@@ -1781,7 +1781,7 @@ impl IDiscMaster_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             EnumDiscMasterFormats: EnumDiscMasterFormats::<Identity, Impl, OFFSET>,
             GetActiveDiscMasterFormat: GetActiveDiscMasterFormat::<Identity, Impl, OFFSET>,
@@ -1934,7 +1934,7 @@ impl IDiscMasterProgressEvents_Vtbl {
             this.NotifyEraseComplete(::core::mem::transmute_copy(&status)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             QueryCancel: QueryCancel::<Identity, Impl, OFFSET>,
             NotifyPnPActivity: NotifyPnPActivity::<Identity, Impl, OFFSET>,
             NotifyAddProgress: NotifyAddProgress::<Identity, Impl, OFFSET>,
@@ -2079,7 +2079,7 @@ impl IDiscRecorder_Vtbl {
             this.Close().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Init: Init::<Identity, Impl, OFFSET>,
             GetRecorderGUID: GetRecorderGUID::<Identity, Impl, OFFSET>,
             GetRecorderType: GetRecorderType::<Identity, Impl, OFFSET>,
@@ -2483,7 +2483,7 @@ impl IDiscRecorder2Ex_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SendCommandNoData: SendCommandNoData::<Identity, Impl, OFFSET>,
             SendCommandSendDataToDevice: SendCommandSendDataToDevice::<Identity, Impl, OFFSET>,
             SendCommandGetDataFromDevice: SendCommandGetDataFromDevice::<Identity, Impl, OFFSET>,
@@ -2544,7 +2544,7 @@ impl IEnumDiscMasterFormats_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2591,7 +2591,7 @@ impl IEnumDiscRecorders_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2641,7 +2641,7 @@ impl IEnumFsiItems_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -2691,7 +2691,7 @@ impl IEnumProgressItems_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -4081,7 +4081,7 @@ impl IJolietDiscMaster_Vtbl {
             this.SetJolietProperties(::core::mem::transmute(&ppropstg)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetTotalDataBlocks: GetTotalDataBlocks::<Identity, Impl, OFFSET>,
             GetUsedDataBlocks: GetUsedDataBlocks::<Identity, Impl, OFFSET>,
             GetDataBlockSize: GetDataBlockSize::<Identity, Impl, OFFSET>,
@@ -4940,7 +4940,7 @@ impl IRedbookDiscMaster_Vtbl {
             this.CloseAudioTrack().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetTotalAudioTracks: GetTotalAudioTracks::<Identity, Impl, OFFSET>,
             GetTotalAudioBlocks: GetTotalAudioBlocks::<Identity, Impl, OFFSET>,
             GetUsedAudioBlocks: GetUsedAudioBlocks::<Identity, Impl, OFFSET>,

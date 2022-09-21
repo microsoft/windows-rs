@@ -47,7 +47,7 @@ unsafe impl ::windows::core::Interface for IComponentAuthenticate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentAuthenticate_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SACAuth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows::core::HRESULT,
     pub SACGetProtocols: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -134,7 +134,7 @@ unsafe impl ::windows::core::Interface for IMDSPDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDevice_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
     pub GetManufacturer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
     pub GetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut u32) -> ::windows::core::HRESULT,
@@ -533,7 +533,7 @@ unsafe impl ::windows::core::Interface for IMDSPDeviceControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDeviceControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDCStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilitiesmask: *mut u32) -> ::windows::core::HRESULT,
     pub Play: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -600,7 +600,7 @@ unsafe impl ::windows::core::Interface for IMDSPDirectTransfer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDirectTransfer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub TransferToDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsourcefilepath: ::windows::core::PCWSTR, psourceoperation: *mut ::core::ffi::c_void, fuflags: u32, pwszdestinationname: ::windows::core::PCWSTR, psourcemetadata: *mut ::core::ffi::c_void, ptransferprogress: *mut ::core::ffi::c_void, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -660,7 +660,7 @@ unsafe impl ::windows::core::Interface for IMDSPEnumDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPEnumDevice_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppdevice: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -723,7 +723,7 @@ unsafe impl ::windows::core::Interface for IMDSPEnumStorage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPEnumStorage_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppstorage: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -807,7 +807,7 @@ unsafe impl ::windows::core::Interface for IMDSPObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32) -> ::windows::core::HRESULT,
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
@@ -989,7 +989,7 @@ unsafe impl ::windows::core::Interface for IMDSPObjectInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPObjectInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPlayLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows::core::HRESULT,
     pub SetPlayLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlength: u32) -> ::windows::core::HRESULT,
     pub GetPlayOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwoffset: *mut u32) -> ::windows::core::HRESULT,
@@ -1044,7 +1044,7 @@ unsafe impl ::windows::core::Interface for IMDSPRevoked {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPRevoked_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRevocationURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszrevocationurl: *mut ::windows::core::PWSTR, pdwbufferlen: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1133,7 +1133,7 @@ unsafe impl ::windows::core::Interface for IMDSPStorage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPStorage_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
     pub SetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Audio"))]
@@ -1739,7 +1739,7 @@ unsafe impl ::windows::core::Interface for IMDSPStorageGlobals {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPStorageGlobals_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilities: *mut u32) -> ::windows::core::HRESULT,
     pub GetSerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub GetTotalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::core::HRESULT,
@@ -1801,7 +1801,7 @@ unsafe impl ::windows::core::Interface for IMDServiceProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDServiceProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDeviceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2020,7 +2020,7 @@ unsafe impl ::windows::core::Interface for ISCPSecureAuthenticate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureAuthenticate_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSecureQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurequery: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -2144,7 +2144,7 @@ unsafe impl ::windows::core::Interface for ISCPSecureExchange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureExchange_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub TransferContainerData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub ObjectData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub TransferComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2402,7 +2402,7 @@ unsafe impl ::windows::core::Interface for ISCPSecureQuery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureQuery_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDataDemands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub ExamineData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pwszextension: ::windows::core::PCWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub MakeDecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: *mut ::core::ffi::c_void, ppexchange: *mut *mut ::core::ffi::c_void, abmac: *mut u8) -> ::windows::core::HRESULT,
@@ -2736,7 +2736,7 @@ unsafe impl ::windows::core::Interface for ISCPSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSession_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BeginSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidevice: *mut ::core::ffi::c_void, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
     pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
     pub GetSecureQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurequery: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2824,7 +2824,7 @@ unsafe impl ::windows::core::Interface for IWMDMDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDevice_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
     pub GetManufacturer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
     pub GetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut u32) -> ::windows::core::HRESULT,
@@ -3223,7 +3223,7 @@ unsafe impl ::windows::core::Interface for IWMDMDeviceControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDeviceControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilitiesmask: *mut u32) -> ::windows::core::HRESULT,
     pub Play: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3285,7 +3285,7 @@ unsafe impl ::windows::core::Interface for IWMDMDeviceSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDeviceSession_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BeginSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
     pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
 }
@@ -3346,7 +3346,7 @@ unsafe impl ::windows::core::Interface for IWMDMEnumDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMEnumDevice_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppdevice: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3409,7 +3409,7 @@ unsafe impl ::windows::core::Interface for IWMDMEnumStorage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMEnumStorage_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppstorage: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3504,7 +3504,7 @@ unsafe impl ::windows::core::Interface for IWMDMLogger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMLogger_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3583,7 +3583,7 @@ unsafe impl ::windows::core::Interface for IWMDMMetaData {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMMetaData_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_TAG_DATATYPE, pwsztagname: ::windows::core::PCWSTR, pvalue: *const u8, ilength: u32) -> ::windows::core::HRESULT,
     pub QueryByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwsztagname: ::windows::core::PCWSTR, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::HRESULT,
     pub QueryByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::HRESULT,
@@ -3638,7 +3638,7 @@ unsafe impl ::windows::core::Interface for IWMDMNotification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMNotification_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub WMDMMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pwszcanonicalname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -3710,7 +3710,7 @@ unsafe impl ::windows::core::Interface for IWMDMObjectInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMObjectInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPlayLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows::core::HRESULT,
     pub SetPlayLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlength: u32) -> ::windows::core::HRESULT,
     pub GetPlayOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwoffset: *mut u32) -> ::windows::core::HRESULT,
@@ -3799,7 +3799,7 @@ unsafe impl ::windows::core::Interface for IWMDMOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMOperation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BeginRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BeginWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
@@ -4085,7 +4085,7 @@ unsafe impl ::windows::core::Interface for IWMDMProgress {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMProgress_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwestimatedticks: u32) -> ::windows::core::HRESULT,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtranspiredticks: u32) -> ::windows::core::HRESULT,
     pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4308,7 +4308,7 @@ unsafe impl ::windows::core::Interface for IWMDMRevoked {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMRevoked_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRevocationURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszrevocationurl: *mut ::windows::core::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4388,7 +4388,7 @@ unsafe impl ::windows::core::Interface for IWMDMStorage {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorage_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_Audio")]
     pub SetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Audio"))]
@@ -4943,7 +4943,7 @@ unsafe impl ::windows::core::Interface for IWMDMStorageControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorageControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Insert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pwszfile: ::windows::core::PCWSTR, poperation: *mut ::core::ffi::c_void, pprogress: *mut ::core::ffi::c_void, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pprogress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Rename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pwsznewname: ::windows::core::PCWSTR, pprogress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5261,7 +5261,7 @@ unsafe impl ::windows::core::Interface for IWMDMStorageGlobals {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorageGlobals_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilities: *mut u32) -> ::windows::core::HRESULT,
     pub GetSerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub GetTotalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::core::HRESULT,
@@ -5325,7 +5325,7 @@ unsafe impl ::windows::core::Interface for IWMDeviceManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDeviceManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRevision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrevision: *mut u32) -> ::windows::core::HRESULT,
     pub GetDeviceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

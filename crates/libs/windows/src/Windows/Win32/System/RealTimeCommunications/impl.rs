@@ -19,7 +19,7 @@ impl INetworkTransportSettings_Vtbl {
             this.QuerySetting(::core::mem::transmute_copy(&settingid), ::core::mem::transmute_copy(&lengthin), ::core::mem::transmute_copy(&valuein), ::core::mem::transmute_copy(&lengthout), ::core::mem::transmute_copy(&valueout)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ApplySetting: ApplySetting::<Identity, Impl, OFFSET>,
             QuerySetting: QuerySetting::<Identity, Impl, OFFSET>,
         }
@@ -46,7 +46,7 @@ impl INotificationTransportSync_Vtbl {
             this.Flush().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CompleteDelivery: CompleteDelivery::<Identity, Impl, OFFSET>,
             Flush: Flush::<Identity, Impl, OFFSET>,
         }
@@ -382,7 +382,7 @@ impl IRTCBuddyGroup_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
             AddBuddy: AddBuddy::<Identity, Impl, OFFSET>,
@@ -853,7 +853,7 @@ impl IRTCClient_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
             PrepareForShutdown: PrepareForShutdown::<Identity, Impl, OFFSET>,
@@ -1105,7 +1105,7 @@ impl IRTCClientPortManagement_Vtbl {
             this.GetPortRange(::core::mem::transmute_copy(&enporttype), ::core::mem::transmute_copy(&plminvalue), ::core::mem::transmute_copy(&plmaxvalue)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             StartListenAddressAndPort: StartListenAddressAndPort::<Identity, Impl, OFFSET>,
             StopListenAddressAndPort: StopListenAddressAndPort::<Identity, Impl, OFFSET>,
             GetPortRange: GetPortRange::<Identity, Impl, OFFSET>,
@@ -1292,7 +1292,7 @@ impl IRTCClientPresence_Vtbl {
             this.SetPrivacyMode(::core::mem::transmute_copy(&enmode)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnablePresence: EnablePresence::<Identity, Impl, OFFSET>,
             Export: Export::<Identity, Impl, OFFSET>,
             Import: Import::<Identity, Impl, OFFSET>,
@@ -1561,7 +1561,7 @@ impl IRTCClientProvisioning_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateProfile: CreateProfile::<Identity, Impl, OFFSET>,
             EnableProfile: EnableProfile::<Identity, Impl, OFFSET>,
             DisableProfile: DisableProfile::<Identity, Impl, OFFSET>,
@@ -1699,7 +1699,7 @@ impl IRTCEnumBuddies_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1746,7 +1746,7 @@ impl IRTCEnumGroups_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1793,7 +1793,7 @@ impl IRTCEnumParticipants_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1840,7 +1840,7 @@ impl IRTCEnumPresenceDevices_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1887,7 +1887,7 @@ impl IRTCEnumProfiles_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1934,7 +1934,7 @@ impl IRTCEnumUserSearchResults_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -1981,7 +1981,7 @@ impl IRTCEnumWatchers_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
@@ -2006,7 +2006,7 @@ impl IRTCEventNotification_Vtbl {
             let this = (*this).get_impl();
             this.Event(::core::mem::transmute_copy(&rtcevent), ::core::mem::transmute(&pevent)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRTCEventNotification as ::windows::core::Interface>::IID
@@ -2458,7 +2458,7 @@ impl IRTCParticipant_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             UserURI: UserURI::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             Removable: Removable::<Identity, Impl, OFFSET>,
@@ -2549,7 +2549,7 @@ impl IRTCPortManager_Vtbl {
             this.ReleaseMapping(::core::mem::transmute(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport), ::core::mem::transmute(&bstrexternallocaladdress), ::core::mem::transmute_copy(&lexternallocaladdress)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetMapping: GetMapping::<Identity, Impl, OFFSET>,
             UpdateRemoteAddress: UpdateRemoteAddress::<Identity, Impl, OFFSET>,
             ReleaseMapping: ReleaseMapping::<Identity, Impl, OFFSET>,
@@ -2637,7 +2637,7 @@ impl IRTCPresenceContact_Vtbl {
             this.SetPersistent(::core::mem::transmute_copy(&fpersistent)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             PresentityURI: PresentityURI::<Identity, Impl, OFFSET>,
             SetPresentityURI: SetPresentityURI::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
@@ -2749,7 +2749,7 @@ impl IRTCPresenceDevice_Vtbl {
             this.GetPresenceData(::core::mem::transmute_copy(&pbstrnamespace), ::core::mem::transmute_copy(&pbstrdata)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             Notes: Notes::<Identity, Impl, OFFSET>,
             get_PresenceProperty: get_PresenceProperty::<Identity, Impl, OFFSET>,
@@ -3093,7 +3093,7 @@ impl IRTCProfile_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Key: Key::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             XML: XML::<Identity, Impl, OFFSET>,
@@ -3640,7 +3640,7 @@ impl IRTCSession_Vtbl {
             this.put_EncryptionKey(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute(&encryptionkey)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Client: Client::<Identity, Impl, OFFSET>,
             State: State::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
@@ -3815,7 +3815,7 @@ impl IRTCSessionCallControl_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Hold: Hold::<Identity, Impl, OFFSET>,
             UnHold: UnHold::<Identity, Impl, OFFSET>,
             Forward: Forward::<Identity, Impl, OFFSET>,
@@ -3843,7 +3843,7 @@ impl IRTCSessionDescriptionManager_Vtbl {
             this.EvaluateSessionDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription), ::core::mem::transmute_copy(&pfapplicationsession)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EvaluateSessionDescription: EvaluateSessionDescription::<Identity, Impl, OFFSET>,
         }
     }
@@ -3966,7 +3966,7 @@ impl IRTCSessionPortManagement_Vtbl {
             let this = (*this).get_impl();
             this.SetPortManager(::core::mem::transmute(&pportmanager)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetPortManager: SetPortManager::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetPortManager: SetPortManager::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRTCSessionPortManagement as ::windows::core::Interface>::IID
@@ -4283,7 +4283,7 @@ impl IRTCUserSearch_Vtbl {
             this.ExecuteSearch(::core::mem::transmute(&pquery), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lcookie)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateQuery: CreateQuery::<Identity, Impl, OFFSET>,
             ExecuteSearch: ExecuteSearch::<Identity, Impl, OFFSET>,
         }
@@ -4364,7 +4364,7 @@ impl IRTCUserSearchQuery_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             put_SearchTerm: put_SearchTerm::<Identity, Impl, OFFSET>,
             get_SearchTerm: get_SearchTerm::<Identity, Impl, OFFSET>,
             SearchTerms: SearchTerms::<Identity, Impl, OFFSET>,
@@ -4395,7 +4395,7 @@ impl IRTCUserSearchResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), get_Value: get_Value::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), get_Value: get_Value::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRTCUserSearchResult as ::windows::core::Interface>::IID
@@ -4665,7 +4665,7 @@ impl ITransportSettingsInternal_Vtbl {
             this.QuerySetting(::core::mem::transmute_copy(&setting)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ApplySetting: ApplySetting::<Identity, Impl, OFFSET>,
             QuerySetting: QuerySetting::<Identity, Impl, OFFSET>,
         }

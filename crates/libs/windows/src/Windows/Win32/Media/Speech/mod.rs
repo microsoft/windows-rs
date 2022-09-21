@@ -61,7 +61,7 @@ unsafe impl ::windows::core::Interface for IEnumSpObjectTokens {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSpObjectTokens_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -513,7 +513,7 @@ unsafe impl ::windows::core::Interface for ISpDataKey {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpDataKey_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvaluename: ::windows::core::PCWSTR, cbdata: u32, pdata: *const u8) -> ::windows::core::HRESULT,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvaluename: ::windows::core::PCWSTR, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::HRESULT,
     pub SetStringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvaluename: ::windows::core::PCWSTR, pszvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -576,7 +576,7 @@ unsafe impl ::windows::core::Interface for ISpDisplayAlternates {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpDisplayAlternates_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDisplayAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphrase: *const SPDISPLAYPHRASE, crequestcount: u32, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut u32) -> ::windows::core::HRESULT,
     pub SetFullStopTrailSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultrailspace: u32) -> ::windows::core::HRESULT,
 }
@@ -639,7 +639,7 @@ unsafe impl ::windows::core::Interface for ISpEnginePronunciation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpEnginePronunciation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Normalize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszword: ::windows::core::PCWSTR, pszleftcontext: ::windows::core::PCWSTR, pszrightcontext: ::windows::core::PCWSTR, langid: u16, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> ::windows::core::HRESULT,
     pub GetPronunciations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszword: ::windows::core::PCWSTR, pszleftcontext: ::windows::core::PCWSTR, pszrightcontext: ::windows::core::PCWSTR, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::HRESULT,
 }
@@ -694,7 +694,7 @@ unsafe impl ::windows::core::Interface for ISpEventSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpEventSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventarray: *const SPEVENT, ulcount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1050,7 +1050,7 @@ unsafe impl ::windows::core::Interface for ISpGrammarBuilder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpGrammarBuilder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ResetGrammar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newlanguage: u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszrulename: ::windows::core::PCWSTR, dwruleid: u32, dwattributes: u32, fcreateifnotexist: super::super::Foundation::BOOL, phinitialstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::HRESULT,
@@ -1121,7 +1121,7 @@ unsafe impl ::windows::core::Interface for ISpGrammarBuilder2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpGrammarBuilder2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddTextSubset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: ::windows::core::PCWSTR, ematchmode: SPMATCHINGMODE) -> ::windows::core::HRESULT,
     pub SetPhoneticAlphabet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phoneticalphabet: PHONETICALPHABET) -> ::windows::core::HRESULT,
 }
@@ -1195,7 +1195,7 @@ unsafe impl ::windows::core::Interface for ISpLexicon {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpLexicon_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPronunciations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszword: ::windows::core::PCWSTR, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::HRESULT,
     pub AddPronunciation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszword: ::windows::core::PCWSTR, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: *const u16) -> ::windows::core::HRESULT,
     pub RemovePronunciation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszword: ::windows::core::PCWSTR, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: *const u16) -> ::windows::core::HRESULT,
@@ -1544,7 +1544,7 @@ unsafe impl ::windows::core::Interface for ISpNotifySink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpNotifySink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
@@ -1636,7 +1636,7 @@ unsafe impl ::windows::core::Interface for ISpNotifySource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpNotifySource_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetNotifySink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotifysink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetNotifyWindowMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
@@ -2473,7 +2473,7 @@ unsafe impl ::windows::core::Interface for ISpObjectWithToken {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpObjectWithToken_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetObjectToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoken: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetObjectToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptoken: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2624,7 +2624,7 @@ unsafe impl ::windows::core::Interface for ISpPhoneticAlphabetConverter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhoneticAlphabetConverter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLangId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plangid: *mut u16) -> ::windows::core::HRESULT,
     pub SetLangId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: u16) -> ::windows::core::HRESULT,
     pub SAPI2UPS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsapiid: *const u16, pszupsid: *mut u16, cmaxlength: u32) -> ::windows::core::HRESULT,
@@ -2691,7 +2691,7 @@ unsafe impl ::windows::core::Interface for ISpPhoneticAlphabetSelection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhoneticAlphabetSelection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsAlphabetUPS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisups: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2765,7 +2765,7 @@ unsafe impl ::windows::core::Interface for ISpPhrase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhrase_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcomemphrase: *mut *mut SPPHRASE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3034,7 +3034,7 @@ unsafe impl ::windows::core::Interface for ISpProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpProperties_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetPropertyNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, lvalue: i32) -> ::windows::core::HRESULT,
     pub GetPropertyNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, plvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetPropertyString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -3334,7 +3334,7 @@ unsafe impl ::windows::core::Interface for ISpRecoContext2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRecoContext2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetGrammarOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, egrammaroptions: u32) -> ::windows::core::HRESULT,
     pub GetGrammarOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pegrammaroptions: *mut u32) -> ::windows::core::HRESULT,
     pub SetAdaptationData2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padaptationdata: ::windows::core::PCWSTR, cch: u32, ptopicname: ::windows::core::PCWSTR, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> ::windows::core::HRESULT,
@@ -3643,7 +3643,7 @@ unsafe impl ::windows::core::Interface for ISpRecoGrammar2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRecoGrammar2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRules: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> ::windows::core::HRESULT,
     pub LoadCmdFromFile2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: ::windows::core::PCWSTR, options: SPLOADOPTIONS, pszsharinguri: ::windows::core::PCWSTR, pszbaseuri: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub LoadCmdFromMemory2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: ::windows::core::PCWSTR, pszbaseuri: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -4200,7 +4200,7 @@ unsafe impl ::windows::core::Interface for ISpRecognizer2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRecognizer2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EmulateRecognitionEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphrase: *mut ::core::ffi::c_void, dwcompareflags: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetTrainingState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdoingtraining: super::super::Foundation::BOOL, fadaptfromtrainingdata: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -4500,7 +4500,7 @@ unsafe impl ::windows::core::Interface for ISpSerializeState {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpSerializeState_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSerializedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT,
     pub SetSerializedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *const u8, ulsize: u32, dwreserved: u32) -> ::windows::core::HRESULT,
 }
@@ -4580,7 +4580,7 @@ unsafe impl ::windows::core::Interface for ISpShortcut {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpShortcut_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddShortcut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdisplay: ::windows::core::PCWSTR, langid: u16, pszspoken: ::windows::core::PCWSTR, shtype: SPSHORTCUTTYPE) -> ::windows::core::HRESULT,
     pub RemoveShortcut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdisplay: ::windows::core::PCWSTR, langid: u16, pszspoken: ::windows::core::PCWSTR, shtype: SPSHORTCUTTYPE) -> ::windows::core::HRESULT,
     pub GetShortcuts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: u16, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::HRESULT,
@@ -5242,7 +5242,7 @@ unsafe impl ::windows::core::Interface for ISpTranscript {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpTranscript_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetTranscript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsztranscript: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub AppendTranscript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztranscript: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }

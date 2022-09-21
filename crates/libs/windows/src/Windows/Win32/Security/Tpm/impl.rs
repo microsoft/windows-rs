@@ -41,7 +41,7 @@ impl ITpmVirtualSmartCardManager_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateVirtualSmartCard: CreateVirtualSmartCard::<Identity, Impl, OFFSET>,
             DestroyVirtualSmartCard: DestroyVirtualSmartCard::<Identity, Impl, OFFSET>,
         }
@@ -154,7 +154,7 @@ impl ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
             this.ReportError(::core::mem::transmute_copy(&error)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ReportProgress: ReportProgress::<Identity, Impl, OFFSET>,
             ReportError: ReportError::<Identity, Impl, OFFSET>,
         }

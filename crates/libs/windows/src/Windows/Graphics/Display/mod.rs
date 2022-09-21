@@ -2323,7 +2323,7 @@ struct DisplayPropertiesEventHandlerBox<F: FnMut(&::core::option::Option<::windo
 #[cfg(feature = "deprecated")]
 impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DisplayPropertiesEventHandlerBox<F> {
     const VTABLE: DisplayPropertiesEventHandler_Vtbl = DisplayPropertiesEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2390,7 +2390,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPropertiesEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DisplayPropertiesEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]

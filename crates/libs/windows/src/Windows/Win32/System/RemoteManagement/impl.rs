@@ -893,7 +893,7 @@ pub trait IWSManResourceLocatorInternal_Impl: Sized {}
 impl ::windows::core::RuntimeName for IWSManResourceLocatorInternal {}
 impl IWSManResourceLocatorInternal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocatorInternal_Impl, const OFFSET: isize>() -> IWSManResourceLocatorInternal_Vtbl {
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWSManResourceLocatorInternal as ::windows::core::Interface>::IID

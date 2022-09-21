@@ -1483,7 +1483,7 @@ struct ComponentLoadFailedEventHandlerBox<F: FnMut(&::core::option::Option<Media
 }
 impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ComponentLoadFailedEventHandlerBox<F> {
     const VTABLE: ComponentLoadFailedEventHandler_Vtbl = ComponentLoadFailedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1543,7 +1543,7 @@ unsafe impl ::windows::core::RuntimeType for ComponentLoadFailedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ComponentLoadFailedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -1570,7 +1570,7 @@ struct RebootNeededEventHandlerBox<F: FnMut(&::core::option::Option<MediaProtect
 }
 impl<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> RebootNeededEventHandlerBox<F> {
     const VTABLE: RebootNeededEventHandler_Vtbl = RebootNeededEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1630,7 +1630,7 @@ unsafe impl ::windows::core::RuntimeType for RebootNeededEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RebootNeededEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
@@ -1658,7 +1658,7 @@ struct ServiceRequestedEventHandlerBox<F: FnMut(&::core::option::Option<MediaPro
 }
 impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ServiceRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ServiceRequestedEventHandlerBox<F> {
     const VTABLE: ServiceRequestedEventHandler_Vtbl = ServiceRequestedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1718,7 +1718,7 @@ unsafe impl ::windows::core::RuntimeType for ServiceRequestedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ServiceRequestedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

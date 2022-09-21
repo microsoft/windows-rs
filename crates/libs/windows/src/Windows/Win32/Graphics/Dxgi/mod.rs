@@ -862,7 +862,7 @@ unsafe impl ::windows::core::Interface for IDXGIDebug {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDebug_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReportLiveObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, apiid: ::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -1025,7 +1025,7 @@ unsafe impl ::windows::core::Interface for IDXGIDecodeSwapChain {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDecodeSwapChain_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub PresentBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetSourceRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
@@ -1945,7 +1945,7 @@ unsafe impl ::windows::core::Interface for IDXGIDisplayControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIDisplayControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsStereoEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4131,7 +4131,7 @@ unsafe impl ::windows::core::Interface for IDXGIFactoryMedia {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIFactoryMedia_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub CreateSwapChainForCompositionSurfaceHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: *mut ::core::ffi::c_void, ppswapchain: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
@@ -4329,7 +4329,7 @@ unsafe impl ::windows::core::Interface for IDXGIInfoQueue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIInfoQueue_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetMessageCountLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, messagecountlimit: u64) -> ::windows::core::HRESULT,
     pub ClearStoredMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID),
     pub GetMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, producer: ::windows::core::GUID, messageindex: u64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::HRESULT,
@@ -4563,7 +4563,7 @@ unsafe impl ::windows::core::Interface for IDXGIObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGIObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8482,7 +8482,7 @@ unsafe impl ::windows::core::Interface for IDXGISwapChainMedia {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGISwapChainMedia_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFrameStatisticsMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> ::windows::core::HRESULT,
     pub SetPresentDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: u32) -> ::windows::core::HRESULT,
     pub CheckPresentDurationSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desiredpresentduration: u32, pclosestsmallerpresentduration: *mut u32, pclosestlargerpresentduration: *mut u32) -> ::windows::core::HRESULT,
@@ -8536,7 +8536,7 @@ unsafe impl ::windows::core::Interface for IDXGraphicsAnalysis {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDXGraphicsAnalysis_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BeginCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub EndCapture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }

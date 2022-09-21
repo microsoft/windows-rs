@@ -52,7 +52,7 @@ unsafe impl ::windows::core::Interface for IObjectArray {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectArray_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcobjects: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

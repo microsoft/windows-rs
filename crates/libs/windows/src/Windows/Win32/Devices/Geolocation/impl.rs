@@ -155,7 +155,7 @@ impl IDefaultLocation_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetReport: SetReport::<Identity, Impl, OFFSET>,
             GetReport: GetReport::<Identity, Impl, OFFSET>,
         }
@@ -572,7 +572,7 @@ impl ILocation_Vtbl {
             this.RequestPermissions(::core::mem::transmute_copy(&hparent), ::core::mem::transmute_copy(&preporttypes), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&fmodal)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterForReport: RegisterForReport::<Identity, Impl, OFFSET>,
             UnregisterForReport: UnregisterForReport::<Identity, Impl, OFFSET>,
             GetReport: GetReport::<Identity, Impl, OFFSET>,
@@ -606,7 +606,7 @@ impl ILocationEvents_Vtbl {
             this.OnStatusChanged(::core::mem::transmute_copy(&reporttype), ::core::mem::transmute_copy(&newstatus)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnLocationChanged: OnLocationChanged::<Identity, Impl, OFFSET>,
             OnStatusChanged: OnStatusChanged::<Identity, Impl, OFFSET>,
         }
@@ -633,7 +633,7 @@ impl ILocationPower_Vtbl {
             this.Disconnect().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Connect: Connect::<Identity, Impl, OFFSET>,
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
         }
@@ -687,7 +687,7 @@ impl ILocationReport_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSensorID: GetSensorID::<Identity, Impl, OFFSET>,
             GetTimestamp: GetTimestamp::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,

@@ -460,7 +460,7 @@ unsafe impl ::windows::core::Interface for IDynamicRenderer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicRenderer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -586,7 +586,7 @@ unsafe impl ::windows::core::Interface for IGestureRecognizer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGestureRecognizer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -660,7 +660,7 @@ unsafe impl ::windows::core::Interface for IHandwrittenTextInsertion {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHandwrittenTextInsertion_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub InsertRecognitionResultsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -3583,7 +3583,7 @@ unsafe impl ::windows::core::Interface for IInkLineInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkLineInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7543,7 +7543,7 @@ unsafe impl ::windows::core::Interface for IInputPanelWindowHandle {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputPanelWindowHandle_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AttachedEditWindow32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut i32) -> ::windows::core::HRESULT,
     pub SetAttachedEditWindow32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: i32) -> ::windows::core::HRESULT,
     pub AttachedEditWindow64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut i64) -> ::windows::core::HRESULT,
@@ -8093,7 +8093,7 @@ unsafe impl ::windows::core::Interface for IRealTimeStylus {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRealTimeStylus_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8222,7 +8222,7 @@ unsafe impl ::windows::core::Interface for IRealTimeStylus2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRealTimeStylus2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub FlicksEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8289,7 +8289,7 @@ unsafe impl ::windows::core::Interface for IRealTimeStylus3 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRealTimeStylus3_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MultiTouchEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8348,7 +8348,7 @@ unsafe impl ::windows::core::Interface for IRealTimeStylusSynchronization {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRealTimeStylusSynchronization_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AcquireLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lock: RealTimeStylusLockType) -> ::windows::core::HRESULT,
     pub ReleaseLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lock: RealTimeStylusLockType) -> ::windows::core::HRESULT,
 }
@@ -8500,7 +8500,7 @@ unsafe impl ::windows::core::Interface for IStrokeBuilder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStrokeBuilder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpktbufflength: u32, ppackets: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8858,7 +8858,7 @@ unsafe impl ::windows::core::Interface for IStylusPlugin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStylusPlugin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RealTimeStylusEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, ctcidcount: u32, ptcids: *const u32) -> ::windows::core::HRESULT,
     pub RealTimeStylusDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, ctcidcount: u32, ptcids: *const u32) -> ::windows::core::HRESULT,
     pub StylusInRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, tcid: u32, sid: u32) -> ::windows::core::HRESULT,
@@ -9239,7 +9239,7 @@ unsafe impl ::windows::core::Interface for ITextInputPanel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextInputPanel_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AttachedEditWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9389,7 +9389,7 @@ unsafe impl ::windows::core::Interface for ITextInputPanelEventSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextInputPanelEventSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InPlaceStateChanging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::HRESULT,
     pub InPlaceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -9470,7 +9470,7 @@ unsafe impl ::windows::core::Interface for ITextInputPanelRunInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextInputPanelRunInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsTipRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrunning: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9554,7 +9554,7 @@ unsafe impl ::windows::core::Interface for ITipAutoCompleteClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITipAutoCompleteClient_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AdviseProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndfield: super::super::Foundation::HWND, piprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9627,7 +9627,7 @@ unsafe impl ::windows::core::Interface for ITipAutoCompleteProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITipAutoCompleteProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub UpdatePendingText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpendingtext: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,

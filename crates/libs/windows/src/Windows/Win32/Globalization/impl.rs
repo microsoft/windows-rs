@@ -15,7 +15,7 @@ impl IComprehensiveSpellCheckProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ComprehensiveCheck: ComprehensiveCheck::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ComprehensiveCheck: ComprehensiveCheck::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IComprehensiveSpellCheckProvider as ::windows::core::Interface>::IID
@@ -57,7 +57,7 @@ impl IEnumCodePage_Vtbl {
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -104,7 +104,7 @@ impl IEnumRfc1766_Vtbl {
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -151,7 +151,7 @@ impl IEnumScript_Vtbl {
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Next: Next::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -179,7 +179,7 @@ impl IEnumSpellingError_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IEnumSpellingError as ::windows::core::Interface>::IID
@@ -233,7 +233,7 @@ impl IMLangCodePages_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCharCodePages: GetCharCodePages::<Identity, Impl, OFFSET>,
             GetStrCodePages: GetStrCodePages::<Identity, Impl, OFFSET>,
             CodePageToCodePages: CodePageToCodePages::<Identity, Impl, OFFSET>,
@@ -310,7 +310,7 @@ impl IMLangConvertCharset_Vtbl {
             this.DoConversionFromUnicode(::core::mem::transmute(&psrcstr), ::core::mem::transmute_copy(&pcsrcsize), ::core::mem::transmute_copy(&pdststr), ::core::mem::transmute_copy(&pcdstsize)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetSourceCodePage: GetSourceCodePage::<Identity, Impl, OFFSET>,
             GetDestinationCodePage: GetDestinationCodePage::<Identity, Impl, OFFSET>,
@@ -493,7 +493,7 @@ impl IMLangLineBreakConsole_Vtbl {
             this.BreakLineA(::core::mem::transmute_copy(&locale), ::core::mem::transmute_copy(&ucodepage), ::core::mem::transmute(&pszsrc), ::core::mem::transmute_copy(&cchsrc), ::core::mem::transmute_copy(&cmaxcolumns), ::core::mem::transmute_copy(&pcchline), ::core::mem::transmute_copy(&pcchskip)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BreakLineML: BreakLineML::<Identity, Impl, OFFSET>,
             BreakLineW: BreakLineW::<Identity, Impl, OFFSET>,
             BreakLineA: BreakLineA::<Identity, Impl, OFFSET>,
@@ -542,7 +542,7 @@ impl IMLangString_Vtbl {
             this.GetMLStr(::core::mem::transmute_copy(&lsrcpos), ::core::mem::transmute_copy(&lsrclen), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclscontext), ::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&ppdestmlstr), ::core::mem::transmute_copy(&pldestpos), ::core::mem::transmute_copy(&pldestlen)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Sync: Sync::<Identity, Impl, OFFSET>,
             GetLength: GetLength::<Identity, Impl, OFFSET>,
             SetMLStr: SetMLStr::<Identity, Impl, OFFSET>,
@@ -670,7 +670,7 @@ impl IMLangStringBufA_Vtbl {
             this.Delete(::core::mem::transmute_copy(&cchoffset), ::core::mem::transmute_copy(&cchdelete)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             LockBuf: LockBuf::<Identity, Impl, OFFSET>,
             UnlockBuf: UnlockBuf::<Identity, Impl, OFFSET>,
@@ -724,7 +724,7 @@ impl IMLangStringBufW_Vtbl {
             this.Delete(::core::mem::transmute_copy(&cchoffset), ::core::mem::transmute_copy(&cchdelete)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             LockBuf: LockBuf::<Identity, Impl, OFFSET>,
             UnlockBuf: UnlockBuf::<Identity, Impl, OFFSET>,
@@ -958,7 +958,7 @@ impl IMultiLanguage_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetNumberOfCodePageInfo: GetNumberOfCodePageInfo::<Identity, Impl, OFFSET>,
             GetCodePageInfo: GetCodePageInfo::<Identity, Impl, OFFSET>,
             GetFamilyCodePage: GetFamilyCodePage::<Identity, Impl, OFFSET>,
@@ -1217,7 +1217,7 @@ impl IMultiLanguage2_Vtbl {
             this.ValidateCodePageEx(::core::mem::transmute_copy(&uicodepage), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwfiodcontrol)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetNumberOfCodePageInfo: GetNumberOfCodePageInfo::<Identity, Impl, OFFSET>,
             GetCodePageInfo: GetCodePageInfo::<Identity, Impl, OFFSET>,
             GetFamilyCodePage: GetFamilyCodePage::<Identity, Impl, OFFSET>,
@@ -1338,7 +1338,7 @@ impl IOptionDescription_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Id: Id::<Identity, Impl, OFFSET>,
             Heading: Heading::<Identity, Impl, OFFSET>,
             Description: Description::<Identity, Impl, OFFSET>,
@@ -1466,7 +1466,7 @@ impl ISpellCheckProvider_Vtbl {
             this.InitializeWordlist(::core::mem::transmute_copy(&wordlisttype), ::core::mem::transmute(&words)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             LanguageTag: LanguageTag::<Identity, Impl, OFFSET>,
             Check: Check::<Identity, Impl, OFFSET>,
             Suggest: Suggest::<Identity, Impl, OFFSET>,
@@ -1528,7 +1528,7 @@ impl ISpellCheckProviderFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SupportedLanguages: SupportedLanguages::<Identity, Impl, OFFSET>,
             IsSupported: IsSupported::<Identity, Impl, OFFSET>,
             CreateSpellCheckProvider: CreateSpellCheckProvider::<Identity, Impl, OFFSET>,
@@ -1691,7 +1691,7 @@ impl ISpellChecker_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             LanguageTag: LanguageTag::<Identity, Impl, OFFSET>,
             Check: Check::<Identity, Impl, OFFSET>,
             Suggest: Suggest::<Identity, Impl, OFFSET>,
@@ -1743,7 +1743,7 @@ impl ISpellCheckerChangedEventHandler_Vtbl {
             let this = (*this).get_impl();
             this.Invoke(::core::mem::transmute(&sender)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpellCheckerChangedEventHandler as ::windows::core::Interface>::IID
@@ -1794,7 +1794,7 @@ impl ISpellCheckerFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SupportedLanguages: SupportedLanguages::<Identity, Impl, OFFSET>,
             IsSupported: IsSupported::<Identity, Impl, OFFSET>,
             CreateSpellChecker: CreateSpellChecker::<Identity, Impl, OFFSET>,
@@ -1858,7 +1858,7 @@ impl ISpellingError_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             StartIndex: StartIndex::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
             CorrectiveAction: CorrectiveAction::<Identity, Impl, OFFSET>,
@@ -1887,7 +1887,7 @@ impl IUserDictionariesRegistrar_Vtbl {
             this.UnregisterUserDictionary(::core::mem::transmute(&dictionarypath), ::core::mem::transmute(&languagetag)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterUserDictionary: RegisterUserDictionary::<Identity, Impl, OFFSET>,
             UnregisterUserDictionary: UnregisterUserDictionary::<Identity, Impl, OFFSET>,
         }

@@ -218,7 +218,7 @@ impl IDXGIDebug_Vtbl {
             let this = (*this).get_impl();
             this.ReportLiveObjects(::core::mem::transmute(&apiid), ::core::mem::transmute_copy(&flags)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ReportLiveObjects: ReportLiveObjects::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ReportLiveObjects: ReportLiveObjects::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDXGIDebug as ::windows::core::Interface>::IID
@@ -336,7 +336,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
             this.GetColorSpace()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             PresentBuffer: PresentBuffer::<Identity, Impl, OFFSET>,
             SetSourceRect: SetSourceRect::<Identity, Impl, OFFSET>,
             SetTargetRect: SetTargetRect::<Identity, Impl, OFFSET>,
@@ -588,7 +588,7 @@ impl IDXGIDisplayControl_Vtbl {
             this.SetStereoEnabled(::core::mem::transmute_copy(&enabled))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsStereoEnabled: IsStereoEnabled::<Identity, Impl, OFFSET>,
             SetStereoEnabled: SetStereoEnabled::<Identity, Impl, OFFSET>,
         }
@@ -1002,7 +1002,7 @@ impl IDXGIFactoryMedia_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateSwapChainForCompositionSurfaceHandle: CreateSwapChainForCompositionSurfaceHandle::<Identity, Impl, OFFSET>,
             CreateDecodeSwapChainForCompositionSurfaceHandle: CreateDecodeSwapChainForCompositionSurfaceHandle::<Identity, Impl, OFFSET>,
         }
@@ -1242,7 +1242,7 @@ impl IDXGIInfoQueue_Vtbl {
             this.GetMuteDebugOutput(::core::mem::transmute(&producer))
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetMessageCountLimit: SetMessageCountLimit::<Identity, Impl, OFFSET>,
             ClearStoredMessages: ClearStoredMessages::<Identity, Impl, OFFSET>,
             GetMessage: GetMessage::<Identity, Impl, OFFSET>,
@@ -1343,7 +1343,7 @@ impl IDXGIObject_Vtbl {
             this.GetParent(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppparent)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateDataInterface: SetPrivateDataInterface::<Identity, Impl, OFFSET>,
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
@@ -2368,7 +2368,7 @@ impl IDXGISwapChainMedia_Vtbl {
             this.CheckPresentDurationSupport(::core::mem::transmute_copy(&desiredpresentduration), ::core::mem::transmute_copy(&pclosestsmallerpresentduration), ::core::mem::transmute_copy(&pclosestlargerpresentduration)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFrameStatisticsMedia: GetFrameStatisticsMedia::<Identity, Impl, OFFSET>,
             SetPresentDuration: SetPresentDuration::<Identity, Impl, OFFSET>,
             CheckPresentDurationSupport: CheckPresentDurationSupport::<Identity, Impl, OFFSET>,
@@ -2396,7 +2396,7 @@ impl IDXGraphicsAnalysis_Vtbl {
             this.EndCapture()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginCapture: BeginCapture::<Identity, Impl, OFFSET>,
             EndCapture: EndCapture::<Identity, Impl, OFFSET>,
         }

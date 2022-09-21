@@ -12,7 +12,7 @@ impl IIsolatedAppLauncher_Vtbl {
             let this = (*this).get_impl();
             this.Launch(::core::mem::transmute(&appusermodelid), ::core::mem::transmute(&arguments), ::core::mem::transmute_copy(&telemetryparameters)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Launch: Launch::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Launch: Launch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIsolatedAppLauncher as ::windows::core::Interface>::IID

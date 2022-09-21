@@ -69,7 +69,7 @@ unsafe impl ::windows::core::Interface for AsyncIBackgroundCopyCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncIBackgroundCopyCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Begin_JobTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Finish_JobTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Begin_JobError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, perror: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -315,7 +315,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub JobTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub JobError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, perror: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub JobModification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
@@ -384,7 +384,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyCallback1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyCallback1_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgroup: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows::core::HRESULT,
     pub OnProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progresstype: u32, pgroup: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwfileindex: u32, dwprogressvalue: u32) -> ::windows::core::HRESULT,
     pub OnProgressEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progresstype: u32, pgroup: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwfileindex: u32, dwprogressvalue: u32, dwbytearraysize: u32, pbyte: *const u8) -> ::windows::core::HRESULT,
@@ -647,7 +647,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyError {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyError_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub GetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageid: u32, perrordescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
@@ -711,7 +711,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyFile {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyFile_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRemoteName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1536,7 +1536,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyGroup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyGroup_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -1733,7 +1733,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyJob {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyJob_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddFileSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> ::windows::core::HRESULT,
     pub AddFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub EnumFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1841,7 +1841,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyJob1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyJob1_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CancelJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pdwprogress: *mut u32) -> ::windows::core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32, pdwwin32result: *mut u32, pdwtransportresult: *mut u32, pdwnumofretries: *mut u32) -> ::windows::core::HRESULT,
@@ -3063,7 +3063,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyJobHttpOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyJobHttpOptions_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetClientCertificateByID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: ::windows::core::PCWSTR, pcerthashblob: *const u8) -> ::windows::core::HRESULT,
     pub SetClientCertificateByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: ::windows::core::PCWSTR, subjectname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub RemoveClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3374,7 +3374,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: ::windows::core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobid: *const ::windows::core::GUID, ppjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumJobs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3435,7 +3435,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyQMgr {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyQMgr_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidgroupid: ::windows::core::GUID, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, groupid: ::windows::core::GUID, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppenumgroups: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3490,7 +3490,7 @@ unsafe impl ::windows::core::Interface for IBackgroundCopyServerCertificateValid
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundCopyServerCertificateValidationCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ValidateServerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, job: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
@@ -3552,7 +3552,7 @@ unsafe impl ::windows::core::Interface for IBitsPeer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitsPeer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPeerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauth: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -3657,7 +3657,7 @@ unsafe impl ::windows::core::Interface for IBitsPeerCacheAdministration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitsPeerCacheAdministration_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetMaximumCacheSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT,
     pub SetMaximumCacheSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bytes: u32) -> ::windows::core::HRESULT,
     pub GetMaximumContentAge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pseconds: *mut u32) -> ::windows::core::HRESULT,
@@ -3746,7 +3746,7 @@ unsafe impl ::windows::core::Interface for IBitsPeerCacheRecord {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitsPeerCacheRecord_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetOriginUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetFileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u64) -> ::windows::core::HRESULT,
@@ -3821,7 +3821,7 @@ unsafe impl ::windows::core::Interface for IBitsTokenOptions {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBitsTokenOptions_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetHelperTokenFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usageflags: BG_TOKEN) -> ::windows::core::HRESULT,
     pub GetHelperTokenFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut BG_TOKEN) -> ::windows::core::HRESULT,
     pub SetHelperToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3888,7 +3888,7 @@ unsafe impl ::windows::core::Interface for IEnumBackgroundCopyFiles {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyFiles_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3955,7 +3955,7 @@ unsafe impl ::windows::core::Interface for IEnumBackgroundCopyGroups {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyGroups_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4022,7 +4022,7 @@ unsafe impl ::windows::core::Interface for IEnumBackgroundCopyJobs {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyJobs_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4089,7 +4089,7 @@ unsafe impl ::windows::core::Interface for IEnumBackgroundCopyJobs1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyJobs1_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4156,7 +4156,7 @@ unsafe impl ::windows::core::Interface for IEnumBitsPeerCacheRecords {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBitsPeerCacheRecords_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4223,7 +4223,7 @@ unsafe impl ::windows::core::Interface for IEnumBitsPeers {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumBitsPeers_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

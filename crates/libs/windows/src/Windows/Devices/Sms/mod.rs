@@ -6326,7 +6326,7 @@ struct SmsDeviceStatusChangedEventHandlerBox<F: FnMut(&::core::option::Option<Sm
 #[cfg(feature = "deprecated")]
 impl<F: FnMut(&::core::option::Option<SmsDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
     const VTABLE: SmsDeviceStatusChangedEventHandler_Vtbl = SmsDeviceStatusChangedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6393,7 +6393,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDeviceStatusChangedEventHandler 
 #[repr(C)]
 #[doc(hidden)]
 pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
@@ -6430,7 +6430,7 @@ struct SmsMessageReceivedEventHandlerBox<F: FnMut(&::core::option::Option<SmsDev
 #[cfg(feature = "deprecated")]
 impl<F: FnMut(&::core::option::Option<SmsDevice>, &::core::option::Option<SmsMessageReceivedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
     const VTABLE: SmsMessageReceivedEventHandler_Vtbl = SmsMessageReceivedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6497,7 +6497,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct SmsMessageReceivedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "deprecated")]
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]

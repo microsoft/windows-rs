@@ -105,7 +105,7 @@ impl IDCompositionAnimation_Vtbl {
             this.End(::core::mem::transmute_copy(&endoffset), ::core::mem::transmute_copy(&endvalue)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, Impl, OFFSET>,
             SetAbsoluteBeginTime: SetAbsoluteBeginTime::<Identity, Impl, OFFSET>,
             AddCubic: AddCubic::<Identity, Impl, OFFSET>,
@@ -314,7 +314,7 @@ pub trait IDCompositionClip_Impl: Sized {}
 impl ::windows::core::RuntimeName for IDCompositionClip {}
 impl IDCompositionClip_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionClip_Impl, const OFFSET: isize>() -> IDCompositionClip_Vtbl {
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionClip as ::windows::core::Interface>::IID
@@ -436,7 +436,7 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
             this.StartNewTrail(::core::mem::transmute_copy(&color)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddTrailPoints: AddTrailPoints::<Identity, Impl, OFFSET>,
             AddTrailPointsWithPrediction: AddTrailPointsWithPrediction::<Identity, Impl, OFFSET>,
             RemoveTrailPoints: RemoveTrailPoints::<Identity, Impl, OFFSET>,
@@ -787,7 +787,7 @@ impl IDCompositionDevice_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Commit: Commit::<Identity, Impl, OFFSET>,
             WaitForCommitCompletion: WaitForCommitCompletion::<Identity, Impl, OFFSET>,
             GetFrameStatistics: GetFrameStatistics::<Identity, Impl, OFFSET>,
@@ -1067,7 +1067,7 @@ impl IDCompositionDevice2_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Commit: Commit::<Identity, Impl, OFFSET>,
             WaitForCommitCompletion: WaitForCommitCompletion::<Identity, Impl, OFFSET>,
             GetFrameStatistics: GetFrameStatistics::<Identity, Impl, OFFSET>,
@@ -1298,7 +1298,7 @@ impl IDCompositionDeviceDebug_Vtbl {
             this.DisableDebugCounters().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnableDebugCounters: EnableDebugCounters::<Identity, Impl, OFFSET>,
             DisableDebugCounters: DisableDebugCounters::<Identity, Impl, OFFSET>,
         }
@@ -1311,7 +1311,7 @@ pub trait IDCompositionEffect_Impl: Sized {}
 impl ::windows::core::RuntimeName for IDCompositionEffect {}
 impl IDCompositionEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionEffect_Impl, const OFFSET: isize>() -> IDCompositionEffect_Vtbl {
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionEffect as ::windows::core::Interface>::IID
@@ -1462,7 +1462,7 @@ impl IDCompositionInkTrailDevice_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateDelegatedInkTrail: CreateDelegatedInkTrail::<Identity, Impl, OFFSET>,
             CreateDelegatedInkTrailForSwapChain: CreateDelegatedInkTrailForSwapChain::<Identity, Impl, OFFSET>,
         }
@@ -2449,7 +2449,7 @@ impl IDCompositionSurface_Vtbl {
             this.Scroll(::core::mem::transmute_copy(&scrollrect), ::core::mem::transmute_copy(&cliprect), ::core::mem::transmute_copy(&offsetx), ::core::mem::transmute_copy(&offsety)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginDraw: BeginDraw::<Identity, Impl, OFFSET>,
             EndDraw: EndDraw::<Identity, Impl, OFFSET>,
             SuspendDraw: SuspendDraw::<Identity, Impl, OFFSET>,
@@ -2494,7 +2494,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateSurface: CreateSurface::<Identity, Impl, OFFSET>,
             CreateVirtualSurface: CreateVirtualSurface::<Identity, Impl, OFFSET>,
         }
@@ -2649,7 +2649,7 @@ impl IDCompositionTarget_Vtbl {
             let this = (*this).get_impl();
             this.SetRoot(::core::mem::transmute(&visual)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetRoot: SetRoot::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRoot: SetRoot::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDCompositionTarget as ::windows::core::Interface>::IID
@@ -2977,7 +2977,7 @@ impl IDCompositionVisual_Vtbl {
             this.SetCompositeMode(::core::mem::transmute_copy(&compositemode)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetOffsetX: SetOffsetX::<Identity, Impl, OFFSET>,
             SetOffsetX2: SetOffsetX2::<Identity, Impl, OFFSET>,
             SetOffsetY: SetOffsetY::<Identity, Impl, OFFSET>,

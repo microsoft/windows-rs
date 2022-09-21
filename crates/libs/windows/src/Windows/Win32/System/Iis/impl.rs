@@ -19,7 +19,7 @@ impl AsyncIFtpAuthenticationProvider_Vtbl {
             this.Finish_AuthenticateUser(::core::mem::transmute_copy(&ppszcanonicalusername), ::core::mem::transmute_copy(&pfauthenticated)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin_AuthenticateUser: Begin_AuthenticateUser::<Identity, Impl, OFFSET>,
             Finish_AuthenticateUser: Finish_AuthenticateUser::<Identity, Impl, OFFSET>,
         }
@@ -52,7 +52,7 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin_GetUserAccessPermission: Begin_GetUserAccessPermission::<Identity, Impl, OFFSET>,
             Finish_GetUserAccessPermission: Finish_GetUserAccessPermission::<Identity, Impl, OFFSET>,
         }
@@ -85,7 +85,7 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin_GetUserHomeDirectoryData: Begin_GetUserHomeDirectoryData::<Identity, Impl, OFFSET>,
             Finish_GetUserHomeDirectoryData: Finish_GetUserHomeDirectoryData::<Identity, Impl, OFFSET>,
         }
@@ -112,7 +112,7 @@ impl AsyncIFtpLogProvider_Vtbl {
             this.Finish_Log().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin_Log: Begin_Log::<Identity, Impl, OFFSET>,
             Finish_Log: Finish_Log::<Identity, Impl, OFFSET>,
         }
@@ -148,7 +148,7 @@ impl AsyncIFtpPostprocessProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin_HandlePostprocess: Begin_HandlePostprocess::<Identity, Impl, OFFSET>,
             Finish_HandlePostprocess: Finish_HandlePostprocess::<Identity, Impl, OFFSET>,
         }
@@ -184,7 +184,7 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin_HandlePreprocess: Begin_HandlePreprocess::<Identity, Impl, OFFSET>,
             Finish_HandlePreprocess: Finish_HandlePreprocess::<Identity, Impl, OFFSET>,
         }
@@ -220,7 +220,7 @@ impl AsyncIFtpRoleProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin_IsUserInRole: Begin_IsUserInRole::<Identity, Impl, OFFSET>,
             Finish_IsUserInRole: Finish_IsUserInRole::<Identity, Impl, OFFSET>,
         }
@@ -259,7 +259,7 @@ impl AsyncIMSAdminBaseSinkW_Vtbl {
             this.Finish_ShutdownNotify().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Begin_SinkNotify: Begin_SinkNotify::<Identity, Impl, OFFSET>,
             Finish_SinkNotify: Finish_SinkNotify::<Identity, Impl, OFFSET>,
             Begin_ShutdownNotify: Begin_ShutdownNotify::<Identity, Impl, OFFSET>,
@@ -294,7 +294,7 @@ impl IADMEXT_Vtbl {
             this.Terminate().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             EnumDcomCLSIDs: EnumDcomCLSIDs::<Identity, Impl, OFFSET>,
             Terminate: Terminate::<Identity, Impl, OFFSET>,
@@ -318,7 +318,7 @@ impl IFtpAuthenticationProvider_Vtbl {
             let this = (*this).get_impl();
             this.AuthenticateUser(::core::mem::transmute(&pszsessionid), ::core::mem::transmute(&pszsitename), ::core::mem::transmute(&pszusername), ::core::mem::transmute(&pszpassword), ::core::mem::transmute_copy(&ppszcanonicalusername), ::core::mem::transmute_copy(&pfauthenticated)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AuthenticateUser: AuthenticateUser::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AuthenticateUser: AuthenticateUser::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFtpAuthenticationProvider as ::windows::core::Interface>::IID
@@ -341,7 +341,7 @@ impl IFtpAuthorizationProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetUserAccessPermission: GetUserAccessPermission::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUserAccessPermission: GetUserAccessPermission::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFtpAuthorizationProvider as ::windows::core::Interface>::IID
@@ -364,7 +364,7 @@ impl IFtpHomeDirectoryProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetUserHomeDirectoryData: GetUserHomeDirectoryData::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUserHomeDirectoryData: GetUserHomeDirectoryData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFtpHomeDirectoryProvider as ::windows::core::Interface>::IID
@@ -381,7 +381,7 @@ impl IFtpLogProvider_Vtbl {
             let this = (*this).get_impl();
             this.Log(::core::mem::transmute_copy(&ploggingparameters)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Log: Log::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Log: Log::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFtpLogProvider as ::windows::core::Interface>::IID
@@ -407,7 +407,7 @@ impl IFtpPostprocessProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), HandlePostprocess: HandlePostprocess::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePostprocess: HandlePostprocess::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFtpPostprocessProvider as ::windows::core::Interface>::IID
@@ -433,7 +433,7 @@ impl IFtpPreprocessProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), HandlePreprocess: HandlePreprocess::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePreprocess: HandlePreprocess::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFtpPreprocessProvider as ::windows::core::Interface>::IID
@@ -453,7 +453,7 @@ impl IFtpProviderConstruct_Vtbl {
             let this = (*this).get_impl();
             this.Construct(::core::mem::transmute_copy(&configurationentries)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Construct: Construct::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Construct: Construct::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFtpProviderConstruct as ::windows::core::Interface>::IID
@@ -479,7 +479,7 @@ impl IFtpRoleProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), IsUserInRole: IsUserInRole::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsUserInRole: IsUserInRole::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFtpRoleProvider as ::windows::core::Interface>::IID
@@ -581,7 +581,7 @@ impl IMSAdminBaseSinkW_Vtbl {
             this.ShutdownNotify().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SinkNotify: SinkNotify::<Identity, Impl, OFFSET>,
             ShutdownNotify: ShutdownNotify::<Identity, Impl, OFFSET>,
         }
@@ -815,7 +815,7 @@ impl IMSAdminBaseW_Vtbl {
             this.GetServerGuid().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddKey: AddKey::<Identity, Impl, OFFSET>,
             DeleteKey: DeleteKey::<Identity, Impl, OFFSET>,
             DeleteChildKeys: DeleteChildKeys::<Identity, Impl, OFFSET>,
@@ -864,7 +864,7 @@ impl IMSImpExpHelpW_Vtbl {
             let this = (*this).get_impl();
             this.EnumeratePathsInFile(::core::mem::transmute(&pszfilename), ::core::mem::transmute(&pszkeytype), ::core::mem::transmute_copy(&dwmdbuffersize), ::core::mem::transmute(&pszbuffer), ::core::mem::transmute_copy(&pdwmdrequiredbuffersize)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EnumeratePathsInFile: EnumeratePathsInFile::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumeratePathsInFile: EnumeratePathsInFile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMSImpExpHelpW as ::windows::core::Interface>::IID

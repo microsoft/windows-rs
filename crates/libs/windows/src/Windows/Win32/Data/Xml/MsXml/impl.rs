@@ -166,7 +166,7 @@ impl IMXNamespaceManager_Vtbl {
             this.getURI(::core::mem::transmute(&pwchprefix), ::core::mem::transmute(&pcontextnode), ::core::mem::transmute_copy(&pwchuri), ::core::mem::transmute_copy(&pcchuri)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             putAllowOverride: putAllowOverride::<Identity, Impl, OFFSET>,
             getAllowOverride: getAllowOverride::<Identity, Impl, OFFSET>,
             reset: reset::<Identity, Impl, OFFSET>,
@@ -719,7 +719,7 @@ impl ISAXAttributes_Vtbl {
             this.getValueFromQName(::core::mem::transmute(&pwchqname), ::core::mem::transmute_copy(&cchqname), ::core::mem::transmute_copy(&ppwchvalue), ::core::mem::transmute_copy(&pcchvalue)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             getLength: getLength::<Identity, Impl, OFFSET>,
             getURI: getURI::<Identity, Impl, OFFSET>,
             getLocalName: getLocalName::<Identity, Impl, OFFSET>,
@@ -811,7 +811,7 @@ impl ISAXContentHandler_Vtbl {
             this.skippedEntity(::core::mem::transmute(&pwchname), ::core::mem::transmute_copy(&cchname)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             putDocumentLocator: putDocumentLocator::<Identity, Impl, OFFSET>,
             startDocument: startDocument::<Identity, Impl, OFFSET>,
             endDocument: endDocument::<Identity, Impl, OFFSET>,
@@ -847,7 +847,7 @@ impl ISAXDTDHandler_Vtbl {
             this.unparsedEntityDecl(::core::mem::transmute(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute(&pwchpublicid), ::core::mem::transmute_copy(&cchpublicid), ::core::mem::transmute(&pwchsystemid), ::core::mem::transmute_copy(&cchsystemid), ::core::mem::transmute(&pwchnotationname), ::core::mem::transmute_copy(&cchnotationname)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             notationDecl: notationDecl::<Identity, Impl, OFFSET>,
             unparsedEntityDecl: unparsedEntityDecl::<Identity, Impl, OFFSET>,
         }
@@ -886,7 +886,7 @@ impl ISAXDeclHandler_Vtbl {
             this.externalEntityDecl(::core::mem::transmute(&pwchname), ::core::mem::transmute_copy(&cchname), ::core::mem::transmute(&pwchpublicid), ::core::mem::transmute_copy(&cchpublicid), ::core::mem::transmute(&pwchsystemid), ::core::mem::transmute_copy(&cchsystemid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             elementDecl: elementDecl::<Identity, Impl, OFFSET>,
             attributeDecl: attributeDecl::<Identity, Impl, OFFSET>,
             internalEntityDecl: internalEntityDecl::<Identity, Impl, OFFSET>,
@@ -917,7 +917,7 @@ impl ISAXEntityResolver_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), resolveEntity: resolveEntity::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), resolveEntity: resolveEntity::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISAXEntityResolver as ::windows::core::Interface>::IID
@@ -947,7 +947,7 @@ impl ISAXErrorHandler_Vtbl {
             this.ignorableWarning(::core::mem::transmute(&plocator), ::core::mem::transmute(&pwcherrormessage), ::core::mem::transmute_copy(&hrerrorcode)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             error: error::<Identity, Impl, OFFSET>,
             fatalError: fatalError::<Identity, Impl, OFFSET>,
             ignorableWarning: ignorableWarning::<Identity, Impl, OFFSET>,
@@ -1005,7 +1005,7 @@ impl ISAXLexicalHandler_Vtbl {
             this.comment(::core::mem::transmute(&pwchchars), ::core::mem::transmute_copy(&cchchars)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             startDTD: startDTD::<Identity, Impl, OFFSET>,
             endDTD: endDTD::<Identity, Impl, OFFSET>,
             startEntity: startEntity::<Identity, Impl, OFFSET>,
@@ -1073,7 +1073,7 @@ impl ISAXLocator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             getColumnNumber: getColumnNumber::<Identity, Impl, OFFSET>,
             getLineNumber: getLineNumber::<Identity, Impl, OFFSET>,
             getPublicId: getPublicId::<Identity, Impl, OFFSET>,
@@ -1285,7 +1285,7 @@ impl ISAXXMLReader_Vtbl {
             this.parseURL(::core::mem::transmute(&pwchurl)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             getFeature: getFeature::<Identity, Impl, OFFSET>,
             putFeature: putFeature::<Identity, Impl, OFFSET>,
             getProperty: getProperty::<Identity, Impl, OFFSET>,
@@ -6327,7 +6327,7 @@ impl IXMLError_Vtbl {
             let this = (*this).get_impl();
             this.GetErrorInfo(::core::mem::transmute_copy(&perrorreturn)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXMLError as ::windows::core::Interface>::IID
@@ -6588,7 +6588,7 @@ impl IXMLHTTPRequest2_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Send: Send::<Identity, Impl, OFFSET>,
             Abort: Abort::<Identity, Impl, OFFSET>,
@@ -6644,7 +6644,7 @@ impl IXMLHTTPRequest2Callback_Vtbl {
             this.OnError(::core::mem::transmute(&pxhr), ::core::mem::transmute_copy(&hrerror)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnRedirect: OnRedirect::<Identity, Impl, OFFSET>,
             OnHeadersAvailable: OnHeadersAvailable::<Identity, Impl, OFFSET>,
             OnDataAvailable: OnDataAvailable::<Identity, Impl, OFFSET>,

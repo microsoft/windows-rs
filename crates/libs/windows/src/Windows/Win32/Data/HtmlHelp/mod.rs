@@ -66,7 +66,7 @@ unsafe impl ::windows::core::Interface for IITDatabase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITDatabase_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszhost: ::windows::core::PCWSTR, lpszmoniker: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, pdwobjinstance: *mut u32) -> ::windows::core::HRESULT,
@@ -478,7 +478,7 @@ unsafe impl ::windows::core::Interface for IITResultSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITResultSet_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetColumnPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::core::HRESULT,
     pub SetColumnHeap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetKeyProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: u32) -> ::windows::core::HRESULT,
@@ -616,7 +616,7 @@ unsafe impl ::windows::core::Interface for IITWordWheel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITWordWheel_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpitdb: *mut ::core::ffi::c_void, lpszmoniker: ::windows::core::PCWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::HRESULT,
@@ -689,7 +689,7 @@ unsafe impl ::windows::core::Interface for IStemSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStemSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub PutAltWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::HRESULT,
     pub PutWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::HRESULT,
 }
@@ -756,7 +756,7 @@ unsafe impl ::windows::core::Interface for IStemmerConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStemmerConfig_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcodepageid: u32, lcid: u32) -> ::windows::core::HRESULT,
     pub GetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::HRESULT,
     pub SetControlInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfstemflags: u32, dwreserved: u32) -> ::windows::core::HRESULT,
@@ -849,7 +849,7 @@ unsafe impl ::windows::core::Interface for IWordBreakerConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWordBreakerConfig_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcodepageid: u32, lcid: u32) -> ::windows::core::HRESULT,
     pub GetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::HRESULT,
     pub SetBreakWordType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbreakwordtype: u32) -> ::windows::core::HRESULT,

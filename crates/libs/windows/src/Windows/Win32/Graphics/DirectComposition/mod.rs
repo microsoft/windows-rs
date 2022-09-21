@@ -321,7 +321,7 @@ unsafe impl ::windows::core::Interface for IDCompositionAnimation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionAnimation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetAbsoluteBeginTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, begintime: i64) -> ::windows::core::HRESULT,
     pub AddCubic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::HRESULT,
@@ -750,7 +750,7 @@ unsafe impl ::windows::core::Interface for IDCompositionClip {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionClip_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
@@ -1023,7 +1023,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDelegatedInkTrail {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDelegatedInkTrail_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddTrailPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, generationid: *mut u32) -> ::windows::core::HRESULT,
     pub AddTrailPointsWithPrediction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: u32, generationid: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveTrailPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, generationid: u32) -> ::windows::core::HRESULT,
@@ -1384,7 +1384,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDevice_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WaitForCommitCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1565,7 +1565,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDevice2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDevice2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WaitForCommitCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1862,7 +1862,7 @@ unsafe impl ::windows::core::Interface for IDCompositionDeviceDebug {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionDeviceDebug_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EnableDebugCounters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DisableDebugCounters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1908,7 +1908,7 @@ unsafe impl ::windows::core::Interface for IDCompositionEffect {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionEffect_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
@@ -2302,7 +2302,7 @@ unsafe impl ::windows::core::Interface for IDCompositionInkTrailDevice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionInkTrailDevice_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateDelegatedInkTrail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inktrail: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateDelegatedInkTrailForSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void, inktrail: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3915,7 +3915,7 @@ unsafe impl ::windows::core::Interface for IDCompositionSurface {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSurface_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub BeginDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updaterect: *const super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3983,7 +3983,7 @@ unsafe impl ::windows::core::Interface for IDCompositionSurfaceFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionSurfaceFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4243,7 +4243,7 @@ unsafe impl ::windows::core::Interface for IDCompositionTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionTarget_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
@@ -4957,7 +4957,7 @@ unsafe impl ::windows::core::Interface for IDCompositionVisual {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCompositionVisual_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
     pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

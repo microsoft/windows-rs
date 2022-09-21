@@ -121,7 +121,7 @@ impl IFhConfigMgr_Vtbl {
             this.QueryProtectionStatus(::core::mem::transmute_copy(&protectionstate), ::core::mem::transmute_copy(&protecteduntiltime)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             LoadConfiguration: LoadConfiguration::<Identity, Impl, OFFSET>,
             CreateDefaultConfiguration: CreateDefaultConfiguration::<Identity, Impl, OFFSET>,
             SaveConfiguration: SaveConfiguration::<Identity, Impl, OFFSET>,
@@ -187,7 +187,7 @@ impl IFhReassociation_Vtbl {
             this.PerformReassociation(::core::mem::transmute_copy(&overwriteifexists)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ValidateTarget: ValidateTarget::<Identity, Impl, OFFSET>,
             ScanTargetForConfigurations: ScanTargetForConfigurations::<Identity, Impl, OFFSET>,
             GetConfigurationDetails: GetConfigurationDetails::<Identity, Impl, OFFSET>,
@@ -223,7 +223,7 @@ impl IFhScopeIterator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             MoveToNextItem: MoveToNextItem::<Identity, Impl, OFFSET>,
             GetItem: GetItem::<Identity, Impl, OFFSET>,
         }
@@ -262,7 +262,7 @@ impl IFhTarget_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetStringProperty: GetStringProperty::<Identity, Impl, OFFSET>,
             GetNumericalProperty: GetNumericalProperty::<Identity, Impl, OFFSET>,
         }

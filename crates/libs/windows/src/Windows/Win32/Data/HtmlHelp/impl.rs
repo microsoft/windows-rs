@@ -37,7 +37,7 @@ impl IITDatabase_Vtbl {
             this.GetObjectPersistence(::core::mem::transmute(&lpwszobject), ::core::mem::transmute_copy(&dwobjinstance), ::core::mem::transmute_copy(&ppvpersistence), ::core::mem::transmute_copy(&fstream)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             CreateObject: CreateObject::<Identity, Impl, OFFSET>,
@@ -380,7 +380,7 @@ impl IITResultSet_Vtbl {
             this.GetColumnStatus(::core::mem::transmute_copy(&lpcolstatus)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetColumnPriority: SetColumnPriority::<Identity, Impl, OFFSET>,
             SetColumnHeap: SetColumnHeap::<Identity, Impl, OFFSET>,
             SetKeyProp: SetKeyProp::<Identity, Impl, OFFSET>,
@@ -504,7 +504,7 @@ impl IITWordWheel_Vtbl {
             this.GetDataColumns(::core::mem::transmute(&prs)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Open: Open::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             GetLocaleInfo: GetLocaleInfo::<Identity, Impl, OFFSET>,
@@ -542,7 +542,7 @@ impl IStemSink_Vtbl {
             this.PutWord(::core::mem::transmute(&pwcinbuf), ::core::mem::transmute_copy(&cwc)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             PutAltWord: PutAltWord::<Identity, Impl, OFFSET>,
             PutWord: PutWord::<Identity, Impl, OFFSET>,
         }
@@ -590,7 +590,7 @@ impl IStemmerConfig_Vtbl {
             this.LoadExternalStemmerData(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&dwextdatatype)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetLocaleInfo: SetLocaleInfo::<Identity, Impl, OFFSET>,
             GetLocaleInfo: GetLocaleInfo::<Identity, Impl, OFFSET>,
             SetControlInfo: SetControlInfo::<Identity, Impl, OFFSET>,
@@ -671,7 +671,7 @@ impl IWordBreakerConfig_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetLocaleInfo: SetLocaleInfo::<Identity, Impl, OFFSET>,
             GetLocaleInfo: GetLocaleInfo::<Identity, Impl, OFFSET>,
             SetBreakWordType: SetBreakWordType::<Identity, Impl, OFFSET>,

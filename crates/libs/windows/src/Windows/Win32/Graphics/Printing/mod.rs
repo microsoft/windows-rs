@@ -3005,7 +3005,7 @@ unsafe impl ::windows::core::Interface for IAsyncGetSrvReferralCookie {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncGetSrvReferralCookie_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FinishAsyncCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub CancelAsyncCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub FinishAsyncCallWithData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -3173,7 +3173,7 @@ unsafe impl ::windows::core::Interface for IBidiRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBidiRequest_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszschema: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub SetInputData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtype: u32, pdata: *const u8, usize: u32) -> ::windows::core::HRESULT,
     pub GetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -3239,7 +3239,7 @@ unsafe impl ::windows::core::Interface for IBidiRequestContainer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBidiRequestContainer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prequest: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetEnumObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3313,7 +3313,7 @@ unsafe impl ::windows::core::Interface for IBidiSpl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBidiSpl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdevicename: ::windows::core::PCWSTR, dwaccess: u32) -> ::windows::core::HRESULT,
     pub UnbindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SendRecv: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaction: ::windows::core::PCWSTR, prequest: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3384,7 +3384,7 @@ unsafe impl ::windows::core::Interface for IBidiSpl2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBidiSpl2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub BindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdevicename: ::windows::core::PCWSTR, dwaccess: u32) -> ::windows::core::HRESULT,
     pub UnbindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SendRecvXMLString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrequest: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrresponse: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -3450,7 +3450,7 @@ unsafe impl ::windows::core::Interface for IFixedDocument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFixedDocument_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprintticket: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3512,7 +3512,7 @@ unsafe impl ::windows::core::Interface for IFixedDocumentSequence {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFixedDocumentSequence_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprintticket: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3936,7 +3936,7 @@ unsafe impl ::windows::core::Interface for IInterFilterCommunicator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInterFilterCommunicator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RequestReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppireader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RequestWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3998,7 +3998,7 @@ unsafe impl ::windows::core::Interface for IPartBase {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPartBase_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPartCompression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcompression: *mut EXpsCompressionOptions) -> ::windows::core::HRESULT,
@@ -4125,7 +4125,7 @@ unsafe impl ::windows::core::Interface for IPartDiscardControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPartDiscardControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDiscardProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urisentinelpage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, uriparttodiscard: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -4698,7 +4698,7 @@ unsafe impl ::windows::core::Interface for IPrintAsyncCookie {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncCookie_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FinishAsyncCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub CancelAsyncCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
@@ -4829,7 +4829,7 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotify_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreatePrintAsyncNotifyChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *const ::windows::core::GUID, param2: PrintAsyncNotifyUserFilter, param3: PrintAsyncNotifyConversationStyle, param4: *mut ::core::ffi::c_void, param5: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreatePrintAsyncNotifyRegistration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: PrintAsyncNotifyUserFilter, param2: PrintAsyncNotifyConversationStyle, param3: *mut ::core::ffi::c_void, param4: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4890,7 +4890,7 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNotifyCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnEventNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ChannelClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4949,7 +4949,7 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNotifyChannel {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyChannel_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SendNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CloseChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5002,7 +5002,7 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNotifyDataObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyDataObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AcquireData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnotificationdata: *mut *mut u8, psize: *mut u32, ppschema: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub ReleaseData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5055,7 +5055,7 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNotifyRegistration {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyRegistration_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterForNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnregisterForNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5118,7 +5118,7 @@ unsafe impl ::windows::core::Interface for IPrintAsyncNotifyServerReferral {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintAsyncNotifyServerReferral_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetServerReferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub AsyncGetServerReferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetServerReferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prmtserverreferral: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -5245,7 +5245,7 @@ unsafe impl ::windows::core::Interface for IPrintClassObjectFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintClassObjectFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetPrintClassObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszprintername: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -5353,7 +5353,7 @@ unsafe impl ::windows::core::Interface for IPrintCoreHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintCoreHelper_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: ::windows::core::PCSTR, ppszoption: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
@@ -6088,7 +6088,7 @@ unsafe impl ::windows::core::Interface for IPrintJob {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintJob_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
     pub PrintedPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulpages: *mut u32) -> ::windows::core::HRESULT,
@@ -6237,7 +6237,7 @@ unsafe impl ::windows::core::Interface for IPrintOemCommon {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOemCommon_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub DevMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmode: u32, poemdmparam: *mut OEMDMPARAM) -> ::windows::core::HRESULT,
@@ -6306,7 +6306,7 @@ unsafe impl ::windows::core::Interface for IPrintOemDriverUI {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOemDriverUI_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub DrvGetDriverSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pci: *mut ::core::ffi::c_void, feature: ::windows::core::PCSTR, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub DrvUpgradeRegistrySetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, pfeature: ::windows::core::PCSTR, poption: ::windows::core::PCSTR) -> ::windows::core::HRESULT,
@@ -6781,7 +6781,7 @@ unsafe impl ::windows::core::Interface for IPrintOemUIMXDC {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintOemUIMXDC_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub AdjustImageableArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const ::core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
@@ -6852,7 +6852,7 @@ unsafe impl ::windows::core::Interface for IPrintPipelineFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPipelineFilter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitializeFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinegotiation: *mut ::core::ffi::c_void, pipropertybag: *mut ::core::ffi::c_void, pipipelinecontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShutdownOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6911,7 +6911,7 @@ unsafe impl ::windows::core::Interface for IPrintPipelineManagerControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPipelineManagerControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub RequestShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrreason: ::windows::core::HRESULT, preason: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6964,7 +6964,7 @@ unsafe impl ::windows::core::Interface for IPrintPipelineProgressReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPipelineProgressReport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReportProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, update: EXpsJobConsumption) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -7035,7 +7035,7 @@ unsafe impl ::windows::core::Interface for IPrintPipelinePropertyBag {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPipelinePropertyBag_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AddProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -7106,7 +7106,7 @@ unsafe impl ::windows::core::Interface for IPrintPreviewDxgiPackageTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintPreviewDxgiPackageTarget_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetJobPageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, counttype: PageCountType, count: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub DrawPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobpagenumber: u32, pageimage: *mut ::core::ffi::c_void, dpix: f32, dpiy: f32) -> ::windows::core::HRESULT,
@@ -7166,7 +7166,7 @@ unsafe impl ::windows::core::Interface for IPrintReadStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintReadStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub ReadBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbrequested: u32, pcbread: *mut u32, pbendoffile: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -7220,7 +7220,7 @@ unsafe impl ::windows::core::Interface for IPrintReadStreamFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintReadStreamFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
@@ -9532,7 +9532,7 @@ unsafe impl ::windows::core::Interface for IPrintTicketProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSupportedVersions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, ppversions: *mut *mut i32, cversions: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9821,7 +9821,7 @@ unsafe impl ::windows::core::Interface for IPrintWriteStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWriteStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub WriteBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbuffer: *const ::core::ffi::c_void, cbbuffer: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
@@ -9871,7 +9871,7 @@ unsafe impl ::windows::core::Interface for IPrintWriteStreamFlush {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintWriteStreamFlush_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FlushData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -9920,7 +9920,7 @@ unsafe impl ::windows::core::Interface for IPrinterBidiSetRequestCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterBidiSetRequestCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresponse: ::core::mem::ManuallyDrop<::windows::core::BSTR>, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -9969,7 +9969,7 @@ unsafe impl ::windows::core::Interface for IPrinterExtensionAsyncOperation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionAsyncOperation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
@@ -10493,7 +10493,7 @@ unsafe impl ::windows::core::Interface for IPrinterExtensionManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinterExtensionManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub EnableEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printerdriverid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub DisableEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -11881,7 +11881,7 @@ unsafe impl ::windows::core::Interface for IXpsDocument {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsDocument_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppthumbnail: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pthumbnail: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -11967,7 +11967,7 @@ unsafe impl ::windows::core::Interface for IXpsDocumentConsumer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsDocumentConsumer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SendXpsUnknown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SendXpsDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixpsdocument: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SendFixedDocumentSequence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifixeddocumentsequence: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12023,7 +12023,7 @@ unsafe impl ::windows::core::Interface for IXpsDocumentProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsDocumentProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetXpsPart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppixpspart: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -12083,7 +12083,7 @@ unsafe impl ::windows::core::Interface for IXpsPartIterator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsPartIterator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppxpspart: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -12144,7 +12144,7 @@ unsafe impl ::windows::core::Interface for IXpsRasterizationFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Xps")]
     pub CreateRasterizer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpspage: *mut ::core::ffi::c_void, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, ppixpsrasterizer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Xps"))]
@@ -12202,7 +12202,7 @@ unsafe impl ::windows::core::Interface for IXpsRasterizationFactory1 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory1_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Xps")]
     pub CreateRasterizer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpspage: *mut ::core::ffi::c_void, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT, ppixpsrasterizer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Xps"))]
@@ -12260,7 +12260,7 @@ unsafe impl ::windows::core::Interface for IXpsRasterizationFactory2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizationFactory2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_Xps")]
     pub CreateRasterizer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpspage: *mut ::core::ffi::c_void, dpix: f32, dpiy: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT, backgroundcolor: XPSRAS_BACKGROUND_COLOR, ppixpsrasterizer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Xps"))]
@@ -12321,7 +12321,7 @@ unsafe impl ::windows::core::Interface for IXpsRasterizer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub RasterizeRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, width: i32, height: i32, notificationcallback: *mut ::core::ffi::c_void, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Imaging"))]
@@ -12374,7 +12374,7 @@ unsafe impl ::windows::core::Interface for IXpsRasterizerNotificationCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXpsRasterizerNotificationCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Continue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]

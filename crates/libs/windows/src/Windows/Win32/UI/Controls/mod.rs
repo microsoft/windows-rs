@@ -2865,7 +2865,7 @@ unsafe impl ::windows::core::Interface for IImageList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageList_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, pi: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]

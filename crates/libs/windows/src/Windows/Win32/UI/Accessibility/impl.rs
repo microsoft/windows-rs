@@ -9,7 +9,7 @@ impl IAccIdentity_Vtbl {
             let this = (*this).get_impl();
             this.GetIdentityString(::core::mem::transmute_copy(&dwidchild), ::core::mem::transmute_copy(&ppidstring), ::core::mem::transmute_copy(&pdwidstringlen)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetIdentityString: GetIdentityString::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentityString: GetIdentityString::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccIdentity as ::windows::core::Interface>::IID
@@ -29,7 +29,7 @@ impl IAccPropServer_Vtbl {
             let this = (*this).get_impl();
             this.GetPropValue(::core::mem::transmute_copy(&pidstring), ::core::mem::transmute_copy(&dwidstringlen), ::core::mem::transmute(&idprop), ::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&pfhasprop)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetPropValue: GetPropValue::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropValue: GetPropValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccPropServer as ::windows::core::Interface>::IID
@@ -134,7 +134,7 @@ impl IAccPropServices_Vtbl {
             this.DecomposeHmenuIdentityString(::core::mem::transmute_copy(&pidstring), ::core::mem::transmute_copy(&dwidstringlen), ::core::mem::transmute_copy(&phmenu), ::core::mem::transmute_copy(&pidchild)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetPropValue: SetPropValue::<Identity, Impl, OFFSET>,
             SetPropServer: SetPropServer::<Identity, Impl, OFFSET>,
             ClearProps: ClearProps::<Identity, Impl, OFFSET>,
@@ -460,7 +460,7 @@ impl IAccessibleEx_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetObjectForChild: GetObjectForChild::<Identity, Impl, OFFSET>,
             GetIAccessiblePair: GetIAccessiblePair::<Identity, Impl, OFFSET>,
             GetRuntimeId: GetRuntimeId::<Identity, Impl, OFFSET>,
@@ -491,7 +491,7 @@ impl IAccessibleHandler_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), AccessibleObjectFromID: AccessibleObjectFromID::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AccessibleObjectFromID: AccessibleObjectFromID::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAccessibleHandler as ::windows::core::Interface>::IID
@@ -530,7 +530,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetEmbeddedFragmentRoots: GetEmbeddedFragmentRoots::<Identity, Impl, OFFSET>,
             GetObjectIdForProvider: GetObjectIdForProvider::<Identity, Impl, OFFSET>,
         }
@@ -590,7 +590,7 @@ impl IAccessibleWindowlessSite_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AcquireObjectIdRange: AcquireObjectIdRange::<Identity, Impl, OFFSET>,
             ReleaseObjectIdRange: ReleaseObjectIdRange::<Identity, Impl, OFFSET>,
             QueryObjectIdRanges: QueryObjectIdRanges::<Identity, Impl, OFFSET>,
@@ -667,7 +667,7 @@ impl IAnnotationProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AnnotationTypeId: AnnotationTypeId::<Identity, Impl, OFFSET>,
             AnnotationTypeName: AnnotationTypeName::<Identity, Impl, OFFSET>,
             Author: Author::<Identity, Impl, OFFSET>,
@@ -696,7 +696,7 @@ impl ICustomNavigationProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Navigate: Navigate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Navigate: Navigate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICustomNavigationProvider as ::windows::core::Interface>::IID
@@ -726,7 +726,7 @@ impl IDockProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetDockPosition: SetDockPosition::<Identity, Impl, OFFSET>,
             DockPosition: DockPosition::<Identity, Impl, OFFSET>,
         }
@@ -792,7 +792,7 @@ impl IDragProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsGrabbed: IsGrabbed::<Identity, Impl, OFFSET>,
             DropEffect: DropEffect::<Identity, Impl, OFFSET>,
             DropEffects: DropEffects::<Identity, Impl, OFFSET>,
@@ -836,7 +836,7 @@ impl IDropTargetProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             DropTargetEffect: DropTargetEffect::<Identity, Impl, OFFSET>,
             DropTargetEffects: DropTargetEffects::<Identity, Impl, OFFSET>,
         }
@@ -875,7 +875,7 @@ impl IExpandCollapseProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Expand: Expand::<Identity, Impl, OFFSET>,
             Collapse: Collapse::<Identity, Impl, OFFSET>,
             ExpandCollapseState: ExpandCollapseState::<Identity, Impl, OFFSET>,
@@ -951,7 +951,7 @@ impl IGridItemProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Row: Row::<Identity, Impl, OFFSET>,
             Column: Column::<Identity, Impl, OFFSET>,
             RowSpan: RowSpan::<Identity, Impl, OFFSET>,
@@ -1005,7 +1005,7 @@ impl IGridProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetItem: GetItem::<Identity, Impl, OFFSET>,
             RowCount: RowCount::<Identity, Impl, OFFSET>,
             ColumnCount: ColumnCount::<Identity, Impl, OFFSET>,
@@ -1026,7 +1026,7 @@ impl IInvokeProvider_Vtbl {
             let this = (*this).get_impl();
             this.Invoke().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInvokeProvider as ::windows::core::Interface>::IID
@@ -1052,7 +1052,7 @@ impl IItemContainerProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FindItemByProperty: FindItemByProperty::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindItemByProperty: FindItemByProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IItemContainerProvider as ::windows::core::Interface>::IID
@@ -1217,7 +1217,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Select: Select::<Identity, Impl, OFFSET>,
             DoDefaultAction: DoDefaultAction::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
@@ -1289,7 +1289,7 @@ impl IMultipleViewProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetViewName: GetViewName::<Identity, Impl, OFFSET>,
             SetCurrentView: SetCurrentView::<Identity, Impl, OFFSET>,
             CurrentView: CurrentView::<Identity, Impl, OFFSET>,
@@ -1317,7 +1317,7 @@ impl IObjectModelProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetUnderlyingObjectModel: GetUnderlyingObjectModel::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUnderlyingObjectModel: GetUnderlyingObjectModel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IObjectModelProvider as ::windows::core::Interface>::IID
@@ -1337,7 +1337,7 @@ impl IProxyProviderWinEventHandler_Vtbl {
             let this = (*this).get_impl();
             this.RespondToWinEvent(::core::mem::transmute_copy(&idwinevent), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild), ::core::mem::transmute(&psink)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), RespondToWinEvent: RespondToWinEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RespondToWinEvent: RespondToWinEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProxyProviderWinEventHandler as ::windows::core::Interface>::IID
@@ -1370,7 +1370,7 @@ impl IProxyProviderWinEventSink_Vtbl {
             this.AddStructureChangedEvent(::core::mem::transmute(&pprovider), ::core::mem::transmute_copy(&structurechangetype), ::core::mem::transmute_copy(&runtimeid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddAutomationPropertyChangedEvent: AddAutomationPropertyChangedEvent::<Identity, Impl, OFFSET>,
             AddAutomationEvent: AddAutomationEvent::<Identity, Impl, OFFSET>,
             AddStructureChangedEvent: AddStructureChangedEvent::<Identity, Impl, OFFSET>,
@@ -1467,7 +1467,7 @@ impl IRangeValueProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
             IsReadOnly: IsReadOnly::<Identity, Impl, OFFSET>,
@@ -1502,7 +1502,7 @@ impl IRawElementProviderAdviseEvents_Vtbl {
             this.AdviseEventRemoved(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&propertyids)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdviseEventAdded: AdviseEventAdded::<Identity, Impl, OFFSET>,
             AdviseEventRemoved: AdviseEventRemoved::<Identity, Impl, OFFSET>,
         }
@@ -1586,7 +1586,7 @@ impl IRawElementProviderFragment_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Navigate: Navigate::<Identity, Impl, OFFSET>,
             GetRuntimeId: GetRuntimeId::<Identity, Impl, OFFSET>,
             BoundingRectangle: BoundingRectangle::<Identity, Impl, OFFSET>,
@@ -1629,7 +1629,7 @@ impl IRawElementProviderFragmentRoot_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ElementProviderFromPoint: ElementProviderFromPoint::<Identity, Impl, OFFSET>,
             GetFocus: GetFocus::<Identity, Impl, OFFSET>,
         }
@@ -1658,7 +1658,7 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetEmbeddedAccessibles: GetEmbeddedAccessibles::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetEmbeddedAccessibles: GetEmbeddedAccessibles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRawElementProviderHostingAccessibles as ::windows::core::Interface>::IID
@@ -1685,7 +1685,7 @@ impl IRawElementProviderHwndOverride_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetOverrideProviderForHwnd: GetOverrideProviderForHwnd::<Identity, Impl, OFFSET>,
         }
     }
@@ -1750,7 +1750,7 @@ impl IRawElementProviderSimple_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ProviderOptions: ProviderOptions::<Identity, Impl, OFFSET>,
             GetPatternProvider: GetPatternProvider::<Identity, Impl, OFFSET>,
             GetPropertyValue: GetPropertyValue::<Identity, Impl, OFFSET>,
@@ -1840,7 +1840,7 @@ impl IRawElementProviderWindowlessSite_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetAdjacentFragment: GetAdjacentFragment::<Identity, Impl, OFFSET>,
             GetRuntimeIdPrefix: GetRuntimeIdPrefix::<Identity, Impl, OFFSET>,
         }
@@ -1867,7 +1867,7 @@ impl IRichEditUiaInformation_Vtbl {
             this.IsVisible().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetBoundaryRectangle: GetBoundaryRectangle::<Identity, Impl, OFFSET>,
             IsVisible: IsVisible::<Identity, Impl, OFFSET>,
         }
@@ -1893,7 +1893,7 @@ impl IRicheditWindowlessAccessibility_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateProvider: CreateProvider::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProvider: CreateProvider::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRicheditWindowlessAccessibility as ::windows::core::Interface>::IID
@@ -1910,7 +1910,7 @@ impl IScrollItemProvider_Vtbl {
             let this = (*this).get_impl();
             this.ScrollIntoView().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IScrollItemProvider as ::windows::core::Interface>::IID
@@ -2009,7 +2009,7 @@ impl IScrollProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Scroll: Scroll::<Identity, Impl, OFFSET>,
             SetScrollPercent: SetScrollPercent::<Identity, Impl, OFFSET>,
             HorizontalScrollPercent: HorizontalScrollPercent::<Identity, Impl, OFFSET>,
@@ -2075,7 +2075,7 @@ impl ISelectionItemProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Select: Select::<Identity, Impl, OFFSET>,
             AddToSelection: AddToSelection::<Identity, Impl, OFFSET>,
             RemoveFromSelection: RemoveFromSelection::<Identity, Impl, OFFSET>,
@@ -2132,7 +2132,7 @@ impl ISelectionProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSelection: GetSelection::<Identity, Impl, OFFSET>,
             CanSelectMultiple: CanSelectMultiple::<Identity, Impl, OFFSET>,
             IsSelectionRequired: IsSelectionRequired::<Identity, Impl, OFFSET>,
@@ -2255,7 +2255,7 @@ impl ISpreadsheetItemProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Formula: Formula::<Identity, Impl, OFFSET>,
             GetAnnotationObjects: GetAnnotationObjects::<Identity, Impl, OFFSET>,
             GetAnnotationTypes: GetAnnotationTypes::<Identity, Impl, OFFSET>,
@@ -2282,7 +2282,7 @@ impl ISpreadsheetProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetItemByName: GetItemByName::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetItemByName: GetItemByName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpreadsheetProvider as ::windows::core::Interface>::IID
@@ -2378,7 +2378,7 @@ impl IStylesProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             StyleId: StyleId::<Identity, Impl, OFFSET>,
             StyleName: StyleName::<Identity, Impl, OFFSET>,
             FillColor: FillColor::<Identity, Impl, OFFSET>,
@@ -2410,7 +2410,7 @@ impl ISynchronizedInputProvider_Vtbl {
             this.Cancel().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             StartListening: StartListening::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
@@ -2452,7 +2452,7 @@ impl ITableItemProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRowHeaderItems: GetRowHeaderItems::<Identity, Impl, OFFSET>,
             GetColumnHeaderItems: GetColumnHeaderItems::<Identity, Impl, OFFSET>,
         }
@@ -2506,7 +2506,7 @@ impl ITableProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRowHeaders: GetRowHeaders::<Identity, Impl, OFFSET>,
             GetColumnHeaders: GetColumnHeaders::<Identity, Impl, OFFSET>,
             RowOrColumnMajor: RowOrColumnMajor::<Identity, Impl, OFFSET>,
@@ -2546,7 +2546,7 @@ impl ITextChildProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TextContainer: TextContainer::<Identity, Impl, OFFSET>,
             TextRange: TextRange::<Identity, Impl, OFFSET>,
         }
@@ -2678,7 +2678,7 @@ impl ITextProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSelection: GetSelection::<Identity, Impl, OFFSET>,
             GetVisibleRanges: GetVisibleRanges::<Identity, Impl, OFFSET>,
             RangeFromChild: RangeFromChild::<Identity, Impl, OFFSET>,
@@ -2916,7 +2916,7 @@ impl ITextRangeProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Compare: Compare::<Identity, Impl, OFFSET>,
             CompareEndpoints: CompareEndpoints::<Identity, Impl, OFFSET>,
@@ -2985,7 +2985,7 @@ impl IToggleProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Toggle: Toggle::<Identity, Impl, OFFSET>,
             ToggleState: ToggleState::<Identity, Impl, OFFSET>,
         }
@@ -3057,7 +3057,7 @@ impl ITransformProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Move: Move::<Identity, Impl, OFFSET>,
             Resize: Resize::<Identity, Impl, OFFSET>,
             Rotate: Rotate::<Identity, Impl, OFFSET>,
@@ -3737,7 +3737,7 @@ impl IUIAutomation_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CompareElements: CompareElements::<Identity, Impl, OFFSET>,
             CompareRuntimeIds: CompareRuntimeIds::<Identity, Impl, OFFSET>,
             GetRootElement: GetRootElement::<Identity, Impl, OFFSET>,
@@ -4074,7 +4074,7 @@ impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
             this.HandleActiveTextPositionChangedEvent(::core::mem::transmute(&sender), ::core::mem::transmute(&range)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             HandleActiveTextPositionChangedEvent: HandleActiveTextPositionChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
@@ -4257,7 +4257,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CurrentAnnotationTypeId: CurrentAnnotationTypeId::<Identity, Impl, OFFSET>,
             CurrentAnnotationTypeName: CurrentAnnotationTypeName::<Identity, Impl, OFFSET>,
             CurrentAuthor: CurrentAuthor::<Identity, Impl, OFFSET>,
@@ -4384,7 +4384,7 @@ impl IUIAutomationCacheRequest_Vtbl {
             this.SetAutomationElementMode(::core::mem::transmute_copy(&mode)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddProperty: AddProperty::<Identity, Impl, OFFSET>,
             AddPattern: AddPattern::<Identity, Impl, OFFSET>,
             Clone: Clone::<Identity, Impl, OFFSET>,
@@ -4414,7 +4414,7 @@ impl IUIAutomationChangesEventHandler_Vtbl {
             let this = (*this).get_impl();
             this.HandleChangesEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&uiachanges), ::core::mem::transmute_copy(&changescount)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), HandleChangesEvent: HandleChangesEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleChangesEvent: HandleChangesEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationChangesEventHandler as ::windows::core::Interface>::IID
@@ -4424,7 +4424,7 @@ pub trait IUIAutomationCondition_Impl: Sized {}
 impl ::windows::core::RuntimeName for IUIAutomationCondition {}
 impl IUIAutomationCondition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCondition_Impl, const OFFSET: isize>() -> IUIAutomationCondition_Vtbl {
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationCondition as ::windows::core::Interface>::IID
@@ -4447,7 +4447,7 @@ impl IUIAutomationCustomNavigationPattern_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Navigate: Navigate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Navigate: Navigate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationCustomNavigationPattern as ::windows::core::Interface>::IID
@@ -4489,7 +4489,7 @@ impl IUIAutomationDockPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetDockPosition: SetDockPosition::<Identity, Impl, OFFSET>,
             CurrentDockPosition: CurrentDockPosition::<Identity, Impl, OFFSET>,
             CachedDockPosition: CachedDockPosition::<Identity, Impl, OFFSET>,
@@ -4604,7 +4604,7 @@ impl IUIAutomationDragPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CurrentIsGrabbed: CurrentIsGrabbed::<Identity, Impl, OFFSET>,
             CachedIsGrabbed: CachedIsGrabbed::<Identity, Impl, OFFSET>,
             CurrentDropEffect: CurrentDropEffect::<Identity, Impl, OFFSET>,
@@ -4676,7 +4676,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CurrentDropTargetEffect: CurrentDropTargetEffect::<Identity, Impl, OFFSET>,
             CachedDropTargetEffect: CachedDropTargetEffect::<Identity, Impl, OFFSET>,
             CurrentDropTargetEffects: CurrentDropTargetEffects::<Identity, Impl, OFFSET>,
@@ -5656,7 +5656,7 @@ impl IUIAutomationElement_Vtbl {
             this.GetClickablePoint(::core::mem::transmute_copy(&clickable), ::core::mem::transmute_copy(&gotclickable)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetFocus: SetFocus::<Identity, Impl, OFFSET>,
             GetRuntimeId: GetRuntimeId::<Identity, Impl, OFFSET>,
             FindFirst: FindFirst::<Identity, Impl, OFFSET>,
@@ -6339,7 +6339,7 @@ impl IUIAutomationElementArray_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Length: Length::<Identity, Impl, OFFSET>,
             GetElement: GetElement::<Identity, Impl, OFFSET>,
         }
@@ -6359,7 +6359,7 @@ impl IUIAutomationEventHandler_Vtbl {
             let this = (*this).get_impl();
             this.HandleAutomationEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&eventid)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), HandleAutomationEvent: HandleAutomationEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleAutomationEvent: HandleAutomationEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationEventHandler as ::windows::core::Interface>::IID
@@ -6413,7 +6413,7 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             this.AddTextEditTextChangedEventHandler(::core::mem::transmute_copy(&scope), ::core::mem::transmute_copy(&texteditchangetype), ::core::mem::transmute(&cacherequest), ::core::mem::transmute(&handler)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddActiveTextPositionChangedEventHandler: AddActiveTextPositionChangedEventHandler::<Identity, Impl, OFFSET>,
             AddAutomationEventHandler: AddAutomationEventHandler::<Identity, Impl, OFFSET>,
             AddChangesEventHandler: AddChangesEventHandler::<Identity, Impl, OFFSET>,
@@ -6469,7 +6469,7 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Expand: Expand::<Identity, Impl, OFFSET>,
             Collapse: Collapse::<Identity, Impl, OFFSET>,
             CurrentExpandCollapseState: CurrentExpandCollapseState::<Identity, Impl, OFFSET>,
@@ -6491,7 +6491,7 @@ impl IUIAutomationFocusChangedEventHandler_Vtbl {
             let this = (*this).get_impl();
             this.HandleFocusChangedEvent(::core::mem::transmute(&sender)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), HandleFocusChangedEvent: HandleFocusChangedEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleFocusChangedEvent: HandleFocusChangedEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationFocusChangedEventHandler as ::windows::core::Interface>::IID
@@ -6623,7 +6623,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CurrentContainingGrid: CurrentContainingGrid::<Identity, Impl, OFFSET>,
             CurrentRow: CurrentRow::<Identity, Impl, OFFSET>,
             CurrentColumn: CurrentColumn::<Identity, Impl, OFFSET>,
@@ -6706,7 +6706,7 @@ impl IUIAutomationGridPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetItem: GetItem::<Identity, Impl, OFFSET>,
             CurrentRowCount: CurrentRowCount::<Identity, Impl, OFFSET>,
             CurrentColumnCount: CurrentColumnCount::<Identity, Impl, OFFSET>,
@@ -6729,7 +6729,7 @@ impl IUIAutomationInvokePattern_Vtbl {
             let this = (*this).get_impl();
             this.Invoke().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationInvokePattern as ::windows::core::Interface>::IID
@@ -6755,7 +6755,7 @@ impl IUIAutomationItemContainerPattern_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), FindItemByProperty: FindItemByProperty::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindItemByProperty: FindItemByProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationItemContainerPattern as ::windows::core::Interface>::IID
@@ -7040,7 +7040,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Select: Select::<Identity, Impl, OFFSET>,
             DoDefaultAction: DoDefaultAction::<Identity, Impl, OFFSET>,
             SetValue: SetValue::<Identity, Impl, OFFSET>,
@@ -7146,7 +7146,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetViewName: GetViewName::<Identity, Impl, OFFSET>,
             SetCurrentView: SetCurrentView::<Identity, Impl, OFFSET>,
             CurrentCurrentView: CurrentCurrentView::<Identity, Impl, OFFSET>,
@@ -7193,7 +7193,7 @@ impl IUIAutomationNotificationEventHandler_Vtbl {
             let this = (*this).get_impl();
             this.HandleNotificationEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&notificationkind), ::core::mem::transmute_copy(&notificationprocessing), ::core::mem::transmute(&displaystring), ::core::mem::transmute(&activityid)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), HandleNotificationEvent: HandleNotificationEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleNotificationEvent: HandleNotificationEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationNotificationEventHandler as ::windows::core::Interface>::IID
@@ -7216,7 +7216,7 @@ impl IUIAutomationObjectModelPattern_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetUnderlyingObjectModel: GetUnderlyingObjectModel::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUnderlyingObjectModel: GetUnderlyingObjectModel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationObjectModelPattern as ::windows::core::Interface>::IID
@@ -7295,7 +7295,7 @@ impl IUIAutomationPatternHandler_Vtbl {
             this.Dispatch(::core::mem::transmute(&ptarget), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pparams), ::core::mem::transmute_copy(&cparams)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateClientWrapper: CreateClientWrapper::<Identity, Impl, OFFSET>,
             Dispatch: Dispatch::<Identity, Impl, OFFSET>,
         }
@@ -7325,7 +7325,7 @@ impl IUIAutomationPatternInstance_Vtbl {
             this.CallMethod(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pparams), ::core::mem::transmute_copy(&cparams)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             CallMethod: CallMethod::<Identity, Impl, OFFSET>,
         }
@@ -7349,7 +7349,7 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
             this.HandlePropertyChangedEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute(&newvalue)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             HandlePropertyChangedEvent: HandlePropertyChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
@@ -7445,7 +7445,7 @@ impl IUIAutomationProxyFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateProvider: CreateProvider::<Identity, Impl, OFFSET>,
             ProxyFactoryId: ProxyFactoryId::<Identity, Impl, OFFSET>,
         }
@@ -7583,7 +7583,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ProxyFactory: ProxyFactory::<Identity, Impl, OFFSET>,
             ClassName: ClassName::<Identity, Impl, OFFSET>,
             ImageName: ImageName::<Identity, Impl, OFFSET>,
@@ -7684,7 +7684,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             this.RestoreDefaultTable().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             GetTable: GetTable::<Identity, Impl, OFFSET>,
             GetEntry: GetEntry::<Identity, Impl, OFFSET>,
@@ -7859,7 +7859,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             CurrentValue: CurrentValue::<Identity, Impl, OFFSET>,
             CurrentIsReadOnly: CurrentIsReadOnly::<Identity, Impl, OFFSET>,
@@ -7918,7 +7918,7 @@ impl IUIAutomationRegistrar_Vtbl {
             this.RegisterPattern(::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&ppatternid), ::core::mem::transmute_copy(&ppatternavailablepropertyid), ::core::mem::transmute_copy(&propertyidcount), ::core::mem::transmute_copy(&ppropertyids), ::core::mem::transmute_copy(&eventidcount), ::core::mem::transmute_copy(&peventids)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterProperty: RegisterProperty::<Identity, Impl, OFFSET>,
             RegisterEvent: RegisterEvent::<Identity, Impl, OFFSET>,
             RegisterPattern: RegisterPattern::<Identity, Impl, OFFSET>,
@@ -7939,7 +7939,7 @@ impl IUIAutomationScrollItemPattern_Vtbl {
             let this = (*this).get_impl();
             this.ScrollIntoView().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationScrollItemPattern as ::windows::core::Interface>::IID
@@ -8110,7 +8110,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Scroll: Scroll::<Identity, Impl, OFFSET>,
             SetScrollPercent: SetScrollPercent::<Identity, Impl, OFFSET>,
             CurrentHorizontalScrollPercent: CurrentHorizontalScrollPercent::<Identity, Impl, OFFSET>,
@@ -8206,7 +8206,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Select: Select::<Identity, Impl, OFFSET>,
             AddToSelection: AddToSelection::<Identity, Impl, OFFSET>,
             RemoveFromSelection: RemoveFromSelection::<Identity, Impl, OFFSET>,
@@ -8301,7 +8301,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrentSelection: GetCurrentSelection::<Identity, Impl, OFFSET>,
             CurrentCanSelectMultiple: CurrentCanSelectMultiple::<Identity, Impl, OFFSET>,
             CurrentIsSelectionRequired: CurrentIsSelectionRequired::<Identity, Impl, OFFSET>,
@@ -8515,7 +8515,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CurrentFormula: CurrentFormula::<Identity, Impl, OFFSET>,
             GetCurrentAnnotationObjects: GetCurrentAnnotationObjects::<Identity, Impl, OFFSET>,
             GetCurrentAnnotationTypes: GetCurrentAnnotationTypes::<Identity, Impl, OFFSET>,
@@ -8545,7 +8545,7 @@ impl IUIAutomationSpreadsheetPattern_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetItemByName: GetItemByName::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetItemByName: GetItemByName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationSpreadsheetPattern as ::windows::core::Interface>::IID
@@ -8566,7 +8566,7 @@ impl IUIAutomationStructureChangedEventHandler_Vtbl {
             this.HandleStructureChangedEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&changetype), ::core::mem::transmute_copy(&runtimeid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             HandleStructureChangedEvent: HandleStructureChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
@@ -8760,7 +8760,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             this.GetCachedExtendedPropertiesAsArray(::core::mem::transmute_copy(&propertyarray), ::core::mem::transmute_copy(&propertycount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CurrentStyleId: CurrentStyleId::<Identity, Impl, OFFSET>,
             CurrentStyleName: CurrentStyleName::<Identity, Impl, OFFSET>,
             CurrentFillColor: CurrentFillColor::<Identity, Impl, OFFSET>,
@@ -8801,7 +8801,7 @@ impl IUIAutomationSynchronizedInputPattern_Vtbl {
             this.Cancel().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             StartListening: StartListening::<Identity, Impl, OFFSET>,
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
@@ -8864,7 +8864,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrentRowHeaderItems: GetCurrentRowHeaderItems::<Identity, Impl, OFFSET>,
             GetCurrentColumnHeaderItems: GetCurrentColumnHeaderItems::<Identity, Impl, OFFSET>,
             GetCachedRowHeaderItems: GetCachedRowHeaderItems::<Identity, Impl, OFFSET>,
@@ -8953,7 +8953,7 @@ impl IUIAutomationTablePattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrentRowHeaders: GetCurrentRowHeaders::<Identity, Impl, OFFSET>,
             GetCurrentColumnHeaders: GetCurrentColumnHeaders::<Identity, Impl, OFFSET>,
             CurrentRowOrColumnMajor: CurrentRowOrColumnMajor::<Identity, Impl, OFFSET>,
@@ -8996,7 +8996,7 @@ impl IUIAutomationTextChildPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TextContainer: TextContainer::<Identity, Impl, OFFSET>,
             TextRange: TextRange::<Identity, Impl, OFFSET>,
         }
@@ -9062,7 +9062,7 @@ impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
             this.HandleTextEditTextChangedEvent(::core::mem::transmute(&sender), ::core::mem::transmute_copy(&texteditchangetype), ::core::mem::transmute_copy(&eventstrings)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             HandleTextEditTextChangedEvent: HandleTextEditTextChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
@@ -9151,7 +9151,7 @@ impl IUIAutomationTextPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RangeFromPoint: RangeFromPoint::<Identity, Impl, OFFSET>,
             RangeFromChild: RangeFromChild::<Identity, Impl, OFFSET>,
             GetSelection: GetSelection::<Identity, Impl, OFFSET>,
@@ -9389,7 +9389,7 @@ impl IUIAutomationTextRange_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Clone: Clone::<Identity, Impl, OFFSET>,
             Compare: Compare::<Identity, Impl, OFFSET>,
             CompareEndpoints: CompareEndpoints::<Identity, Impl, OFFSET>,
@@ -9519,7 +9519,7 @@ impl IUIAutomationTextRangeArray_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Length: Length::<Identity, Impl, OFFSET>,
             GetElement: GetElement::<Identity, Impl, OFFSET>,
         }
@@ -9564,7 +9564,7 @@ impl IUIAutomationTogglePattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Toggle: Toggle::<Identity, Impl, OFFSET>,
             CurrentToggleState: CurrentToggleState::<Identity, Impl, OFFSET>,
             CachedToggleState: CachedToggleState::<Identity, Impl, OFFSET>,
@@ -9673,7 +9673,7 @@ impl IUIAutomationTransformPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Move: Move::<Identity, Impl, OFFSET>,
             Resize: Resize::<Identity, Impl, OFFSET>,
             Rotate: Rotate::<Identity, Impl, OFFSET>,
@@ -9985,7 +9985,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetParentElement: GetParentElement::<Identity, Impl, OFFSET>,
             GetFirstChildElement: GetFirstChildElement::<Identity, Impl, OFFSET>,
             GetLastChildElement: GetLastChildElement::<Identity, Impl, OFFSET>,
@@ -10068,7 +10068,7 @@ impl IUIAutomationValuePattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             CurrentValue: CurrentValue::<Identity, Impl, OFFSET>,
             CurrentIsReadOnly: CurrentIsReadOnly::<Identity, Impl, OFFSET>,
@@ -10091,7 +10091,7 @@ impl IUIAutomationVirtualizedItemPattern_Vtbl {
             let this = (*this).get_impl();
             this.Realize().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAutomationVirtualizedItemPattern as ::windows::core::Interface>::IID
@@ -10274,7 +10274,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Close: Close::<Identity, Impl, OFFSET>,
             WaitForInputIdle: WaitForInputIdle::<Identity, Impl, OFFSET>,
             SetWindowVisualState: SetWindowVisualState::<Identity, Impl, OFFSET>,
@@ -10335,7 +10335,7 @@ impl IValueProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetValue: SetValue::<Identity, Impl, OFFSET>,
             Value: Value::<Identity, Impl, OFFSET>,
             IsReadOnly: IsReadOnly::<Identity, Impl, OFFSET>,
@@ -10356,7 +10356,7 @@ impl IVirtualizedItemProvider_Vtbl {
             let this = (*this).get_impl();
             this.Realize().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVirtualizedItemProvider as ::windows::core::Interface>::IID
@@ -10467,7 +10467,7 @@ impl IWindowProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetVisualState: SetVisualState::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             WaitForInputIdle: WaitForInputIdle::<Identity, Impl, OFFSET>,

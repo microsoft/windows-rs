@@ -25,7 +25,7 @@ impl IDialBranding_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetBitmap: GetBitmap::<Identity, Impl, OFFSET>,
         }
@@ -94,7 +94,7 @@ impl IDialEngine_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             SetProperty: SetProperty::<Identity, Impl, OFFSET>,
@@ -119,7 +119,7 @@ impl IDialEventSink_Vtbl {
             let this = (*this).get_impl();
             this.OnEvent(::core::mem::transmute_copy(&dwevent), ::core::mem::transmute_copy(&dwstatus)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDialEventSink as ::windows::core::Interface>::IID
@@ -136,7 +136,7 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
             let this = (*this).get_impl();
             this.GetCookieInfoForUri(::core::mem::transmute(&uri), ::core::mem::transmute_copy(&cookieinfocount), ::core::mem::transmute_copy(&cookieinfo)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetCookieInfoForUri: GetCookieInfoForUri::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCookieInfoForUri: GetCookieInfoForUri::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProofOfPossessionCookieInfoManager as ::windows::core::Interface>::IID
@@ -154,7 +154,7 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
             this.GetCookieInfoWithUriForAccount(::core::mem::transmute(&webaccount), ::core::mem::transmute(&uri), ::core::mem::transmute_copy(&cookieinfocount), ::core::mem::transmute_copy(&cookieinfo)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCookieInfoWithUriForAccount: GetCookieInfoWithUriForAccount::<Identity, Impl, OFFSET>,
         }
     }

@@ -87,7 +87,7 @@ unsafe impl ::windows::core::Interface for ID3D11On12Device {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11On12Device_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub CreateWrappedResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource12: *mut ::core::ffi::c_void, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const ::windows::core::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]

@@ -142,7 +142,7 @@ unsafe impl ::windows::core::Interface for IWPCProviderConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderConfig_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetUserSummary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrusersummary: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -202,7 +202,7 @@ unsafe impl ::windows::core::Interface for IWPCProviderState {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderState_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -253,7 +253,7 @@ unsafe impl ::windows::core::Interface for IWPCProviderSupport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderSupport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidprovider: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
@@ -315,7 +315,7 @@ unsafe impl ::windows::core::Interface for IWPCSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCSettings_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsLoggingRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -574,7 +574,7 @@ unsafe impl ::windows::core::Interface for IWindowsParentalControlsCore {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsParentalControlsCore_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevisibility: *mut WPCFLAG_VISIBILITY) -> ::windows::core::HRESULT,
     pub GetUserSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: ::windows::core::PCWSTR, ppsettings: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetWebSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: ::windows::core::PCWSTR, ppsettings: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

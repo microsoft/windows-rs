@@ -1417,7 +1417,7 @@ struct DeviceArrivedEventHandlerBox<F: FnMut(&::core::option::Option<ProximityDe
 }
 impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DeviceArrivedEventHandlerBox<F> {
     const VTABLE: DeviceArrivedEventHandler_Vtbl = DeviceArrivedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1477,7 +1477,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceArrivedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DeviceArrivedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -1504,7 +1504,7 @@ struct DeviceDepartedEventHandlerBox<F: FnMut(&::core::option::Option<ProximityD
 }
 impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DeviceDepartedEventHandlerBox<F> {
     const VTABLE: DeviceDepartedEventHandler_Vtbl = DeviceDepartedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1564,7 +1564,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceDepartedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DeviceDepartedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -1592,7 +1592,7 @@ struct MessageReceivedHandlerBox<F: FnMut(&::core::option::Option<ProximityDevic
 }
 impl<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageReceivedHandlerBox<F> {
     const VTABLE: MessageReceivedHandler_Vtbl = MessageReceivedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1652,7 +1652,7 @@ unsafe impl ::windows::core::RuntimeType for MessageReceivedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct MessageReceivedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -1679,7 +1679,7 @@ struct MessageTransmittedHandlerBox<F: FnMut(&::core::option::Option<ProximityDe
 }
 impl<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageTransmittedHandlerBox<F> {
     const VTABLE: MessageTransmittedHandler_Vtbl = MessageTransmittedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1739,7 +1739,7 @@ unsafe impl ::windows::core::RuntimeType for MessageTransmittedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct MessageTransmittedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, messageid: i64) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

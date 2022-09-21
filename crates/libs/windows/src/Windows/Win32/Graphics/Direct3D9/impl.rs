@@ -91,7 +91,7 @@ impl IDirect3D9_Vtbl {
             this.CreateDevice(::core::mem::transmute_copy(&adapter), ::core::mem::transmute_copy(&devicetype), ::core::mem::transmute_copy(&hfocuswindow), ::core::mem::transmute_copy(&behaviorflags), ::core::mem::transmute_copy(&ppresentationparameters), ::core::mem::transmute_copy(&ppreturneddeviceinterface)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterSoftwareDevice: RegisterSoftwareDevice::<Identity, Impl, OFFSET>,
             GetAdapterCount: GetAdapterCount::<Identity, Impl, OFFSET>,
             GetAdapterIdentifier: GetAdapterIdentifier::<Identity, Impl, OFFSET>,
@@ -1076,7 +1076,7 @@ impl IDirect3DDevice9_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TestCooperativeLevel: TestCooperativeLevel::<Identity, Impl, OFFSET>,
             GetAvailableTextureMem: GetAvailableTextureMem::<Identity, Impl, OFFSET>,
             EvictManagedResources: EvictManagedResources::<Identity, Impl, OFFSET>,
@@ -1378,7 +1378,7 @@ impl IDirect3DPixelShader9_Vtbl {
             this.GetFunction(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&psizeofdata)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             GetFunction: GetFunction::<Identity, Impl, OFFSET>,
         }
@@ -1429,7 +1429,7 @@ impl IDirect3DQuery9_Vtbl {
             this.GetData(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&dwgetdataflags)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             GetType: GetType::<Identity, Impl, OFFSET>,
             GetDataSize: GetDataSize::<Identity, Impl, OFFSET>,
@@ -1501,7 +1501,7 @@ impl IDirect3DResource9_Vtbl {
             this.GetType()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
@@ -1546,7 +1546,7 @@ impl IDirect3DStateBlock9_Vtbl {
             this.Apply().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             Capture: Capture::<Identity, Impl, OFFSET>,
             Apply: Apply::<Identity, Impl, OFFSET>,
@@ -1677,7 +1677,7 @@ impl IDirect3DSwapChain9_Vtbl {
             this.GetPresentParameters(::core::mem::transmute_copy(&ppresentationparameters)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Present: Present::<Identity, Impl, OFFSET>,
             GetFrontBufferData: GetFrontBufferData::<Identity, Impl, OFFSET>,
             GetBackBuffer: GetBackBuffer::<Identity, Impl, OFFSET>,
@@ -1843,7 +1843,7 @@ impl IDirect3DVertexDeclaration9_Vtbl {
             this.GetDeclaration(::core::mem::transmute_copy(&pelement), ::core::mem::transmute_copy(&pnumelements)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             GetDeclaration: GetDeclaration::<Identity, Impl, OFFSET>,
         }
@@ -1876,7 +1876,7 @@ impl IDirect3DVertexShader9_Vtbl {
             this.GetFunction(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&psizeofdata)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             GetFunction: GetFunction::<Identity, Impl, OFFSET>,
         }
@@ -1945,7 +1945,7 @@ impl IDirect3DVolume9_Vtbl {
             this.UnlockBox().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,

@@ -194,7 +194,7 @@ unsafe impl ::windows::core::Interface for IDirect3D9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterSoftwareDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinitializefunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAdapterCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Foundation")]
@@ -1188,7 +1188,7 @@ unsafe impl ::windows::core::Interface for IDirect3DDevice9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub TestCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAvailableTextureMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub EvictManagedResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2234,7 +2234,7 @@ unsafe impl ::windows::core::Interface for IDirect3DPixelShader9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DPixelShader9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -2297,7 +2297,7 @@ unsafe impl ::windows::core::Interface for IDirect3DQuery9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DQuery9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3DQUERYTYPE,
     pub GetDataSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -2372,7 +2372,7 @@ unsafe impl ::windows::core::Interface for IDirect3DResource9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DResource9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::HRESULT,
@@ -2435,7 +2435,7 @@ unsafe impl ::windows::core::Interface for IDirect3DStateBlock9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DStateBlock9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Capture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2645,7 +2645,7 @@ unsafe impl ::windows::core::Interface for IDirect3DSwapChain9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSwapChain9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub Present: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
@@ -3066,7 +3066,7 @@ unsafe impl ::windows::core::Interface for IDirect3DVertexDeclaration9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexDeclaration9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDeclaration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -3120,7 +3120,7 @@ unsafe impl ::windows::core::Interface for IDirect3DVertexShader9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexShader9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -3192,7 +3192,7 @@ unsafe impl ::windows::core::Interface for IDirect3DVolume9 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVolume9_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::HRESULT,

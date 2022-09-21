@@ -19,7 +19,7 @@ impl IPdfRendererNative_Vtbl {
             this.RenderPageToDeviceContext(::core::mem::transmute(&pdfpage), ::core::mem::transmute(&pd2ddevicecontext), ::core::mem::transmute_copy(&prenderparams)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RenderPageToSurface: RenderPageToSurface::<Identity, Impl, OFFSET>,
             RenderPageToDeviceContext: RenderPageToDeviceContext::<Identity, Impl, OFFSET>,
         }

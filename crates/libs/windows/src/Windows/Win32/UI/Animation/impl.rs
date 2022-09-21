@@ -70,7 +70,7 @@ impl IUIAnimationInterpolator_Vtbl {
             this.GetDependencies(::core::mem::transmute_copy(&initialvaluedependencies), ::core::mem::transmute_copy(&initialvelocitydependencies), ::core::mem::transmute_copy(&durationdependencies)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetInitialValueAndVelocity: SetInitialValueAndVelocity::<Identity, Impl, OFFSET>,
             SetDuration: SetDuration::<Identity, Impl, OFFSET>,
             GetDuration: GetDuration::<Identity, Impl, OFFSET>,
@@ -156,7 +156,7 @@ impl IUIAnimationInterpolator2_Vtbl {
             this.GetDependencies(::core::mem::transmute_copy(&initialvaluedependencies), ::core::mem::transmute_copy(&initialvelocitydependencies), ::core::mem::transmute_copy(&durationdependencies)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDimension: GetDimension::<Identity, Impl, OFFSET>,
             SetInitialValueAndVelocity: SetInitialValueAndVelocity::<Identity, Impl, OFFSET>,
             SetDuration: SetDuration::<Identity, Impl, OFFSET>,
@@ -183,7 +183,7 @@ impl IUIAnimationLoopIterationChangeHandler2_Vtbl {
             let this = (*this).get_impl();
             this.OnLoopIterationChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&newiterationcount), ::core::mem::transmute_copy(&olditerationcount)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnLoopIterationChanged: OnLoopIterationChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnLoopIterationChanged: OnLoopIterationChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationLoopIterationChangeHandler2 as ::windows::core::Interface>::IID
@@ -345,7 +345,7 @@ impl IUIAnimationManager_Vtbl {
             this.Shutdown().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateAnimationVariable: CreateAnimationVariable::<Identity, Impl, OFFSET>,
             ScheduleTransition: ScheduleTransition::<Identity, Impl, OFFSET>,
             CreateStoryboard: CreateStoryboard::<Identity, Impl, OFFSET>,
@@ -554,7 +554,7 @@ impl IUIAnimationManager2_Vtbl {
             this.Shutdown().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateAnimationVectorVariable: CreateAnimationVectorVariable::<Identity, Impl, OFFSET>,
             CreateAnimationVariable: CreateAnimationVariable::<Identity, Impl, OFFSET>,
             ScheduleTransition: ScheduleTransition::<Identity, Impl, OFFSET>,
@@ -593,7 +593,7 @@ impl IUIAnimationManagerEventHandler_Vtbl {
             let this = (*this).get_impl();
             this.OnManagerStatusChanged(::core::mem::transmute_copy(&newstatus), ::core::mem::transmute_copy(&previousstatus)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationManagerEventHandler as ::windows::core::Interface>::IID
@@ -610,7 +610,7 @@ impl IUIAnimationManagerEventHandler2_Vtbl {
             let this = (*this).get_impl();
             this.OnManagerStatusChanged(::core::mem::transmute_copy(&newstatus), ::core::mem::transmute_copy(&previousstatus)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationManagerEventHandler2 as ::windows::core::Interface>::IID
@@ -634,7 +634,7 @@ impl IUIAnimationPrimitiveInterpolation_Vtbl {
             this.AddSinusoidal(::core::mem::transmute_copy(&dimension), ::core::mem::transmute_copy(&beginoffset), ::core::mem::transmute_copy(&bias), ::core::mem::transmute_copy(&amplitude), ::core::mem::transmute_copy(&frequency), ::core::mem::transmute_copy(&phase)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddCubic: AddCubic::<Identity, Impl, OFFSET>,
             AddSinusoidal: AddSinusoidal::<Identity, Impl, OFFSET>,
         }
@@ -654,7 +654,7 @@ impl IUIAnimationPriorityComparison_Vtbl {
             let this = (*this).get_impl();
             this.HasPriority(::core::mem::transmute(&scheduledstoryboard), ::core::mem::transmute(&newstoryboard), ::core::mem::transmute_copy(&priorityeffect)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), HasPriority: HasPriority::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HasPriority: HasPriority::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationPriorityComparison as ::windows::core::Interface>::IID
@@ -671,7 +671,7 @@ impl IUIAnimationPriorityComparison2_Vtbl {
             let this = (*this).get_impl();
             this.HasPriority(::core::mem::transmute(&scheduledstoryboard), ::core::mem::transmute(&newstoryboard), ::core::mem::transmute_copy(&priorityeffect)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), HasPriority: HasPriority::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HasPriority: HasPriority::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationPriorityComparison2 as ::windows::core::Interface>::IID
@@ -815,7 +815,7 @@ impl IUIAnimationStoryboard_Vtbl {
             this.SetStoryboardEventHandler(::core::mem::transmute(&handler)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddTransition: AddTransition::<Identity, Impl, OFFSET>,
             AddKeyframeAtOffset: AddKeyframeAtOffset::<Identity, Impl, OFFSET>,
             AddKeyframeAfterTransition: AddKeyframeAfterTransition::<Identity, Impl, OFFSET>,
@@ -986,7 +986,7 @@ impl IUIAnimationStoryboard2_Vtbl {
             this.SetStoryboardEventHandler(::core::mem::transmute(&handler), ::core::mem::transmute_copy(&fregisterstatuschangefornextanimationevent), ::core::mem::transmute_copy(&fregisterupdatefornextanimationevent)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddTransition: AddTransition::<Identity, Impl, OFFSET>,
             AddKeyframeAtOffset: AddKeyframeAtOffset::<Identity, Impl, OFFSET>,
             AddKeyframeAfterTransition: AddKeyframeAfterTransition::<Identity, Impl, OFFSET>,
@@ -1029,7 +1029,7 @@ impl IUIAnimationStoryboardEventHandler_Vtbl {
             this.OnStoryboardUpdated(::core::mem::transmute(&storyboard)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStoryboardStatusChanged: OnStoryboardStatusChanged::<Identity, Impl, OFFSET>,
             OnStoryboardUpdated: OnStoryboardUpdated::<Identity, Impl, OFFSET>,
         }
@@ -1056,7 +1056,7 @@ impl IUIAnimationStoryboardEventHandler2_Vtbl {
             this.OnStoryboardUpdated(::core::mem::transmute(&storyboard)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStoryboardStatusChanged: OnStoryboardStatusChanged::<Identity, Impl, OFFSET>,
             OnStoryboardUpdated: OnStoryboardUpdated::<Identity, Impl, OFFSET>,
         }
@@ -1119,7 +1119,7 @@ impl IUIAnimationTimer_Vtbl {
             this.SetFrameRateThreshold(::core::mem::transmute_copy(&framespersecond)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetTimerUpdateHandler: SetTimerUpdateHandler::<Identity, Impl, OFFSET>,
             SetTimerEventHandler: SetTimerEventHandler::<Identity, Impl, OFFSET>,
             Enable: Enable::<Identity, Impl, OFFSET>,
@@ -1145,7 +1145,7 @@ impl IUIAnimationTimerClientEventHandler_Vtbl {
             this.OnTimerClientStatusChanged(::core::mem::transmute_copy(&newstatus), ::core::mem::transmute_copy(&previousstatus)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnTimerClientStatusChanged: OnTimerClientStatusChanged::<Identity, Impl, OFFSET>,
         }
     }
@@ -1177,7 +1177,7 @@ impl IUIAnimationTimerEventHandler_Vtbl {
             this.OnRenderingTooSlow(::core::mem::transmute_copy(&framespersecond)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnPreUpdate: OnPreUpdate::<Identity, Impl, OFFSET>,
             OnPostUpdate: OnPostUpdate::<Identity, Impl, OFFSET>,
             OnRenderingTooSlow: OnRenderingTooSlow::<Identity, Impl, OFFSET>,
@@ -1217,7 +1217,7 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
             this.ClearTimerClientEventHandler().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnUpdate: OnUpdate::<Identity, Impl, OFFSET>,
             SetTimerClientEventHandler: SetTimerClientEventHandler::<Identity, Impl, OFFSET>,
             ClearTimerClientEventHandler: ClearTimerClientEventHandler::<Identity, Impl, OFFSET>,
@@ -1263,7 +1263,7 @@ impl IUIAnimationTransition_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetInitialValue: SetInitialValue::<Identity, Impl, OFFSET>,
             SetInitialVelocity: SetInitialVelocity::<Identity, Impl, OFFSET>,
             IsDurationKnown: IsDurationKnown::<Identity, Impl, OFFSET>,
@@ -1334,7 +1334,7 @@ impl IUIAnimationTransition2_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDimension: GetDimension::<Identity, Impl, OFFSET>,
             SetInitialValue: SetInitialValue::<Identity, Impl, OFFSET>,
             SetInitialVectorValue: SetInitialVectorValue::<Identity, Impl, OFFSET>,
@@ -1365,7 +1365,7 @@ impl IUIAnimationTransitionFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateTransition: CreateTransition::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateTransition: CreateTransition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTransitionFactory as ::windows::core::Interface>::IID
@@ -1388,7 +1388,7 @@ impl IUIAnimationTransitionFactory2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateTransition: CreateTransition::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateTransition: CreateTransition::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationTransitionFactory2 as ::windows::core::Interface>::IID
@@ -1544,7 +1544,7 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateInstantaneousTransition: CreateInstantaneousTransition::<Identity, Impl, OFFSET>,
             CreateConstantTransition: CreateConstantTransition::<Identity, Impl, OFFSET>,
             CreateDiscreteTransition: CreateDiscreteTransition::<Identity, Impl, OFFSET>,
@@ -1797,7 +1797,7 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateInstantaneousTransition: CreateInstantaneousTransition::<Identity, Impl, OFFSET>,
             CreateInstantaneousVectorTransition: CreateInstantaneousVectorTransition::<Identity, Impl, OFFSET>,
             CreateConstantTransition: CreateConstantTransition::<Identity, Impl, OFFSET>,
@@ -1955,7 +1955,7 @@ impl IUIAnimationVariable_Vtbl {
             this.SetVariableIntegerChangeHandler(::core::mem::transmute(&handler)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetValue: GetValue::<Identity, Impl, OFFSET>,
             GetFinalValue: GetFinalValue::<Identity, Impl, OFFSET>,
             GetPreviousValue: GetPreviousValue::<Identity, Impl, OFFSET>,
@@ -2189,7 +2189,7 @@ impl IUIAnimationVariable2_Vtbl {
             this.SetVariableCurveChangeHandler(::core::mem::transmute(&handler)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDimension: GetDimension::<Identity, Impl, OFFSET>,
             GetValue: GetValue::<Identity, Impl, OFFSET>,
             GetVectorValue: GetVectorValue::<Identity, Impl, OFFSET>,
@@ -2233,7 +2233,7 @@ impl IUIAnimationVariableChangeHandler_Vtbl {
             let this = (*this).get_impl();
             this.OnValueChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute(&variable), ::core::mem::transmute_copy(&newvalue), ::core::mem::transmute_copy(&previousvalue)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnValueChanged: OnValueChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnValueChanged: OnValueChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableChangeHandler as ::windows::core::Interface>::IID
@@ -2250,7 +2250,7 @@ impl IUIAnimationVariableChangeHandler2_Vtbl {
             let this = (*this).get_impl();
             this.OnValueChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute(&variable), ::core::mem::transmute_copy(&newvalue), ::core::mem::transmute_copy(&previousvalue), ::core::mem::transmute_copy(&cdimension)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnValueChanged: OnValueChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnValueChanged: OnValueChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableChangeHandler2 as ::windows::core::Interface>::IID
@@ -2267,7 +2267,7 @@ impl IUIAnimationVariableCurveChangeHandler2_Vtbl {
             let this = (*this).get_impl();
             this.OnCurveChanged(::core::mem::transmute(&variable)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnCurveChanged: OnCurveChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCurveChanged: OnCurveChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableCurveChangeHandler2 as ::windows::core::Interface>::IID
@@ -2284,7 +2284,7 @@ impl IUIAnimationVariableIntegerChangeHandler_Vtbl {
             let this = (*this).get_impl();
             this.OnIntegerValueChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute(&variable), ::core::mem::transmute_copy(&newvalue), ::core::mem::transmute_copy(&previousvalue)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableIntegerChangeHandler as ::windows::core::Interface>::IID
@@ -2301,7 +2301,7 @@ impl IUIAnimationVariableIntegerChangeHandler2_Vtbl {
             let this = (*this).get_impl();
             this.OnIntegerValueChanged(::core::mem::transmute(&storyboard), ::core::mem::transmute(&variable), ::core::mem::transmute_copy(&newvalue), ::core::mem::transmute_copy(&previousvalue), ::core::mem::transmute_copy(&cdimension)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUIAnimationVariableIntegerChangeHandler2 as ::windows::core::Interface>::IID

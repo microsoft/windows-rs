@@ -22,7 +22,7 @@ impl IObjectArray_Vtbl {
             this.GetAt(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }

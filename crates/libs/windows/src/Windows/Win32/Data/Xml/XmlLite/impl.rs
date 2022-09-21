@@ -181,7 +181,7 @@ impl IXmlReader_Vtbl {
             this.IsEOF()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetInput: SetInput::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             SetProperty: SetProperty::<Identity, Impl, OFFSET>,
@@ -228,7 +228,7 @@ impl IXmlResolver_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), ResolveUri: ResolveUri::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveUri: ResolveUri::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IXmlResolver as ::windows::core::Interface>::IID
@@ -423,7 +423,7 @@ impl IXmlWriter_Vtbl {
             this.Flush().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetOutput: SetOutput::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             SetProperty: SetProperty::<Identity, Impl, OFFSET>,
@@ -642,7 +642,7 @@ impl IXmlWriterLite_Vtbl {
             this.Flush().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetOutput: SetOutput::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
             SetProperty: SetProperty::<Identity, Impl, OFFSET>,

@@ -40,7 +40,7 @@ unsafe impl ::windows::core::Interface for IDontSupportEventSubscription {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDontSupportEventSubscription_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
@@ -98,7 +98,7 @@ unsafe impl ::windows::core::Interface for IEnumEventObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumEventObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, creqelem: u32, ppinterface: *mut *mut ::core::ffi::c_void, cretelem: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -564,7 +564,7 @@ unsafe impl ::windows::core::Interface for IEventObjectChange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventObjectChange_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ChangedSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstrsubscriptionid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub ChangedEventClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstreventclassid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub ChangedPublisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstrpublisherid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -618,7 +618,7 @@ unsafe impl ::windows::core::Interface for IEventObjectChange2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEventObjectChange2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ChangedSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT,
     pub ChangedEventClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT,
 }
@@ -1445,7 +1445,7 @@ unsafe impl ::windows::core::Interface for IMultiInterfaceEventControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiInterfaceEventControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetMultiInterfacePublisherFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classfilter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSubscriptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventiid: *const ::windows::core::GUID, bstrmethodname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, optionalcriteria: ::core::mem::ManuallyDrop<::windows::core::BSTR>, optionalerrorindex: *const i32, ppcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetDefaultQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventiid: *const ::windows::core::GUID, bstrmethodname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrcriteria: ::core::mem::ManuallyDrop<::windows::core::BSTR>, errorindex: *mut i32) -> ::windows::core::HRESULT,
@@ -1521,7 +1521,7 @@ unsafe impl ::windows::core::Interface for IMultiInterfacePublisherFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultiInterfacePublisherFilter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peic: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PrepareToFire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, methodname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, firingcontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -1580,7 +1580,7 @@ unsafe impl ::windows::core::Interface for IPublisherFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPublisherFilter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dispuserdefined: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PrepareToFire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, firingcontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

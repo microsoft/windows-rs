@@ -359,7 +359,7 @@ impl IAudioDeviceEndpoint_Vtbl {
             this.WriteExclusiveModeParametersToSharedMemory(::core::mem::transmute_copy(&htargetprocess), ::core::mem::transmute_copy(&hnsperiod), ::core::mem::transmute_copy(&hnsbufferduration), ::core::mem::transmute_copy(&u32latencycoefficient), ::core::mem::transmute_copy(&pu32sharedmemorysize), ::core::mem::transmute_copy(&phsharedmemory)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetBuffer: SetBuffer::<Identity, Impl, OFFSET>,
             GetRTCaps: GetRTCaps::<Identity, Impl, OFFSET>,
             GetEventDrivenCapable: GetEventDrivenCapable::<Identity, Impl, OFFSET>,
@@ -427,7 +427,7 @@ impl IAudioEndpoint_Vtbl {
             this.SetEventHandle(::core::mem::transmute_copy(&eventhandle)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetFrameFormat: GetFrameFormat::<Identity, Impl, OFFSET>,
             GetFramesPerPacket: GetFramesPerPacket::<Identity, Impl, OFFSET>,
             GetLatency: GetLatency::<Identity, Impl, OFFSET>,
@@ -463,7 +463,7 @@ impl IAudioEndpointControl_Vtbl {
             this.Stop().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
@@ -503,7 +503,7 @@ impl IAudioEndpointRT_Vtbl {
             this.SetPinActive().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetCurrentPadding: GetCurrentPadding::<Identity, Impl, OFFSET>,
             ProcessingComplete: ProcessingComplete::<Identity, Impl, OFFSET>,
             SetPinInactive: SetPinInactive::<Identity, Impl, OFFSET>,
@@ -541,7 +541,7 @@ impl IAudioInputEndpointRT_Vtbl {
             this.PulseEndpoint()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetInputDataPointer: GetInputDataPointer::<Identity, Impl, OFFSET>,
             ReleaseInputDataPointer: ReleaseInputDataPointer::<Identity, Impl, OFFSET>,
             PulseEndpoint: PulseEndpoint::<Identity, Impl, OFFSET>,
@@ -578,7 +578,7 @@ impl IAudioOutputEndpointRT_Vtbl {
             this.PulseEndpoint()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetOutputDataPointer: GetOutputDataPointer::<Identity, Impl, OFFSET>,
             ReleaseOutputDataPointer: ReleaseOutputDataPointer::<Identity, Impl, OFFSET>,
             PulseEndpoint: PulseEndpoint::<Identity, Impl, OFFSET>,
@@ -885,7 +885,7 @@ impl IRemoteSystemAdditionalInfoProvider_Vtbl {
             let this = (*this).get_impl();
             this.GetAdditionalInfo(::core::mem::transmute_copy(&deduplicationid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&mapview)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetAdditionalInfo: GetAdditionalInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAdditionalInfo: GetAdditionalInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRemoteSystemAdditionalInfoProvider as ::windows::core::Interface>::IID
@@ -902,7 +902,7 @@ impl ITSGAccountingEngine_Vtbl {
             let this = (*this).get_impl();
             this.DoAccounting(::core::mem::transmute_copy(&accountingdatatype), ::core::mem::transmute(&accountingdata)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), DoAccounting: DoAccounting::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoAccounting: DoAccounting::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITSGAccountingEngine as ::windows::core::Interface>::IID
@@ -941,7 +941,7 @@ impl ITSGAuthenticateUserSink_Vtbl {
             this.DisconnectUser(::core::mem::transmute_copy(&context)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnUserAuthenticated: OnUserAuthenticated::<Identity, Impl, OFFSET>,
             OnUserAuthenticationFailed: OnUserAuthenticationFailed::<Identity, Impl, OFFSET>,
             ReauthenticateUser: ReauthenticateUser::<Identity, Impl, OFFSET>,
@@ -970,7 +970,7 @@ impl ITSGAuthenticationEngine_Vtbl {
             this.CancelAuthentication(::core::mem::transmute(&mainsessionid), ::core::mem::transmute_copy(&context)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AuthenticateUser: AuthenticateUser::<Identity, Impl, OFFSET>,
             CancelAuthentication: CancelAuthentication::<Identity, Impl, OFFSET>,
         }
@@ -990,7 +990,7 @@ impl ITSGAuthorizeConnectionSink_Vtbl {
             let this = (*this).get_impl();
             this.OnConnectionAuthorized(::core::mem::transmute_copy(&hrin), ::core::mem::transmute(&mainsessionid), ::core::mem::transmute_copy(&cbsohresponse), ::core::mem::transmute_copy(&pbsohresponse), ::core::mem::transmute_copy(&idletimeout), ::core::mem::transmute_copy(&sessiontimeout), ::core::mem::transmute_copy(&sessiontimeoutaction), ::core::mem::transmute_copy(&trustclass), ::core::mem::transmute_copy(&policyattributes)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnConnectionAuthorized: OnConnectionAuthorized::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnectionAuthorized: OnConnectionAuthorized::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITSGAuthorizeConnectionSink as ::windows::core::Interface>::IID
@@ -1007,7 +1007,7 @@ impl ITSGAuthorizeResourceSink_Vtbl {
             let this = (*this).get_impl();
             this.OnChannelAuthorized(::core::mem::transmute_copy(&hrin), ::core::mem::transmute(&mainsessionid), ::core::mem::transmute_copy(&subsessionid), ::core::mem::transmute_copy(&allowedresourcenames), ::core::mem::transmute_copy(&numallowedresourcenames), ::core::mem::transmute_copy(&failedresourcenames), ::core::mem::transmute_copy(&numfailedresourcenames)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnChannelAuthorized: OnChannelAuthorized::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChannelAuthorized: OnChannelAuthorized::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITSGAuthorizeResourceSink as ::windows::core::Interface>::IID
@@ -1066,7 +1066,7 @@ impl ITSGPolicyEngine_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AuthorizeConnection: AuthorizeConnection::<Identity, Impl, OFFSET>,
             AuthorizeResource: AuthorizeResource::<Identity, Impl, OFFSET>,
             Refresh: Refresh::<Identity, Impl, OFFSET>,
@@ -1095,7 +1095,7 @@ impl ITsSbBaseNotifySink_Vtbl {
             this.OnReportStatus(::core::mem::transmute_copy(&messagetype), ::core::mem::transmute_copy(&messageid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnError: OnError::<Identity, Impl, OFFSET>,
             OnReportStatus: OnReportStatus::<Identity, Impl, OFFSET>,
         }
@@ -1287,7 +1287,7 @@ impl ITsSbClientConnection_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             UserName: UserName::<Identity, Impl, OFFSET>,
             Domain: Domain::<Identity, Impl, OFFSET>,
             InitialProgram: InitialProgram::<Identity, Impl, OFFSET>,
@@ -1373,7 +1373,7 @@ impl ITsSbEnvironment_Vtbl {
             this.SetEnvironmentPropertySet(::core::mem::transmute(&pval)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
             ServerWeight: ServerWeight::<Identity, Impl, OFFSET>,
             EnvironmentPropertySet: EnvironmentPropertySet::<Identity, Impl, OFFSET>,
@@ -1430,7 +1430,7 @@ impl ITsSbFilterPluginStore_Vtbl {
             this.DeleteProperties(::core::mem::transmute(&propertyname)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SaveProperties: SaveProperties::<Identity, Impl, OFFSET>,
             EnumerateProperties: EnumerateProperties::<Identity, Impl, OFFSET>,
             DeleteProperties: DeleteProperties::<Identity, Impl, OFFSET>,
@@ -1467,7 +1467,7 @@ impl ITsSbGenericNotifySink_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnCompleted: OnCompleted::<Identity, Impl, OFFSET>,
             GetWaitTimeout: GetWaitTimeout::<Identity, Impl, OFFSET>,
         }
@@ -1539,7 +1539,7 @@ impl ITsSbGlobalStore_Vtbl {
             this.GetFarmProperty(::core::mem::transmute(&farmname), ::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&pvarvalue)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             QueryTarget: QueryTarget::<Identity, Impl, OFFSET>,
             QuerySessionBySessionId: QuerySessionBySessionId::<Identity, Impl, OFFSET>,
             EnumerateFarms: EnumerateFarms::<Identity, Impl, OFFSET>,
@@ -1570,7 +1570,7 @@ impl ITsSbLoadBalanceResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), TargetName: TargetName::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TargetName: TargetName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITsSbLoadBalanceResult as ::windows::core::Interface>::IID
@@ -1714,7 +1714,7 @@ impl ITsSbPlugin_Vtbl {
             this.Terminate(::core::mem::transmute_copy(&hr)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Terminate: Terminate::<Identity, Impl, OFFSET>,
         }
@@ -1917,7 +1917,7 @@ impl ITsSbProvider_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateTargetObject: CreateTargetObject::<Identity, Impl, OFFSET>,
             CreateLoadBalanceResultObject: CreateLoadBalanceResultObject::<Identity, Impl, OFFSET>,
             CreateSessionObject: CreateSessionObject::<Identity, Impl, OFFSET>,
@@ -2022,7 +2022,7 @@ impl ITsSbProvisioningPluginNotifySink_Vtbl {
             this.OnVirtualMachineHostStatusChanged(::core::mem::transmute(&vmhost), ::core::mem::transmute_copy(&vmhostnotifystatus), ::core::mem::transmute_copy(&errorcode), ::core::mem::transmute(&errordescr)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnJobCreated: OnJobCreated::<Identity, Impl, OFFSET>,
             OnVirtualMachineStatusChanged: OnVirtualMachineStatusChanged::<Identity, Impl, OFFSET>,
             OnJobCompleted: OnJobCompleted::<Identity, Impl, OFFSET>,
@@ -2059,7 +2059,7 @@ impl ITsSbResourceNotification_Vtbl {
             this.NotifyClientConnectionStateChange(::core::mem::transmute_copy(&changetype), ::core::mem::transmute(&pconnection)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             NotifySessionChange: NotifySessionChange::<Identity, Impl, OFFSET>,
             NotifyTargetChange: NotifyTargetChange::<Identity, Impl, OFFSET>,
             NotifyClientConnectionStateChange: NotifyClientConnectionStateChange::<Identity, Impl, OFFSET>,
@@ -2093,7 +2093,7 @@ impl ITsSbResourceNotificationEx_Vtbl {
             this.NotifyClientConnectionStateChangeEx(::core::mem::transmute(&username), ::core::mem::transmute(&domain), ::core::mem::transmute(&initialprogram), ::core::mem::transmute(&poolname), ::core::mem::transmute(&targetname), ::core::mem::transmute_copy(&connectionchangetype)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             NotifySessionChangeEx: NotifySessionChangeEx::<Identity, Impl, OFFSET>,
             NotifyTargetChangeEx: NotifyTargetChangeEx::<Identity, Impl, OFFSET>,
             NotifyClientConnectionStateChangeEx: NotifyClientConnectionStateChangeEx::<Identity, Impl, OFFSET>,
@@ -2335,7 +2335,7 @@ impl ITsSbResourcePluginStore_Vtbl {
             this.SetServerDrainMode(::core::mem::transmute(&serverfqdn), ::core::mem::transmute_copy(&drainmode)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             QueryTarget: QueryTarget::<Identity, Impl, OFFSET>,
             QuerySessionBySessionId: QuerySessionBySessionId::<Identity, Impl, OFFSET>,
             AddTargetToStore: AddTargetToStore::<Identity, Impl, OFFSET>,
@@ -2388,7 +2388,7 @@ impl ITsSbServiceNotification_Vtbl {
             this.NotifyServiceSuccess().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             NotifyServiceFailure: NotifyServiceFailure::<Identity, Impl, OFFSET>,
             NotifyServiceSuccess: NotifyServiceSuccess::<Identity, Impl, OFFSET>,
         }
@@ -2568,7 +2568,7 @@ impl ITsSbSession_Vtbl {
             this.SetProtocolType(::core::mem::transmute_copy(&val)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SessionId: SessionId::<Identity, Impl, OFFSET>,
             TargetName: TargetName::<Identity, Impl, OFFSET>,
             SetTargetName: SetTargetName::<Identity, Impl, OFFSET>,
@@ -2775,7 +2775,7 @@ impl ITsSbTarget_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TargetName: TargetName::<Identity, Impl, OFFSET>,
             SetTargetName: SetTargetName::<Identity, Impl, OFFSET>,
             FarmName: FarmName::<Identity, Impl, OFFSET>,
@@ -2931,7 +2931,7 @@ impl ITsSbTaskInfo_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TargetId: TargetId::<Identity, Impl, OFFSET>,
             StartTime: StartTime::<Identity, Impl, OFFSET>,
             EndTime: EndTime::<Identity, Impl, OFFSET>,
@@ -3039,7 +3039,7 @@ impl IWRdsEnhancedFastReconnectArbitrator_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSessionForEnhancedFastReconnect: GetSessionForEnhancedFastReconnect::<Identity, Impl, OFFSET>,
         }
     }
@@ -3071,7 +3071,7 @@ impl IWRdsGraphicsChannel_Vtbl {
             this.Open(::core::mem::transmute(&pchannelevents), ::core::mem::transmute(&popencontext)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Write: Write::<Identity, Impl, OFFSET>,
             Close: Close::<Identity, Impl, OFFSET>,
             Open: Open::<Identity, Impl, OFFSET>,
@@ -3120,7 +3120,7 @@ impl IWRdsGraphicsChannelEvents_Vtbl {
             this.OnMetricsUpdate(::core::mem::transmute_copy(&bandwidth), ::core::mem::transmute_copy(&rtt), ::core::mem::transmute_copy(&lastsentbyteindex)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnDataReceived: OnDataReceived::<Identity, Impl, OFFSET>,
             OnClose: OnClose::<Identity, Impl, OFFSET>,
             OnChannelOpened: OnChannelOpened::<Identity, Impl, OFFSET>,
@@ -3149,7 +3149,7 @@ impl IWRdsGraphicsChannelManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateChannel: CreateChannel::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateChannel: CreateChannel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWRdsGraphicsChannelManager as ::windows::core::Interface>::IID
@@ -3368,7 +3368,7 @@ impl IWRdsProtocolConnection_Vtbl {
             this.NotifyCommandProcessCreated(::core::mem::transmute_copy(&sessionid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLogonErrorRedirector: GetLogonErrorRedirector::<Identity, Impl, OFFSET>,
             AcceptConnection: AcceptConnection::<Identity, Impl, OFFSET>,
             GetClientData: GetClientData::<Identity, Impl, OFFSET>,
@@ -3441,7 +3441,7 @@ impl IWRdsProtocolConnectionCallback_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnReady: OnReady::<Identity, Impl, OFFSET>,
             BrokenConnection: BrokenConnection::<Identity, Impl, OFFSET>,
             StopScreenUpdates: StopScreenUpdates::<Identity, Impl, OFFSET>,
@@ -3477,7 +3477,7 @@ impl IWRdsProtocolConnectionSettings_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetConnectionSetting: SetConnectionSetting::<Identity, Impl, OFFSET>,
             GetConnectionSetting: GetConnectionSetting::<Identity, Impl, OFFSET>,
         }
@@ -3519,7 +3519,7 @@ impl IWRdsProtocolLicenseConnection_Vtbl {
             this.ProtocolComplete(::core::mem::transmute_copy(&ulcomplete)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RequestLicensingCapabilities: RequestLicensingCapabilities::<Identity, Impl, OFFSET>,
             SendClientLicense: SendClientLicense::<Identity, Impl, OFFSET>,
             RequestClientLicense: RequestClientLicense::<Identity, Impl, OFFSET>,
@@ -3560,7 +3560,7 @@ impl IWRdsProtocolListener_Vtbl {
             this.StopListen().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSettings: GetSettings::<Identity, Impl, OFFSET>,
             StartListen: StartListen::<Identity, Impl, OFFSET>,
             StopListen: StopListen::<Identity, Impl, OFFSET>,
@@ -3590,7 +3590,7 @@ impl IWRdsProtocolListenerCallback_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnConnected: OnConnected::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnected: OnConnected::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWRdsProtocolListenerCallback as ::windows::core::Interface>::IID
@@ -3644,7 +3644,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnBeginPainting: OnBeginPainting::<Identity, Impl, OFFSET>,
             RedirectStatus: RedirectStatus::<Identity, Impl, OFFSET>,
             RedirectMessage: RedirectMessage::<Identity, Impl, OFFSET>,
@@ -3718,7 +3718,7 @@ impl IWRdsProtocolManager_Vtbl {
             this.Uninitialize().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             CreateListener: CreateListener::<Identity, Impl, OFFSET>,
             NotifyServiceStateChange: NotifyServiceStateChange::<Identity, Impl, OFFSET>,
@@ -3760,7 +3760,7 @@ impl IWRdsProtocolSettings_Vtbl {
             this.MergeSettings(::core::mem::transmute_copy(&pwrdssettings), ::core::mem::transmute_copy(&wrdsconnectionsettinglevel), ::core::mem::transmute_copy(&pwrdsconnectionsettings)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSettings: GetSettings::<Identity, Impl, OFFSET>,
             MergeSettings: MergeSettings::<Identity, Impl, OFFSET>,
         }
@@ -3788,7 +3788,7 @@ impl IWRdsProtocolShadowCallback_Vtbl {
                 .into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             StopShadow: StopShadow::<Identity, Impl, OFFSET>,
             InvokeTargetShadow: InvokeTargetShadow::<Identity, Impl, OFFSET>,
         }
@@ -3821,7 +3821,7 @@ impl IWRdsProtocolShadowConnection_Vtbl {
             this.DoTarget(::core::mem::transmute_copy(&pparam1), ::core::mem::transmute_copy(&param1size), ::core::mem::transmute_copy(&pparam2), ::core::mem::transmute_copy(&param2size), ::core::mem::transmute_copy(&pparam3), ::core::mem::transmute_copy(&param3size), ::core::mem::transmute_copy(&pparam4), ::core::mem::transmute_copy(&param4size), ::core::mem::transmute(&pclientname)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
             DoTarget: DoTarget::<Identity, Impl, OFFSET>,
@@ -3864,7 +3864,7 @@ impl IWRdsWddmIddProps_Vtbl {
             this.EnableWddmIdd(::core::mem::transmute_copy(&enabled)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetHardwareId: GetHardwareId::<Identity, Impl, OFFSET>,
             OnDriverLoad: OnDriverLoad::<Identity, Impl, OFFSET>,
             OnDriverUnload: OnDriverUnload::<Identity, Impl, OFFSET>,
@@ -3892,7 +3892,7 @@ impl IWTSBitmapRenderService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetMappedRenderer: GetMappedRenderer::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMappedRenderer: GetMappedRenderer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWTSBitmapRenderService as ::windows::core::Interface>::IID
@@ -3928,7 +3928,7 @@ impl IWTSBitmapRenderer_Vtbl {
             this.RemoveMapping().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Render: Render::<Identity, Impl, OFFSET>,
             GetRendererStatistics: GetRendererStatistics::<Identity, Impl, OFFSET>,
             RemoveMapping: RemoveMapping::<Identity, Impl, OFFSET>,
@@ -3952,7 +3952,7 @@ impl IWTSBitmapRendererCallback_Vtbl {
             let this = (*this).get_impl();
             this.OnTargetSizeChanged(::core::mem::transmute(&rcnewsize)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnTargetSizeChanged: OnTargetSizeChanged::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnTargetSizeChanged: OnTargetSizeChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWTSBitmapRendererCallback as ::windows::core::Interface>::IID
@@ -3978,7 +3978,7 @@ impl IWTSListener_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetConfiguration: GetConfiguration::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetConfiguration: GetConfiguration::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWTSListener as ::windows::core::Interface>::IID
@@ -3998,7 +3998,7 @@ impl IWTSListenerCallback_Vtbl {
             let this = (*this).get_impl();
             this.OnNewChannelConnection(::core::mem::transmute(&pchannel), ::core::mem::transmute(&data), ::core::mem::transmute_copy(&pbaccept), ::core::mem::transmute_copy(&ppcallback)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnNewChannelConnection: OnNewChannelConnection::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNewChannelConnection: OnNewChannelConnection::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWTSListenerCallback as ::windows::core::Interface>::IID
@@ -4034,7 +4034,7 @@ impl IWTSPlugin_Vtbl {
             this.Terminated().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Connected: Connected::<Identity, Impl, OFFSET>,
             Disconnected: Disconnected::<Identity, Impl, OFFSET>,
@@ -4062,7 +4062,7 @@ impl IWTSPluginServiceProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWTSPluginServiceProvider as ::windows::core::Interface>::IID
@@ -4269,7 +4269,7 @@ impl IWTSProtocolConnection_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLogonErrorRedirector: GetLogonErrorRedirector::<Identity, Impl, OFFSET>,
             SendPolicyData: SendPolicyData::<Identity, Impl, OFFSET>,
             AcceptConnection: AcceptConnection::<Identity, Impl, OFFSET>,
@@ -4335,7 +4335,7 @@ impl IWTSProtocolConnectionCallback_Vtbl {
             this.DisplayIOCtl(::core::mem::transmute_copy(&displayioctl)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnReady: OnReady::<Identity, Impl, OFFSET>,
             BrokenConnection: BrokenConnection::<Identity, Impl, OFFSET>,
             StopScreenUpdates: StopScreenUpdates::<Identity, Impl, OFFSET>,
@@ -4380,7 +4380,7 @@ impl IWTSProtocolLicenseConnection_Vtbl {
             this.ProtocolComplete(::core::mem::transmute_copy(&ulcomplete)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RequestLicensingCapabilities: RequestLicensingCapabilities::<Identity, Impl, OFFSET>,
             SendClientLicense: SendClientLicense::<Identity, Impl, OFFSET>,
             RequestClientLicense: RequestClientLicense::<Identity, Impl, OFFSET>,
@@ -4409,7 +4409,7 @@ impl IWTSProtocolListener_Vtbl {
             this.StopListen().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             StartListen: StartListen::<Identity, Impl, OFFSET>,
             StopListen: StopListen::<Identity, Impl, OFFSET>,
         }
@@ -4435,7 +4435,7 @@ impl IWTSProtocolListenerCallback_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnConnected: OnConnected::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnected: OnConnected::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWTSProtocolListenerCallback as ::windows::core::Interface>::IID
@@ -4489,7 +4489,7 @@ impl IWTSProtocolLogonErrorRedirector_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnBeginPainting: OnBeginPainting::<Identity, Impl, OFFSET>,
             RedirectStatus: RedirectStatus::<Identity, Impl, OFFSET>,
             RedirectMessage: RedirectMessage::<Identity, Impl, OFFSET>,
@@ -4542,7 +4542,7 @@ impl IWTSProtocolManager_Vtbl {
             this.NotifySessionStateChange(::core::mem::transmute_copy(&sessionid), ::core::mem::transmute_copy(&eventid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateListener: CreateListener::<Identity, Impl, OFFSET>,
             NotifyServiceStateChange: NotifyServiceStateChange::<Identity, Impl, OFFSET>,
             NotifySessionOfServiceStart: NotifySessionOfServiceStart::<Identity, Impl, OFFSET>,
@@ -4573,7 +4573,7 @@ impl IWTSProtocolShadowCallback_Vtbl {
                 .into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             StopShadow: StopShadow::<Identity, Impl, OFFSET>,
             InvokeTargetShadow: InvokeTargetShadow::<Identity, Impl, OFFSET>,
         }
@@ -4606,7 +4606,7 @@ impl IWTSProtocolShadowConnection_Vtbl {
             this.DoTarget(::core::mem::transmute_copy(&pparam1), ::core::mem::transmute_copy(&param1size), ::core::mem::transmute_copy(&pparam2), ::core::mem::transmute_copy(&param2size), ::core::mem::transmute_copy(&pparam3), ::core::mem::transmute_copy(&param3size), ::core::mem::transmute_copy(&pparam4), ::core::mem::transmute_copy(&param4size), ::core::mem::transmute(&pclientname)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Start: Start::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
             DoTarget: DoTarget::<Identity, Impl, OFFSET>,
@@ -4667,7 +4667,7 @@ impl IWTSSBPlugin_Vtbl {
             this.WTSSBX_GetUserExternalSession(::core::mem::transmute(&username), ::core::mem::transmute(&domainname), ::core::mem::transmute(&applicationtype), ::core::mem::transmute_copy(&redirectorinternalip), ::core::mem::transmute_copy(&psessionid), ::core::mem::transmute_copy(&pmachineconnectinfo)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             WTSSBX_MachineChangeNotification: WTSSBX_MachineChangeNotification::<Identity, Impl, OFFSET>,
             WTSSBX_SessionChangeNotification: WTSSBX_SessionChangeNotification::<Identity, Impl, OFFSET>,
@@ -4697,7 +4697,11 @@ impl IWTSVirtualChannel_Vtbl {
             let this = (*this).get_impl();
             this.Close().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Write: Write::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
+        Self {
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Write: Write::<Identity, Impl, OFFSET>,
+            Close: Close::<Identity, Impl, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWTSVirtualChannel as ::windows::core::Interface>::IID
@@ -4721,7 +4725,7 @@ impl IWTSVirtualChannelCallback_Vtbl {
             this.OnClose().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnDataReceived: OnDataReceived::<Identity, Impl, OFFSET>,
             OnClose: OnClose::<Identity, Impl, OFFSET>,
         }
@@ -4747,7 +4751,7 @@ impl IWTSVirtualChannelManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateListener: CreateListener::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateListener: CreateListener::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWTSVirtualChannelManager as ::windows::core::Interface>::IID
@@ -4792,7 +4796,7 @@ impl IWorkspace_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetWorkspaceNames: GetWorkspaceNames::<Identity, Impl, OFFSET>,
             StartRemoteApplication: StartRemoteApplication::<Identity, Impl, OFFSET>,
             GetProcessId: GetProcessId::<Identity, Impl, OFFSET>,
@@ -4894,7 +4898,7 @@ impl IWorkspaceClientExt_Vtbl {
             this.IssueDisconnect().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetResourceId: GetResourceId::<Identity, Impl, OFFSET>,
             GetResourceDisplayName: GetResourceDisplayName::<Identity, Impl, OFFSET>,
             IssueDisconnect: IssueDisconnect::<Identity, Impl, OFFSET>,
@@ -4928,7 +4932,7 @@ impl IWorkspaceRegistration_Vtbl {
             this.RemoveResource(::core::mem::transmute_copy(&dwcookieconnection)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddResource: AddResource::<Identity, Impl, OFFSET>,
             RemoveResource: RemoveResource::<Identity, Impl, OFFSET>,
         }
@@ -4994,7 +4998,7 @@ impl IWorkspaceReportMessage_Vtbl {
             this.RegisterErrorEvent(::core::mem::transmute(&bstrwkspid), ::core::mem::transmute_copy(&dwerrortype), ::core::mem::transmute(&bstrerrormessagetype), ::core::mem::transmute_copy(&dwerrorcode)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RegisterErrorLogMessage: RegisterErrorLogMessage::<Identity, Impl, OFFSET>,
             IsErrorMessageRegistered: IsErrorMessageRegistered::<Identity, Impl, OFFSET>,
             RegisterErrorEvent: RegisterErrorEvent::<Identity, Impl, OFFSET>,
@@ -5274,7 +5278,7 @@ impl ItsPubPlugin_Vtbl {
             this.ResolveResource(::core::mem::transmute_copy(&resourcetype), ::core::mem::transmute_copy(&resourcelocation), ::core::mem::transmute_copy(&endpointname), ::core::mem::transmute(&userid), ::core::mem::transmute(&alias)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetResourceList: GetResourceList::<Identity, Impl, OFFSET>,
             GetResource: GetResource::<Identity, Impl, OFFSET>,
             GetCacheLastUpdateTime: GetCacheLastUpdateTime::<Identity, Impl, OFFSET>,

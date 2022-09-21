@@ -127,7 +127,7 @@ unsafe impl ::windows::core::Interface for IXAPO {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAPO_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRegistrationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppregistrationproperties: *mut *mut XAPO_REGISTRATION_PROPERTIES) -> ::windows::core::HRESULT,
     pub IsInputFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT,
     pub IsOutputFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::HRESULT,
@@ -197,7 +197,7 @@ unsafe impl ::windows::core::Interface for IXAPOHrtfParameters {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAPOHrtfParameters_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetSourcePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *const HrtfPosition) -> ::windows::core::HRESULT,
     pub SetSourceOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, orientation: *const HrtfOrientation) -> ::windows::core::HRESULT,
     pub SetSourceGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gain: f32) -> ::windows::core::HRESULT,
@@ -252,7 +252,7 @@ unsafe impl ::windows::core::Interface for IXAPOParameters {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAPOParameters_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *const ::core::ffi::c_void, parameterbytesize: u32),
     pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *mut ::core::ffi::c_void, parameterbytesize: u32),
 }
@@ -349,7 +349,7 @@ unsafe impl ::windows::core::Interface for IXAudio2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterForCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnregisterForCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void),
     #[cfg(feature = "Win32_Foundation")]
@@ -463,7 +463,7 @@ unsafe impl ::windows::core::Interface for IXAudio2Extension {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2Extension_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetProcessingQuantum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quantumnumerator: *mut u32, quantumdenominator: *mut u32),
     pub GetProcessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processor: *mut u32),
 }

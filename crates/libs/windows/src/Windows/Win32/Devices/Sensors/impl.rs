@@ -25,7 +25,7 @@ impl ILocationPermissions_Vtbl {
             this.CheckLocationCapability(::core::mem::transmute_copy(&dwclientthreadid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetGlobalLocationPermission: GetGlobalLocationPermission::<Identity, Impl, OFFSET>,
             CheckLocationCapability: CheckLocationCapability::<Identity, Impl, OFFSET>,
         }
@@ -205,7 +205,7 @@ impl ISensor_Vtbl {
             this.SetEventSink(::core::mem::transmute(&pevents)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetID: GetID::<Identity, Impl, OFFSET>,
             GetCategory: GetCategory::<Identity, Impl, OFFSET>,
             GetType: GetType::<Identity, Impl, OFFSET>,
@@ -281,7 +281,7 @@ impl ISensorCollection_Vtbl {
             this.Clear().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetAt: GetAt::<Identity, Impl, OFFSET>,
             GetCount: GetCount::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -339,7 +339,7 @@ impl ISensorDataReport_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetTimestamp: GetTimestamp::<Identity, Impl, OFFSET>,
             GetSensorValue: GetSensorValue::<Identity, Impl, OFFSET>,
             GetSensorValues: GetSensorValues::<Identity, Impl, OFFSET>,
@@ -382,7 +382,7 @@ impl ISensorEvents_Vtbl {
             this.OnLeave(::core::mem::transmute_copy(&id)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStateChanged: OnStateChanged::<Identity, Impl, OFFSET>,
             OnDataUpdated: OnDataUpdated::<Identity, Impl, OFFSET>,
             OnEvent: OnEvent::<Identity, Impl, OFFSET>,
@@ -450,7 +450,7 @@ impl ISensorManager_Vtbl {
             this.RequestPermissions(::core::mem::transmute_copy(&hparent), ::core::mem::transmute(&psensors), ::core::mem::transmute_copy(&fmodal)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSensorsByCategory: GetSensorsByCategory::<Identity, Impl, OFFSET>,
             GetSensorsByType: GetSensorsByType::<Identity, Impl, OFFSET>,
             GetSensorByID: GetSensorByID::<Identity, Impl, OFFSET>,
@@ -473,7 +473,7 @@ impl ISensorManagerEvents_Vtbl {
             let this = (*this).get_impl();
             this.OnSensorEnter(::core::mem::transmute(&psensor), ::core::mem::transmute_copy(&state)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnSensorEnter: OnSensorEnter::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSensorEnter: OnSensorEnter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISensorManagerEvents as ::windows::core::Interface>::IID

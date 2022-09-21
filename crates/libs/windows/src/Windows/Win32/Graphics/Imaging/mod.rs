@@ -513,7 +513,7 @@ unsafe impl ::windows::core::Interface for IWICBitmapCodecProgressNotification {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapCodecProgressNotification_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub RegisterProgressNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfnprogressnotification: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, dwprogressflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -613,7 +613,7 @@ unsafe impl ::windows::core::Interface for IWICBitmapDecoder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapDecoder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub QueryCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistream: *mut ::core::ffi::c_void, pdwcapability: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -909,7 +909,7 @@ unsafe impl ::windows::core::Interface for IWICBitmapEncoder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapEncoder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistream: *mut ::core::ffi::c_void, cacheoption: WICBitmapEncoderCacheOption) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1360,7 +1360,7 @@ unsafe impl ::windows::core::Interface for IWICBitmapFrameEncode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapFrameEncode_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piencoderoptions: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
@@ -1433,7 +1433,7 @@ unsafe impl ::windows::core::Interface for IWICBitmapLock {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapLock_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::HRESULT,
     pub GetStride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbstride: *mut u32) -> ::windows::core::HRESULT,
     pub GetDataPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbuffersize: *mut u32, ppbdata: *mut *mut u8) -> ::windows::core::HRESULT,
@@ -1587,7 +1587,7 @@ unsafe impl ::windows::core::Interface for IWICBitmapSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapSource_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::HRESULT,
     pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppixelformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::HRESULT,
@@ -1652,7 +1652,7 @@ unsafe impl ::windows::core::Interface for IWICBitmapSourceTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICBitmapSourceTransform_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CopyPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const ::windows::core::GUID, dsttransform: WICBitmapTransformOptions, nstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub GetClosestSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::HRESULT,
     pub GetClosestPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguiddstformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -1727,7 +1727,7 @@ unsafe impl ::windows::core::Interface for IWICColorContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICColorContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitializeFromFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub InitializeFromMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbbuffer: *const u8, cbbuffersize: u32) -> ::windows::core::HRESULT,
     pub InitializeFromExifColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
@@ -2157,7 +2157,7 @@ unsafe impl ::windows::core::Interface for IWICComponentInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICComponentInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetComponentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut WICComponentType) -> ::windows::core::HRESULT,
     pub GetCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetSigningStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut u32) -> ::windows::core::HRESULT,
@@ -2220,7 +2220,7 @@ unsafe impl ::windows::core::Interface for IWICDdsDecoder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDdsDecoder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *mut WICDdsParameters) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2284,7 +2284,7 @@ unsafe impl ::windows::core::Interface for IWICDdsEncoder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDdsEncoder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub SetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *const WICDdsParameters) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2350,7 +2350,7 @@ unsafe impl ::windows::core::Interface for IWICDdsFrameDecode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDdsFrameDecode_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSizeInBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetFormatInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatinfo: *mut WICDdsFormatInfo) -> ::windows::core::HRESULT,
@@ -2660,7 +2660,7 @@ unsafe impl ::windows::core::Interface for IWICDevelopRawNotificationCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDevelopRawNotificationCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notificationmask: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -2721,7 +2721,7 @@ unsafe impl ::windows::core::Interface for IWICEnumMetadataItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICEnumMetadataItem_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgeltschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -2780,7 +2780,7 @@ unsafe impl ::windows::core::Interface for IWICFastMetadataEncoder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICFastMetadataEncoder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetMetadataQueryWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimetadataquerywriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3159,7 +3159,7 @@ unsafe impl ::windows::core::Interface for IWICImagingFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImagingFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateDecoderFromFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateDecoderFromStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistream: *mut ::core::ffi::c_void, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions, ppidecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3288,7 +3288,7 @@ unsafe impl ::windows::core::Interface for IWICJpegFrameDecode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICJpegFrameDecode_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DoesSupportIndexing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfindexingsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3376,7 +3376,7 @@ unsafe impl ::windows::core::Interface for IWICJpegFrameEncode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICJpegFrameEncode_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub GetAcHuffmanTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::Dxgi::Common::DXGI_JPEG_AC_HUFFMAN_TABLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3452,7 +3452,7 @@ unsafe impl ::windows::core::Interface for IWICMetadataBlockReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataBlockReader_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetContainerFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcontainerformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccount: *mut u32) -> ::windows::core::HRESULT,
     pub GetReaderByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, ppimetadatareader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3768,7 +3768,7 @@ unsafe impl ::windows::core::Interface for IWICMetadataQueryReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataQueryReader_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetContainerFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcontainerformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchmaxlength: u32, wznamespace: ::windows::core::PWSTR, pcchactuallength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -3949,7 +3949,7 @@ unsafe impl ::windows::core::Interface for IWICMetadataReader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICMetadataReader_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetMetadataFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidmetadataformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetMetadataHandlerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppihandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccount: *mut u32) -> ::windows::core::HRESULT,
@@ -4477,7 +4477,7 @@ unsafe impl ::windows::core::Interface for IWICPalette {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPalette_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub InitializePredefined: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, epalettetype: WICBitmapPaletteType, faddtransparentcolor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4953,7 +4953,7 @@ unsafe impl ::windows::core::Interface for IWICPlanarBitmapFrameEncode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPlanarBitmapFrameEncode_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub WritePixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linecount: u32, pplanes: *const WICBitmapPlane, cplanes: u32) -> ::windows::core::HRESULT,
     pub WriteSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppplanes: *const *mut ::core::ffi::c_void, cplanes: u32, prcsource: *const WICRect) -> ::windows::core::HRESULT,
 }
@@ -5008,7 +5008,7 @@ unsafe impl ::windows::core::Interface for IWICPlanarBitmapSourceTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICPlanarBitmapSourceTransform_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DoesSupportTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const ::windows::core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5157,7 +5157,7 @@ unsafe impl ::windows::core::Interface for IWICProgressCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICProgressCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -5214,7 +5214,7 @@ unsafe impl ::windows::core::Interface for IWICProgressiveLevelControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICProgressiveLevelControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLevelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclevels: *mut u32) -> ::windows::core::HRESULT,
     pub GetCurrentLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnlevel: *mut u32) -> ::windows::core::HRESULT,
     pub SetCurrentLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nlevel: u32) -> ::windows::core::HRESULT,
@@ -5466,7 +5466,7 @@ unsafe impl ::windows::core::Interface for IWICStreamProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICStreamProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppistream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

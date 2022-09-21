@@ -1925,7 +1925,7 @@ unsafe impl ::windows::core::Interface for IWSManResourceLocatorInternal {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSManResourceLocatorInternal_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]

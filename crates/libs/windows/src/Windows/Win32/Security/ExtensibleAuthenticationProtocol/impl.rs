@@ -43,7 +43,7 @@ impl IAccountingProviderConfig_Vtbl {
             this.Deactivate(::core::mem::transmute_copy(&uconnectionparam), ::core::mem::transmute_copy(&ureserved1), ::core::mem::transmute_copy(&ureserved2)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             Configure: Configure::<Identity, Impl, OFFSET>,
@@ -100,7 +100,7 @@ impl IAuthenticationProviderConfig_Vtbl {
             this.Deactivate(::core::mem::transmute_copy(&uconnectionparam), ::core::mem::transmute_copy(&ureserved1), ::core::mem::transmute_copy(&ureserved2)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             Configure: Configure::<Identity, Impl, OFFSET>,
@@ -158,7 +158,7 @@ impl IEAPProviderConfig_Vtbl {
                 .into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             ServerInvokeConfigUI: ServerInvokeConfigUI::<Identity, Impl, OFFSET>,
@@ -244,7 +244,7 @@ impl IRouterProtocolConfig_Vtbl {
             this.RemoveProtocol(::core::mem::transmute(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddProtocol: AddProtocol::<Identity, Impl, OFFSET>,
             RemoveProtocol: RemoveProtocol::<Identity, Impl, OFFSET>,
         }

@@ -93,7 +93,7 @@ impl IDMLDebugDevice_Vtbl {
             let this = (*this).get_impl();
             this.SetMuteDebugOutput(::core::mem::transmute_copy(&mute))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetMuteDebugOutput: SetMuteDebugOutput::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetMuteDebugOutput: SetMuteDebugOutput::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDMLDebugDevice as ::windows::core::Interface>::IID
@@ -269,7 +269,7 @@ impl IDMLObject_Vtbl {
             this.SetName(::core::mem::transmute(&name)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateData: SetPrivateData::<Identity, Impl, OFFSET>,
             SetPrivateDataInterface: SetPrivateDataInterface::<Identity, Impl, OFFSET>,

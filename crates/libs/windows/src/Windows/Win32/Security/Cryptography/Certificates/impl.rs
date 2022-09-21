@@ -3763,7 +3763,7 @@ impl ICertRequestD_Vtbl {
             this.Ping(::core::mem::transmute(&pwszauthority)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Request: Request::<Identity, Impl, OFFSET>,
             GetCACert: GetCACert::<Identity, Impl, OFFSET>,
             Ping: Ping::<Identity, Impl, OFFSET>,
@@ -5973,7 +5973,7 @@ impl IEnroll_Vtbl {
             this.CreatePKCS7RequestFromRequest(::core::mem::transmute_copy(&prequest), ::core::mem::transmute_copy(&psigningcertcontext), ::core::mem::transmute_copy(&ppkcs7blob)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             createFilePKCS10WStr: createFilePKCS10WStr::<Identity, Impl, OFFSET>,
             acceptFilePKCS7WStr: acceptFilePKCS7WStr::<Identity, Impl, OFFSET>,
             createPKCS10WStr: createPKCS10WStr::<Identity, Impl, OFFSET>,
@@ -6800,7 +6800,7 @@ impl INDESPolicy_Vtbl {
             this.Notify(::core::mem::transmute(&pwszchallenge), ::core::mem::transmute(&pwsztransactionid), ::core::mem::transmute_copy(&disposition), ::core::mem::transmute_copy(&lasthresult), ::core::mem::transmute_copy(&pctbissuedcertencoded)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
             GenerateChallenge: GenerateChallenge::<Identity, Impl, OFFSET>,

@@ -48,7 +48,7 @@ impl IInitiateWinSATAssessment_Vtbl {
             this.CancelAssessment().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             InitiateAssessment: InitiateAssessment::<Identity, Impl, OFFSET>,
             InitiateFormalAssessment: InitiateFormalAssessment::<Identity, Impl, OFFSET>,
             CancelAssessment: CancelAssessment::<Identity, Impl, OFFSET>,
@@ -214,7 +214,7 @@ impl IProvideWinSATVisuals_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), get_Bitmap: get_Bitmap::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), get_Bitmap: get_Bitmap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IProvideWinSATVisuals as ::windows::core::Interface>::IID
@@ -263,7 +263,7 @@ impl IQueryOEMWinSATCustomization_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetOEMPrePopulationInfo: GetOEMPrePopulationInfo::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOEMPrePopulationInfo: GetOEMPrePopulationInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IQueryOEMWinSATCustomization as ::windows::core::Interface>::IID
@@ -329,7 +329,7 @@ impl IWinSATInitiateEvents_Vtbl {
             this.WinSATUpdate(::core::mem::transmute_copy(&ucurrenttick), ::core::mem::transmute_copy(&uticktotal), ::core::mem::transmute(&strcurrentstate)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             WinSATComplete: WinSATComplete::<Identity, Impl, OFFSET>,
             WinSATUpdate: WinSATUpdate::<Identity, Impl, OFFSET>,
         }

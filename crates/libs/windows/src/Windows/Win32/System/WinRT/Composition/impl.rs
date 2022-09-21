@@ -72,7 +72,7 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
             this.SuspendDraw().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             BeginDraw: BeginDraw::<Identity, Impl, OFFSET>,
             EndDraw: EndDraw::<Identity, Impl, OFFSET>,
             Resize: Resize::<Identity, Impl, OFFSET>,
@@ -129,7 +129,7 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
             this.SetRenderingDevice(::core::mem::transmute(&value)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRenderingDevice: GetRenderingDevice::<Identity, Impl, OFFSET>,
             SetRenderingDevice: SetRenderingDevice::<Identity, Impl, OFFSET>,
         }
@@ -165,7 +165,7 @@ impl ICompositorDesktopInterop_Vtbl {
             this.EnsureOnThread(::core::mem::transmute_copy(&threadid)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateDesktopWindowTarget: CreateDesktopWindowTarget::<Identity, Impl, OFFSET>,
             EnsureOnThread: EnsureOnThread::<Identity, Impl, OFFSET>,
         }
@@ -219,7 +219,7 @@ impl ICompositorInterop_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateCompositionSurfaceForHandle: CreateCompositionSurfaceForHandle::<Identity, Impl, OFFSET>,
             CreateCompositionSurfaceForSwapChain: CreateCompositionSurfaceForSwapChain::<Identity, Impl, OFFSET>,
             CreateGraphicsDevice: CreateGraphicsDevice::<Identity, Impl, OFFSET>,
@@ -249,7 +249,7 @@ impl IDesktopWindowTargetInterop_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Hwnd: Hwnd::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Hwnd: Hwnd::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDesktopWindowTargetInterop as ::windows::core::Interface>::IID
@@ -266,7 +266,7 @@ impl ISwapChainInterop_Vtbl {
             let this = (*this).get_impl();
             this.SetSwapChain(::core::mem::transmute(&swapchain)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSwapChain: SetSwapChain::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISwapChainInterop as ::windows::core::Interface>::IID
@@ -287,7 +287,7 @@ impl IVisualInteractionSourceInterop_Vtbl {
             this.TryRedirectForManipulation(::core::mem::transmute_copy(&pointerinfo)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             TryRedirectForManipulation: TryRedirectForManipulation::<Identity, Impl, OFFSET>,
         }
     }

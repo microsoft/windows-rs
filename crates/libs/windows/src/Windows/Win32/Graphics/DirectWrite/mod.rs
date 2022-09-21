@@ -59,7 +59,7 @@ unsafe impl ::windows::core::Interface for IDWriteAsyncResult {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteAsyncResult_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetWaitHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -146,7 +146,7 @@ unsafe impl ::windows::core::Interface for IDWriteBitmapRenderTarget {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteBitmapRenderTarget_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: *mut ::core::ffi::c_void, textcolor: super::super::Foundation::COLORREF, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -325,7 +325,7 @@ unsafe impl ::windows::core::Interface for IDWriteColorGlyphRunEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteColorGlyphRunEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hasrun: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -597,7 +597,7 @@ unsafe impl ::windows::core::Interface for IDWriteFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetSystemFontCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontcollection: *mut *mut ::core::ffi::c_void, checkforupdates: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3251,7 +3251,7 @@ unsafe impl ::windows::core::Interface for IDWriteFont {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFont_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfamily: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_FONT_WEIGHT,
     pub GetStretch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_FONT_STRETCH,
@@ -3799,7 +3799,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontCollection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFontFamilyCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, fontfamily: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -4224,7 +4224,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontCollectionLoader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontCollectionLoader_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateEnumeratorFromKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::core::ffi::c_void, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32, fontfileenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
@@ -4277,7 +4277,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontDownloadListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontDownloadListener_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub DownloadCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadqueue: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, downloadresult: ::windows::core::HRESULT),
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
@@ -4350,7 +4350,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontDownloadQueue {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontDownloadQueue_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listener: *mut ::core::ffi::c_void, token: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -4477,7 +4477,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontFace {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFace_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_FONT_FACE_TYPE,
     pub GetFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberoffiles: *mut u32, fontfiles: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -6630,7 +6630,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontFaceReference {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFaceReference_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateFontFace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateFontFaceWithSimulations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS, fontface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -6829,7 +6829,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontFallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub MapCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysissource: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, basefontcollection: *mut ::core::ffi::c_void, basefamilyname: ::windows::core::PCWSTR, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut *mut ::core::ffi::c_void, scale: *mut f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
@@ -6970,7 +6970,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontFallbackBuilder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFallbackBuilder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ranges: *const DWRITE_UNICODE_RANGE, rangescount: u32, targetfamilynames: *const *const u16, targetfamilynamescount: u32, fontcollection: *mut ::core::ffi::c_void, localename: ::windows::core::PCWSTR, basefamilyname: ::windows::core::PCWSTR, scale: f32) -> ::windows::core::HRESULT,
     pub AddMappings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateFontFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7362,7 +7362,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontFile {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFile_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetReferenceKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfilereferencekey: *mut *mut ::core::ffi::c_void, fontfilereferencekeysize: *mut u32) -> ::windows::core::HRESULT,
     pub GetLoader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfileloader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -7423,7 +7423,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontFileEnumerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFileEnumerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hascurrentfile: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7477,7 +7477,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontFileLoader {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFileLoader_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateStreamFromKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32, fontfilestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
@@ -7537,7 +7537,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontFileStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontFileStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReadFileFragment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fragmentstart: *mut *mut ::core::ffi::c_void, fileoffset: u64, fragmentsize: u64, fragmentcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ReleaseFileFragment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fragmentcontext: *mut ::core::ffi::c_void),
     pub GetFileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesize: *mut u64) -> ::windows::core::HRESULT,
@@ -7597,7 +7597,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontList_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFontCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFontCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, font: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7874,7 +7874,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontResource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontResource_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFontFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFontFaceIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFontAxisCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -7988,7 +7988,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontSet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontSet_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFontCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFontFaceReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32, fontfacereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -8713,7 +8713,7 @@ unsafe impl ::windows::core::Interface for IDWriteFontSetBuilder {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteFontSetBuilder_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddFontFaceReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfacereference: *mut ::core::ffi::c_void, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> ::windows::core::HRESULT,
     pub AddFontFaceReference2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfacereference: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddFontSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontset: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9009,7 +9009,7 @@ unsafe impl ::windows::core::Interface for IDWriteGdiInterop {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteGdiInterop_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub CreateFontFromLOGFONT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfont: *const super::Gdi::LOGFONTW, font: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
@@ -9244,7 +9244,7 @@ unsafe impl ::windows::core::Interface for IDWriteGlyphRunAnalysis {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteGlyphRunAnalysis_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAlphaTextureBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9399,7 +9399,7 @@ unsafe impl ::windows::core::Interface for IDWriteInlineObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteInlineObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, renderer: *mut ::core::ffi::c_void, originx: f32, originy: f32, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL, clientdrawingeffect: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9562,7 +9562,7 @@ unsafe impl ::windows::core::Interface for IDWriteLocalizedStrings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteLocalizedStrings_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Foundation")]
     pub FindLocaleName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localename: ::windows::core::PCWSTR, index: *mut u32, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -9615,7 +9615,7 @@ unsafe impl ::windows::core::Interface for IDWriteNumberSubstitution {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteNumberSubstitution_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
@@ -9674,7 +9674,7 @@ unsafe impl ::windows::core::Interface for IDWritePixelSnapping {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWritePixelSnapping_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsPixelSnappingDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientdrawingcontext: *const ::core::ffi::c_void, isdisabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9921,7 +9921,7 @@ unsafe impl ::windows::core::Interface for IDWriteRenderingParams {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteRenderingParams_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetGamma: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f32,
     pub GetEnhancedContrast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f32,
     pub GetClearTypeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f32,
@@ -10279,7 +10279,7 @@ unsafe impl ::windows::core::Interface for IDWriteStringList {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteStringList_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetLocaleNameLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32, length: *mut u32) -> ::windows::core::HRESULT,
     pub GetLocaleName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listindex: u32, localename: ::windows::core::PWSTR, size: u32) -> ::windows::core::HRESULT,
@@ -10344,7 +10344,7 @@ unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextAnalysisSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetScriptAnalysis: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> ::windows::core::HRESULT,
     pub SetLineBreakpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, linebreakpoints: *const DWRITE_LINE_BREAKPOINT) -> ::windows::core::HRESULT,
     pub SetBidiLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, explicitlevel: u8, resolvedlevel: u8) -> ::windows::core::HRESULT,
@@ -10496,7 +10496,7 @@ unsafe impl ::windows::core::Interface for IDWriteTextAnalysisSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextAnalysisSource_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetTextAtPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> ::windows::core::HRESULT,
     pub GetTextBeforePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> ::windows::core::HRESULT,
     pub GetParagraphReadingDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DWRITE_READING_DIRECTION,
@@ -10756,7 +10756,7 @@ unsafe impl ::windows::core::Interface for IDWriteTextAnalyzer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextAnalyzer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AnalyzeScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysissource: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, analysissink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AnalyzeBidi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysissource: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, analysissink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AnalyzeNumberSubstitution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysissource: *mut ::core::ffi::c_void, textposition: u32, textlength: u32, analysissink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11524,7 +11524,7 @@ unsafe impl ::windows::core::Interface for IDWriteTextFormat {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTextFormat_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetTextAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows::core::HRESULT,
     pub SetParagraphAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paragraphalignment: DWRITE_PARAGRAPH_ALIGNMENT) -> ::windows::core::HRESULT,
     pub SetWordWrapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wordwrapping: DWRITE_WORD_WRAPPING) -> ::windows::core::HRESULT,
@@ -14510,7 +14510,7 @@ unsafe impl ::windows::core::Interface for IDWriteTypography {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDWriteTypography_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddFontFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfeature: DWRITE_FONT_FEATURE) -> ::windows::core::HRESULT,
     pub GetFontFeatureCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetFontFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fontfeatureindex: u32, fontfeature: *mut DWRITE_FONT_FEATURE) -> ::windows::core::HRESULT,

@@ -104,7 +104,7 @@ impl IPresentStatistics_Vtbl {
             this.GetKind()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPresentId: GetPresentId::<Identity, Impl, OFFSET>,
             GetKind: GetKind::<Identity, Impl, OFFSET>,
         }
@@ -173,7 +173,7 @@ impl IPresentationBuffer_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetAvailableEvent: GetAvailableEvent::<Identity, Impl, OFFSET>,
             IsAvailable: IsAvailable::<Identity, Impl, OFFSET>,
         }
@@ -193,7 +193,7 @@ impl IPresentationContent_Vtbl {
             let this = (*this).get_impl();
             this.SetTag(::core::mem::transmute_copy(&tag))
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetTag: SetTag::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetTag: SetTag::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPresentationContent as ::windows::core::Interface>::IID
@@ -229,7 +229,7 @@ impl IPresentationFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsPresentationSupported: IsPresentationSupported::<Identity, Impl, OFFSET>,
             IsPresentationSupportedWithIndependentFlip: IsPresentationSupportedWithIndependentFlip::<Identity, Impl, OFFSET>,
             CreatePresentationManager: CreatePresentationManager::<Identity, Impl, OFFSET>,
@@ -362,7 +362,7 @@ impl IPresentationManager_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddBufferFromResource: AddBufferFromResource::<Identity, Impl, OFFSET>,
             CreatePresentationSurface: CreatePresentationSurface::<Identity, Impl, OFFSET>,
             GetNextPresentId: GetNextPresentId::<Identity, Impl, OFFSET>,

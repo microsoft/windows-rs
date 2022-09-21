@@ -2542,7 +2542,7 @@ unsafe impl ::windows::core::Interface for DataSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DataSource_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub getDataMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdm: *const u16, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub getDataMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pbstrdm: *mut *mut u16) -> ::windows::core::HRESULT,
     pub getDataMemberCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
@@ -2601,7 +2601,7 @@ unsafe impl ::windows::core::Interface for DataSourceListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DataSourceListener_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub dataMemberChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdm: *const u16) -> ::windows::core::HRESULT,
     pub dataMemberAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdm: *const u16) -> ::windows::core::HRESULT,
     pub dataMemberRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdm: *const u16) -> ::windows::core::HRESULT,
@@ -2749,7 +2749,7 @@ unsafe impl ::windows::core::Interface for IAccessor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessor_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddRefAccessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateAccessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut HACCESSOR, rgstatus: *mut u32) -> ::windows::core::HRESULT,
@@ -2809,7 +2809,7 @@ unsafe impl ::windows::core::Interface for IAlterIndex {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlterIndex_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AlterIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pindexid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2868,7 +2868,7 @@ unsafe impl ::windows::core::Interface for IAlterTable {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlterTable_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AlterColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pcolumnid: *mut super::super::Storage::IndexServer::DBID, dwcolumndescflags: u32, pcolumndesc: *mut DBCOLUMNDESC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -2931,7 +2931,7 @@ unsafe impl ::windows::core::Interface for IBindResource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBindResource_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Bind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: *mut ::core::ffi::c_void, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2988,7 +2988,7 @@ unsafe impl ::windows::core::Interface for IChapteredRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IChapteredRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddRefChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
     pub ReleaseChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -3056,7 +3056,7 @@ unsafe impl ::windows::core::Interface for IColumnMapper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColumnMapper_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub GetPropInfoFromName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wcspropname: ::windows::core::PCWSTR, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
@@ -3122,7 +3122,7 @@ unsafe impl ::windows::core::Interface for IColumnMapperCreator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColumnMapperCreator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetColumnMapper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wcsmachinename: ::windows::core::PCWSTR, wcscatalogname: ::windows::core::PCWSTR, ppcolumnmapper: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -3179,7 +3179,7 @@ unsafe impl ::windows::core::Interface for IColumnsInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColumnsInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
     pub GetColumnInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com")))]
@@ -3325,7 +3325,7 @@ unsafe impl ::windows::core::Interface for IColumnsRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColumnsRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub GetAvailableColumns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcoptcolumns: *mut usize, prgoptcolumns: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
@@ -3391,7 +3391,7 @@ unsafe impl ::windows::core::Interface for ICommand {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommand_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Execute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut isize, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDBSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3475,7 +3475,7 @@ unsafe impl ::windows::core::Interface for ICommandCost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandCost_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetAccumulatedCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszrowsetname: ::windows::core::PCWSTR, pccostlimits: *mut u32, prgcostlimits: *mut *mut DBCOST) -> ::windows::core::HRESULT,
     pub GetCostEstimate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszrowsetname: ::windows::core::PCWSTR, pccostestimates: *mut u32, prgcostestimates: *mut DBCOST) -> ::windows::core::HRESULT,
     pub GetCostGoals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszrowsetname: ::windows::core::PCWSTR, pccostgoals: *mut u32, prgcostgoals: *mut DBCOST) -> ::windows::core::HRESULT,
@@ -3546,7 +3546,7 @@ unsafe impl ::windows::core::Interface for ICommandPersist {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandPersist_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub DeleteCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommandid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
@@ -3613,7 +3613,7 @@ unsafe impl ::windows::core::Interface for ICommandPrepare {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandPrepare_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Prepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cexpectedruns: u32) -> ::windows::core::HRESULT,
     pub Unprepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3670,7 +3670,7 @@ unsafe impl ::windows::core::Interface for ICommandProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandProperties_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3732,7 +3732,7 @@ unsafe impl ::windows::core::Interface for ICommandStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCommandStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID, pguiddialect: *mut ::windows::core::GUID, ppcommandstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetCommandStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rguiddialect: *const ::windows::core::GUID, pcommandstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3869,7 +3869,7 @@ unsafe impl ::windows::core::Interface for ICommandValidate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandValidate_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ValidateCompletely: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ValidateSyntax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3928,7 +3928,7 @@ unsafe impl ::windows::core::Interface for ICommandWithParameters {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandWithParameters_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetParameterInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4392,7 +4392,7 @@ unsafe impl ::windows::core::Interface for IConditionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConditionFactory_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub MakeNot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcsub: *mut ::core::ffi::c_void, fsimplify: super::super::Foundation::BOOL, ppcresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -4725,7 +4725,7 @@ unsafe impl ::windows::core::Interface for IConditionGenerator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConditionGenerator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pschemaprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RecognizeNamedEntities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszinputstring: ::windows::core::PCWSTR, lciduserlocale: u32, ptokencollection: *mut ::core::ffi::c_void, pnamedentities: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Search_Common"))]
@@ -4783,7 +4783,7 @@ unsafe impl ::windows::core::Interface for IConvertType {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConvertType_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CanConvert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wfromtype: u16, wtotype: u16, dwconvertflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -4839,7 +4839,7 @@ unsafe impl ::windows::core::Interface for ICreateRow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICreateRow_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: *mut ::core::ffi::c_void, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut ::windows::core::PWSTR, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4903,7 +4903,7 @@ unsafe impl ::windows::core::Interface for IDBAsynchNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBAsynchNotify_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnLowResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: usize) -> ::windows::core::HRESULT,
     pub OnProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, ulprogress: usize, ulprogressmax: usize, easynchphase: u32, pwszstatustext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub OnStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, hrstatus: ::windows::core::HRESULT, pwszstatustext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -4957,7 +4957,7 @@ unsafe impl ::windows::core::Interface for IDBAsynchStatus {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBAsynchStatus_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32) -> ::windows::core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
@@ -5090,7 +5090,7 @@ unsafe impl ::windows::core::Interface for IDBCreateCommand {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBCreateCommand_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppcommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -5143,7 +5143,7 @@ unsafe impl ::windows::core::Interface for IDBCreateSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBCreateSession_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdbsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -5210,7 +5210,7 @@ unsafe impl ::windows::core::Interface for IDBDataSourceAdmin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBDataSourceAdmin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub CreateDataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdbsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5277,7 +5277,7 @@ unsafe impl ::windows::core::Interface for IDBInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetKeywords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszkeywords: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetLiteralInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cliterals: u32, rgliterals: *const u32, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
@@ -5333,7 +5333,7 @@ unsafe impl ::windows::core::Interface for IDBInitialize {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBInitialize_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5401,7 +5401,7 @@ unsafe impl ::windows::core::Interface for IDBPromptInitialize {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBPromptInitialize_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub PromptDataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5469,7 +5469,7 @@ unsafe impl ::windows::core::Interface for IDBProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBProperties_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5536,7 +5536,7 @@ unsafe impl ::windows::core::Interface for IDBSchemaCommand {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBSchemaCommand_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, rguidschema: *const ::windows::core::GUID, ppcommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSchemas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcschemas: *mut u32, prgschemas: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -5605,7 +5605,7 @@ unsafe impl ::windows::core::Interface for IDBSchemaRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDBSchemaRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, rguidschema: *const ::windows::core::GUID, crestrictions: u32, rgrestrictions: *const super::Com::VARIANT, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5666,7 +5666,7 @@ unsafe impl ::windows::core::Interface for IDCInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDCInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5728,7 +5728,7 @@ unsafe impl ::windows::core::Interface for IDataConvert {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataConvert_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub DataConvert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsrctype: u16, wdsttype: u16, cbsrclength: usize, pcbdstlength: *mut usize, psrc: *const ::core::ffi::c_void, pdst: *mut ::core::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: *mut u32, bprecision: u8, bscale: u8, dwflags: u32) -> ::windows::core::HRESULT,
     pub CanConvert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsrctype: u16, wdsttype: u16) -> ::windows::core::HRESULT,
     pub GetConversionSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsrctype: u16, wdsttype: u16, pcbsrclength: *const usize, pcbdstlength: *mut usize, psrc: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5821,7 +5821,7 @@ unsafe impl ::windows::core::Interface for IDataInitialize {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataInitialize_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszinitializationstring: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetInitializationString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatasource: *mut ::core::ffi::c_void, fincludepassword: u8, ppwszinitstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub CreateDBInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsidprovider: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszreserved: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6037,7 +6037,7 @@ unsafe impl ::windows::core::Interface for IEntity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEntity_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Base: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbaseentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Relationships: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, prelationships: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6109,7 +6109,7 @@ unsafe impl ::windows::core::Interface for IEnumItemProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumItemProperties_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ITEMPROP, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6175,7 +6175,7 @@ unsafe impl ::windows::core::Interface for IEnumSearchRoots {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSearchRoots_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6237,7 +6237,7 @@ unsafe impl ::windows::core::Interface for IEnumSearchScopeRules {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSearchScopeRules_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pprgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6303,7 +6303,7 @@ unsafe impl ::windows::core::Interface for IEnumSubscription {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSubscription_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6364,7 +6364,7 @@ unsafe impl ::windows::core::Interface for IErrorLookup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorLookup_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6447,7 +6447,7 @@ unsafe impl ::windows::core::Interface for IErrorRecords {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorRecords_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AddErrorRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: *mut ::core::ffi::c_void, dwdynamicerrorid: u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6511,7 +6511,7 @@ unsafe impl ::windows::core::Interface for IGetDataSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetDataSource_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -6568,7 +6568,7 @@ unsafe impl ::windows::core::Interface for IGetRow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetRow_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetRowFromHROW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, hrow: usize, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetURLFromHROW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, ppwszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
@@ -6619,7 +6619,7 @@ unsafe impl ::windows::core::Interface for IGetSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetSession_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -6669,7 +6669,7 @@ unsafe impl ::windows::core::Interface for IGetSourceRow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetSourceRow_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSourceRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprow: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -6725,7 +6725,7 @@ unsafe impl ::windows::core::Interface for IIndexDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIndexDefinition_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub CreateIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, cindexcolumndescs: usize, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -6783,7 +6783,7 @@ unsafe impl ::windows::core::Interface for IInterval {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInterval_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetLimits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::Com::StructuredStorage::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -6863,7 +6863,7 @@ unsafe impl ::windows::core::Interface for ILoadFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoadFilter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     pub LoadIFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcspath: ::windows::core::PCWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut ::core::ffi::c_void, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))]
@@ -7047,7 +7047,7 @@ unsafe impl ::windows::core::Interface for IMDDataset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDDataset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FreeAxisInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, caxes: usize, rgaxisinfo: *mut MDAXISINFO) -> ::windows::core::HRESULT,
     pub GetAxisInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcaxes: *mut usize, prgaxisinfo: *mut *mut MDAXISINFO) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7106,7 +7106,7 @@ unsafe impl ::windows::core::Interface for IMDFind {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDFind_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FindCell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut ::windows::core::PWSTR, pulcellordinal: *mut usize) -> ::windows::core::HRESULT,
     pub FindTuple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulaxisidentifier: u32, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut ::windows::core::PWSTR, pultupleordinal: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -7161,7 +7161,7 @@ unsafe impl ::windows::core::Interface for IMDRangeRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDRangeRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetRangeRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ulstartcell: usize, ulendcell: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -7213,7 +7213,7 @@ unsafe impl ::windows::core::Interface for IMetaData {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMetaData_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszkey: *mut ::windows::core::PWSTR, ppszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -7265,7 +7265,7 @@ unsafe impl ::windows::core::Interface for IMultipleResults {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMultipleResults_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, lresultflag: isize, riid: *const ::windows::core::GUID, pcrowsaffected: *mut isize, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -7319,7 +7319,7 @@ unsafe impl ::windows::core::Interface for INamedEntity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INamedEntity_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub DefaultPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszphrase: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
@@ -7373,7 +7373,7 @@ unsafe impl ::windows::core::Interface for INamedEntityCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INamedEntityCollector_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: *mut ::core::ffi::c_void, pszvalue: ::windows::core::PCWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -7444,7 +7444,7 @@ unsafe impl ::windows::core::Interface for IObjectAccessControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectAccessControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
     pub GetObjectAccessRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut SEC_OBJECT, pcaccessentries: *mut u32, prgaccessentries: *mut *mut super::super::Security::Authorization::EXPLICIT_ACCESS_W) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer")))]
@@ -7527,7 +7527,7 @@ unsafe impl ::windows::core::Interface for IOpLockStatus {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpLockStatus_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsOplockValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisoplockvalid: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7592,7 +7592,7 @@ unsafe impl ::windows::core::Interface for IOpenRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpenRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub OpenRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -7648,7 +7648,7 @@ unsafe impl ::windows::core::Interface for IParentRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IParentRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetChildRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, iordinal: usize, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -7703,7 +7703,7 @@ unsafe impl ::windows::core::Interface for IProtocolHandlerSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtocolHandlerSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub GetFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsidobj: *mut ::windows::core::GUID, pcwszcontenttype: ::windows::core::PCWSTR, pcwszextension: ::windows::core::PCWSTR, ppfilter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
@@ -7758,7 +7758,7 @@ unsafe impl ::windows::core::Interface for IProvideMoniker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideMoniker_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetMoniker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimoniker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7867,7 +7867,7 @@ unsafe impl ::windows::core::Interface for IQueryParser {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryParser_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub Parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszinputstring: ::windows::core::PCWSTR, pcustomproperties: *mut ::core::ffi::c_void, ppsolution: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7961,7 +7961,7 @@ unsafe impl ::windows::core::Interface for IQueryParserManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryParserManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateLoadedParser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcatalog: ::windows::core::PCWSTR, langidforkeywords: u16, riid: *const ::windows::core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub InitializeOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, funderstandnqs: super::super::Foundation::BOOL, fautowildcard: super::super::Foundation::BOOL, pqueryparser: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8148,7 +8148,7 @@ unsafe impl ::windows::core::Interface for IReadData {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReadData_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ReadData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: HACCESSOR, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::HRESULT,
     pub ReleaseChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize) -> ::windows::core::HRESULT,
 }
@@ -8214,7 +8214,7 @@ unsafe impl ::windows::core::Interface for IRegisterProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegisterProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetURLMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwreserved: usize, pclsidprovider: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetURLMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub UnregisterProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -8287,7 +8287,7 @@ unsafe impl ::windows::core::Interface for IRelationship {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRelationship_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsReal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisreal: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -8345,7 +8345,7 @@ unsafe impl ::windows::core::Interface for IRichChunk {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichChunk_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut ::windows::core::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -8411,7 +8411,7 @@ unsafe impl ::windows::core::Interface for IRow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRow_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub GetColumns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolumns: usize, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
@@ -8470,7 +8470,7 @@ unsafe impl ::windows::core::Interface for IRowChange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowChange_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub SetColumns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolumns: usize, rgcolumns: *const DBCOLUMNACCESS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
@@ -8538,7 +8538,7 @@ unsafe impl ::windows::core::Interface for IRowPosition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowPosition_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ClearRowPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRowPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phchapter: *mut usize, phrow: *mut usize, pdwpositionflags: *mut u32) -> ::windows::core::HRESULT,
     pub GetRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8596,7 +8596,7 @@ unsafe impl ::windows::core::Interface for IRowPositionChange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowPositionChange_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnRowPositionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8746,7 +8746,7 @@ unsafe impl ::windows::core::Interface for IRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddRefRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNextRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT,
@@ -8804,7 +8804,7 @@ unsafe impl ::windows::core::Interface for IRowsetAsynch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetAsynch_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RatioFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puldenominator: *mut usize, pulnumerator: *mut usize, pcrows: *mut usize, pfnewrows: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8857,7 +8857,7 @@ unsafe impl ::windows::core::Interface for IRowsetBookmark {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetBookmark_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub PositionOnBookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -8918,7 +8918,7 @@ unsafe impl ::windows::core::Interface for IRowsetChange {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetChange_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub DeleteRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows::core::HRESULT,
     pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InsertRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::HRESULT,
@@ -8972,7 +8972,7 @@ unsafe impl ::windows::core::Interface for IRowsetChangeExtInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetChangeExtInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetOriginalRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> ::windows::core::HRESULT,
     pub GetPendingColumns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32, rgcolumnstatus: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -9022,7 +9022,7 @@ unsafe impl ::windows::core::Interface for IRowsetChapterMember {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetChapterMember_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub IsRowInChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, hrow: usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -9083,7 +9083,7 @@ unsafe impl ::windows::core::Interface for IRowsetCopyRows {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetCopyRows_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CloseSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsourceid: u16) -> ::windows::core::HRESULT,
     pub CopyByHROWS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsourceid: u16, hreserved: usize, crows: isize, rghrows: *const usize, bflags: u32) -> ::windows::core::HRESULT,
     pub CopyRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsourceid: u16, hreserved: usize, crows: isize, bflags: u32, pcrowscopied: *mut usize) -> ::windows::core::HRESULT,
@@ -9247,7 +9247,7 @@ unsafe impl ::windows::core::Interface for IRowsetEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub OnNewItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemid: *const super::Com::StructuredStorage::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -9322,7 +9322,7 @@ unsafe impl ::windows::core::Interface for IRowsetFastLoad {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetFastLoad_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InsertRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdone: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -9378,7 +9378,7 @@ unsafe impl ::windows::core::Interface for IRowsetFind {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetFind_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub FindNextRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, haccessor: HACCESSOR, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -9427,7 +9427,7 @@ unsafe impl ::windows::core::Interface for IRowsetIdentity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetIdentity_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub IsSameRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hthisrow: usize, hthatrow: usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -9490,7 +9490,7 @@ unsafe impl ::windows::core::Interface for IRowsetIndex {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetIndex_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetIndexInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9554,7 +9554,7 @@ unsafe impl ::windows::core::Interface for IRowsetInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9608,7 +9608,7 @@ unsafe impl ::windows::core::Interface for IRowsetKeys {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetKeys_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ListKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccolumns: *mut usize, prgcolumns: *mut *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -9754,7 +9754,7 @@ unsafe impl ::windows::core::Interface for IRowsetNewRowAfter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetNewRowAfter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetNewDataAfter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: HACCESSOR, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -9807,7 +9807,7 @@ unsafe impl ::windows::core::Interface for IRowsetNextRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetNextRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetNextRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppnextrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -9880,7 +9880,7 @@ unsafe impl ::windows::core::Interface for IRowsetNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetNotify_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub OnFieldChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prowset: *mut ::core::ffi::c_void, hrow: usize, ccolumns: usize, rgcolumns: *const usize, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9946,7 +9946,7 @@ unsafe impl ::windows::core::Interface for IRowsetPrioritization {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetPrioritization_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetScopePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, priority: PRIORITY_LEVEL, scopestatisticseventfrequency: u32) -> ::windows::core::HRESULT,
     pub GetScopePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, priority: *mut PRIORITY_LEVEL, scopestatisticseventfrequency: *mut u32) -> ::windows::core::HRESULT,
     pub GetScopeStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexeddocumentcount: *mut u32, oustandingaddcount: *mut u32, oustandingmodifycount: *mut u32) -> ::windows::core::HRESULT,
@@ -10000,7 +10000,7 @@ unsafe impl ::windows::core::Interface for IRowsetQueryStatus {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetQueryStatus_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetStatusEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32, pcfiltereddocuments: *mut u32, pcdocumentstofilter: *mut u32, pdwratiofinisheddenominator: *mut usize, pdwratiofinishednumerator: *mut usize, cbbmk: usize, pbmk: *const u8, pirowbmk: *mut usize, pcrowstotal: *mut usize) -> ::windows::core::HRESULT,
 }
@@ -10061,7 +10061,7 @@ unsafe impl ::windows::core::Interface for IRowsetRefresh {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetRefresh_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub RefreshVisibleData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, crows: usize, rghrows: *const usize, foverwrite: super::super::Foundation::BOOL, pcrowsrefreshed: *mut usize, prghrowsrefreshed: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -10120,7 +10120,7 @@ unsafe impl ::windows::core::Interface for IRowsetResynch {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetResynch_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetVisibleData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ResynchRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, pcrowsresynched: *mut usize, prghrowsresynched: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT,
 }
@@ -10388,7 +10388,7 @@ unsafe impl ::windows::core::Interface for IRowsetView {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetView_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, riid: *const ::windows::core::GUID, phchaptersource: *mut usize, ppview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -10444,7 +10444,7 @@ unsafe impl ::windows::core::Interface for IRowsetWatchAll {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetWatchAll_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Acknowledge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StopWatching: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10498,7 +10498,7 @@ unsafe impl ::windows::core::Interface for IRowsetWatchNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetWatchNotify_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prowset: *mut ::core::ffi::c_void, echangereason: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -10645,7 +10645,7 @@ unsafe impl ::windows::core::Interface for IRowsetWithParameters {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetWithParameters_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub GetParameterInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10698,7 +10698,7 @@ unsafe impl ::windows::core::Interface for ISQLErrorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISQLErrorInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSQLInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsqlstate: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, plnativeerror: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -10749,7 +10749,7 @@ unsafe impl ::windows::core::Interface for ISQLGetDiagField {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISQLGetDiagField_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetDiagField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdiaginfo: *mut KAGGETDIAG) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -10803,7 +10803,7 @@ unsafe impl ::windows::core::Interface for ISQLRequestDiagFields {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISQLRequestDiagFields_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub RequestDiagFields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cdiagfields: u32, rgdiagfields: *const KAGREQDIAG) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10855,7 +10855,7 @@ unsafe impl ::windows::core::Interface for ISQLServerErrorInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISQLServerErrorInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperrorinfo: *mut *mut SSERRORINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -10908,7 +10908,7 @@ unsafe impl ::windows::core::Interface for ISchemaLocalizerSupport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaLocalizerSupport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Localize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszglobalstring: ::windows::core::PCWSTR, ppszlocalstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -10967,7 +10967,7 @@ unsafe impl ::windows::core::Interface for ISchemaLock {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaLock_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     pub GetSchemaLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, lmmode: u32, phlockhandle: *mut super::super::Foundation::HANDLE, ptableversion: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))]
@@ -11065,7 +11065,7 @@ unsafe impl ::windows::core::Interface for ISchemaProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISchemaProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Entities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pentities: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RootEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prootentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszentityname: ::windows::core::PCWSTR, pentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11360,7 +11360,7 @@ unsafe impl ::windows::core::Interface for ISearchCatalogManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchCatalogManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
@@ -11758,7 +11758,7 @@ unsafe impl ::windows::core::Interface for ISearchCrawlScopeManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchCrawlScopeManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub AddDefaultScopeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, finclude: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12036,7 +12036,7 @@ unsafe impl ::windows::core::Interface for ISearchItemsChangedSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchItemsChangedSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartedMonitoringScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub StoppedMonitoringScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -12111,7 +12111,7 @@ unsafe impl ::windows::core::Interface for ISearchLanguageSupport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchLanguageSupport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetDiacriticSensitivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdiacriticsensitive: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12240,7 +12240,7 @@ unsafe impl ::windows::core::Interface for ISearchManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetIndexerVersionStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszversionstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetIndexerVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -12464,7 +12464,7 @@ unsafe impl ::windows::core::Interface for ISearchNotifyInlineSite {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchNotifyInlineSite_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnItemIndexedStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sipstatus: SEARCH_INDEXING_PHASE, dwnumentries: u32, rgitemstatusentries: *const SEARCH_ITEM_INDEXING_STATUS) -> ::windows::core::HRESULT,
     pub OnCatalogStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidcatalogresetsignature: *const ::windows::core::GUID, guidcheckpointsignature: *const ::windows::core::GUID, dwlastcheckpointnumber: u32) -> ::windows::core::HRESULT,
 }
@@ -12527,7 +12527,7 @@ unsafe impl ::windows::core::Interface for ISearchPersistentItemsChangedSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchPersistentItemsChangedSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub StartedMonitoringScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub StoppedMonitoringScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub OnItemsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -12600,7 +12600,7 @@ unsafe impl ::windows::core::Interface for ISearchProtocol {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchProtocol_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimeoutinfo: *mut TIMEOUT_INFO, pprotocolhandlersite: *mut ::core::ffi::c_void, pproxyinfo: *mut PROXY_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12761,7 +12761,7 @@ unsafe impl ::windows::core::Interface for ISearchProtocolThreadContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchProtocolThreadContext_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ThreadInit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ThreadShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ThreadIdle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtimeelaspedsincelastcallinms: u32) -> ::windows::core::HRESULT,
@@ -12900,7 +12900,7 @@ unsafe impl ::windows::core::Interface for ISearchQueryHelper {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchQueryHelper_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub ConnectionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszconnectionstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetQueryContentLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: u32) -> ::windows::core::HRESULT,
     pub QueryContentLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT,
@@ -12987,7 +12987,7 @@ unsafe impl ::windows::core::Interface for ISearchQueryHits {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchQueryHits_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflt: *mut ::core::ffi::c_void, ulflags: u32) -> i32,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
@@ -13161,7 +13161,7 @@ unsafe impl ::windows::core::Interface for ISearchRoot {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchRoot_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetSchedule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztaskarg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Schedule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsztaskarg: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetRootURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -13272,7 +13272,7 @@ unsafe impl ::windows::core::Interface for ISearchScopeRule {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchScopeRule_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub PatternOrURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszpatternorurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsIncluded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisincluded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -13332,7 +13332,7 @@ unsafe impl ::windows::core::Interface for ISearchViewChangedSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISearchViewChangedSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub OnChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdocid: *const i32, pchange: *const SEARCH_ITEM_CHANGE, pfinview: *const super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -13392,7 +13392,7 @@ unsafe impl ::windows::core::Interface for ISecurityInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInfo_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Security_Authorization")]
     pub GetCurrentTrustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptrustee: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Security_Authorization"))]
@@ -13449,7 +13449,7 @@ unsafe impl ::windows::core::Interface for IService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IService_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub InvokeService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkinner: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -13505,7 +13505,7 @@ unsafe impl ::windows::core::Interface for ISessionProperties {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISessionProperties_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -13577,7 +13577,7 @@ unsafe impl ::windows::core::Interface for ISimpleCommandCreator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleCommandCreator_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateICommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiunknown: *mut *mut ::core::ffi::c_void, pouterunk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub VerifyCatalog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszmachine: ::windows::core::PCWSTR, pwszcatalogname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetDefaultCatalog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszcatalogname: ::windows::core::PCWSTR, cwcin: u32, pcwcout: *mut u32) -> ::windows::core::HRESULT,
@@ -13633,7 +13633,7 @@ unsafe impl ::windows::core::Interface for ISourcesRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISourcesRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetSourcesRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -13697,7 +13697,7 @@ unsafe impl ::windows::core::Interface for IStemmer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStemmer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -13777,7 +13777,7 @@ unsafe impl ::windows::core::Interface for ISubscriptionItem {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISubscriptionItem_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcookie: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetSubscriptionItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psubscriptioniteminfo: *mut SUBSCRIPTIONITEMINFO) -> ::windows::core::HRESULT,
     pub SetSubscriptionItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psubscriptioniteminfo: *const SUBSCRIPTIONITEMINFO) -> ::windows::core::HRESULT,
@@ -13896,7 +13896,7 @@ unsafe impl ::windows::core::Interface for ISubscriptionMgr {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISubscriptionMgr_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub DeleteSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -14275,7 +14275,7 @@ unsafe impl ::windows::core::Interface for ITableDefinition {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableDefinition_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub CreateTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *const DBCOLUMNDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -14503,7 +14503,7 @@ unsafe impl ::windows::core::Interface for ITableRename {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableRename_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub RenameColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, poldcolumnid: *mut super::super::Storage::IndexServer::DBID, pnewcolumnid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
@@ -14562,7 +14562,7 @@ unsafe impl ::windows::core::Interface for ITokenCollection {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITokenCollection_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub NumberOfTokens: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *const u32) -> ::windows::core::HRESULT,
     pub GetToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
@@ -14624,7 +14624,7 @@ unsafe impl ::windows::core::Interface for ITransactionJoin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransactionJoin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub GetOptionsObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppoptions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
@@ -14803,7 +14803,7 @@ unsafe impl ::windows::core::Interface for ITransactionObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransactionObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub GetTransactionObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultransactionlevel: u32, pptransactionobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
@@ -14877,7 +14877,7 @@ unsafe impl ::windows::core::Interface for ITrusteeAdmin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITrusteeAdmin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Security_Authorization")]
     pub CompareTrustees: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrustee1: *mut super::super::Security::Authorization::TRUSTEE_W, ptrustee2: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Security_Authorization"))]
@@ -14967,7 +14967,7 @@ unsafe impl ::windows::core::Interface for ITrusteeGroupAdmin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITrusteeGroupAdmin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Security_Authorization")]
     pub AddMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmembershiptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, pmembertrustee: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Security_Authorization"))]
@@ -15089,7 +15089,7 @@ unsafe impl ::windows::core::Interface for IUMSInitialize {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUMSInitialize_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pums: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -15188,7 +15188,7 @@ unsafe impl ::windows::core::Interface for IUrlAccessor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUrlAccessor_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub AddRequestParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -15720,7 +15720,7 @@ unsafe impl ::windows::core::Interface for IViewChapter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewChapter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSpecification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OpenViewChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsource: usize, phviewchapter: *mut usize) -> ::windows::core::HRESULT,
 }
@@ -15784,7 +15784,7 @@ unsafe impl ::windows::core::Interface for IViewFilter {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewFilter_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetFilterBindings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT,
@@ -15846,7 +15846,7 @@ unsafe impl ::windows::core::Interface for IViewRowset {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewRowset_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSpecification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OpenViewRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -15899,7 +15899,7 @@ unsafe impl ::windows::core::Interface for IViewSort {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewSort_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetSortOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcvalues: *mut usize, prgcolumns: *mut *mut usize, prgorders: *mut *mut u32) -> ::windows::core::HRESULT,
     pub SetSortOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cvalues: usize, rgcolumns: *const usize, rgorders: *const u32) -> ::windows::core::HRESULT,
 }
@@ -15974,7 +15974,7 @@ unsafe impl ::windows::core::Interface for IWordBreaker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWordBreaker_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fquery: super::super::Foundation::BOOL, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -16041,7 +16041,7 @@ unsafe impl ::windows::core::Interface for IWordFormSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWordFormSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub PutAltWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::HRESULT,
     pub PutWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::HRESULT,
 }
@@ -16111,7 +16111,7 @@ unsafe impl ::windows::core::Interface for IWordSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWordSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub PutWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cwc: u32, pwcinbuf: ::windows::core::PCWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::HRESULT,
     pub PutAltWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cwc: u32, pwcinbuf: ::windows::core::PCWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::HRESULT,
     pub StartAltPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -16236,7 +16236,7 @@ unsafe impl ::windows::core::Interface for OLEDBSimpleProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct OLEDBSimpleProvider_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub getRowCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcrows: *mut isize) -> ::windows::core::HRESULT,
     pub getColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccolumns: *mut isize) -> ::windows::core::HRESULT,
     pub getRWStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, prwstatus: *mut OSPRW) -> ::windows::core::HRESULT,
@@ -16331,7 +16331,7 @@ unsafe impl ::windows::core::Interface for OLEDBSimpleProviderListener {
 #[repr(C)]
 #[doc(hidden)]
 pub struct OLEDBSimpleProviderListener_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub aboutToChangeCell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize) -> ::windows::core::HRESULT,
     pub cellChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize) -> ::windows::core::HRESULT,
     pub aboutToDeleteRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, crows: isize) -> ::windows::core::HRESULT,

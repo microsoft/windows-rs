@@ -657,7 +657,7 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIAudioStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAudioStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnperiodinhundrednsintervals: *mut i64) -> ::windows::core::HRESULT,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -716,7 +716,7 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIClipboardUseEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub OnPasteFromClipboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clipboardformat: u32, pattendee: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -772,7 +772,7 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIDebug {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIDebug_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetCLXCmdLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clxcmdline: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CLXCmdLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclxcmdline: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
@@ -1135,7 +1135,7 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIPerfCounterLogger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIPerfCounterLogger_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub LogValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lvalue: i64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
@@ -1185,7 +1185,7 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIPerfCounterLoggingManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIPerfCounterLoggingManager_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateLogger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcountername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplogger: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
@@ -1797,7 +1797,7 @@ unsafe impl ::windows::core::Interface for IRDPSRAPITransportStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStream_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AllocBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxpayload: i32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FreeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WriteBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1887,7 +1887,7 @@ unsafe impl ::windows::core::Interface for IRDPSRAPITransportStreamBuffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStreamBuffer_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Storage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbstorage: *mut *mut u8) -> ::windows::core::HRESULT,
     pub StorageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxstore: *mut i32) -> ::windows::core::HRESULT,
     pub PayloadSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plretval: *mut i32) -> ::windows::core::HRESULT,
@@ -1957,7 +1957,7 @@ unsafe impl ::windows::core::Interface for IRDPSRAPITransportStreamEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStreamEvents_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnWriteCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void),
     pub OnReadCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void),
     pub OnStreamClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrreason: ::windows::core::HRESULT),
@@ -2592,7 +2592,7 @@ unsafe impl ::windows::core::Interface for IRDPViewerInputSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPViewerInputSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub SendMouseButtonEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: i16, xpos: u32, ypos: u32) -> ::windows::core::HRESULT,
     pub SendMouseMoveEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpos: u32, ypos: u32) -> ::windows::core::HRESULT,
     pub SendMouseWheelEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wheelrotation: u16) -> ::windows::core::HRESULT,

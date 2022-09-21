@@ -82,7 +82,7 @@ impl IDot11AdHocInterface_Vtbl {
             this.GetStatus(::core::mem::transmute_copy(&pstate)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDeviceSignature: GetDeviceSignature::<Identity, Impl, OFFSET>,
             GetFriendlyName: GetFriendlyName::<Identity, Impl, OFFSET>,
             IsDot11d: IsDot11d::<Identity, Impl, OFFSET>,
@@ -109,7 +109,7 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
             let this = (*this).get_impl();
             this.OnConnectionStatusChange(::core::mem::transmute_copy(&estatus)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnConnectionStatusChange: OnConnectionStatusChange::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnectionStatusChange: OnConnectionStatusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDot11AdHocInterfaceNotificationSink as ::windows::core::Interface>::IID
@@ -178,7 +178,7 @@ impl IDot11AdHocManager_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CreateNetwork: CreateNetwork::<Identity, Impl, OFFSET>,
             CommitCreatedNetwork: CommitCreatedNetwork::<Identity, Impl, OFFSET>,
             GetIEnumDot11AdHocNetworks: GetIEnumDot11AdHocNetworks::<Identity, Impl, OFFSET>,
@@ -220,7 +220,7 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
             this.OnInterfaceRemove(::core::mem::transmute_copy(&signature)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnNetworkAdd: OnNetworkAdd::<Identity, Impl, OFFSET>,
             OnNetworkRemove: OnNetworkRemove::<Identity, Impl, OFFSET>,
             OnInterfaceAdd: OnInterfaceAdd::<Identity, Impl, OFFSET>,
@@ -336,7 +336,7 @@ impl IDot11AdHocNetwork_Vtbl {
             this.Disconnect().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
             GetSSID: GetSSID::<Identity, Impl, OFFSET>,
             HasProfile: HasProfile::<Identity, Impl, OFFSET>,
@@ -373,7 +373,7 @@ impl IDot11AdHocNetworkNotificationSink_Vtbl {
             this.OnConnectFail(::core::mem::transmute_copy(&efailreason)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             OnStatusChange: OnStatusChange::<Identity, Impl, OFFSET>,
             OnConnectFail: OnConnectFail::<Identity, Impl, OFFSET>,
         }
@@ -400,7 +400,7 @@ impl IDot11AdHocSecuritySettings_Vtbl {
             this.GetDot11CipherAlgorithm(::core::mem::transmute_copy(&pcipher)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDot11AuthAlgorithm: GetDot11AuthAlgorithm::<Identity, Impl, OFFSET>,
             GetDot11CipherAlgorithm: GetDot11CipherAlgorithm::<Identity, Impl, OFFSET>,
         }
@@ -445,7 +445,7 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -492,7 +492,7 @@ impl IEnumDot11AdHocNetworks_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -539,7 +539,7 @@ impl IEnumDot11AdHocSecuritySettings_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,

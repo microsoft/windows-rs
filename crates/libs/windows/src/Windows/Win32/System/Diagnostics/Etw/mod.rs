@@ -961,7 +961,7 @@ unsafe impl ::windows::core::Interface for ITraceEvent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceEvent_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newevent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetUserContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetEventRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventrecord: *mut *mut EVENT_RECORD) -> ::windows::core::HRESULT,
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::Interface for ITraceEventCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceEventCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub OnBeginProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headerevent: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnFinalizeProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1130,7 +1130,7 @@ unsafe impl ::windows::core::Interface for ITraceRelogger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceRelogger_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddLogfileTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
     pub AddRealtimeTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loggername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
     pub RegisterCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

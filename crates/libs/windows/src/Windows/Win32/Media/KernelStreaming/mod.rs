@@ -155,7 +155,7 @@ unsafe impl ::windows::core::Interface for IKsAggregateControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsAggregateControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub KsAddAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub KsRemoveAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
@@ -211,7 +211,7 @@ unsafe impl ::windows::core::Interface for IKsControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub KsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
     pub KsMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
     pub KsEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
@@ -268,7 +268,7 @@ unsafe impl ::windows::core::Interface for IKsFormatSupport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsFormatSupport_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub IsFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -322,7 +322,7 @@ unsafe impl ::windows::core::Interface for IKsJackContainerId {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackContainerId_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetJackContainerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjackcontainerid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -378,7 +378,7 @@ unsafe impl ::windows::core::Interface for IKsJackDescription {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackDescription_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetJackDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows::core::HRESULT,
@@ -436,7 +436,7 @@ unsafe impl ::windows::core::Interface for IKsJackDescription2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackDescription2_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT,
     pub GetJackDescription2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription2: *mut KSJACK_DESCRIPTION2) -> ::windows::core::HRESULT,
 }
@@ -489,7 +489,7 @@ unsafe impl ::windows::core::Interface for IKsJackSinkInformation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackSinkInformation_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetJackSinkInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -548,7 +548,7 @@ unsafe impl ::windows::core::Interface for IKsPropertySet {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsPropertySet_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::HRESULT,
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT,
     pub QuerySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, typesupport: *mut u32) -> ::windows::core::HRESULT,
@@ -602,7 +602,7 @@ unsafe impl ::windows::core::Interface for IKsTopology {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsTopology_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]

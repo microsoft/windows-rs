@@ -1287,7 +1287,7 @@ unsafe impl ::windows::core::Interface for IMAPIAdviseSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIAdviseSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub OnNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -1481,7 +1481,7 @@ unsafe impl ::windows::core::Interface for IMAPIControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIControl_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, uluiparam: usize) -> ::windows::core::HRESULT,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpulstate: *mut u32) -> ::windows::core::HRESULT,
@@ -1748,7 +1748,7 @@ unsafe impl ::windows::core::Interface for IMAPIProgress {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIProgress_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows::core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulflags: *mut u32) -> ::windows::core::HRESULT,
     pub GetMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulmax: *mut u32) -> ::windows::core::HRESULT,
@@ -1841,7 +1841,7 @@ unsafe impl ::windows::core::Interface for IMAPIProp {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIProp_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub SaveChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2102,7 +2102,7 @@ unsafe impl ::windows::core::Interface for IMAPITable {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPITable_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uleventmask: u32, lpadvisesink: *mut ::core::ffi::c_void, lpulconnection: *mut u32) -> ::windows::core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulconnection: u32) -> ::windows::core::HRESULT,
@@ -2844,7 +2844,7 @@ unsafe impl ::windows::core::Interface for IProviderAdmin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProviderAdmin_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub GetProviderTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2940,7 +2940,7 @@ unsafe impl ::windows::core::Interface for ITableData {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableData_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub HrGetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut *mut ::core::ffi::c_void, ulcallerdata: u32, lppmapitable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub HrModifyRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut SRow) -> ::windows::core::HRESULT,
@@ -3023,7 +3023,7 @@ unsafe impl ::windows::core::Interface for IWABExtInit {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWABExtInit_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3317,7 +3317,7 @@ unsafe impl ::windows::core::Interface for IWABObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWABObject_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
+    pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT,
     pub AllocateBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AllocateMore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

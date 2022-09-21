@@ -52,7 +52,7 @@ impl IEnumSpObjectTokens_Vtbl {
             this.GetCount(::core::mem::transmute_copy(&pcount)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Next: Next::<Identity, Impl, OFFSET>,
             Skip: Skip::<Identity, Impl, OFFSET>,
             Reset: Reset::<Identity, Impl, OFFSET>,
@@ -283,7 +283,7 @@ impl ISpDataKey_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetData: SetData::<Identity, Impl, OFFSET>,
             GetData: GetData::<Identity, Impl, OFFSET>,
             SetStringValue: SetStringValue::<Identity, Impl, OFFSET>,
@@ -320,7 +320,7 @@ impl ISpDisplayAlternates_Vtbl {
             this.SetFullStopTrailSpace(::core::mem::transmute_copy(&ultrailspace)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetDisplayAlternates: GetDisplayAlternates::<Identity, Impl, OFFSET>,
             SetFullStopTrailSpace: SetFullStopTrailSpace::<Identity, Impl, OFFSET>,
         }
@@ -347,7 +347,7 @@ impl ISpEnginePronunciation_Vtbl {
             this.GetPronunciations(::core::mem::transmute(&pszword), ::core::mem::transmute(&pszleftcontext), ::core::mem::transmute(&pszrightcontext), ::core::mem::transmute_copy(&langid), ::core::mem::transmute_copy(&penginepronunciationlist)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Normalize: Normalize::<Identity, Impl, OFFSET>,
             GetPronunciations: GetPronunciations::<Identity, Impl, OFFSET>,
         }
@@ -377,7 +377,7 @@ impl ISpEventSink_Vtbl {
             this.GetEventInterest(::core::mem::transmute_copy(&pulleventinterest)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddEvents: AddEvents::<Identity, Impl, OFFSET>,
             GetEventInterest: GetEventInterest::<Identity, Impl, OFFSET>,
         }
@@ -500,7 +500,7 @@ impl ISpGrammarBuilder_Vtbl {
             this.Commit(::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ResetGrammar: ResetGrammar::<Identity, Impl, OFFSET>,
             GetRule: GetRule::<Identity, Impl, OFFSET>,
             ClearRule: ClearRule::<Identity, Impl, OFFSET>,
@@ -533,7 +533,7 @@ impl ISpGrammarBuilder2_Vtbl {
             this.SetPhoneticAlphabet(::core::mem::transmute_copy(&phoneticalphabet)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddTextSubset: AddTextSubset::<Identity, Impl, OFFSET>,
             SetPhoneticAlphabet: SetPhoneticAlphabet::<Identity, Impl, OFFSET>,
         }
@@ -584,7 +584,7 @@ impl ISpLexicon_Vtbl {
             this.GetWords(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pdwgeneration), ::core::mem::transmute_copy(&pdwcookie), ::core::mem::transmute_copy(&pwordlist)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPronunciations: GetPronunciations::<Identity, Impl, OFFSET>,
             AddPronunciation: AddPronunciation::<Identity, Impl, OFFSET>,
             RemovePronunciation: RemovePronunciation::<Identity, Impl, OFFSET>,
@@ -679,7 +679,7 @@ impl ISpNotifySink_Vtbl {
             let this = (*this).get_impl();
             this.Notify().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ISpNotifySink as ::windows::core::Interface>::IID
@@ -736,7 +736,7 @@ impl ISpNotifySource_Vtbl {
             this.GetNotifyEventHandle()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetNotifySink: SetNotifySink::<Identity, Impl, OFFSET>,
             SetNotifyWindowMessage: SetNotifyWindowMessage::<Identity, Impl, OFFSET>,
             SetNotifyCallbackFunction: SetNotifyCallbackFunction::<Identity, Impl, OFFSET>,
@@ -1038,7 +1038,7 @@ impl ISpObjectWithToken_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetObjectToken: SetObjectToken::<Identity, Impl, OFFSET>,
             GetObjectToken: GetObjectToken::<Identity, Impl, OFFSET>,
         }
@@ -1131,7 +1131,7 @@ impl ISpPhoneticAlphabetConverter_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetLangId: GetLangId::<Identity, Impl, OFFSET>,
             SetLangId: SetLangId::<Identity, Impl, OFFSET>,
             SAPI2UPS: SAPI2UPS::<Identity, Impl, OFFSET>,
@@ -1170,7 +1170,7 @@ impl ISpPhoneticAlphabetSelection_Vtbl {
             this.SetAlphabetToUPS(::core::mem::transmute_copy(&fforceups)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsAlphabetUPS: IsAlphabetUPS::<Identity, Impl, OFFSET>,
             SetAlphabetToUPS: SetAlphabetToUPS::<Identity, Impl, OFFSET>,
         }
@@ -1224,7 +1224,7 @@ impl ISpPhrase_Vtbl {
             this.Discard(::core::mem::transmute_copy(&dwvaluetypes)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetPhrase: GetPhrase::<Identity, Impl, OFFSET>,
             GetSerializedPhrase: GetSerializedPhrase::<Identity, Impl, OFFSET>,
             GetText: GetText::<Identity, Impl, OFFSET>,
@@ -1344,7 +1344,7 @@ impl ISpProperties_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetPropertyNum: SetPropertyNum::<Identity, Impl, OFFSET>,
             GetPropertyNum: GetPropertyNum::<Identity, Impl, OFFSET>,
             SetPropertyString: SetPropertyString::<Identity, Impl, OFFSET>,
@@ -1545,7 +1545,7 @@ impl ISpRecoContext2_Vtbl {
             this.SetAdaptationData2(::core::mem::transmute(&padaptationdata), ::core::mem::transmute_copy(&cch), ::core::mem::transmute(&ptopicname), ::core::mem::transmute_copy(&eadaptationsettings), ::core::mem::transmute_copy(&erelevance)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetGrammarOptions: SetGrammarOptions::<Identity, Impl, OFFSET>,
             GetGrammarOptions: GetGrammarOptions::<Identity, Impl, OFFSET>,
             SetAdaptationData2: SetAdaptationData2::<Identity, Impl, OFFSET>,
@@ -1766,7 +1766,7 @@ impl ISpRecoGrammar2_Vtbl {
             this.SetSMLSecurityManager(::core::mem::transmute(&psmlsecuritymanager)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetRules: GetRules::<Identity, Impl, OFFSET>,
             LoadCmdFromFile2: LoadCmdFromFile2::<Identity, Impl, OFFSET>,
             LoadCmdFromMemory2: LoadCmdFromMemory2::<Identity, Impl, OFFSET>,
@@ -2086,7 +2086,7 @@ impl ISpRecognizer2_Vtbl {
             this.ResetAcousticModelAdaptation().into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EmulateRecognitionEx: EmulateRecognitionEx::<Identity, Impl, OFFSET>,
             SetTrainingState: SetTrainingState::<Identity, Impl, OFFSET>,
             ResetAcousticModelAdaptation: ResetAcousticModelAdaptation::<Identity, Impl, OFFSET>,
@@ -2164,7 +2164,7 @@ impl ISpSerializeState_Vtbl {
             this.SetSerializedState(::core::mem::transmute_copy(&pbdata), ::core::mem::transmute_copy(&ulsize), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetSerializedState: GetSerializedState::<Identity, Impl, OFFSET>,
             SetSerializedState: SetSerializedState::<Identity, Impl, OFFSET>,
         }
@@ -2233,7 +2233,7 @@ impl ISpShortcut_Vtbl {
             this.GetGenerationChange(::core::mem::transmute_copy(&pdwgeneration), ::core::mem::transmute_copy(&pshortcutpairlist)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AddShortcut: AddShortcut::<Identity, Impl, OFFSET>,
             RemoveShortcut: RemoveShortcut::<Identity, Impl, OFFSET>,
             GetShortcuts: GetShortcuts::<Identity, Impl, OFFSET>,
@@ -2424,7 +2424,7 @@ impl ISpTranscript_Vtbl {
             this.AppendTranscript(::core::mem::transmute(&psztranscript)).into()
         }
         Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             GetTranscript: GetTranscript::<Identity, Impl, OFFSET>,
             AppendTranscript: AppendTranscript::<Identity, Impl, OFFSET>,
         }
