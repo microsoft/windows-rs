@@ -362,7 +362,7 @@ pub unsafe fn ClusterAddGroupToGroupSetWithDomains(hgroupset: *const _HGROUPSET,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterAffinityRuleControl<'a, P0>(hcluster: *const _HCLUSTER, affinityrulename: P0, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn ClusterAffinityRuleControl<'a, P0>(hcluster: *const _HCLUSTER, affinityrulename: P0, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -370,17 +370,7 @@ where
     extern "system" {
         fn ClusterAffinityRuleControl(hcluster: *const _HCLUSTER, affinityrulename: ::windows::core::PCWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterAffinityRuleControl(
-        ::core::mem::transmute(hcluster),
-        affinityrulename.into(),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterAffinityRuleControl(::core::mem::transmute(hcluster), affinityrulename.into(), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), cbinbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), cboutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -414,21 +404,12 @@ pub unsafe fn ClusterCloseEnumEx(hclusterenum: *const _HCLUSENUMEX) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterControl(hcluster: *const _HCLUSTER, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn ClusterControl(hcluster: *const _HCLUSTER, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClusterControl(hcluster: *const _HCLUSTER, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterControl(
-        ::core::mem::transmute(hcluster),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterControl(::core::mem::transmute(hcluster), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -542,21 +523,12 @@ pub unsafe fn ClusterGroupCloseEnumEx(hgroupenumex: *const _HGROUPENUMEX) -> u32
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterGroupControl(hgroup: *const _HGROUP, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn ClusterGroupControl(hgroup: *const _HGROUP, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClusterGroupControl(hgroup: *const _HGROUP, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterGroupControl(
-        ::core::mem::transmute(hgroup),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterGroupControl(::core::mem::transmute(hgroup), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -627,21 +599,12 @@ pub unsafe fn ClusterGroupSetCloseEnum(hgroupsetenum: *mut _HGROUPSETENUM) -> u3
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterGroupSetControl(hgroupset: *const _HGROUPSET, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn ClusterGroupSetControl(hgroupset: *const _HGROUPSET, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClusterGroupSetControl(hgroupset: *const _HGROUPSET, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterGroupSetControl(
-        ::core::mem::transmute(hgroupset),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterGroupSetControl(::core::mem::transmute(hgroupset), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), cbinbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), cboutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -694,21 +657,12 @@ pub unsafe fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: *const _HNETINTERF
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterNetInterfaceControl(hnetinterface: *const _HNETINTERFACE, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn ClusterNetInterfaceControl(hnetinterface: *const _HNETINTERFACE, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClusterNetInterfaceControl(hnetinterface: *const _HNETINTERFACE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterNetInterfaceControl(
-        ::core::mem::transmute(hnetinterface),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterNetInterfaceControl(::core::mem::transmute(hnetinterface), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -743,21 +697,12 @@ pub unsafe fn ClusterNetworkCloseEnum(hnetworkenum: *const _HNETWORKENUM) -> u32
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterNetworkControl(hnetwork: *const _HNETWORK, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn ClusterNetworkControl(hnetwork: *const _HNETWORK, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClusterNetworkControl(hnetwork: *const _HNETWORK, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterNetworkControl(
-        ::core::mem::transmute(hnetwork),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterNetworkControl(::core::mem::transmute(hnetwork), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -806,21 +751,12 @@ pub unsafe fn ClusterNodeCloseEnumEx(hnodeenum: *const _HNODEENUMEX) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterNodeControl(hnode: *const _HNODE, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn ClusterNodeControl(hnode: *const _HNODE, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClusterNodeControl(hnode: *const _HNODE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterNodeControl(
-        ::core::mem::transmute(hnode),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterNodeControl(::core::mem::transmute(hnode), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -921,7 +857,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterRegBatchAddCommand<'a, P0>(hregbatch: *const _HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: P0, dwoptions: u32, lpdata: ::core::option::Option<&[u8]>) -> i32
+pub unsafe fn ClusterRegBatchAddCommand<'a, P0>(hregbatch: *const _HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: P0, dwoptions: u32, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, cbdata: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -929,7 +865,7 @@ where
     extern "system" {
         fn ClusterRegBatchAddCommand(hregbatch: *const _HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: ::windows::core::PCWSTR, dwoptions: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> i32;
     }
-    ClusterRegBatchAddCommand(::core::mem::transmute(hregbatch), dwcommand, wzname.into(), dwoptions, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _))
+    ClusterRegBatchAddCommand(::core::mem::transmute(hregbatch), dwcommand, wzname.into(), dwoptions, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cbdata)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -1302,39 +1238,21 @@ pub unsafe fn ClusterResourceCloseEnumEx(hresourceenumex: *const _HRESENUMEX) ->
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterResourceControl(hresource: *const _HRESOURCE, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn ClusterResourceControl(hresource: *const _HRESOURCE, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClusterResourceControl(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterResourceControl(
-        ::core::mem::transmute(hresource),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterResourceControl(::core::mem::transmute(hresource), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), cbinbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), cboutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterResourceControlAsUser(hresource: *const _HRESOURCE, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
+pub unsafe fn ClusterResourceControlAsUser(hresource: *const _HRESOURCE, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ClusterResourceControlAsUser(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterResourceControlAsUser(
-        ::core::mem::transmute(hresource),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterResourceControlAsUser(::core::mem::transmute(hresource), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), cbinbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), cboutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -1405,7 +1323,7 @@ pub unsafe fn ClusterResourceTypeCloseEnum(hrestypeenum: *const _HRESTYPEENUM) -
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterResourceTypeControl<'a, P0>(hcluster: *const _HCLUSTER, lpszresourcetypename: P0, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn ClusterResourceTypeControl<'a, P0>(hcluster: *const _HCLUSTER, lpszresourcetypename: P0, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1413,21 +1331,11 @@ where
     extern "system" {
         fn ClusterResourceTypeControl(hcluster: *const _HCLUSTER, lpszresourcetypename: ::windows::core::PCWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterResourceTypeControl(
-        ::core::mem::transmute(hcluster),
-        lpszresourcetypename.into(),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterResourceTypeControl(::core::mem::transmute(hcluster), lpszresourcetypename.into(), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ClusterResourceTypeControlAsUser<'a, P0>(hcluster: *const _HCLUSTER, lpszresourcetypename: P0, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn ClusterResourceTypeControlAsUser<'a, P0>(hcluster: *const _HCLUSTER, lpszresourcetypename: P0, hhostnode: ::core::option::Option<*const _HNODE>, dwcontrolcode: u32, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -1435,17 +1343,7 @@ where
     extern "system" {
         fn ClusterResourceTypeControlAsUser(hcluster: *const _HCLUSTER, lpszresourcetypename: ::windows::core::PCWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
     }
-    ClusterResourceTypeControlAsUser(
-        ::core::mem::transmute(hcluster),
-        lpszresourcetypename.into(),
-        ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())),
-        dwcontrolcode,
-        ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())),
-    )
+    ClusterResourceTypeControlAsUser(::core::mem::transmute(hcluster), lpszresourcetypename.into(), ::core::mem::transmute(hhostnode.unwrap_or(::std::ptr::null())), dwcontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -2736,7 +2634,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ResUtilFindBinaryProperty<'a, P0>(ppropertylist: &[u8], pszpropertyname: P0, pbpropertyvalue: ::core::option::Option<*mut *mut u8>, pcbpropertyvaluesize: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn ResUtilFindBinaryProperty<'a, P0>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pbpropertyvalue: ::core::option::Option<*mut *mut u8>, pcbpropertyvaluesize: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2744,7 +2642,7 @@ where
     extern "system" {
         fn ResUtilFindBinaryProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows::core::PCWSTR, pbpropertyvalue: *mut *mut u8, pcbpropertyvaluesize: *mut u32) -> u32;
     }
-    ResUtilFindBinaryProperty(::core::mem::transmute(ppropertylist.as_ptr()), ppropertylist.len() as _, pszpropertyname.into(), ::core::mem::transmute(pbpropertyvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbpropertyvaluesize.unwrap_or(::std::ptr::null_mut())))
+    ResUtilFindBinaryProperty(::core::mem::transmute(ppropertylist), cbpropertylistsize, pszpropertyname.into(), ::core::mem::transmute(pbpropertyvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbpropertyvaluesize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -2757,7 +2655,7 @@ pub unsafe fn ResUtilFindDependentDiskResourceDriveLetter(hcluster: *const _HCLU
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ResUtilFindDwordProperty<'a, P0>(ppropertylist: &[u8], pszpropertyname: P0, pdwpropertyvalue: *mut u32) -> u32
+pub unsafe fn ResUtilFindDwordProperty<'a, P0>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pdwpropertyvalue: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2765,11 +2663,11 @@ where
     extern "system" {
         fn ResUtilFindDwordProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows::core::PCWSTR, pdwpropertyvalue: *mut u32) -> u32;
     }
-    ResUtilFindDwordProperty(::core::mem::transmute(ppropertylist.as_ptr()), ppropertylist.len() as _, pszpropertyname.into(), ::core::mem::transmute(pdwpropertyvalue))
+    ResUtilFindDwordProperty(::core::mem::transmute(ppropertylist), cbpropertylistsize, pszpropertyname.into(), ::core::mem::transmute(pdwpropertyvalue))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ResUtilFindExpandSzProperty<'a, P0>(ppropertylist: &[u8], pszpropertyname: P0, pszpropertyvalue: ::core::option::Option<*mut ::windows::core::PWSTR>) -> u32
+pub unsafe fn ResUtilFindExpandSzProperty<'a, P0>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pszpropertyvalue: ::core::option::Option<*mut ::windows::core::PWSTR>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2777,11 +2675,11 @@ where
     extern "system" {
         fn ResUtilFindExpandSzProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows::core::PCWSTR, pszpropertyvalue: *mut ::windows::core::PWSTR) -> u32;
     }
-    ResUtilFindExpandSzProperty(::core::mem::transmute(ppropertylist.as_ptr()), ppropertylist.len() as _, pszpropertyname.into(), ::core::mem::transmute(pszpropertyvalue.unwrap_or(::std::ptr::null_mut())))
+    ResUtilFindExpandSzProperty(::core::mem::transmute(ppropertylist), cbpropertylistsize, pszpropertyname.into(), ::core::mem::transmute(pszpropertyvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ResUtilFindExpandedSzProperty<'a, P0>(ppropertylist: &[u8], pszpropertyname: P0, pszpropertyvalue: ::core::option::Option<*mut ::windows::core::PWSTR>) -> u32
+pub unsafe fn ResUtilFindExpandedSzProperty<'a, P0>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pszpropertyvalue: ::core::option::Option<*mut ::windows::core::PWSTR>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2789,12 +2687,12 @@ where
     extern "system" {
         fn ResUtilFindExpandedSzProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows::core::PCWSTR, pszpropertyvalue: *mut ::windows::core::PWSTR) -> u32;
     }
-    ResUtilFindExpandedSzProperty(::core::mem::transmute(ppropertylist.as_ptr()), ppropertylist.len() as _, pszpropertyname.into(), ::core::mem::transmute(pszpropertyvalue.unwrap_or(::std::ptr::null_mut())))
+    ResUtilFindExpandedSzProperty(::core::mem::transmute(ppropertylist), cbpropertylistsize, pszpropertyname.into(), ::core::mem::transmute(pszpropertyvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResUtilFindFileTimeProperty<'a, P0>(ppropertylist: &[u8], pszpropertyname: P0, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32
+pub unsafe fn ResUtilFindFileTimeProperty<'a, P0>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2802,11 +2700,11 @@ where
     extern "system" {
         fn ResUtilFindFileTimeProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows::core::PCWSTR, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32;
     }
-    ResUtilFindFileTimeProperty(::core::mem::transmute(ppropertylist.as_ptr()), ppropertylist.len() as _, pszpropertyname.into(), ::core::mem::transmute(pftpropertyvalue))
+    ResUtilFindFileTimeProperty(::core::mem::transmute(ppropertylist), cbpropertylistsize, pszpropertyname.into(), ::core::mem::transmute(pftpropertyvalue))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ResUtilFindLongProperty<'a, P0>(ppropertylist: &[u8], pszpropertyname: P0, plpropertyvalue: *mut i32) -> u32
+pub unsafe fn ResUtilFindLongProperty<'a, P0>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, plpropertyvalue: *mut i32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2814,11 +2712,11 @@ where
     extern "system" {
         fn ResUtilFindLongProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows::core::PCWSTR, plpropertyvalue: *mut i32) -> u32;
     }
-    ResUtilFindLongProperty(::core::mem::transmute(ppropertylist.as_ptr()), ppropertylist.len() as _, pszpropertyname.into(), ::core::mem::transmute(plpropertyvalue))
+    ResUtilFindLongProperty(::core::mem::transmute(ppropertylist), cbpropertylistsize, pszpropertyname.into(), ::core::mem::transmute(plpropertyvalue))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ResUtilFindMultiSzProperty<'a, P0>(ppropertylist: &[u8], pszpropertyname: P0, pszpropertyvalue: *mut ::windows::core::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32
+pub unsafe fn ResUtilFindMultiSzProperty<'a, P0>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pszpropertyvalue: *mut ::windows::core::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2826,11 +2724,11 @@ where
     extern "system" {
         fn ResUtilFindMultiSzProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows::core::PCWSTR, pszpropertyvalue: *mut ::windows::core::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32;
     }
-    ResUtilFindMultiSzProperty(::core::mem::transmute(ppropertylist.as_ptr()), ppropertylist.len() as _, pszpropertyname.into(), ::core::mem::transmute(pszpropertyvalue), ::core::mem::transmute(pcbpropertyvaluesize))
+    ResUtilFindMultiSzProperty(::core::mem::transmute(ppropertylist), cbpropertylistsize, pszpropertyname.into(), ::core::mem::transmute(pszpropertyvalue), ::core::mem::transmute(pcbpropertyvaluesize))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ResUtilFindSzProperty<'a, P0>(ppropertylist: &[u8], pszpropertyname: P0, pszpropertyvalue: ::core::option::Option<*mut ::windows::core::PWSTR>) -> u32
+pub unsafe fn ResUtilFindSzProperty<'a, P0>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pszpropertyvalue: ::core::option::Option<*mut ::windows::core::PWSTR>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2838,11 +2736,11 @@ where
     extern "system" {
         fn ResUtilFindSzProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows::core::PCWSTR, pszpropertyvalue: *mut ::windows::core::PWSTR) -> u32;
     }
-    ResUtilFindSzProperty(::core::mem::transmute(ppropertylist.as_ptr()), ppropertylist.len() as _, pszpropertyname.into(), ::core::mem::transmute(pszpropertyvalue.unwrap_or(::std::ptr::null_mut())))
+    ResUtilFindSzProperty(::core::mem::transmute(ppropertylist), cbpropertylistsize, pszpropertyname.into(), ::core::mem::transmute(pszpropertyvalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ResUtilFindULargeIntegerProperty<'a, P0>(ppropertylist: &[u8], pszpropertyname: P0, plpropertyvalue: *mut u64) -> u32
+pub unsafe fn ResUtilFindULargeIntegerProperty<'a, P0>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, plpropertyvalue: *mut u64) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -2850,7 +2748,7 @@ where
     extern "system" {
         fn ResUtilFindULargeIntegerProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows::core::PCWSTR, plpropertyvalue: *mut u64) -> u32;
     }
-    ResUtilFindULargeIntegerProperty(::core::mem::transmute(ppropertylist.as_ptr()), ppropertylist.len() as _, pszpropertyname.into(), ::core::mem::transmute(plpropertyvalue))
+    ResUtilFindULargeIntegerProperty(::core::mem::transmute(ppropertylist), cbpropertylistsize, pszpropertyname.into(), ::core::mem::transmute(plpropertyvalue))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -2874,7 +2772,7 @@ pub unsafe fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn ResUtilGetAllProperties<'a, P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: &mut [u8], pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
+pub unsafe fn ResUtilGetAllProperties<'a, P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
@@ -2882,7 +2780,7 @@ where
     extern "system" {
         fn ResUtilGetAllProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
     }
-    ResUtilGetAllProperties(hkeyclusterkey.into(), ::core::mem::transmute(ppropertytable), ::core::mem::transmute(poutpropertylist.as_ptr()), poutpropertylist.len() as _, ::core::mem::transmute(pcbbytesreturned), ::core::mem::transmute(pcbrequired))
+    ResUtilGetAllProperties(hkeyclusterkey.into(), ::core::mem::transmute(ppropertytable), ::core::mem::transmute(poutpropertylist), cboutpropertylistsize, ::core::mem::transmute(pcbbytesreturned), ::core::mem::transmute(pcbrequired))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -3027,7 +2925,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilGetPrivateProperties<'a, P0>(hkeyclusterkey: P0, poutpropertylist: &mut [u8], pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
+pub unsafe fn ResUtilGetPrivateProperties<'a, P0>(hkeyclusterkey: P0, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
@@ -3035,12 +2933,12 @@ where
     extern "system" {
         fn ResUtilGetPrivateProperties(hkeyclusterkey: super::super::System::Registry::HKEY, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
     }
-    ResUtilGetPrivateProperties(hkeyclusterkey.into(), ::core::mem::transmute(poutpropertylist.as_ptr()), poutpropertylist.len() as _, ::core::mem::transmute(pcbbytesreturned), ::core::mem::transmute(pcbrequired))
+    ResUtilGetPrivateProperties(hkeyclusterkey.into(), ::core::mem::transmute(poutpropertylist), cboutpropertylistsize, ::core::mem::transmute(pcbbytesreturned), ::core::mem::transmute(pcbrequired))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn ResUtilGetProperties<'a, P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: &mut [u8], pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
+pub unsafe fn ResUtilGetProperties<'a, P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
@@ -3048,7 +2946,7 @@ where
     extern "system" {
         fn ResUtilGetProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
     }
-    ResUtilGetProperties(hkeyclusterkey.into(), ::core::mem::transmute(ppropertytable), ::core::mem::transmute(poutpropertylist.as_ptr()), poutpropertylist.len() as _, ::core::mem::transmute(pcbbytesreturned), ::core::mem::transmute(pcbrequired))
+    ResUtilGetProperties(hkeyclusterkey.into(), ::core::mem::transmute(ppropertytable), ::core::mem::transmute(poutpropertylist), cboutpropertylistsize, ::core::mem::transmute(pcbbytesreturned), ::core::mem::transmute(pcbrequired))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -3080,12 +2978,12 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: &mut [u8], pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
+pub unsafe fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut ::core::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut ::core::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
     }
-    ResUtilGetPropertyFormats(::core::mem::transmute(ppropertytable), ::core::mem::transmute(poutpropertyformatlist.as_ptr()), poutpropertyformatlist.len() as _, ::core::mem::transmute(pcbbytesreturned), ::core::mem::transmute(pcbrequired))
+    ResUtilGetPropertyFormats(::core::mem::transmute(ppropertytable), ::core::mem::transmute(poutpropertyformatlist), cbpropertyformatlistsize, ::core::mem::transmute(pcbbytesreturned), ::core::mem::transmute(pcbrequired))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -3447,7 +3345,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilSetPrivatePropertyList<'a, P0>(hkeyclusterkey: P0, pinpropertylist: &[u8]) -> u32
+pub unsafe fn ResUtilSetPrivatePropertyList<'a, P0>(hkeyclusterkey: P0, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
@@ -3455,7 +3353,7 @@ where
     extern "system" {
         fn ResUtilSetPrivatePropertyList(hkeyclusterkey: super::super::System::Registry::HKEY, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32;
     }
-    ResUtilSetPrivatePropertyList(hkeyclusterkey.into(), ::core::mem::transmute(pinpropertylist.as_ptr()), pinpropertylist.len() as _)
+    ResUtilSetPrivatePropertyList(hkeyclusterkey.into(), ::core::mem::transmute(pinpropertylist), cbinpropertylistsize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -3487,7 +3385,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn ResUtilSetPropertyTable<'a, P0, P1>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: ::core::option::Option<*mut ::core::ffi::c_void>, ballowunknownproperties: P1, pinpropertylist: &[u8], poutparams: ::core::option::Option<*mut u8>) -> u32
+pub unsafe fn ResUtilSetPropertyTable<'a, P0, P1>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: ::core::option::Option<*mut ::core::ffi::c_void>, ballowunknownproperties: P1, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: ::core::option::Option<*mut u8>) -> u32
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -3496,7 +3394,7 @@ where
     extern "system" {
         fn ResUtilSetPropertyTable(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
     }
-    ResUtilSetPropertyTable(hkeyclusterkey.into(), ::core::mem::transmute(ppropertytable), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), ballowunknownproperties.into(), ::core::mem::transmute(pinpropertylist.as_ptr()), pinpropertylist.len() as _, ::core::mem::transmute(poutparams.unwrap_or(::std::ptr::null_mut())))
+    ResUtilSetPropertyTable(hkeyclusterkey.into(), ::core::mem::transmute(ppropertytable), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), ballowunknownproperties.into(), ::core::mem::transmute(pinpropertylist), cbinpropertylistsize, ::core::mem::transmute(poutparams.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -3585,7 +3483,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn ResUtilSetUnknownProperties<'a, P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: &[u8]) -> u32
+pub unsafe fn ResUtilSetUnknownProperties<'a, P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
@@ -3593,7 +3491,7 @@ where
     extern "system" {
         fn ResUtilSetUnknownProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32;
     }
-    ResUtilSetUnknownProperties(hkeyclusterkey.into(), ::core::mem::transmute(ppropertytable), ::core::mem::transmute(pinpropertylist.as_ptr()), pinpropertylist.len() as _)
+    ResUtilSetUnknownProperties(hkeyclusterkey.into(), ::core::mem::transmute(ppropertytable), ::core::mem::transmute(pinpropertylist), cbinpropertylistsize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3661,17 +3559,17 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: &[u8]) -> u32 {
+pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32;
     }
-    ResUtilVerifyPrivatePropertyList(::core::mem::transmute(pinpropertylist.as_ptr()), pinpropertylist.len() as _)
+    ResUtilVerifyPrivatePropertyList(::core::mem::transmute(pinpropertylist), cbinpropertylistsize)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResUtilVerifyPropertyTable<'a, P0>(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: ::core::option::Option<*mut ::core::ffi::c_void>, ballowunknownproperties: P0, pinpropertylist: &[u8], poutparams: ::core::option::Option<*mut u8>) -> u32
+pub unsafe fn ResUtilVerifyPropertyTable<'a, P0>(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: ::core::option::Option<*mut ::core::ffi::c_void>, ballowunknownproperties: P0, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: ::core::option::Option<*mut u8>) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
@@ -3679,7 +3577,7 @@ where
     extern "system" {
         fn ResUtilVerifyPropertyTable(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
     }
-    ResUtilVerifyPropertyTable(::core::mem::transmute(ppropertytable), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), ballowunknownproperties.into(), ::core::mem::transmute(pinpropertylist.as_ptr()), pinpropertylist.len() as _, ::core::mem::transmute(poutparams.unwrap_or(::std::ptr::null_mut())))
+    ResUtilVerifyPropertyTable(::core::mem::transmute(ppropertytable), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), ballowunknownproperties.into(), ::core::mem::transmute(pinpropertylist), cbinpropertylistsize, ::core::mem::transmute(poutparams.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]

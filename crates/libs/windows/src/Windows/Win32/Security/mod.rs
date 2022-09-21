@@ -381,12 +381,12 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: &[u8]) -> super::Foundation::BOOL {
+pub unsafe fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: *const ::core::ffi::c_void, nacelistlength: u32) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: *const ::core::ffi::c_void, nacelistlength: u32) -> super::Foundation::BOOL;
     }
-    AddAce(::core::mem::transmute(pacl), dwacerevision, dwstartingaceindex, ::core::mem::transmute(pacelist.as_ptr()), pacelist.len() as _)
+    AddAce(::core::mem::transmute(pacl), dwacerevision, dwstartingaceindex, ::core::mem::transmute(pacelist), nacelistlength)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -845,12 +845,12 @@ pub unsafe fn GetAce(pacl: *const ACL, dwaceindex: u32, pace: *mut *mut ::core::
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAclInformation(pacl: *const ACL, paclinformation: &mut [u8], dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
+pub unsafe fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL;
     }
-    GetAclInformation(::core::mem::transmute(pacl), ::core::mem::transmute(paclinformation.as_ptr()), paclinformation.len() as _, dwaclinformationclass)
+    GetAclInformation(::core::mem::transmute(pacl), ::core::mem::transmute(paclinformation), naclinformationlength, dwaclinformationclass)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1080,7 +1080,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTokenInformation<'a, P0>(tokenhandle: P0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: ::core::option::Option<&mut [u8]>, returnlength: *mut u32) -> super::Foundation::BOOL
+pub unsafe fn GetTokenInformation<'a, P0>(tokenhandle: P0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: ::core::option::Option<*mut ::core::ffi::c_void>, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -1088,7 +1088,7 @@ where
     extern "system" {
         fn GetTokenInformation(tokenhandle: super::Foundation::HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *mut ::core::ffi::c_void, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL;
     }
-    GetTokenInformation(tokenhandle.into(), tokeninformationclass, ::core::mem::transmute(tokeninformation.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), tokeninformation.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength))
+    GetTokenInformation(tokenhandle.into(), tokeninformationclass, ::core::mem::transmute(tokeninformation.unwrap_or(::std::ptr::null_mut())), tokeninformationlength, ::core::mem::transmute(returnlength))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1707,12 +1707,12 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetAclInformation(pacl: *mut ACL, paclinformation: &[u8], dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
+pub unsafe fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL;
     }
-    SetAclInformation(::core::mem::transmute(pacl), ::core::mem::transmute(paclinformation.as_ptr()), paclinformation.len() as _, dwaclinformationclass)
+    SetAclInformation(::core::mem::transmute(pacl), ::core::mem::transmute(paclinformation), naclinformationlength, dwaclinformationclass)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1894,7 +1894,7 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTokenInformation<'a, P0>(tokenhandle: P0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: &[u8]) -> super::Foundation::BOOL
+pub unsafe fn SetTokenInformation<'a, P0>(tokenhandle: P0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::core::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
@@ -1902,7 +1902,7 @@ where
     extern "system" {
         fn SetTokenInformation(tokenhandle: super::Foundation::HANDLE, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::core::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL;
     }
-    SetTokenInformation(tokenhandle.into(), tokeninformationclass, ::core::mem::transmute(tokeninformation.as_ptr()), tokeninformation.len() as _)
+    SetTokenInformation(tokenhandle.into(), tokeninformationclass, ::core::mem::transmute(tokeninformation), tokeninformationlength)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

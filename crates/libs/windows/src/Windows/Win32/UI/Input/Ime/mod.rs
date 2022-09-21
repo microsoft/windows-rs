@@ -334,7 +334,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
-pub unsafe fn ImmGetCompositionStringA<'a, P0>(param0: P0, param1: IME_COMPOSITION_STRING, lpbuf: ::core::option::Option<&mut [u8]>) -> i32
+pub unsafe fn ImmGetCompositionStringA<'a, P0>(param0: P0, param1: IME_COMPOSITION_STRING, lpbuf: ::core::option::Option<*mut ::core::ffi::c_void>, dwbuflen: u32) -> i32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -342,12 +342,12 @@ where
     extern "system" {
         fn ImmGetCompositionStringA(param0: super::super::super::Globalization::HIMC, param1: IME_COMPOSITION_STRING, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
     }
-    ImmGetCompositionStringA(param0.into(), param1, ::core::mem::transmute(lpbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len() as _))
+    ImmGetCompositionStringA(param0.into(), param1, ::core::mem::transmute(lpbuf.unwrap_or(::std::ptr::null_mut())), dwbuflen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
-pub unsafe fn ImmGetCompositionStringW<'a, P0>(param0: P0, param1: IME_COMPOSITION_STRING, lpbuf: ::core::option::Option<&mut [u8]>) -> i32
+pub unsafe fn ImmGetCompositionStringW<'a, P0>(param0: P0, param1: IME_COMPOSITION_STRING, lpbuf: ::core::option::Option<*mut ::core::ffi::c_void>, dwbuflen: u32) -> i32
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -355,7 +355,7 @@ where
     extern "system" {
         fn ImmGetCompositionStringW(param0: super::super::super::Globalization::HIMC, param1: IME_COMPOSITION_STRING, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
     }
-    ImmGetCompositionStringW(param0.into(), param1, ::core::mem::transmute(lpbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len() as _))
+    ImmGetCompositionStringW(param0.into(), param1, ::core::mem::transmute(lpbuf.unwrap_or(::std::ptr::null_mut())), dwbuflen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -909,7 +909,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
-pub unsafe fn ImmSetCompositionStringA<'a, P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: ::core::option::Option<&[u8]>, lpread: ::core::option::Option<&[u8]>) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmSetCompositionStringA<'a, P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: ::core::option::Option<*const ::core::ffi::c_void>, dwcomplen: u32, lpread: ::core::option::Option<*const ::core::ffi::c_void>, dwreadlen: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -917,12 +917,12 @@ where
     extern "system" {
         fn ImmSetCompositionStringA(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
     }
-    ImmSetCompositionStringA(param0.into(), dwindex, ::core::mem::transmute(lpcomp.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcomp.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpread.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpread.as_deref().map_or(0, |slice| slice.len() as _))
+    ImmSetCompositionStringA(param0.into(), dwindex, ::core::mem::transmute(lpcomp.unwrap_or(::std::ptr::null())), dwcomplen, ::core::mem::transmute(lpread.unwrap_or(::std::ptr::null())), dwreadlen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
-pub unsafe fn ImmSetCompositionStringW<'a, P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: ::core::option::Option<&[u8]>, lpread: ::core::option::Option<&[u8]>) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmSetCompositionStringW<'a, P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: ::core::option::Option<*const ::core::ffi::c_void>, dwcomplen: u32, lpread: ::core::option::Option<*const ::core::ffi::c_void>, dwreadlen: u32) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
 {
@@ -930,7 +930,7 @@ where
     extern "system" {
         fn ImmSetCompositionStringW(param0: super::super::super::Globalization::HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL;
     }
-    ImmSetCompositionStringW(param0.into(), dwindex, ::core::mem::transmute(lpcomp.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcomp.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpread.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpread.as_deref().map_or(0, |slice| slice.len() as _))
+    ImmSetCompositionStringW(param0.into(), dwindex, ::core::mem::transmute(lpcomp.unwrap_or(::std::ptr::null())), dwcomplen, ::core::mem::transmute(lpread.unwrap_or(::std::ptr::null())), dwreadlen)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]

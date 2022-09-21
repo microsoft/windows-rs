@@ -196,7 +196,7 @@ where
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynReceiveFromBus<'a, P0>(connectedbushandle: P0, buffer: ::core::option::Option<&mut [u8]>, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynReceiveFromBus<'a, P0>(connectedbushandle: P0, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, bytestoread: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -204,12 +204,12 @@ where
     extern "system" {
         fn AllJoynReceiveFromBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bytestoread: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    AllJoynReceiveFromBus(connectedbushandle.into(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved))
+    AllJoynReceiveFromBus(connectedbushandle.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), bytestoread, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynSendToBus<'a, P0>(connectedbushandle: P0, buffer: ::core::option::Option<&[u8]>, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynSendToBus<'a, P0>(connectedbushandle: P0, buffer: ::core::option::Option<*const ::core::ffi::c_void>, bytestowrite: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -217,7 +217,7 @@ where
     extern "system" {
         fn AllJoynSendToBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *const ::core::ffi::c_void, bytestowrite: u32, bytestransferred: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    AllJoynSendToBus(connectedbushandle.into(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved))
+    AllJoynSendToBus(connectedbushandle.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), bytestowrite, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]

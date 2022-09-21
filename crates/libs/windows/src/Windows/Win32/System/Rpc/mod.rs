@@ -3071,12 +3071,12 @@ pub unsafe fn RpcErrorGetNumberOfRecords(enumhandle: *const RPC_ERROR_ENUM_HANDL
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn RpcErrorLoadErrorInfo(errorblob: &[u8], enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
+pub unsafe fn RpcErrorLoadErrorInfo(errorblob: *const ::core::ffi::c_void, blobsize: usize, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RpcErrorLoadErrorInfo(errorblob: *const ::core::ffi::c_void, blobsize: usize, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
     }
-    RpcErrorLoadErrorInfo(::core::mem::transmute(errorblob.as_ptr()), errorblob.len() as _, ::core::mem::transmute(enumhandle))
+    RpcErrorLoadErrorInfo(::core::mem::transmute(errorblob), blobsize, ::core::mem::transmute(enumhandle))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]

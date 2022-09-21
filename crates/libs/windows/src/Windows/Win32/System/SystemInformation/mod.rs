@@ -192,7 +192,7 @@ pub unsafe fn GetSystemDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>) 
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
-pub unsafe fn GetSystemFirmwareTable<'a, P0>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: P0, pfirmwaretablebuffer: ::core::option::Option<&mut [u8]>) -> u32
+pub unsafe fn GetSystemFirmwareTable<'a, P0>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: P0, pfirmwaretablebuffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32) -> u32
 where
     P0: ::std::convert::Into<FIRMWARE_TABLE_ID>,
 {
@@ -200,7 +200,7 @@ where
     extern "system" {
         fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: FIRMWARE_TABLE_ID, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32;
     }
-    GetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid.into(), ::core::mem::transmute(pfirmwaretablebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfirmwaretablebuffer.as_deref().map_or(0, |slice| slice.len() as _))
+    GetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid.into(), ::core::mem::transmute(pfirmwaretablebuffer.unwrap_or(::std::ptr::null_mut())), buffersize)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]

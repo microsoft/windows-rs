@@ -3276,8 +3276,8 @@ impl ID3D12VideoDecodeCommandList {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3368,11 +3368,11 @@ impl ID3D12VideoDecodeCommandList {
     {
         (::windows::core::Interface::vtable(self).SetPredication)(::windows::core::Interface::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
     }
-    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
-    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Interface::vtable(self).EndEvent)(::windows::core::Interface::as_raw(self))
@@ -3552,8 +3552,8 @@ impl ID3D12VideoDecodeCommandList1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3644,11 +3644,11 @@ impl ID3D12VideoDecodeCommandList1 {
     {
         (::windows::core::Interface::vtable(self).base__.SetPredication)(::windows::core::Interface::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
     }
-    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
-    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Interface::vtable(self).base__.EndEvent)(::windows::core::Interface::as_raw(self))
@@ -3817,8 +3817,8 @@ impl ID3D12VideoDecodeCommandList2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3909,11 +3909,11 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetPredication)(::windows::core::Interface::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
     }
-    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
-    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Interface::vtable(self).base__.base__.EndEvent)(::windows::core::Interface::as_raw(self))
@@ -3949,19 +3949,19 @@ impl ID3D12VideoDecodeCommandList2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn InitializeExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pinitializationparameters: &[u8])
+    pub unsafe fn InitializeExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters.as_ptr()), pinitializationparameters.len() as _)
+        (::windows::core::Interface::vtable(self).InitializeExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters), initializationparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: &[u8])
+    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters.as_ptr()), pexecutionparameters.len() as _)
+        (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes)
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4132,8 +4132,8 @@ impl ID3D12VideoDecoder {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4286,8 +4286,8 @@ impl ID3D12VideoDecoder1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4464,8 +4464,8 @@ impl ID3D12VideoDecoderHeap {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4623,8 +4623,8 @@ impl ID3D12VideoDecoderHeap1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4794,8 +4794,8 @@ pub struct ID3D12VideoDecoderHeap1_Vtbl {
 #[repr(transparent)]
 pub struct ID3D12VideoDevice(::windows::core::IUnknown);
 impl ID3D12VideoDevice {
-    pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn CreateVideoDecoder<T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC) -> ::windows::core::Result<T>
     where
@@ -4879,8 +4879,8 @@ pub struct ID3D12VideoDevice_Vtbl {
 #[repr(transparent)]
 pub struct ID3D12VideoDevice1(::windows::core::IUnknown);
 impl ID3D12VideoDevice1 {
-    pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn CreateVideoDecoder<T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC) -> ::windows::core::Result<T>
     where
@@ -4997,8 +4997,8 @@ pub struct ID3D12VideoDevice1_Vtbl {
 #[repr(transparent)]
 pub struct ID3D12VideoDevice2(::windows::core::IUnknown);
 impl ID3D12VideoDevice2 {
-    pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn CreateVideoDecoder<T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC) -> ::windows::core::Result<T>
     where
@@ -5077,21 +5077,21 @@ impl ID3D12VideoDevice2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateVideoExtensionCommand<'a, P0, T>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: &[u8], pprotectedresourcesession: P0) -> ::windows::core::Result<T>
+    pub unsafe fn CreateVideoExtensionCommand<'a, P0, T>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateVideoExtensionCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pcreationparameters.as_ptr()), pcreationparameters.len() as _, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateVideoExtensionCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pcreationparameters), creationparametersdatasizeinbytes, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: &[u8], poutputdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters.as_ptr()), pexecutionparameters.len() as _, ::core::mem::transmute(poutputdata.as_ptr()), poutputdata.len() as _).ok()
+        (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes, ::core::mem::transmute(poutputdata), outputdatasizeinbytes).ok()
     }
 }
 impl ::core::convert::From<ID3D12VideoDevice2> for ::windows::core::IUnknown {
@@ -5190,8 +5190,8 @@ pub struct ID3D12VideoDevice2_Vtbl {
 #[repr(transparent)]
 pub struct ID3D12VideoDevice3(::windows::core::IUnknown);
 impl ID3D12VideoDevice3 {
-    pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn CreateVideoDecoder<T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC) -> ::windows::core::Result<T>
     where
@@ -5270,21 +5270,21 @@ impl ID3D12VideoDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateVideoExtensionCommand<'a, P0, T>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: &[u8], pprotectedresourcesession: P0) -> ::windows::core::Result<T>
+    pub unsafe fn CreateVideoExtensionCommand<'a, P0, T>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.CreateVideoExtensionCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pcreationparameters.as_ptr()), pcreationparameters.len() as _, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateVideoExtensionCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pcreationparameters), creationparametersdatasizeinbytes, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: &[u8], poutputdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters.as_ptr()), pexecutionparameters.len() as _, ::core::mem::transmute(poutputdata.as_ptr()), poutputdata.len() as _).ok()
+        (::windows::core::Interface::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes, ::core::mem::transmute(poutputdata), outputdatasizeinbytes).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5408,8 +5408,8 @@ impl ID3D12VideoEncodeCommandList {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5500,11 +5500,11 @@ impl ID3D12VideoEncodeCommandList {
     {
         (::windows::core::Interface::vtable(self).SetPredication)(::windows::core::Interface::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
     }
-    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
-    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Interface::vtable(self).EndEvent)(::windows::core::Interface::as_raw(self))
@@ -5705,8 +5705,8 @@ impl ID3D12VideoEncodeCommandList1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5797,11 +5797,11 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows::core::Interface::vtable(self).base__.SetPredication)(::windows::core::Interface::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
     }
-    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
-    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Interface::vtable(self).base__.EndEvent)(::windows::core::Interface::as_raw(self))
@@ -5834,19 +5834,19 @@ impl ID3D12VideoEncodeCommandList1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn InitializeExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pinitializationparameters: &[u8])
+    pub unsafe fn InitializeExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters.as_ptr()), pinitializationparameters.len() as _)
+        (::windows::core::Interface::vtable(self).InitializeExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters), initializationparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: &[u8])
+    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters.as_ptr()), pexecutionparameters.len() as _)
+        (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes)
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5995,8 +5995,8 @@ impl ID3D12VideoEncodeCommandList2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -6087,11 +6087,11 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetPredication)(::windows::core::Interface::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
     }
-    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
-    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Interface::vtable(self).base__.base__.EndEvent)(::windows::core::Interface::as_raw(self))
@@ -6124,19 +6124,19 @@ impl ID3D12VideoEncodeCommandList2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn InitializeExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pinitializationparameters: &[u8])
+    pub unsafe fn InitializeExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InitializeExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters.as_ptr()), pinitializationparameters.len() as _)
+        (::windows::core::Interface::vtable(self).base__.InitializeExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters), initializationparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: &[u8])
+    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters.as_ptr()), pexecutionparameters.len() as _)
+        (::windows::core::Interface::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -6317,8 +6317,8 @@ impl ID3D12VideoEncoder {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -6498,8 +6498,8 @@ impl ID3D12VideoEncoderHeap {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -6674,8 +6674,8 @@ impl ID3D12VideoExtensionCommand {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -6835,8 +6835,8 @@ impl ID3D12VideoMotionEstimator {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7001,8 +7001,8 @@ impl ID3D12VideoMotionVectorHeap {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7167,8 +7167,8 @@ impl ID3D12VideoProcessCommandList {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7259,11 +7259,11 @@ impl ID3D12VideoProcessCommandList {
     {
         (::windows::core::Interface::vtable(self).SetPredication)(::windows::core::Interface::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
     }
-    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
-    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Interface::vtable(self).EndEvent)(::windows::core::Interface::as_raw(self))
@@ -7443,8 +7443,8 @@ impl ID3D12VideoProcessCommandList1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7535,11 +7535,11 @@ impl ID3D12VideoProcessCommandList1 {
     {
         (::windows::core::Interface::vtable(self).base__.SetPredication)(::windows::core::Interface::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
     }
-    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
-    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Interface::vtable(self).base__.EndEvent)(::windows::core::Interface::as_raw(self))
@@ -7708,8 +7708,8 @@ impl ID3D12VideoProcessCommandList2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7800,11 +7800,11 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetPredication)(::windows::core::Interface::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
     }
-    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.base__.SetMarker)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
-    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<&[u8]>) {
-        (::windows::core::Interface::vtable(self).base__.base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _))
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Interface::vtable(self).base__.base__.BeginEvent)(::windows::core::Interface::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Interface::vtable(self).base__.base__.EndEvent)(::windows::core::Interface::as_raw(self))
@@ -7840,19 +7840,19 @@ impl ID3D12VideoProcessCommandList2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn InitializeExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pinitializationparameters: &[u8])
+    pub unsafe fn InitializeExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).InitializeExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters.as_ptr()), pinitializationparameters.len() as _)
+        (::windows::core::Interface::vtable(self).InitializeExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters), initializationparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: &[u8])
+    pub unsafe fn ExecuteExtensionCommand<'a, P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters.as_ptr()), pexecutionparameters.len() as _)
+        (::windows::core::Interface::vtable(self).ExecuteExtensionCommand)(::windows::core::Interface::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes)
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -8023,8 +8023,8 @@ impl ID3D12VideoProcessor {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -8199,8 +8199,8 @@ impl ID3D12VideoProcessor1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -8486,17 +8486,17 @@ pub struct IDXVAHD_Device_Vtbl {
 #[repr(transparent)]
 pub struct IDXVAHD_VideoProcessor(::windows::core::IUnknown);
 impl IDXVAHD_VideoProcessor {
-    pub unsafe fn SetVideoProcessBltState(&self, state: DXVAHD_BLT_STATE, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVideoProcessBltState)(::windows::core::Interface::as_raw(self), state, pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetVideoProcessBltState(&self, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVideoProcessBltState)(::windows::core::Interface::as_raw(self), state, datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn GetVideoProcessBltState(&self, state: DXVAHD_BLT_STATE, pdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVideoProcessBltState)(::windows::core::Interface::as_raw(self), state, pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn GetVideoProcessBltState(&self, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetVideoProcessBltState)(::windows::core::Interface::as_raw(self), state, datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn SetVideoProcessStreamState(&self, streamnumber: u32, state: DXVAHD_STREAM_STATE, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVideoProcessStreamState)(::windows::core::Interface::as_raw(self), streamnumber, state, pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetVideoProcessStreamState(&self, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVideoProcessStreamState)(::windows::core::Interface::as_raw(self), streamnumber, state, datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn GetVideoProcessStreamState(&self, streamnumber: u32, state: DXVAHD_STREAM_STATE, pdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVideoProcessStreamState)(::windows::core::Interface::as_raw(self), streamnumber, state, pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn GetVideoProcessStreamState(&self, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetVideoProcessStreamState)(::windows::core::Interface::as_raw(self), streamnumber, state, datasize, ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -34667,8 +34667,8 @@ impl IMFVirtualCamera {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMediaSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSource>(result__)
     }
-    pub unsafe fn SendCameraProperty(&self, propertyset: *const ::windows::core::GUID, propertyid: u32, propertyflags: u32, propertypayload: ::core::option::Option<&mut [u8]>, data: ::core::option::Option<&mut [u8]>, datawritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendCameraProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyset), propertyid, propertyflags, ::core::mem::transmute(propertypayload.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), propertypayload.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), data.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(datawritten)).ok()
+    pub unsafe fn SendCameraProperty(&self, propertyset: *const ::windows::core::GUID, propertyid: u32, propertyflags: u32, propertypayload: ::core::option::Option<*mut ::core::ffi::c_void>, propertypayloadlength: u32, data: ::core::option::Option<*mut ::core::ffi::c_void>, datalength: u32, datawritten: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendCameraProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyset), propertyid, propertyflags, ::core::mem::transmute(propertypayload.unwrap_or(::std::ptr::null_mut())), propertypayloadlength, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut())), datalength, ::core::mem::transmute(datawritten)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

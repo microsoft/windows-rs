@@ -208,7 +208,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetQueryInfo<'a, P0>(pwzurl: P0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: &mut [u8], pcbbuffer: ::core::option::Option<*mut u32>, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetQueryInfo<'a, P0>(pwzurl: P0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: ::core::option::Option<*mut u32>, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -216,7 +216,7 @@ where
     extern "system" {
         fn CoInternetQueryInfo(pwzurl: ::windows::core::PCWSTR, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    CoInternetQueryInfo(pwzurl.into(), queryoptions, dwqueryflags, ::core::mem::transmute(pvbuffer.as_ptr()), pvbuffer.len() as _, ::core::mem::transmute(pcbbuffer.unwrap_or(::std::ptr::null_mut())), dwreserved).ok()
+    CoInternetQueryInfo(pwzurl.into(), queryoptions, dwqueryflags, ::core::mem::transmute(pvbuffer), cbbuffer, ::core::mem::transmute(pcbbuffer.unwrap_or(::std::ptr::null_mut())), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -390,7 +390,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn FindMimeFromData<'a, P0, P1, P2>(pbc: P0, pwzurl: P1, pbuffer: ::core::option::Option<&[u8]>, pwzmimeproposed: P2, dwmimeflags: u32, ppwzmimeout: *mut ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn FindMimeFromData<'a, P0, P1, P2>(pbc: P0, pwzurl: P1, pbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbsize: u32, pwzmimeproposed: P2, dwmimeflags: u32, ppwzmimeout: *mut ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -400,11 +400,11 @@ where
     extern "system" {
         fn FindMimeFromData(pbc: *mut ::core::ffi::c_void, pwzurl: ::windows::core::PCWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: ::windows::core::PCWSTR, dwmimeflags: u32, ppwzmimeout: *mut ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    FindMimeFromData(pbc.into().abi(), pwzurl.into(), ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), pwzmimeproposed.into(), dwmimeflags, ::core::mem::transmute(ppwzmimeout), dwreserved).ok()
+    FindMimeFromData(pbc.into().abi(), pwzurl.into(), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null())), cbsize, pwzmimeproposed.into(), dwmimeflags, ::core::mem::transmute(ppwzmimeout), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn GetClassFileOrMime<'a, P0, P1, P2>(pbc: P0, szfilename: P1, pbuffer: ::core::option::Option<&[u8]>, szmime: P2, dwreserved: u32) -> ::windows::core::Result<::windows::core::GUID>
+pub unsafe fn GetClassFileOrMime<'a, P0, P1, P2>(pbc: P0, szfilename: P1, pbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbsize: u32, szmime: P2, dwreserved: u32) -> ::windows::core::Result<::windows::core::GUID>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -415,7 +415,7 @@ where
         fn GetClassFileOrMime(pbc: *mut ::core::ffi::c_void, szfilename: ::windows::core::PCWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: ::windows::core::PCWSTR, dwreserved: u32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetClassFileOrMime(pbc.into().abi(), szfilename.into(), ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), szmime.into(), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    GetClassFileOrMime(pbc.into().abi(), szfilename.into(), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null())), cbsize, szmime.into(), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -882,21 +882,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: ::core::option::Option<&mut [u8]>, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
+pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    UrlMkGetSessionOption(dwoption, ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwbufferlengthout), dwreserved).ok()
+    UrlMkGetSessionOption(dwoption, ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null_mut())), dwbufferlength, ::core::mem::transmute(pdwbufferlengthout), dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: ::core::option::Option<&[u8]>, dwreserved: u32) -> ::windows::core::Result<()> {
+pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: ::core::option::Option<*const ::core::ffi::c_void>, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    UrlMkSetSessionOption(dwoption, ::core::mem::transmute(pbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbuffer.as_deref().map_or(0, |slice| slice.len() as _), dwreserved).ok()
+    UrlMkSetSessionOption(dwoption, ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null())), dwbufferlength, dwreserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

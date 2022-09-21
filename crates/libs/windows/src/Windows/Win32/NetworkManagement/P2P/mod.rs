@@ -820,12 +820,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthandle: isize, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, lpinformation: &mut [u8]) -> u32 {
+pub unsafe fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthandle: isize, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: u32, lpinformation: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthandle: isize, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: u32, lpinformation: *mut ::core::ffi::c_void) -> u32;
     }
-    PeerDistClientGetInformationByHandle(hpeerdist, hcontenthandle, peerdistclientinfoclass, lpinformation.len() as _, ::core::mem::transmute(lpinformation.as_ptr()))
+    PeerDistClientGetInformationByHandle(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize, ::core::mem::transmute(lpinformation))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1403,12 +1403,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGraphSendData(hgraph: *const ::core::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows::core::GUID, pvdata: &[u8]) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGraphSendData(hgraph: *const ::core::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows::core::GUID, cbdata: u32, pvdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGraphSendData(hgraph: *const ::core::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows::core::GUID, cbdata: u32, pvdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGraphSendData(::core::mem::transmute(hgraph), ullconnectionid, ::core::mem::transmute(ptype), pvdata.len() as _, ::core::mem::transmute(pvdata.as_ptr())).ok()
+    PeerGraphSendData(::core::mem::transmute(hgraph), ullconnectionid, ::core::mem::transmute(ptype), cbdata, ::core::mem::transmute(pvdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -1860,12 +1860,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerGroupSendData(hgroup: *const ::core::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows::core::GUID, pvdata: &[u8]) -> ::windows::core::Result<()> {
+pub unsafe fn PeerGroupSendData(hgroup: *const ::core::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows::core::GUID, cbdata: u32, pvdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerGroupSendData(hgroup: *const ::core::ffi::c_void, ullconnectionid: u64, ptype: *const ::windows::core::GUID, cbdata: u32, pvdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerGroupSendData(::core::mem::transmute(hgroup), ullconnectionid, ::core::mem::transmute(ptype), pvdata.len() as _, ::core::mem::transmute(pvdata.as_ptr())).ok()
+    PeerGroupSendData(::core::mem::transmute(hgroup), ullconnectionid, ::core::mem::transmute(ptype), cbdata, ::core::mem::transmute(pvdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]

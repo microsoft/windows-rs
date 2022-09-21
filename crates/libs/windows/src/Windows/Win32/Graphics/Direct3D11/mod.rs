@@ -43,7 +43,7 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3DDisassemble11Trace<'a, P0>(psrcdata: &[u8], ptrace: P0, startstep: u32, numsteps: u32, flags: u32) -> ::windows::core::Result<super::Direct3D::ID3DBlob>
+pub unsafe fn D3DDisassemble11Trace<'a, P0>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: P0, startstep: u32, numsteps: u32, flags: u32) -> ::windows::core::Result<super::Direct3D::ID3DBlob>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11ShaderTrace>>,
 {
@@ -52,7 +52,7 @@ where
         fn D3DDisassemble11Trace(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: *mut ::core::ffi::c_void, startstep: u32, numsteps: u32, flags: u32, ppdisassembly: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DDisassemble11Trace(::core::mem::transmute(psrcdata.as_ptr()), psrcdata.len() as _, ptrace.into().abi(), startstep, numsteps, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Direct3D::ID3DBlob>(result__)
+    D3DDisassemble11Trace(::core::mem::transmute(psrcdata), srcdatasize, ptrace.into().abi(), startstep, numsteps, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Direct3D::ID3DBlob>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
@@ -174,8 +174,8 @@ impl ID3D11Asynchronous {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -255,8 +255,8 @@ impl ID3D11AuthenticatedChannel {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -350,8 +350,8 @@ impl ID3D11BlendState {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -436,8 +436,8 @@ impl ID3D11BlendState1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -542,8 +542,8 @@ impl ID3D11Buffer {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -647,8 +647,8 @@ impl ID3D11ClassInstance {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -745,8 +745,8 @@ impl ID3D11ClassLinkage {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -838,8 +838,8 @@ impl ID3D11CommandList {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -919,8 +919,8 @@ impl ID3D11ComputeShader {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -996,8 +996,8 @@ impl ID3D11Counter {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -1095,8 +1095,8 @@ impl ID3D11CryptoSession {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -1301,8 +1301,8 @@ impl ID3D11DepthStencilState {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -1387,8 +1387,8 @@ impl ID3D11DepthStencilView {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -1679,14 +1679,14 @@ impl ID3D11Device {
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CheckCounter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(ptype), ::core::mem::transmute(pactivecounters), ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -2040,14 +2040,14 @@ impl ID3D11Device1 {
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CheckCounter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(ptype), ::core::mem::transmute(pactivecounters), ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -2392,14 +2392,14 @@ impl ID3D11Device2 {
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.CheckCounter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(ptype), ::core::mem::transmute(pactivecounters), ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -2775,14 +2775,14 @@ impl ID3D11Device3 {
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.CheckCounter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(ptype), ::core::mem::transmute(pactivecounters), ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -3263,14 +3263,14 @@ impl ID3D11Device4 {
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CheckCounter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(ptype), ::core::mem::transmute(pactivecounters), ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -3754,14 +3754,14 @@ impl ID3D11Device5 {
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows::core::PSTR, pnamelength: ::core::option::Option<*mut u32>, szunits: ::windows::core::PSTR, punitslength: ::core::option::Option<*mut u32>, szdescription: ::windows::core::PSTR, pdescriptionlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CheckCounter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(ptype), ::core::mem::transmute(pactivecounters), ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -4087,8 +4087,8 @@ impl ID3D11DeviceChild {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -4153,8 +4153,8 @@ impl ID3D11DeviceContext {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -4260,11 +4260,11 @@ impl ID3D11DeviceContext {
     {
         (::windows::core::Interface::vtable(self).End)(::windows::core::Interface::as_raw(self), pasync.into().abi())
     }
-    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<&mut [u8]>, getdataflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Asynchronous>>,
     {
-        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), getdataflags).ok()
+        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), datasize, getdataflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4841,8 +4841,8 @@ impl ID3D11DeviceContext1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -4948,11 +4948,11 @@ impl ID3D11DeviceContext1 {
     {
         (::windows::core::Interface::vtable(self).base__.End)(::windows::core::Interface::as_raw(self), pasync.into().abi())
     }
-    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<&mut [u8]>, getdataflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Asynchronous>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), getdataflags).ok()
+        (::windows::core::Interface::vtable(self).base__.GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), datasize, getdataflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5511,8 +5511,8 @@ impl ID3D11DeviceContext2 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -5618,11 +5618,11 @@ impl ID3D11DeviceContext2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.End)(::windows::core::Interface::as_raw(self), pasync.into().abi())
     }
-    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<&mut [u8]>, getdataflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Asynchronous>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), getdataflags).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), datasize, getdataflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6277,8 +6277,8 @@ impl ID3D11DeviceContext3 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -6384,11 +6384,11 @@ impl ID3D11DeviceContext3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.End)(::windows::core::Interface::as_raw(self), pasync.into().abi())
     }
-    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<&mut [u8]>, getdataflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Asynchronous>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), getdataflags).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), datasize, getdataflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7066,8 +7066,8 @@ impl ID3D11DeviceContext4 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -7173,11 +7173,11 @@ impl ID3D11DeviceContext4 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.End)(::windows::core::Interface::as_raw(self), pasync.into().abi())
     }
-    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<&mut [u8]>, getdataflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<'a, P0>(&self, pasync: P0, pdata: ::core::option::Option<*mut ::core::ffi::c_void>, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Asynchronous>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len() as _), getdataflags).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetData)(::windows::core::Interface::as_raw(self), pasync.into().abi(), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut())), datasize, getdataflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7872,8 +7872,8 @@ impl ID3D11DomainShader {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -7949,8 +7949,8 @@ impl ID3D11Fence {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -8306,8 +8306,8 @@ impl ID3D11GeometryShader {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -8383,8 +8383,8 @@ impl ID3D11HullShader {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -8705,8 +8705,8 @@ impl ID3D11InputLayout {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -9189,8 +9189,8 @@ impl ID3D11PixelShader {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -9266,8 +9266,8 @@ impl ID3D11Predicate {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -9379,8 +9379,8 @@ impl ID3D11Query {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -9478,8 +9478,8 @@ impl ID3D11Query1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -9595,8 +9595,8 @@ impl ID3D11RasterizerState {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -9681,8 +9681,8 @@ impl ID3D11RasterizerState1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -9787,8 +9787,8 @@ impl ID3D11RasterizerState2 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -10015,8 +10015,8 @@ impl ID3D11RenderTargetView {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -10119,8 +10119,8 @@ impl ID3D11RenderTargetView1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -10243,8 +10243,8 @@ impl ID3D11Resource {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -10332,8 +10332,8 @@ impl ID3D11SamplerState {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -10789,8 +10789,8 @@ impl ID3D11ShaderResourceView {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -10893,8 +10893,8 @@ impl ID3D11ShaderResourceView1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -11233,8 +11233,8 @@ impl ID3D11Texture1D {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -11343,8 +11343,8 @@ impl ID3D11Texture2D {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -11453,8 +11453,8 @@ impl ID3D11Texture2D1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -11583,8 +11583,8 @@ impl ID3D11Texture3D {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -11693,8 +11693,8 @@ impl ID3D11Texture3D1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -11881,8 +11881,8 @@ impl ID3D11UnorderedAccessView {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -11985,8 +11985,8 @@ impl ID3D11UnorderedAccessView1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -12109,8 +12109,8 @@ impl ID3D11VertexShader {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -12186,8 +12186,8 @@ impl ID3D11VideoContext {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -12207,12 +12207,12 @@ impl ID3D11VideoContext {
     {
         (::windows::core::Interface::vtable(self).ReleaseDecoderBuffer)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), r#type).ok()
     }
-    pub unsafe fn DecoderBeginFrame<'a, P0, P1>(&self, pdecoder: P0, pview: P1, pcontentkey: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
+    pub unsafe fn DecoderBeginFrame<'a, P0, P1>(&self, pdecoder: P0, pview: P1, contentkeysize: u32, pcontentkey: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoder>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoderOutputView>>,
     {
-        (::windows::core::Interface::vtable(self).DecoderBeginFrame)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), pcontentkey.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcontentkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows::core::Interface::vtable(self).DecoderBeginFrame)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), contentkeysize, ::core::mem::transmute(pcontentkey.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn DecoderEndFrame<'a, P0>(&self, pdecoder: P0) -> ::windows::core::Result<()>
     where
@@ -12332,11 +12332,11 @@ impl ID3D11VideoContext {
     {
         (::windows::core::Interface::vtable(self).VideoProcessorGetOutputStereoMode)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(penabled))
     }
-    pub unsafe fn VideoProcessorGetOutputExtension<'a, P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, pdata: &mut [u8]) -> i32
+    pub unsafe fn VideoProcessorGetOutputExtension<'a, P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(pextensionguid), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()))
+        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(pextensionguid), datasize, ::core::mem::transmute(pdata))
     }
     pub unsafe fn VideoProcessorSetStreamFrameFormat<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, frameformat: D3D11_VIDEO_FRAME_FORMAT)
     where
@@ -12535,11 +12535,11 @@ impl ID3D11VideoContext {
     {
         (::windows::core::Interface::vtable(self).VideoProcessorGetStreamFilter)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, filter, ::core::mem::transmute(penabled), ::core::mem::transmute(plevel))
     }
-    pub unsafe fn VideoProcessorGetStreamExtension<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, pextensionguid: *const ::windows::core::GUID, pdata: &mut [u8]) -> i32
+    pub unsafe fn VideoProcessorGetStreamExtension<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(pextensionguid), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()))
+        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(pextensionguid), datasize, ::core::mem::transmute(pdata))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12550,43 +12550,33 @@ impl ID3D11VideoContext {
     {
         (::windows::core::Interface::vtable(self).VideoProcessorBlt)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), pview.into().abi(), outputframe, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr())).ok()
     }
-    pub unsafe fn NegotiateCryptoSessionKeyExchange<'a, P0>(&self, pcryptosession: P0, pdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn NegotiateCryptoSessionKeyExchange<'a, P0>(&self, pcryptosession: P0, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, ivsize: u32, piv: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
     {
-        (::windows::core::Interface::vtable(self).EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), piv.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), ivsize, ::core::mem::transmute(piv.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<*const D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<*const D3D11_ENCRYPTED_BLOCK_INFO>, contentkeysize: u32, pcontentkey: ::core::option::Option<*const ::core::ffi::c_void>, ivsize: u32, piv: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
     {
-        (::windows::core::Interface::vtable(self).DecryptionBlt)(
-            ::windows::core::Interface::as_raw(self),
-            pcryptosession.into().abi(),
-            psrcsurface.into().abi(),
-            pdstsurface.into().abi(),
-            ::core::mem::transmute(pencryptedblockinfo.unwrap_or(::std::ptr::null())),
-            pcontentkey.as_deref().map_or(0, |slice| slice.len() as _),
-            ::core::mem::transmute(pcontentkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-            piv.as_deref().map_or(0, |slice| slice.len() as _),
-            ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        )
+        (::windows::core::Interface::vtable(self).DecryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), ::core::mem::transmute(pencryptedblockinfo.unwrap_or(::std::ptr::null())), contentkeysize, ::core::mem::transmute(pcontentkey.unwrap_or(::std::ptr::null())), ivsize, ::core::mem::transmute(piv.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn StartSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0, prandomnumber: &mut [u8])
+    pub unsafe fn StartSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0, randomnumbersize: u32, prandomnumber: *mut ::core::ffi::c_void)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).StartSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), prandomnumber.len() as _, ::core::mem::transmute(prandomnumber.as_ptr()))
+        (::windows::core::Interface::vtable(self).StartSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), randomnumbersize, ::core::mem::transmute(prandomnumber))
     }
     pub unsafe fn FinishSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0)
     where
@@ -12594,32 +12584,32 @@ impl ID3D11VideoContext {
     {
         (::windows::core::Interface::vtable(self).FinishSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi())
     }
-    pub unsafe fn GetEncryptionBltKey<'a, P0>(&self, pcryptosession: P0, preadbackkey: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn GetEncryptionBltKey<'a, P0>(&self, pcryptosession: P0, keysize: u32, preadbackkey: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).GetEncryptionBltKey)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), preadbackkey.len() as _, ::core::mem::transmute(preadbackkey.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetEncryptionBltKey)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), keysize, ::core::mem::transmute(preadbackkey)).ok()
     }
-    pub unsafe fn NegotiateAuthenticatedChannelKeyExchange<'a, P0>(&self, pchannel: P0, pdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn NegotiateAuthenticatedChannelKeyExchange<'a, P0>(&self, pchannel: P0, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
-        (::windows::core::Interface::vtable(self).NegotiateAuthenticatedChannelKeyExchange)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).NegotiateAuthenticatedChannelKeyExchange)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn QueryAuthenticatedChannel<'a, P0>(&self, pchannel: P0, pinput: &[u8], poutput: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn QueryAuthenticatedChannel<'a, P0>(&self, pchannel: P0, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
-        (::windows::core::Interface::vtable(self).QueryAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pinput.len() as _, ::core::mem::transmute(pinput.as_ptr()), poutput.len() as _, ::core::mem::transmute(poutput.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).QueryAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), inputsize, ::core::mem::transmute(pinput), outputsize, ::core::mem::transmute(poutput)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigureAuthenticatedChannel<'a, P0>(&self, pchannel: P0, pinput: &[u8]) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>
+    pub unsafe fn ConfigureAuthenticatedChannel<'a, P0>(&self, pchannel: P0, inputsize: u32, pinput: *const ::core::ffi::c_void) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ConfigureAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pinput.len() as _, ::core::mem::transmute(pinput.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>(result__)
+        (::windows::core::Interface::vtable(self).ConfigureAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), inputsize, ::core::mem::transmute(pinput), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12857,8 +12847,8 @@ impl ID3D11VideoContext1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -12878,12 +12868,12 @@ impl ID3D11VideoContext1 {
     {
         (::windows::core::Interface::vtable(self).base__.ReleaseDecoderBuffer)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), r#type).ok()
     }
-    pub unsafe fn DecoderBeginFrame<'a, P0, P1>(&self, pdecoder: P0, pview: P1, pcontentkey: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
+    pub unsafe fn DecoderBeginFrame<'a, P0, P1>(&self, pdecoder: P0, pview: P1, contentkeysize: u32, pcontentkey: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoder>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoderOutputView>>,
     {
-        (::windows::core::Interface::vtable(self).base__.DecoderBeginFrame)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), pcontentkey.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcontentkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows::core::Interface::vtable(self).base__.DecoderBeginFrame)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), contentkeysize, ::core::mem::transmute(pcontentkey.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn DecoderEndFrame<'a, P0>(&self, pdecoder: P0) -> ::windows::core::Result<()>
     where
@@ -13003,11 +12993,11 @@ impl ID3D11VideoContext1 {
     {
         (::windows::core::Interface::vtable(self).base__.VideoProcessorGetOutputStereoMode)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(penabled))
     }
-    pub unsafe fn VideoProcessorGetOutputExtension<'a, P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, pdata: &mut [u8]) -> i32
+    pub unsafe fn VideoProcessorGetOutputExtension<'a, P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.VideoProcessorGetOutputExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(pextensionguid), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()))
+        (::windows::core::Interface::vtable(self).base__.VideoProcessorGetOutputExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(pextensionguid), datasize, ::core::mem::transmute(pdata))
     }
     pub unsafe fn VideoProcessorSetStreamFrameFormat<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, frameformat: D3D11_VIDEO_FRAME_FORMAT)
     where
@@ -13206,11 +13196,11 @@ impl ID3D11VideoContext1 {
     {
         (::windows::core::Interface::vtable(self).base__.VideoProcessorGetStreamFilter)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, filter, ::core::mem::transmute(penabled), ::core::mem::transmute(plevel))
     }
-    pub unsafe fn VideoProcessorGetStreamExtension<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, pextensionguid: *const ::windows::core::GUID, pdata: &mut [u8]) -> i32
+    pub unsafe fn VideoProcessorGetStreamExtension<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.VideoProcessorGetStreamExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(pextensionguid), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()))
+        (::windows::core::Interface::vtable(self).base__.VideoProcessorGetStreamExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(pextensionguid), datasize, ::core::mem::transmute(pdata))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13221,43 +13211,33 @@ impl ID3D11VideoContext1 {
     {
         (::windows::core::Interface::vtable(self).base__.VideoProcessorBlt)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), pview.into().abi(), outputframe, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr())).ok()
     }
-    pub unsafe fn NegotiateCryptoSessionKeyExchange<'a, P0>(&self, pcryptosession: P0, pdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn NegotiateCryptoSessionKeyExchange<'a, P0>(&self, pcryptosession: P0, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).base__.NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, ivsize: u32, piv: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
     {
-        (::windows::core::Interface::vtable(self).base__.EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), piv.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).base__.EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), ivsize, ::core::mem::transmute(piv.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<*const D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<*const D3D11_ENCRYPTED_BLOCK_INFO>, contentkeysize: u32, pcontentkey: ::core::option::Option<*const ::core::ffi::c_void>, ivsize: u32, piv: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
     {
-        (::windows::core::Interface::vtable(self).base__.DecryptionBlt)(
-            ::windows::core::Interface::as_raw(self),
-            pcryptosession.into().abi(),
-            psrcsurface.into().abi(),
-            pdstsurface.into().abi(),
-            ::core::mem::transmute(pencryptedblockinfo.unwrap_or(::std::ptr::null())),
-            pcontentkey.as_deref().map_or(0, |slice| slice.len() as _),
-            ::core::mem::transmute(pcontentkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-            piv.as_deref().map_or(0, |slice| slice.len() as _),
-            ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        )
+        (::windows::core::Interface::vtable(self).base__.DecryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), ::core::mem::transmute(pencryptedblockinfo.unwrap_or(::std::ptr::null())), contentkeysize, ::core::mem::transmute(pcontentkey.unwrap_or(::std::ptr::null())), ivsize, ::core::mem::transmute(piv.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn StartSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0, prandomnumber: &mut [u8])
+    pub unsafe fn StartSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0, randomnumbersize: u32, prandomnumber: *mut ::core::ffi::c_void)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).base__.StartSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), prandomnumber.len() as _, ::core::mem::transmute(prandomnumber.as_ptr()))
+        (::windows::core::Interface::vtable(self).base__.StartSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), randomnumbersize, ::core::mem::transmute(prandomnumber))
     }
     pub unsafe fn FinishSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0)
     where
@@ -13265,32 +13245,32 @@ impl ID3D11VideoContext1 {
     {
         (::windows::core::Interface::vtable(self).base__.FinishSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi())
     }
-    pub unsafe fn GetEncryptionBltKey<'a, P0>(&self, pcryptosession: P0, preadbackkey: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn GetEncryptionBltKey<'a, P0>(&self, pcryptosession: P0, keysize: u32, preadbackkey: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetEncryptionBltKey)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), preadbackkey.len() as _, ::core::mem::transmute(preadbackkey.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.GetEncryptionBltKey)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), keysize, ::core::mem::transmute(preadbackkey)).ok()
     }
-    pub unsafe fn NegotiateAuthenticatedChannelKeyExchange<'a, P0>(&self, pchannel: P0, pdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn NegotiateAuthenticatedChannelKeyExchange<'a, P0>(&self, pchannel: P0, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
-        (::windows::core::Interface::vtable(self).base__.NegotiateAuthenticatedChannelKeyExchange)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.NegotiateAuthenticatedChannelKeyExchange)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn QueryAuthenticatedChannel<'a, P0>(&self, pchannel: P0, pinput: &[u8], poutput: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn QueryAuthenticatedChannel<'a, P0>(&self, pchannel: P0, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
-        (::windows::core::Interface::vtable(self).base__.QueryAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pinput.len() as _, ::core::mem::transmute(pinput.as_ptr()), poutput.len() as _, ::core::mem::transmute(poutput.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.QueryAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), inputsize, ::core::mem::transmute(pinput), outputsize, ::core::mem::transmute(poutput)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigureAuthenticatedChannel<'a, P0>(&self, pchannel: P0, pinput: &[u8]) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>
+    pub unsafe fn ConfigureAuthenticatedChannel<'a, P0>(&self, pchannel: P0, inputsize: u32, pinput: *const ::core::ffi::c_void) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ConfigureAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pinput.len() as _, ::core::mem::transmute(pinput.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>(result__)
+        (::windows::core::Interface::vtable(self).base__.ConfigureAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), inputsize, ::core::mem::transmute(pinput), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13552,8 +13532,8 @@ impl ID3D11VideoContext2 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -13573,12 +13553,12 @@ impl ID3D11VideoContext2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.ReleaseDecoderBuffer)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), r#type).ok()
     }
-    pub unsafe fn DecoderBeginFrame<'a, P0, P1>(&self, pdecoder: P0, pview: P1, pcontentkey: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
+    pub unsafe fn DecoderBeginFrame<'a, P0, P1>(&self, pdecoder: P0, pview: P1, contentkeysize: u32, pcontentkey: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoder>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoderOutputView>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.DecoderBeginFrame)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), pcontentkey.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcontentkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.DecoderBeginFrame)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), contentkeysize, ::core::mem::transmute(pcontentkey.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn DecoderEndFrame<'a, P0>(&self, pdecoder: P0) -> ::windows::core::Result<()>
     where
@@ -13698,11 +13678,11 @@ impl ID3D11VideoContext2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.VideoProcessorGetOutputStereoMode)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(penabled))
     }
-    pub unsafe fn VideoProcessorGetOutputExtension<'a, P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, pdata: &mut [u8]) -> i32
+    pub unsafe fn VideoProcessorGetOutputExtension<'a, P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.VideoProcessorGetOutputExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(pextensionguid), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()))
+        (::windows::core::Interface::vtable(self).base__.base__.VideoProcessorGetOutputExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(pextensionguid), datasize, ::core::mem::transmute(pdata))
     }
     pub unsafe fn VideoProcessorSetStreamFrameFormat<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, frameformat: D3D11_VIDEO_FRAME_FORMAT)
     where
@@ -13901,11 +13881,11 @@ impl ID3D11VideoContext2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.VideoProcessorGetStreamFilter)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, filter, ::core::mem::transmute(penabled), ::core::mem::transmute(plevel))
     }
-    pub unsafe fn VideoProcessorGetStreamExtension<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, pextensionguid: *const ::windows::core::GUID, pdata: &mut [u8]) -> i32
+    pub unsafe fn VideoProcessorGetStreamExtension<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.VideoProcessorGetStreamExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(pextensionguid), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()))
+        (::windows::core::Interface::vtable(self).base__.base__.VideoProcessorGetStreamExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(pextensionguid), datasize, ::core::mem::transmute(pdata))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13916,43 +13896,33 @@ impl ID3D11VideoContext2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.VideoProcessorBlt)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), pview.into().abi(), outputframe, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr())).ok()
     }
-    pub unsafe fn NegotiateCryptoSessionKeyExchange<'a, P0>(&self, pcryptosession: P0, pdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn NegotiateCryptoSessionKeyExchange<'a, P0>(&self, pcryptosession: P0, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, ivsize: u32, piv: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), piv.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).base__.base__.EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), ivsize, ::core::mem::transmute(piv.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<*const D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<*const D3D11_ENCRYPTED_BLOCK_INFO>, contentkeysize: u32, pcontentkey: ::core::option::Option<*const ::core::ffi::c_void>, ivsize: u32, piv: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.DecryptionBlt)(
-            ::windows::core::Interface::as_raw(self),
-            pcryptosession.into().abi(),
-            psrcsurface.into().abi(),
-            pdstsurface.into().abi(),
-            ::core::mem::transmute(pencryptedblockinfo.unwrap_or(::std::ptr::null())),
-            pcontentkey.as_deref().map_or(0, |slice| slice.len() as _),
-            ::core::mem::transmute(pcontentkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-            piv.as_deref().map_or(0, |slice| slice.len() as _),
-            ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        )
+        (::windows::core::Interface::vtable(self).base__.base__.DecryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), ::core::mem::transmute(pencryptedblockinfo.unwrap_or(::std::ptr::null())), contentkeysize, ::core::mem::transmute(pcontentkey.unwrap_or(::std::ptr::null())), ivsize, ::core::mem::transmute(piv.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn StartSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0, prandomnumber: &mut [u8])
+    pub unsafe fn StartSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0, randomnumbersize: u32, prandomnumber: *mut ::core::ffi::c_void)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.StartSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), prandomnumber.len() as _, ::core::mem::transmute(prandomnumber.as_ptr()))
+        (::windows::core::Interface::vtable(self).base__.base__.StartSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), randomnumbersize, ::core::mem::transmute(prandomnumber))
     }
     pub unsafe fn FinishSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0)
     where
@@ -13960,32 +13930,32 @@ impl ID3D11VideoContext2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.FinishSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi())
     }
-    pub unsafe fn GetEncryptionBltKey<'a, P0>(&self, pcryptosession: P0, preadbackkey: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn GetEncryptionBltKey<'a, P0>(&self, pcryptosession: P0, keysize: u32, preadbackkey: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.GetEncryptionBltKey)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), preadbackkey.len() as _, ::core::mem::transmute(preadbackkey.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetEncryptionBltKey)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), keysize, ::core::mem::transmute(preadbackkey)).ok()
     }
-    pub unsafe fn NegotiateAuthenticatedChannelKeyExchange<'a, P0>(&self, pchannel: P0, pdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn NegotiateAuthenticatedChannelKeyExchange<'a, P0>(&self, pchannel: P0, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.NegotiateAuthenticatedChannelKeyExchange)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.NegotiateAuthenticatedChannelKeyExchange)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn QueryAuthenticatedChannel<'a, P0>(&self, pchannel: P0, pinput: &[u8], poutput: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn QueryAuthenticatedChannel<'a, P0>(&self, pchannel: P0, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.QueryAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pinput.len() as _, ::core::mem::transmute(pinput.as_ptr()), poutput.len() as _, ::core::mem::transmute(poutput.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.QueryAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), inputsize, ::core::mem::transmute(pinput), outputsize, ::core::mem::transmute(poutput)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigureAuthenticatedChannel<'a, P0>(&self, pchannel: P0, pinput: &[u8]) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>
+    pub unsafe fn ConfigureAuthenticatedChannel<'a, P0>(&self, pchannel: P0, inputsize: u32, pinput: *const ::core::ffi::c_void) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.ConfigureAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pinput.len() as _, ::core::mem::transmute(pinput.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.ConfigureAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), inputsize, ::core::mem::transmute(pinput), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14119,35 +14089,35 @@ impl ID3D11VideoContext2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorSetOutputHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, phdrmetadata: ::core::option::Option<&[u8]>)
+    pub unsafe fn VideoProcessorSetOutputHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: ::core::option::Option<*const ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).VideoProcessorSetOutputHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), r#type, phdrmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phdrmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).VideoProcessorSetOutputHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), r#type, size, ::core::mem::transmute(phdrmetadata.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorGetOutputHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, pmetadata: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn VideoProcessorGetOutputHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(ptype), pmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(ptype), size, ::core::mem::transmute(pmetadata.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorSetStreamHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, phdrmetadata: ::core::option::Option<&[u8]>)
+    pub unsafe fn VideoProcessorSetStreamHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: ::core::option::Option<*const ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).VideoProcessorSetStreamHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, r#type, phdrmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phdrmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).VideoProcessorSetStreamHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, r#type, size, ::core::mem::transmute(phdrmetadata.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorGetStreamHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, pmetadata: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn VideoProcessorGetStreamHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(ptype), pmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(ptype), size, ::core::mem::transmute(pmetadata.unwrap_or(::std::ptr::null_mut())))
     }
 }
 impl ::core::convert::From<ID3D11VideoContext2> for ::windows::core::IUnknown {
@@ -14263,8 +14233,8 @@ impl ID3D11VideoContext3 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -14284,12 +14254,12 @@ impl ID3D11VideoContext3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.ReleaseDecoderBuffer)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), r#type).ok()
     }
-    pub unsafe fn DecoderBeginFrame<'a, P0, P1>(&self, pdecoder: P0, pview: P1, pcontentkey: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
+    pub unsafe fn DecoderBeginFrame<'a, P0, P1>(&self, pdecoder: P0, pview: P1, contentkeysize: u32, pcontentkey: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoder>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoderOutputView>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.DecoderBeginFrame)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), pcontentkey.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcontentkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.DecoderBeginFrame)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), contentkeysize, ::core::mem::transmute(pcontentkey.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn DecoderEndFrame<'a, P0>(&self, pdecoder: P0) -> ::windows::core::Result<()>
     where
@@ -14409,11 +14379,11 @@ impl ID3D11VideoContext3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.VideoProcessorGetOutputStereoMode)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(penabled))
     }
-    pub unsafe fn VideoProcessorGetOutputExtension<'a, P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, pdata: &mut [u8]) -> i32
+    pub unsafe fn VideoProcessorGetOutputExtension<'a, P0>(&self, pvideoprocessor: P0, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.VideoProcessorGetOutputExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(pextensionguid), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.VideoProcessorGetOutputExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(pextensionguid), datasize, ::core::mem::transmute(pdata))
     }
     pub unsafe fn VideoProcessorSetStreamFrameFormat<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, frameformat: D3D11_VIDEO_FRAME_FORMAT)
     where
@@ -14612,11 +14582,11 @@ impl ID3D11VideoContext3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.VideoProcessorGetStreamFilter)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, filter, ::core::mem::transmute(penabled), ::core::mem::transmute(plevel))
     }
-    pub unsafe fn VideoProcessorGetStreamExtension<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, pextensionguid: *const ::windows::core::GUID, pdata: &mut [u8]) -> i32
+    pub unsafe fn VideoProcessorGetStreamExtension<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.VideoProcessorGetStreamExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(pextensionguid), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.VideoProcessorGetStreamExtension)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(pextensionguid), datasize, ::core::mem::transmute(pdata))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14627,43 +14597,33 @@ impl ID3D11VideoContext3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.VideoProcessorBlt)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), pview.into().abi(), outputframe, pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr())).ok()
     }
-    pub unsafe fn NegotiateCryptoSessionKeyExchange<'a, P0>(&self, pcryptosession: P0, pdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn NegotiateCryptoSessionKeyExchange<'a, P0>(&self, pcryptosession: P0, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, ivsize: u32, piv: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), piv.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), ivsize, ::core::mem::transmute(piv.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<*const D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<*const D3D11_ENCRYPTED_BLOCK_INFO>, contentkeysize: u32, pcontentkey: ::core::option::Option<*const ::core::ffi::c_void>, ivsize: u32, piv: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.DecryptionBlt)(
-            ::windows::core::Interface::as_raw(self),
-            pcryptosession.into().abi(),
-            psrcsurface.into().abi(),
-            pdstsurface.into().abi(),
-            ::core::mem::transmute(pencryptedblockinfo.unwrap_or(::std::ptr::null())),
-            pcontentkey.as_deref().map_or(0, |slice| slice.len() as _),
-            ::core::mem::transmute(pcontentkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-            piv.as_deref().map_or(0, |slice| slice.len() as _),
-            ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        )
+        (::windows::core::Interface::vtable(self).base__.base__.base__.DecryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), ::core::mem::transmute(pencryptedblockinfo.unwrap_or(::std::ptr::null())), contentkeysize, ::core::mem::transmute(pcontentkey.unwrap_or(::std::ptr::null())), ivsize, ::core::mem::transmute(piv.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn StartSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0, prandomnumber: &mut [u8])
+    pub unsafe fn StartSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0, randomnumbersize: u32, prandomnumber: *mut ::core::ffi::c_void)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.StartSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), prandomnumber.len() as _, ::core::mem::transmute(prandomnumber.as_ptr()))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.StartSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), randomnumbersize, ::core::mem::transmute(prandomnumber))
     }
     pub unsafe fn FinishSessionKeyRefresh<'a, P0>(&self, pcryptosession: P0)
     where
@@ -14671,32 +14631,32 @@ impl ID3D11VideoContext3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.FinishSessionKeyRefresh)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi())
     }
-    pub unsafe fn GetEncryptionBltKey<'a, P0>(&self, pcryptosession: P0, preadbackkey: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn GetEncryptionBltKey<'a, P0>(&self, pcryptosession: P0, keysize: u32, preadbackkey: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetEncryptionBltKey)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), preadbackkey.len() as _, ::core::mem::transmute(preadbackkey.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetEncryptionBltKey)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), keysize, ::core::mem::transmute(preadbackkey)).ok()
     }
-    pub unsafe fn NegotiateAuthenticatedChannelKeyExchange<'a, P0>(&self, pchannel: P0, pdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn NegotiateAuthenticatedChannelKeyExchange<'a, P0>(&self, pchannel: P0, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.NegotiateAuthenticatedChannelKeyExchange)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.NegotiateAuthenticatedChannelKeyExchange)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), datasize, ::core::mem::transmute(pdata)).ok()
     }
-    pub unsafe fn QueryAuthenticatedChannel<'a, P0>(&self, pchannel: P0, pinput: &[u8], poutput: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn QueryAuthenticatedChannel<'a, P0>(&self, pchannel: P0, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.QueryAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pinput.len() as _, ::core::mem::transmute(pinput.as_ptr()), poutput.len() as _, ::core::mem::transmute(poutput.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.QueryAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), inputsize, ::core::mem::transmute(pinput), outputsize, ::core::mem::transmute(poutput)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigureAuthenticatedChannel<'a, P0>(&self, pchannel: P0, pinput: &[u8]) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>
+    pub unsafe fn ConfigureAuthenticatedChannel<'a, P0>(&self, pchannel: P0, inputsize: u32, pinput: *const ::core::ffi::c_void) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11AuthenticatedChannel>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ConfigureAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), pinput.len() as _, ::core::mem::transmute(pinput.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ConfigureAuthenticatedChannel)(::windows::core::Interface::as_raw(self), pchannel.into().abi(), inputsize, ::core::mem::transmute(pinput), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14830,42 +14790,42 @@ impl ID3D11VideoContext3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorSetOutputHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, phdrmetadata: ::core::option::Option<&[u8]>)
+    pub unsafe fn VideoProcessorSetOutputHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: ::core::option::Option<*const ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.VideoProcessorSetOutputHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), r#type, phdrmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phdrmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).base__.VideoProcessorSetOutputHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), r#type, size, ::core::mem::transmute(phdrmetadata.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorGetOutputHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, pmetadata: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn VideoProcessorGetOutputHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.VideoProcessorGetOutputHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(ptype), pmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).base__.VideoProcessorGetOutputHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), ::core::mem::transmute(ptype), size, ::core::mem::transmute(pmetadata.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorSetStreamHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, phdrmetadata: ::core::option::Option<&[u8]>)
+    pub unsafe fn VideoProcessorSetStreamHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: ::core::option::Option<*const ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.VideoProcessorSetStreamHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, r#type, phdrmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phdrmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).base__.VideoProcessorSetStreamHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, r#type, size, ::core::mem::transmute(phdrmetadata.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorGetStreamHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, pmetadata: ::core::option::Option<&mut [u8]>)
+    pub unsafe fn VideoProcessorGetStreamHDRMetaData<'a, P0>(&self, pvideoprocessor: P0, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: ::core::option::Option<*mut ::core::ffi::c_void>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoProcessor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.VideoProcessorGetStreamHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(ptype), pmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows::core::Interface::vtable(self).base__.VideoProcessorGetStreamHDRMetaData)(::windows::core::Interface::as_raw(self), pvideoprocessor.into().abi(), streamindex, ::core::mem::transmute(ptype), size, ::core::mem::transmute(pmetadata.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn DecoderBeginFrame1<'a, P0, P1>(&self, pdecoder: P0, pview: P1, pcontentkey: ::core::option::Option<&[u8]>, numcomponenthistograms: u32, phistogramoffsets: ::core::option::Option<*const u32>, pphistogrambuffers: ::core::option::Option<*const ::core::option::Option<ID3D11Buffer>>) -> ::windows::core::Result<()>
+    pub unsafe fn DecoderBeginFrame1<'a, P0, P1>(&self, pdecoder: P0, pview: P1, contentkeysize: u32, pcontentkey: ::core::option::Option<*const ::core::ffi::c_void>, numcomponenthistograms: u32, phistogramoffsets: ::core::option::Option<*const u32>, pphistogrambuffers: ::core::option::Option<*const ::core::option::Option<ID3D11Buffer>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoder>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11VideoDecoderOutputView>>,
     {
-        (::windows::core::Interface::vtable(self).DecoderBeginFrame1)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), pcontentkey.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcontentkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), numcomponenthistograms, ::core::mem::transmute(phistogramoffsets.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pphistogrambuffers.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Interface::vtable(self).DecoderBeginFrame1)(::windows::core::Interface::as_raw(self), pdecoder.into().abi(), pview.into().abi(), contentkeysize, ::core::mem::transmute(pcontentkey.unwrap_or(::std::ptr::null())), numcomponenthistograms, ::core::mem::transmute(phistogramoffsets.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pphistogrambuffers.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SubmitDecoderBuffers2<'a, P0>(&self, pdecoder: P0, pbufferdesc: &[D3D11_VIDEO_DECODER_BUFFER_DESC2]) -> ::windows::core::Result<()>
     where
@@ -14988,8 +14948,8 @@ impl ID3D11VideoDecoder {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -15084,8 +15044,8 @@ impl ID3D11VideoDecoderOutputView {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -15260,8 +15220,8 @@ impl ID3D11VideoDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CheckCryptoKeyExchange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -15431,8 +15391,8 @@ impl ID3D11VideoDevice1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CheckCryptoKeyExchange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -15618,8 +15578,8 @@ impl ID3D11VideoDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CheckCryptoKeyExchange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecoderprofile.unwrap_or(::std::ptr::null())), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -15647,14 +15607,14 @@ impl ID3D11VideoDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RecommendVideoDecoderDownsampleParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinputdesc), inputcolorspace, ::core::mem::transmute(pinputconfig), ::core::mem::transmute(pframerate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D11_VIDEO_SAMPLE_DESC>(result__)
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
-    pub unsafe fn NegotiateCryptoSessionKeyExchangeMT<'a, P0>(&self, pcryptosession: P0, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, pdata: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn NegotiateCryptoSessionKeyExchangeMT<'a, P0>(&self, pcryptosession: P0, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
     {
-        (::windows::core::Interface::vtable(self).NegotiateCryptoSessionKeyExchangeMT)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), flags, pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).NegotiateCryptoSessionKeyExchangeMT)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), flags, datasize, ::core::mem::transmute(pdata)).ok()
     }
 }
 impl ::core::convert::From<ID3D11VideoDevice2> for ::windows::core::IUnknown {
@@ -15741,8 +15701,8 @@ impl ID3D11VideoProcessor {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -15831,8 +15791,8 @@ impl ID3D11VideoProcessorEnumerator {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -15953,8 +15913,8 @@ impl ID3D11VideoProcessorEnumerator1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -16085,8 +16045,8 @@ impl ID3D11VideoProcessorInputView {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -16184,8 +16144,8 @@ impl ID3D11VideoProcessorOutputView {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -16283,8 +16243,8 @@ impl ID3D11View {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where
@@ -16364,8 +16324,8 @@ impl ID3DDeviceContextState {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), pdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
     where

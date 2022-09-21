@@ -353,7 +353,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: *const ::windows::core::GUID, metadata: &[u8]) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn SetVirtualDiskMetadata<'a, P0>(virtualdiskhandle: P0, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -361,7 +361,7 @@ where
     extern "system" {
         fn SetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    SetVirtualDiskMetadata(virtualdiskhandle.into(), ::core::mem::transmute(item), metadata.len() as _, ::core::mem::transmute(metadata.as_ptr()))
+    SetVirtualDiskMetadata(virtualdiskhandle.into(), ::core::mem::transmute(item), metadatasize, ::core::mem::transmute(metadata))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

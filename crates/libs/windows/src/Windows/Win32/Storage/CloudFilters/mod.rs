@@ -28,7 +28,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfConvertToPlaceholder<'a, P0>(filehandle: P0, fileidentity: ::core::option::Option<&[u8]>, convertflags: CF_CONVERT_FLAGS, convertusn: ::core::option::Option<*mut i64>, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
+pub unsafe fn CfConvertToPlaceholder<'a, P0>(filehandle: P0, fileidentity: ::core::option::Option<*const ::core::ffi::c_void>, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: ::core::option::Option<*mut i64>, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -36,7 +36,7 @@ where
     extern "system" {
         fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    CfConvertToPlaceholder(filehandle.into(), ::core::mem::transmute(fileidentity.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fileidentity.as_deref().map_or(0, |slice| slice.len() as _), convertflags, ::core::mem::transmute(convertusn.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfConvertToPlaceholder(filehandle.into(), ::core::mem::transmute(fileidentity.unwrap_or(::std::ptr::null())), fileidentitylength, convertflags, ::core::mem::transmute(convertusn.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -103,7 +103,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetPlaceholderInfo<'a, P0>(filehandle: P0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: &mut [u8], returnedlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn CfGetPlaceholderInfo<'a, P0>(filehandle: P0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -111,12 +111,12 @@ where
     extern "system" {
         fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    CfGetPlaceholderInfo(filehandle.into(), infoclass, ::core::mem::transmute(infobuffer.as_ptr()), infobuffer.len() as _, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfGetPlaceholderInfo(filehandle.into(), infoclass, ::core::mem::transmute(infobuffer), infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetPlaceholderRangeInfo<'a, P0>(filehandle: P0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: &mut [u8], returnedlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+pub unsafe fn CfGetPlaceholderRangeInfo<'a, P0>(filehandle: P0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -124,7 +124,7 @@ where
     extern "system" {
         fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    CfGetPlaceholderRangeInfo(filehandle.into(), infoclass, startingoffset, length, ::core::mem::transmute(infobuffer.as_ptr()), infobuffer.len() as _, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
+    CfGetPlaceholderRangeInfo(filehandle.into(), infoclass, startingoffset, length, ::core::mem::transmute(infobuffer), infobufferlength, ::core::mem::transmute(returnedlength.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -411,7 +411,7 @@ where
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfUpdatePlaceholder<'a, P0>(filehandle: P0, fsmetadata: ::core::option::Option<*const CF_FS_METADATA>, fileidentity: ::core::option::Option<&[u8]>, dehydraterangearray: ::core::option::Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: ::core::option::Option<*mut i64>, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
+pub unsafe fn CfUpdatePlaceholder<'a, P0>(filehandle: P0, fsmetadata: ::core::option::Option<*const CF_FS_METADATA>, fileidentity: ::core::option::Option<*const ::core::ffi::c_void>, fileidentitylength: u32, dehydraterangearray: ::core::option::Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: ::core::option::Option<*mut i64>, overlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -422,8 +422,8 @@ where
     CfUpdatePlaceholder(
         filehandle.into(),
         ::core::mem::transmute(fsmetadata.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(fileidentity.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        fileidentity.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(fileidentity.unwrap_or(::std::ptr::null())),
+        fileidentitylength,
         ::core::mem::transmute(dehydraterangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         dehydraterangearray.as_deref().map_or(0, |slice| slice.len() as _),
         updateflags,

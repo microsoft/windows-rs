@@ -983,22 +983,22 @@ impl IDxcLibrary {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateBlobFromFile)(::windows::core::Interface::as_raw(self), pfilename.into(), ::core::mem::transmute(codepage.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
-    pub unsafe fn CreateBlobWithEncodingFromPinned(&self, ptext: &[u8], codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
+    pub unsafe fn CreateBlobWithEncodingFromPinned(&self, ptext: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBlobWithEncodingFromPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext.as_ptr()), ptext.len() as _, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
+        (::windows::core::Interface::vtable(self).CreateBlobWithEncodingFromPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext), size, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
-    pub unsafe fn CreateBlobWithEncodingOnHeapCopy(&self, ptext: &[u8], codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
+    pub unsafe fn CreateBlobWithEncodingOnHeapCopy(&self, ptext: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBlobWithEncodingOnHeapCopy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext.as_ptr()), ptext.len() as _, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
+        (::windows::core::Interface::vtable(self).CreateBlobWithEncodingOnHeapCopy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext), size, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateBlobWithEncodingOnMalloc<'a, P0>(&self, ptext: &[u8], pimalloc: P0, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn CreateBlobWithEncodingOnMalloc<'a, P0>(&self, ptext: *const ::core::ffi::c_void, pimalloc: P0, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IMalloc>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBlobWithEncodingOnMalloc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext.as_ptr()), pimalloc.into().abi(), ptext.len() as _, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
+        (::windows::core::Interface::vtable(self).CreateBlobWithEncodingOnMalloc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext), pimalloc.into().abi(), size, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
     pub unsafe fn CreateIncludeHandler(&self) -> ::windows::core::Result<IDxcIncludeHandler> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1625,22 +1625,22 @@ impl IDxcUtils {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateBlobFromBlob)(::windows::core::Interface::as_raw(self), pblob.into().abi(), offset, length, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlob>(result__)
     }
-    pub unsafe fn CreateBlobFromPinned(&self, pdata: &[u8], codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
+    pub unsafe fn CreateBlobFromPinned(&self, pdata: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBlobFromPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
+        (::windows::core::Interface::vtable(self).CreateBlobFromPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), size, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoveToBlob<'a, P0>(&self, pdata: &[u8], pimalloc: P0, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>
+    pub unsafe fn MoveToBlob<'a, P0>(&self, pdata: *const ::core::ffi::c_void, pimalloc: P0, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IMalloc>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).MoveToBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pimalloc.into().abi(), pdata.len() as _, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
+        (::windows::core::Interface::vtable(self).MoveToBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), pimalloc.into().abi(), size, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
-    pub unsafe fn CreateBlob(&self, pdata: &[u8], codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
+    pub unsafe fn CreateBlob(&self, pdata: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
+        (::windows::core::Interface::vtable(self).CreateBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), size, codepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
     pub unsafe fn LoadFile<'a, P0>(&self, pfilename: P0, pcodepage: ::core::option::Option<*const DXC_CP>) -> ::windows::core::Result<IDxcBlobEncoding>
     where

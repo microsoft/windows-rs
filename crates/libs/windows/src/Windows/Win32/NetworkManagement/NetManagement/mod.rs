@@ -3600,12 +3600,12 @@ pub struct INetCfgLock_Vtbl {
 #[repr(transparent)]
 pub struct INetCfgPnpReconfigCallback(::windows::core::IUnknown);
 impl INetCfgPnpReconfigCallback {
-    pub unsafe fn SendPnpReconfig<'a, P0, P1>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: P0, pszwlower: P1, pvdata: &[u8]) -> ::windows::core::Result<()>
+    pub unsafe fn SendPnpReconfig<'a, P0, P1>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: P0, pszwlower: P1, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SendPnpReconfig)(::windows::core::Interface::as_raw(self), layer, pszwupper.into(), pszwlower.into(), ::core::mem::transmute(pvdata.as_ptr()), pvdata.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SendPnpReconfig)(::windows::core::Interface::as_raw(self), layer, pszwupper.into(), pszwlower.into(), ::core::mem::transmute(pvdata), dwsizeofdata).ok()
     }
 }
 impl ::core::convert::From<INetCfgPnpReconfigCallback> for ::windows::core::IUnknown {

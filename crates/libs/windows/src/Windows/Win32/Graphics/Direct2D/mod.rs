@@ -11647,8 +11647,8 @@ impl ID2D1EffectContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateColorContextFromWicColorContext)(::windows::core::Interface::as_raw(self), wiccolorcontext.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(featuresupportdata.as_ptr()), featuresupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(featuresupportdata), featuresupportdatasize).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11836,8 +11836,8 @@ impl ID2D1EffectContext1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateColorContextFromWicColorContext)(::windows::core::Interface::as_raw(self), wiccolorcontext.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(featuresupportdata.as_ptr()), featuresupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(featuresupportdata), featuresupportdatasize).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12003,8 +12003,8 @@ impl ID2D1EffectContext2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateColorContextFromWicColorContext)(::windows::core::Interface::as_raw(self), wiccolorcontext.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1ColorContext>(result__)
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(featuresupportdata.as_ptr()), featuresupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: D2D1_FEATURE, featuresupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(featuresupportdata), featuresupportdatasize).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20153,11 +20153,11 @@ impl ID2D1SvgElement {
     {
         (::windows::core::Interface::vtable(self).SetAttributeValue)(::windows::core::Interface::as_raw(self), name.into(), value.into().abi()).ok()
     }
-    pub unsafe fn SetAttributeValue2<'a, P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: &[u8]) -> ::windows::core::Result<()>
+    pub unsafe fn SetAttributeValue2<'a, P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetAttributeValue2)(::windows::core::Interface::as_raw(self), name.into(), r#type, ::core::mem::transmute(value.as_ptr()), value.len() as _).ok()
+        (::windows::core::Interface::vtable(self).SetAttributeValue2)(::windows::core::Interface::as_raw(self), name.into(), r#type, ::core::mem::transmute(value), valuesizeinbytes).ok()
     }
     pub unsafe fn SetAttributeValue3<'a, P0, P1>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: P1) -> ::windows::core::Result<()>
     where
@@ -20173,11 +20173,11 @@ impl ID2D1SvgElement {
     {
         (::windows::core::Interface::vtable(self).GetAttributeValue)(::windows::core::Interface::as_raw(self), name.into(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn GetAttributeValue2<'a, P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: &mut [u8]) -> ::windows::core::Result<()>
+    pub unsafe fn GetAttributeValue2<'a, P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetAttributeValue2)(::windows::core::Interface::as_raw(self), name.into(), r#type, ::core::mem::transmute(value.as_ptr()), value.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetAttributeValue2)(::windows::core::Interface::as_raw(self), name.into(), r#type, ::core::mem::transmute(value), valuesizeinbytes).ok()
     }
     pub unsafe fn GetAttributeValue3<'a, P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: &mut [u16]) -> ::windows::core::Result<()>
     where

@@ -1521,12 +1521,12 @@ pub unsafe fn HttpQueryInfoW(hrequest: *const ::core::ffi::c_void, dwinfolevel: 
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpSendRequestA(hrequest: *const ::core::ffi::c_void, lpszheaders: ::core::option::Option<&[u8]>, lpoptional: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpSendRequestA(hrequest: *const ::core::ffi::c_void, lpszheaders: ::core::option::Option<&[u8]>, lpoptional: ::core::option::Option<*const ::core::ffi::c_void>, dwoptionallength: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpSendRequestA(hrequest: *const ::core::ffi::c_void, lpszheaders: ::windows::core::PCSTR, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL;
     }
-    HttpSendRequestA(::core::mem::transmute(hrequest), ::core::mem::transmute(lpszheaders.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoptional.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoptional.as_deref().map_or(0, |slice| slice.len() as _))
+    HttpSendRequestA(::core::mem::transmute(hrequest), ::core::mem::transmute(lpszheaders.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoptional.unwrap_or(::std::ptr::null())), dwoptionallength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1551,22 +1551,22 @@ pub unsafe fn HttpSendRequestExW(hrequest: *const ::core::ffi::c_void, lpbuffers
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpSendRequestW(hrequest: *const ::core::ffi::c_void, lpszheaders: ::core::option::Option<&[u16]>, lpoptional: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpSendRequestW(hrequest: *const ::core::ffi::c_void, lpszheaders: ::core::option::Option<&[u16]>, lpoptional: ::core::option::Option<*const ::core::ffi::c_void>, dwoptionallength: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpSendRequestW(hrequest: *const ::core::ffi::c_void, lpszheaders: ::windows::core::PCWSTR, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL;
     }
-    HttpSendRequestW(::core::mem::transmute(hrequest), ::core::mem::transmute(lpszheaders.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoptional.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoptional.as_deref().map_or(0, |slice| slice.len() as _))
+    HttpSendRequestW(::core::mem::transmute(hrequest), ::core::mem::transmute(lpszheaders.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoptional.unwrap_or(::std::ptr::null())), dwoptionallength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: ::core::option::Option<*const ::core::ffi::c_void>, dwreasonlength: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL;
     }
-    HttpWebSocketClose(::core::mem::transmute(hwebsocket), usstatus, ::core::mem::transmute(pvreason.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvreason.as_deref().map_or(0, |slice| slice.len() as _))
+    HttpWebSocketClose(::core::mem::transmute(hwebsocket), usstatus, ::core::mem::transmute(pvreason.unwrap_or(::std::ptr::null())), dwreasonlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[inline]
@@ -1580,42 +1580,42 @@ pub unsafe fn HttpWebSocketCompleteUpgrade(hrequest: *const ::core::ffi::c_void,
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c_void, pusstatus: *mut u16, pvreason: ::core::option::Option<&mut [u8]>, pdwreasonlengthconsumed: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c_void, pusstatus: *mut u16, pvreason: ::core::option::Option<*mut ::core::ffi::c_void>, dwreasonlength: u32, pdwreasonlengthconsumed: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c_void, pusstatus: *mut u16, pvreason: *mut ::core::ffi::c_void, dwreasonlength: u32, pdwreasonlengthconsumed: *mut u32) -> super::super::Foundation::BOOL;
     }
-    HttpWebSocketQueryCloseStatus(::core::mem::transmute(hwebsocket), ::core::mem::transmute(pusstatus), ::core::mem::transmute(pvreason.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvreason.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwreasonlengthconsumed))
+    HttpWebSocketQueryCloseStatus(::core::mem::transmute(hwebsocket), ::core::mem::transmute(pusstatus), ::core::mem::transmute(pvreason.unwrap_or(::std::ptr::null_mut())), dwreasonlength, ::core::mem::transmute(pdwreasonlengthconsumed))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pvbuffer: &mut [u8], pdwbytesread: *mut u32, pbuffertype: *mut HTTP_WEB_SOCKET_BUFFER_TYPE) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32, pbuffertype: *mut HTTP_WEB_SOCKET_BUFFER_TYPE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32, pbuffertype: *mut HTTP_WEB_SOCKET_BUFFER_TYPE) -> super::super::Foundation::BOOL;
     }
-    HttpWebSocketReceive(::core::mem::transmute(hwebsocket), ::core::mem::transmute(pvbuffer.as_ptr()), pvbuffer.len() as _, ::core::mem::transmute(pdwbytesread), ::core::mem::transmute(pbuffertype))
+    HttpWebSocketReceive(::core::mem::transmute(hwebsocket), ::core::mem::transmute(pvbuffer), dwbufferlength, ::core::mem::transmute(pdwbytesread), ::core::mem::transmute(pbuffertype))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: ::core::option::Option<*const ::core::ffi::c_void>, dwbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
     }
-    HttpWebSocketSend(::core::mem::transmute(hwebsocket), buffertype, ::core::mem::transmute(pvbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvbuffer.as_deref().map_or(0, |slice| slice.len() as _))
+    HttpWebSocketSend(::core::mem::transmute(hwebsocket), buffertype, ::core::mem::transmute(pvbuffer.unwrap_or(::std::ptr::null())), dwbufferlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketShutdown(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketShutdown(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: ::core::option::Option<*const ::core::ffi::c_void>, dwreasonlength: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HttpWebSocketShutdown(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL;
     }
-    HttpWebSocketShutdown(::core::mem::transmute(hwebsocket), usstatus, ::core::mem::transmute(pvreason.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvreason.as_deref().map_or(0, |slice| slice.len() as _))
+    HttpWebSocketShutdown(::core::mem::transmute(hwebsocket), usstatus, ::core::mem::transmute(pvreason.unwrap_or(::std::ptr::null())), dwreasonlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2451,12 +2451,12 @@ pub unsafe fn InternetQueryOptionW(hinternet: ::core::option::Option<*const ::co
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetReadFile(hfile: *const ::core::ffi::c_void, lpbuffer: &mut [u8], lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetReadFile(hfile: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InternetReadFile(hfile: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL;
     }
-    InternetReadFile(::core::mem::transmute(hfile), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpdwnumberofbytesread))
+    InternetReadFile(::core::mem::transmute(hfile), ::core::mem::transmute(lpbuffer), dwnumberofbytestoread, ::core::mem::transmute(lpdwnumberofbytesread))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2838,12 +2838,12 @@ where
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetWriteFile(hfile: *const ::core::ffi::c_void, lpbuffer: &[u8], lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetWriteFile(hfile: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InternetWriteFile(hfile: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    InternetWriteFile(::core::mem::transmute(hfile), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpdwnumberofbyteswritten))
+    InternetWriteFile(::core::mem::transmute(hfile), ::core::mem::transmute(lpbuffer), dwnumberofbytestowrite, ::core::mem::transmute(lpdwnumberofbyteswritten))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

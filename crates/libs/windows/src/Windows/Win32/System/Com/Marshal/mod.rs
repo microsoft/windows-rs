@@ -1362,11 +1362,11 @@ pub struct IMarshal2_Vtbl {
 #[repr(transparent)]
 pub struct IMarshalingStream(::windows::core::IUnknown);
 impl IMarshalingStream {
-    pub unsafe fn Read(&self, pv: &mut [u8], pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn Write(&self, pv: &[u8], pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

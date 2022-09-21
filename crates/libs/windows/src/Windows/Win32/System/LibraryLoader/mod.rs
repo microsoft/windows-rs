@@ -629,7 +629,7 @@ where
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateResourceA<'a, P0, P1, P2>(hupdate: P0, lptype: P1, lpname: P2, wlanguage: u16, lpdata: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL
+pub unsafe fn UpdateResourceA<'a, P0, P1, P2>(hupdate: P0, lptype: P1, lpname: P2, wlanguage: u16, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, cb: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -639,12 +639,12 @@ where
     extern "system" {
         fn UpdateResourceA(hupdate: super::super::Foundation::HANDLE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
     }
-    UpdateResourceA(hupdate.into(), lptype.into(), lpname.into(), wlanguage, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _))
+    UpdateResourceA(hupdate.into(), lptype.into(), lpname.into(), wlanguage, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cb)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateResourceW<'a, P0, P1, P2>(hupdate: P0, lptype: P1, lpname: P2, wlanguage: u16, lpdata: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL
+pub unsafe fn UpdateResourceW<'a, P0, P1, P2>(hupdate: P0, lptype: P1, lpname: P2, wlanguage: u16, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, cb: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -654,7 +654,7 @@ where
     extern "system" {
         fn UpdateResourceW(hupdate: super::super::Foundation::HANDLE, lptype: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
     }
-    UpdateResourceW(hupdate.into(), lptype.into(), lpname.into(), wlanguage, ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len() as _))
+    UpdateResourceW(hupdate.into(), lptype.into(), lpname.into(), wlanguage, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cb)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;

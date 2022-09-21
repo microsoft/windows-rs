@@ -817,13 +817,13 @@ pub struct IEnumSTATSTG_Vtbl {
 #[repr(transparent)]
 pub struct IFillLockBytes(::windows::core::IUnknown);
 impl IFillLockBytes {
-    pub unsafe fn FillAppend(&self, pv: &[u8]) -> ::windows::core::Result<u32> {
+    pub unsafe fn FillAppend(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).FillAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).FillAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    pub unsafe fn FillAt(&self, uloffset: u64, pv: &[u8]) -> ::windows::core::Result<u32> {
+    pub unsafe fn FillAt(&self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).FillAt)(::windows::core::Interface::as_raw(self), uloffset, ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).FillAt)(::windows::core::Interface::as_raw(self), uloffset, ::core::mem::transmute(pv), cb, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetFillSize(&self, ulsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFillSize)(::windows::core::Interface::as_raw(self), ulsize).ok()
@@ -959,12 +959,12 @@ pub struct ILayoutStorage_Vtbl {
 #[repr(transparent)]
 pub struct ILockBytes(::windows::core::IUnknown);
 impl ILockBytes {
-    pub unsafe fn ReadAt(&self, uloffset: u64, pv: &mut [u8], pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadAt)(::windows::core::Interface::as_raw(self), uloffset, ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn ReadAt(&self, uloffset: u64, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadAt)(::windows::core::Interface::as_raw(self), uloffset, ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn WriteAt(&self, uloffset: u64, pv: &[u8]) -> ::windows::core::Result<u32> {
+    pub unsafe fn WriteAt(&self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).WriteAt)(::windows::core::Interface::as_raw(self), uloffset, ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).WriteAt)(::windows::core::Interface::as_raw(self), uloffset, ::core::mem::transmute(pv), cb, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Flush)(::windows::core::Interface::as_raw(self)).ok()

@@ -1310,17 +1310,17 @@ pub unsafe fn Icmp6CreateFile() -> ::windows::core::Result<IcmpHandle> {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
-pub unsafe fn Icmp6ParseReplies(replybuffer: &mut [u8]) -> u32 {
+pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
     }
-    Icmp6ParseReplies(::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _)
+    Icmp6ParseReplies(::core::mem::transmute(replybuffer), replysize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn Icmp6SendEcho2<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: &[u8], requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: &mut [u8], timeout: u32) -> u32
+pub unsafe fn Icmp6SendEcho2<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
 where
     P0: ::std::convert::Into<IcmpHandle>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1329,7 +1329,7 @@ where
     extern "system" {
         fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    Icmp6SendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata.as_ptr()), requestdata.len() as _, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _, timeout)
+    Icmp6SendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(replybuffer), replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1356,16 +1356,16 @@ pub unsafe fn IcmpCreateFile() -> ::windows::core::Result<IcmpHandle> {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
-pub unsafe fn IcmpParseReplies(replybuffer: &mut [u8]) -> u32 {
+pub unsafe fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
     }
-    IcmpParseReplies(::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _)
+    IcmpParseReplies(::core::mem::transmute(replybuffer), replysize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
-pub unsafe fn IcmpSendEcho<'a, P0>(icmphandle: P0, destinationaddress: u32, requestdata: &[u8], requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: &mut [u8], timeout: u32) -> u32
+pub unsafe fn IcmpSendEcho<'a, P0>(icmphandle: P0, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
 where
     P0: ::std::convert::Into<IcmpHandle>,
 {
@@ -1373,12 +1373,12 @@ where
     extern "system" {
         fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    IcmpSendEcho(icmphandle.into(), destinationaddress, ::core::mem::transmute(requestdata.as_ptr()), requestdata.len() as _, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _, timeout)
+    IcmpSendEcho(icmphandle.into(), destinationaddress, ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(replybuffer), replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, destinationaddress: u32, requestdata: &[u8], requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: &mut [u8], timeout: u32) -> u32
+pub unsafe fn IcmpSendEcho2<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
 where
     P0: ::std::convert::Into<IcmpHandle>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1387,12 +1387,12 @@ where
     extern "system" {
         fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    IcmpSendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), destinationaddress, ::core::mem::transmute(requestdata.as_ptr()), requestdata.len() as _, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _, timeout)
+    IcmpSendEcho2(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), destinationaddress, ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(replybuffer), replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2Ex<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, sourceaddress: u32, destinationaddress: u32, requestdata: &[u8], requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: &mut [u8], timeout: u32) -> u32
+pub unsafe fn IcmpSendEcho2Ex<'a, P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
 where
     P0: ::std::convert::Into<IcmpHandle>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
@@ -1401,7 +1401,7 @@ where
     extern "system" {
         fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    IcmpSendEcho2Ex(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), sourceaddress, destinationaddress, ::core::mem::transmute(requestdata.as_ptr()), requestdata.len() as _, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(replybuffer.as_ptr()), replybuffer.len() as _, timeout)
+    IcmpSendEcho2Ex(icmphandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), sourceaddress, destinationaddress, ::core::mem::transmute(requestdata), requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(replybuffer), replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]

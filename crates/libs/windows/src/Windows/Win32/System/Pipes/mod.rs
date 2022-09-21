@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CallNamedPipeA<'a, P0>(lpnamedpipename: P0, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesread: *mut u32, ntimeout: u32) -> super::super::Foundation::BOOL
+pub unsafe fn CallNamedPipeA<'a, P0>(lpnamedpipename: P0, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesread: *mut u32, ntimeout: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
@@ -9,12 +9,12 @@ where
     extern "system" {
         fn CallNamedPipeA(lpnamedpipename: ::windows::core::PCSTR, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesread: *mut u32, ntimeout: u32) -> super::super::Foundation::BOOL;
     }
-    CallNamedPipeA(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbytesread), ntimeout)
+    CallNamedPipeA(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesread), ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CallNamedPipeW<'a, P0>(lpnamedpipename: P0, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesread: *mut u32, ntimeout: u32) -> super::super::Foundation::BOOL
+pub unsafe fn CallNamedPipeW<'a, P0>(lpnamedpipename: P0, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesread: *mut u32, ntimeout: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
@@ -22,7 +22,7 @@ where
     extern "system" {
         fn CallNamedPipeW(lpnamedpipename: ::windows::core::PCWSTR, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesread: *mut u32, ntimeout: u32) -> super::super::Foundation::BOOL;
     }
-    CallNamedPipeW(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbytesread), ntimeout)
+    CallNamedPipeW(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesread), ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -220,7 +220,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PeekNamedPipe<'a, P0>(hnamedpipe: P0, lpbuffer: ::core::option::Option<&mut [u8]>, lpbytesread: ::core::option::Option<*mut u32>, lptotalbytesavail: ::core::option::Option<*mut u32>, lpbytesleftthismessage: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn PeekNamedPipe<'a, P0>(hnamedpipe: P0, lpbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, nbuffersize: u32, lpbytesread: ::core::option::Option<*mut u32>, lptotalbytesavail: ::core::option::Option<*mut u32>, lpbytesleftthismessage: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -228,7 +228,7 @@ where
     extern "system" {
         fn PeekNamedPipe(hnamedpipe: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbuffersize: u32, lpbytesread: *mut u32, lptotalbytesavail: *mut u32, lpbytesleftthismessage: *mut u32) -> super::super::Foundation::BOOL;
     }
-    PeekNamedPipe(hnamedpipe.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbytesread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptotalbytesavail.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpbytesleftthismessage.unwrap_or(::std::ptr::null_mut())))
+    PeekNamedPipe(hnamedpipe.into(), ::core::mem::transmute(lpbuffer.unwrap_or(::std::ptr::null_mut())), nbuffersize, ::core::mem::transmute(lpbytesread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptotalbytesavail.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpbytesleftthismessage.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -246,7 +246,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn TransactNamedPipe<'a, P0>(hnamedpipe: P0, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesread: *mut u32, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn TransactNamedPipe<'a, P0>(hnamedpipe: P0, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesread: *mut u32, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -254,7 +254,7 @@ where
     extern "system" {
         fn TransactNamedPipe(hnamedpipe: super::super::Foundation::HANDLE, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesread: *mut u32, lpoverlapped: *mut super::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    TransactNamedPipe(hnamedpipe.into(), ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbytesread), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
+    TransactNamedPipe(hnamedpipe.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesread), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

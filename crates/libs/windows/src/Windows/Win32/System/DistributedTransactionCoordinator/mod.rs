@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
-pub unsafe fn DtcGetTransactionManager<'a, P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_pvreserved2: ::core::option::Option<&[u8]>, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn DtcGetTransactionManager<'a, P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: ::core::option::Option<*const ::core::ffi::c_void>, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -9,11 +9,11 @@ where
     extern "cdecl" {
         fn DtcGetTransactionManager(i_pszhost: ::windows::core::PCSTR, i_psztmname: ::windows::core::PCSTR, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: *const ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DtcGetTransactionManager(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), i_dwreserved1, i_pvreserved2.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(i_pvreserved2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(o_ppvobject)).ok()
+    DtcGetTransactionManager(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), ::core::mem::transmute(o_ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
-pub unsafe fn DtcGetTransactionManagerC<'a, P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_pvreserved2: ::core::option::Option<&[u8]>, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn DtcGetTransactionManagerC<'a, P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: ::core::option::Option<*const ::core::ffi::c_void>, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -22,7 +22,7 @@ where
     extern "cdecl" {
         fn DtcGetTransactionManagerC(i_pszhost: ::windows::core::PCSTR, i_psztmname: ::windows::core::PCSTR, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: *const ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DtcGetTransactionManagerC(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), i_dwreserved1, i_pvreserved2.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(i_pvreserved2.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(o_ppvobject)).ok()
+    DtcGetTransactionManagerC(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), ::core::mem::transmute(o_ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]

@@ -7330,11 +7330,11 @@ pub struct IRunningObjectTable_Vtbl {
 #[repr(transparent)]
 pub struct ISequentialStream(::windows::core::IUnknown);
 impl ISequentialStream {
-    pub unsafe fn Read(&self, pv: &mut [u8], pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn Write(&self, pv: &[u8], pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
 }
 impl ::core::convert::From<ISequentialStream> for ::windows::core::IUnknown {
@@ -7557,11 +7557,11 @@ pub struct IStdMarshalInfo_Vtbl {
 #[repr(transparent)]
 pub struct IStream(::windows::core::IUnknown);
 impl IStream {
-    pub unsafe fn Read(&self, pv: &mut [u8], pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn Write(&self, pv: &[u8], pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

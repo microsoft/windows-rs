@@ -24,8 +24,8 @@ impl IDXCoreAdapter {
     pub unsafe fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool {
         (::windows::core::Interface::vtable(self).IsPropertySupported)(::windows::core::Interface::as_raw(self), property)
     }
-    pub unsafe fn GetProperty(&self, property: DXCoreAdapterProperty, propertydata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), property, propertydata.len() as _, ::core::mem::transmute(propertydata.as_ptr())).ok()
+    pub unsafe fn GetProperty(&self, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), property, buffersize, ::core::mem::transmute(propertydata)).ok()
     }
     pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -34,14 +34,14 @@ impl IDXCoreAdapter {
     pub unsafe fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool {
         (::windows::core::Interface::vtable(self).IsQueryStateSupported)(::windows::core::Interface::as_raw(self), property)
     }
-    pub unsafe fn QueryState(&self, state: DXCoreAdapterState, inputstatedetails: ::core::option::Option<&[u8]>, outputbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryState)(::windows::core::Interface::as_raw(self), state, inputstatedetails.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(inputstatedetails.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.len() as _, ::core::mem::transmute(outputbuffer.as_ptr())).ok()
+    pub unsafe fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: ::core::option::Option<*const ::core::ffi::c_void>, outputbuffersize: usize, outputbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).QueryState)(::windows::core::Interface::as_raw(self), state, inputstatedetailssize, ::core::mem::transmute(inputstatedetails.unwrap_or(::std::ptr::null())), outputbuffersize, ::core::mem::transmute(outputbuffer)).ok()
     }
     pub unsafe fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool {
         (::windows::core::Interface::vtable(self).IsSetStateSupported)(::windows::core::Interface::as_raw(self), property)
     }
-    pub unsafe fn SetState(&self, state: DXCoreAdapterState, inputstatedetails: ::core::option::Option<&[u8]>, inputdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), state, inputstatedetails.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(inputstatedetails.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), inputdata.len() as _, ::core::mem::transmute(inputdata.as_ptr())).ok()
+    pub unsafe fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: ::core::option::Option<*const ::core::ffi::c_void>, inputdatasize: usize, inputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), state, inputstatedetailssize, ::core::mem::transmute(inputstatedetails.unwrap_or(::std::ptr::null())), inputdatasize, ::core::mem::transmute(inputdata)).ok()
     }
     pub unsafe fn GetFactory<T>(&self) -> ::windows::core::Result<T>
     where

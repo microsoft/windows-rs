@@ -1212,12 +1212,12 @@ where
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsCheckColors(hcolortransform: isize, ninputchannels: u32, cdtinput: COLORDATATYPE, pinputdata: &[u8], paresult: &mut [u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsCheckColors(hcolortransform: isize, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, paresult: &mut [u8]) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WcsCheckColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, paresult: *mut u8) -> super::super::Foundation::BOOL;
     }
-    WcsCheckColors(hcolortransform, paresult.len() as _, ninputchannels, cdtinput, pinputdata.len() as _, ::core::mem::transmute(pinputdata.as_ptr()), ::core::mem::transmute(paresult.as_ptr()))
+    WcsCheckColors(hcolortransform, paresult.len() as _, ninputchannels, cdtinput, cbinput, ::core::mem::transmute(pinputdata), ::core::mem::transmute(paresult.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
@@ -1393,12 +1393,12 @@ where
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, pinputdata: &[u8], noutputchannels: u32, cdtoutput: COLORDATATYPE, poutputdata: &mut [u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    WcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, pinputdata.len() as _, ::core::mem::transmute(pinputdata.as_ptr()), noutputchannels, cdtoutput, poutputdata.len() as _, ::core::mem::transmute(poutputdata.as_ptr()))
+    WcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, ::core::mem::transmute(pinputdata), noutputchannels, cdtoutput, cboutput, ::core::mem::transmute(poutputdata))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]

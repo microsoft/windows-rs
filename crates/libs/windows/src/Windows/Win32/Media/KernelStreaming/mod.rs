@@ -499,11 +499,11 @@ pub struct IKsJackSinkInformation_Vtbl {
 #[repr(transparent)]
 pub struct IKsPropertySet(::windows::core::IUnknown);
 impl IKsPropertySet {
-    pub unsafe fn Set(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: &[u8], propertydata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(instancedata.as_ptr()), instancedata.len() as _, ::core::mem::transmute(propertydata.as_ptr()), propertydata.len() as _).ok()
+    pub unsafe fn Set(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(instancedata), instancelength, ::core::mem::transmute(propertydata), datalength).ok()
     }
-    pub unsafe fn Get(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: &[u8], propertydata: &mut [u8], bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(instancedata.as_ptr()), instancedata.len() as _, ::core::mem::transmute(propertydata.as_ptr()), propertydata.len() as _, ::core::mem::transmute(bytesreturned)).ok()
+    pub unsafe fn Get(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(instancedata), instancelength, ::core::mem::transmute(propertydata), datalength, ::core::mem::transmute(bytesreturned)).ok()
     }
     pub unsafe fn QuerySupported(&self, propset: *const ::windows::core::GUID, id: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

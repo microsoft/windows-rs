@@ -6241,8 +6241,8 @@ impl ISpatialAudioMetadataReader {
     pub unsafe fn ReadNextItem(&self, commandcount: *mut u8, frameoffset: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReadNextItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandcount), ::core::mem::transmute(frameoffset)).ok()
     }
-    pub unsafe fn ReadNextItemCommand(&self, commandid: *mut u8, valuebuffer: &mut [u8], valuebufferlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadNextItemCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(valuebuffer.as_ptr()), valuebuffer.len() as _, ::core::mem::transmute(valuebufferlength)).ok()
+    pub unsafe fn ReadNextItemCommand(&self, commandid: *mut u8, valuebuffer: *mut ::core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadNextItemCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(valuebuffer), maxvaluebufferlength, ::core::mem::transmute(valuebufferlength)).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -6305,8 +6305,8 @@ impl ISpatialAudioMetadataWriter {
     pub unsafe fn WriteNextItem(&self, frameoffset: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WriteNextItem)(::windows::core::Interface::as_raw(self), frameoffset).ok()
     }
-    pub unsafe fn WriteNextItemCommand(&self, commandid: u8, valuebuffer: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNextItemCommand)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(valuebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), valuebuffer.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn WriteNextItemCommand(&self, commandid: u8, valuebuffer: ::core::option::Option<*const ::core::ffi::c_void>, valuebufferlength: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteNextItemCommand)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(valuebuffer.unwrap_or(::std::ptr::null())), valuebufferlength).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
@@ -6628,8 +6628,8 @@ impl ISpatialAudioObjectForMetadataCommands {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAudioObjectType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AudioObjectType>(result__)
     }
-    pub unsafe fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNextMetadataCommand)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(valuebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), valuebuffer.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: ::core::option::Option<*const ::core::ffi::c_void>, valuebufferlength: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteNextMetadataCommand)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(valuebuffer.unwrap_or(::std::ptr::null())), valuebufferlength).ok()
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectForMetadataCommands> for ::windows::core::IUnknown {

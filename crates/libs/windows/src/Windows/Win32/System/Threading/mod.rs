@@ -1560,7 +1560,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetProcessInformation<'a, P0>(hprocess: P0, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn GetProcessInformation<'a, P0>(hprocess: P0, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *mut ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1568,7 +1568,7 @@ where
     extern "system" {
         fn GetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *mut ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    GetProcessInformation(hprocess.into(), processinformationclass, ::core::mem::transmute(processinformation.as_ptr()), processinformation.len() as _)
+    GetProcessInformation(hprocess.into(), processinformationclass, ::core::mem::transmute(processinformation), processinformationsize)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1586,7 +1586,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetProcessMitigationPolicy<'a, P0>(hprocess: P0, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn GetProcessMitigationPolicy<'a, P0>(hprocess: P0, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *mut ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1594,7 +1594,7 @@ where
     extern "system" {
         fn GetProcessMitigationPolicy(hprocess: super::super::Foundation::HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *mut ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
     }
-    GetProcessMitigationPolicy(hprocess.into(), mitigationpolicy, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+    GetProcessMitigationPolicy(hprocess.into(), mitigationpolicy, ::core::mem::transmute(lpbuffer), dwlength)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1753,7 +1753,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThreadInformation<'a, P0>(hthread: P0, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: &mut [u8]) -> super::super::Foundation::BOOL
+pub unsafe fn GetThreadInformation<'a, P0>(hthread: P0, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -1761,7 +1761,7 @@ where
     extern "system" {
         fn GetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    GetThreadInformation(hthread.into(), threadinformationclass, ::core::mem::transmute(threadinformation.as_ptr()), threadinformation.len() as _)
+    GetThreadInformation(hthread.into(), threadinformationclass, ::core::mem::transmute(threadinformation), threadinformationsize)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2139,7 +2139,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtSetInformationThread<'a, P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: &[u8]) -> ::windows::core::Result<()>
+pub unsafe fn NtSetInformationThread<'a, P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -2147,7 +2147,7 @@ where
     extern "system" {
         fn NtSetInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    NtSetInformationThread(threadhandle.into(), threadinformationclass, ::core::mem::transmute(threadinformation.as_ptr()), threadinformation.len() as _).ok()
+    NtSetInformationThread(threadhandle.into(), threadinformationclass, ::core::mem::transmute(threadinformation), threadinformationlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2391,12 +2391,12 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: &mut [u8], returnlength: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL;
     }
-    QueryUmsThreadInformation(::core::mem::transmute(umsthread), umsthreadinfoclass, ::core::mem::transmute(umsthreadinformation.as_ptr()), umsthreadinformation.len() as _, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
+    QueryUmsThreadInformation(::core::mem::transmute(umsthread), umsthreadinfoclass, ::core::mem::transmute(umsthreadinformation), umsthreadinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2683,7 +2683,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetProcessInformation<'a, P0>(hprocess: P0, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: &[u8]) -> super::super::Foundation::BOOL
+pub unsafe fn SetProcessInformation<'a, P0>(hprocess: P0, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *const ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -2691,17 +2691,17 @@ where
     extern "system" {
         fn SetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *const ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    SetProcessInformation(hprocess.into(), processinformationclass, ::core::mem::transmute(processinformation.as_ptr()), processinformation.len() as _)
+    SetProcessInformation(hprocess.into(), processinformationclass, ::core::mem::transmute(processinformation), processinformationsize)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: &[u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *const ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *const ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
     }
-    SetProcessMitigationPolicy(mitigationpolicy, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+    SetProcessMitigationPolicy(mitigationpolicy, ::core::mem::transmute(lpbuffer), dwlength)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2832,7 +2832,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetThreadInformation<'a, P0>(hthread: P0, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: &[u8]) -> super::super::Foundation::BOOL
+pub unsafe fn SetThreadInformation<'a, P0>(hthread: P0, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *const ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -2840,7 +2840,7 @@ where
     extern "system" {
         fn SetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *const ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    SetThreadInformation(hthread.into(), threadinformationclass, ::core::mem::transmute(threadinformation.as_ptr()), threadinformation.len() as _)
+    SetThreadInformation(hthread.into(), threadinformationclass, ::core::mem::transmute(threadinformation), threadinformationsize)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

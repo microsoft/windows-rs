@@ -65,8 +65,8 @@ where
 #[repr(transparent)]
 pub struct IDXGIAdapter(::windows::core::IUnknown);
 impl IDXGIAdapter {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -164,8 +164,8 @@ pub struct IDXGIAdapter_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIAdapter1(::windows::core::IUnknown);
 impl IDXGIAdapter1 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -282,8 +282,8 @@ pub struct IDXGIAdapter1_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIAdapter2(::windows::core::IUnknown);
 impl IDXGIAdapter2 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -421,8 +421,8 @@ pub struct IDXGIAdapter2_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIAdapter3(::windows::core::IUnknown);
 impl IDXGIAdapter3 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -614,8 +614,8 @@ pub struct IDXGIAdapter3_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIAdapter4(::windows::core::IUnknown);
 impl IDXGIAdapter4 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -1052,8 +1052,8 @@ pub struct IDXGIDecodeSwapChain_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIDevice(::windows::core::IUnknown);
 impl IDXGIDevice {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -1158,8 +1158,8 @@ pub struct IDXGIDevice_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIDevice1(::windows::core::IUnknown);
 impl IDXGIDevice1 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -1280,8 +1280,8 @@ pub struct IDXGIDevice1_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIDevice2(::windows::core::IUnknown);
 impl IDXGIDevice2 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -1441,8 +1441,8 @@ pub struct IDXGIDevice2_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIDevice3(::windows::core::IUnknown);
 impl IDXGIDevice3 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -1612,8 +1612,8 @@ pub struct IDXGIDevice3_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIDevice4(::windows::core::IUnknown);
 impl IDXGIDevice4 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -1806,8 +1806,8 @@ pub struct IDXGIDevice4_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIDeviceSubObject(::windows::core::IUnknown);
 impl IDXGIDeviceSubObject {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -1959,8 +1959,8 @@ pub struct IDXGIDisplayControl_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory(::windows::core::IUnknown);
 impl IDXGIFactory {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -2090,8 +2090,8 @@ pub struct IDXGIFactory_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory1(::windows::core::IUnknown);
 impl IDXGIFactory1 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -2233,8 +2233,8 @@ pub struct IDXGIFactory1_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory2(::windows::core::IUnknown);
 impl IDXGIFactory2 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -2512,8 +2512,8 @@ pub struct IDXGIFactory2_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory3(::windows::core::IUnknown);
 impl IDXGIFactory3 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -2772,8 +2772,8 @@ pub struct IDXGIFactory3_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory4(::windows::core::IUnknown);
 impl IDXGIFactory4 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -3067,8 +3067,8 @@ pub struct IDXGIFactory4_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory5(::windows::core::IUnknown);
 impl IDXGIFactory5 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -3237,8 +3237,8 @@ impl IDXGIFactory5 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.EnumWarpAdapter)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
 }
 impl ::core::convert::From<IDXGIFactory5> for ::windows::core::IUnknown {
@@ -3376,8 +3376,8 @@ pub struct IDXGIFactory5_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory6(::windows::core::IUnknown);
 impl IDXGIFactory6 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -3546,8 +3546,8 @@ impl IDXGIFactory6 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.base__.EnumWarpAdapter)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn EnumAdapterByGpuPreference<T>(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE) -> ::windows::core::Result<T>
     where
@@ -3707,8 +3707,8 @@ pub struct IDXGIFactory6_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory7(::windows::core::IUnknown);
 impl IDXGIFactory7 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -3877,8 +3877,8 @@ impl IDXGIFactory7 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.base__.base__.EnumWarpAdapter)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata.as_ptr()), pfeaturesupportdata.len() as _).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
     pub unsafe fn EnumAdapterByGpuPreference<T>(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE) -> ::windows::core::Result<T>
     where
@@ -4396,8 +4396,8 @@ pub struct IDXGIInfoQueue_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIKeyedMutex(::windows::core::IUnknown);
 impl IDXGIKeyedMutex {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -4505,8 +4505,8 @@ pub struct IDXGIKeyedMutex_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIObject(::windows::core::IUnknown);
 impl IDXGIObject {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -4573,8 +4573,8 @@ pub struct IDXGIObject_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput(::windows::core::IUnknown);
 impl IDXGIOutput {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -4752,8 +4752,8 @@ pub struct IDXGIOutput_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput1(::windows::core::IUnknown);
 impl IDXGIOutput1 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -4949,8 +4949,8 @@ pub struct IDXGIOutput1_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput2(::windows::core::IUnknown);
 impl IDXGIOutput2 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -5160,8 +5160,8 @@ pub struct IDXGIOutput2_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput3(::windows::core::IUnknown);
 impl IDXGIOutput3 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -5395,8 +5395,8 @@ pub struct IDXGIOutput3_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput4(::windows::core::IUnknown);
 impl IDXGIOutput4 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -5654,8 +5654,8 @@ pub struct IDXGIOutput4_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput5(::windows::core::IUnknown);
 impl IDXGIOutput5 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -5937,8 +5937,8 @@ pub struct IDXGIOutput5_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput6(::windows::core::IUnknown);
 impl IDXGIOutput6 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -6246,8 +6246,8 @@ pub struct IDXGIOutput6_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutputDuplication(::windows::core::IUnknown);
 impl IDXGIOutputDuplication {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -6287,8 +6287,8 @@ impl IDXGIOutputDuplication {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFramePointerShape(&self, ppointershapebuffer: &mut [u8], ppointershapebuffersizerequired: *mut u32, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFramePointerShape)(::windows::core::Interface::as_raw(self), ppointershapebuffer.len() as _, ::core::mem::transmute(ppointershapebuffer.as_ptr()), ::core::mem::transmute(ppointershapebuffersizerequired), ::core::mem::transmute(ppointershapeinfo)).ok()
+    pub unsafe fn GetFramePointerShape(&self, pointershapebuffersize: u32, ppointershapebuffer: *mut ::core::ffi::c_void, ppointershapebuffersizerequired: *mut u32, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFramePointerShape)(::windows::core::Interface::as_raw(self), pointershapebuffersize, ::core::mem::transmute(ppointershapebuffer), ::core::mem::transmute(ppointershapebuffersizerequired), ::core::mem::transmute(ppointershapeinfo)).ok()
     }
     pub unsafe fn MapDesktopSurface(&self) -> ::windows::core::Result<DXGI_MAPPED_RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6383,8 +6383,8 @@ pub struct IDXGIOutputDuplication_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIResource(::windows::core::IUnknown);
 impl IDXGIResource {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -6508,8 +6508,8 @@ pub struct IDXGIResource_Vtbl {
 #[repr(transparent)]
 pub struct IDXGIResource1(::windows::core::IUnknown);
 impl IDXGIResource1 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -6659,8 +6659,8 @@ pub struct IDXGIResource1_Vtbl {
 #[repr(transparent)]
 pub struct IDXGISurface(::windows::core::IUnknown);
 impl IDXGISurface {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -6778,8 +6778,8 @@ pub struct IDXGISurface_Vtbl {
 #[repr(transparent)]
 pub struct IDXGISurface1(::windows::core::IUnknown);
 impl IDXGISurface1 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -6928,8 +6928,8 @@ pub struct IDXGISurface1_Vtbl {
 #[repr(transparent)]
 pub struct IDXGISurface2(::windows::core::IUnknown);
 impl IDXGISurface2 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -7093,8 +7093,8 @@ pub struct IDXGISurface2_Vtbl {
 #[repr(transparent)]
 pub struct IDXGISwapChain(::windows::core::IUnknown);
 impl IDXGISwapChain {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -7271,8 +7271,8 @@ pub struct IDXGISwapChain_Vtbl {
 #[repr(transparent)]
 pub struct IDXGISwapChain1(::windows::core::IUnknown);
 impl IDXGISwapChain1 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -7528,8 +7528,8 @@ pub struct IDXGISwapChain1_Vtbl {
 #[repr(transparent)]
 pub struct IDXGISwapChain2(::windows::core::IUnknown);
 impl IDXGISwapChain2 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -7803,8 +7803,8 @@ pub struct IDXGISwapChain2_Vtbl {
 #[repr(transparent)]
 pub struct IDXGISwapChain3(::windows::core::IUnknown);
 impl IDXGISwapChain3 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -8115,8 +8115,8 @@ pub struct IDXGISwapChain3_Vtbl {
 #[repr(transparent)]
 pub struct IDXGISwapChain4(::windows::core::IUnknown);
 impl IDXGISwapChain4 {
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, pdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), datasize, ::core::mem::transmute(pdata)).ok()
     }
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, name: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where

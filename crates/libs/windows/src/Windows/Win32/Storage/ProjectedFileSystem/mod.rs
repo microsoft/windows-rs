@@ -208,7 +208,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
-pub unsafe fn PrjWriteFileData<'a, P0>(namespacevirtualizationcontext: P0, datastreamid: *const ::windows::core::GUID, buffer: &[u8], byteoffset: u64) -> ::windows::core::Result<()>
+pub unsafe fn PrjWriteFileData<'a, P0>(namespacevirtualizationcontext: P0, datastreamid: *const ::windows::core::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
 {
@@ -216,7 +216,7 @@ where
     extern "system" {
         fn PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: *const ::windows::core::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows::core::HRESULT;
     }
-    PrjWriteFileData(namespacevirtualizationcontext.into(), ::core::mem::transmute(datastreamid), ::core::mem::transmute(buffer.as_ptr()), byteoffset, buffer.len() as _).ok()
+    PrjWriteFileData(namespacevirtualizationcontext.into(), ::core::mem::transmute(datastreamid), ::core::mem::transmute(buffer), byteoffset, length).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -203,62 +203,62 @@ where
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: ::core::option::Option<&mut [u8]>, stringlength: ::core::option::Option<*mut i16>, numericattribute: ::core::option::Option<*mut i64>) -> i16 {
+pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i16, stringlength: ::core::option::Option<*mut i16>, numericattribute: ::core::option::Option<*mut i64>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16;
     }
-    SQLColAttribute(::core::mem::transmute(statementhandle), columnnumber, fieldidentifier, ::core::mem::transmute(characterattribute.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), characterattribute.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(numericattribute.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttribute(::core::mem::transmute(statementhandle), columnnumber, fieldidentifier, ::core::mem::transmute(characterattribute.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(numericattribute.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
-pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: ::core::option::Option<&mut [u8]>, stringlength: ::core::option::Option<*mut i16>, numericattribute: ::core::option::Option<*mut ::core::ffi::c_void>) -> i16 {
+pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i16, stringlength: ::core::option::Option<*mut i16>, numericattribute: ::core::option::Option<*mut ::core::ffi::c_void>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::core::ffi::c_void) -> i16;
     }
-    SQLColAttribute(::core::mem::transmute(statementhandle), columnnumber, fieldidentifier, ::core::mem::transmute(characterattribute.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), characterattribute.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(numericattribute.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttribute(::core::mem::transmute(statementhandle), columnnumber, fieldidentifier, ::core::mem::transmute(characterattribute.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(numericattribute.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: ::core::option::Option<&mut [u8]>, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut i64>) -> i16 {
+pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: ::core::option::Option<*mut ::core::ffi::c_void>, cbcharattrmax: i16, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut i64>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
     }
-    SQLColAttributeA(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcharattr.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttributeA(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr.unwrap_or(::std::ptr::null_mut())), cbcharattrmax, ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
-pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: ::core::option::Option<&mut [u8]>, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut ::core::ffi::c_void>) -> i16 {
+pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: ::core::option::Option<*mut ::core::ffi::c_void>, cbcharattrmax: i16, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut ::core::ffi::c_void>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
     }
-    SQLColAttributeA(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcharattr.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttributeA(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr.unwrap_or(::std::ptr::null_mut())), cbcharattrmax, ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: ::core::option::Option<&mut [u8]>, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut i64>) -> i16 {
+pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut i64>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
     }
-    SQLColAttributeW(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcharattr.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttributeW(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
-pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: ::core::option::Option<&mut [u8]>, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut ::core::ffi::c_void>) -> i16 {
+pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbcharattr: ::core::option::Option<*mut i16>, pnumattr: ::core::option::Option<*mut ::core::ffi::c_void>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
     }
-    SQLColAttributeW(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcharattr.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttributeW(::core::mem::transmute(hstmt), icol, ifield, ::core::mem::transmute(pcharattr.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbcharattr.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnumattr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -283,42 +283,42 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesc
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<&mut [u8]>, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i64>) -> i16 {
+pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i64>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
     }
-    SQLColAttributesA(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgbdesc.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttributesA(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
-pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<&mut [u8]>, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i32>) -> i16 {
+pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i32>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
     }
-    SQLColAttributesA(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgbdesc.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttributesA(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<&mut [u8]>, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i64>) -> i16 {
+pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i64>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
     }
-    SQLColAttributesW(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgbdesc.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttributesW(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
-pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<&mut [u8]>, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i32>) -> i16 {
+pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: ::core::option::Option<*mut ::core::ffi::c_void>, cbdescmax: i16, pcbdesc: ::core::option::Option<*mut i16>, pfdesc: ::core::option::Option<*mut i32>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
     }
-    SQLColAttributesW(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgbdesc.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
+    SQLColAttributesW(::core::mem::transmute(hstmt), icol, fdesctype, ::core::mem::transmute(rgbdesc.unwrap_or(::std::ptr::null_mut())), cbdescmax, ::core::mem::transmute(pcbdesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfdesc.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -1314,30 +1314,30 @@ pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functi
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
-pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: ::core::option::Option<&mut [u8]>, stringlengthptr: ::core::option::Option<*mut i16>) -> i16 {
+pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: i16, stringlengthptr: ::core::option::Option<*mut i16>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: *mut ::core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16;
     }
-    SQLGetInfo(::core::mem::transmute(connectionhandle), infotype, ::core::mem::transmute(infovalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), infovalue.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(stringlengthptr.unwrap_or(::std::ptr::null_mut())))
+    SQLGetInfo(::core::mem::transmute(connectionhandle), infotype, ::core::mem::transmute(infovalue.unwrap_or(::std::ptr::null_mut())), bufferlength, ::core::mem::transmute(stringlengthptr.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
-pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: ::core::option::Option<&mut [u8]>, pcbinfovalue: ::core::option::Option<*mut i16>) -> i16 {
+pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: ::core::option::Option<*mut ::core::ffi::c_void>, cbinfovaluemax: i16, pcbinfovalue: ::core::option::Option<*mut i16>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
     }
-    SQLGetInfoA(::core::mem::transmute(hdbc), finfotype, ::core::mem::transmute(rgbinfovalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgbinfovalue.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbinfovalue.unwrap_or(::std::ptr::null_mut())))
+    SQLGetInfoA(::core::mem::transmute(hdbc), finfotype, ::core::mem::transmute(rgbinfovalue.unwrap_or(::std::ptr::null_mut())), cbinfovaluemax, ::core::mem::transmute(pcbinfovalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
-pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: ::core::option::Option<&mut [u8]>, pcbinfovalue: ::core::option::Option<*mut i16>) -> i16 {
+pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: ::core::option::Option<*mut ::core::ffi::c_void>, cbinfovaluemax: i16, pcbinfovalue: ::core::option::Option<*mut i16>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
     }
-    SQLGetInfoW(::core::mem::transmute(hdbc), finfotype, ::core::mem::transmute(rgbinfovalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgbinfovalue.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbinfovalue.unwrap_or(::std::ptr::null_mut())))
+    SQLGetInfoW(::core::mem::transmute(hdbc), finfotype, ::core::mem::transmute(rgbinfovalue.unwrap_or(::std::ptr::null_mut())), cbinfovaluemax, ::core::mem::transmute(pcbinfovalue.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1773,30 +1773,30 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount:
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
-pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: ::core::option::Option<&[u8]>) -> i16 {
+pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: ::core::option::Option<*const ::core::ffi::c_void>, stringlength: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
     }
-    SQLSetConnectAttr(::core::mem::transmute(connectionhandle), attribute, ::core::mem::transmute(value.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), value.as_deref().map_or(0, |slice| slice.len() as _))
+    SQLSetConnectAttr(::core::mem::transmute(connectionhandle), attribute, ::core::mem::transmute(value.unwrap_or(::std::ptr::null())), stringlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
-pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: ::core::option::Option<&[u8]>) -> i16 {
+pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: ::core::option::Option<*const ::core::ffi::c_void>, cbvalue: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
     }
-    SQLSetConnectAttrA(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgbvalue.as_deref().map_or(0, |slice| slice.len() as _))
+    SQLSetConnectAttrA(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue.unwrap_or(::std::ptr::null())), cbvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
-pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: ::core::option::Option<&[u8]>) -> i16 {
+pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: ::core::option::Option<*const ::core::ffi::c_void>, cbvalue: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
     }
-    SQLSetConnectAttrW(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgbvalue.as_deref().map_or(0, |slice| slice.len() as _))
+    SQLSetConnectAttrW(::core::mem::transmute(hdbc), fattribute, ::core::mem::transmute(rgbvalue.unwrap_or(::std::ptr::null())), cbvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1906,31 +1906,31 @@ pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnu
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, precision: i16, scale: i16, data: ::core::option::Option<&mut [u8]>, stringlength: ::core::option::Option<*mut i64>, indicator: ::core::option::Option<*mut i64>) -> i16 {
+pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: ::core::option::Option<*mut ::core::ffi::c_void>, stringlength: ::core::option::Option<*mut i64>, indicator: ::core::option::Option<*mut i64>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16;
     }
-    SQLSetDescRec(::core::mem::transmute(descriptorhandle), recnumber, r#type, subtype, data.as_deref().map_or(0, |slice| slice.len() as _), precision, scale, ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(indicator.unwrap_or(::std::ptr::null_mut())))
+    SQLSetDescRec(::core::mem::transmute(descriptorhandle), recnumber, r#type, subtype, length, precision, scale, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(indicator.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
-pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, precision: i16, scale: i16, data: ::core::option::Option<&mut [u8]>, stringlength: ::core::option::Option<*mut i32>, indicator: ::core::option::Option<*mut i32>) -> i16 {
+pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: ::core::option::Option<*mut ::core::ffi::c_void>, stringlength: ::core::option::Option<*mut i32>, indicator: ::core::option::Option<*mut i32>) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16;
     }
-    SQLSetDescRec(::core::mem::transmute(descriptorhandle), recnumber, r#type, subtype, data.as_deref().map_or(0, |slice| slice.len() as _), precision, scale, ::core::mem::transmute(data.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(indicator.unwrap_or(::std::ptr::null_mut())))
+    SQLSetDescRec(::core::mem::transmute(descriptorhandle), recnumber, r#type, subtype, length, precision, scale, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(stringlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(indicator.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
-pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: ::core::option::Option<&[u8]>) -> i16 {
+pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: ::core::option::Option<*const ::core::ffi::c_void>, stringlength: i32) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
     }
-    SQLSetEnvAttr(::core::mem::transmute(environmenthandle), attribute, ::core::mem::transmute(value.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), value.as_deref().map_or(0, |slice| slice.len() as _))
+    SQLSetEnvAttr(::core::mem::transmute(environmenthandle), attribute, ::core::mem::transmute(value.unwrap_or(::std::ptr::null())), stringlength)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -5680,8 +5680,8 @@ pub struct IDCInfo_Vtbl {
 #[repr(transparent)]
 pub struct IDataConvert(::windows::core::IUnknown);
 impl IDataConvert {
-    pub unsafe fn DataConvert(&self, wsrctype: u16, wdsttype: u16, pcbdstlength: ::core::option::Option<*mut usize>, psrc: &[u8], pdst: *mut ::core::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: ::core::option::Option<*mut u32>, bprecision: u8, bscale: u8, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DataConvert)(::windows::core::Interface::as_raw(self), wsrctype, wdsttype, psrc.len() as _, ::core::mem::transmute(pcbdstlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psrc.as_ptr()), ::core::mem::transmute(pdst), cbdstmaxlength, dbssrcstatus, ::core::mem::transmute(pdbsstatus.unwrap_or(::std::ptr::null_mut())), bprecision, bscale, dwflags).ok()
+    pub unsafe fn DataConvert(&self, wsrctype: u16, wdsttype: u16, cbsrclength: usize, pcbdstlength: ::core::option::Option<*mut usize>, psrc: *const ::core::ffi::c_void, pdst: *mut ::core::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: ::core::option::Option<*mut u32>, bprecision: u8, bscale: u8, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DataConvert)(::windows::core::Interface::as_raw(self), wsrctype, wdsttype, cbsrclength, ::core::mem::transmute(pcbdstlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psrc), ::core::mem::transmute(pdst), cbdstmaxlength, dbssrcstatus, ::core::mem::transmute(pdbsstatus.unwrap_or(::std::ptr::null_mut())), bprecision, bscale, dwflags).ok()
     }
     pub unsafe fn CanConvert(&self, wsrctype: u16, wdsttype: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CanConvert)(::windows::core::Interface::as_raw(self), wsrctype, wdsttype).ok()

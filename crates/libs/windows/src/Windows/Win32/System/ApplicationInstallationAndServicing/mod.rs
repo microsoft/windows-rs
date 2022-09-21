@@ -62,12 +62,12 @@ pub unsafe fn ApplyDeltaGetReverseB(applyflags: i64, source: DELTA_INPUT, delta:
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: &mut [u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: *mut ::core::ffi::c_void, utargetsize: usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: *mut ::core::ffi::c_void, utargetsize: usize) -> super::super::Foundation::BOOL;
     }
-    ApplyDeltaProvidedB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), ::core::mem::transmute(lptarget.as_ptr()), lptarget.len() as _)
+    ApplyDeltaProvidedB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), ::core::mem::transmute(lptarget), utargetsize)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -372,12 +372,12 @@ pub unsafe fn DeltaFree(lpmemory: *const ::core::ffi::c_void) -> super::super::F
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeltaNormalizeProvidedB(filetypeset: i64, normalizeflags: i64, normalizeoptions: DELTA_INPUT, lpsource: &mut [u8]) -> super::super::Foundation::BOOL {
+pub unsafe fn DeltaNormalizeProvidedB(filetypeset: i64, normalizeflags: i64, normalizeoptions: DELTA_INPUT, lpsource: *mut ::core::ffi::c_void, usourcesize: usize) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeltaNormalizeProvidedB(filetypeset: i64, normalizeflags: i64, normalizeoptions: DELTA_INPUT, lpsource: *mut ::core::ffi::c_void, usourcesize: usize) -> super::super::Foundation::BOOL;
     }
-    DeltaNormalizeProvidedB(filetypeset, normalizeflags, ::core::mem::transmute(normalizeoptions), ::core::mem::transmute(lpsource.as_ptr()), lpsource.len() as _)
+    DeltaNormalizeProvidedB(filetypeset, normalizeflags, ::core::mem::transmute(normalizeoptions), ::core::mem::transmute(lpsource), usourcesize)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4019,14 +4019,14 @@ where
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NormalizeFileForPatchSignature(filebuffer: &mut [u8], optionflags: u32, optiondata: ::core::option::Option<*const PATCH_OPTION_DATA>, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>) -> i32 {
+pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: ::core::option::Option<*const PATCH_OPTION_DATA>, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, newfilecoffbase: u32, newfilecofftime: u32, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE) -> i32;
     }
     NormalizeFileForPatchSignature(
-        ::core::mem::transmute(filebuffer.as_ptr()),
-        filebuffer.len() as _,
+        ::core::mem::transmute(filebuffer),
+        filesize,
         optionflags,
         ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())),
         newfilecoffbase,
@@ -4055,7 +4055,7 @@ where
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryActCtxW<'a, P0>(dwflags: u32, hactctx: P0, pvsubinstance: ::core::option::Option<*const ::core::ffi::c_void>, ulinfoclass: u32, pvbuffer: ::core::option::Option<&mut [u8]>, pcbwrittenorrequired: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
+pub unsafe fn QueryActCtxW<'a, P0>(dwflags: u32, hactctx: P0, pvsubinstance: ::core::option::Option<*const ::core::ffi::c_void>, ulinfoclass: u32, pvbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cbbuffer: usize, pcbwrittenorrequired: ::core::option::Option<*mut usize>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
@@ -4063,7 +4063,7 @@ where
     extern "system" {
         fn QueryActCtxW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL;
     }
-    QueryActCtxW(dwflags, hactctx.into(), ::core::mem::transmute(pvsubinstance.unwrap_or(::std::ptr::null())), ulinfoclass, ::core::mem::transmute(pvbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbwrittenorrequired.unwrap_or(::std::ptr::null_mut())))
+    QueryActCtxW(dwflags, hactctx.into(), ::core::mem::transmute(pvsubinstance.unwrap_or(::std::ptr::null())), ulinfoclass, ::core::mem::transmute(pvbuffer.unwrap_or(::std::ptr::null_mut())), cbbuffer, ::core::mem::transmute(pcbwrittenorrequired.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
