@@ -1,14 +1,16 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IApplicationProfileStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
+unsafe impl ::windows::core::Vtable for IApplicationProfileStatics {
     type Vtable = IApplicationProfileStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IApplicationProfileStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationProfileStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Modes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
@@ -17,7 +19,7 @@ impl ApplicationProfile {
     pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Modes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationProfileModes>(result__)
+            (::windows::core::Vtable::vtable(this).Modes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationProfileModes>(result__)
         })
     }
     #[doc(hidden)]

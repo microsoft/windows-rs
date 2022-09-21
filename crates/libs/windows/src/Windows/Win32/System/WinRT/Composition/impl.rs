@@ -19,7 +19,7 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICompositionCapabilitiesInteropFactory, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ICompositionCapabilitiesInteropFactory, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }

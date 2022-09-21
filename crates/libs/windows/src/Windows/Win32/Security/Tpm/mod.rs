@@ -10,7 +10,7 @@ impl ITpmVirtualSmartCardManager {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        (::windows::core::Interface::vtable(self).CreateVirtualSmartCard)(::windows::core::Interface::as_raw(self), pszfriendlyname.into(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ::core::mem::transmute(ppszinstanceid), ::core::mem::transmute(pfneedreboot)).ok()
+        (::windows::core::Vtable::vtable(self).CreateVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszfriendlyname.into(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ::core::mem::transmute(ppszinstanceid), ::core::mem::transmute(pfneedreboot)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20,7 +20,7 @@ impl ITpmVirtualSmartCardManager {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).DestroyVirtualSmartCard)(::windows::core::Interface::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<ITpmVirtualSmartCardManager> for ::windows::core::IUnknown {
@@ -54,8 +54,10 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManager {
         f.debug_tuple("ITpmVirtualSmartCardManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager {
+unsafe impl ::windows::core::Vtable for ITpmVirtualSmartCardManager {
     type Vtable = ITpmVirtualSmartCardManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112b1dff_d9dc_41f7_869f_d67fee7cb591);
 }
 #[repr(C)]
@@ -83,7 +85,7 @@ impl ITpmVirtualSmartCardManager2 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CreateVirtualSmartCard)(::windows::core::Interface::as_raw(self), pszfriendlyname.into(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ::core::mem::transmute(ppszinstanceid), ::core::mem::transmute(pfneedreboot)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CreateVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszfriendlyname.into(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ::core::mem::transmute(ppszinstanceid), ::core::mem::transmute(pfneedreboot)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -93,7 +95,7 @@ impl ITpmVirtualSmartCardManager2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DestroyVirtualSmartCard)(::windows::core::Interface::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -103,8 +105,8 @@ impl ITpmVirtualSmartCardManager2 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        (::windows::core::Interface::vtable(self).CreateVirtualSmartCardWithPinPolicy)(
-            ::windows::core::Interface::as_raw(self),
+        (::windows::core::Vtable::vtable(self).CreateVirtualSmartCardWithPinPolicy)(
+            ::windows::core::Vtable::as_raw(self),
             pszfriendlyname.into(),
             badminalgid,
             ::core::mem::transmute(pbadminkey.as_ptr()),
@@ -171,8 +173,10 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManager2 {
         f.debug_tuple("ITpmVirtualSmartCardManager2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager2 {
+unsafe impl ::windows::core::Vtable for ITpmVirtualSmartCardManager2 {
     type Vtable = ITpmVirtualSmartCardManager2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdf8a2b9_02de_47f4_bc26_aa85ab5e5267);
 }
 #[repr(C)]
@@ -196,7 +200,7 @@ impl ITpmVirtualSmartCardManager3 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.CreateVirtualSmartCard)(::windows::core::Interface::as_raw(self), pszfriendlyname.into(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ::core::mem::transmute(ppszinstanceid), ::core::mem::transmute(pfneedreboot)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszfriendlyname.into(), badminalgid, ::core::mem::transmute(pbadminkey.as_ptr()), pbadminkey.len() as _, ::core::mem::transmute(pbadminkcv.as_ptr()), pbadminkcv.len() as _, ::core::mem::transmute(pbpuk.as_ptr()), pbpuk.len() as _, ::core::mem::transmute(pbpin.as_ptr()), pbpin.len() as _, fgenerate.into(), pstatuscallback.into().abi(), ::core::mem::transmute(ppszinstanceid), ::core::mem::transmute(pfneedreboot)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -206,7 +210,7 @@ impl ITpmVirtualSmartCardManager3 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.DestroyVirtualSmartCard)(::windows::core::Interface::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -216,8 +220,8 @@ impl ITpmVirtualSmartCardManager3 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
-        (::windows::core::Interface::vtable(self).base__.CreateVirtualSmartCardWithPinPolicy)(
-            ::windows::core::Interface::as_raw(self),
+        (::windows::core::Vtable::vtable(self).base__.CreateVirtualSmartCardWithPinPolicy)(
+            ::windows::core::Vtable::as_raw(self),
             pszfriendlyname.into(),
             badminalgid,
             ::core::mem::transmute(pbadminkey.as_ptr()),
@@ -246,8 +250,8 @@ impl ITpmVirtualSmartCardManager3 {
         P2: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateVirtualSmartCardWithAttestation)(
-            ::windows::core::Interface::as_raw(self),
+        (::windows::core::Vtable::vtable(self).CreateVirtualSmartCardWithAttestation)(
+            ::windows::core::Vtable::as_raw(self),
             pszfriendlyname.into(),
             badminalgid,
             ::core::mem::transmute(pbadminkey.as_ptr()),
@@ -329,8 +333,10 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManager3 {
         f.debug_tuple("ITpmVirtualSmartCardManager3").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager3 {
+unsafe impl ::windows::core::Vtable for ITpmVirtualSmartCardManager3 {
     type Vtable = ITpmVirtualSmartCardManager3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManager3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c745a97_f375_4150_be17_5950f694c699);
 }
 #[repr(C)]
@@ -347,10 +353,10 @@ pub struct ITpmVirtualSmartCardManager3_Vtbl {
 pub struct ITpmVirtualSmartCardManagerStatusCallback(::windows::core::IUnknown);
 impl ITpmVirtualSmartCardManagerStatusCallback {
     pub unsafe fn ReportProgress(&self, status: TPMVSCMGR_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReportProgress)(::windows::core::Interface::as_raw(self), status).ok()
+        (::windows::core::Vtable::vtable(self).ReportProgress)(::windows::core::Vtable::as_raw(self), status).ok()
     }
     pub unsafe fn ReportError(&self, error: TPMVSCMGR_ERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReportError)(::windows::core::Interface::as_raw(self), error).ok()
+        (::windows::core::Vtable::vtable(self).ReportError)(::windows::core::Vtable::as_raw(self), error).ok()
     }
 }
 impl ::core::convert::From<ITpmVirtualSmartCardManagerStatusCallback> for ::windows::core::IUnknown {
@@ -384,8 +390,10 @@ impl ::core::fmt::Debug for ITpmVirtualSmartCardManagerStatusCallback {
         f.debug_tuple("ITpmVirtualSmartCardManagerStatusCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManagerStatusCallback {
+unsafe impl ::windows::core::Vtable for ITpmVirtualSmartCardManagerStatusCallback {
     type Vtable = ITpmVirtualSmartCardManagerStatusCallback_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITpmVirtualSmartCardManagerStatusCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a1bb35f_abb8_451c_a1ae_33d98f1bef4a);
 }
 #[repr(C)]

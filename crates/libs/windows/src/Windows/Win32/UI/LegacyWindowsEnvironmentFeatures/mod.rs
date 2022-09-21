@@ -3,13 +3,13 @@
 pub struct IADesktopP2(::windows::core::IUnknown);
 impl IADesktopP2 {
     pub unsafe fn ReReadWallpaper(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReReadWallpaper)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).ReReadWallpaper)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetADObjectFlags(&self, pdwflags: *mut u32, dwmask: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetADObjectFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwflags), dwmask).ok()
+        (::windows::core::Vtable::vtable(self).GetADObjectFlags)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwflags), dwmask).ok()
     }
     pub unsafe fn UpdateAllDesktopSubscriptions(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateAllDesktopSubscriptions)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateAllDesktopSubscriptions)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -17,7 +17,7 @@ impl IADesktopP2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IOleObject>>,
     {
-        (::windows::core::Interface::vtable(self).MakeDynamicChanges)(::windows::core::Interface::as_raw(self), poleobj.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).MakeDynamicChanges)(::windows::core::Vtable::as_raw(self), poleobj.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IADesktopP2> for ::windows::core::IUnknown {
@@ -51,8 +51,10 @@ impl ::core::fmt::Debug for IADesktopP2 {
         f.debug_tuple("IADesktopP2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IADesktopP2 {
+unsafe impl ::windows::core::Vtable for IADesktopP2 {
     type Vtable = IADesktopP2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IADesktopP2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22754e2_4574_11d1_9888_006097deacf9);
 }
 #[repr(C)]
@@ -72,19 +74,19 @@ pub struct IADesktopP2_Vtbl {
 pub struct IActiveDesktopP(::windows::core::IUnknown);
 impl IActiveDesktopP {
     pub unsafe fn SetSafeMode(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSafeMode)(::windows::core::Interface::as_raw(self), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).SetSafeMode)(::windows::core::Vtable::as_raw(self), dwflags).ok()
     }
     pub unsafe fn EnsureUpdateHTML(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnsureUpdateHTML)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).EnsureUpdateHTML)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetScheme<'a, P0>(&self, pwszschemename: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetScheme)(::windows::core::Interface::as_raw(self), pwszschemename.into(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).SetScheme)(::windows::core::Vtable::as_raw(self), pwszschemename.into(), dwflags).ok()
     }
     pub unsafe fn GetScheme(&self, pwszschemename: ::windows::core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetScheme)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszschemename), ::core::mem::transmute(pdwcchbuffer), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).GetScheme)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszschemename), ::core::mem::transmute(pdwcchbuffer), dwflags).ok()
     }
 }
 impl ::core::convert::From<IActiveDesktopP> for ::windows::core::IUnknown {
@@ -118,8 +120,10 @@ impl ::core::fmt::Debug for IActiveDesktopP {
         f.debug_tuple("IActiveDesktopP").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IActiveDesktopP {
+unsafe impl ::windows::core::Vtable for IActiveDesktopP {
     type Vtable = IActiveDesktopP_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IActiveDesktopP {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
 }
 #[repr(C)]
@@ -141,7 +145,7 @@ impl IBriefcaseInitiator {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IMoniker>>,
     {
-        (::windows::core::Interface::vtable(self).IsMonikerInBriefcase)(::windows::core::Interface::as_raw(self), pmk.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).IsMonikerInBriefcase)(::windows::core::Vtable::as_raw(self), pmk.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IBriefcaseInitiator> for ::windows::core::IUnknown {
@@ -175,8 +179,10 @@ impl ::core::fmt::Debug for IBriefcaseInitiator {
         f.debug_tuple("IBriefcaseInitiator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IBriefcaseInitiator {
+unsafe impl ::windows::core::Vtable for IBriefcaseInitiator {
     type Vtable = IBriefcaseInitiator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IBriefcaseInitiator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180164_da16_101a_935c_444553540000);
 }
 #[repr(C)]
@@ -199,19 +205,19 @@ impl IEmptyVolumeCache {
         P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hkregkey.into(), pcwszvolume.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
     }
     pub unsafe fn GetSpaceUsed<'a, P0>(&self, pdwlspaceused: *mut u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
-        (::windows::core::Interface::vtable(self).GetSpaceUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).GetSpaceUsed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
     }
     pub unsafe fn Purge<'a, P0>(&self, dwlspacetofree: u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
-        (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Purge)(::windows::core::Vtable::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -219,11 +225,11 @@ impl IEmptyVolumeCache {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).ShowProperties)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
+        (::windows::core::Vtable::vtable(self).ShowProperties)(::windows::core::Vtable::as_raw(self), hwnd.into()).ok()
     }
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Deactivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EMPTY_VOLUME_CACHE_FLAGS>(result__)
+        (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EMPTY_VOLUME_CACHE_FLAGS>(result__)
     }
 }
 impl ::core::convert::From<IEmptyVolumeCache> for ::windows::core::IUnknown {
@@ -257,8 +263,10 @@ impl ::core::fmt::Debug for IEmptyVolumeCache {
         f.debug_tuple("IEmptyVolumeCache").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IEmptyVolumeCache {
+unsafe impl ::windows::core::Vtable for IEmptyVolumeCache {
     type Vtable = IEmptyVolumeCache_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IEmptyVolumeCache {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fce5227_04da_11d1_a004_00805f8abe06);
 }
 #[repr(C)]
@@ -288,19 +296,19 @@ impl IEmptyVolumeCache2 {
         P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), hkregkey.into(), pcwszvolume.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
     }
     pub unsafe fn GetSpaceUsed<'a, P0>(&self, pdwlspaceused: *mut u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetSpaceUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetSpaceUsed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
     }
     pub unsafe fn Purge<'a, P0>(&self, dwlspacetofree: u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Purge)(::windows::core::Interface::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Purge)(::windows::core::Vtable::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -308,11 +316,11 @@ impl IEmptyVolumeCache2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).base__.ShowProperties)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.ShowProperties)(::windows::core::Vtable::as_raw(self), hwnd.into()).ok()
     }
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Deactivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EMPTY_VOLUME_CACHE_FLAGS>(result__)
+        (::windows::core::Vtable::vtable(self).base__.Deactivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EMPTY_VOLUME_CACHE_FLAGS>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
@@ -322,7 +330,7 @@ impl IEmptyVolumeCache2 {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).InitializeEx)(::windows::core::Interface::as_raw(self), hkregkey.into(), pcwszvolume.into(), pcwszkeyname.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(ppwszbtntext), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Vtable::vtable(self).InitializeEx)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), pcwszkeyname.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(ppwszbtntext), ::core::mem::transmute(pdwflags)).ok()
     }
 }
 impl ::core::convert::From<IEmptyVolumeCache2> for ::windows::core::IUnknown {
@@ -371,8 +379,10 @@ impl ::core::fmt::Debug for IEmptyVolumeCache2 {
         f.debug_tuple("IEmptyVolumeCache2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IEmptyVolumeCache2 {
+unsafe impl ::windows::core::Vtable for IEmptyVolumeCache2 {
     type Vtable = IEmptyVolumeCache2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IEmptyVolumeCache2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
 }
 #[repr(C)]
@@ -392,13 +402,13 @@ impl IEmptyVolumeCacheCallBack {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).ScanProgress)(::windows::core::Interface::as_raw(self), dwlspaceused, dwflags, pcwszstatus.into()).ok()
+        (::windows::core::Vtable::vtable(self).ScanProgress)(::windows::core::Vtable::as_raw(self), dwlspaceused, dwflags, pcwszstatus.into()).ok()
     }
     pub unsafe fn PurgeProgress<'a, P0>(&self, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PurgeProgress)(::windows::core::Interface::as_raw(self), dwlspacefreed, dwlspacetofree, dwflags, pcwszstatus.into()).ok()
+        (::windows::core::Vtable::vtable(self).PurgeProgress)(::windows::core::Vtable::as_raw(self), dwlspacefreed, dwlspacetofree, dwflags, pcwszstatus.into()).ok()
     }
 }
 impl ::core::convert::From<IEmptyVolumeCacheCallBack> for ::windows::core::IUnknown {
@@ -432,8 +442,10 @@ impl ::core::fmt::Debug for IEmptyVolumeCacheCallBack {
         f.debug_tuple("IEmptyVolumeCacheCallBack").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IEmptyVolumeCacheCallBack {
+unsafe impl ::windows::core::Vtable for IEmptyVolumeCacheCallBack {
     type Vtable = IEmptyVolumeCacheCallBack_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IEmptyVolumeCacheCallBack {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e793361_73c6_11d0_8469_00aa00442901);
 }
 #[repr(C)]
@@ -456,11 +468,11 @@ impl IReconcilableObject {
         P2: ::std::convert::Into<super::super::Foundation::HWND>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::StructuredStorage::IStorage>>,
     {
-        (::windows::core::Interface::vtable(self).Reconcile)(::windows::core::Interface::as_raw(self), pinitiator.into().abi(), dwflags, hwndowner.into(), hwndprogressfeedback.into(), rgpmkotherinput.len() as _, ::core::mem::transmute(rgpmkotherinput.as_ptr()), ::core::mem::transmute(ploutindex), pstgnewresidues.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).Reconcile)(::windows::core::Vtable::as_raw(self), pinitiator.into().abi(), dwflags, hwndowner.into(), hwndprogressfeedback.into(), rgpmkotherinput.len() as _, ::core::mem::transmute(rgpmkotherinput.as_ptr()), ::core::mem::transmute(ploutindex), pstgnewresidues.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetProgressFeedbackMaxEstimate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetProgressFeedbackMaxEstimate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IReconcilableObject> for ::windows::core::IUnknown {
@@ -494,8 +506,10 @@ impl ::core::fmt::Debug for IReconcilableObject {
         f.debug_tuple("IReconcilableObject").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IReconcilableObject {
+unsafe impl ::windows::core::Vtable for IReconcilableObject {
     type Vtable = IReconcilableObject_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IReconcilableObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180162_da16_101a_935c_444553540000);
 }
 #[repr(C)]
@@ -516,10 +530,10 @@ impl IReconcileInitiator {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetAbortCallback)(::windows::core::Interface::as_raw(self), punkforabort.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetAbortCallback)(::windows::core::Vtable::as_raw(self), punkforabort.into().abi()).ok()
     }
     pub unsafe fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProgressFeedback)(::windows::core::Interface::as_raw(self), ulprogress, ulprogressmax).ok()
+        (::windows::core::Vtable::vtable(self).SetProgressFeedback)(::windows::core::Vtable::as_raw(self), ulprogress, ulprogressmax).ok()
     }
 }
 impl ::core::convert::From<IReconcileInitiator> for ::windows::core::IUnknown {
@@ -553,8 +567,10 @@ impl ::core::fmt::Debug for IReconcileInitiator {
         f.debug_tuple("IReconcileInitiator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IReconcileInitiator {
+unsafe impl ::windows::core::Vtable for IReconcileInitiator {
     type Vtable = IReconcileInitiator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IReconcileInitiator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99180161_da16_101a_935c_444553540000);
 }
 #[repr(C)]

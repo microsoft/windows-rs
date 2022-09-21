@@ -1,14 +1,16 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAlternateWordForm(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAlternateWordForm {
+unsafe impl ::windows::core::Vtable for IAlternateWordForm {
     type Vtable = IAlternateWordForm_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAlternateWordForm {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47396c1e_51b9_4207_9146_248e636a1d1d);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAlternateWordForm_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SourceTextSegment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT,
     pub AlternateText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub NormalizationFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AlternateNormalizationFormat) -> ::windows::core::HRESULT,
@@ -16,28 +18,32 @@ pub struct IAlternateWordForm_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISelectableWordSegment(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISelectableWordSegment {
+unsafe impl ::windows::core::Vtable for ISelectableWordSegment {
     type Vtable = ISelectableWordSegment_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISelectableWordSegment {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x916a4cb7_8aa7_4c78_b374_5dedb752e60b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectableWordSegment_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SourceTextSegment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISelectableWordsSegmenter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISelectableWordsSegmenter {
+unsafe impl ::windows::core::Vtable for ISelectableWordsSegmenter {
     type Vtable = ISelectableWordsSegmenter_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISelectableWordsSegmenter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6dc31e7_4b13_45c5_8897_7d71269e085d);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectableWordsSegmenter_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetTokenAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -52,27 +58,31 @@ pub struct ISelectableWordsSegmenter_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISelectableWordsSegmenterFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISelectableWordsSegmenterFactory {
+unsafe impl ::windows::core::Vtable for ISelectableWordsSegmenterFactory {
     type Vtable = ISelectableWordsSegmenterFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISelectableWordsSegmenterFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c7a7648_6057_4339_bc70_f210010a4150);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISelectableWordsSegmenterFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateWithLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISemanticTextQuery(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISemanticTextQuery {
+unsafe impl ::windows::core::Vtable for ISemanticTextQuery {
     type Vtable = ISemanticTextQuery_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISemanticTextQuery {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a1cab51_1fb2_4909_80b8_35731a2b3e7f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISemanticTextQuery_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub Find: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -85,28 +95,32 @@ pub struct ISemanticTextQuery_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISemanticTextQueryFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ISemanticTextQueryFactory {
+unsafe impl ::windows::core::Vtable for ISemanticTextQueryFactory {
     type Vtable = ISemanticTextQueryFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISemanticTextQueryFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x238c0503_f995_4587_8777_a2b7d80acfef);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISemanticTextQueryFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateWithLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, filterlanguage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITextConversionGenerator(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITextConversionGenerator {
+unsafe impl ::windows::core::Vtable for ITextConversionGenerator {
     type Vtable = ITextConversionGenerator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITextConversionGenerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03606a5e_2aa9_4ab6_af8b_a562b63a8992);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextConversionGenerator_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub LanguageAvailableButNotInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -121,41 +135,47 @@ pub struct ITextConversionGenerator_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITextConversionGeneratorFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITextConversionGeneratorFactory {
+unsafe impl ::windows::core::Vtable for ITextConversionGeneratorFactory {
     type Vtable = ITextConversionGeneratorFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITextConversionGeneratorFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcaa3781_3083_49ab_be15_56dfbbb74d6f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextConversionGeneratorFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITextPhoneme(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITextPhoneme {
+unsafe impl ::windows::core::Vtable for ITextPhoneme {
     type Vtable = ITextPhoneme_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITextPhoneme {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9362a40a_9b7a_4569_94cf_d84f2f38cf9b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPhoneme_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ReadingText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITextPredictionGenerator(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITextPredictionGenerator {
+unsafe impl ::windows::core::Vtable for ITextPredictionGenerator {
     type Vtable = ITextPredictionGenerator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITextPredictionGenerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eacab07_abf1_4cb6_9d9e_326f2b468756);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPredictionGenerator_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub LanguageAvailableButNotInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -170,14 +190,16 @@ pub struct ITextPredictionGenerator_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITextPredictionGenerator2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITextPredictionGenerator2 {
+unsafe impl ::windows::core::Vtable for ITextPredictionGenerator2 {
     type Vtable = ITextPredictionGenerator2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITextPredictionGenerator2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb84723b8_2c77_486a_900a_a3453eedc15d);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPredictionGenerator2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetCandidatesWithParametersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -198,27 +220,31 @@ pub struct ITextPredictionGenerator2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITextPredictionGeneratorFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITextPredictionGeneratorFactory {
+unsafe impl ::windows::core::Vtable for ITextPredictionGeneratorFactory {
     type Vtable = ITextPredictionGeneratorFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITextPredictionGeneratorFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7257b416_8ba2_4751_9d30_9d85435653a2);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPredictionGeneratorFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITextReverseConversionGenerator(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITextReverseConversionGenerator {
+unsafe impl ::windows::core::Vtable for ITextReverseConversionGenerator {
     type Vtable = ITextReverseConversionGenerator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITextReverseConversionGenerator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51e7f514_9c51_4d86_ae1b_b498fbad8313);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextReverseConversionGenerator_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub LanguageAvailableButNotInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -229,14 +255,16 @@ pub struct ITextReverseConversionGenerator_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITextReverseConversionGenerator2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITextReverseConversionGenerator2 {
+unsafe impl ::windows::core::Vtable for ITextReverseConversionGenerator2 {
     type Vtable = ITextReverseConversionGenerator2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITextReverseConversionGenerator2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aafd2ec_85d6_46fd_828a_3a4830fa6e18);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextReverseConversionGenerator2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetPhonemesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -245,27 +273,31 @@ pub struct ITextReverseConversionGenerator2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ITextReverseConversionGeneratorFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITextReverseConversionGeneratorFactory {
+unsafe impl ::windows::core::Vtable for ITextReverseConversionGeneratorFactory {
     type Vtable = ITextReverseConversionGeneratorFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITextReverseConversionGeneratorFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63bed326_1fda_41f6_89d5_23ddea3c729a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextReverseConversionGeneratorFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUnicodeCharactersStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUnicodeCharactersStatics {
+unsafe impl ::windows::core::Vtable for IUnicodeCharactersStatics {
     type Vtable = IUnicodeCharactersStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUnicodeCharactersStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97909e87_9291_4f91_b6c8_b6e359d7a7fb);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnicodeCharactersStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetCodepointFromSurrogatePair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, highsurrogate: u32, lowsurrogate: u32, result__: *mut u32) -> ::windows::core::HRESULT,
     pub GetSurrogatePairFromCodepoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, codepoint: u32, highsurrogate: *mut u16, lowsurrogate: *mut u16) -> ::windows::core::HRESULT,
     pub IsHighSurrogate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, codepoint: u32, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -287,14 +319,16 @@ pub struct IUnicodeCharactersStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWordSegment(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWordSegment {
+unsafe impl ::windows::core::Vtable for IWordSegment {
     type Vtable = IWordSegment_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWordSegment {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d4ba6d_987c_4cc0_b6bd_d49a11b38f9a);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWordSegment_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SourceTextSegment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TextSegment) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -305,14 +339,16 @@ pub struct IWordSegment_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWordsSegmenter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWordsSegmenter {
+unsafe impl ::windows::core::Vtable for IWordsSegmenter {
     type Vtable = IWordsSegmenter_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWordsSegmenter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86b4d4d1_b2fe_4e34_a81d_66640300454f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWordsSegmenter_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ResolvedLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetTokenAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -327,14 +363,16 @@ pub struct IWordsSegmenter_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWordsSegmenterFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWordsSegmenterFactory {
+unsafe impl ::windows::core::Vtable for IWordsSegmenterFactory {
     type Vtable = IWordsSegmenterFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWordsSegmenterFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6977274_fc35_455c_8bfb_6d7f4653ca97);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWordsSegmenterFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateWithLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -345,21 +383,21 @@ impl AlternateWordForm {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SourceTextSegment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TextSegment>(result__)
+            (::windows::core::Vtable::vtable(this).SourceTextSegment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TextSegment>(result__)
         }
     }
     pub fn AlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AlternateText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).AlternateText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn NormalizationFormat(&self) -> ::windows::core::Result<AlternateNormalizationFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizationFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AlternateNormalizationFormat>(result__)
+            (::windows::core::Vtable::vtable(this).NormalizationFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AlternateNormalizationFormat>(result__)
         }
     }
 }
@@ -386,8 +424,10 @@ unsafe impl ::windows::core::RuntimeType for AlternateWordForm {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for AlternateWordForm {
+unsafe impl ::windows::core::Vtable for AlternateWordForm {
     type Vtable = IAlternateWordForm_Vtbl;
+}
+unsafe impl ::windows::core::Interface for AlternateWordForm {
     const IID: ::windows::core::GUID = <IAlternateWordForm as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AlternateWordForm {
@@ -433,14 +473,14 @@ impl SelectableWordSegment {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Text)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SourceTextSegment(&self) -> ::windows::core::Result<TextSegment> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SourceTextSegment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TextSegment>(result__)
+            (::windows::core::Vtable::vtable(this).SourceTextSegment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TextSegment>(result__)
         }
     }
 }
@@ -467,8 +507,10 @@ unsafe impl ::windows::core::RuntimeType for SelectableWordSegment {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for SelectableWordSegment {
+unsafe impl ::windows::core::Vtable for SelectableWordSegment {
     type Vtable = ISelectableWordSegment_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SelectableWordSegment {
     const IID: ::windows::core::GUID = <ISelectableWordSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SelectableWordSegment {
@@ -514,14 +556,14 @@ impl SelectableWordsSegmenter {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ResolvedLanguage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetTokenAt(&self, text: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<SelectableWordSegment> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenAt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, result__.as_mut_ptr()).from_abi::<SelectableWordSegment>(result__)
+            (::windows::core::Vtable::vtable(this).GetTokenAt)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(text), startindex, result__.as_mut_ptr()).from_abi::<SelectableWordSegment>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -530,7 +572,7 @@ impl SelectableWordsSegmenter {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokens)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>>(result__)
+            (::windows::core::Vtable::vtable(this).GetTokens)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -540,12 +582,12 @@ impl SelectableWordsSegmenter {
         P0: ::std::convert::Into<::windows::core::InParam<'a, SelectableWordSegmentsTokenizingHandler>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Tokenize)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(text), startindex, handler.into().abi()).ok() }
     }
     pub fn CreateWithLanguage(language: &::windows::core::HSTRING) -> ::windows::core::Result<SelectableWordsSegmenter> {
         Self::ISelectableWordsSegmenterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(language), result__.as_mut_ptr()).from_abi::<SelectableWordsSegmenter>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithLanguage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(language), result__.as_mut_ptr()).from_abi::<SelectableWordsSegmenter>(result__)
         })
     }
     #[doc(hidden)]
@@ -577,8 +619,10 @@ unsafe impl ::windows::core::RuntimeType for SelectableWordsSegmenter {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for SelectableWordsSegmenter {
+unsafe impl ::windows::core::Vtable for SelectableWordsSegmenter {
     type Vtable = ISelectableWordsSegmenter_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SelectableWordsSegmenter {
     const IID: ::windows::core::GUID = <ISelectableWordsSegmenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SelectableWordsSegmenter {
@@ -626,7 +670,7 @@ impl SemanticTextQuery {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Find)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(content), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
+            (::windows::core::Vtable::vtable(this).Find)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -635,19 +679,19 @@ impl SemanticTextQuery {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindInProperty)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertycontent), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
+            (::windows::core::Vtable::vtable(this).FindInProperty)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertycontent), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
         }
     }
     pub fn Create(aqsfilter: &::windows::core::HSTRING) -> ::windows::core::Result<SemanticTextQuery> {
         Self::ISemanticTextQueryFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(aqsfilter), result__.as_mut_ptr()).from_abi::<SemanticTextQuery>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(aqsfilter), result__.as_mut_ptr()).from_abi::<SemanticTextQuery>(result__)
         })
     }
     pub fn CreateWithLanguage(aqsfilter: &::windows::core::HSTRING, filterlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<SemanticTextQuery> {
         Self::ISemanticTextQueryFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(aqsfilter), ::core::mem::transmute_copy(filterlanguage), result__.as_mut_ptr()).from_abi::<SemanticTextQuery>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithLanguage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(aqsfilter), ::core::mem::transmute_copy(filterlanguage), result__.as_mut_ptr()).from_abi::<SemanticTextQuery>(result__)
         })
     }
     #[doc(hidden)]
@@ -679,8 +723,10 @@ unsafe impl ::windows::core::RuntimeType for SemanticTextQuery {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for SemanticTextQuery {
+unsafe impl ::windows::core::Vtable for SemanticTextQuery {
     type Vtable = ISemanticTextQuery_Vtbl;
+}
+unsafe impl ::windows::core::Interface for SemanticTextQuery {
     const IID: ::windows::core::GUID = <ISemanticTextQuery as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SemanticTextQuery {
@@ -726,14 +772,14 @@ impl TextConversionGenerator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ResolvedLanguage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn LanguageAvailableButNotInstalled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).LanguageAvailableButNotInstalled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -742,7 +788,7 @@ impl TextConversionGenerator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCandidatesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -751,13 +797,13 @@ impl TextConversionGenerator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     pub fn Create(languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<TextConversionGenerator> {
         Self::ITextConversionGeneratorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(languagetag), result__.as_mut_ptr()).from_abi::<TextConversionGenerator>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(languagetag), result__.as_mut_ptr()).from_abi::<TextConversionGenerator>(result__)
         })
     }
     #[doc(hidden)]
@@ -789,8 +835,10 @@ unsafe impl ::windows::core::RuntimeType for TextConversionGenerator {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for TextConversionGenerator {
+unsafe impl ::windows::core::Vtable for TextConversionGenerator {
     type Vtable = ITextConversionGenerator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for TextConversionGenerator {
     const IID: ::windows::core::GUID = <ITextConversionGenerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextConversionGenerator {
@@ -836,14 +884,14 @@ impl TextPhoneme {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ReadingText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ReadingText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -870,8 +918,10 @@ unsafe impl ::windows::core::RuntimeType for TextPhoneme {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for TextPhoneme {
+unsafe impl ::windows::core::Vtable for TextPhoneme {
     type Vtable = ITextPhoneme_Vtbl;
+}
+unsafe impl ::windows::core::Interface for TextPhoneme {
     const IID: ::windows::core::GUID = <ITextPhoneme as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextPhoneme {
@@ -917,14 +967,14 @@ impl TextPredictionGenerator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ResolvedLanguage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn LanguageAvailableButNotInstalled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).LanguageAvailableButNotInstalled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -933,7 +983,7 @@ impl TextPredictionGenerator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCandidatesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -942,7 +992,7 @@ impl TextPredictionGenerator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -955,7 +1005,7 @@ impl TextPredictionGenerator {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithParametersAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, predictionoptions, previousstrings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCandidatesWithParametersAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, predictionoptions, previousstrings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -968,7 +1018,7 @@ impl TextPredictionGenerator {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetNextWordCandidatesAsync)(::windows::core::Interface::as_raw(this), maxcandidates, previousstrings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetNextWordCandidatesAsync)(::windows::core::Vtable::as_raw(this), maxcandidates, previousstrings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -977,19 +1027,19 @@ impl TextPredictionGenerator {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).InputScope)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Text::Core::CoreTextInputScope>(result__)
+            (::windows::core::Vtable::vtable(this).InputScope)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Text::Core::CoreTextInputScope>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
     #[cfg(feature = "UI_Text_Core")]
     pub fn SetInputScope(&self, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetInputScope)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Create(languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<TextPredictionGenerator> {
         Self::ITextPredictionGeneratorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(languagetag), result__.as_mut_ptr()).from_abi::<TextPredictionGenerator>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(languagetag), result__.as_mut_ptr()).from_abi::<TextPredictionGenerator>(result__)
         })
     }
     #[doc(hidden)]
@@ -1021,8 +1071,10 @@ unsafe impl ::windows::core::RuntimeType for TextPredictionGenerator {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for TextPredictionGenerator {
+unsafe impl ::windows::core::Vtable for TextPredictionGenerator {
     type Vtable = ITextPredictionGenerator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for TextPredictionGenerator {
     const IID: ::windows::core::GUID = <ITextPredictionGenerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextPredictionGenerator {
@@ -1068,14 +1120,14 @@ impl TextReverseConversionGenerator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ResolvedLanguage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn LanguageAvailableButNotInstalled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).LanguageAvailableButNotInstalled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1084,7 +1136,7 @@ impl TextReverseConversionGenerator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertBackAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).ConvertBackAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1093,13 +1145,13 @@ impl TextReverseConversionGenerator {
         let this = &::windows::core::Interface::cast::<ITextReverseConversionGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetPhonemesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetPhonemesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>>(result__)
         }
     }
     pub fn Create(languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<TextReverseConversionGenerator> {
         Self::ITextReverseConversionGeneratorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(languagetag), result__.as_mut_ptr()).from_abi::<TextReverseConversionGenerator>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(languagetag), result__.as_mut_ptr()).from_abi::<TextReverseConversionGenerator>(result__)
         })
     }
     #[doc(hidden)]
@@ -1131,8 +1183,10 @@ unsafe impl ::windows::core::RuntimeType for TextReverseConversionGenerator {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for TextReverseConversionGenerator {
+unsafe impl ::windows::core::Vtable for TextReverseConversionGenerator {
     type Vtable = ITextReverseConversionGenerator_Vtbl;
+}
+unsafe impl ::windows::core::Interface for TextReverseConversionGenerator {
     const IID: ::windows::core::GUID = <ITextReverseConversionGenerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextReverseConversionGenerator {
@@ -1176,100 +1230,100 @@ impl UnicodeCharacters {
     pub fn GetCodepointFromSurrogatePair(highsurrogate: u32, lowsurrogate: u32) -> ::windows::core::Result<u32> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCodepointFromSurrogatePair)(::windows::core::Interface::as_raw(this), highsurrogate, lowsurrogate, result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).GetCodepointFromSurrogatePair)(::windows::core::Vtable::as_raw(this), highsurrogate, lowsurrogate, result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
     pub fn GetSurrogatePairFromCodepoint(codepoint: u32, highsurrogate: &mut u16, lowsurrogate: &mut u16) -> ::windows::core::Result<()> {
-        Self::IUnicodeCharactersStatics(|this| unsafe { (::windows::core::Interface::vtable(this).GetSurrogatePairFromCodepoint)(::windows::core::Interface::as_raw(this), codepoint, highsurrogate, lowsurrogate).ok() })
+        Self::IUnicodeCharactersStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).GetSurrogatePairFromCodepoint)(::windows::core::Vtable::as_raw(this), codepoint, highsurrogate, lowsurrogate).ok() })
     }
     pub fn IsHighSurrogate(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsHighSurrogate)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsHighSurrogate)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsLowSurrogate(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsLowSurrogate)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsLowSurrogate)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsSupplementary(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsSupplementary)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsSupplementary)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsNoncharacter(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsNoncharacter)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsNoncharacter)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsWhitespace(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsWhitespace)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsWhitespace)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsAlphabetic(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsAlphabetic)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsAlphabetic)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsCased(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsCased)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsCased)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsUppercase(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsUppercase)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsUppercase)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsLowercase(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsLowercase)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsLowercase)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsIdStart(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsIdStart)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsIdStart)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsIdContinue(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsIdContinue)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsIdContinue)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsGraphemeBase(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsGraphemeBase)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsGraphemeBase)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsGraphemeExtend(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsGraphemeExtend)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsGraphemeExtend)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn GetNumericType(codepoint: u32) -> ::windows::core::Result<UnicodeNumericType> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumericType)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<UnicodeNumericType>(result__)
+            (::windows::core::Vtable::vtable(this).GetNumericType)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<UnicodeNumericType>(result__)
         })
     }
     pub fn GetGeneralCategory(codepoint: u32) -> ::windows::core::Result<UnicodeGeneralCategory> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetGeneralCategory)(::windows::core::Interface::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<UnicodeGeneralCategory>(result__)
+            (::windows::core::Vtable::vtable(this).GetGeneralCategory)(::windows::core::Vtable::as_raw(this), codepoint, result__.as_mut_ptr()).from_abi::<UnicodeGeneralCategory>(result__)
         })
     }
     #[doc(hidden)]
@@ -1289,14 +1343,14 @@ impl WordSegment {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Text)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SourceTextSegment(&self) -> ::windows::core::Result<TextSegment> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SourceTextSegment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TextSegment>(result__)
+            (::windows::core::Vtable::vtable(this).SourceTextSegment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TextSegment>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1305,7 +1359,7 @@ impl WordSegment {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AlternateForms)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AlternateWordForm>>(result__)
+            (::windows::core::Vtable::vtable(this).AlternateForms)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AlternateWordForm>>(result__)
         }
     }
 }
@@ -1332,8 +1386,10 @@ unsafe impl ::windows::core::RuntimeType for WordSegment {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WordSegment {
+unsafe impl ::windows::core::Vtable for WordSegment {
     type Vtable = IWordSegment_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WordSegment {
     const IID: ::windows::core::GUID = <IWordSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WordSegment {
@@ -1379,14 +1435,14 @@ impl WordsSegmenter {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ResolvedLanguage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetTokenAt(&self, text: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<WordSegment> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenAt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, result__.as_mut_ptr()).from_abi::<WordSegment>(result__)
+            (::windows::core::Vtable::vtable(this).GetTokenAt)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(text), startindex, result__.as_mut_ptr()).from_abi::<WordSegment>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1395,7 +1451,7 @@ impl WordsSegmenter {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokens)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<WordSegment>>(result__)
+            (::windows::core::Vtable::vtable(this).GetTokens)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<WordSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1405,12 +1461,12 @@ impl WordsSegmenter {
         P0: ::std::convert::Into<::windows::core::InParam<'a, WordSegmentsTokenizingHandler>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Tokenize)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(text), startindex, handler.into().abi()).ok() }
     }
     pub fn CreateWithLanguage(language: &::windows::core::HSTRING) -> ::windows::core::Result<WordsSegmenter> {
         Self::IWordsSegmenterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(language), result__.as_mut_ptr()).from_abi::<WordsSegmenter>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithLanguage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(language), result__.as_mut_ptr()).from_abi::<WordsSegmenter>(result__)
         })
     }
     #[doc(hidden)]
@@ -1442,8 +1498,10 @@ unsafe impl ::windows::core::RuntimeType for WordsSegmenter {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for WordsSegmenter {
+unsafe impl ::windows::core::Vtable for WordsSegmenter {
     type Vtable = IWordsSegmenter_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WordsSegmenter {
     const IID: ::windows::core::GUID = <IWordsSegmenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WordsSegmenter {
@@ -1737,7 +1795,7 @@ impl SelectableWordSegmentsTokenizingHandler {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1801,8 +1859,11 @@ impl ::core::fmt::Debug for SelectableWordSegmentsTokenizingHandler {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::Interface for SelectableWordSegmentsTokenizingHandler {
+unsafe impl ::windows::core::Vtable for SelectableWordSegmentsTokenizingHandler {
     type Vtable = SelectableWordSegmentsTokenizingHandler_Vtbl;
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::Interface for SelectableWordSegmentsTokenizingHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592);
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1843,7 +1904,7 @@ impl WordSegmentsTokenizingHandler {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1907,8 +1968,11 @@ impl ::core::fmt::Debug for WordSegmentsTokenizingHandler {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::Interface for WordSegmentsTokenizingHandler {
+unsafe impl ::windows::core::Vtable for WordSegmentsTokenizingHandler {
     type Vtable = WordSegmentsTokenizingHandler_Vtbl;
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::Interface for WordSegmentsTokenizingHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35);
 }
 #[cfg(feature = "Foundation_Collections")]

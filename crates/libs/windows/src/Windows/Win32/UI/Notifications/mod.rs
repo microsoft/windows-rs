@@ -7,7 +7,7 @@ impl INotificationActivationCallback {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), appusermodelid.into(), invokedargs.into(), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), appusermodelid.into(), invokedargs.into(), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
 }
 impl ::core::convert::From<INotificationActivationCallback> for ::windows::core::IUnknown {
@@ -41,8 +41,10 @@ impl ::core::fmt::Debug for INotificationActivationCallback {
         f.debug_tuple("INotificationActivationCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for INotificationActivationCallback {
+unsafe impl ::windows::core::Vtable for INotificationActivationCallback {
     type Vtable = INotificationActivationCallback_Vtbl;
+}
+unsafe impl ::windows::core::Interface for INotificationActivationCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
 }
 #[repr(C)]

@@ -48,7 +48,7 @@ impl II2cDeviceStatics_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, II2cDeviceStatics, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, II2cDeviceStatics, OFFSET>(),
             GetDeviceSelector: GetDeviceSelector::<Identity, Impl, OFFSET>,
             GetDeviceSelectorFromFriendlyName: GetDeviceSelectorFromFriendlyName::<Identity, Impl, OFFSET>,
             FromIdAsync: FromIdAsync::<Identity, Impl, OFFSET>,

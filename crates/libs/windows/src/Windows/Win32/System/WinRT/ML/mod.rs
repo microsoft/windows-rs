@@ -9,7 +9,7 @@ impl ILearningModelDeviceFactoryNative {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFromD3D12CommandQueue)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).CreateFromD3D12CommandQueue)(::windows::core::Vtable::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<ILearningModelDeviceFactoryNative> for ::windows::core::IUnknown {
@@ -43,8 +43,10 @@ impl ::core::fmt::Debug for ILearningModelDeviceFactoryNative {
         f.debug_tuple("ILearningModelDeviceFactoryNative").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ILearningModelDeviceFactoryNative {
+unsafe impl ::windows::core::Vtable for ILearningModelDeviceFactoryNative {
     type Vtable = ILearningModelDeviceFactoryNative_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILearningModelDeviceFactoryNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e9b31a1_662e_4ae0_af67_f63bb337e634);
 }
 #[repr(C)]
@@ -64,7 +66,7 @@ impl ILearningModelOperatorProviderNative {
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
     pub unsafe fn GetRegistry(&self) -> ::windows::core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetRegistry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>(result__)
+        (::windows::core::Vtable::vtable(self).GetRegistry)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>(result__)
     }
 }
 impl ::core::convert::From<ILearningModelOperatorProviderNative> for ::windows::core::IUnknown {
@@ -98,8 +100,10 @@ impl ::core::fmt::Debug for ILearningModelOperatorProviderNative {
         f.debug_tuple("ILearningModelOperatorProviderNative").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ILearningModelOperatorProviderNative {
+unsafe impl ::windows::core::Vtable for ILearningModelOperatorProviderNative {
     type Vtable = ILearningModelOperatorProviderNative_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILearningModelOperatorProviderNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1adaa23a_eb67_41f3_aad8_5d984e9bacd4);
 }
 #[repr(C)]
@@ -116,7 +120,7 @@ pub struct ILearningModelOperatorProviderNative_Vtbl {
 pub struct ILearningModelSessionOptionsNative(::windows::core::IUnknown);
 impl ILearningModelSessionOptionsNative {
     pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIntraOpNumThreadsOverride)(::windows::core::Interface::as_raw(self), intraopnumthreads).ok()
+        (::windows::core::Vtable::vtable(self).SetIntraOpNumThreadsOverride)(::windows::core::Vtable::as_raw(self), intraopnumthreads).ok()
     }
 }
 impl ::core::convert::From<ILearningModelSessionOptionsNative> for ::windows::core::IUnknown {
@@ -150,8 +154,10 @@ impl ::core::fmt::Debug for ILearningModelSessionOptionsNative {
         f.debug_tuple("ILearningModelSessionOptionsNative").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ILearningModelSessionOptionsNative {
+unsafe impl ::windows::core::Vtable for ILearningModelSessionOptionsNative {
     type Vtable = ILearningModelSessionOptionsNative_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILearningModelSessionOptionsNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc71e953f_37b4_4564_8658_d8396866db0d);
 }
 #[repr(C)]
@@ -165,13 +171,13 @@ pub struct ILearningModelSessionOptionsNative_Vtbl {
 pub struct ITensorNative(::windows::core::IUnknown);
 impl ITensorNative {
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(capacity)).ok()
+        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(capacity)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetD3D12Resource(&self) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetD3D12Resource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
+        (::windows::core::Vtable::vtable(self).GetD3D12Resource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
 }
 impl ::core::convert::From<ITensorNative> for ::windows::core::IUnknown {
@@ -205,8 +211,10 @@ impl ::core::fmt::Debug for ITensorNative {
         f.debug_tuple("ITensorNative").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ITensorNative {
+unsafe impl ::windows::core::Vtable for ITensorNative {
     type Vtable = ITensorNative_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITensorNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
 }
 #[repr(C)]
@@ -229,7 +237,7 @@ impl ITensorStaticsNative {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
     {
-        (::windows::core::Interface::vtable(self).CreateFromD3D12Resource)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(shape), shapecount, ::core::mem::transmute(result)).ok()
+        (::windows::core::Vtable::vtable(self).CreateFromD3D12Resource)(::windows::core::Vtable::as_raw(self), value.into().abi(), ::core::mem::transmute(shape), shapecount, ::core::mem::transmute(result)).ok()
     }
 }
 impl ::core::convert::From<ITensorStaticsNative> for ::windows::core::IUnknown {
@@ -263,8 +271,10 @@ impl ::core::fmt::Debug for ITensorStaticsNative {
         f.debug_tuple("ITensorStaticsNative").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ITensorStaticsNative {
+unsafe impl ::windows::core::Vtable for ITensorStaticsNative {
     type Vtable = ITensorStaticsNative_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ITensorStaticsNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39d055a4_66f6_4ebc_95d9_7a29ebe7690a);
 }
 #[repr(C)]

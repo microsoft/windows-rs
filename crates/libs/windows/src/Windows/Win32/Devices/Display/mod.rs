@@ -1327,19 +1327,19 @@ impl ICloneViewHelper {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetConnectedIDs)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).GetConnectedIDs)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ulflags).ok()
     }
     pub unsafe fn GetActiveTopology<'a, P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ulsourceid, ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
+        (::windows::core::Vtable::vtable(self).GetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ulsourceid, ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     pub unsafe fn SetActiveTopology<'a, P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ulsourceid, ulcount, ::core::mem::transmute(pultargetid)).ok()
+        (::windows::core::Vtable::vtable(self).SetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ulsourceid, ulcount, ::core::mem::transmute(pultargetid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1347,7 +1347,7 @@ impl ICloneViewHelper {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), ffinalcall.into()).ok()
+        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), ffinalcall.into()).ok()
     }
 }
 impl ::core::convert::From<ICloneViewHelper> for ::windows::core::IUnknown {
@@ -1381,8 +1381,10 @@ impl ::core::fmt::Debug for ICloneViewHelper {
         f.debug_tuple("ICloneViewHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICloneViewHelper {
+unsafe impl ::windows::core::Vtable for ICloneViewHelper {
     type Vtable = ICloneViewHelper_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICloneViewHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
 }
 #[repr(C)]
@@ -1405,22 +1407,22 @@ impl IViewHelper {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetConnectedIDs)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).GetConnectedIDs)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ulflags).ok()
     }
     pub unsafe fn GetActiveTopology<'a, P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ulsourceid, ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
+        (::windows::core::Vtable::vtable(self).GetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ulsourceid, ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     pub unsafe fn SetActiveTopology<'a, P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ulsourceid, ulcount, ::core::mem::transmute(pultargetid)).ok()
+        (::windows::core::Vtable::vtable(self).SetActiveTopology)(::windows::core::Vtable::as_raw(self), wszadaptorname.into(), ulsourceid, ulcount, ::core::mem::transmute(pultargetid)).ok()
     }
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1429,10 +1431,10 @@ impl IViewHelper {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).SetConfiguration)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProceedOnNewConfiguration)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).GetProceedOnNewConfiguration)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IViewHelper> for ::windows::core::IUnknown {
@@ -1466,8 +1468,10 @@ impl ::core::fmt::Debug for IViewHelper {
         f.debug_tuple("IViewHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IViewHelper {
+unsafe impl ::windows::core::Vtable for IViewHelper {
     type Vtable = IViewHelper_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IViewHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
 }
 #[repr(C)]

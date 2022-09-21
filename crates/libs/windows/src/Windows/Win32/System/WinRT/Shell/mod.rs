@@ -15,7 +15,7 @@ impl IDDEInitializer {
         P6: ::std::convert::Into<::windows::core::PCWSTR>,
         P7: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), fileextensionorprotocol.into(), method, currentdirectory.into(), exectarget.into().abi(), site.into().abi(), application.into(), targetfile.into(), arguments.into(), verb.into()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), fileextensionorprotocol.into(), method, currentdirectory.into(), exectarget.into().abi(), site.into().abi(), application.into(), targetfile.into(), arguments.into(), verb.into()).ok()
     }
 }
 impl ::core::convert::From<IDDEInitializer> for ::windows::core::IUnknown {
@@ -49,8 +49,10 @@ impl ::core::fmt::Debug for IDDEInitializer {
         f.debug_tuple("IDDEInitializer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDDEInitializer {
+unsafe impl ::windows::core::Vtable for IDDEInitializer {
     type Vtable = IDDEInitializer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDDEInitializer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
 }
 #[repr(C)]

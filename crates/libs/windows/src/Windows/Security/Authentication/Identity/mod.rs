@@ -5,14 +5,16 @@ pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationInfo {
+unsafe impl ::windows::core::Vtable for IEnterpriseKeyCredentialRegistrationInfo {
     type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38321acc_672b_4823_b603_6b3c753daf97);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub TenantId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TenantName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -22,14 +24,16 @@ pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationManager {
+unsafe impl ::windows::core::Vtable for IEnterpriseKeyCredentialRegistrationManager {
     type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetRegistrationsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -38,14 +42,16 @@ pub struct IEnterpriseKeyCredentialRegistrationManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationManagerStatics {
+unsafe impl ::windows::core::Vtable for IEnterpriseKeyCredentialRegistrationManagerStatics {
     type Vtable = IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IEnterpriseKeyCredentialRegistrationManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b85e9e_acf4_4bc0_bac2_40bb46efbb3f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
@@ -56,35 +62,35 @@ impl EnterpriseKeyCredentialRegistrationInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TenantId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).TenantId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn TenantName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TenantName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).TenantName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Subject)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Subject)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn KeyId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).KeyId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).KeyId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn KeyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).KeyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).KeyName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -111,8 +117,10 @@ unsafe impl ::windows::core::RuntimeType for EnterpriseKeyCredentialRegistration
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationInfo {
+unsafe impl ::windows::core::Vtable for EnterpriseKeyCredentialRegistrationInfo {
     type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationInfo {
     const IID: ::windows::core::GUID = <IEnterpriseKeyCredentialRegistrationInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
@@ -160,13 +168,13 @@ impl EnterpriseKeyCredentialRegistrationManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetRegistrationsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetRegistrationsAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>>(result__)
         }
     }
     pub fn Current() -> ::windows::core::Result<EnterpriseKeyCredentialRegistrationManager> {
         Self::IEnterpriseKeyCredentialRegistrationManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EnterpriseKeyCredentialRegistrationManager>(result__)
+            (::windows::core::Vtable::vtable(this).Current)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<EnterpriseKeyCredentialRegistrationManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -198,8 +206,10 @@ unsafe impl ::windows::core::RuntimeType for EnterpriseKeyCredentialRegistration
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationManager {
+unsafe impl ::windows::core::Vtable for EnterpriseKeyCredentialRegistrationManager {
     type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for EnterpriseKeyCredentialRegistrationManager {
     const IID: ::windows::core::GUID = <IEnterpriseKeyCredentialRegistrationManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EnterpriseKeyCredentialRegistrationManager {

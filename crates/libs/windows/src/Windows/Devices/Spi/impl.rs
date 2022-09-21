@@ -61,7 +61,7 @@ impl ISpiDeviceStatics_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISpiDeviceStatics, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ISpiDeviceStatics, OFFSET>(),
             GetDeviceSelector: GetDeviceSelector::<Identity, Impl, OFFSET>,
             GetDeviceSelectorFromFriendlyName: GetDeviceSelectorFromFriendlyName::<Identity, Impl, OFFSET>,
             GetBusInfo: GetBusInfo::<Identity, Impl, OFFSET>,

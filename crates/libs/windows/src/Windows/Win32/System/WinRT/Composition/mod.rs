@@ -9,7 +9,7 @@ impl ICompositionCapabilitiesInteropFactory {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionCapabilities>(result__)
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionCapabilities>(result__)
     }
 }
 impl ::core::convert::From<ICompositionCapabilitiesInteropFactory> for ::windows::core::IUnknown {
@@ -58,14 +58,16 @@ impl ::core::fmt::Debug for ICompositionCapabilitiesInteropFactory {
         f.debug_tuple("ICompositionCapabilitiesInteropFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICompositionCapabilitiesInteropFactory {
+unsafe impl ::windows::core::Vtable for ICompositionCapabilitiesInteropFactory {
     type Vtable = ICompositionCapabilitiesInteropFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompositionCapabilitiesInteropFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c9db356_e70d_4642_8298_bc4aa5b4865c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionCapabilitiesInteropFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "UI_Composition", feature = "Win32_Foundation")))]
@@ -82,26 +84,26 @@ impl ICompositionDrawingSurfaceInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(updateoffset)).and_some(result__)
+        (::windows::core::Vtable::vtable(self).BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(updateoffset)).and_some(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndDraw)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).EndDraw)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sizepixels)).ok()
+        (::windows::core::Vtable::vtable(self).Resize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sizepixels)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scroll(&self, scrollrect: ::core::option::Option<*const super::super::super::Foundation::RECT>, cliprect: ::core::option::Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
+        (::windows::core::Vtable::vtable(self).Scroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
     }
     pub unsafe fn ResumeDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResumeDraw)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).ResumeDraw)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SuspendDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SuspendDraw)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).SuspendDraw)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<ICompositionDrawingSurfaceInterop> for ::windows::core::IUnknown {
@@ -135,8 +137,10 @@ impl ::core::fmt::Debug for ICompositionDrawingSurfaceInterop {
         f.debug_tuple("ICompositionDrawingSurfaceInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceInterop {
+unsafe impl ::windows::core::Vtable for ICompositionDrawingSurfaceInterop {
     type Vtable = ICompositionDrawingSurfaceInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee);
 }
 #[repr(C)]
@@ -170,26 +174,26 @@ impl ICompositionDrawingSurfaceInterop2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(updateoffset)).and_some(result__)
+        (::windows::core::Vtable::vtable(self).base__.BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(updateoffset)).and_some(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EndDraw)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).base__.EndDraw)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Resize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sizepixels)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Resize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sizepixels)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scroll(&self, scrollrect: ::core::option::Option<*const super::super::super::Foundation::RECT>, cliprect: ::core::option::Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
+        (::windows::core::Vtable::vtable(self).base__.Scroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
     }
     pub unsafe fn ResumeDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ResumeDraw)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).base__.ResumeDraw)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SuspendDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SuspendDraw)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SuspendDraw)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -197,7 +201,7 @@ impl ICompositionDrawingSurfaceInterop2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).CopySurface)(::windows::core::Interface::as_raw(self), destinationresource.into().abi(), destinationoffsetx, destinationoffsety, ::core::mem::transmute(sourcerectangle.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).CopySurface)(::windows::core::Vtable::as_raw(self), destinationresource.into().abi(), destinationoffsetx, destinationoffsety, ::core::mem::transmute(sourcerectangle.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 impl ::core::convert::From<ICompositionDrawingSurfaceInterop2> for ::windows::core::IUnknown {
@@ -246,8 +250,10 @@ impl ::core::fmt::Debug for ICompositionDrawingSurfaceInterop2 {
         f.debug_tuple("ICompositionDrawingSurfaceInterop2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceInterop2 {
+unsafe impl ::windows::core::Vtable for ICompositionDrawingSurfaceInterop2 {
     type Vtable = ICompositionDrawingSurfaceInterop2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompositionDrawingSurfaceInterop2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e64aae_98c0_4239_8e95_a330dd6aa18b);
 }
 #[repr(C)]
@@ -265,13 +271,13 @@ pub struct ICompositionGraphicsDeviceInterop(::windows::core::IUnknown);
 impl ICompositionGraphicsDeviceInterop {
     pub unsafe fn GetRenderingDevice(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetRenderingDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).GetRenderingDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     pub unsafe fn SetRenderingDevice<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetRenderingDevice)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetRenderingDevice)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ICompositionGraphicsDeviceInterop> for ::windows::core::IUnknown {
@@ -305,8 +311,10 @@ impl ::core::fmt::Debug for ICompositionGraphicsDeviceInterop {
         f.debug_tuple("ICompositionGraphicsDeviceInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICompositionGraphicsDeviceInterop {
+unsafe impl ::windows::core::Vtable for ICompositionGraphicsDeviceInterop {
     type Vtable = ICompositionGraphicsDeviceInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompositionGraphicsDeviceInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8);
 }
 #[repr(C)]
@@ -328,10 +336,10 @@ impl ICompositorDesktopInterop {
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDesktopWindowTarget)(::windows::core::Interface::as_raw(self), hwndtarget.into(), istopmost.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>(result__)
+        (::windows::core::Vtable::vtable(self).CreateDesktopWindowTarget)(::windows::core::Vtable::as_raw(self), hwndtarget.into(), istopmost.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>(result__)
     }
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnsureOnThread)(::windows::core::Interface::as_raw(self), threadid).ok()
+        (::windows::core::Vtable::vtable(self).EnsureOnThread)(::windows::core::Vtable::as_raw(self), threadid).ok()
     }
 }
 impl ::core::convert::From<ICompositorDesktopInterop> for ::windows::core::IUnknown {
@@ -365,8 +373,10 @@ impl ::core::fmt::Debug for ICompositorDesktopInterop {
         f.debug_tuple("ICompositorDesktopInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICompositorDesktopInterop {
+unsafe impl ::windows::core::Vtable for ICompositorDesktopInterop {
     type Vtable = ICompositorDesktopInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompositorDesktopInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e691fa_4567_4dca_b319_d0f207eb6807);
 }
 #[repr(C)]
@@ -390,7 +400,7 @@ impl ICompositorInterop {
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(::windows::core::Interface::as_raw(self), swapchain.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreateCompositionSurfaceForHandle)(::windows::core::Vtable::as_raw(self), swapchain.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
@@ -399,7 +409,7 @@ impl ICompositorInterop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreateCompositionSurfaceForSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
@@ -408,7 +418,7 @@ impl ICompositorInterop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGraphicsDevice)(::windows::core::Interface::as_raw(self), renderingdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionGraphicsDevice>(result__)
+        (::windows::core::Vtable::vtable(self).CreateGraphicsDevice)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionGraphicsDevice>(result__)
     }
 }
 impl ::core::convert::From<ICompositorInterop> for ::windows::core::IUnknown {
@@ -442,8 +452,10 @@ impl ::core::fmt::Debug for ICompositorInterop {
         f.debug_tuple("ICompositorInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICompositorInterop {
+unsafe impl ::windows::core::Vtable for ICompositorInterop {
     type Vtable = ICompositorInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompositorInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25297d5c_3ad4_4c9c_b5cf_e36a38512330);
 }
 #[repr(C)]
@@ -471,7 +483,7 @@ impl IDesktopWindowTargetInterop {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Hwnd(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Hwnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).Hwnd)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
 impl ::core::convert::From<IDesktopWindowTargetInterop> for ::windows::core::IUnknown {
@@ -505,8 +517,10 @@ impl ::core::fmt::Debug for IDesktopWindowTargetInterop {
         f.debug_tuple("IDesktopWindowTargetInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDesktopWindowTargetInterop {
+unsafe impl ::windows::core::Vtable for IDesktopWindowTargetInterop {
     type Vtable = IDesktopWindowTargetInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDesktopWindowTargetInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9);
 }
 #[repr(C)]
@@ -526,7 +540,7 @@ impl ISwapChainInterop {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ISwapChainInterop> for ::windows::core::IUnknown {
@@ -560,8 +574,10 @@ impl ::core::fmt::Debug for ISwapChainInterop {
         f.debug_tuple("ISwapChainInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISwapChainInterop {
+unsafe impl ::windows::core::Vtable for ISwapChainInterop {
     type Vtable = ISwapChainInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISwapChainInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26f496a0_7f38_45fb_88f7_faaabe67dd59);
 }
 #[repr(C)]
@@ -577,7 +593,7 @@ impl IVisualInteractionSourceInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TryRedirectForManipulation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pointerinfo)).ok()
+        (::windows::core::Vtable::vtable(self).TryRedirectForManipulation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pointerinfo)).ok()
     }
 }
 impl ::core::convert::From<IVisualInteractionSourceInterop> for ::windows::core::IUnknown {
@@ -611,8 +627,10 @@ impl ::core::fmt::Debug for IVisualInteractionSourceInterop {
         f.debug_tuple("IVisualInteractionSourceInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IVisualInteractionSourceInterop {
+unsafe impl ::windows::core::Vtable for IVisualInteractionSourceInterop {
     type Vtable = IVisualInteractionSourceInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IVisualInteractionSourceInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11f62cd1_2f9d_42d3_b05f_d6790d9e9f8e);
 }
 #[repr(C)]

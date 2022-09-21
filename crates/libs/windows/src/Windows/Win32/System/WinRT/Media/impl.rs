@@ -9,7 +9,7 @@ impl IAudioFrameNative_Vtbl {
             let this = (*this).get_impl();
             this.GetData(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IAudioFrameNative, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAudioFrameNative, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAudioFrameNative as ::windows::core::Interface>::IID
@@ -30,7 +30,7 @@ impl IAudioFrameNativeFactory_Vtbl {
             this.CreateFromMFSample(::core::mem::transmute(&data), ::core::mem::transmute_copy(&forcereadonly), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAudioFrameNativeFactory, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAudioFrameNativeFactory, OFFSET>(),
             CreateFromMFSample: CreateFromMFSample::<Identity, Impl, OFFSET>,
         }
     }
@@ -56,7 +56,7 @@ impl IVideoFrameNative_Vtbl {
             this.GetDevice(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVideoFrameNative, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IVideoFrameNative, OFFSET>(),
             GetData: GetData::<Identity, Impl, OFFSET>,
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
         }
@@ -80,7 +80,7 @@ impl IVideoFrameNativeFactory_Vtbl {
             this.CreateFromMFSample(::core::mem::transmute(&data), ::core::mem::transmute_copy(&subtype), ::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&forcereadonly), ::core::mem::transmute_copy(&mindisplayaperture), ::core::mem::transmute(&device), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IVideoFrameNativeFactory, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IVideoFrameNativeFactory, OFFSET>(),
             CreateFromMFSample: CreateFromMFSample::<Identity, Impl, OFFSET>,
         }
     }

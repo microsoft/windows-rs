@@ -1,14 +1,16 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDisplayRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayRequest {
+unsafe impl ::windows::core::Vtable for IDisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDisplayRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub RequestActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RequestRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -25,11 +27,11 @@ impl DisplayRequest {
     }
     pub fn RequestActive(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestActive)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RequestActive)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn RequestRelease(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestRelease)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RequestRelease)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for DisplayRequest {
@@ -55,8 +57,10 @@ unsafe impl ::windows::core::RuntimeType for DisplayRequest {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for DisplayRequest {
+unsafe impl ::windows::core::Vtable for DisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;
+}
+unsafe impl ::windows::core::Interface for DisplayRequest {
     const IID: ::windows::core::GUID = <IDisplayRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayRequest {

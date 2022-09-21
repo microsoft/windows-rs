@@ -15,21 +15,21 @@ where
 pub struct ICompositionFramePresentStatistics(::windows::core::IUnknown);
 impl ICompositionFramePresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
-        (::windows::core::Interface::vtable(self).base__.GetPresentId)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).base__.GetPresentId)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        (::windows::core::Interface::vtable(self).base__.GetKind)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).base__.GetKind)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetContentTag(&self) -> usize {
-        (::windows::core::Interface::vtable(self).GetContentTag)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetContentTag)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
-        (::windows::core::Interface::vtable(self).GetCompositionFrameId)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetCompositionFrameId)(::windows::core::Vtable::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
-        (::windows::core::Interface::vtable(self).GetDisplayInstanceArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(displayinstancearraycount), ::core::mem::transmute(displayinstancearray))
+        (::windows::core::Vtable::vtable(self).GetDisplayInstanceArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(displayinstancearraycount), ::core::mem::transmute(displayinstancearray))
     }
 }
 impl ::core::convert::From<ICompositionFramePresentStatistics> for ::windows::core::IUnknown {
@@ -78,8 +78,10 @@ impl ::core::fmt::Debug for ICompositionFramePresentStatistics {
         f.debug_tuple("ICompositionFramePresentStatistics").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICompositionFramePresentStatistics {
+unsafe impl ::windows::core::Vtable for ICompositionFramePresentStatistics {
     type Vtable = ICompositionFramePresentStatistics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompositionFramePresentStatistics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
 }
 #[repr(C)]
@@ -98,32 +100,32 @@ pub struct ICompositionFramePresentStatistics_Vtbl {
 pub struct IIndependentFlipFramePresentStatistics(::windows::core::IUnknown);
 impl IIndependentFlipFramePresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
-        (::windows::core::Interface::vtable(self).base__.GetPresentId)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).base__.GetPresentId)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        (::windows::core::Interface::vtable(self).base__.GetKind)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).base__.GetKind)(::windows::core::Vtable::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID {
         let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOutputAdapterLUID)(::windows::core::Interface::as_raw(self), &mut result__);
+        (::windows::core::Vtable::vtable(self).GetOutputAdapterLUID)(::windows::core::Vtable::as_raw(self), &mut result__);
         result__
     }
     pub unsafe fn GetOutputVidPnSourceId(&self) -> u32 {
-        (::windows::core::Interface::vtable(self).GetOutputVidPnSourceId)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetOutputVidPnSourceId)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetContentTag(&self) -> usize {
-        (::windows::core::Interface::vtable(self).GetContentTag)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetContentTag)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetDisplayedTime(&self) -> SystemInterruptTime {
         let mut result__: SystemInterruptTime = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDisplayedTime)(::windows::core::Interface::as_raw(self), &mut result__);
+        (::windows::core::Vtable::vtable(self).GetDisplayedTime)(::windows::core::Vtable::as_raw(self), &mut result__);
         result__
     }
     pub unsafe fn GetPresentDuration(&self) -> SystemInterruptTime {
         let mut result__: SystemInterruptTime = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPresentDuration)(::windows::core::Interface::as_raw(self), &mut result__);
+        (::windows::core::Vtable::vtable(self).GetPresentDuration)(::windows::core::Vtable::as_raw(self), &mut result__);
         result__
     }
 }
@@ -173,8 +175,10 @@ impl ::core::fmt::Debug for IIndependentFlipFramePresentStatistics {
         f.debug_tuple("IIndependentFlipFramePresentStatistics").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IIndependentFlipFramePresentStatistics {
+unsafe impl ::windows::core::Vtable for IIndependentFlipFramePresentStatistics {
     type Vtable = IIndependentFlipFramePresentStatistics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IIndependentFlipFramePresentStatistics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c93be27_ad94_4da0_8fd4_2413132d124e);
 }
 #[repr(C)]
@@ -195,10 +199,10 @@ pub struct IIndependentFlipFramePresentStatistics_Vtbl {
 pub struct IPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
-        (::windows::core::Interface::vtable(self).GetPresentId)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetPresentId)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        (::windows::core::Interface::vtable(self).GetKind)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetKind)(::windows::core::Vtable::as_raw(self))
     }
 }
 impl ::core::convert::From<IPresentStatistics> for ::windows::core::IUnknown {
@@ -232,8 +236,10 @@ impl ::core::fmt::Debug for IPresentStatistics {
         f.debug_tuple("IPresentStatistics").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IPresentStatistics {
+unsafe impl ::windows::core::Vtable for IPresentStatistics {
     type Vtable = IPresentStatistics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPresentStatistics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
 }
 #[repr(C)]
@@ -248,16 +254,16 @@ pub struct IPresentStatistics_Vtbl {
 pub struct IPresentStatusPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatusPresentStatistics {
     pub unsafe fn GetPresentId(&self) -> u64 {
-        (::windows::core::Interface::vtable(self).base__.GetPresentId)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).base__.GetPresentId)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        (::windows::core::Interface::vtable(self).base__.GetKind)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).base__.GetKind)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
-        (::windows::core::Interface::vtable(self).GetCompositionFrameId)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetCompositionFrameId)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetPresentStatus(&self) -> PresentStatus {
-        (::windows::core::Interface::vtable(self).GetPresentStatus)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetPresentStatus)(::windows::core::Vtable::as_raw(self))
     }
 }
 impl ::core::convert::From<IPresentStatusPresentStatistics> for ::windows::core::IUnknown {
@@ -306,8 +312,10 @@ impl ::core::fmt::Debug for IPresentStatusPresentStatistics {
         f.debug_tuple("IPresentStatusPresentStatistics").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IPresentStatusPresentStatistics {
+unsafe impl ::windows::core::Vtable for IPresentStatusPresentStatistics {
     type Vtable = IPresentStatusPresentStatistics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPresentStatusPresentStatistics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ed2a41_79cb_435e_964e_c8553055420c);
 }
 #[repr(C)]
@@ -325,11 +333,11 @@ impl IPresentationBuffer {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetAvailableEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).GetAvailableEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     pub unsafe fn IsAvailable(&self) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).IsAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Vtable::vtable(self).IsAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
 impl ::core::convert::From<IPresentationBuffer> for ::windows::core::IUnknown {
@@ -363,8 +371,10 @@ impl ::core::fmt::Debug for IPresentationBuffer {
         f.debug_tuple("IPresentationBuffer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IPresentationBuffer {
+unsafe impl ::windows::core::Vtable for IPresentationBuffer {
     type Vtable = IPresentationBuffer_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPresentationBuffer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e217d3a_5abb_4138_9a13_a775593c89ca);
 }
 #[repr(C)]
@@ -382,7 +392,7 @@ pub struct IPresentationBuffer_Vtbl {
 pub struct IPresentationContent(::windows::core::IUnknown);
 impl IPresentationContent {
     pub unsafe fn SetTag(&self, tag: usize) {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), tag)
+        (::windows::core::Vtable::vtable(self).SetTag)(::windows::core::Vtable::as_raw(self), tag)
     }
 }
 impl ::core::convert::From<IPresentationContent> for ::windows::core::IUnknown {
@@ -416,8 +426,10 @@ impl ::core::fmt::Debug for IPresentationContent {
         f.debug_tuple("IPresentationContent").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IPresentationContent {
+unsafe impl ::windows::core::Vtable for IPresentationContent {
     type Vtable = IPresentationContent_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPresentationContent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5668bb79_3d8e_415c_b215_f38020f2d252);
 }
 #[repr(C)]
@@ -431,14 +443,14 @@ pub struct IPresentationContent_Vtbl {
 pub struct IPresentationFactory(::windows::core::IUnknown);
 impl IPresentationFactory {
     pub unsafe fn IsPresentationSupported(&self) -> u8 {
-        (::windows::core::Interface::vtable(self).IsPresentationSupported)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).IsPresentationSupported)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn IsPresentationSupportedWithIndependentFlip(&self) -> u8 {
-        (::windows::core::Interface::vtable(self).IsPresentationSupportedWithIndependentFlip)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).IsPresentationSupportedWithIndependentFlip)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn CreatePresentationManager(&self) -> ::windows::core::Result<IPresentationManager> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePresentationManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationManager>(result__)
+        (::windows::core::Vtable::vtable(self).CreatePresentationManager)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationManager>(result__)
     }
 }
 impl ::core::convert::From<IPresentationFactory> for ::windows::core::IUnknown {
@@ -472,8 +484,10 @@ impl ::core::fmt::Debug for IPresentationFactory {
         f.debug_tuple("IPresentationFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IPresentationFactory {
+unsafe impl ::windows::core::Vtable for IPresentationFactory {
     type Vtable = IPresentationFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPresentationFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
 }
 #[repr(C)]
@@ -493,7 +507,7 @@ impl IPresentationManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).AddBufferFromResource)(::windows::core::Interface::as_raw(self), resource.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationBuffer>(result__)
+        (::windows::core::Vtable::vtable(self).AddBufferFromResource)(::windows::core::Vtable::as_raw(self), resource.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationBuffer>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -502,48 +516,48 @@ impl IPresentationManager {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePresentationSurface)(::windows::core::Interface::as_raw(self), compositionsurfacehandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreatePresentationSurface)(::windows::core::Vtable::as_raw(self), compositionsurfacehandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationSurface>(result__)
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
-        (::windows::core::Interface::vtable(self).GetNextPresentId)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).GetNextPresentId)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn SetTargetTime(&self, targettime: SystemInterruptTime) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTargetTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targettime)).ok()
+        (::windows::core::Vtable::vtable(self).SetTargetTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(targettime)).ok()
     }
     pub unsafe fn SetPreferredPresentDuration(&self, preferredduration: SystemInterruptTime, deviationtolerance: SystemInterruptTime) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPreferredPresentDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(preferredduration), ::core::mem::transmute(deviationtolerance)).ok()
+        (::windows::core::Vtable::vtable(self).SetPreferredPresentDuration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(preferredduration), ::core::mem::transmute(deviationtolerance)).ok()
     }
     pub unsafe fn ForceVSyncInterrupt(&self, forcevsyncinterrupt: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ForceVSyncInterrupt)(::windows::core::Interface::as_raw(self), forcevsyncinterrupt).ok()
+        (::windows::core::Vtable::vtable(self).ForceVSyncInterrupt)(::windows::core::Vtable::as_raw(self), forcevsyncinterrupt).ok()
     }
     pub unsafe fn Present(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Present)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetPresentRetiringFence(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetPresentRetiringFence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
+        (::windows::core::Vtable::vtable(self).GetPresentRetiringFence)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
     }
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelPresentsFrom)(::windows::core::Interface::as_raw(self), presentidtocancelfrom).ok()
+        (::windows::core::Vtable::vtable(self).CancelPresentsFrom)(::windows::core::Vtable::as_raw(self), presentidtocancelfrom).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLostEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetLostEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).GetLostEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentStatisticsAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetPresentStatisticsAvailableEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).GetPresentStatisticsAvailableEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnablePresentStatisticsKind)(::windows::core::Interface::as_raw(self), presentstatisticskind, enabled).ok()
+        (::windows::core::Vtable::vtable(self).EnablePresentStatisticsKind)(::windows::core::Vtable::as_raw(self), presentstatisticskind, enabled).ok()
     }
     pub unsafe fn GetNextPresentStatistics(&self) -> ::windows::core::Result<IPresentStatistics> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetNextPresentStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentStatistics>(result__)
+        (::windows::core::Vtable::vtable(self).GetNextPresentStatistics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentStatistics>(result__)
     }
 }
 impl ::core::convert::From<IPresentationManager> for ::windows::core::IUnknown {
@@ -577,8 +591,10 @@ impl ::core::fmt::Debug for IPresentationManager {
         f.debug_tuple("IPresentationManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IPresentationManager {
+unsafe impl ::windows::core::Vtable for IPresentationManager {
     type Vtable = IPresentationManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPresentationManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb562f82_6292_470a_88b1_843661e7f20c);
 }
 #[repr(C)]
@@ -613,43 +629,43 @@ pub struct IPresentationManager_Vtbl {
 pub struct IPresentationSurface(::windows::core::IUnknown);
 impl IPresentationSurface {
     pub unsafe fn SetTag(&self, tag: usize) {
-        (::windows::core::Interface::vtable(self).base__.SetTag)(::windows::core::Interface::as_raw(self), tag)
+        (::windows::core::Vtable::vtable(self).base__.SetTag)(::windows::core::Vtable::as_raw(self), tag)
     }
     pub unsafe fn SetBuffer<'a, P0>(&self, presentationbuffer: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IPresentationBuffer>>,
     {
-        (::windows::core::Interface::vtable(self).SetBuffer)(::windows::core::Interface::as_raw(self), presentationbuffer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetBuffer)(::windows::core::Vtable::as_raw(self), presentationbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), colorspace).ok()
+        (::windows::core::Vtable::vtable(self).SetColorSpace)(::windows::core::Vtable::as_raw(self), colorspace).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), alphamode).ok()
+        (::windows::core::Vtable::vtable(self).SetAlphaMode)(::windows::core::Vtable::as_raw(self), alphamode).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSourceRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sourcerect)).ok()
+        (::windows::core::Vtable::vtable(self).SetSourceRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sourcerect)).ok()
     }
     pub unsafe fn SetTransform(&self, transform: *const PresentationTransform) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transform)).ok()
+        (::windows::core::Vtable::vtable(self).SetTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transform)).ok()
     }
     pub unsafe fn RestrictToOutput<'a, P0>(&self, output: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).RestrictToOutput)(::windows::core::Interface::as_raw(self), output.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).RestrictToOutput)(::windows::core::Vtable::as_raw(self), output.into().abi()).ok()
     }
     pub unsafe fn SetDisableReadback(&self, value: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisableReadback)(::windows::core::Interface::as_raw(self), value).ok()
+        (::windows::core::Vtable::vtable(self).SetDisableReadback)(::windows::core::Vtable::as_raw(self), value).ok()
     }
     pub unsafe fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLetterboxingMargins)(::windows::core::Interface::as_raw(self), leftletterboxsize, topletterboxsize, rightletterboxsize, bottomletterboxsize).ok()
+        (::windows::core::Vtable::vtable(self).SetLetterboxingMargins)(::windows::core::Vtable::as_raw(self), leftletterboxsize, topletterboxsize, rightletterboxsize, bottomletterboxsize).ok()
     }
 }
 impl ::core::convert::From<IPresentationSurface> for ::windows::core::IUnknown {
@@ -698,8 +714,10 @@ impl ::core::fmt::Debug for IPresentationSurface {
         f.debug_tuple("IPresentationSurface").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IPresentationSurface {
+unsafe impl ::windows::core::Vtable for IPresentationSurface {
     type Vtable = IPresentationSurface_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPresentationSurface {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
 }
 #[repr(C)]

@@ -2802,39 +2802,39 @@ impl ICameraUIControl {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ICameraUIControlEventCallback>>,
     {
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), pwindow.into().abi(), mode, selectionmode, capturemode, photoformat, videoformat, bhasclosebutton.into(), peventcallback.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Show)(::windows::core::Vtable::as_raw(self), pwindow.into().abi(), mode, selectionmode, capturemode, photoformat, videoformat, bhasclosebutton.into(), peventcallback.into().abi()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Suspend(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Suspend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).Suspend)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetCurrentViewType(&self) -> ::windows::core::Result<CameraUIControlViewType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetCurrentViewType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CameraUIControlViewType>(result__)
+        (::windows::core::Vtable::vtable(self).GetCurrentViewType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CameraUIControlViewType>(result__)
     }
     pub unsafe fn GetActiveItem(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetActiveItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetActiveItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelectedItems(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSelectedItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Vtable::vtable(self).GetSelectedItems)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn RemoveCapturedItem<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).RemoveCapturedItem)(::windows::core::Interface::as_raw(self), pszpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).RemoveCapturedItem)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
 }
 impl ::core::convert::From<ICameraUIControl> for ::windows::core::IUnknown {
@@ -2868,8 +2868,10 @@ impl ::core::fmt::Debug for ICameraUIControl {
         f.debug_tuple("ICameraUIControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICameraUIControl {
+unsafe impl ::windows::core::Vtable for ICameraUIControl {
     type Vtable = ICameraUIControl_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICameraUIControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8733adf_3d68_4b8f_bb08_e28a0bed0376);
 }
 #[repr(C)]
@@ -2899,25 +2901,25 @@ pub struct ICameraUIControl_Vtbl {
 pub struct ICameraUIControlEventCallback(::windows::core::IUnknown);
 impl ICameraUIControlEventCallback {
     pub unsafe fn OnStartupComplete(&self) {
-        (::windows::core::Interface::vtable(self).OnStartupComplete)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).OnStartupComplete)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn OnSuspendComplete(&self) {
-        (::windows::core::Interface::vtable(self).OnSuspendComplete)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).OnSuspendComplete)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn OnItemCaptured<'a, P0>(&self, pszpath: P0)
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnItemCaptured)(::windows::core::Interface::as_raw(self), pszpath.into())
+        (::windows::core::Vtable::vtable(self).OnItemCaptured)(::windows::core::Vtable::as_raw(self), pszpath.into())
     }
     pub unsafe fn OnItemDeleted<'a, P0>(&self, pszpath: P0)
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnItemDeleted)(::windows::core::Interface::as_raw(self), pszpath.into())
+        (::windows::core::Vtable::vtable(self).OnItemDeleted)(::windows::core::Vtable::as_raw(self), pszpath.into())
     }
     pub unsafe fn OnClosed(&self) {
-        (::windows::core::Interface::vtable(self).OnClosed)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).OnClosed)(::windows::core::Vtable::as_raw(self))
     }
 }
 impl ::core::convert::From<ICameraUIControlEventCallback> for ::windows::core::IUnknown {
@@ -2951,8 +2953,10 @@ impl ::core::fmt::Debug for ICameraUIControlEventCallback {
         f.debug_tuple("ICameraUIControlEventCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICameraUIControlEventCallback {
+unsafe impl ::windows::core::Vtable for ICameraUIControlEventCallback {
     type Vtable = ICameraUIControlEventCallback_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICameraUIControlEventCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bfa0c2c_fbcd_4776_bda4_88bf974e74f4);
 }
 #[repr(C)]
@@ -2970,7 +2974,7 @@ pub struct ICameraUIControlEventCallback_Vtbl {
 pub struct IClipServiceNotificationHelper(::windows::core::IUnknown);
 impl IClipServiceNotificationHelper {
     pub unsafe fn ShowToast(&self, titletext: &::windows::core::BSTR, bodytext: &::windows::core::BSTR, packagename: &::windows::core::BSTR, appid: &::windows::core::BSTR, launchcommand: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowToast)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(titletext), ::core::mem::transmute_copy(bodytext), ::core::mem::transmute_copy(packagename), ::core::mem::transmute_copy(appid), ::core::mem::transmute_copy(launchcommand)).ok()
+        (::windows::core::Vtable::vtable(self).ShowToast)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(titletext), ::core::mem::transmute_copy(bodytext), ::core::mem::transmute_copy(packagename), ::core::mem::transmute_copy(appid), ::core::mem::transmute_copy(launchcommand)).ok()
     }
 }
 impl ::core::convert::From<IClipServiceNotificationHelper> for ::windows::core::IUnknown {
@@ -3004,8 +3008,10 @@ impl ::core::fmt::Debug for IClipServiceNotificationHelper {
         f.debug_tuple("IClipServiceNotificationHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
+unsafe impl ::windows::core::Vtable for IClipServiceNotificationHelper {
     type Vtable = IClipServiceNotificationHelper_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39948f0_6142_44fd_98ca_e1681a8d68b5);
 }
 #[repr(C)]
@@ -3020,7 +3026,7 @@ pub struct IContainerActivationHelper(::windows::core::IUnknown);
 impl IContainerActivationHelper {
     pub unsafe fn CanActivateClientVM(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CanActivateClientVM)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).CanActivateClientVM)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 impl ::core::convert::From<IContainerActivationHelper> for ::windows::core::IUnknown {
@@ -3054,8 +3060,10 @@ impl ::core::fmt::Debug for IContainerActivationHelper {
         f.debug_tuple("IContainerActivationHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IContainerActivationHelper {
+unsafe impl ::windows::core::Vtable for IContainerActivationHelper {
     type Vtable = IContainerActivationHelper_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IContainerActivationHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb524f93f_80d5_4ec7_ae9e_d66e93ade1fa);
 }
 #[repr(C)]
@@ -3071,7 +3079,7 @@ impl IDefaultBrowserSyncSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabled(&self) -> super::super::Foundation::BOOL {
-        (::windows::core::Interface::vtable(self).IsEnabled)(::windows::core::Interface::as_raw(self))
+        (::windows::core::Vtable::vtable(self).IsEnabled)(::windows::core::Vtable::as_raw(self))
     }
 }
 impl ::core::convert::From<IDefaultBrowserSyncSettings> for ::windows::core::IUnknown {
@@ -3105,8 +3113,10 @@ impl ::core::fmt::Debug for IDefaultBrowserSyncSettings {
         f.debug_tuple("IDefaultBrowserSyncSettings").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDefaultBrowserSyncSettings {
+unsafe impl ::windows::core::Vtable for IDefaultBrowserSyncSettings {
     type Vtable = IDefaultBrowserSyncSettings_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDefaultBrowserSyncSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a27faad_5ae6_4255_9030_c530936292e3);
 }
 #[repr(C)]
@@ -3123,7 +3133,7 @@ pub struct IDefaultBrowserSyncSettings_Vtbl {
 pub struct IDeleteBrowsingHistory(::windows::core::IUnknown);
 impl IDeleteBrowsingHistory {
     pub unsafe fn DeleteBrowsingHistory(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteBrowsingHistory)(::windows::core::Interface::as_raw(self), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).DeleteBrowsingHistory)(::windows::core::Vtable::as_raw(self), dwflags).ok()
     }
 }
 impl ::core::convert::From<IDeleteBrowsingHistory> for ::windows::core::IUnknown {
@@ -3157,8 +3167,10 @@ impl ::core::fmt::Debug for IDeleteBrowsingHistory {
         f.debug_tuple("IDeleteBrowsingHistory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDeleteBrowsingHistory {
+unsafe impl ::windows::core::Vtable for IDeleteBrowsingHistory {
     type Vtable = IDeleteBrowsingHistory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDeleteBrowsingHistory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf38ed4b_2be7_4461_8b5e_9a466dc82ae3);
 }
 #[repr(C)]
@@ -3172,16 +3184,16 @@ pub struct IDeleteBrowsingHistory_Vtbl {
 pub struct IEditionUpgradeBroker(::windows::core::IUnknown);
 impl IEditionUpgradeBroker {
     pub unsafe fn InitializeParentWindow(&self, parenthandle: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeParentWindow)(::windows::core::Interface::as_raw(self), parenthandle).ok()
+        (::windows::core::Vtable::vtable(self).InitializeParentWindow)(::windows::core::Vtable::as_raw(self), parenthandle).ok()
     }
     pub unsafe fn UpdateOperatingSystem(&self, parameter: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(parameter)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateOperatingSystem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(parameter)).ok()
     }
     pub unsafe fn ShowProductKeyUI(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowProductKeyUI)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).ShowProductKeyUI)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn CanUpgrade(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CanUpgrade)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).CanUpgrade)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IEditionUpgradeBroker> for ::windows::core::IUnknown {
@@ -3215,8 +3227,10 @@ impl ::core::fmt::Debug for IEditionUpgradeBroker {
         f.debug_tuple("IEditionUpgradeBroker").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IEditionUpgradeBroker {
+unsafe impl ::windows::core::Vtable for IEditionUpgradeBroker {
     type Vtable = IEditionUpgradeBroker_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IEditionUpgradeBroker {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff19cbcf_9455_4937_b872_6b7929a460af);
 }
 #[repr(C)]
@@ -3236,26 +3250,26 @@ impl IEditionUpgradeHelper {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanUpgrade(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CanUpgrade)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).CanUpgrade)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     pub unsafe fn UpdateOperatingSystem<'a, P0>(&self, contentid: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), contentid.into()).ok()
+        (::windows::core::Vtable::vtable(self).UpdateOperatingSystem)(::windows::core::Vtable::as_raw(self), contentid.into()).ok()
     }
     pub unsafe fn ShowProductKeyUI(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowProductKeyUI)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).ShowProductKeyUI)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetOsProductContentId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetOsProductContentId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetOsProductContentId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGenuineLocalStatus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetGenuineLocalStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).GetGenuineLocalStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IEditionUpgradeHelper> for ::windows::core::IUnknown {
@@ -3289,8 +3303,10 @@ impl ::core::fmt::Debug for IEditionUpgradeHelper {
         f.debug_tuple("IEditionUpgradeHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IEditionUpgradeHelper {
+unsafe impl ::windows::core::Vtable for IEditionUpgradeHelper {
     type Vtable = IEditionUpgradeHelper_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IEditionUpgradeHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e9e342_5deb_43b6_849e_6913b85d503a);
 }
 #[repr(C)]
@@ -3317,7 +3333,7 @@ impl IWindowsLockModeHelper {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).GetSMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IWindowsLockModeHelper> for ::windows::core::IUnknown {
@@ -3351,8 +3367,10 @@ impl ::core::fmt::Debug for IWindowsLockModeHelper {
         f.debug_tuple("IWindowsLockModeHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IWindowsLockModeHelper {
+unsafe impl ::windows::core::Vtable for IWindowsLockModeHelper {
     type Vtable = IWindowsLockModeHelper_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWindowsLockModeHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf342d19e_cc22_4648_bb5d_03ccf75b47c5);
 }
 #[repr(C)]

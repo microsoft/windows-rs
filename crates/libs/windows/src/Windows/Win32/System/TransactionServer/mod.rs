@@ -8,19 +8,19 @@ impl ICatalog {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCollection(&self, bstrcollname: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrcollname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+        (::windows::core::Vtable::vtable(self).GetCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcollname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Connect(&self, bstrconnectstring: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrconnectstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrconnectstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
     pub unsafe fn MajorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MajorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retval)).ok()
+        (::windows::core::Vtable::vtable(self).MajorVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(retval)).ok()
     }
     pub unsafe fn MinorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retval)).ok()
+        (::windows::core::Vtable::vtable(self).MinorVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(retval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -80,8 +80,11 @@ impl ::core::fmt::Debug for ICatalog {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for ICatalog {
+unsafe impl ::windows::core::Vtable for ICatalog {
     type Vtable = ICatalog_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for ICatalog {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -107,18 +110,18 @@ pub struct IComponentUtil(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentUtil {
     pub unsafe fn InstallComponent(&self, bstrdllfile: &::windows::core::BSTR, bstrtypelibfile: &::windows::core::BSTR, bstrproxystubdllfile: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstallComponent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdllfile), ::core::mem::transmute_copy(bstrtypelibfile), ::core::mem::transmute_copy(bstrproxystubdllfile)).ok()
+        (::windows::core::Vtable::vtable(self).InstallComponent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdllfile), ::core::mem::transmute_copy(bstrtypelibfile), ::core::mem::transmute_copy(bstrproxystubdllfile)).ok()
     }
     pub unsafe fn ImportComponent(&self, bstrclsid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ImportComponent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrclsid)).ok()
+        (::windows::core::Vtable::vtable(self).ImportComponent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrclsid)).ok()
     }
     pub unsafe fn ImportComponentByName(&self, bstrprogid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ImportComponentByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrprogid)).ok()
+        (::windows::core::Vtable::vtable(self).ImportComponentByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprogid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCLSIDs(&self, bstrdllfile: &::windows::core::BSTR, bstrtypelibfile: &::windows::core::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCLSIDs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdllfile), ::core::mem::transmute_copy(bstrtypelibfile), ::core::mem::transmute(aclsids)).ok()
+        (::windows::core::Vtable::vtable(self).GetCLSIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdllfile), ::core::mem::transmute_copy(bstrtypelibfile), ::core::mem::transmute(aclsids)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -178,8 +181,11 @@ impl ::core::fmt::Debug for IComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IComponentUtil {
+unsafe impl ::windows::core::Vtable for IComponentUtil {
     type Vtable = IComponentUtil_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IComponentUtil {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22873_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -202,13 +208,13 @@ pub struct IPackageUtil(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPackageUtil {
     pub unsafe fn InstallPackage(&self, bstrpackagefile: &::windows::core::BSTR, bstrinstallpath: &::windows::core::BSTR, loptions: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstallPackage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpackagefile), ::core::mem::transmute_copy(bstrinstallpath), loptions).ok()
+        (::windows::core::Vtable::vtable(self).InstallPackage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpackagefile), ::core::mem::transmute_copy(bstrinstallpath), loptions).ok()
     }
     pub unsafe fn ExportPackage(&self, bstrpackageid: &::windows::core::BSTR, bstrpackagefile: &::windows::core::BSTR, loptions: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExportPackage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpackageid), ::core::mem::transmute_copy(bstrpackagefile), loptions).ok()
+        (::windows::core::Vtable::vtable(self).ExportPackage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpackageid), ::core::mem::transmute_copy(bstrpackagefile), loptions).ok()
     }
     pub unsafe fn ShutdownPackage(&self, bstrpackageid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShutdownPackage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrpackageid)).ok()
+        (::windows::core::Vtable::vtable(self).ShutdownPackage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpackageid)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -268,8 +274,11 @@ impl ::core::fmt::Debug for IPackageUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IPackageUtil {
+unsafe impl ::windows::core::Vtable for IPackageUtil {
     type Vtable = IPackageUtil_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IPackageUtil {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22874_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -288,10 +297,10 @@ pub struct IRemoteComponentUtil(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteComponentUtil {
     pub unsafe fn InstallRemoteComponent(&self, bstrserver: &::windows::core::BSTR, bstrpackageid: &::windows::core::BSTR, bstrclsid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstallRemoteComponent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrserver), ::core::mem::transmute_copy(bstrpackageid), ::core::mem::transmute_copy(bstrclsid)).ok()
+        (::windows::core::Vtable::vtable(self).InstallRemoteComponent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrserver), ::core::mem::transmute_copy(bstrpackageid), ::core::mem::transmute_copy(bstrclsid)).ok()
     }
     pub unsafe fn InstallRemoteComponentByName(&self, bstrserver: &::windows::core::BSTR, bstrpackagename: &::windows::core::BSTR, bstrprogid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstallRemoteComponentByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrserver), ::core::mem::transmute_copy(bstrpackagename), ::core::mem::transmute_copy(bstrprogid)).ok()
+        (::windows::core::Vtable::vtable(self).InstallRemoteComponentByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrserver), ::core::mem::transmute_copy(bstrpackagename), ::core::mem::transmute_copy(bstrprogid)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -351,8 +360,11 @@ impl ::core::fmt::Debug for IRemoteComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IRemoteComponentUtil {
+unsafe impl ::windows::core::Vtable for IRemoteComponentUtil {
     type Vtable = IRemoteComponentUtil_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IRemoteComponentUtil {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22875_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -370,10 +382,10 @@ pub struct IRoleAssociationUtil(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRoleAssociationUtil {
     pub unsafe fn AssociateRole(&self, bstrroleid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AssociateRole)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrroleid)).ok()
+        (::windows::core::Vtable::vtable(self).AssociateRole)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrroleid)).ok()
     }
     pub unsafe fn AssociateRoleByName(&self, bstrrolename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AssociateRoleByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrrolename)).ok()
+        (::windows::core::Vtable::vtable(self).AssociateRoleByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrolename)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -433,8 +445,11 @@ impl ::core::fmt::Debug for IRoleAssociationUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IRoleAssociationUtil {
+unsafe impl ::windows::core::Vtable for IRoleAssociationUtil {
     type Vtable = IRoleAssociationUtil_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for IRoleAssociationUtil {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22876_8a19_11d0_81b6_00a0c9231c29);
 }
 #[cfg(feature = "Win32_System_Com")]

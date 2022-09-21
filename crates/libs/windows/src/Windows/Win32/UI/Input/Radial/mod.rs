@@ -10,7 +10,7 @@ impl IRadialControllerConfigurationInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IRadialControllerConfigurationInterop> for ::windows::core::IUnknown {
@@ -59,14 +59,16 @@ impl ::core::fmt::Debug for IRadialControllerConfigurationInterop {
         f.debug_tuple("IRadialControllerConfigurationInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRadialControllerConfigurationInterop {
+unsafe impl ::windows::core::Vtable for IRadialControllerConfigurationInterop {
     type Vtable = IRadialControllerConfigurationInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRadialControllerConfigurationInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x787cdaac_3186_476d_87e4_b9374a7b9970);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -84,7 +86,7 @@ impl IRadialControllerIndependentInputSourceInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IRadialControllerIndependentInputSourceInterop> for ::windows::core::IUnknown {
@@ -133,14 +135,16 @@ impl ::core::fmt::Debug for IRadialControllerIndependentInputSourceInterop {
         f.debug_tuple("IRadialControllerIndependentInputSourceInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSourceInterop {
+unsafe impl ::windows::core::Vtable for IRadialControllerIndependentInputSourceInterop {
     type Vtable = IRadialControllerIndependentInputSourceInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSourceInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerIndependentInputSourceInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -158,7 +162,7 @@ impl IRadialControllerInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IRadialControllerInterop> for ::windows::core::IUnknown {
@@ -207,14 +211,16 @@ impl ::core::fmt::Debug for IRadialControllerInterop {
         f.debug_tuple("IRadialControllerInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IRadialControllerInterop {
+unsafe impl ::windows::core::Vtable for IRadialControllerInterop {
     type Vtable = IRadialControllerInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRadialControllerInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b0535c9_57ad_45c1_9d79_ad5c34360513);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadialControllerInterop_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
