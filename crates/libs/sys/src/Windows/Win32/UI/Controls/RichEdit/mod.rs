@@ -2771,7 +2771,7 @@ pub struct CHARFORMATA {
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
     pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
-    pub bPitchAndFamily: super::super::super::Graphics::Gdi::FONT_PITCH_AND_FAMILY,
+    pub bPitchAndFamily: u8,
     pub szFaceName: [super::super::super::Foundation::CHAR; 32],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2793,7 +2793,7 @@ pub struct CHARFORMATW {
     pub yOffset: i32,
     pub crTextColor: super::super::super::Foundation::COLORREF,
     pub bCharSet: super::super::super::Graphics::Gdi::EMBED_FONT_CHARSET,
-    pub bPitchAndFamily: super::super::super::Graphics::Gdi::FONT_PITCH_AND_FAMILY,
+    pub bPitchAndFamily: u8,
     pub szFaceName: [u16; 32],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

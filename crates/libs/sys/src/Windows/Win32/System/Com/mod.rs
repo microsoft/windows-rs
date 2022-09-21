@@ -740,15 +740,29 @@ pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = 4i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const DESCKIND_MAX: DESCKIND = 5i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub type DVASPECT = i32;
+pub type DISPATCH_FLAGS = u16;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_CONTENT: DVASPECT = 1i32;
+pub const DISPATCH_METHOD: DISPATCH_FLAGS = 1u16;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_THUMBNAIL: DVASPECT = 2i32;
+pub const DISPATCH_PROPERTYGET: DISPATCH_FLAGS = 2u16;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_ICON: DVASPECT = 4i32;
+pub const DISPATCH_PROPERTYPUT: DISPATCH_FLAGS = 4u16;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_DOCPRINT: DVASPECT = 8i32;
+pub const DISPATCH_PROPERTYPUTREF: DISPATCH_FLAGS = 8u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type DVASPECT = u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_CONTENT: DVASPECT = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_THUMBNAIL: DVASPECT = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_ICON: DVASPECT = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_DOCPRINT: DVASPECT = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_OPAQUE: DVASPECT = 16u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_TRANSPARENT: DVASPECT = 32u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type EOLE_AUTHENTICATION_CAPABILITIES = i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -791,6 +805,34 @@ pub const EXTCONN_STRONG: EXTCONN = 1i32;
 pub const EXTCONN_WEAK: EXTCONN = 2i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const EXTCONN_CALLABLE: EXTCONN = 4i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type FUNCFLAGS = u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = 1u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FSOURCE: FUNCFLAGS = 2u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = 4u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = 8u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = 16u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = 32u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = 64u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = 128u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = 256u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = 512u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = 1024u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = 2048u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = 4096u16;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type FUNCKIND = i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -869,6 +911,28 @@ pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUE
 pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 2i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type IDLFLAGS = u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_NONE: IDLFLAGS = 0u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_FIN: IDLFLAGS = 1u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_FOUT: IDLFLAGS = 2u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_FLCID: IDLFLAGS = 4u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_FRETVAL: IDLFLAGS = 8u16;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type IMPLTYPEFLAGS = i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IMPLTYPEFLAG_FDEFAULT: IMPLTYPEFLAGS = 1i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IMPLTYPEFLAG_FSOURCE: IMPLTYPEFLAGS = 2i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IMPLTYPEFLAG_FRESTRICTED: IMPLTYPEFLAGS = 4i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IMPLTYPEFLAG_FDEFAULTVTABLE: IMPLTYPEFLAGS = 8i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type INVOKEKIND = i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1906,7 +1970,7 @@ pub struct FUNCDESC {
     pub oVft: i16,
     pub cScodes: i16,
     pub elemdescFunc: ELEMDESC,
-    pub wFuncFlags: u16,
+    pub wFuncFlags: FUNCFLAGS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for FUNCDESC {}
@@ -1965,7 +2029,7 @@ pub struct IContext(pub u8);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct IDLDESC {
     pub dwReserved: usize,
-    pub wIDLFlags: u16,
+    pub wIDLFlags: IDLFLAGS,
 }
 impl ::core::marker::Copy for IDLDESC {}
 impl ::core::clone::Clone for IDLDESC {

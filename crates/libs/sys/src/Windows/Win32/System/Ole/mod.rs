@@ -107,63 +107,63 @@ extern "system" {
     pub fn OleBuildVersion() -> u32;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreate(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, renderopt: u32, pformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreate(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn OleCreateDefaultHandler(clsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn OleCreateEmbeddingHelper(clsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, flags: u32, pcf: super::Com::IClassFactory, riid: *const ::windows_sys::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateEmbeddingHelper(clsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, flags: EMBDHLP_FLAGS, pcf: super::Com::IClassFactory, riid: *const ::windows_sys::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateEx(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateEx(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::windows_sys::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateFontIndirect(lpfontdesc: *const FONTDESC, riid: *const ::windows_sys::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateFromData(psrcdataobj: super::Com::IDataObject, riid: *const ::windows_sys::core::GUID, renderopt: u32, pformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateFromData(psrcdataobj: super::Com::IDataObject, riid: *const ::windows_sys::core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateFromDataEx(psrcdataobj: super::Com::IDataObject, riid: *const ::windows_sys::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateFromDataEx(psrcdataobj: super::Com::IDataObject, riid: *const ::windows_sys::core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateFromFile(rclsid: *const ::windows_sys::core::GUID, lpszfilename: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, renderopt: u32, lpformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateFromFile(rclsid: *const ::windows_sys::core::GUID, lpszfilename: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, renderopt: OLERENDER, lpformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateFromFileEx(rclsid: *const ::windows_sys::core::GUID, lpszfilename: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateFromFileEx(rclsid: *const ::windows_sys::core::GUID, lpszfilename: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateLink(pmklinksrc: super::Com::IMoniker, riid: *const ::windows_sys::core::GUID, renderopt: u32, lpformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateLink(pmklinksrc: super::Com::IMoniker, riid: *const ::windows_sys::core::GUID, renderopt: OLERENDER, lpformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateLinkEx(pmklinksrc: super::Com::IMoniker, riid: *const ::windows_sys::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateLinkEx(pmklinksrc: super::Com::IMoniker, riid: *const ::windows_sys::core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateLinkFromData(psrcdataobj: super::Com::IDataObject, riid: *const ::windows_sys::core::GUID, renderopt: u32, pformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateLinkFromData(psrcdataobj: super::Com::IDataObject, riid: *const ::windows_sys::core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateLinkFromDataEx(psrcdataobj: super::Com::IDataObject, riid: *const ::windows_sys::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateLinkFromDataEx(psrcdataobj: super::Com::IDataObject, riid: *const ::windows_sys::core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateLinkToFile(lpszfilename: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, renderopt: u32, lpformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateLinkToFile(lpszfilename: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, renderopt: OLERENDER, lpformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateLinkToFileEx(lpszfilename: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateLinkToFileEx(lpszfilename: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: super::Com::IAdviseSink, rgdwconnection: *mut u32, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub fn OleCreateMenuDescriptor(hmenucombined: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *const OLEMENUGROUPWIDTHS) -> isize;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn OleCreatePictureIndirect(lppictdesc: *mut PICTDESC, riid: *const ::windows_sys::core::GUID, fown: super::super::Foundation::BOOL, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreatePictureIndirect(lppictdesc: *const PICTDESC, riid: *const ::windows_sys::core::GUID, fown: super::super::Foundation::BOOL, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OleCreatePropertyFrame(hwndowner: super::super::Foundation::HWND, x: u32, y: u32, lpszcaption: ::windows_sys::core::PCWSTR, cobjects: u32, ppunk: *mut ::windows_sys::core::IUnknown, cpages: u32, ppageclsid: *mut ::windows_sys::core::GUID, lcid: u32, dwreserved: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreatePropertyFrame(hwndowner: super::super::Foundation::HWND, x: u32, y: u32, lpszcaption: ::windows_sys::core::PCWSTR, cobjects: u32, ppunk: *const ::windows_sys::core::IUnknown, cpages: u32, ppageclsid: *const ::windows_sys::core::GUID, lcid: u32, dwreserved: u32, pvreserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreatePropertyFrameIndirect(lpparams: *const OCPFIPARAMS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn OleCreateStaticFromData(psrcdataobj: super::Com::IDataObject, iid: *const ::windows_sys::core::GUID, renderopt: u32, pformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleCreateStaticFromData(psrcdataobj: super::Com::IDataObject, iid: *const ::windows_sys::core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: IOleClientSite, pstg: super::Com::StructuredStorage::IStorage, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn OleDestroyMenuDescriptor(holemenu: isize) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -213,13 +213,13 @@ extern "system" {
     pub fn OleLoadPicture(lpstream: super::Com::IStream, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: *const ::windows_sys::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn OleLoadPictureEx(lpstream: super::Com::IStream, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: *const ::windows_sys::core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn OleLoadPictureEx(lpstream: super::Com::IStream, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: *const ::windows_sys::core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn OleLoadPictureFile(varfilename: super::Com::VARIANT, lplpdisppicture: *mut super::Com::IDispatch) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn OleLoadPictureFileEx(varfilename: super::Com::VARIANT, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpdisppicture: *mut super::Com::IDispatch) -> ::windows_sys::core::HRESULT;
+    pub fn OleLoadPictureFileEx(varfilename: super::Com::VARIANT, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS, lplpdisppicture: *mut super::Com::IDispatch) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn OleLoadPicturePath(szurlorpath: ::windows_sys::core::PCWSTR, punkcaller: ::windows_sys::core::IUnknown, dwreserved: u32, clrreserved: u32, riid: *const ::windows_sys::core::GUID, ppvret: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
@@ -342,7 +342,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn QueryPathOfRegTypeLib(guid: *const ::windows_sys::core::GUID, wmaj: u16, wmin: u16, lcid: u32, lpbstrpathname: *mut *mut u16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn RegisterActiveObject(punk: ::windows_sys::core::IUnknown, rclsid: *const ::windows_sys::core::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn RegisterActiveObject(punk: ::windows_sys::core::IUnknown, rclsid: *const ::windows_sys::core::GUID, dwflags: ACTIVEOBJECT_FLAGS, pdwregister: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterDragDrop(hwnd: super::super::Foundation::HWND, pdroptarget: IDropTarget) -> ::windows_sys::core::HRESULT;
@@ -550,7 +550,7 @@ extern "system" {
     pub fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, lcid: u32, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, lcid: u32, dwflags: u32) -> VARCMP;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarCyAbs(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows_sys::core::HRESULT;
@@ -559,10 +559,10 @@ extern "system" {
     pub fn VarCyAdd(cyleft: super::Com::CY, cyright: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn VarCyCmp(cyleft: super::Com::CY, cyright: super::Com::CY) -> ::windows_sys::core::HRESULT;
+    pub fn VarCyCmp(cyleft: super::Com::CY, cyright: super::Com::CY) -> VARCMP;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn VarCyCmpR8(cyleft: super::Com::CY, dblright: f64) -> ::windows_sys::core::HRESULT;
+    pub fn VarCyCmpR8(cyleft: super::Com::CY, dblright: f64) -> VARCMP;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarCyFix(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows_sys::core::HRESULT;
@@ -680,10 +680,10 @@ extern "system" {
     pub fn VarDecAdd(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VarDecCmp(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows_sys::core::HRESULT;
+    pub fn VarDecCmp(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> VARCMP;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VarDecCmpR8(pdecleft: *const super::super::Foundation::DECIMAL, dblright: f64) -> ::windows_sys::core::HRESULT;
+    pub fn VarDecCmpR8(pdecleft: *const super::super::Foundation::DECIMAL, dblright: f64) -> VARCMP;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn VarDecDiv(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows_sys::core::HRESULT;
@@ -761,22 +761,22 @@ extern "system" {
     pub fn VarFix(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn VarFormat(pvarin: *const super::Com::VARIANT, pstrformat: ::windows_sys::core::PCWSTR, ifirstday: i32, ifirstweek: i32, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
+    pub fn VarFormat(pvarin: *const super::Com::VARIANT, pstrformat: ::windows_sys::core::PCWSTR, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: i32, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
+    pub fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn VarFormatFromTokens(pvarin: *const super::Com::VARIANT, pstrformat: ::windows_sys::core::PCWSTR, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR, lcid: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
+    pub fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
+    pub fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarI1FromBool(boolin: i16, pcout: ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -945,7 +945,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows_sys::core::HRESULT;
+    pub fn VarR4CmpR8(fltleft: f32, dblright: f64) -> VARCMP;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarR4FromBool(boolin: i16, pfltout: *mut f32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -1025,7 +1025,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarTokenizeFormatString(pstrformat: ::windows_sys::core::PCWSTR, rgbtok: *mut u8, cbtok: i32, ifirstday: i32, ifirstweek: i32, lcid: u32, pcbactual: *const i32) -> ::windows_sys::core::HRESULT;
+    pub fn VarTokenizeFormatString(pstrformat: ::windows_sys::core::PCWSTR, rgbtok: *mut u8, cbtok: i32, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, lcid: u32, pcbactual: *const i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarUI1FromBool(boolin: i16, pbout: *mut u8) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -1288,46 +1288,6 @@ pub type IViewObject = *mut ::core::ffi::c_void;
 pub type IViewObject2 = *mut ::core::ffi::c_void;
 pub type IViewObjectEx = *mut ::core::ffi::c_void;
 pub type IZoomEvents = *mut ::core::ffi::c_void;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ACTIVEOBJECT_STRONG: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ACTIVEOBJECT_WEAK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BZ_DISABLECANCELBUTTON: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BZ_DISABLERETRYBUTTON: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BZ_DISABLESWITCHTOBUTTON: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BZ_NOTRESPONDINGDIALOG: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_CONVERTONLY: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DISABLEACTIVATEAS: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DISABLEDISPLAYASICON: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_HIDECHANGEICON: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SELECTACTIVATEAS: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SELECTCONVERTTO: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SETACTIVATEDEFAULT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SETCONVERTDEFAULT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SHOWHELPBUTTON: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_SELECTCURRENT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_SELECTDEFAULT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_SELECTFROMFILE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_SHOWHELP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_USEICONEXE: i32 = 16i32;
 pub const CLSID_CColorPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447041, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
 pub const CLSID_CFontPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447040, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
 pub const CLSID_CPicturePropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447042, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
@@ -1352,14 +1312,6 @@ pub const CONNECT_S_FIRST: ::windows_sys::core::HRESULT = 262656i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CONNECT_S_LAST: ::windows_sys::core::HRESULT = 262671i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CSF_EXPLORER: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CSF_ONLYGETSOURCE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CSF_SHOWHELP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CSF_VALIDSOURCE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DD_DEFDRAGDELAY: u32 = 200u32;
@@ -1373,14 +1325,6 @@ pub const DD_DEFSCROLLINSET: u32 = 11u32;
 pub const DD_DEFSCROLLINTERVAL: u32 = 50u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DISPATCH_CONSTRUCT: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DISPATCH_METHOD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DISPATCH_PROPERTYGET: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DISPATCH_PROPERTYPUT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DISPATCH_PROPERTYPUTREF: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DISPID_ABOUTBOX: i32 = -552i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -1615,24 +1559,6 @@ pub const DISPID_VALID: i32 = -524i32;
 pub const DISPID_VALUE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DISPID_WORDWRAP: i32 = -536i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_DISABLECANCELLINK: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_DISABLECHANGESOURCE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_DISABLEOPENSOURCE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_DISABLEUPDATENOW: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_SHOWHELP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const EMBDHLP_CREATENOW: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const EMBDHLP_DELAYCREATE: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const EMBDHLP_INPROC_HANDLER: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const EMBDHLP_INPROC_SERVER: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GC_WCH_SIBLING: i32 = 1i32;
 pub const GUID_CHECKVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536076, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
@@ -1914,16 +1840,6 @@ pub const IDD_UPDATELINKS: u32 = 1007u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const IDD_VIEWPROPS: u32 = 1101u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IDLFLAG_FIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IDLFLAG_FLCID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IDLFLAG_FOUT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IDLFLAG_FRETVAL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IDLFLAG_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const ID_BROWSE_ADDCONTROL: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const ID_BROWSE_CHANGEICON: u32 = 1u32;
@@ -1934,61 +1850,17 @@ pub const ID_BROWSE_INSERTFILE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const ID_DEFAULTINST: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IMPLTYPEFLAG_FDEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IMPLTYPEFLAG_FDEFAULTVTABLE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IMPLTYPEFLAG_FRESTRICTED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IMPLTYPEFLAG_FSOURCE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const INSTALL_SCOPE_INVALID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const INSTALL_SCOPE_MACHINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const INSTALL_SCOPE_USER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CHECKDISPLAYASICON: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CHECKLINK: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CREATEFILEOBJECT: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CREATELINKOBJECT: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CREATENEWOBJECT: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_DISABLEDISPLAYASICON: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_DISABLELINK: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_HIDECHANGEICON: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SELECTCREATECONTROL: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SELECTCREATEFROMFILE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SELECTCREATENEW: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SHOWHELP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SHOWINSERTCONTROL: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_VERIFYSERVERSEXIST: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const LOCALE_USE_NLS: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LP_COLOR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LP_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LP_MONOCHROME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LP_VGACOLOR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const MEMBERID_NIL: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2005,38 +1877,6 @@ pub const MSOCMDERR_E_NOHELP: i32 = -2147221246i32;
 pub const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_CURRENCY: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_DECIMAL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_EXPONENT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_HEX_OCT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_INEXACT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_LEADING_MINUS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_LEADING_PLUS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_LEADING_WHITE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_NEG: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_PARENS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_STD: u32 = 8191u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_THOUSANDS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_TRAILING_MINUS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_TRAILING_PLUS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_TRAILING_WHITE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_USE_ALL: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OCM__BASE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2075,8 +1915,6 @@ pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
 pub const OLECMDERR_E_UNKNOWNGROUP: ::windows_sys::core::HRESULT = -2147221244i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECREATE_LEAVERUNNING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEIVERB_DISCARDUNDOSTATE: i32 = -6i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2264,35 +2102,11 @@ pub const OLEUI_VPERR_METAPICTINVALID: u32 = 131u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEVERB_PRIMARY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OPF_DISABLECONVERT: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OPF_NOFILLDEFAULT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OPF_OBJECTISLINK: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OPF_SHOWHELP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OT_EMBEDDED: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OT_LINK: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OT_STATIC: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FHASCUSTDATA: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FHASDEFAULT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FLCID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FOPT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FOUT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FRETVAL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PERPROP_E_FIRST: i32 = -2147220992i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2304,35 +2118,7 @@ pub const PERPROP_S_FIRST: ::windows_sys::core::HRESULT = 262656i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PERPROP_S_LAST: ::windows_sys::core::HRESULT = 262671i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_BITMAP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_ENHMETAFILE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_ICON: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_METAFILE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_UNINITIALIZED: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PROP_HWND_CHGICONDLG: &str = "HWND_CIDLG";
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_CHECKDISPLAYASICON: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_DISABLEDISPLAYASICON: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_HIDECHANGEICON: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_NOREFRESHDATAOBJECT: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_SELECTPASTE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_SELECTPASTELINK: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_SHOWHELP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_STAYONCLIPBOARDCHANGE: i32 = 64i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PS_MAXLINKTYPES: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2387,14 +2173,6 @@ pub const SZOLEUI_MSG_HELP: &str = "OLEUI_MSG_HELP";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARCMP_EQ: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARCMP_GT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARCMP_LT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARCMP_NULL: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VARIANT_ALPHABOOL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VARIANT_CALENDAR_GREGORIAN: u32 = 64u32;
@@ -2410,12 +2188,6 @@ pub const VARIANT_NOUSEROVERRIDE: u32 = 4u32;
 pub const VARIANT_NOVALUEPROP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VARIANT_USE_NLS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VPF_DISABLERELATIVE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VPF_DISABLESCALE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VPF_SELECTRELATIVE: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VTDATEGRE_MAX: u32 = 2958465u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2447,37 +2219,15 @@ pub const fdexNameInternal: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const fdexNameNoDynamicProperties: i32 = 32i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanCall: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanConstruct: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanGet: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanPut: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanPutRef: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanSourceEvents: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotCall: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotConstruct: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotGet: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotPut: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotPutRef: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotSourceEvents: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropDynamicType: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropNoSideEffects: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type ACTIVATEFLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type ACTIVEOBJECT_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ACTIVEOBJECT_STRONG: ACTIVEOBJECT_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ACTIVEOBJECT_WEAK: ACTIVEOBJECT_FLAGS = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type BINDSPEED = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2486,6 +2236,16 @@ pub const BINDSPEED_INDEFINITE: BINDSPEED = 1i32;
 pub const BINDSPEED_MODERATE: BINDSPEED = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const BINDSPEED_IMMEDIATE: BINDSPEED = 3i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type BUSY_DIALOG_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BZ_DISABLECANCELBUTTON: BUSY_DIALOG_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BZ_DISABLESWITCHTOBUTTON: BUSY_DIALOG_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BZ_DISABLERETRYBUTTON: BUSY_DIALOG_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BZ_NOTRESPONDINGDIALOG: BUSY_DIALOG_FLAGS = 8u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type CHANGEKIND = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2504,6 +2264,28 @@ pub const CHANGEKIND_INVALIDATE: CHANGEKIND = 5i32;
 pub const CHANGEKIND_CHANGEFAILED: CHANGEKIND = 6i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CHANGEKIND_MAX: CHANGEKIND = 7i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type CHANGE_ICON_FLAGS = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_SHOWHELP: CHANGE_ICON_FLAGS = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_SELECTCURRENT: CHANGE_ICON_FLAGS = 2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_SELECTDEFAULT: CHANGE_ICON_FLAGS = 4i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_SELECTFROMFILE: CHANGE_ICON_FLAGS = 8i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_USEICONEXE: CHANGE_ICON_FLAGS = 16i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type CHANGE_SOURCE_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CSF_SHOWHELP: CHANGE_SOURCE_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CSF_VALIDSOURCE: CHANGE_SOURCE_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CSF_ONLYGETSOURCE: CHANGE_SOURCE_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CSF_EXPLORER: CHANGE_SOURCE_FLAGS = 8u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type CTRLINFO = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2539,12 +2321,6 @@ pub const DROPEFFECT_LINK: DROPEFFECT = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DROPEFFECT_SCROLL: DROPEFFECT = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub type DVASPECT2 = i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVASPECT_OPAQUE: DVASPECT2 = 16i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVASPECT_TRANSPARENT: DVASPECT2 = 32i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type DVASPECTINFOFLAG = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DVASPECTINFOFLAG_CANOPTIMIZE: DVASPECTINFOFLAG = 1i32;
@@ -2554,6 +2330,28 @@ pub type DVEXTENTMODE = i32;
 pub const DVEXTENT_CONTENT: DVEXTENTMODE = 0i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DVEXTENT_INTEGRAL: DVEXTENTMODE = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type EDIT_LINKS_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_SHOWHELP: EDIT_LINKS_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_DISABLEUPDATENOW: EDIT_LINKS_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_DISABLEOPENSOURCE: EDIT_LINKS_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_DISABLECHANGESOURCE: EDIT_LINKS_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_DISABLECANCELLINK: EDIT_LINKS_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type EMBDHLP_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const EMBDHLP_INPROC_HANDLER: EMBDHLP_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const EMBDHLP_INPROC_SERVER: EMBDHLP_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const EMBDHLP_CREATENOW: EMBDHLP_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const EMBDHLP_DELAYCREATE: EMBDHLP_FLAGS = 65536u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type ENUM_CONTROLS_WHICH_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2573,33 +2371,35 @@ pub const GC_WCH_FONLYBEFORE: ENUM_CONTROLS_WHICH_FLAGS = 536870912u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GC_WCH_FSELECTED: ENUM_CONTROLS_WHICH_FLAGS = 1073741824u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub type FUNCFLAGS = u16;
+pub type FDEX_PROP_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = 1u16;
+pub const fdexPropCanGet: FDEX_PROP_FLAGS = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FSOURCE: FUNCFLAGS = 2u16;
+pub const fdexPropCannotGet: FDEX_PROP_FLAGS = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = 4u16;
+pub const fdexPropCanPut: FDEX_PROP_FLAGS = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = 8u16;
+pub const fdexPropCannotPut: FDEX_PROP_FLAGS = 8u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = 16u16;
+pub const fdexPropCanPutRef: FDEX_PROP_FLAGS = 16u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = 32u16;
+pub const fdexPropCannotPutRef: FDEX_PROP_FLAGS = 32u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = 64u16;
+pub const fdexPropNoSideEffects: FDEX_PROP_FLAGS = 64u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = 128u16;
+pub const fdexPropDynamicType: FDEX_PROP_FLAGS = 128u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = 256u16;
+pub const fdexPropCanCall: FDEX_PROP_FLAGS = 256u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = 512u16;
+pub const fdexPropCannotCall: FDEX_PROP_FLAGS = 512u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = 1024u16;
+pub const fdexPropCanConstruct: FDEX_PROP_FLAGS = 1024u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = 2048u16;
+pub const fdexPropCannotConstruct: FDEX_PROP_FLAGS = 2048u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = 4096u16;
+pub const fdexPropCanSourceEvents: FDEX_PROP_FLAGS = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCannotSourceEvents: FDEX_PROP_FLAGS = 8192u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type GUIDKIND = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2621,6 +2421,36 @@ pub const IGNOREMIME_PROMPT: IGNOREMIME = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const IGNOREMIME_TEXT: IGNOREMIME = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type INSERT_OBJECT_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SHOWHELP: INSERT_OBJECT_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SELECTCREATENEW: INSERT_OBJECT_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SELECTCREATEFROMFILE: INSERT_OBJECT_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CHECKLINK: INSERT_OBJECT_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CHECKDISPLAYASICON: INSERT_OBJECT_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CREATENEWOBJECT: INSERT_OBJECT_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CREATEFILEOBJECT: INSERT_OBJECT_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CREATELINKOBJECT: INSERT_OBJECT_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_DISABLELINK: INSERT_OBJECT_FLAGS = 256u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_VERIFYSERVERSEXIST: INSERT_OBJECT_FLAGS = 512u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_DISABLEDISPLAYASICON: INSERT_OBJECT_FLAGS = 1024u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_HIDECHANGEICON: INSERT_OBJECT_FLAGS = 2048u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SHOWINSERTCONTROL: INSERT_OBJECT_FLAGS = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SELECTCREATECONTROL: INSERT_OBJECT_FLAGS = 8192u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type KEYMODIFIERS = u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const KEYMOD_SHIFT: KEYMODIFIERS = 1u32;
@@ -2638,6 +2468,16 @@ pub const LIBFLAG_FCONTROL: LIBFLAGS = 2i32;
 pub const LIBFLAG_FHIDDEN: LIBFLAGS = 4i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = 8i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type LOAD_PICTURE_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LP_DEFAULT: LOAD_PICTURE_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LP_MONOCHROME: LOAD_PICTURE_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LP_VGACOLOR: LOAD_PICTURE_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LP_COLOR: LOAD_PICTURE_FLAGS = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type MEDIAPLAYBACK_STATE = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2658,6 +2498,50 @@ pub const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: MULTICLASSINFO_FLAGS = 2u32;
 pub const MULTICLASSINFO_GETIIDPRIMARY: MULTICLASSINFO_FLAGS = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const MULTICLASSINFO_GETIIDSOURCE: MULTICLASSINFO_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type NUMPARSE_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_LEADING_WHITE: NUMPARSE_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_TRAILING_WHITE: NUMPARSE_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_LEADING_PLUS: NUMPARSE_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_TRAILING_PLUS: NUMPARSE_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_LEADING_MINUS: NUMPARSE_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_TRAILING_MINUS: NUMPARSE_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_HEX_OCT: NUMPARSE_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_PARENS: NUMPARSE_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_DECIMAL: NUMPARSE_FLAGS = 256u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_THOUSANDS: NUMPARSE_FLAGS = 512u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_CURRENCY: NUMPARSE_FLAGS = 1024u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_EXPONENT: NUMPARSE_FLAGS = 2048u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_USE_ALL: NUMPARSE_FLAGS = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_STD: NUMPARSE_FLAGS = 8191u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_NEG: NUMPARSE_FLAGS = 65536u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_INEXACT: NUMPARSE_FLAGS = 131072u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type OBJECT_PROPERTIES_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OPF_OBJECTISLINK: OBJECT_PROPERTIES_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OPF_NOFILLDEFAULT: OBJECT_PROPERTIES_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OPF_SHOWHELP: OBJECT_PROPERTIES_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OPF_DISABLECONVERT: OBJECT_PROPERTIES_FLAGS = 8u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type OLECLOSE = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -3041,6 +2925,12 @@ pub const OLECONTF_ONLYUSER: OLECONTF = 8i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECONTF_ONLYIFRUNNING: OLECONTF = 16i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type OLECREATE = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECREATE_ZERO: OLECREATE = 0u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECREATE_LEAVERUNNING: OLECREATE = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type OLEDCFLAGS = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEDC_NODRAW: OLEDCFLAGS = 1i32;
@@ -3183,11 +3073,61 @@ pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = 3i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type PARAMFLAGS = u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_NONE: PARAMFLAGS = 0u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FIN: PARAMFLAGS = 1u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FOUT: PARAMFLAGS = 2u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FLCID: PARAMFLAGS = 4u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FRETVAL: PARAMFLAGS = 8u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FOPT: PARAMFLAGS = 16u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FHASDEFAULT: PARAMFLAGS = 32u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FHASCUSTDATA: PARAMFLAGS = 64u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type PASTE_SPECIAL_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_SHOWHELP: PASTE_SPECIAL_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_SELECTPASTE: PASTE_SPECIAL_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_SELECTPASTELINK: PASTE_SPECIAL_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_CHECKDISPLAYASICON: PASTE_SPECIAL_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_DISABLEDISPLAYASICON: PASTE_SPECIAL_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_HIDECHANGEICON: PASTE_SPECIAL_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_STAYONCLIPBOARDCHANGE: PASTE_SPECIAL_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_NOREFRESHDATAOBJECT: PASTE_SPECIAL_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type PICTUREATTRIBUTES = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PICTURE_TRANSPARENT: PICTUREATTRIBUTES = 2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type PICTYPE = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_UNINITIALIZED: PICTYPE = -1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_NONE: PICTYPE = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_BITMAP: PICTYPE = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_METAFILE: PICTYPE = 2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_ICON: PICTYPE = 3i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_ENHMETAFILE: PICTYPE = 4i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type POINTERINACTIVE = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -3341,6 +3281,26 @@ pub const UAS_NOPARENTENABLE: UASFLAGS = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const UAS_MASK: UASFLAGS = 3i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type UI_CONVERT_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SHOWHELPBUTTON: UI_CONVERT_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SETCONVERTDEFAULT: UI_CONVERT_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SETACTIVATEDEFAULT: UI_CONVERT_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SELECTCONVERTTO: UI_CONVERT_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SELECTACTIVATEAS: UI_CONVERT_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DISABLEDISPLAYASICON: UI_CONVERT_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DISABLEACTIVATEAS: UI_CONVERT_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_HIDECHANGEICON: UI_CONVERT_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_CONVERTONLY: UI_CONVERT_FLAGS = 256u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type UPDFCACHE_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const UPDFCACHE_ALL: UPDFCACHE_FLAGS = 2147483647u32;
@@ -3369,6 +3329,80 @@ pub const USERCLASSTYPE_SHORT: USERCLASSTYPE = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const USERCLASSTYPE_APPNAME: USERCLASSTYPE = 3i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type VARCMP = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARCMP_LT: VARCMP = 0u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARCMP_EQ: VARCMP = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARCMP_GT: VARCMP = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARCMP_NULL: VARCMP = 3u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type VARFORMAT_FIRST_DAY = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_SYSTEMDEFAULT: VARFORMAT_FIRST_DAY = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_MONDAY: VARFORMAT_FIRST_DAY = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_TUESDAY: VARFORMAT_FIRST_DAY = 2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_WEDNESDAY: VARFORMAT_FIRST_DAY = 3i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_THURSDAY: VARFORMAT_FIRST_DAY = 4i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_FRIDAY: VARFORMAT_FIRST_DAY = 5i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_SATURDAY: VARFORMAT_FIRST_DAY = 6i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_SUNDAY: VARFORMAT_FIRST_DAY = 7i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type VARFORMAT_FIRST_WEEK = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_WEEK_SYSTEMDEFAULT: VARFORMAT_FIRST_WEEK = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_WEEK_CONTAINS_JANUARY_FIRST: VARFORMAT_FIRST_WEEK = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_WEEK_LARGER_HALF_IN_CURRENT_YEAR: VARFORMAT_FIRST_WEEK = 2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_WEEK_HAS_SEVEN_DAYS: VARFORMAT_FIRST_WEEK = 3i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type VARFORMAT_GROUP = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_GROUP_SYSTEMDEFAULT: VARFORMAT_GROUP = -2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_GROUP_THOUSANDS: VARFORMAT_GROUP = -1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_GROUP_NOTTHOUSANDS: VARFORMAT_GROUP = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type VARFORMAT_LEADING_DIGIT = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_LEADING_DIGIT_SYSTEMDEFAULT: VARFORMAT_LEADING_DIGIT = -2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_LEADING_DIGIT_INCLUDED: VARFORMAT_LEADING_DIGIT = -1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_LEADING_DIGIT_NOTINCLUDED: VARFORMAT_LEADING_DIGIT = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type VARFORMAT_NAMED_FORMAT = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_GENERALDATE: VARFORMAT_NAMED_FORMAT = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_LONGDATE: VARFORMAT_NAMED_FORMAT = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_SHORTDATE: VARFORMAT_NAMED_FORMAT = 2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_LONGTIME: VARFORMAT_NAMED_FORMAT = 3i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_SHORTTIME: VARFORMAT_NAMED_FORMAT = 4i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type VARFORMAT_PARENTHESES = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_PARENTHESES_SYSTEMDEFAULT: VARFORMAT_PARENTHESES = -2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_PARENTHESES_USED: VARFORMAT_PARENTHESES = -1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_PARENTHESES_NOTUSED: VARFORMAT_PARENTHESES = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type VIEWSTATUS = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VIEWSTATUS_OPAQUE: VIEWSTATUS = 1i32;
@@ -3382,6 +3416,14 @@ pub const VIEWSTATUS_DVASPECTTRANSPARENT: VIEWSTATUS = 8i32;
 pub const VIEWSTATUS_SURFACE: VIEWSTATUS = 16i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VIEWSTATUS_3DSURFACE: VIEWSTATUS = 32i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type VIEW_OBJECT_PROPERTIES_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VPF_SELECTRELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VPF_DISABLERELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VPF_DISABLESCALE: VIEW_OBJECT_PROPERTIES_FLAGS = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type WPCSETTING = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -3472,7 +3514,7 @@ pub struct CONTROLINFO {
     pub cb: u32,
     pub hAccel: super::super::UI::WindowsAndMessaging::HACCEL,
     pub cAccel: u16,
-    pub dwFlags: u32,
+    pub dwFlags: CTRLINFO,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for CONTROLINFO {}
@@ -3587,8 +3629,8 @@ impl ::core::clone::Clone for METHODDATA {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub struct NUMPARSE {
     pub cDig: i32,
-    pub dwInFlags: u32,
-    pub dwOutFlags: u32,
+    pub dwInFlags: NUMPARSE_FLAGS,
+    pub dwOutFlags: NUMPARSE_FLAGS,
     pub cchUsed: i32,
     pub nBaseShift: i32,
     pub nPwr10: i32,
@@ -3752,7 +3794,7 @@ impl ::core::clone::Clone for OLEUIBUSYW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICHANGEICONA {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: CHANGE_ICON_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -3778,7 +3820,7 @@ impl ::core::clone::Clone for OLEUICHANGEICONA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICHANGEICONW {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: CHANGE_ICON_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCWSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -3804,7 +3846,7 @@ impl ::core::clone::Clone for OLEUICHANGEICONW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 pub struct OLEUICHANGESOURCEA {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: CHANGE_SOURCE_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -3834,7 +3876,7 @@ impl ::core::clone::Clone for OLEUICHANGESOURCEA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 pub struct OLEUICHANGESOURCEW {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: CHANGE_SOURCE_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCWSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -3864,7 +3906,7 @@ impl ::core::clone::Clone for OLEUICHANGESOURCEW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICONVERTA {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: UI_CONVERT_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -3899,7 +3941,7 @@ impl ::core::clone::Clone for OLEUICONVERTA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICONVERTW {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: UI_CONVERT_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCWSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -3934,7 +3976,7 @@ impl ::core::clone::Clone for OLEUICONVERTW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUIEDITLINKSA {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: EDIT_LINKS_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -3957,7 +3999,7 @@ impl ::core::clone::Clone for OLEUIEDITLINKSA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUIEDITLINKSW {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: EDIT_LINKS_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCWSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -4020,7 +4062,7 @@ impl ::core::clone::Clone for OLEUIGNRLPROPSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct OLEUIINSERTOBJECTA {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: INSERT_OBJECT_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -4055,7 +4097,7 @@ impl ::core::clone::Clone for OLEUIINSERTOBJECTA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct OLEUIINSERTOBJECTW {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: INSERT_OBJECT_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCWSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -4130,7 +4172,7 @@ impl ::core::clone::Clone for OLEUILINKPROPSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIOBJECTPROPSA {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: OBJECT_PROPERTIES_FLAGS,
     pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERA_V2,
     pub dwObject: u32,
     pub lpObjInfo: IOleUIObjInfoA,
@@ -4153,7 +4195,7 @@ impl ::core::clone::Clone for OLEUIOBJECTPROPSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIOBJECTPROPSW {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: OBJECT_PROPERTIES_FLAGS,
     pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERW_V2,
     pub dwObject: u32,
     pub lpObjInfo: IOleUIObjInfoW,
@@ -4212,7 +4254,7 @@ impl ::core::clone::Clone for OLEUIPASTEENTRYW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct OLEUIPASTESPECIALA {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: PASTE_SPECIAL_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -4245,7 +4287,7 @@ impl ::core::clone::Clone for OLEUIPASTESPECIALA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct OLEUIPASTESPECIALW {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: PASTE_SPECIAL_FLAGS,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: ::windows_sys::core::PCWSTR,
     pub lpfnHook: LPFNOLEUIHOOK,
@@ -4278,7 +4320,7 @@ impl ::core::clone::Clone for OLEUIPASTESPECIALW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIVIEWPROPSA {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
     pub dwReserved1: [u32; 2],
     pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
@@ -4300,7 +4342,7 @@ impl ::core::clone::Clone for OLEUIVIEWPROPSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIVIEWPROPSW {
     pub cbStruct: u32,
-    pub dwFlags: u32,
+    pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
     pub dwReserved1: [u32; 2],
     pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
@@ -4384,7 +4426,7 @@ impl ::core::clone::Clone for PARAMDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct PARAMDESC {
     pub pparamdescex: *mut PARAMDESCEX,
-    pub wParamFlags: u16,
+    pub wParamFlags: PARAMFLAGS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for PARAMDESC {}
@@ -4414,7 +4456,7 @@ impl ::core::clone::Clone for PARAMDESCEX {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PICTDESC {
     pub cbSizeofstruct: u32,
-    pub picType: u32,
+    pub picType: PICTYPE,
     pub Anonymous: PICTDESC_0,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
