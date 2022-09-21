@@ -860,13 +860,13 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeEdge<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: u32, uflags: u32) -> ::windows::core::Result<super::super::Foundation::RECT>
+pub unsafe fn DrawThemeEdge<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS) -> ::windows::core::Result<super::super::Foundation::RECT>
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DrawThemeEdge(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: u32, uflags: u32, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
+        fn DrawThemeEdge(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DrawThemeEdge(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(pdestrect), uedge, uflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
@@ -916,26 +916,26 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeText<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeText<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DrawThemeText(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: u32, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
+        fn DrawThemeText(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     DrawThemeText(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwtextflags, dwtextflags2, ::core::mem::transmute(prect)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeTextEx<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, prect: *mut super::super::Foundation::RECT, poptions: ::core::option::Option<*const DTTOPTS>) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeTextEx<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, prect: *mut super::super::Foundation::RECT, poptions: ::core::option::Option<*const DTTOPTS>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DrawThemeTextEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: u32, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows::core::HRESULT;
+        fn DrawThemeTextEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchtext: i32, dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows::core::HRESULT;
     }
     DrawThemeTextEx(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwtextflags, ::core::mem::transmute(prect), ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
 }
@@ -1607,13 +1607,13 @@ pub unsafe fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetThemeTextExtent<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: u32, pboundingrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows::core::Result<super::super::Foundation::RECT>
+pub unsafe fn GetThemeTextExtent<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, pboundingrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows::core::Result<super::super::Foundation::RECT>
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeTextExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchcharcount: i32, dwtextflags: u32, pboundingrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
+        fn GetThemeTextExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: ::windows::core::PCWSTR, cchcharcount: i32, dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, pboundingrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetThemeTextExtent(htheme, hdc.into(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwtextflags, ::core::mem::transmute(pboundingrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
@@ -1692,14 +1692,14 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn HitTestThemeBackground<'a, P0, P1>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, dwoptions: u32, prect: *const super::super::Foundation::RECT, hrgn: P1, pttest: super::super::Foundation::POINT) -> ::windows::core::Result<u16>
+pub unsafe fn HitTestThemeBackground<'a, P0, P1>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: P1, pttest: super::super::Foundation::POINT) -> ::windows::core::Result<u16>
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     P1: ::std::convert::Into<super::super::Graphics::Gdi::HRGN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn HitTestThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, dwoptions: u32, prect: *const super::super::Foundation::RECT, hrgn: super::super::Graphics::Gdi::HRGN, pttest: super::super::Foundation::POINT, pwhittestcode: *mut u16) -> ::windows::core::HRESULT;
+        fn HitTestThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: super::super::Graphics::Gdi::HRGN, pttest: super::super::Foundation::POINT, pwhittestcode: *mut u16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HitTestThemeBackground(htheme, hdc.into(), ipartid, istateid, dwoptions, ::core::mem::transmute(prect), hrgn.into(), ::core::mem::transmute(pttest), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
@@ -3915,24 +3915,6 @@ pub const HOTKEY_CLASSW: &str = "msctls_hotkey32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_BACKGROUNDSEG: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_CAPTION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_FIXEDBORDER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_BOTTOM: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_LEFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_RIGHT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_TOP: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_SIZINGTEMPLATE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_SYSTEMSIZINGMARGINS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IDB_HIST_DISABLED: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IDB_HIST_HOT: u32 = 13u32;
@@ -4590,19 +4572,7 @@ pub const LVS_TYPEMASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVS_TYPESTYLEMASK: u32 = 64512u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_AUTOSIZE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_FIXEDHEIGHT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_FIXEDSIZE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_FIXEDWIDTH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIM_COLUMNS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIM_LABELMARGIN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIM_TILESIZE: u32 = 1u32;
+pub const LVTVIF_EXTENDED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LV_MAX_WORKAREAS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -11099,6 +11069,49 @@ impl ::core::fmt::Debug for HELPLINKSTATES {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HIT_TEST_BACKGROUND_OPTIONS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_BACKGROUNDSEG: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_FIXEDBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_CAPTION: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_LEFT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_TOP: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_RIGHT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_BOTTOM: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(240u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_SIZINGTEMPLATE: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_SYSTEMSIZINGMARGINS: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(512u32);
+impl ::core::marker::Copy for HIT_TEST_BACKGROUND_OPTIONS {}
+impl ::core::clone::Clone for HIT_TEST_BACKGROUND_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HIT_TEST_BACKGROUND_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HIT_TEST_BACKGROUND_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HIT_TEST_BACKGROUND_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIT_TEST_BACKGROUND_OPTIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HORZSCROLLSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HSS_NORMAL: HORZSCROLLSTATES = HORZSCROLLSTATES(1i32);
@@ -12960,7 +12973,13 @@ impl ::core::fmt::Debug for LVITEMA_GROUP_ID {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVTILEVIEWINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_EXTENDED: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(4u32);
+pub const LVTVIF_AUTOSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_FIXEDWIDTH: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_FIXEDHEIGHT: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_FIXEDSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(3u32);
 impl ::core::marker::Copy for LVTILEVIEWINFO_FLAGS {}
 impl ::core::clone::Clone for LVTILEVIEWINFO_FLAGS {
     fn clone(&self) -> Self {
@@ -12978,6 +12997,91 @@ unsafe impl ::windows::core::Abi for LVTILEVIEWINFO_FLAGS {
 impl ::core::fmt::Debug for LVTILEVIEWINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LVTILEVIEWINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LVTILEVIEWINFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LVTILEVIEWINFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LVTILEVIEWINFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LVTILEVIEWINFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LVTILEVIEWINFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LVTILEVIEWINFO_MASK(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIM_TILESIZE: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIM_COLUMNS: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIM_LABELMARGIN: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(4u32);
+impl ::core::marker::Copy for LVTILEVIEWINFO_MASK {}
+impl ::core::clone::Clone for LVTILEVIEWINFO_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LVTILEVIEWINFO_MASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LVTILEVIEWINFO_MASK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LVTILEVIEWINFO_MASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LVTILEVIEWINFO_MASK").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LVTILEVIEWINFO_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LVTILEVIEWINFO_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LVTILEVIEWINFO_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LVTILEVIEWINFO_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LVTILEVIEWINFO_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -22186,7 +22290,7 @@ impl ::core::default::Default for LVTILEINFO {
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVTILEVIEWINFO {
     pub cbSize: u32,
-    pub dwMask: u32,
+    pub dwMask: LVTILEVIEWINFO_MASK,
     pub dwFlags: LVTILEVIEWINFO_FLAGS,
     pub sizeTile: super::super::Foundation::SIZE,
     pub cLines: i32,

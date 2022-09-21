@@ -2340,15 +2340,6 @@ where
     }
     GetSubMenu(hmenu.into(), npos)
 }
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[inline]
-pub unsafe fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32;
-    }
-    GetSysColor(nindex)
-}
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4702,16 +4693,6 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL;
-    }
-    SetSysColors(celements, ::core::mem::transmute(lpaelements), ::core::mem::transmute(lpargbvalues))
-}
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn SetSystemCursor<'a, P0>(hcur: P0, id: SYSTEM_CURSOR_ID) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCURSOR>,
@@ -6981,36 +6962,6 @@ pub const SBS_SIZEGRIP: i32 = 16i32;
 pub const SBS_TOPALIGN: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SBS_VERT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_BOTTOM: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_ENDSCROLL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_LEFT: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_LINEDOWN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_LINELEFT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_LINERIGHT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_LINEUP: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_PAGEDOWN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_PAGELEFT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_PAGERIGHT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_PAGEUP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_RIGHT: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_THUMBPOSITION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_THUMBTRACK: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SB_TOP: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SCF_ISSECURE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -10125,6 +10076,59 @@ impl ::core::ops::Not for QUEUE_STATUS_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SCROLLBAR_COMMAND(pub i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_LINEUP: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(0i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_LINELEFT: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(0i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_LINEDOWN: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(1i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_LINERIGHT: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(1i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_PAGEUP: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(2i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_PAGELEFT: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(2i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_PAGEDOWN: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(3i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_PAGERIGHT: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(3i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_THUMBPOSITION: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(4i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_THUMBTRACK: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(5i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_TOP: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(6i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_LEFT: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(6i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_RIGHT: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(7i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_BOTTOM: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(7i32);
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const SB_ENDSCROLL: SCROLLBAR_COMMAND = SCROLLBAR_COMMAND(8i32);
+impl ::core::marker::Copy for SCROLLBAR_COMMAND {}
+impl ::core::clone::Clone for SCROLLBAR_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SCROLLBAR_COMMAND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SCROLLBAR_COMMAND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCROLLBAR_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCROLLBAR_COMMAND").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCROLLBAR_CONSTANTS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SB_CTL: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(2u32);
@@ -11335,101 +11339,6 @@ impl ::core::ops::Not for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SYS_COLOR_INDEX(pub u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8u32);
-impl ::core::marker::Copy for SYS_COLOR_INDEX {}
-impl ::core::clone::Clone for SYS_COLOR_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYS_COLOR_INDEX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SYS_COLOR_INDEX {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SYS_COLOR_INDEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SYS_COLOR_INDEX").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]

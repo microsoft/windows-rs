@@ -5324,13 +5324,13 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SHGetKnownFolderPath<'a, P0>(rfid: *const ::windows::core::GUID, dwflags: u32, htoken: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn SHGetKnownFolderPath<'a, P0>(rfid: *const ::windows::core::GUID, dwflags: KNOWN_FOLDER_FLAG, htoken: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHGetKnownFolderPath(rfid: *const ::windows::core::GUID, dwflags: u32, htoken: super::super::Foundation::HANDLE, ppszpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn SHGetKnownFolderPath(rfid: *const ::windows::core::GUID, dwflags: KNOWN_FOLDER_FLAG, htoken: super::super::Foundation::HANDLE, ppszpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SHGetKnownFolderPath(::core::mem::transmute(rfid), dwflags, htoken.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
@@ -5410,10 +5410,10 @@ pub unsafe fn SHGetPathFromIDListA(pidl: *const Common::ITEMIDLIST, pszpath: &mu
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 #[inline]
-pub unsafe fn SHGetPathFromIDListEx(pidl: *const Common::ITEMIDLIST, pszpath: &mut [u16], uopts: i32) -> super::super::Foundation::BOOL {
+pub unsafe fn SHGetPathFromIDListEx(pidl: *const Common::ITEMIDLIST, pszpath: &mut [u16], uopts: GPFIDL_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHGetPathFromIDListEx(pidl: *const Common::ITEMIDLIST, pszpath: ::windows::core::PWSTR, cchpath: u32, uopts: i32) -> super::super::Foundation::BOOL;
+        fn SHGetPathFromIDListEx(pidl: *const Common::ITEMIDLIST, pszpath: ::windows::core::PWSTR, cchpath: u32, uopts: GPFIDL_FLAGS) -> super::super::Foundation::BOOL;
     }
     SHGetPathFromIDListEx(::core::mem::transmute(pidl), ::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _, uopts)
 }
@@ -7045,10 +7045,10 @@ where
     }
     ShellAboutW(hwnd.into(), szapp.into(), szotherstuff.into(), hicon.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ShellExecuteA<'a, P0, P1, P2, P3, P4>(hwnd: P0, lpoperation: P1, lpfile: P2, lpparameters: P3, lpdirectory: P4, nshowcmd: i32) -> super::super::Foundation::HINSTANCE
+pub unsafe fn ShellExecuteA<'a, P0, P1, P2, P3, P4>(hwnd: P0, lpoperation: P1, lpfile: P2, lpparameters: P3, lpdirectory: P4, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HINSTANCE
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -7058,7 +7058,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ShellExecuteA(hwnd: super::super::Foundation::HWND, lpoperation: ::windows::core::PCSTR, lpfile: ::windows::core::PCSTR, lpparameters: ::windows::core::PCSTR, lpdirectory: ::windows::core::PCSTR, nshowcmd: i32) -> super::super::Foundation::HINSTANCE;
+        fn ShellExecuteA(hwnd: super::super::Foundation::HWND, lpoperation: ::windows::core::PCSTR, lpfile: ::windows::core::PCSTR, lpparameters: ::windows::core::PCSTR, lpdirectory: ::windows::core::PCSTR, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HINSTANCE;
     }
     ShellExecuteA(hwnd.into(), lpoperation.into(), lpfile.into(), lpparameters.into(), lpdirectory.into(), nshowcmd)
 }
@@ -7082,10 +7082,10 @@ pub unsafe fn ShellExecuteExW(pexecinfo: *mut SHELLEXECUTEINFOW) -> super::super
     }
     ShellExecuteExW(::core::mem::transmute(pexecinfo))
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ShellExecuteW<'a, P0, P1, P2, P3, P4>(hwnd: P0, lpoperation: P1, lpfile: P2, lpparameters: P3, lpdirectory: P4, nshowcmd: i32) -> super::super::Foundation::HINSTANCE
+pub unsafe fn ShellExecuteW<'a, P0, P1, P2, P3, P4>(hwnd: P0, lpoperation: P1, lpfile: P2, lpparameters: P3, lpdirectory: P4, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HINSTANCE
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7095,7 +7095,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ShellExecuteW(hwnd: super::super::Foundation::HWND, lpoperation: ::windows::core::PCWSTR, lpfile: ::windows::core::PCWSTR, lpparameters: ::windows::core::PCWSTR, lpdirectory: ::windows::core::PCWSTR, nshowcmd: i32) -> super::super::Foundation::HINSTANCE;
+        fn ShellExecuteW(hwnd: super::super::Foundation::HWND, lpoperation: ::windows::core::PCWSTR, lpfile: ::windows::core::PCWSTR, lpparameters: ::windows::core::PCWSTR, lpdirectory: ::windows::core::PCWSTR, nshowcmd: super::WindowsAndMessaging::SHOW_WINDOW_CMD) -> super::super::Foundation::HINSTANCE;
     }
     ShellExecuteW(hwnd.into(), lpoperation.into(), lpfile.into(), lpparameters.into(), lpdirectory.into(), nshowcmd)
 }
@@ -54722,12 +54722,6 @@ pub const GIL_PERINSTANCE: u32 = 2u32;
 pub const GIL_SHIELD: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const GIL_SIMULATEDOC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const GPFIDL_ALTNAME: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const GPFIDL_DEFAULT: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const GPFIDL_UNCPRINTER: i32 = 2i32;
 pub const GenericCredentialProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const HLINK_E_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221248i32);
@@ -54945,24 +54939,6 @@ pub const NCM_SETALLOWTYPE: u32 = 1026u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NETCACHE_E_NEGATIVE_CACHE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927488i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_ERROR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_ICON_MASK: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_INFO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_LARGE_ICON: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_NOSOUND: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_RESPECT_QUIET_TIME: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_USER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIIF_WARNING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NINF_KEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NIN_BALLOONHIDE: u32 = 1027u32;
@@ -54978,10 +54954,6 @@ pub const NIN_POPUPCLOSE: u32 = 1031u32;
 pub const NIN_POPUPOPEN: u32 = 1030u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NIN_SELECT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIS_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const NIS_SHAREDICON: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NOTIFYICON_VERSION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -59008,6 +58980,35 @@ impl ::core::fmt::Debug for FVTEXTTYPE {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GPFIDL_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const GPFIDL_DEFAULT: GPFIDL_FLAGS = GPFIDL_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const GPFIDL_ALTNAME: GPFIDL_FLAGS = GPFIDL_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const GPFIDL_UNCPRINTER: GPFIDL_FLAGS = GPFIDL_FLAGS(2u32);
+impl ::core::marker::Copy for GPFIDL_FLAGS {}
+impl ::core::clone::Clone for GPFIDL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GPFIDL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GPFIDL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GPFIDL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GPFIDL_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HELP_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const HELPINFO_WINDOW: HELP_INFO_TYPE = HELP_INFO_TYPE(1i32);
@@ -60294,6 +60295,47 @@ impl ::core::ops::Not for NOTIFY_ICON_DATA_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NOTIFY_ICON_INFOTIP_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_NONE: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_INFO: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_WARNING: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_ERROR: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_USER: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_ICON_MASK: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(15u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_NOSOUND: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_LARGE_ICON: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIIF_RESPECT_QUIET_TIME: NOTIFY_ICON_INFOTIP_FLAGS = NOTIFY_ICON_INFOTIP_FLAGS(128u32);
+impl ::core::marker::Copy for NOTIFY_ICON_INFOTIP_FLAGS {}
+impl ::core::clone::Clone for NOTIFY_ICON_INFOTIP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NOTIFY_ICON_INFOTIP_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NOTIFY_ICON_INFOTIP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NOTIFY_ICON_INFOTIP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NOTIFY_ICON_INFOTIP_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NOTIFY_ICON_MESSAGE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const NIM_ADD: NOTIFY_ICON_MESSAGE = NOTIFY_ICON_MESSAGE(0u32);
@@ -60322,6 +60364,33 @@ unsafe impl ::windows::core::Abi for NOTIFY_ICON_MESSAGE {
 impl ::core::fmt::Debug for NOTIFY_ICON_MESSAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NOTIFY_ICON_MESSAGE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NOTIFY_ICON_STATE(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIS_HIDDEN: NOTIFY_ICON_STATE = NOTIFY_ICON_STATE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const NIS_SHAREDICON: NOTIFY_ICON_STATE = NOTIFY_ICON_STATE(2u32);
+impl ::core::marker::Copy for NOTIFY_ICON_STATE {}
+impl ::core::clone::Clone for NOTIFY_ICON_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NOTIFY_ICON_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NOTIFY_ICON_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NOTIFY_ICON_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NOTIFY_ICON_STATE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -69808,12 +69877,12 @@ pub struct NOTIFYICONDATAA {
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [super::super::Foundation::CHAR; 128],
-    pub dwState: u32,
+    pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
     pub szInfo: [super::super::Foundation::CHAR; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [super::super::Foundation::CHAR; 64],
-    pub dwInfoFlags: u32,
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
@@ -69901,12 +69970,12 @@ pub struct NOTIFYICONDATAA {
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [super::super::Foundation::CHAR; 128],
-    pub dwState: u32,
+    pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
     pub szInfo: [super::super::Foundation::CHAR; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [super::super::Foundation::CHAR; 64],
-    pub dwInfoFlags: u32,
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
@@ -69994,12 +70063,12 @@ pub struct NOTIFYICONDATAW {
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [u16; 128],
-    pub dwState: u32,
+    pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
     pub szInfo: [u16; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],
-    pub dwInfoFlags: u32,
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
@@ -70087,12 +70156,12 @@ pub struct NOTIFYICONDATAW {
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [u16; 128],
-    pub dwState: u32,
+    pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
     pub szInfo: [u16; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],
-    pub dwInfoFlags: u32,
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }

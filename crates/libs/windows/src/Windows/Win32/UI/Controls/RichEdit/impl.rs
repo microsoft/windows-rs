@@ -2256,7 +2256,7 @@ pub trait ITextHost_Impl: Sized {
     fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> ::windows::core::Result<()>;
     fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()>;
-    fn TxGetSysColor(&self, nindex: i32) -> super::super::super::Foundation::COLORREF;
+    fn TxGetSysColor(&self, nindex: super::super::super::Graphics::Gdi::SYS_COLOR_INDEX) -> super::super::super::Foundation::COLORREF;
     fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()>;
     fn TxGetMaxLength(&self, plength: *mut u32) -> ::windows::core::Result<()>;
     fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> ::windows::core::Result<()>;
@@ -2401,7 +2401,7 @@ impl ITextHost_Vtbl {
             let this = (*this).get_impl();
             this.TxGetParaFormat(::core::mem::transmute_copy(&pppf)).into()
         }
-        unsafe extern "system" fn TxGetSysColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32) -> super::super::super::Foundation::COLORREF {
+        unsafe extern "system" fn TxGetSysColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: super::super::super::Graphics::Gdi::SYS_COLOR_INDEX) -> super::super::super::Foundation::COLORREF {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TxGetSysColor(::core::mem::transmute_copy(&nindex))

@@ -1696,8 +1696,8 @@ impl IRawElementProviderHwndOverride_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRawElementProviderSimple_Impl: Sized {
     fn ProviderOptions(&self) -> ::windows::core::Result<ProviderOptions>;
-    fn GetPatternProvider(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetPatternProvider(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn HostRawElementProvider(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1716,7 +1716,7 @@ impl IRawElementProviderSimple_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPatternProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: i32, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPatternProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPatternProvider(::core::mem::transmute_copy(&patternid)) {
@@ -1727,7 +1727,7 @@ impl IRawElementProviderSimple_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPropertyValue(::core::mem::transmute_copy(&propertyid)) {
