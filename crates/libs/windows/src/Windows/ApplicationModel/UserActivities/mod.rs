@@ -3,14 +3,16 @@ pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivity(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivity {
+unsafe impl ::windows::core::Vtable for IUserActivity {
     type Vtable = IUserActivity_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivity {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivity_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserActivityState) -> ::windows::core::HRESULT,
     pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub VisualElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -51,41 +53,47 @@ pub struct IUserActivity_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivity2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivity2 {
+unsafe impl ::windows::core::Vtable for IUserActivity2 {
     type Vtable = IUserActivity2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivity2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dc40c62_08c4_47ac_aa9c_2bb2221c55fd);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivity2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ToJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivity3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivity3 {
+unsafe impl ::windows::core::Vtable for IUserActivity3 {
     type Vtable = IUserActivity3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivity3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7697744_e1a2_5147_8e06_55f1eeef271c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivity3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsRoamable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsRoamable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityAttribution(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityAttribution {
+unsafe impl ::windows::core::Vtable for IUserActivityAttribution {
     type Vtable = IUserActivityAttribution_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityAttribution {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityAttribution_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub IconUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -102,14 +110,16 @@ pub struct IUserActivityAttribution_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityAttributionFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityAttributionFactory {
+unsafe impl ::windows::core::Vtable for IUserActivityAttributionFactory {
     type Vtable = IUserActivityAttributionFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityAttributionFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62bd252_c566_4f42_9974_916c4d76377e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityAttributionFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub CreateWithUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iconuri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -118,14 +128,16 @@ pub struct IUserActivityAttributionFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityChannel(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityChannel {
+unsafe impl ::windows::core::Vtable for IUserActivityChannel {
     type Vtable = IUserActivityChannel_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityChannel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityChannel_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub GetOrCreateUserActivityAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -142,14 +154,16 @@ pub struct IUserActivityChannel_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityChannel2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityChannel2 {
+unsafe impl ::windows::core::Vtable for IUserActivityChannel2 {
     type Vtable = IUserActivityChannel2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityChannel2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1698e35b_eb7e_4ea0_bf17_a459e8be706c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityChannel2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
     pub GetRecentUserActivitiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxuniqueactivities: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -162,27 +176,31 @@ pub struct IUserActivityChannel2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityChannelStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityChannelStatics {
+unsafe impl ::windows::core::Vtable for IUserActivityChannelStatics {
     type Vtable = IUserActivityChannelStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityChannelStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8c005ab_198d_4d80_abb2_c9775ec4a729);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityChannelStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityChannelStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityChannelStatics2 {
+unsafe impl ::windows::core::Vtable for IUserActivityChannelStatics2 {
     type Vtable = IUserActivityChannelStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityChannelStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e87de30_aa4f_4624_9ad0_d40f3ba0317c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityChannelStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DisableAutoSessionCreation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Security_Credentials")]
     pub TryGetForWebAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, account: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -192,14 +210,16 @@ pub struct IUserActivityChannelStatics2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityChannelStatics3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityChannelStatics3 {
+unsafe impl ::windows::core::Vtable for IUserActivityChannelStatics3 {
     type Vtable = IUserActivityChannelStatics3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityChannelStatics3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53bc4ddb_bbdf_5984_802a_5305874e205c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityChannelStatics3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
@@ -213,7 +233,7 @@ impl IUserActivityContentInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ToJson)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ToJson)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -270,66 +290,76 @@ unsafe impl ::windows::core::RuntimeType for IUserActivityContentInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IUserActivityContentInfo {
+unsafe impl ::windows::core::Vtable for IUserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityContentInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb399e5ad_137f_409d_822d_e1af27ce08dc);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityContentInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ToJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityContentInfoStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityContentInfoStatics {
+unsafe impl ::windows::core::Vtable for IUserActivityContentInfoStatics {
     type Vtable = IUserActivityContentInfoStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityContentInfoStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9988c34b_0386_4bc9_968a_8200b004144f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityContentInfoStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub FromJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityFactory {
+unsafe impl ::windows::core::Vtable for IUserActivityFactory {
     type Vtable = IUserActivityFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c385758_361d_4a67_8a3b_34ca2978f9a3);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateWithActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityRequest {
+unsafe impl ::windows::core::Vtable for IUserActivityRequest {
     type Vtable = IUserActivityRequest_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub SetUserActivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activity: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityRequestManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityRequestManager {
+unsafe impl ::windows::core::Vtable for IUserActivityRequestManager {
     type Vtable = IUserActivityRequestManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityRequestManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c30be4e_903d_48d6_82d4_4043ed57791b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityRequestManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
     pub UserActivityRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -342,27 +372,31 @@ pub struct IUserActivityRequestManager_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityRequestManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityRequestManagerStatics {
+unsafe impl ::windows::core::Vtable for IUserActivityRequestManagerStatics {
     type Vtable = IUserActivityRequestManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityRequestManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0392df1_224a_432c_81e5_0c76b4c4cefa);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityRequestManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityRequestedEventArgs {
+unsafe impl ::windows::core::Vtable for IUserActivityRequestedEventArgs {
     type Vtable = IUserActivityRequestedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -372,27 +406,31 @@ pub struct IUserActivityRequestedEventArgs_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivitySession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivitySession {
+unsafe impl ::windows::core::Vtable for IUserActivitySession {
     type Vtable = IUserActivitySession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivitySession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae434d78_24fa_44a3_ad48_6eda61aa1924);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivitySession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivitySessionHistoryItem(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivitySessionHistoryItem {
+unsafe impl ::windows::core::Vtable for IUserActivitySessionHistoryItem {
     type Vtable = IUserActivitySessionHistoryItem_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivitySessionHistoryItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivitySessionHistoryItem_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub UserActivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
@@ -406,14 +444,16 @@ pub struct IUserActivitySessionHistoryItem_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityStatics {
+unsafe impl ::windows::core::Vtable for IUserActivityStatics {
     type Vtable = IUserActivityStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c8fd333_0e09_47f6_9ac7_95cf5c39367b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub TryParseFromJson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub TryParseFromJsonArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -427,14 +467,16 @@ pub struct IUserActivityStatics_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityVisualElements(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityVisualElements {
+unsafe impl ::windows::core::Vtable for IUserActivityVisualElements {
     type Vtable = IUserActivityVisualElements_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityVisualElements {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94757513_262f_49ef_bbbf_9b75d2e85250);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityVisualElements_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub DisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -461,14 +503,16 @@ pub struct IUserActivityVisualElements_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUserActivityVisualElements2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserActivityVisualElements2 {
+unsafe impl ::windows::core::Vtable for IUserActivityVisualElements2 {
     type Vtable = IUserActivityVisualElements2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUserActivityVisualElements2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaae7fc7_3eef_4359_825c_9d51b9220de3);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserActivityVisualElements2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub AttributionDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetAttributionDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
@@ -480,21 +524,21 @@ impl UserActivity {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityState>(result__)
+            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityState>(result__)
         }
     }
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ActivityId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivityId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn VisualElements(&self) -> ::windows::core::Result<UserActivityVisualElements> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VisualElements)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityVisualElements>(result__)
+            (::windows::core::Vtable::vtable(this).VisualElements)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityVisualElements>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -503,7 +547,7 @@ impl UserActivity {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContentUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).ContentUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -513,18 +557,18 @@ impl UserActivity {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContentUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContentType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ContentType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetContentType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContentType)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -532,7 +576,7 @@ impl UserActivity {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FallbackUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).FallbackUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -542,7 +586,7 @@ impl UserActivity {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFallbackUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFallbackUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -550,7 +594,7 @@ impl UserActivity {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ActivationUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).ActivationUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -560,13 +604,13 @@ impl UserActivity {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetActivationUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetActivationUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
     pub fn ContentInfo(&self) -> ::windows::core::Result<IUserActivityContentInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContentInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IUserActivityContentInfo>(result__)
+            (::windows::core::Vtable::vtable(this).ContentInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<IUserActivityContentInfo>(result__)
         }
     }
     pub fn SetContentInfo<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -575,7 +619,7 @@ impl UserActivity {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentInfo)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContentInfo)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -583,44 +627,44 @@ impl UserActivity {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SaveAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     pub fn CreateSession(&self) -> ::windows::core::Result<UserActivitySession> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSession)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivitySession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSession)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivitySession>(result__)
         }
     }
     pub fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IUserActivity2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ToJson)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ToJson)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn IsRoamable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IUserActivity3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsRoamable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsRoamable)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetIsRoamable(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IUserActivity3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsRoamable)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIsRoamable)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn CreateWithActivityId(activityid: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivity> {
         Self::IUserActivityFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithActivityId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithActivityId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activityid), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
         })
     }
     pub fn TryParseFromJson(json: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivity> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseFromJson)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(json), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
+            (::windows::core::Vtable::vtable(this).TryParseFromJson)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(json), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -628,7 +672,7 @@ impl UserActivity {
     pub fn TryParseFromJsonArray(json: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<UserActivity>> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseFromJsonArray)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(json), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<UserActivity>>(result__)
+            (::windows::core::Vtable::vtable(this).TryParseFromJsonArray)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(json), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<UserActivity>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -640,7 +684,7 @@ impl UserActivity {
     {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ToJsonArray)(::windows::core::Interface::as_raw(this), activities.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ToJsonArray)(::windows::core::Vtable::as_raw(this), activities.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -677,8 +721,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivity {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivity {
+unsafe impl ::windows::core::Vtable for UserActivity {
     type Vtable = IUserActivity_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivity {
     const IID: ::windows::core::GUID = <IUserActivity as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivity {
@@ -733,7 +779,7 @@ impl UserActivityAttribution {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IconUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).IconUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -743,29 +789,29 @@ impl UserActivityAttribution {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIconUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIconUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
     pub fn AlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AlternateText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).AlternateText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetAlternateText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlternateText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAlternateText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn AddImageQuery(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AddImageQuery)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).AddImageQuery)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetAddImageQuery(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAddImageQuery)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAddImageQuery)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -775,7 +821,7 @@ impl UserActivityAttribution {
     {
         Self::IUserActivityAttributionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithUri)(::windows::core::Interface::as_raw(this), iconuri.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityAttribution>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithUri)(::windows::core::Vtable::as_raw(this), iconuri.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityAttribution>(result__)
         })
     }
     #[doc(hidden)]
@@ -807,8 +853,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivityAttribution {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivityAttribution {
+unsafe impl ::windows::core::Vtable for UserActivityAttribution {
     type Vtable = IUserActivityAttribution_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivityAttribution {
     const IID: ::windows::core::GUID = <IUserActivityAttribution as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityAttribution {
@@ -856,7 +904,7 @@ impl UserActivityChannel {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetOrCreateUserActivityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserActivity>>(result__)
+            (::windows::core::Vtable::vtable(this).GetOrCreateUserActivityAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activityid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserActivity>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -865,7 +913,7 @@ impl UserActivityChannel {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteActivityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).DeleteActivityAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activityid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -874,7 +922,7 @@ impl UserActivityChannel {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAllActivitiesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).DeleteAllActivitiesAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -883,7 +931,7 @@ impl UserActivityChannel {
         let this = &::windows::core::Interface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetRecentUserActivitiesAsync)(::windows::core::Interface::as_raw(this), maxuniqueactivities, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetRecentUserActivitiesAsync)(::windows::core::Vtable::as_raw(this), maxuniqueactivities, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -892,17 +940,17 @@ impl UserActivityChannel {
         let this = &::windows::core::Interface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSessionHistoryItemsForUserActivityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), starttime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetSessionHistoryItemsForUserActivityAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activityid), starttime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
         })
     }
     pub fn DisableAutoSessionCreation() -> ::windows::core::Result<()> {
-        Self::IUserActivityChannelStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableAutoSessionCreation)(::windows::core::Interface::as_raw(this)).ok() })
+        Self::IUserActivityChannelStatics2(|this| unsafe { (::windows::core::Vtable::vtable(this).DisableAutoSessionCreation)(::windows::core::Vtable::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -912,7 +960,7 @@ impl UserActivityChannel {
     {
         Self::IUserActivityChannelStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetForWebAccount)(::windows::core::Interface::as_raw(this), account.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetForWebAccount)(::windows::core::Vtable::as_raw(this), account.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -923,7 +971,7 @@ impl UserActivityChannel {
     {
         Self::IUserActivityChannelStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
         })
     }
     #[doc(hidden)]
@@ -965,8 +1013,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivityChannel {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivityChannel {
+unsafe impl ::windows::core::Vtable for UserActivityChannel {
     type Vtable = IUserActivityChannel_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivityChannel {
     const IID: ::windows::core::GUID = <IUserActivityChannel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityChannel {
@@ -1012,13 +1062,13 @@ impl UserActivityContentInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ToJson)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ToJson)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn FromJson(value: &::windows::core::HSTRING) -> ::windows::core::Result<UserActivityContentInfo> {
         Self::IUserActivityContentInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromJson)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<UserActivityContentInfo>(result__)
+            (::windows::core::Vtable::vtable(this).FromJson)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<UserActivityContentInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -1050,8 +1100,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivityContentInfo {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivityContentInfo {
+unsafe impl ::windows::core::Vtable for UserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivityContentInfo {
     const IID: ::windows::core::GUID = <IUserActivityContentInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityContentInfo {
@@ -1117,7 +1169,7 @@ impl UserActivityRequest {
         P0: ::std::convert::Into<::windows::core::InParam<'a, UserActivity>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserActivity)(::windows::core::Interface::as_raw(this), activity.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUserActivity)(::windows::core::Vtable::as_raw(this), activity.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for UserActivityRequest {
@@ -1143,8 +1195,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivityRequest {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivityRequest {
+unsafe impl ::windows::core::Vtable for UserActivityRequest {
     type Vtable = IUserActivityRequest_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivityRequest {
     const IID: ::windows::core::GUID = <IUserActivityRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityRequest {
@@ -1195,19 +1249,19 @@ impl UserActivityRequestManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UserActivityRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UserActivityRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUserActivityRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUserActivityRequested)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveUserActivityRequested)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
     pub fn GetForCurrentView() -> ::windows::core::Result<UserActivityRequestManager> {
         Self::IUserActivityRequestManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityRequestManager>(result__)
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityRequestManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -1239,8 +1293,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivityRequestManager {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivityRequestManager {
+unsafe impl ::windows::core::Vtable for UserActivityRequestManager {
     type Vtable = IUserActivityRequestManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivityRequestManager {
     const IID: ::windows::core::GUID = <IUserActivityRequestManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityRequestManager {
@@ -1284,7 +1340,7 @@ impl UserActivityRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityRequest>(result__)
+            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityRequest>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1293,7 +1349,7 @@ impl UserActivityRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1320,8 +1376,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivityRequestedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivityRequestedEventArgs {
+unsafe impl ::windows::core::Vtable for UserActivityRequestedEventArgs {
     type Vtable = IUserActivityRequestedEventArgs_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivityRequestedEventArgs {
     const IID: ::windows::core::GUID = <IUserActivityRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityRequestedEventArgs {
@@ -1367,13 +1425,13 @@ impl UserActivitySession {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn ActivityId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ActivityId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivityId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1400,8 +1458,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivitySession {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivitySession {
+unsafe impl ::windows::core::Vtable for UserActivitySession {
     type Vtable = IUserActivitySession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivitySession {
     const IID: ::windows::core::GUID = <IUserActivitySession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivitySession {
@@ -1469,7 +1529,7 @@ impl UserActivitySessionHistoryItem {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UserActivity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
+            (::windows::core::Vtable::vtable(this).UserActivity)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1478,7 +1538,7 @@ impl UserActivitySessionHistoryItem {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StartTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).StartTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1487,7 +1547,7 @@ impl UserActivitySessionHistoryItem {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EndTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Vtable::vtable(this).EndTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
 }
@@ -1514,8 +1574,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivitySessionHistoryItem {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivitySessionHistoryItem {
+unsafe impl ::windows::core::Vtable for UserActivitySessionHistoryItem {
     type Vtable = IUserActivitySessionHistoryItem_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivitySessionHistoryItem {
     const IID: ::windows::core::GUID = <IUserActivitySessionHistoryItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivitySessionHistoryItem {
@@ -1561,23 +1623,23 @@ impl UserActivityVisualElements {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetDisplayText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDisplayText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
@@ -1585,20 +1647,20 @@ impl UserActivityVisualElements {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
+            (::windows::core::Vtable::vtable(this).BackgroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetBackgroundColor(&self, value: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBackgroundColor)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn Attribution(&self) -> ::windows::core::Result<UserActivityAttribution> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Attribution)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityAttribution>(result__)
+            (::windows::core::Vtable::vtable(this).Attribution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityAttribution>(result__)
         }
     }
     pub fn SetAttribution<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -1606,7 +1668,7 @@ impl UserActivityVisualElements {
         P0: ::std::convert::Into<::windows::core::InParam<'a, UserActivityAttribution>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAttribution)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAttribution)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
@@ -1616,7 +1678,7 @@ impl UserActivityVisualElements {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContent)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
@@ -1624,19 +1686,19 @@ impl UserActivityVisualElements {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Shell::IAdaptiveCard>(result__)
+            (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Shell::IAdaptiveCard>(result__)
         }
     }
     pub fn AttributionDisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IUserActivityVisualElements2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AttributionDisplayText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).AttributionDisplayText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SetAttributionDisplayText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IUserActivityVisualElements2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAttributionDisplayText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAttributionDisplayText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for UserActivityVisualElements {
@@ -1662,8 +1724,10 @@ unsafe impl ::windows::core::RuntimeType for UserActivityVisualElements {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for UserActivityVisualElements {
+unsafe impl ::windows::core::Vtable for UserActivityVisualElements {
     type Vtable = IUserActivityVisualElements_Vtbl;
+}
+unsafe impl ::windows::core::Interface for UserActivityVisualElements {
     const IID: ::windows::core::GUID = <IUserActivityVisualElements as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityVisualElements {

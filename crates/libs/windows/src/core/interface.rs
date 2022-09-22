@@ -13,13 +13,9 @@ use bindings::IWeakReferenceSource;
 /// * its in-memory representation is equal to `NonNull<NonNull<Self::VTable>>`
 /// * the vtable is correctly structured beginning with the `IUnknown` function pointers
 /// * the vtable must be the correct vtable for the supplied IID
-pub unsafe trait Interface: Sized {
+pub unsafe trait Interface: Vtable {
     /// A unique identifier representing this interface.
     const IID: GUID;
-
-    /// The interface's vtable
-    #[doc(hidden)]
-    type Vtable;
 
     /// Attempts to cast the current interface to another interface using `QueryInterface`.
     ///
@@ -33,62 +29,9 @@ pub unsafe trait Interface: Sized {
         unsafe { self.query(&T::IID, &mut result as *mut _ as _).and_some(result) }
     }
 
-    /// Returns the raw COM interface pointer. The resulting pointer continues to be owned by the `Interface` implementation.
-    #[inline(always)]
-    fn as_raw(&self) -> *mut core::ffi::c_void {
-        // SAFETY: implementors of this trait must guarantee that the implementing type has a pointer in-memory representation
-        unsafe { core::mem::transmute_copy(self) }
-    }
-
-    /// Returns the raw COM interface pointer and releases ownership. It the caller's responsibility to release the COM interface pointer.
-    fn into_raw(self) -> *mut core::ffi::c_void {
-        // SAFETY: implementors of this trait must guarantee that the implementing type has a pointer in-memory representation
-        let raw = self.as_raw();
-        std::mem::forget(self);
-        raw
-    }
-
-    /// Creates an `Interface` by taking ownership of the `raw` COM interface pointer.
-    ///
-    /// # Safety
-    ///
-    /// The `raw` pointer must be owned by the caller and represent a valid COM interface pointer. In other words,
-    /// it must point to a vtable beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
-    unsafe fn from_raw(raw: *mut core::ffi::c_void) -> Self {
-        std::mem::transmute_copy(&raw)
-    }
-
-    /// Creates an `Interface` that is valid so long as the `raw` COM interface pointer is valid.
-    ///
-    /// # Safety
-    ///
-    /// The `raw` pointer must be a valid COM interface pointer. In other words, it must point to a vtable
-    /// beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
-    unsafe fn from_raw_borrowed<'a>(raw: &'a *mut core::ffi::c_void) -> &'a Self {
-        std::mem::transmute_copy(&raw)
-    }
-
     /// Attempts to create a [`Weak`] reference to this object.
     fn downgrade(&self) -> Result<Weak<Self>> {
         self.cast::<IWeakReferenceSource>().and_then(|source| Weak::downgrade(&source))
-    }
-
-    /// A reference to the interface's vtable
-    #[doc(hidden)]
-    fn vtable(&self) -> &Self::Vtable {
-        // SAFETY: the implementor of the trait guarantees that `Self` is castable to its vtable
-        unsafe { self.assume_vtable::<Self>() }
-    }
-
-    /// Cast this interface as a reference to the supplied interfaces `Vtable`
-    ///
-    /// # SAFETY
-    ///
-    /// This is safe if `T` is an equivalent interface to `Self` or a super interface.
-    /// In other words, `T::Vtable` must be equivalent to the beginning of `Self::Vtable`.
-    #[doc(hidden)]
-    unsafe fn assume_vtable<T: Interface>(&self) -> &T::Vtable {
-        &**(self.as_raw() as *mut *mut T::Vtable)
     }
 
     /// Call `QueryInterface` on this interface

@@ -1954,14 +1954,14 @@ impl IContentPrefetcherTaskTrigger {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Interface::as_raw(self), packagefullname.into()).ok()
+        (::windows::core::Vtable::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Vtable::as_raw(self), packagefullname.into()).ok()
     }
     pub unsafe fn IsRegisteredForContentPrefetch<'a, P0>(&self, packagefullname: P0) -> ::windows::core::Result<u8>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Interface::as_raw(self), packagefullname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Vtable::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Vtable::as_raw(self), packagefullname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
 impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IUnknown {
@@ -2010,14 +2010,16 @@ impl ::core::fmt::Debug for IContentPrefetcherTaskTrigger {
         f.debug_tuple("IContentPrefetcherTaskTrigger").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
+unsafe impl ::windows::core::Vtable for IContentPrefetcherTaskTrigger {
     type Vtable = IContentPrefetcherTaskTrigger_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetcherTaskTrigger_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub TriggerContentPrefetcherTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR, isregistered: *mut u8) -> ::windows::core::HRESULT,
 }

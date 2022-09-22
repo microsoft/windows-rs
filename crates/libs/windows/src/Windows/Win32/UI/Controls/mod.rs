@@ -2672,7 +2672,7 @@ impl IImageList {
         P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), hbmimage.into(), hbmmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), hbmimage.into(), hbmmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -2681,10 +2681,10 @@ impl IImageList {
         P0: ::std::convert::Into<super::WindowsAndMessaging::HICON>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ReplaceIcon)(::windows::core::Interface::as_raw(self), i, hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).ReplaceIcon)(::windows::core::Vtable::as_raw(self), i, hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverlayImage)(::windows::core::Interface::as_raw(self), iimage, ioverlay).ok()
+        (::windows::core::Vtable::vtable(self).SetOverlayImage)(::windows::core::Vtable::as_raw(self), iimage, ioverlay).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2693,7 +2693,7 @@ impl IImageList {
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
         P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (::windows::core::Interface::vtable(self).Replace)(::windows::core::Interface::as_raw(self), i, hbmimage.into(), hbmmask.into()).ok()
+        (::windows::core::Vtable::vtable(self).Replace)(::windows::core::Vtable::as_raw(self), i, hbmimage.into(), hbmmask.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2703,61 +2703,61 @@ impl IImageList {
         P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), crmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).AddMasked)(::windows::core::Vtable::as_raw(self), hbmimage.into(), crmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimldp)).ok()
+        (::windows::core::Vtable::vtable(self).Draw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pimldp)).ok()
     }
     pub unsafe fn Remove(&self, i: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), i).ok()
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), i).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), i, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
+        (::windows::core::Vtable::vtable(self).GetIcon)(::windows::core::Vtable::as_raw(self), i, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetImageInfo(&self, i: i32) -> ::windows::core::Result<IMAGEINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetImageInfo)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGEINFO>(result__)
+        (::windows::core::Vtable::vtable(self).GetImageInfo)(::windows::core::Vtable::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGEINFO>(result__)
     }
     pub unsafe fn Copy<'a, P0>(&self, idst: i32, punksrc: P0, isrc: i32, uflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), idst, punksrc.into().abi(), isrc, uflags).ok()
+        (::windows::core::Vtable::vtable(self).Copy)(::windows::core::Vtable::as_raw(self), idst, punksrc.into().abi(), isrc, uflags).ok()
     }
     pub unsafe fn Merge<'a, P0>(&self, i1: i32, punk2: P0, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), i1, punk2.into().abi(), i2, dx, dy, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).Merge)(::windows::core::Vtable::as_raw(self), i1, punk2.into().abi(), i2, dx, dy, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageRect(&self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetImageRect)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Vtable::vtable(self).GetImageRect)(::windows::core::Vtable::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
     pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIconSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
+        (::windows::core::Vtable::vtable(self).GetIconSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
     }
     pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIconSize)(::windows::core::Interface::as_raw(self), cx, cy).ok()
+        (::windows::core::Vtable::vtable(self).SetIconSize)(::windows::core::Vtable::as_raw(self), cx, cy).ok()
     }
     pub unsafe fn GetImageCount(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetImageCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).GetImageCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetImageCount)(::windows::core::Interface::as_raw(self), unewcount).ok()
+        (::windows::core::Vtable::vtable(self).SetImageCount)(::windows::core::Vtable::as_raw(self), unewcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2766,19 +2766,19 @@ impl IImageList {
         P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).SetBkColor)(::windows::core::Interface::as_raw(self), clrbk.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
+        (::windows::core::Vtable::vtable(self).SetBkColor)(::windows::core::Vtable::as_raw(self), clrbk.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetBkColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
+        (::windows::core::Vtable::vtable(self).GetBkColor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginDrag)(::windows::core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
+        (::windows::core::Vtable::vtable(self).BeginDrag)(::windows::core::Vtable::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
     }
     pub unsafe fn EndDrag(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndDrag)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).EndDrag)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2786,7 +2786,7 @@ impl IImageList {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).DragEnter)(::windows::core::Interface::as_raw(self), hwndlock.into(), x, y).ok()
+        (::windows::core::Vtable::vtable(self).DragEnter)(::windows::core::Vtable::as_raw(self), hwndlock.into(), x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2794,16 +2794,16 @@ impl IImageList {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).DragLeave)(::windows::core::Interface::as_raw(self), hwndlock.into()).ok()
+        (::windows::core::Vtable::vtable(self).DragLeave)(::windows::core::Vtable::as_raw(self), hwndlock.into()).ok()
     }
     pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DragMove)(::windows::core::Interface::as_raw(self), x, y).ok()
+        (::windows::core::Vtable::vtable(self).DragMove)(::windows::core::Vtable::as_raw(self), x, y).ok()
     }
     pub unsafe fn SetDragCursorImage<'a, P0>(&self, punk: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetDragCursorImage)(::windows::core::Interface::as_raw(self), punk.into().abi(), idrag, dxhotspot, dyhotspot).ok()
+        (::windows::core::Vtable::vtable(self).SetDragCursorImage)(::windows::core::Vtable::as_raw(self), punk.into().abi(), idrag, dxhotspot, dyhotspot).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2811,20 +2811,20 @@ impl IImageList {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).DragShowNolock)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
+        (::windows::core::Vtable::vtable(self).DragShowNolock)(::windows::core::Vtable::as_raw(self), fshow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDragImage(&self, ppt: ::core::option::Option<*mut super::super::Foundation::POINT>, ppthotspot: ::core::option::Option<*mut super::super::Foundation::POINT>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDragImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppthotspot.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).GetDragImage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppthotspot.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetItemFlags)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
+        (::windows::core::Vtable::vtable(self).GetItemFlags)(::windows::core::Vtable::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
     }
     pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetOverlayImage)(::windows::core::Interface::as_raw(self), ioverlay, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).GetOverlayImage)(::windows::core::Vtable::as_raw(self), ioverlay, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 impl ::core::convert::From<IImageList> for ::windows::core::IUnknown {
@@ -2858,8 +2858,10 @@ impl ::core::fmt::Debug for IImageList {
         f.debug_tuple("IImageList").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IImageList {
+unsafe impl ::windows::core::Vtable for IImageList {
     type Vtable = IImageList_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IImageList {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46eb5926_582e_4017_9fdf_e8998daa0950);
 }
 #[repr(C)]
@@ -2950,7 +2952,7 @@ impl IImageList2 {
         P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Add)(::windows::core::Interface::as_raw(self), hbmimage.into(), hbmmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.Add)(::windows::core::Vtable::as_raw(self), hbmimage.into(), hbmmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -2959,10 +2961,10 @@ impl IImageList2 {
         P0: ::std::convert::Into<super::WindowsAndMessaging::HICON>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ReplaceIcon)(::windows::core::Interface::as_raw(self), i, hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.ReplaceIcon)(::windows::core::Vtable::as_raw(self), i, hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetOverlayImage)(::windows::core::Interface::as_raw(self), iimage, ioverlay).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetOverlayImage)(::windows::core::Vtable::as_raw(self), iimage, ioverlay).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2971,7 +2973,7 @@ impl IImageList2 {
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
         P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (::windows::core::Interface::vtable(self).base__.Replace)(::windows::core::Interface::as_raw(self), i, hbmimage.into(), hbmmask.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Replace)(::windows::core::Vtable::as_raw(self), i, hbmimage.into(), hbmmask.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2981,61 +2983,61 @@ impl IImageList2 {
         P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), crmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.AddMasked)(::windows::core::Vtable::as_raw(self), hbmimage.into(), crmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Draw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimldp)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Draw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pimldp)).ok()
     }
     pub unsafe fn Remove(&self, i: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self), i).ok()
+        (::windows::core::Vtable::vtable(self).base__.Remove)(::windows::core::Vtable::as_raw(self), i).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetIcon)(::windows::core::Interface::as_raw(self), i, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetIcon)(::windows::core::Vtable::as_raw(self), i, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetImageInfo(&self, i: i32) -> ::windows::core::Result<IMAGEINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetImageInfo)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGEINFO>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetImageInfo)(::windows::core::Vtable::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGEINFO>(result__)
     }
     pub unsafe fn Copy<'a, P0>(&self, idst: i32, punksrc: P0, isrc: i32, uflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Copy)(::windows::core::Interface::as_raw(self), idst, punksrc.into().abi(), isrc, uflags).ok()
+        (::windows::core::Vtable::vtable(self).base__.Copy)(::windows::core::Vtable::as_raw(self), idst, punksrc.into().abi(), isrc, uflags).ok()
     }
     pub unsafe fn Merge<'a, P0>(&self, i1: i32, punk2: P0, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), i1, punk2.into().abi(), i2, dx, dy, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Merge)(::windows::core::Vtable::as_raw(self), i1, punk2.into().abi(), i2, dx, dy, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageRect(&self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetImageRect)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetImageRect)(::windows::core::Vtable::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
     pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetIconSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIconSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
     }
     pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIconSize)(::windows::core::Interface::as_raw(self), cx, cy).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetIconSize)(::windows::core::Vtable::as_raw(self), cx, cy).ok()
     }
     pub unsafe fn GetImageCount(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetImageCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetImageCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetImageCount)(::windows::core::Interface::as_raw(self), unewcount).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetImageCount)(::windows::core::Vtable::as_raw(self), unewcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3044,19 +3046,19 @@ impl IImageList2 {
         P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SetBkColor)(::windows::core::Interface::as_raw(self), clrbk.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
+        (::windows::core::Vtable::vtable(self).base__.SetBkColor)(::windows::core::Vtable::as_raw(self), clrbk.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetBkColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBkColor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.BeginDrag)(::windows::core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
+        (::windows::core::Vtable::vtable(self).base__.BeginDrag)(::windows::core::Vtable::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
     }
     pub unsafe fn EndDrag(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EndDrag)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).base__.EndDrag)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3064,7 +3066,7 @@ impl IImageList2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).base__.DragEnter)(::windows::core::Interface::as_raw(self), hwndlock.into(), x, y).ok()
+        (::windows::core::Vtable::vtable(self).base__.DragEnter)(::windows::core::Vtable::as_raw(self), hwndlock.into(), x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3072,16 +3074,16 @@ impl IImageList2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).base__.DragLeave)(::windows::core::Interface::as_raw(self), hwndlock.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.DragLeave)(::windows::core::Vtable::as_raw(self), hwndlock.into()).ok()
     }
     pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DragMove)(::windows::core::Interface::as_raw(self), x, y).ok()
+        (::windows::core::Vtable::vtable(self).base__.DragMove)(::windows::core::Vtable::as_raw(self), x, y).ok()
     }
     pub unsafe fn SetDragCursorImage<'a, P0>(&self, punk: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetDragCursorImage)(::windows::core::Interface::as_raw(self), punk.into().abi(), idrag, dxhotspot, dyhotspot).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDragCursorImage)(::windows::core::Vtable::as_raw(self), punk.into().abi(), idrag, dxhotspot, dyhotspot).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3089,55 +3091,55 @@ impl IImageList2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.DragShowNolock)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.DragShowNolock)(::windows::core::Vtable::as_raw(self), fshow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDragImage(&self, ppt: ::core::option::Option<*mut super::super::Foundation::POINT>, ppthotspot: ::core::option::Option<*mut super::super::Foundation::POINT>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetDragImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppthotspot.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetDragImage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppthotspot.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetItemFlags)(::windows::core::Interface::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemFlags)(::windows::core::Vtable::as_raw(self), i, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
     }
     pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetOverlayImage)(::windows::core::Interface::as_raw(self), ioverlay, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetOverlayImage)(::windows::core::Vtable::as_raw(self), ioverlay, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), cxnewiconsize, cynewiconsize).ok()
+        (::windows::core::Vtable::vtable(self).Resize)(::windows::core::Vtable::as_raw(self), cxnewiconsize, cynewiconsize).ok()
     }
     pub unsafe fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOriginalSize)(::windows::core::Interface::as_raw(self), iimage, dwflags, ::core::mem::transmute(pcx), ::core::mem::transmute(pcy)).ok()
+        (::windows::core::Vtable::vtable(self).GetOriginalSize)(::windows::core::Vtable::as_raw(self), iimage, dwflags, ::core::mem::transmute(pcx), ::core::mem::transmute(pcy)).ok()
     }
     pub unsafe fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOriginalSize)(::windows::core::Interface::as_raw(self), iimage, cx, cy).ok()
+        (::windows::core::Vtable::vtable(self).SetOriginalSize)(::windows::core::Vtable::as_raw(self), iimage, cx, cy).ok()
     }
     pub unsafe fn SetCallback<'a, P0>(&self, punk: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).SetCallback)(::windows::core::Interface::as_raw(self), punk.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetCallback)(::windows::core::Vtable::as_raw(self), punk.into().abi()).ok()
     }
     pub unsafe fn GetCallback(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).GetCallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn ForceImagePresent(&self, iimage: i32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ForceImagePresent)(::windows::core::Interface::as_raw(self), iimage, dwflags).ok()
+        (::windows::core::Vtable::vtable(self).ForceImagePresent)(::windows::core::Vtable::as_raw(self), iimage, dwflags).ok()
     }
     pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DiscardImages)(::windows::core::Interface::as_raw(self), ifirstimage, ilastimage, dwflags).ok()
+        (::windows::core::Vtable::vtable(self).DiscardImages)(::windows::core::Vtable::as_raw(self), ifirstimage, ilastimage, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn PreloadImages(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PreloadImages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimldp)).ok()
+        (::windows::core::Vtable::vtable(self).PreloadImages)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pimldp)).ok()
     }
     pub unsafe fn GetStatistics(&self, pils: *mut IMAGELISTSTATS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pils)).ok()
+        (::windows::core::Vtable::vtable(self).GetStatistics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pils)).ok()
     }
     pub unsafe fn Initialize(&self, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), cx, cy, flags, cinitial, cgrow).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), cx, cy, flags, cinitial, cgrow).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3147,14 +3149,14 @@ impl IImageList2 {
         P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Replace2)(::windows::core::Interface::as_raw(self), i, hbmimage.into(), hbmmask.into(), punk.into().abi(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).Replace2)(::windows::core::Vtable::as_raw(self), i, hbmimage.into(), hbmmask.into(), punk.into().abi(), dwflags).ok()
     }
     pub unsafe fn ReplaceFromImageList<'a, P0, P1>(&self, i: i32, pil: P0, isrc: i32, punk: P1, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IImageList>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).ReplaceFromImageList)(::windows::core::Interface::as_raw(self), i, pil.into().abi(), isrc, punk.into().abi(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).ReplaceFromImageList)(::windows::core::Vtable::as_raw(self), i, pil.into().abi(), isrc, punk.into().abi(), dwflags).ok()
     }
 }
 impl ::core::convert::From<IImageList2> for ::windows::core::IUnknown {
@@ -3203,8 +3205,10 @@ impl ::core::fmt::Debug for IImageList2 {
         f.debug_tuple("IImageList2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IImageList2 {
+unsafe impl ::windows::core::Vtable for IImageList2 {
     type Vtable = IImageList2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IImageList2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 }
 #[repr(C)]

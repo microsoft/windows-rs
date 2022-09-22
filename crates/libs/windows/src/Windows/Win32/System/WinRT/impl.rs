@@ -25,7 +25,7 @@ impl IAccountsSettingsPaneInterop_Vtbl {
             this.ShowAddAccountForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncaction)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAccountsSettingsPaneInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAccountsSettingsPaneInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
             ShowManageAccountsForWindowAsync: ShowManageAccountsForWindowAsync::<Identity, Impl, OFFSET>,
             ShowAddAccountForWindowAsync: ShowAddAccountForWindowAsync::<Identity, Impl, OFFSET>,
@@ -53,7 +53,7 @@ impl IActivationFactory_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IActivationFactory, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IActivationFactory, OFFSET>(),
             ActivateInstance: ActivateInstance::<Identity, Impl, OFFSET>,
         }
     }
@@ -384,7 +384,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
             this.SetWindowClientAdapter(::core::mem::transmute(&value)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICoreWindowAdapterInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ICoreWindowAdapterInterop, OFFSET>(),
             AppActivationClientAdapter: AppActivationClientAdapter::<Identity, Impl, OFFSET>,
             ApplicationViewClientAdapter: ApplicationViewClientAdapter::<Identity, Impl, OFFSET>,
             CoreApplicationViewClientAdapter: CoreApplicationViewClientAdapter::<Identity, Impl, OFFSET>,
@@ -507,7 +507,7 @@ impl ICorrelationVectorInformation_Vtbl {
             this.SetNextCorrelationVectorForThread(::core::mem::transmute(&cv)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, ICorrelationVectorInformation, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ICorrelationVectorInformation, OFFSET>(),
             LastCorrelationVectorForThread: LastCorrelationVectorForThread::<Identity, Impl, OFFSET>,
             NextCorrelationVectorForThread: NextCorrelationVectorForThread::<Identity, Impl, OFFSET>,
             SetNextCorrelationVectorForThread: SetNextCorrelationVectorForThread::<Identity, Impl, OFFSET>,
@@ -555,7 +555,7 @@ impl IDragDropManagerInterop_Vtbl {
             this.GetForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IDragDropManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IDragDropManagerInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -578,7 +578,7 @@ impl IHolographicSpaceInterop_Vtbl {
             this.CreateForWindow(::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&holographicspace)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IHolographicSpaceInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IHolographicSpaceInterop, OFFSET>(),
             CreateForWindow: CreateForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -600,7 +600,7 @@ impl IInputPaneInterop_Vtbl {
             let this = (*this).get_impl();
             this.GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&inputpane)).into()
         }
-        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IInputPaneInterop, OFFSET>(), GetForWindow: GetForWindow::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IInputPaneInterop, OFFSET>(), GetForWindow: GetForWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IInputPaneInterop as ::windows::core::Interface>::IID
@@ -746,7 +746,7 @@ impl IMessageDispatcher_Vtbl {
             let this = (*this).get_impl();
             this.PumpMessages().into()
         }
-        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IMessageDispatcher, OFFSET>(), PumpMessages: PumpMessages::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IMessageDispatcher, OFFSET>(), PumpMessages: PumpMessages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMessageDispatcher as ::windows::core::Interface>::IID
@@ -773,7 +773,7 @@ impl IPlayToManagerInterop_Vtbl {
             this.ShowPlayToUIForWindow(::core::mem::transmute_copy(&appwindow)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPlayToManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IPlayToManagerInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
             ShowPlayToUIForWindow: ShowPlayToUIForWindow::<Identity, Impl, OFFSET>,
         }
@@ -975,7 +975,7 @@ impl ISpatialInteractionManagerInterop_Vtbl {
             this.GetForWindow(::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&spatialinteractionmanager)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISpatialInteractionManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ISpatialInteractionManagerInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -998,7 +998,7 @@ impl ISystemMediaTransportControlsInterop_Vtbl {
             this.GetForWindow(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&mediatransportcontrol)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, ISystemMediaTransportControlsInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ISystemMediaTransportControlsInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -1021,7 +1021,7 @@ impl IUIViewSettingsInterop_Vtbl {
             this.GetForWindow(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUIViewSettingsInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IUIViewSettingsInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -1044,7 +1044,7 @@ impl IUserActivityInterop_Vtbl {
             this.CreateSessionForWindow(::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IUserActivityInterop, OFFSET>(),
             CreateSessionForWindow: CreateSessionForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -1067,7 +1067,7 @@ impl IUserActivityRequestManagerInterop_Vtbl {
             this.GetForWindow(::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&value)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivityRequestManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IUserActivityRequestManagerInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
@@ -1087,7 +1087,7 @@ impl IUserActivitySourceHostInterop_Vtbl {
             this.SetActivitySourceHost(::core::mem::transmute(&activitysourcehost)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivitySourceHostInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IUserActivitySourceHostInterop, OFFSET>(),
             SetActivitySourceHost: SetActivitySourceHost::<Identity, Impl, OFFSET>,
         }
     }
@@ -1110,7 +1110,7 @@ impl IUserConsentVerifierInterop_Vtbl {
             this.RequestVerificationForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute(&message), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IUserConsentVerifierInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IUserConsentVerifierInterop, OFFSET>(),
             RequestVerificationForWindowAsync: RequestVerificationForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
@@ -1179,7 +1179,7 @@ impl IWebAuthenticationCoreManagerInterop_Vtbl {
             this.RequestTokenWithWebAccountForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute(&request), ::core::mem::transmute(&webaccount), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncinfo)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWebAuthenticationCoreManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWebAuthenticationCoreManagerInterop, OFFSET>(),
             RequestTokenForWindowAsync: RequestTokenForWindowAsync::<Identity, Impl, OFFSET>,
             RequestTokenWithWebAccountForWindowAsync: RequestTokenWithWebAccountForWindowAsync::<Identity, Impl, OFFSET>,
         }

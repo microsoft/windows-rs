@@ -10,7 +10,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
             this.CreateFromWin32Handle(::core::mem::transmute_copy(&win32handle), ::core::mem::transmute_copy(&enableaboutdata), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusAttachmentFactoryInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWindowsDevicesAllJoynBusAttachmentFactoryInterop, OFFSET>(),
             CreateFromWin32Handle: CreateFromWin32Handle::<Identity, Impl, OFFSET>,
         }
     }
@@ -36,7 +36,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusAttachmentInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWindowsDevicesAllJoynBusAttachmentInterop, OFFSET>(),
             Win32Handle: Win32Handle::<Identity, Impl, OFFSET>,
         }
     }
@@ -56,7 +56,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
             this.CreateFromWin32Handle(::core::mem::transmute_copy(&win32handle), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusObjectFactoryInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWindowsDevicesAllJoynBusObjectFactoryInterop, OFFSET>(),
             CreateFromWin32Handle: CreateFromWin32Handle::<Identity, Impl, OFFSET>,
         }
     }
@@ -94,7 +94,7 @@ impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
             }
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusObjectInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWindowsDevicesAllJoynBusObjectInterop, OFFSET>(),
             AddPropertyGetHandler: AddPropertyGetHandler::<Identity, Impl, OFFSET>,
             AddPropertySetHandler: AddPropertySetHandler::<Identity, Impl, OFFSET>,
             Win32Handle: Win32Handle::<Identity, Impl, OFFSET>,

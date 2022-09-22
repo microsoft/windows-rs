@@ -34,7 +34,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<T> #where_clause {
                     let mut result__ = ::core::option::Option::None;
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).and_some(result__)
+                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).and_some(result__)
                 }
             }
         }
@@ -48,7 +48,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> #where_clause {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
+                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).ok()
                 }
             }
         }
@@ -64,7 +64,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
                     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args ::core::mem::transmute(result__.as_mut_ptr()))
+                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args ::core::mem::transmute(result__.as_mut_ptr()))
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
@@ -77,7 +77,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<()> #where_clause {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
+                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).ok()
                 }
             }
         }
@@ -91,7 +91,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                     let mut result__: #return_type = :: core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), &mut result__, #args);
+                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), &mut result__, #args);
                     result__
                 }
             }
@@ -105,7 +105,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #return_type #where_clause {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)
+                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args)
                 }
             }
         }
@@ -117,7 +117,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #where_clause {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)
+                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args)
                 }
             }
         }

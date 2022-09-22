@@ -19,7 +19,7 @@ impl IUriToStreamResolver {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UriToStreamAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
+            (::windows::core::Vtable::vtable(this).UriToStreamAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
         }
     }
 }
@@ -76,14 +76,16 @@ unsafe impl ::windows::core::RuntimeType for IUriToStreamResolver {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for IUriToStreamResolver {
+unsafe impl ::windows::core::Vtable for IUriToStreamResolver {
     type Vtable = IUriToStreamResolver_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUriToStreamResolver {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUriToStreamResolver_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub UriToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
@@ -92,14 +94,16 @@ pub struct IUriToStreamResolver_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IWebErrorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWebErrorStatics {
+unsafe impl ::windows::core::Vtable for IWebErrorStatics {
     type Vtable = IWebErrorStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IWebErrorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe616766_bf27_4064_87b7_6563bb11ce2e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebErrorStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut WebErrorStatus) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Web\"`*"]
@@ -108,7 +112,7 @@ impl WebError {
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), hresult, result__.as_mut_ptr()).from_abi::<WebErrorStatus>(result__)
+            (::windows::core::Vtable::vtable(this).GetStatus)(::windows::core::Vtable::as_raw(this), hresult, result__.as_mut_ptr()).from_abi::<WebErrorStatus>(result__)
         })
     }
     #[doc(hidden)]

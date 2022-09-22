@@ -411,10 +411,10 @@ impl ILocationPermissions {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGlobalLocationPermission(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetGlobalLocationPermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).GetGlobalLocationPermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     pub unsafe fn CheckLocationCapability(&self, dwclientthreadid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckLocationCapability)(::windows::core::Interface::as_raw(self), dwclientthreadid).ok()
+        (::windows::core::Vtable::vtable(self).CheckLocationCapability)(::windows::core::Vtable::as_raw(self), dwclientthreadid).ok()
     }
 }
 impl ::core::convert::From<ILocationPermissions> for ::windows::core::IUnknown {
@@ -448,8 +448,10 @@ impl ::core::fmt::Debug for ILocationPermissions {
         f.debug_tuple("ILocationPermissions").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ILocationPermissions {
+unsafe impl ::windows::core::Vtable for ILocationPermissions {
     type Vtable = ILocationPermissions_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ILocationPermissions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
 }
 #[repr(C)]
@@ -468,25 +470,25 @@ pub struct ISensor(::windows::core::IUnknown);
 impl ISensor {
     pub unsafe fn GetID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn GetCategory(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetCategory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn GetFriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetFriendlyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
@@ -495,13 +497,13 @@ impl ISensor {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceKeyCollection>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), pkeys.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pkeys.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetSupportedDataFields(&self) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceKeyCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSupportedDataFields)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceKeyCollection>(result__)
+        (::windows::core::Vtable::vtable(self).GetSupportedDataFields)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceKeyCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
@@ -510,37 +512,37 @@ impl ISensor {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceValues>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).SetProperties)(::windows::core::Interface::as_raw(self), pproperties.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
+        (::windows::core::Vtable::vtable(self).SetProperties)(::windows::core::Vtable::as_raw(self), pproperties.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn SupportsDataField(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).SupportsDataField)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).SupportsDataField)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn GetState(&self) -> ::windows::core::Result<SensorState> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SensorState>(result__)
+        (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SensorState>(result__)
     }
     pub unsafe fn GetData(&self) -> ::windows::core::Result<ISensorDataReport> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensorDataReport>(result__)
+        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensorDataReport>(result__)
     }
     pub unsafe fn SupportsEvent(&self, eventguid: *const ::windows::core::GUID) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).SupportsEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).SupportsEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(eventguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn GetEventInterest(&self, ppvalues: *mut *mut ::windows::core::GUID, pcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppvalues), ::core::mem::transmute(pcount)).ok()
+        (::windows::core::Vtable::vtable(self).GetEventInterest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppvalues), ::core::mem::transmute(pcount)).ok()
     }
     pub unsafe fn SetEventInterest(&self, pvalues: ::core::option::Option<&[::windows::core::GUID]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalues.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows::core::Vtable::vtable(self).SetEventInterest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalues.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn SetEventSink<'a, P0>(&self, pevents: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensorEvents>>,
     {
-        (::windows::core::Interface::vtable(self).SetEventSink)(::windows::core::Interface::as_raw(self), pevents.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetEventSink)(::windows::core::Vtable::as_raw(self), pevents.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ISensor> for ::windows::core::IUnknown {
@@ -574,8 +576,10 @@ impl ::core::fmt::Debug for ISensor {
         f.debug_tuple("ISensor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISensor {
+unsafe impl ::windows::core::Vtable for ISensor {
     type Vtable = ISensor_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fa08f80_2657_458e_af75_46f73fa6ac5c);
 }
 #[repr(C)]
@@ -619,29 +623,29 @@ pub struct ISensorCollection(::windows::core::IUnknown);
 impl ISensorCollection {
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<ISensor> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), ulindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensor>(result__)
+        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), ulindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensor>(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn Add<'a, P0>(&self, psensor: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
     {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), psensor.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), psensor.into().abi()).ok()
     }
     pub unsafe fn Remove<'a, P0>(&self, psensor: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
     {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), psensor.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), psensor.into().abi()).ok()
     }
     pub unsafe fn RemoveByID(&self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveByID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sensorid)).ok()
+        (::windows::core::Vtable::vtable(self).RemoveByID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sensorid)).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<ISensorCollection> for ::windows::core::IUnknown {
@@ -675,8 +679,10 @@ impl ::core::fmt::Debug for ISensorCollection {
         f.debug_tuple("ISensorCollection").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISensorCollection {
+unsafe impl ::windows::core::Vtable for ISensorCollection {
     type Vtable = ISensorCollection_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensorCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23571e11_e545_4dd8_a337_b89bf44b10df);
 }
 #[repr(C)]
@@ -698,13 +704,13 @@ impl ISensorDataReport {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetTimestamp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Vtable::vtable(self).GetTimestamp)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetSensorValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSensorValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Vtable::vtable(self).GetSensorValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
@@ -713,7 +719,7 @@ impl ISensorDataReport {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceKeyCollection>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSensorValues)(::windows::core::Interface::as_raw(self), pkeys.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
+        (::windows::core::Vtable::vtable(self).GetSensorValues)(::windows::core::Vtable::as_raw(self), pkeys.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
     }
 }
 impl ::core::convert::From<ISensorDataReport> for ::windows::core::IUnknown {
@@ -747,8 +753,10 @@ impl ::core::fmt::Debug for ISensorDataReport {
         f.debug_tuple("ISensorDataReport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISensorDataReport {
+unsafe impl ::windows::core::Vtable for ISensorDataReport {
     type Vtable = ISensorDataReport_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensorDataReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
 }
 #[repr(C)]
@@ -776,14 +784,14 @@ impl ISensorEvents {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
     {
-        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), psensor.into().abi(), state).ok()
+        (::windows::core::Vtable::vtable(self).OnStateChanged)(::windows::core::Vtable::as_raw(self), psensor.into().abi(), state).ok()
     }
     pub unsafe fn OnDataUpdated<'a, P0, P1>(&self, psensor: P0, pnewdata: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ISensorDataReport>>,
     {
-        (::windows::core::Interface::vtable(self).OnDataUpdated)(::windows::core::Interface::as_raw(self), psensor.into().abi(), pnewdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).OnDataUpdated)(::windows::core::Vtable::as_raw(self), psensor.into().abi(), pnewdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
@@ -792,10 +800,10 @@ impl ISensorEvents {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceValues>>,
     {
-        (::windows::core::Interface::vtable(self).OnEvent)(::windows::core::Interface::as_raw(self), psensor.into().abi(), ::core::mem::transmute(eventid), peventdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), psensor.into().abi(), ::core::mem::transmute(eventid), peventdata.into().abi()).ok()
     }
     pub unsafe fn OnLeave(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnLeave)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
+        (::windows::core::Vtable::vtable(self).OnLeave)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(id)).ok()
     }
 }
 impl ::core::convert::From<ISensorEvents> for ::windows::core::IUnknown {
@@ -829,8 +837,10 @@ impl ::core::fmt::Debug for ISensorEvents {
         f.debug_tuple("ISensorEvents").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISensorEvents {
+unsafe impl ::windows::core::Vtable for ISensorEvents {
     type Vtable = ISensorEvents_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensorEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
 }
 #[repr(C)]
@@ -851,21 +861,21 @@ pub struct ISensorManager(::windows::core::IUnknown);
 impl ISensorManager {
     pub unsafe fn GetSensorsByCategory(&self, sensorcategory: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSensorsByCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sensorcategory), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensorCollection>(result__)
+        (::windows::core::Vtable::vtable(self).GetSensorsByCategory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sensorcategory), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensorCollection>(result__)
     }
     pub unsafe fn GetSensorsByType(&self, sensortype: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSensorsByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sensortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensorCollection>(result__)
+        (::windows::core::Vtable::vtable(self).GetSensorsByType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sensortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensorCollection>(result__)
     }
     pub unsafe fn GetSensorByID(&self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<ISensor> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSensorByID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sensorid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensor>(result__)
+        (::windows::core::Vtable::vtable(self).GetSensorByID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sensorid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensor>(result__)
     }
     pub unsafe fn SetEventSink<'a, P0>(&self, pevents: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensorManagerEvents>>,
     {
-        (::windows::core::Interface::vtable(self).SetEventSink)(::windows::core::Interface::as_raw(self), pevents.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetEventSink)(::windows::core::Vtable::as_raw(self), pevents.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -875,7 +885,7 @@ impl ISensorManager {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ISensorCollection>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).RequestPermissions)(::windows::core::Interface::as_raw(self), hparent.into(), psensors.into().abi(), fmodal.into()).ok()
+        (::windows::core::Vtable::vtable(self).RequestPermissions)(::windows::core::Vtable::as_raw(self), hparent.into(), psensors.into().abi(), fmodal.into()).ok()
     }
 }
 impl ::core::convert::From<ISensorManager> for ::windows::core::IUnknown {
@@ -909,8 +919,10 @@ impl ::core::fmt::Debug for ISensorManager {
         f.debug_tuple("ISensorManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISensorManager {
+unsafe impl ::windows::core::Vtable for ISensorManager {
     type Vtable = ISensorManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensorManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd77db67_45a8_42dc_8d00_6dcf15f8377a);
 }
 #[repr(C)]
@@ -934,7 +946,7 @@ impl ISensorManagerEvents {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
     {
-        (::windows::core::Interface::vtable(self).OnSensorEnter)(::windows::core::Interface::as_raw(self), psensor.into().abi(), state).ok()
+        (::windows::core::Vtable::vtable(self).OnSensorEnter)(::windows::core::Vtable::as_raw(self), psensor.into().abi(), state).ok()
     }
 }
 impl ::core::convert::From<ISensorManagerEvents> for ::windows::core::IUnknown {
@@ -968,8 +980,10 @@ impl ::core::fmt::Debug for ISensorManagerEvents {
         f.debug_tuple("ISensorManagerEvents").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ISensorManagerEvents {
+unsafe impl ::windows::core::Vtable for ISensorManagerEvents {
     type Vtable = ISensorManagerEvents_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISensorManagerEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
 }
 #[repr(C)]

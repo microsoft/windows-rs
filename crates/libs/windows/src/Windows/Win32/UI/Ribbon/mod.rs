@@ -6,17 +6,17 @@ impl IUIApplication {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).OnViewChanged)(::windows::core::Interface::as_raw(self), viewid, typeid, view.into().abi(), verb, ureasoncode).ok()
+        (::windows::core::Vtable::vtable(self).OnViewChanged)(::windows::core::Vtable::as_raw(self), viewid, typeid, view.into().abi(), verb, ureasoncode).ok()
     }
     pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> ::windows::core::Result<IUICommandHandler> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).OnCreateUICommand)(::windows::core::Interface::as_raw(self), commandid, typeid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUICommandHandler>(result__)
+        (::windows::core::Vtable::vtable(self).OnCreateUICommand)(::windows::core::Vtable::as_raw(self), commandid, typeid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUICommandHandler>(result__)
     }
     pub unsafe fn OnDestroyUICommand<'a, P0>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUICommandHandler>>,
     {
-        (::windows::core::Interface::vtable(self).OnDestroyUICommand)(::windows::core::Interface::as_raw(self), commandid, typeid, commandhandler.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).OnDestroyUICommand)(::windows::core::Vtable::as_raw(self), commandid, typeid, commandhandler.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIApplication> for ::windows::core::IUnknown {
@@ -50,8 +50,10 @@ impl ::core::fmt::Debug for IUIApplication {
         f.debug_tuple("IUIApplication").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUIApplication {
+unsafe impl ::windows::core::Vtable for IUIApplication {
     type Vtable = IUIApplication_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUIApplication {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd428903c_729a_491d_910d_682a08ff2522);
 }
 #[repr(C)]
@@ -68,35 +70,35 @@ pub struct IUICollection(::windows::core::IUnknown);
 impl IUICollection {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetItem(&self, index: u32) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetItem)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     pub unsafe fn Add<'a, P0>(&self, item: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), item.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), item.into().abi()).ok()
     }
     pub unsafe fn Insert<'a, P0>(&self, index: u32, item: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), index, item.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Insert)(::windows::core::Vtable::as_raw(self), index, item.into().abi()).ok()
     }
     pub unsafe fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveAt)(::windows::core::Interface::as_raw(self), index).ok()
+        (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), index).ok()
     }
     pub unsafe fn Replace<'a, P0>(&self, indexreplaced: u32, itemreplacewith: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Replace)(::windows::core::Interface::as_raw(self), indexreplaced, itemreplacewith.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Replace)(::windows::core::Vtable::as_raw(self), indexreplaced, itemreplacewith.into().abi()).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IUICollection> for ::windows::core::IUnknown {
@@ -130,8 +132,10 @@ impl ::core::fmt::Debug for IUICollection {
         f.debug_tuple("IUICollection").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUICollection {
+unsafe impl ::windows::core::Vtable for IUICollection {
     type Vtable = IUICollection_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUICollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf4f45bf_6f9d_4dd7_9d68_d8f9cd18c4db);
 }
 #[repr(C)]
@@ -155,7 +159,7 @@ impl IUICollectionChangedEvent {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).OnChanged)(::windows::core::Interface::as_raw(self), action, oldindex, olditem.into().abi(), newindex, newitem.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).OnChanged)(::windows::core::Vtable::as_raw(self), action, oldindex, olditem.into().abi(), newindex, newitem.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUICollectionChangedEvent> for ::windows::core::IUnknown {
@@ -189,8 +193,10 @@ impl ::core::fmt::Debug for IUICollectionChangedEvent {
         f.debug_tuple("IUICollectionChangedEvent").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUICollectionChangedEvent {
+unsafe impl ::windows::core::Vtable for IUICollectionChangedEvent {
     type Vtable = IUICollectionChangedEvent_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUICollectionChangedEvent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6502ae91_a14d_44b5_bbd0_62aacc581d52);
 }
 #[repr(C)]
@@ -209,13 +215,13 @@ impl IUICommandHandler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUISimplePropertySet>>,
     {
-        (::windows::core::Interface::vtable(self).Execute)(::windows::core::Interface::as_raw(self), commandid, verb, ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), ::core::mem::transmute(currentvalue.unwrap_or(::std::ptr::null())), commandexecutionproperties.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), commandid, verb, ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), ::core::mem::transmute(currentvalue.unwrap_or(::std::ptr::null())), commandexecutionproperties.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).UpdateProperty)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(key), ::core::mem::transmute(currentvalue.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Vtable::vtable(self).UpdateProperty)(::windows::core::Vtable::as_raw(self), commandid, ::core::mem::transmute(key), ::core::mem::transmute(currentvalue.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
 impl ::core::convert::From<IUICommandHandler> for ::windows::core::IUnknown {
@@ -249,8 +255,10 @@ impl ::core::fmt::Debug for IUICommandHandler {
         f.debug_tuple("IUICommandHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUICommandHandler {
+unsafe impl ::windows::core::Vtable for IUICommandHandler {
     type Vtable = IUICommandHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUICommandHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75ae0a2d_dc03_4c9f_8883_069660d0beb6);
 }
 #[repr(C)]
@@ -271,7 +279,7 @@ pub struct IUICommandHandler_Vtbl {
 pub struct IUIContextualUI(::windows::core::IUnknown);
 impl IUIContextualUI {
     pub unsafe fn ShowAtLocation(&self, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowAtLocation)(::windows::core::Interface::as_raw(self), x, y).ok()
+        (::windows::core::Vtable::vtable(self).ShowAtLocation)(::windows::core::Vtable::as_raw(self), x, y).ok()
     }
 }
 impl ::core::convert::From<IUIContextualUI> for ::windows::core::IUnknown {
@@ -305,8 +313,10 @@ impl ::core::fmt::Debug for IUIContextualUI {
         f.debug_tuple("IUIContextualUI").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUIContextualUI {
+unsafe impl ::windows::core::Vtable for IUIContextualUI {
     type Vtable = IUIContextualUI_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUIContextualUI {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea11f37_7c46_437c_8e55_b52122b29293);
 }
 #[repr(C)]
@@ -320,7 +330,7 @@ pub struct IUIContextualUI_Vtbl {
 pub struct IUIEventLogger(::windows::core::IUnknown);
 impl IUIEventLogger {
     pub unsafe fn OnUIEvent(&self, peventparams: *const UI_EVENTPARAMS) {
-        (::windows::core::Interface::vtable(self).OnUIEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(peventparams))
+        (::windows::core::Vtable::vtable(self).OnUIEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(peventparams))
     }
 }
 impl ::core::convert::From<IUIEventLogger> for ::windows::core::IUnknown {
@@ -354,8 +364,10 @@ impl ::core::fmt::Debug for IUIEventLogger {
         f.debug_tuple("IUIEventLogger").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUIEventLogger {
+unsafe impl ::windows::core::Vtable for IUIEventLogger {
     type Vtable = IUIEventLogger_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUIEventLogger {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec3e1034_dbf4_41a1_95d5_03e0f1026e05);
 }
 #[repr(C)]
@@ -372,7 +384,7 @@ impl IUIEventingManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIEventLogger>>,
     {
-        (::windows::core::Interface::vtable(self).SetEventLogger)(::windows::core::Interface::as_raw(self), eventlogger.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetEventLogger)(::windows::core::Vtable::as_raw(self), eventlogger.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIEventingManager> for ::windows::core::IUnknown {
@@ -406,8 +418,10 @@ impl ::core::fmt::Debug for IUIEventingManager {
         f.debug_tuple("IUIEventingManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUIEventingManager {
+unsafe impl ::windows::core::Vtable for IUIEventingManager {
     type Vtable = IUIEventingManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUIEventingManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3be6ea7f_9a9b_4198_9368_9b0f923bd534);
 }
 #[repr(C)]
@@ -427,10 +441,10 @@ impl IUIFramework {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIApplication>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), framewnd.into(), application.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), framewnd.into(), application.into().abi()).ok()
     }
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Destroy)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).Destroy)(::windows::core::Vtable::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -439,32 +453,32 @@ impl IUIFramework {
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).LoadUI)(::windows::core::Interface::as_raw(self), instance.into(), resourcename.into()).ok()
+        (::windows::core::Vtable::vtable(self).LoadUI)(::windows::core::Vtable::as_raw(self), instance.into(), resourcename.into()).ok()
     }
     pub unsafe fn GetView(&self, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetView)(::windows::core::Interface::as_raw(self), viewid, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).GetView)(::windows::core::Vtable::as_raw(self), viewid, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetUICommandProperty)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Vtable::vtable(self).GetUICommandProperty)(::windows::core::Vtable::as_raw(self), commandid, ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUICommandProperty)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(key), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).SetUICommandProperty)(::windows::core::Vtable::as_raw(self), commandid, ::core::mem::transmute(key), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: ::core::option::Option<*const super::Shell::PropertiesSystem::PROPERTYKEY>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InvalidateUICommand)(::windows::core::Interface::as_raw(self), commandid, flags, ::core::mem::transmute(key.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).InvalidateUICommand)(::windows::core::Vtable::as_raw(self), commandid, flags, ::core::mem::transmute(key.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn FlushPendingInvalidations(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FlushPendingInvalidations)(::windows::core::Interface::as_raw(self)).ok()
+        (::windows::core::Vtable::vtable(self).FlushPendingInvalidations)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetModes(&self, imodes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetModes)(::windows::core::Interface::as_raw(self), imodes).ok()
+        (::windows::core::Vtable::vtable(self).SetModes)(::windows::core::Vtable::as_raw(self), imodes).ok()
     }
 }
 impl ::core::convert::From<IUIFramework> for ::windows::core::IUnknown {
@@ -498,8 +512,10 @@ impl ::core::fmt::Debug for IUIFramework {
         f.debug_tuple("IUIFramework").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUIFramework {
+unsafe impl ::windows::core::Vtable for IUIFramework {
     type Vtable = IUIFramework_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUIFramework {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4f0385d_6872_43a8_ad09_4c339cb3f5c5);
 }
 #[repr(C)]
@@ -539,7 +555,7 @@ impl IUIImage {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
+        (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
 impl ::core::convert::From<IUIImage> for ::windows::core::IUnknown {
@@ -573,8 +589,10 @@ impl ::core::fmt::Debug for IUIImage {
         f.debug_tuple("IUIImage").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUIImage {
+unsafe impl ::windows::core::Vtable for IUIImage {
     type Vtable = IUIImage_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUIImage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23c8c838_4de6_436b_ab01_5554bb7c30dd);
 }
 #[repr(C)]
@@ -597,7 +615,7 @@ impl IUIImageFromBitmap {
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).CreateImage)(::windows::core::Interface::as_raw(self), bitmap.into(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIImage>(result__)
+        (::windows::core::Vtable::vtable(self).CreateImage)(::windows::core::Vtable::as_raw(self), bitmap.into(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIImage>(result__)
     }
 }
 impl ::core::convert::From<IUIImageFromBitmap> for ::windows::core::IUnknown {
@@ -631,8 +649,10 @@ impl ::core::fmt::Debug for IUIImageFromBitmap {
         f.debug_tuple("IUIImageFromBitmap").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUIImageFromBitmap {
+unsafe impl ::windows::core::Vtable for IUIImageFromBitmap {
     type Vtable = IUIImageFromBitmap_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUIImageFromBitmap {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18aba7f3_4c1c_4ba2_bf6c_f5c3326fa816);
 }
 #[repr(C)]
@@ -650,7 +670,7 @@ pub struct IUIRibbon(::windows::core::IUnknown);
 impl IUIRibbon {
     pub unsafe fn GetHeight(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetHeight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetHeight)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -658,7 +678,7 @@ impl IUIRibbon {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).LoadSettingsFromStream)(::windows::core::Interface::as_raw(self), pstream.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).LoadSettingsFromStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -666,7 +686,7 @@ impl IUIRibbon {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).SaveSettingsToStream)(::windows::core::Interface::as_raw(self), pstream.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SaveSettingsToStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIRibbon> for ::windows::core::IUnknown {
@@ -700,8 +720,10 @@ impl ::core::fmt::Debug for IUIRibbon {
         f.debug_tuple("IUIRibbon").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUIRibbon {
+unsafe impl ::windows::core::Vtable for IUIRibbon {
     type Vtable = IUIRibbon_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUIRibbon {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803982ab_370a_4f7e_a9e7_8784036a6e26);
 }
 #[repr(C)]
@@ -726,7 +748,7 @@ impl IUISimplePropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
 impl ::core::convert::From<IUISimplePropertySet> for ::windows::core::IUnknown {
@@ -760,8 +782,10 @@ impl ::core::fmt::Debug for IUISimplePropertySet {
         f.debug_tuple("IUISimplePropertySet").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IUISimplePropertySet {
+unsafe impl ::windows::core::Vtable for IUISimplePropertySet {
     type Vtable = IUISimplePropertySet_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IUISimplePropertySet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc205bb48_5b1c_4219_a106_15bd0a5f24e2);
 }
 #[repr(C)]

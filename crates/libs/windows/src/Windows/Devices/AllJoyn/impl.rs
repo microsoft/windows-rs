@@ -14,7 +14,7 @@ impl IAllJoynAcceptSessionJoiner_Vtbl {
             let this = (*this).get_impl();
             this.Accept().into()
         }
-        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynAcceptSessionJoiner, OFFSET>(), Accept: Accept::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAllJoynAcceptSessionJoiner, OFFSET>(), Accept: Accept::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynAcceptSessionJoiner as ::windows::core::Interface>::IID
@@ -36,7 +36,7 @@ impl IAllJoynProducer_Vtbl {
             let this = (*this).get_impl();
             this.SetBusObject(::core::mem::transmute(&busobject)).into()
         }
-        Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynProducer, OFFSET>(), SetBusObject: SetBusObject::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAllJoynProducer, OFFSET>(), SetBusObject: SetBusObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAllJoynProducer as ::windows::core::Interface>::IID

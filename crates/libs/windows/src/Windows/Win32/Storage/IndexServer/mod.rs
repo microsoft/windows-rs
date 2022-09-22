@@ -58,23 +58,23 @@ impl IFilter {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
-        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), grfflags, aattributes.len() as _, ::core::mem::transmute(aattributes.as_ptr()), ::core::mem::transmute(pflags))
+        (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self), grfflags, aattributes.len() as _, ::core::mem::transmute(aattributes.as_ptr()), ::core::mem::transmute(pflags))
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
-        (::windows::core::Interface::vtable(self).GetChunk)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstat))
+        (::windows::core::Vtable::vtable(self).GetChunk)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstat))
     }
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: ::windows::core::PWSTR) -> i32 {
-        (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcwcbuffer), ::core::mem::transmute(awcbuffer))
+        (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcwcbuffer), ::core::mem::transmute(awcbuffer))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
-        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppropvalue))
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppropvalue))
     }
     pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32 {
-        (::windows::core::Interface::vtable(self).BindRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(origpos), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk))
+        (::windows::core::Vtable::vtable(self).BindRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(origpos), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk))
     }
 }
 impl ::core::convert::From<IFilter> for ::windows::core::IUnknown {
@@ -108,8 +108,10 @@ impl ::core::fmt::Debug for IFilter {
         f.debug_tuple("IFilter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IFilter {
+unsafe impl ::windows::core::Vtable for IFilter {
     type Vtable = IFilter_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89bcb740_6119_101a_bcb7_00dd010655af);
 }
 #[repr(C)]
@@ -140,13 +142,13 @@ impl IPhraseSink {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PutSmallPhrase)(::windows::core::Interface::as_raw(self), pwcnoun.into(), cwcnoun, pwcmodifier.into(), cwcmodifier, ulattachmenttype).ok()
+        (::windows::core::Vtable::vtable(self).PutSmallPhrase)(::windows::core::Vtable::as_raw(self), pwcnoun.into(), cwcnoun, pwcmodifier.into(), cwcmodifier, ulattachmenttype).ok()
     }
     pub unsafe fn PutPhrase<'a, P0>(&self, pwcphrase: P0, cwcphrase: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PutPhrase)(::windows::core::Interface::as_raw(self), pwcphrase.into(), cwcphrase).ok()
+        (::windows::core::Vtable::vtable(self).PutPhrase)(::windows::core::Vtable::as_raw(self), pwcphrase.into(), cwcphrase).ok()
     }
 }
 impl ::core::convert::From<IPhraseSink> for ::windows::core::IUnknown {
@@ -180,8 +182,10 @@ impl ::core::fmt::Debug for IPhraseSink {
         f.debug_tuple("IPhraseSink").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IPhraseSink {
+unsafe impl ::windows::core::Vtable for IPhraseSink {
     type Vtable = IPhraseSink_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPhraseSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc906ff0_c058_101a_b554_08002b33b0e6);
 }
 #[repr(C)]

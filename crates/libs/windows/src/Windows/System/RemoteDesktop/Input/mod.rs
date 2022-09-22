@@ -1,14 +1,16 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRemoteTextConnection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IRemoteTextConnection {
+unsafe impl ::windows::core::Vtable for IRemoteTextConnection {
     type Vtable = IRemoteTextConnection_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRemoteTextConnection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteTextConnection_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub RegisterThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows::core::HRESULT,
@@ -18,14 +20,16 @@ pub struct IRemoteTextConnection_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRemoteTextConnectionFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IRemoteTextConnectionFactory {
+unsafe impl ::windows::core::Vtable for IRemoteTextConnectionFactory {
     type Vtable = IRemoteTextConnectionFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRemoteTextConnectionFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88e075c2_0cae_596c_850f_78d345cd728b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteTextConnectionFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
+    pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, pduforwarder: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
@@ -36,30 +40,30 @@ impl RemoteTextConnection {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIsEnabled)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
     pub fn RegisterThread(&self, threadid: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterThread)(::windows::core::Interface::as_raw(this), threadid).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RegisterThread)(::windows::core::Vtable::as_raw(this), threadid).ok() }
     }
     pub fn UnregisterThread(&self, threadid: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UnregisterThread)(::windows::core::Interface::as_raw(this), threadid).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UnregisterThread)(::windows::core::Vtable::as_raw(this), threadid).ok() }
     }
     pub fn ReportDataReceived(&self, pdudata: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportDataReceived)(::windows::core::Interface::as_raw(this), pdudata.len() as u32, pdudata.as_ptr()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ReportDataReceived)(::windows::core::Vtable::as_raw(this), pdudata.len() as u32, pdudata.as_ptr()).ok() }
     }
     pub fn CreateInstance<'a, P0>(connectionid: ::windows::core::GUID, pduforwarder: P0) -> ::windows::core::Result<RemoteTextConnection>
     where
@@ -67,7 +71,7 @@ impl RemoteTextConnection {
     {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), connectionid, pduforwarder.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteTextConnection>(result__)
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), connectionid, pduforwarder.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteTextConnection>(result__)
         })
     }
     #[doc(hidden)]
@@ -99,8 +103,10 @@ unsafe impl ::windows::core::RuntimeType for RemoteTextConnection {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-unsafe impl ::windows::core::Interface for RemoteTextConnection {
+unsafe impl ::windows::core::Vtable for RemoteTextConnection {
     type Vtable = IRemoteTextConnection_Vtbl;
+}
+unsafe impl ::windows::core::Interface for RemoteTextConnection {
     const IID: ::windows::core::GUID = <IRemoteTextConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteTextConnection {
@@ -172,7 +178,7 @@ impl RemoteTextConnectionDataHandler {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), pdudata.len() as u32, pdudata.as_ptr(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), pdudata.len() as u32, pdudata.as_ptr(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -237,8 +243,10 @@ impl ::core::fmt::Debug for RemoteTextConnectionDataHandler {
         f.debug_tuple("RemoteTextConnectionDataHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for RemoteTextConnectionDataHandler {
+unsafe impl ::windows::core::Vtable for RemoteTextConnectionDataHandler {
     type Vtable = RemoteTextConnectionDataHandler_Vtbl;
+}
+unsafe impl ::windows::core::Interface for RemoteTextConnectionDataHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x099ffbc8_8bcb_41b5_b056_57e77021bf1b);
 }
 unsafe impl ::windows::core::RuntimeType for RemoteTextConnectionDataHandler {

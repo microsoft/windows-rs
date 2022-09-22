@@ -9,7 +9,7 @@ impl IIsolatedEnvironmentInterop {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetHostHwndInterop)(::windows::core::Interface::as_raw(self), containerhwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).GetHostHwndInterop)(::windows::core::Vtable::as_raw(self), containerhwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
 impl ::core::convert::From<IIsolatedEnvironmentInterop> for ::windows::core::IUnknown {
@@ -43,8 +43,10 @@ impl ::core::fmt::Debug for IIsolatedEnvironmentInterop {
         f.debug_tuple("IIsolatedEnvironmentInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IIsolatedEnvironmentInterop {
+unsafe impl ::windows::core::Vtable for IIsolatedEnvironmentInterop {
     type Vtable = IIsolatedEnvironmentInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IIsolatedEnvironmentInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85713c2e_8e62_46c5_8de2_c647e1d54636);
 }
 #[repr(C)]

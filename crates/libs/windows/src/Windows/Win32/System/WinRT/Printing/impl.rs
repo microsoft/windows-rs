@@ -19,7 +19,7 @@ impl IPrintManagerInterop_Vtbl {
             this.ShowPrintUIForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrintManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IPrintManagerInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
             ShowPrintUIForWindowAsync: ShowPrintUIForWindowAsync::<Identity, Impl, OFFSET>,
         }
@@ -237,7 +237,7 @@ impl IPrinting3DManagerInterop_Vtbl {
             this.ShowPrintUIForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
         Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPrinting3DManagerInterop, OFFSET>(),
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IPrinting3DManagerInterop, OFFSET>(),
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
             ShowPrintUIForWindowAsync: ShowPrintUIForWindowAsync::<Identity, Impl, OFFSET>,
         }

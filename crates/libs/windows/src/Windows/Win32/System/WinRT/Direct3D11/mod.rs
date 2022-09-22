@@ -35,7 +35,7 @@ impl IDirect3DDxgiInterfaceAccess {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetInterface)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).GetInterface)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDirect3DDxgiInterfaceAccess> for ::windows::core::IUnknown {
@@ -69,8 +69,10 @@ impl ::core::fmt::Debug for IDirect3DDxgiInterfaceAccess {
         f.debug_tuple("IDirect3DDxgiInterfaceAccess").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirect3DDxgiInterfaceAccess {
+unsafe impl ::windows::core::Vtable for IDirect3DDxgiInterfaceAccess {
     type Vtable = IDirect3DDxgiInterfaceAccess_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IDirect3DDxgiInterfaceAccess {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
 }
 #[repr(C)]

@@ -8,10 +8,10 @@ impl IChannelCredentials {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetWindowsCredential)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(domain), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), impersonationlevel, allowntlm.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetWindowsCredential)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(domain), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), impersonationlevel, allowntlm.into()).ok()
     }
     pub unsafe fn SetUserNameCredential(&self, username: &::windows::core::BSTR, password: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserNameCredential)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password)).ok()
+        (::windows::core::Vtable::vtable(self).SetUserNameCredential)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -19,13 +19,13 @@ impl IChannelCredentials {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).SetClientCertificateFromStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename), ::core::mem::transmute_copy(findyype), findvalue.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetClientCertificateFromStore)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename), ::core::mem::transmute_copy(findyype), findvalue.into().abi()).ok()
     }
     pub unsafe fn SetClientCertificateFromStoreByName(&self, subjectname: &::windows::core::BSTR, storelocation: &::windows::core::BSTR, storename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientCertificateFromStoreByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(subjectname), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename)).ok()
+        (::windows::core::Vtable::vtable(self).SetClientCertificateFromStoreByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(subjectname), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename)).ok()
     }
     pub unsafe fn SetClientCertificateFromFile(&self, filename: &::windows::core::BSTR, password: &::windows::core::BSTR, keystorageflags: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientCertificateFromFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(keystorageflags)).ok()
+        (::windows::core::Vtable::vtable(self).SetClientCertificateFromFile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(keystorageflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -33,19 +33,19 @@ impl IChannelCredentials {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).SetDefaultServiceCertificateFromStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename), ::core::mem::transmute_copy(findtype), findvalue.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetDefaultServiceCertificateFromStore)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename), ::core::mem::transmute_copy(findtype), findvalue.into().abi()).ok()
     }
     pub unsafe fn SetDefaultServiceCertificateFromStoreByName(&self, subjectname: &::windows::core::BSTR, storelocation: &::windows::core::BSTR, storename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultServiceCertificateFromStoreByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(subjectname), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename)).ok()
+        (::windows::core::Vtable::vtable(self).SetDefaultServiceCertificateFromStoreByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(subjectname), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename)).ok()
     }
     pub unsafe fn SetDefaultServiceCertificateFromFile(&self, filename: &::windows::core::BSTR, password: &::windows::core::BSTR, keystorageflags: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultServiceCertificateFromFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(keystorageflags)).ok()
+        (::windows::core::Vtable::vtable(self).SetDefaultServiceCertificateFromFile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(keystorageflags)).ok()
     }
     pub unsafe fn SetServiceCertificateAuthentication(&self, storelocation: &::windows::core::BSTR, revocationmode: &::windows::core::BSTR, certificatevalidationmode: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceCertificateAuthentication)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(revocationmode), ::core::mem::transmute_copy(certificatevalidationmode)).ok()
+        (::windows::core::Vtable::vtable(self).SetServiceCertificateAuthentication)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(revocationmode), ::core::mem::transmute_copy(certificatevalidationmode)).ok()
     }
     pub unsafe fn SetIssuedToken(&self, localissueraddres: &::windows::core::BSTR, localissuerbindingtype: &::windows::core::BSTR, localissuerbinding: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIssuedToken)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(localissueraddres), ::core::mem::transmute_copy(localissuerbindingtype), ::core::mem::transmute_copy(localissuerbinding)).ok()
+        (::windows::core::Vtable::vtable(self).SetIssuedToken)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(localissueraddres), ::core::mem::transmute_copy(localissuerbindingtype), ::core::mem::transmute_copy(localissuerbinding)).ok()
     }
 }
 impl ::core::convert::From<IChannelCredentials> for ::windows::core::IUnknown {
@@ -94,8 +94,10 @@ impl ::core::fmt::Debug for IChannelCredentials {
         f.debug_tuple("IChannelCredentials").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IChannelCredentials {
+unsafe impl ::windows::core::Vtable for IChannelCredentials {
     type Vtable = IChannelCredentials_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IChannelCredentials {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x181b448c_c17c_4b17_ac6d_06699b93198f);
 }
 #[repr(C)]

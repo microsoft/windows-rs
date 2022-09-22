@@ -2390,7 +2390,7 @@ impl ICcgDomainAuthCredentials {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetPasswordCredentials)(::windows::core::Interface::as_raw(self), plugininput.into(), ::core::mem::transmute(domainname), ::core::mem::transmute(username), ::core::mem::transmute(password)).ok()
+        (::windows::core::Vtable::vtable(self).GetPasswordCredentials)(::windows::core::Vtable::as_raw(self), plugininput.into(), ::core::mem::transmute(domainname), ::core::mem::transmute(username), ::core::mem::transmute(password)).ok()
     }
 }
 impl ::core::convert::From<ICcgDomainAuthCredentials> for ::windows::core::IUnknown {
@@ -2424,8 +2424,10 @@ impl ::core::fmt::Debug for ICcgDomainAuthCredentials {
         f.debug_tuple("ICcgDomainAuthCredentials").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for ICcgDomainAuthCredentials {
+unsafe impl ::windows::core::Vtable for ICcgDomainAuthCredentials {
     type Vtable = ICcgDomainAuthCredentials_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICcgDomainAuthCredentials {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ecda518_2010_4437_8bc3_46e752b7b172);
 }
 #[repr(C)]

@@ -43,14 +43,16 @@ pub const S_OK: HRESULT = HRESULT(0i32);
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPropertyValueStatics(IUnknown);
-unsafe impl Interface for IPropertyValueStatics {
+unsafe impl Vtable for IPropertyValueStatics {
     type Vtable = IPropertyValueStatics_Vtbl;
+}
+unsafe impl Interface for IPropertyValueStatics {
     const IID: GUID = GUID::from_u128(0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyValueStatics_Vtbl {
-    pub base__: IInspectableVtbl,
+    pub base__: IInspectable_Vtbl,
     pub CreateEmpty: unsafe extern "system" fn(this: *mut c_void, result__: *mut *mut c_void) -> HRESULT,
     pub CreateUInt8: unsafe extern "system" fn(this: *mut c_void, value: u8, result__: *mut *mut c_void) -> HRESULT,
     pub CreateInt16: unsafe extern "system" fn(this: *mut c_void, value: i16, result__: *mut *mut c_void) -> HRESULT,
@@ -75,7 +77,7 @@ impl<T: RuntimeType + 'static> IReference<T> {
         let this = self;
         unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).Value)(Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<T>(result__)
+            (Vtable::vtable(this).Value)(Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
 }
@@ -97,8 +99,10 @@ unsafe impl<T: RuntimeType + 'static> RuntimeType for IReference<T> {
         from.as_ref().cloned().ok_or(Error::OK)
     }
 }
-unsafe impl<T: RuntimeType + 'static> Interface for IReference<T> {
+unsafe impl<T: RuntimeType + 'static> Vtable for IReference<T> {
     type Vtable = IReference_Vtbl<T>;
+}
+unsafe impl<T: RuntimeType + 'static> Interface for IReference<T> {
     const IID: GUID = GUID::from_signature(<Self as RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
@@ -107,7 +111,7 @@ pub struct IReference_Vtbl<T>
 where
     T: RuntimeType + 'static,
 {
-    pub base__: IInspectableVtbl,
+    pub base__: IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(this: *mut c_void, result__: *mut <T as Abi>::Abi) -> HRESULT,
     pub T: std::marker::PhantomData<T>,
 }
@@ -119,7 +123,7 @@ impl IStringable {
         let this = self;
         unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).ToString)(Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HSTRING>(result__)
+            (Vtable::vtable(this).ToString)(Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HSTRING>(result__)
         }
     }
 }
@@ -141,14 +145,16 @@ unsafe impl RuntimeType for IStringable {
         from.as_ref().cloned().ok_or(Error::OK)
     }
 }
-unsafe impl Interface for IStringable {
+unsafe impl Vtable for IStringable {
     type Vtable = IStringable_Vtbl;
+}
+unsafe impl Interface for IStringable {
     const IID: GUID = GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStringable_Vtbl {
-    pub base__: IInspectableVtbl,
+    pub base__: IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(this: *mut c_void, result__: *mut std::mem::ManuallyDrop<HSTRING>) -> HRESULT,
 }
 
@@ -157,79 +163,79 @@ impl PropertyValue {
     pub fn CreateEmpty() -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateEmpty)(Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateEmpty)(Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateUInt8(value: u8) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateUInt8)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateUInt8)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateInt16(value: i16) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateInt16)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateInt16)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateUInt16(value: u16) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateUInt16)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateUInt16)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateInt32(value: i32) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateInt32)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateInt32)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateUInt32(value: u32) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateUInt32)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateUInt32)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateInt64(value: i64) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateInt64)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateInt64)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateUInt64(value: u64) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateUInt64)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateUInt64)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateSingle(value: f32) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateSingle)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateSingle)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateDouble(value: f64) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateDouble)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateDouble)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateChar16(value: u16) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateChar16)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateChar16)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateBoolean(value: bool) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateBoolean)(Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateBoolean)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn CreateString(value: &HSTRING) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Interface::vtable(this).CreateString)(Interface::as_raw(this), std::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateString)(Vtable::as_raw(this), std::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
     pub fn IPropertyValueStatics<R, F: FnOnce(&IPropertyValueStatics) -> Result<R>>(callback: F) -> Result<R> {
@@ -254,8 +260,10 @@ impl std::cmp::PartialEq for IAgileObject {
     }
 }
 impl std::cmp::Eq for IAgileObject {}
-unsafe impl Interface for IAgileObject {
+unsafe impl Vtable for IAgileObject {
     type Vtable = IAgileObject_Vtbl;
+}
+unsafe impl Interface for IAgileObject {
     const IID: GUID = GUID::from_u128(0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
 }
 #[repr(C)]
@@ -269,23 +277,23 @@ pub struct IErrorInfo(IUnknown);
 impl IErrorInfo {
     pub unsafe fn GetGUID(&self) -> Result<GUID> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetGUID)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<GUID>(result__)
+        (Vtable::vtable(self).GetGUID)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<GUID>(result__)
     }
     pub unsafe fn GetSource(&self) -> Result<BSTR> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetSource)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
+        (Vtable::vtable(self).GetSource)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
     }
     pub unsafe fn GetDescription(&self) -> Result<BSTR> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetDescription)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
+        (Vtable::vtable(self).GetDescription)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
     }
     pub unsafe fn GetHelpFile(&self) -> Result<BSTR> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetHelpFile)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
+        (Vtable::vtable(self).GetHelpFile)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
     }
     pub unsafe fn GetHelpContext(&self) -> Result<u32> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetHelpContext)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (Vtable::vtable(self).GetHelpContext)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 
@@ -300,8 +308,10 @@ impl std::cmp::PartialEq for IErrorInfo {
     }
 }
 impl std::cmp::Eq for IErrorInfo {}
-unsafe impl Interface for IErrorInfo {
+unsafe impl Vtable for IErrorInfo {
     type Vtable = IErrorInfo_Vtbl;
+}
+unsafe impl Interface for IErrorInfo {
     const IID: GUID = GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002b2bd119);
 }
 #[repr(C)]
@@ -323,7 +333,7 @@ impl IAgileReference {
         T: Interface,
     {
         let mut result__ = std::option::Option::None;
-        (Interface::vtable(self).Resolve)(Interface::as_raw(self), &<T as Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (Vtable::vtable(self).Resolve)(Vtable::as_raw(self), &<T as Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 
@@ -338,8 +348,10 @@ impl std::cmp::PartialEq for IAgileReference {
     }
 }
 impl std::cmp::Eq for IAgileReference {}
-unsafe impl Interface for IAgileReference {
+unsafe impl Vtable for IAgileReference {
     type Vtable = IAgileReference_Vtbl;
+}
+unsafe impl Interface for IAgileReference {
     const IID: GUID = GUID::from_u128(0xc03f6a43_65a4_9818_987e_e0b810d2a6f2);
 }
 #[repr(C)]
@@ -354,7 +366,7 @@ pub struct ILanguageExceptionErrorInfo(IUnknown);
 impl ILanguageExceptionErrorInfo {
     pub unsafe fn GetLanguageException(&self) -> Result<IUnknown> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetLanguageException)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<IUnknown>(result__)
+        (Vtable::vtable(self).GetLanguageException)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<IUnknown>(result__)
     }
 }
 impl std::clone::Clone for ILanguageExceptionErrorInfo {
@@ -368,8 +380,10 @@ impl std::cmp::PartialEq for ILanguageExceptionErrorInfo {
     }
 }
 impl std::cmp::Eq for ILanguageExceptionErrorInfo {}
-unsafe impl Interface for ILanguageExceptionErrorInfo {
+unsafe impl Vtable for ILanguageExceptionErrorInfo {
     type Vtable = ILanguageExceptionErrorInfo_Vtbl;
+}
+unsafe impl Interface for ILanguageExceptionErrorInfo {
     const IID: GUID = GUID::from_u128(0x04a2dbf3_df83_116c_0946_0812abf6e07d);
 }
 #[repr(C)]
@@ -384,21 +398,21 @@ pub struct ILanguageExceptionErrorInfo2(IUnknown);
 impl ILanguageExceptionErrorInfo2 {
     pub unsafe fn GetLanguageException(&self) -> Result<IUnknown> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).base__.GetLanguageException)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<IUnknown>(result__)
+        (Vtable::vtable(self).base__.GetLanguageException)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<IUnknown>(result__)
     }
     pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> Result<ILanguageExceptionErrorInfo2> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetPreviousLanguageExceptionErrorInfo)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
+        (Vtable::vtable(self).GetPreviousLanguageExceptionErrorInfo)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
     pub unsafe fn CapturePropagationContext<'a, P0>(&self, languageexception: P0) -> Result<()>
     where
         P0: ::std::convert::Into<InParam<'a, IUnknown>>,
     {
-        (Interface::vtable(self).CapturePropagationContext)(Interface::as_raw(self), languageexception.into().abi()).ok()
+        (Vtable::vtable(self).CapturePropagationContext)(Vtable::as_raw(self), languageexception.into().abi()).ok()
     }
     pub unsafe fn GetPropagationContextHead(&self) -> Result<ILanguageExceptionErrorInfo2> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetPropagationContextHead)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
+        (Vtable::vtable(self).GetPropagationContextHead)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
 }
 impl std::clone::Clone for ILanguageExceptionErrorInfo2 {
@@ -412,8 +426,10 @@ impl std::cmp::PartialEq for ILanguageExceptionErrorInfo2 {
     }
 }
 impl std::cmp::Eq for ILanguageExceptionErrorInfo2 {}
-unsafe impl Interface for ILanguageExceptionErrorInfo2 {
+unsafe impl Vtable for ILanguageExceptionErrorInfo2 {
     type Vtable = ILanguageExceptionErrorInfo2_Vtbl;
+}
+unsafe impl Interface for ILanguageExceptionErrorInfo2 {
     const IID: GUID = GUID::from_u128(0x5746e5c4_5b97_424c_b620_2822915734dd);
 }
 #[repr(C)]
@@ -429,11 +445,11 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
 pub struct IRestrictedErrorInfo(IUnknown);
 impl IRestrictedErrorInfo {
     pub unsafe fn GetErrorDetails(&self, description: &mut BSTR, error: &mut HRESULT, restricteddescription: &mut BSTR, capabilitysid: &mut BSTR) -> Result<()> {
-        (Interface::vtable(self).GetErrorDetails)(Interface::as_raw(self), std::mem::transmute(description), std::mem::transmute(error), std::mem::transmute(restricteddescription), std::mem::transmute(capabilitysid)).ok()
+        (Vtable::vtable(self).GetErrorDetails)(Vtable::as_raw(self), std::mem::transmute(description), std::mem::transmute(error), std::mem::transmute(restricteddescription), std::mem::transmute(capabilitysid)).ok()
     }
     pub unsafe fn GetReference(&self) -> Result<BSTR> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetReference)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
+        (Vtable::vtable(self).GetReference)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
     }
 }
 impl std::clone::Clone for IRestrictedErrorInfo {
@@ -449,8 +465,10 @@ impl std::cmp::PartialEq for IRestrictedErrorInfo {
 impl std::cmp::Eq for IRestrictedErrorInfo {}
 unsafe impl std::marker::Send for IRestrictedErrorInfo {}
 unsafe impl std::marker::Sync for IRestrictedErrorInfo {}
-unsafe impl Interface for IRestrictedErrorInfo {
+unsafe impl Vtable for IRestrictedErrorInfo {
     type Vtable = IRestrictedErrorInfo_Vtbl;
+}
+unsafe impl Interface for IRestrictedErrorInfo {
     const IID: GUID = GUID::from_u128(0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
 }
 #[repr(C)]
@@ -469,7 +487,7 @@ impl IWeakReference {
         T: Interface,
     {
         let mut result__ = std::option::Option::None;
-        (Interface::vtable(self).Resolve)(Interface::as_raw(self), &<T as Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (Vtable::vtable(self).Resolve)(Vtable::as_raw(self), &<T as Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl std::clone::Clone for IWeakReference {
@@ -483,8 +501,10 @@ impl std::cmp::PartialEq for IWeakReference {
     }
 }
 impl std::cmp::Eq for IWeakReference {}
-unsafe impl Interface for IWeakReference {
+unsafe impl Vtable for IWeakReference {
     type Vtable = IWeakReference_Vtbl;
+}
+unsafe impl Interface for IWeakReference {
     const IID: GUID = GUID::from_u128(0x00000037_0000_0000_c000_000000000046);
 }
 #[repr(C)]
@@ -499,7 +519,7 @@ pub struct IWeakReferenceSource(IUnknown);
 impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> Result<IWeakReference> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Interface::vtable(self).GetWeakReference)(Interface::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<IWeakReference>(result__)
+        (Vtable::vtable(self).GetWeakReference)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<IWeakReference>(result__)
     }
 }
 impl std::clone::Clone for IWeakReferenceSource {
@@ -513,8 +533,10 @@ impl std::cmp::PartialEq for IWeakReferenceSource {
     }
 }
 impl std::cmp::Eq for IWeakReferenceSource {}
-unsafe impl Interface for IWeakReferenceSource {
+unsafe impl Vtable for IWeakReferenceSource {
     type Vtable = IWeakReferenceSource_Vtbl;
+}
+unsafe impl Interface for IWeakReferenceSource {
     const IID: GUID = GUID::from_u128(0x00000038_0000_0000_c000_000000000046);
 }
 #[repr(C)]

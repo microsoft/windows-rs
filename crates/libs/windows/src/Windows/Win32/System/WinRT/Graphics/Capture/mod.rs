@@ -10,7 +10,7 @@ impl IGraphicsCaptureItemInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -20,7 +20,7 @@ impl IGraphicsCaptureItemInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateForMonitor)(::windows::core::Interface::as_raw(self), monitor.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Vtable::vtable(self).CreateForMonitor)(::windows::core::Vtable::as_raw(self), monitor.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IGraphicsCaptureItemInterop> for ::windows::core::IUnknown {
@@ -54,8 +54,10 @@ impl ::core::fmt::Debug for IGraphicsCaptureItemInterop {
         f.debug_tuple("IGraphicsCaptureItemInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IGraphicsCaptureItemInterop {
+unsafe impl ::windows::core::Vtable for IGraphicsCaptureItemInterop {
     type Vtable = IGraphicsCaptureItemInterop_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IGraphicsCaptureItemInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
 }
 #[repr(C)]
