@@ -408,11 +408,11 @@ impl Header {
         header
     }
 
-    fn duplicate(&mut self) -> *mut Header {
+    fn duplicate(&self) -> *mut Header {
         if self.flags & REFERENCE_FLAG == 0 {
             // If this is not a "fast pass" string then simply increment the reference count.
             self.count.add_ref();
-            self
+            self as *const Header as *mut Header
         } else {
             // Otherwise, allocate a new string and copy the value into the new string.
             let copy = Header::alloc(self.len);
