@@ -11,3 +11,11 @@ features = [
     "Win32_Graphics_Direct3D12",
     "Win32_System_IO",
 ]
+
+[dependencies.windows-sys]
+path = "../../libs/sys"
+features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Direct3D12",
+    "Win32_System_IO",
+]
