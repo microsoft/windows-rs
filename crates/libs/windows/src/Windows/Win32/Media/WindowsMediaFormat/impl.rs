@@ -193,7 +193,7 @@ impl INSSBuffer2_Vtbl {
         iid == &<INSSBuffer2 as ::windows::core::Interface>::IID || iid == &<INSSBuffer as ::windows::core::Interface>::IID
     }
 }
-pub trait INSSBuffer3_Impl: Sized + INSSBuffer_Impl + INSSBuffer2_Impl {
+pub trait INSSBuffer3_Impl: Sized + INSSBuffer2_Impl {
     fn SetProperty(&self, guidbufferproperty: &::windows::core::GUID, pvbufferproperty: *const ::core::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::core::Result<()>;
     fn GetProperty(&self, guidbufferproperty: &::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -220,7 +220,7 @@ impl INSSBuffer3_Vtbl {
         iid == &<INSSBuffer3 as ::windows::core::Interface>::IID || iid == &<INSSBuffer as ::windows::core::Interface>::IID || iid == &<INSSBuffer2 as ::windows::core::Interface>::IID
     }
 }
-pub trait INSSBuffer4_Impl: Sized + INSSBuffer_Impl + INSSBuffer2_Impl + INSSBuffer3_Impl {
+pub trait INSSBuffer4_Impl: Sized + INSSBuffer3_Impl {
     fn GetPropertyCount(&self) -> ::windows::core::Result<u32>;
     fn GetPropertyByIndex(&self, dwbufferpropertyindex: u32, pguidbufferproperty: *mut ::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -628,7 +628,7 @@ impl IWMCodecInfo2_Vtbl {
         iid == &<IWMCodecInfo2 as ::windows::core::Interface>::IID || iid == &<IWMCodecInfo as ::windows::core::Interface>::IID
     }
 }
-pub trait IWMCodecInfo3_Impl: Sized + IWMCodecInfo_Impl + IWMCodecInfo2_Impl {
+pub trait IWMCodecInfo3_Impl: Sized + IWMCodecInfo2_Impl {
     fn GetCodecFormatProp(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: &::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
     fn GetCodecProp(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: &::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
     fn SetCodecEnumerationSetting(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: &::windows::core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
@@ -844,7 +844,7 @@ impl IWMDRMReader2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWMDRMReader3_Impl: Sized + IWMDRMReader_Impl + IWMDRMReader2_Impl {
+pub trait IWMDRMReader3_Impl: Sized + IWMDRMReader2_Impl {
     fn GetInclusionList(&self, ppguids: *mut *mut ::windows::core::GUID, pcguids: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1045,7 +1045,7 @@ impl IWMDRMWriter2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWMDRMWriter3_Impl: Sized + IWMDRMWriter_Impl + IWMDRMWriter2_Impl {
+pub trait IWMDRMWriter3_Impl: Sized + IWMDRMWriter2_Impl {
     fn SetProtectStreamSamples(&self, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1323,7 +1323,7 @@ impl IWMHeaderInfo2_Vtbl {
         iid == &<IWMHeaderInfo2 as ::windows::core::Interface>::IID || iid == &<IWMHeaderInfo as ::windows::core::Interface>::IID
     }
 }
-pub trait IWMHeaderInfo3_Impl: Sized + IWMHeaderInfo_Impl + IWMHeaderInfo2_Impl {
+pub trait IWMHeaderInfo3_Impl: Sized + IWMHeaderInfo2_Impl {
     fn GetAttributeCountEx(&self, wstreamnum: u16) -> ::windows::core::Result<u16>;
     fn GetAttributeIndices(&self, wstreamnum: u16, pwszname: &::windows::core::PCWSTR, pwlangindex: *const u16, pwindices: *mut u16, pwcount: *mut u16) -> ::windows::core::Result<()>;
     fn GetAttributeByIndexEx(&self, wstreamnum: u16, windex: u16, pwszname: ::windows::core::PWSTR, pwnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut u16, pvalue: *mut u8, pdwdatalength: *mut u32) -> ::windows::core::Result<()>;
@@ -1769,7 +1769,7 @@ impl IWMMutualExclusion_Vtbl {
         iid == &<IWMMutualExclusion as ::windows::core::Interface>::IID || iid == &<IWMStreamList as ::windows::core::Interface>::IID
     }
 }
-pub trait IWMMutualExclusion2_Impl: Sized + IWMStreamList_Impl + IWMMutualExclusion_Impl {
+pub trait IWMMutualExclusion2_Impl: Sized + IWMMutualExclusion_Impl {
     fn GetName(&self, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
     fn SetName(&self, pwszname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetRecordCount(&self) -> ::windows::core::Result<u16>;
@@ -2204,7 +2204,7 @@ impl IWMProfile2_Vtbl {
         iid == &<IWMProfile2 as ::windows::core::Interface>::IID || iid == &<IWMProfile as ::windows::core::Interface>::IID
     }
 }
-pub trait IWMProfile3_Impl: Sized + IWMProfile_Impl + IWMProfile2_Impl {
+pub trait IWMProfile3_Impl: Sized + IWMProfile2_Impl {
     fn GetStorageFormat(&self) -> ::windows::core::Result<WMT_STORAGE_FORMAT>;
     fn SetStorageFormat(&self, nstorageformat: WMT_STORAGE_FORMAT) -> ::windows::core::Result<()>;
     fn GetBandwidthSharingCount(&self) -> ::windows::core::Result<u32>;
@@ -3048,7 +3048,7 @@ impl IWMReaderAdvanced2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IWMReaderAdvanced3_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdvanced2_Impl {
+pub trait IWMReaderAdvanced3_Impl: Sized + IWMReaderAdvanced2_Impl {
     fn StopNetStreaming(&self) -> ::windows::core::Result<()>;
     fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const ::core::ffi::c_void, pvduration: *const ::core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -3078,7 +3078,7 @@ impl IWMReaderAdvanced3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IWMReaderAdvanced4_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdvanced2_Impl + IWMReaderAdvanced3_Impl {
+pub trait IWMReaderAdvanced4_Impl: Sized + IWMReaderAdvanced3_Impl {
     fn GetLanguageCount(&self, dwoutputnum: u32) -> ::windows::core::Result<u16>;
     fn GetLanguage(&self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: ::windows::core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
     fn GetMaxSpeedFactor(&self) -> ::windows::core::Result<f64>;
@@ -3181,7 +3181,7 @@ impl IWMReaderAdvanced4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IWMReaderAdvanced5_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdvanced2_Impl + IWMReaderAdvanced3_Impl + IWMReaderAdvanced4_Impl {
+pub trait IWMReaderAdvanced5_Impl: Sized + IWMReaderAdvanced4_Impl {
     fn SetPlayerHook(&self, dwoutputnum: u32, phook: &::core::option::Option<IWMPlayerHook>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3201,7 +3201,7 @@ impl IWMReaderAdvanced5_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IWMReaderAdvanced6_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdvanced2_Impl + IWMReaderAdvanced3_Impl + IWMReaderAdvanced4_Impl + IWMReaderAdvanced5_Impl {
+pub trait IWMReaderAdvanced6_Impl: Sized + IWMReaderAdvanced5_Impl {
     fn SetProtectStreamSamples(&self, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4690,7 +4690,7 @@ impl IWMStreamConfig2_Vtbl {
         iid == &<IWMStreamConfig2 as ::windows::core::Interface>::IID || iid == &<IWMStreamConfig as ::windows::core::Interface>::IID
     }
 }
-pub trait IWMStreamConfig3_Impl: Sized + IWMStreamConfig_Impl + IWMStreamConfig2_Impl {
+pub trait IWMStreamConfig3_Impl: Sized + IWMStreamConfig2_Impl {
     fn GetLanguage(&self, pwszlanguagestring: ::windows::core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
     fn SetLanguage(&self, pwszlanguagestring: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -5469,7 +5469,7 @@ impl IWMWriterAdvanced2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWMWriterAdvanced3_Impl: Sized + IWMWriterAdvanced_Impl + IWMWriterAdvanced2_Impl {
+pub trait IWMWriterAdvanced3_Impl: Sized + IWMWriterAdvanced2_Impl {
     fn GetStatisticsEx(&self, wstreamnum: u16) -> ::windows::core::Result<WM_WRITER_STATISTICS_EX>;
     fn SetNonBlocking(&self) -> ::windows::core::Result<()>;
 }
@@ -5525,7 +5525,7 @@ impl IWMWriterFileSink_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWMWriterFileSink2_Impl: Sized + IWMWriterSink_Impl + IWMWriterFileSink_Impl {
+pub trait IWMWriterFileSink2_Impl: Sized + IWMWriterFileSink_Impl {
     fn Start(&self, cnsstarttime: u64) -> ::windows::core::Result<()>;
     fn Stop(&self, cnsstoptime: u64) -> ::windows::core::Result<()>;
     fn IsStopped(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -5614,7 +5614,7 @@ impl IWMWriterFileSink2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWMWriterFileSink3_Impl: Sized + IWMWriterSink_Impl + IWMWriterFileSink_Impl + IWMWriterFileSink2_Impl {
+pub trait IWMWriterFileSink3_Impl: Sized + IWMWriterFileSink2_Impl {
     fn SetAutoIndexing(&self, fdoautoindexing: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetAutoIndexing(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetControlStream(&self, wstreamnumber: u16, fshouldcontrolstartandstop: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;

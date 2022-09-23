@@ -834,7 +834,7 @@ impl IADsCaseIgnoreList_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsClass_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsClass_Impl: Sized + IADs_Impl {
     fn PrimaryInterface(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CLSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetCLSID(&self, bstrclsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1212,7 +1212,7 @@ impl IADsCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsComputer_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsComputer_Impl: Sized + IADs_Impl {
     fn ComputerID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Site(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1554,7 +1554,7 @@ impl IADsComputer_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsComputerOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsComputerOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn Shutdown(&self, breboot: i16) -> ::windows::core::Result<()>;
 }
@@ -1859,7 +1859,7 @@ impl IADsDeleteOps_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsDomain_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsDomain_Impl: Sized + IADs_Impl {
     fn IsWorkgroup(&self) -> ::windows::core::Result<i16>;
     fn MinPasswordLength(&self) -> ::windows::core::Result<i32>;
     fn SetMinPasswordLength(&self, lnminpasswordlength: i32) -> ::windows::core::Result<()>;
@@ -2203,7 +2203,7 @@ impl IADsFaxNumber_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsFileService_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl + IADsService_Impl {
+pub trait IADsFileService_Impl: Sized + IADsService_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MaxUserCount(&self) -> ::windows::core::Result<i32>;
@@ -2259,7 +2259,7 @@ impl IADsFileService_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsFileServiceOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl + IADsServiceOperations_Impl {
+pub trait IADsFileServiceOperations_Impl: Sized + IADsServiceOperations_Impl {
     fn Sessions(&self) -> ::windows::core::Result<IADsCollection>;
     fn Resources(&self) -> ::windows::core::Result<IADsCollection>;
 }
@@ -2301,7 +2301,7 @@ impl IADsFileServiceOperations_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsFileShare_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsFileShare_Impl: Sized + IADs_Impl {
     fn CurrentUserCount(&self) -> ::windows::core::Result<i32>;
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2410,7 +2410,7 @@ impl IADsFileShare_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsGroup_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Members(&self) -> ::windows::core::Result<IADsMembers>;
@@ -2598,7 +2598,7 @@ impl IADsLargeInteger_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsLocality_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsLocality_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn LocalityName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2833,7 +2833,7 @@ impl IADsNameTranslate_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsNamespaces_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsNamespaces_Impl: Sized + IADs_Impl {
     fn DefaultContainer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDefaultContainer(&self, bstrdefaultcontainer: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -2925,7 +2925,7 @@ impl IADsNetAddress_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsO_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsO_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn LocalityName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3061,7 +3061,7 @@ impl IADsO_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsOU_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsOU_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn LocalityName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3556,7 +3556,7 @@ impl IADsPostalAddress_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsPrintJob_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsPrintJob_Impl: Sized + IADs_Impl {
     fn HostPrintQueue(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn User(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UserPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3770,7 +3770,7 @@ impl IADsPrintJob_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsPrintJobOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsPrintJobOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<i32>;
     fn TimeElapsed(&self) -> ::windows::core::Result<i32>;
     fn PagesPrinted(&self) -> ::windows::core::Result<i32>;
@@ -3859,7 +3859,7 @@ impl IADsPrintJobOperations_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsPrintQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsPrintQueue_Impl: Sized + IADs_Impl {
     fn PrinterPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetPrinterPath(&self, bstrprinterpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Model(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4135,7 +4135,7 @@ impl IADsPrintQueue_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsPrintQueueOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsPrintQueueOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<i32>;
     fn PrintJobs(&self) -> ::windows::core::Result<IADsCollection>;
     fn Pause(&self) -> ::windows::core::Result<()>;
@@ -4198,7 +4198,7 @@ impl IADsPrintQueueOperations_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsProperty_Impl: Sized + IADs_Impl {
     fn OID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetOID(&self, bstroid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Syntax(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4936,7 +4936,7 @@ impl IADsReplicaPointer_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsResource_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsResource_Impl: Sized + IADs_Impl {
     fn User(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UserPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5302,7 +5302,7 @@ impl IADsSecurityUtility_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsService_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsService_Impl: Sized + IADs_Impl {
     fn HostComputer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetHostComputer(&self, bstrhostcomputer: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5558,7 +5558,7 @@ impl IADsService_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsServiceOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsServiceOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<i32>;
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
@@ -5622,7 +5622,7 @@ impl IADsServiceOperations_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsSession_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsSession_Impl: Sized + IADs_Impl {
     fn User(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UserPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Computer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5716,7 +5716,7 @@ impl IADsSession_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsSyntax_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsSyntax_Impl: Sized + IADs_Impl {
     fn OleAutoDataType(&self) -> ::windows::core::Result<i32>;
     fn SetOleAutoDataType(&self, lnoleautodatatype: i32) -> ::windows::core::Result<()>;
 }
@@ -5884,7 +5884,7 @@ impl IADsTypedName_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IADsUser_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
+pub trait IADsUser_Impl: Sized + IADs_Impl {
     fn BadLoginAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BadLoginCount(&self) -> ::windows::core::Result<i32>;
     fn LastLogin(&self) -> ::windows::core::Result<f64>;

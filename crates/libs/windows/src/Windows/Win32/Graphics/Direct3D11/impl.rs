@@ -79,7 +79,7 @@ impl ID3D11BlendState_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ID3D11BlendState1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11BlendState_Impl {
+pub trait ID3D11BlendState1_Impl: Sized + ID3D11BlendState_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D11_BLEND_DESC1);
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -98,7 +98,7 @@ impl ID3D11BlendState1_Vtbl {
         iid == &<ID3D11BlendState1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11BlendState as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D11Buffer_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl {
+pub trait ID3D11Buffer_Impl: Sized + ID3D11Resource_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_BUFFER_DESC);
 }
 impl ::windows::core::RuntimeName for ID3D11Buffer {}
@@ -225,7 +225,7 @@ impl ID3D11ComputeShader_Vtbl {
         iid == &<ID3D11ComputeShader as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D11Counter_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Asynchronous_Impl {
+pub trait ID3D11Counter_Impl: Sized + ID3D11Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_COUNTER_DESC);
 }
 impl ::windows::core::RuntimeName for ID3D11Counter {}
@@ -405,7 +405,7 @@ impl ID3D11DepthStencilState_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11DepthStencilView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
+pub trait ID3D11DepthStencilView_Impl: Sized + ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_DEPTH_STENCIL_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -966,7 +966,7 @@ impl ID3D11Device1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11Device2_Impl: Sized + ID3D11Device_Impl + ID3D11Device1_Impl {
+pub trait ID3D11Device2_Impl: Sized + ID3D11Device1_Impl {
     fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>);
     fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2>;
     fn GetResourceTiling(&self, ptiledresource: &::core::option::Option<ID3D11Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING);
@@ -1022,7 +1022,7 @@ impl ID3D11Device2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11Device3_Impl: Sized + ID3D11Device_Impl + ID3D11Device1_Impl + ID3D11Device2_Impl {
+pub trait ID3D11Device3_Impl: Sized + ID3D11Device2_Impl {
     fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1>;
     fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1>;
     fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2>;
@@ -1163,7 +1163,7 @@ impl ID3D11Device3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11Device4_Impl: Sized + ID3D11Device_Impl + ID3D11Device1_Impl + ID3D11Device2_Impl + ID3D11Device3_Impl {
+pub trait ID3D11Device4_Impl: Sized + ID3D11Device3_Impl {
     fn RegisterDeviceRemovedEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
     fn UnregisterDeviceRemoved(&self, dwcookie: u32);
 }
@@ -1199,7 +1199,7 @@ impl ID3D11Device4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11Device5_Impl: Sized + ID3D11Device_Impl + ID3D11Device1_Impl + ID3D11Device2_Impl + ID3D11Device3_Impl + ID3D11Device4_Impl {
+pub trait ID3D11Device5_Impl: Sized + ID3D11Device4_Impl {
     fn OpenSharedFence(&self, hfence: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateFence(&self, initialvalue: u64, flags: D3D11_FENCE_FLAG, returnedinterface: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -2054,7 +2054,7 @@ impl ID3D11DeviceContext_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11DeviceContext1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11DeviceContext_Impl {
+pub trait ID3D11DeviceContext1_Impl: Sized + ID3D11DeviceContext_Impl {
     fn CopySubresourceRegion1(&self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32);
     fn UpdateSubresource1(&self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32);
     fn DiscardResource(&self, presource: &::core::option::Option<ID3D11Resource>);
@@ -2203,7 +2203,7 @@ impl ID3D11DeviceContext1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11DeviceContext2_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11DeviceContext_Impl + ID3D11DeviceContext1_Impl {
+pub trait ID3D11DeviceContext2_Impl: Sized + ID3D11DeviceContext1_Impl {
     fn UpdateTileMappings(&self, ptiledresource: &::core::option::Option<ID3D11Resource>, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: &::core::option::Option<ID3D11Buffer>, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()>;
     fn CopyTileMappings(&self, pdesttiledresource: &::core::option::Option<ID3D11Resource>, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: &::core::option::Option<ID3D11Resource>, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows::core::Result<()>;
     fn CopyTiles(&self, ptiledresource: &::core::option::Option<ID3D11Resource>, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: &::core::option::Option<ID3D11Buffer>, bufferstartoffsetinbytes: u64, flags: u32);
@@ -2290,7 +2290,7 @@ impl ID3D11DeviceContext2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11DeviceContext3_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11DeviceContext_Impl + ID3D11DeviceContext1_Impl + ID3D11DeviceContext2_Impl {
+pub trait ID3D11DeviceContext3_Impl: Sized + ID3D11DeviceContext2_Impl {
     fn Flush1(&self, contexttype: D3D11_CONTEXT_TYPE, hevent: super::super::Foundation::HANDLE);
     fn SetHardwareProtectionState(&self, hwprotectionenable: super::super::Foundation::BOOL);
     fn GetHardwareProtectionState(&self, phwprotectionenable: *mut super::super::Foundation::BOOL);
@@ -2327,7 +2327,7 @@ impl ID3D11DeviceContext3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11DeviceContext4_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11DeviceContext_Impl + ID3D11DeviceContext1_Impl + ID3D11DeviceContext2_Impl + ID3D11DeviceContext3_Impl {
+pub trait ID3D11DeviceContext4_Impl: Sized + ID3D11DeviceContext3_Impl {
     fn Signal(&self, pfence: &::core::option::Option<ID3D11Fence>, value: u64) -> ::windows::core::Result<()>;
     fn Wait(&self, pfence: &::core::option::Option<ID3D11Fence>, value: u64) -> ::windows::core::Result<()>;
 }
@@ -3150,7 +3150,7 @@ impl ID3D11PixelShader_Vtbl {
         iid == &<ID3D11PixelShader as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D11Predicate_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Asynchronous_Impl + ID3D11Query_Impl {}
+pub trait ID3D11Predicate_Impl: Sized + ID3D11Query_Impl {}
 impl ::windows::core::RuntimeName for ID3D11Predicate {}
 impl ID3D11Predicate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11Predicate_Impl, const OFFSET: isize>() -> ID3D11Predicate_Vtbl {
@@ -3160,7 +3160,7 @@ impl ID3D11Predicate_Vtbl {
         iid == &<ID3D11Predicate as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::Interface>::IID || iid == &<ID3D11Query as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D11Query_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Asynchronous_Impl {
+pub trait ID3D11Query_Impl: Sized + ID3D11Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_QUERY_DESC);
 }
 impl ::windows::core::RuntimeName for ID3D11Query {}
@@ -3177,7 +3177,7 @@ impl ID3D11Query_Vtbl {
         iid == &<ID3D11Query as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11Asynchronous as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D11Query1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Asynchronous_Impl + ID3D11Query_Impl {
+pub trait ID3D11Query1_Impl: Sized + ID3D11Query_Impl {
     fn GetDesc1(&self, pdesc1: *mut D3D11_QUERY_DESC1);
 }
 impl ::windows::core::RuntimeName for ID3D11Query1 {}
@@ -3215,7 +3215,7 @@ impl ID3D11RasterizerState_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ID3D11RasterizerState1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11RasterizerState_Impl {
+pub trait ID3D11RasterizerState1_Impl: Sized + ID3D11RasterizerState_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D11_RASTERIZER_DESC1);
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3235,7 +3235,7 @@ impl ID3D11RasterizerState1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ID3D11RasterizerState2_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11RasterizerState_Impl + ID3D11RasterizerState1_Impl {
+pub trait ID3D11RasterizerState2_Impl: Sized + ID3D11RasterizerState1_Impl {
     fn GetDesc2(&self, pdesc: *mut D3D11_RASTERIZER_DESC2);
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3289,7 +3289,7 @@ impl ID3D11RefTrackingOptions_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11RenderTargetView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
+pub trait ID3D11RenderTargetView_Impl: Sized + ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_RENDER_TARGET_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3309,7 +3309,7 @@ impl ID3D11RenderTargetView_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11RenderTargetView1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl + ID3D11RenderTargetView_Impl {
+pub trait ID3D11RenderTargetView1_Impl: Sized + ID3D11RenderTargetView_Impl {
     fn GetDesc1(&self, pdesc1: *mut D3D11_RENDER_TARGET_VIEW_DESC1);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3751,7 +3751,7 @@ impl ID3D11ShaderReflectionVariable_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11ShaderResourceView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
+pub trait ID3D11ShaderResourceView_Impl: Sized + ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3771,7 +3771,7 @@ impl ID3D11ShaderResourceView_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11ShaderResourceView1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl + ID3D11ShaderResourceView_Impl {
+pub trait ID3D11ShaderResourceView1_Impl: Sized + ID3D11ShaderResourceView_Impl {
     fn GetDesc1(&self, pdesc1: *mut D3D11_SHADER_RESOURCE_VIEW_DESC1);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3940,7 +3940,7 @@ impl ID3D11SwitchToRef_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11Texture1D_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl {
+pub trait ID3D11Texture1D_Impl: Sized + ID3D11Resource_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE1D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3960,7 +3960,7 @@ impl ID3D11Texture1D_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11Texture2D_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl {
+pub trait ID3D11Texture2D_Impl: Sized + ID3D11Resource_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE2D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3980,7 +3980,7 @@ impl ID3D11Texture2D_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11Texture2D1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl + ID3D11Texture2D_Impl {
+pub trait ID3D11Texture2D1_Impl: Sized + ID3D11Texture2D_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE2D_DESC1);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4000,7 +4000,7 @@ impl ID3D11Texture2D1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11Texture3D_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl {
+pub trait ID3D11Texture3D_Impl: Sized + ID3D11Resource_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE3D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4020,7 +4020,7 @@ impl ID3D11Texture3D_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11Texture3D1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl + ID3D11Texture3D_Impl {
+pub trait ID3D11Texture3D1_Impl: Sized + ID3D11Texture3D_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE3D_DESC1);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4067,7 +4067,7 @@ impl ID3D11TracingDevice_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11UnorderedAccessView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
+pub trait ID3D11UnorderedAccessView_Impl: Sized + ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4087,7 +4087,7 @@ impl ID3D11UnorderedAccessView_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D11UnorderedAccessView1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl + ID3D11UnorderedAccessView_Impl {
+pub trait ID3D11UnorderedAccessView1_Impl: Sized + ID3D11UnorderedAccessView_Impl {
     fn GetDesc1(&self, pdesc1: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC1);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4545,7 +4545,7 @@ impl ID3D11VideoContext_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11VideoContext1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11VideoContext_Impl {
+pub trait ID3D11VideoContext1_Impl: Sized + ID3D11VideoContext_Impl {
     fn SubmitDecoderBuffers1(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows::core::Result<()>;
     fn GetDataForNewHardwareKey(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>;
     fn CheckCryptoSessionStatus(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS>;
@@ -4677,7 +4677,7 @@ impl ID3D11VideoContext1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11VideoContext2_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11VideoContext_Impl + ID3D11VideoContext1_Impl {
+pub trait ID3D11VideoContext2_Impl: Sized + ID3D11VideoContext1_Impl {
     fn VideoProcessorSetOutputHDRMetaData(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void);
     fn VideoProcessorGetOutputHDRMetaData(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void);
     fn VideoProcessorSetStreamHDRMetaData(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void);
@@ -4721,7 +4721,7 @@ impl ID3D11VideoContext2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11VideoContext3_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11VideoContext_Impl + ID3D11VideoContext1_Impl + ID3D11VideoContext2_Impl {
+pub trait ID3D11VideoContext3_Impl: Sized + ID3D11VideoContext2_Impl {
     fn DecoderBeginFrame1(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, pview: &::core::option::Option<ID3D11VideoDecoderOutputView>, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, numcomponenthistograms: u32, phistogramoffsets: *const u32, pphistogrambuffers: *const ::core::option::Option<ID3D11Buffer>) -> ::windows::core::Result<()>;
     fn SubmitDecoderBuffers2(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> ::windows::core::Result<()>;
 }
@@ -4786,7 +4786,7 @@ impl ID3D11VideoDecoder_Vtbl {
         iid == &<ID3D11VideoDecoder as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D11VideoDecoderOutputView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
+pub trait ID3D11VideoDecoderOutputView_Impl: Sized + ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC);
 }
 impl ::windows::core::RuntimeName for ID3D11VideoDecoderOutputView {}
@@ -5079,7 +5079,7 @@ impl ID3D11VideoDevice1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11VideoDevice2_Impl: Sized + ID3D11VideoDevice_Impl + ID3D11VideoDevice1_Impl {
+pub trait ID3D11VideoDevice2_Impl: Sized + ID3D11VideoDevice1_Impl {
     fn CheckFeatureSupport(&self, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
     fn NegotiateCryptoSessionKeyExchangeMT(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -5233,7 +5233,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D11VideoProcessorEnumerator1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11VideoProcessorEnumerator_Impl {
+pub trait ID3D11VideoProcessorEnumerator1_Impl: Sized + ID3D11VideoProcessorEnumerator_Impl {
     fn CheckVideoProcessorFormatConversion(&self, inputformat: super::Dxgi::Common::DXGI_FORMAT, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, outputformat: super::Dxgi::Common::DXGI_FORMAT, outputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -5261,7 +5261,7 @@ impl ID3D11VideoProcessorEnumerator1_Vtbl {
         iid == &<ID3D11VideoProcessorEnumerator1 as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11VideoProcessorEnumerator as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D11VideoProcessorInputView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
+pub trait ID3D11VideoProcessorInputView_Impl: Sized + ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC);
 }
 impl ::windows::core::RuntimeName for ID3D11VideoProcessorInputView {}
@@ -5278,7 +5278,7 @@ impl ID3D11VideoProcessorInputView_Vtbl {
         iid == &<ID3D11VideoProcessorInputView as ::windows::core::Interface>::IID || iid == &<ID3D11DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D11View as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D11VideoProcessorOutputView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
+pub trait ID3D11VideoProcessorOutputView_Impl: Sized + ID3D11View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC);
 }
 impl ::windows::core::RuntimeName for ID3D11VideoProcessorOutputView {}

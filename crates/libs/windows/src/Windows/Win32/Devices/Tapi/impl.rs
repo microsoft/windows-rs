@@ -1787,7 +1787,7 @@ impl ITAddress_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITAddress2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITAddress_Impl {
+pub trait ITAddress2_Impl: Sized + ITAddress_Impl {
     fn Phones(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePhones(&self) -> ::windows::core::Result<IEnumPhone>;
     fn GetPhoneFromTerminal(&self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<ITPhone>;
@@ -3639,7 +3639,7 @@ impl ITBasicCallControl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITBasicCallControl2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITBasicCallControl_Impl {
+pub trait ITBasicCallControl2_Impl: Sized + ITBasicCallControl_Impl {
     fn RequestTerminal(&self, bstrterminalclassguid: &::windows::core::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>;
     fn SelectTerminalOnCall(&self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
     fn UnselectTerminalOnCall(&self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
@@ -3961,7 +3961,7 @@ impl ITCallInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITCallInfo2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITCallInfo_Impl {
+pub trait ITCallInfo2_Impl: Sized + ITCallInfo_Impl {
     fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16>;
     fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>;
 }
@@ -4431,7 +4431,7 @@ impl ITCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITCollection2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITCollection_Impl {
+pub trait ITCollection2_Impl: Sized + ITCollection_Impl {
     fn Add(&self, index: i32, pvariant: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
 }
@@ -5597,7 +5597,7 @@ impl ITForwardInformation_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITForwardInformation2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITForwardInformation_Impl {
+pub trait ITForwardInformation2_Impl: Sized + ITForwardInformation_Impl {
     fn SetForwardType2(&self, forwardtype: i32, pdestaddress: &::windows::core::BSTR, destaddresstype: i32, pcalleraddress: &::windows::core::BSTR, calleraddresstype: i32) -> ::windows::core::Result<()>;
     fn GetForwardType2(&self, forwardtype: i32, ppdestinationaddress: *mut ::windows::core::BSTR, pdestaddresstype: *mut i32, ppcalleraddress: *mut ::windows::core::BSTR, pcalleraddresstype: *mut i32) -> ::windows::core::Result<()>;
     fn get_ForwardTypeDestinationAddressType(&self, forwardtype: i32) -> ::windows::core::Result<i32>;
@@ -5804,7 +5804,7 @@ impl ITLegacyCallMediaControl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITLegacyCallMediaControl2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITLegacyCallMediaControl_Impl {
+pub trait ITLegacyCallMediaControl2_Impl: Sized + ITLegacyCallMediaControl_Impl {
     fn GenerateDigits2(&self, pdigits: &::windows::core::BSTR, digitmode: i32, lduration: i32) -> ::windows::core::Result<()>;
     fn GatherDigits(&self, digitmode: i32, lnumdigits: i32, pterminationdigits: &::windows::core::BSTR, lfirstdigittimeout: i32, linterdigittimeout: i32) -> ::windows::core::Result<()>;
     fn DetectTones(&self, ptonelist: *const TAPI_DETECTTONE, lnumtones: i32) -> ::windows::core::Result<()>;
@@ -8364,7 +8364,7 @@ impl ITTAPI_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITTAPI2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITTAPI_Impl {
+pub trait ITTAPI2_Impl: Sized + ITTAPI_Impl {
     fn Phones(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePhones(&self) -> ::windows::core::Result<IEnumPhone>;
     fn CreateEmptyCollectionObject(&self) -> ::windows::core::Result<ITCollection2>;
@@ -8562,7 +8562,7 @@ impl ITTAPIObjectEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITTAPIObjectEvent2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITTAPIObjectEvent_Impl {
+pub trait ITTAPIObjectEvent2_Impl: Sized + ITTAPIObjectEvent_Impl {
     fn Phone(&self) -> ::windows::core::Result<ITPhone>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8831,7 +8831,7 @@ impl ITTerminalSupport_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITTerminalSupport2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITTerminalSupport_Impl {
+pub trait ITTerminalSupport2_Impl: Sized + ITTerminalSupport_Impl {
     fn PluggableSuperclasses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePluggableSuperclasses(&self) -> ::windows::core::Result<IEnumPluggableSuperclassInfo>;
     fn get_PluggableTerminalClasses(&self, bstrterminalsuperclass: &::windows::core::BSTR, lmediatype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;

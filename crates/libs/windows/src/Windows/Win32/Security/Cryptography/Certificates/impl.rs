@@ -219,7 +219,7 @@ impl IBinaryConverter_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IBinaryConverter2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IBinaryConverter_Impl {
+pub trait IBinaryConverter2_Impl: Sized + IBinaryConverter_Impl {
     fn StringArrayToVariantArray(&self, pvarstringarray: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn VariantArrayToStringArray(&self, pvarvariantarray: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
@@ -837,7 +837,7 @@ impl ICEnroll_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICEnroll2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICEnroll_Impl {
+pub trait ICEnroll2_Impl: Sized + ICEnroll_Impl {
     fn addCertTypeToRequest(&self, certtype: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn addNameValuePairToSignature(&self, name: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn WriteCertToUserDS(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -907,7 +907,7 @@ impl ICEnroll2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICEnroll3_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICEnroll_Impl + ICEnroll2_Impl {
+pub trait ICEnroll3_Impl: Sized + ICEnroll2_Impl {
     fn InstallPKCS7(&self, pkcs7: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn GetSupportedKeySpec(&self) -> ::windows::core::Result<i32>;
@@ -1069,7 +1069,7 @@ impl ICEnroll3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICEnroll4_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICEnroll_Impl + ICEnroll2_Impl + ICEnroll3_Impl {
+pub trait ICEnroll4_Impl: Sized + ICEnroll3_Impl {
     fn SetPrivateKeyArchiveCertificate(&self, bstrcert: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn PrivateKeyArchiveCertificate(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetThumbPrint(&self, bstrthumbprint: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -1516,7 +1516,7 @@ impl ICertAdmin_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertAdmin2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertAdmin_Impl {
+pub trait ICertAdmin2_Impl: Sized + ICertAdmin_Impl {
     fn PublishCRLs(&self, strconfig: &::windows::core::BSTR, date: f64, crlflags: i32) -> ::windows::core::Result<()>;
     fn GetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn SetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -1719,7 +1719,7 @@ impl ICertConfig_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertConfig2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertConfig_Impl {
+pub trait ICertConfig2_Impl: Sized + ICertConfig_Impl {
     fn SetSharedFolder(&self, strsharedfolder: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1828,7 +1828,7 @@ impl ICertEncodeAltName_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertEncodeAltName2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertEncodeAltName_Impl {
+pub trait ICertEncodeAltName2_Impl: Sized + ICertEncodeAltName_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetNameBlob(&self, nameindex: i32, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1946,7 +1946,7 @@ impl ICertEncodeBitString_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertEncodeBitString2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertEncodeBitString_Impl {
+pub trait ICertEncodeBitString2_Impl: Sized + ICertEncodeBitString_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
     fn EncodeBlob(&self, bitcount: i32, strbitstring: &::windows::core::BSTR, encodingin: EncodingType, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetBitStringBlob(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2104,7 +2104,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertEncodeCRLDistInfo2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertEncodeCRLDistInfo_Impl {
+pub trait ICertEncodeCRLDistInfo2_Impl: Sized + ICertEncodeCRLDistInfo_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -2216,7 +2216,7 @@ impl ICertEncodeDateArray_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertEncodeDateArray2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertEncodeDateArray_Impl {
+pub trait ICertEncodeDateArray2_Impl: Sized + ICertEncodeDateArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -2328,7 +2328,7 @@ impl ICertEncodeLongArray_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertEncodeLongArray2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertEncodeLongArray_Impl {
+pub trait ICertEncodeLongArray2_Impl: Sized + ICertEncodeLongArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -2453,7 +2453,7 @@ impl ICertEncodeStringArray_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertEncodeStringArray2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertEncodeStringArray_Impl {
+pub trait ICertEncodeStringArray2_Impl: Sized + ICertEncodeStringArray_Impl {
     fn DecodeBlob(&self, strencodeddata: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
     fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -2538,7 +2538,7 @@ impl ICertExit_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertExit2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertExit_Impl {
+pub trait ICertExit2_Impl: Sized + ICertExit_Impl {
     fn GetManageModule(&self) -> ::windows::core::Result<ICertManageModule>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2689,7 +2689,7 @@ impl ICertPolicy_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPolicy2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertPolicy_Impl {
+pub trait ICertPolicy2_Impl: Sized + ICertPolicy_Impl {
     fn GetManageModule(&self) -> ::windows::core::Result<ICertManageModule>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2875,7 +2875,7 @@ impl ICertProperty_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyArchived_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyArchived_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, archivedvalue: i16) -> ::windows::core::Result<()>;
     fn Archived(&self) -> ::windows::core::Result<i16>;
 }
@@ -2911,7 +2911,7 @@ impl ICertPropertyArchived_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyArchivedKeyHash_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyArchivedKeyHash_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strarchivedkeyhashvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn get_ArchivedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -2947,7 +2947,7 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyAutoEnroll_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyAutoEnroll_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TemplateName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -2983,7 +2983,7 @@ impl ICertPropertyAutoEnroll_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyBackedUp_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyBackedUp_Impl: Sized + ICertProperty_Impl {
     fn InitializeFromCurrentTime(&self, backedupvalue: i16) -> ::windows::core::Result<()>;
     fn Initialize(&self, backedupvalue: i16, date: f64) -> ::windows::core::Result<()>;
     fn BackedUpValue(&self) -> ::windows::core::Result<i16>;
@@ -3039,7 +3039,7 @@ impl ICertPropertyBackedUp_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyDescription_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyDescription_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -3075,7 +3075,7 @@ impl ICertPropertyDescription_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyEnrollment_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyEnrollment_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, requestid: i32, strcadnsname: &::windows::core::BSTR, strcaname: &::windows::core::BSTR, strfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn RequestId(&self) -> ::windows::core::Result<i32>;
     fn CADnsName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3150,7 +3150,7 @@ impl ICertPropertyEnrollment_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyEnrollmentPolicyServer_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyEnrollmentPolicyServer_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, propertyflags: EnrollmentPolicyServerPropertyFlags, authflags: X509EnrollmentAuthFlags, enrollmentserverauthflags: X509EnrollmentAuthFlags, urlflags: PolicyServerUrlFlags, strrequestid: &::windows::core::BSTR, strurl: &::windows::core::BSTR, strid: &::windows::core::BSTR, strenrollmentserverurl: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetPolicyServerUrl(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetPolicyServerId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3277,7 +3277,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyFriendlyName_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyFriendlyName_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -3313,7 +3313,7 @@ impl ICertPropertyFriendlyName_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyKeyProvInfo_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyKeyProvInfo_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, pvalue: &::core::option::Option<IX509PrivateKey>) -> ::windows::core::Result<()>;
     fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey>;
 }
@@ -3349,7 +3349,7 @@ impl ICertPropertyKeyProvInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyRenewal_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyRenewal_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeFromCertificateHash(&self, machinecontext: i16, encoding: EncodingType, strcertificate: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn get_Renewal(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3392,7 +3392,7 @@ impl ICertPropertyRenewal_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertyRequestOriginator_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertyRequestOriginator_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, strrequestoriginator: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeFromLocalRequestOriginator(&self) -> ::windows::core::Result<()>;
     fn RequestOriginator(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3435,7 +3435,7 @@ impl ICertPropertyRequestOriginator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertPropertySHA1Hash_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
+pub trait ICertPropertySHA1Hash_Impl: Sized + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn get_SHA1Hash(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -3578,7 +3578,7 @@ impl ICertRequest_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertRequest2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertRequest_Impl {
+pub trait ICertRequest2_Impl: Sized + ICertRequest_Impl {
     fn GetIssuedCertificate(&self, strconfig: &::windows::core::BSTR, requestid: i32, strserialnumber: &::windows::core::BSTR) -> ::windows::core::Result<CR_DISP>;
     fn GetErrorMessageText(&self, hrmessage: i32, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -3672,7 +3672,7 @@ impl ICertRequest2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertRequest3_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertRequest_Impl + ICertRequest2_Impl {
+pub trait ICertRequest3_Impl: Sized + ICertRequest2_Impl {
     fn SetCredential(&self, hwnd: i32, authtype: X509EnrollmentAuthFlags, strcredential: &::windows::core::BSTR, strpassword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetRequestIdString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetIssuedCertificate2(&self, strconfig: &::windows::core::BSTR, strrequestid: &::windows::core::BSTR, strserialnumber: &::windows::core::BSTR) -> ::windows::core::Result<CR_DISP>;
@@ -4203,7 +4203,7 @@ impl ICertView_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertView2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertView_Impl {
+pub trait ICertView2_Impl: Sized + ICertView_Impl {
     fn SetTable(&self, table: CVRC_TABLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4272,7 +4272,7 @@ impl ICertificateAttestationChallenge_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICertificateAttestationChallenge2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertificateAttestationChallenge_Impl {
+pub trait ICertificateAttestationChallenge2_Impl: Sized + ICertificateAttestationChallenge_Impl {
     fn SetKeyContainerName(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn put_KeyBlob(&self, encoding: EncodingType, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -6193,7 +6193,7 @@ impl IEnroll2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IEnroll4_Impl: Sized + IEnroll_Impl + IEnroll2_Impl {
+pub trait IEnroll4_Impl: Sized + IEnroll2_Impl {
     fn SetThumbPrintWStr(&self, thumbprintblob: &super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()>;
     fn ThumbPrintWStr(&self, thumbprintblob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()>;
     fn SetPrivateKeyArchiveCertificate(&self, pprivatekeyarchivecert: *const super::CERT_CONTEXT) -> ::windows::core::Result<()>;
@@ -8259,7 +8259,7 @@ impl IX509Attribute_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509AttributeArchiveKey_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
+pub trait IX509AttributeArchiveKey_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, pkey: &::core::option::Option<IX509PrivateKey>, encoding: EncodingType, strcaxcert: &::windows::core::BSTR, palgorithm: &::core::option::Option<IObjectId>, encryptionstrength: i32) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn get_EncryptedKeyBlob(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -8328,7 +8328,7 @@ impl IX509AttributeArchiveKey_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509AttributeArchiveKeyHash_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
+pub trait IX509AttributeArchiveKeyHash_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncodeFromEncryptedKeyBlob(&self, encoding: EncodingType, strencryptedkeyblob: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn get_EncryptedKeyHashBlob(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -8371,7 +8371,7 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509AttributeClientId_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
+pub trait IX509AttributeClientId_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, clientid: RequestClientInfoClientId, strmachinednsname: &::windows::core::BSTR, strusersamname: &::windows::core::BSTR, strprocessname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId>;
@@ -8453,7 +8453,7 @@ impl IX509AttributeClientId_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509AttributeCspProvider_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
+pub trait IX509AttributeCspProvider_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, keyspec: X509KeySpec, strprovidername: &::windows::core::BSTR, encoding: EncodingType, strsignature: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn KeySpec(&self) -> ::windows::core::Result<X509KeySpec>;
@@ -8522,7 +8522,7 @@ impl IX509AttributeCspProvider_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509AttributeExtensions_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
+pub trait IX509AttributeExtensions_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, pextensions: &::core::option::Option<IX509Extensions>) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions>;
@@ -8565,7 +8565,7 @@ impl IX509AttributeExtensions_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509AttributeOSVersion_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
+pub trait IX509AttributeOSVersion_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, strosversion: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn OSVersion(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -8608,7 +8608,7 @@ impl IX509AttributeOSVersion_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509AttributeRenewalCertificate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
+pub trait IX509AttributeRenewalCertificate_Impl: Sized + IX509Attribute_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strcert: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -8996,7 +8996,7 @@ impl IX509CertificateRequest_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestCertificate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl + IX509CertificateRequestPkcs10_Impl {
+pub trait IX509CertificateRequestCertificate_Impl: Sized + IX509CertificateRequestPkcs10_Impl {
     fn CheckPublicKeySignature(&self, ppublickey: &::core::option::Option<IX509PublicKey>) -> ::windows::core::Result<()>;
     fn Issuer(&self) -> ::windows::core::Result<IX500DistinguishedName>;
     fn SetIssuer(&self, pvalue: &::core::option::Option<IX500DistinguishedName>) -> ::windows::core::Result<()>;
@@ -9119,7 +9119,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestCertificate2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl + IX509CertificateRequestPkcs10_Impl + IX509CertificateRequestCertificate_Impl {
+pub trait IX509CertificateRequestCertificate2_Impl: Sized + IX509CertificateRequestCertificate_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: &::core::option::Option<IX509PrivateKey>, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer>;
@@ -9175,7 +9175,7 @@ impl IX509CertificateRequestCertificate2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestCmc_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl + IX509CertificateRequestPkcs7_Impl {
+pub trait IX509CertificateRequestCmc_Impl: Sized + IX509CertificateRequestPkcs7_Impl {
     fn InitializeFromInnerRequestTemplateName(&self, pinnerrequest: &::core::option::Option<IX509CertificateRequest>, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TemplateObjectId(&self) -> ::windows::core::Result<IObjectId>;
     fn NullSigned(&self) -> ::windows::core::Result<i16>;
@@ -9448,7 +9448,7 @@ impl IX509CertificateRequestCmc_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestCmc2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl + IX509CertificateRequestPkcs7_Impl + IX509CertificateRequestCmc_Impl {
+pub trait IX509CertificateRequestCmc2_Impl: Sized + IX509CertificateRequestCmc_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn InitializeFromInnerRequestTemplate(&self, pinnerrequest: &::core::option::Option<IX509CertificateRequest>, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer>;
@@ -9518,7 +9518,7 @@ impl IX509CertificateRequestCmc2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestPkcs10_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl {
+pub trait IX509CertificateRequestPkcs10_Impl: Sized + IX509CertificateRequest_Impl {
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeFromPrivateKey(&self, context: X509CertificateEnrollmentContext, pprivatekey: &::core::option::Option<IX509PrivateKey>, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeFromPublicKey(&self, context: X509CertificateEnrollmentContext, ppublickey: &::core::option::Option<IX509PublicKey>, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -9844,7 +9844,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestPkcs10V2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl + IX509CertificateRequestPkcs10_Impl {
+pub trait IX509CertificateRequestPkcs10V2_Impl: Sized + IX509CertificateRequestPkcs10_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn InitializeFromPrivateKeyTemplate(&self, context: X509CertificateEnrollmentContext, pprivatekey: &::core::option::Option<IX509PrivateKey>, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn InitializeFromPublicKeyTemplate(&self, context: X509CertificateEnrollmentContext, ppublickey: &::core::option::Option<IX509PublicKey>, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
@@ -9907,7 +9907,7 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestPkcs10V3_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl + IX509CertificateRequestPkcs10_Impl + IX509CertificateRequestPkcs10V2_Impl {
+pub trait IX509CertificateRequestPkcs10V3_Impl: Sized + IX509CertificateRequestPkcs10V2_Impl {
     fn AttestPrivateKey(&self) -> ::windows::core::Result<i16>;
     fn SetAttestPrivateKey(&self, value: i16) -> ::windows::core::Result<()>;
     fn get_AttestationEncryptionCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -10036,7 +10036,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestPkcs10V4_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl + IX509CertificateRequestPkcs10_Impl + IX509CertificateRequestPkcs10V2_Impl + IX509CertificateRequestPkcs10V3_Impl {
+pub trait IX509CertificateRequestPkcs10V4_Impl: Sized + IX509CertificateRequestPkcs10V3_Impl {
     fn ClaimType(&self) -> ::windows::core::Result<KeyAttestationClaimType>;
     fn SetClaimType(&self, value: KeyAttestationClaimType) -> ::windows::core::Result<()>;
     fn AttestPrivateKeyPreferred(&self) -> ::windows::core::Result<i16>;
@@ -10092,7 +10092,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestPkcs7_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl {
+pub trait IX509CertificateRequestPkcs7_Impl: Sized + IX509CertificateRequest_Impl {
     fn InitializeFromTemplateName(&self, context: X509CertificateEnrollmentContext, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeFromCertificate(&self, context: X509CertificateEnrollmentContext, renewalrequest: i16, strcertificate: &::windows::core::BSTR, encoding: EncodingType, inheritoptions: X509RequestInheritOptions) -> ::windows::core::Result<()>;
     fn InitializeFromInnerRequest(&self, pinnerrequest: &::core::option::Option<IX509CertificateRequest>) -> ::windows::core::Result<()>;
@@ -10176,7 +10176,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509CertificateRequestPkcs7V2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl + IX509CertificateRequestPkcs7_Impl {
+pub trait IX509CertificateRequestPkcs7V2_Impl: Sized + IX509CertificateRequestPkcs7_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer>;
     fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate>;
@@ -11339,7 +11339,7 @@ impl IX509Enrollment_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509Enrollment2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Enrollment_Impl {
+pub trait IX509Enrollment2_Impl: Sized + IX509Enrollment_Impl {
     fn InitializeFromTemplate(&self, context: X509CertificateEnrollmentContext, ppolicyserver: &::core::option::Option<IX509EnrollmentPolicyServer>, ptemplate: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn InstallResponse2(&self, restrictions: InstallResponseRestrictionFlags, strresponse: &::windows::core::BSTR, encoding: EncodingType, strpassword: &::windows::core::BSTR, strenrollmentpolicyserverurl: &::windows::core::BSTR, strenrollmentpolicyserverid: &::windows::core::BSTR, enrollmentpolicyserverflags: PolicyServerUrlFlags, authflags: X509EnrollmentAuthFlags) -> ::windows::core::Result<()>;
     fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer>;
@@ -11981,7 +11981,7 @@ impl IX509Extension_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionAlternativeNames_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionAlternativeNames_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<IAlternativeNames>) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AlternativeNames(&self) -> ::windows::core::Result<IAlternativeNames>;
@@ -12024,7 +12024,7 @@ impl IX509ExtensionAlternativeNames_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionAuthorityKeyIdentifier_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionAuthorityKeyIdentifier_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn get_AuthorityKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -12067,7 +12067,7 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionBasicConstraints_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionBasicConstraints_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, isca: i16, pathlenconstraint: i32) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsCA(&self) -> ::windows::core::Result<i16>;
@@ -12123,7 +12123,7 @@ impl IX509ExtensionBasicConstraints_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionCertificatePolicies_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionCertificatePolicies_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<ICertificatePolicies>) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Policies(&self) -> ::windows::core::Result<ICertificatePolicies>;
@@ -12166,7 +12166,7 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionEnhancedKeyUsage_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionEnhancedKeyUsage_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<IObjectIds>) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn EnhancedKeyUsage(&self) -> ::windows::core::Result<IObjectIds>;
@@ -12209,7 +12209,7 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionKeyUsage_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionKeyUsage_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, usageflags: X509KeyUsageFlags) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn KeyUsage(&self) -> ::windows::core::Result<X509KeyUsageFlags>;
@@ -12252,7 +12252,7 @@ impl IX509ExtensionKeyUsage_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionMSApplicationPolicies_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionMSApplicationPolicies_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<ICertificatePolicies>) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Policies(&self) -> ::windows::core::Result<ICertificatePolicies>;
@@ -12295,7 +12295,7 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionSmimeCapabilities_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionSmimeCapabilities_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, pvalue: &::core::option::Option<ISmimeCapabilities>) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SmimeCapabilities(&self) -> ::windows::core::Result<ISmimeCapabilities>;
@@ -12338,7 +12338,7 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionSubjectKeyIdentifier_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionSubjectKeyIdentifier_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn get_SubjectKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -12381,7 +12381,7 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionTemplate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionTemplate_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, ptemplateoid: &::core::option::Option<IObjectId>, majorversion: i32, minorversion: i32) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TemplateOid(&self) -> ::windows::core::Result<IObjectId>;
@@ -12450,7 +12450,7 @@ impl IX509ExtensionTemplate_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509ExtensionTemplateName_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
+pub trait IX509ExtensionTemplateName_Impl: Sized + IX509Extension_Impl {
     fn InitializeEncode(&self, strtemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn TemplateName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -13570,7 +13570,7 @@ impl IX509PrivateKey_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509PrivateKey2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509PrivateKey_Impl {
+pub trait IX509PrivateKey2_Impl: Sized + IX509PrivateKey_Impl {
     fn HardwareKeyUsage(&self) -> ::windows::core::Result<X509HardwareKeyUsageFlags>;
     fn SetHardwareKeyUsage(&self, value: X509HardwareKeyUsageFlags) -> ::windows::core::Result<()>;
     fn AlternateStorageLocation(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -14029,7 +14029,7 @@ impl IX509SCEPEnrollment_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IX509SCEPEnrollment2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509SCEPEnrollment_Impl {
+pub trait IX509SCEPEnrollment2_Impl: Sized + IX509SCEPEnrollment_Impl {
     fn CreateChallengeAnswerMessage(&self, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ProcessResponseMessage2(&self, flags: X509SCEPProcessMessageFlags, strresponse: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<X509SCEPDisposition>;
     fn ResultMessageText(&self) -> ::windows::core::Result<::windows::core::BSTR>;

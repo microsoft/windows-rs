@@ -2533,7 +2533,7 @@ impl ITfCandidateListUIElement_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITfCandidateListUIElementBehavior_Impl: Sized + ITfUIElement_Impl + ITfCandidateListUIElement_Impl {
+pub trait ITfCandidateListUIElementBehavior_Impl: Sized + ITfCandidateListUIElement_Impl {
     fn SetSelection(&self, nindex: u32) -> ::windows::core::Result<()>;
     fn Finalize(&self) -> ::windows::core::Result<()>;
     fn Abort(&self) -> ::windows::core::Result<()>;
@@ -4227,7 +4227,7 @@ impl ITfFnGetSAPIObject_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITfFnLMInternal_Impl: Sized + ITfFunction_Impl + ITfFnLMProcessor_Impl {
+pub trait ITfFnLMInternal_Impl: Sized + ITfFnLMProcessor_Impl {
     fn ProcessLattice(&self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]

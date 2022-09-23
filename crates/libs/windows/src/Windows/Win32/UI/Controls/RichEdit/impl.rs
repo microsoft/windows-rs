@@ -479,7 +479,7 @@ impl ITextDocument_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextDocument2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextDocument_Impl {
+pub trait ITextDocument2_Impl: Sized + ITextDocument_Impl {
     fn GetCaretType(&self) -> ::windows::core::Result<i32>;
     fn SetCaretType(&self, value: i32) -> ::windows::core::Result<()>;
     fn GetDisplays(&self) -> ::windows::core::Result<ITextDisplays>;
@@ -947,7 +947,7 @@ impl ITextDocument2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextDocument2Old_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextDocument_Impl {
+pub trait ITextDocument2Old_Impl: Sized + ITextDocument_Impl {
     fn AttachMsgFilter(&self, pfilter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetEffectColor(&self, index: i32, cr: super::super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
     fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::COLORREF>;
@@ -1760,7 +1760,7 @@ impl ITextFont_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextFont2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextFont_Impl {
+pub trait ITextFont2_Impl: Sized + ITextFont_Impl {
     fn GetCount(&self) -> ::windows::core::Result<i32>;
     fn GetAutoLigatures(&self) -> ::windows::core::Result<i32>;
     fn SetAutoLigatures(&self, value: i32) -> ::windows::core::Result<()>;
@@ -3121,7 +3121,7 @@ impl ITextPara_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextPara2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextPara_Impl {
+pub trait ITextPara2_Impl: Sized + ITextPara_Impl {
     fn GetBorders(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetDuplicate2(&self) -> ::windows::core::Result<ITextPara2>;
     fn SetDuplicate2(&self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
@@ -3880,7 +3880,7 @@ impl ITextRange_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextRange2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextRange_Impl + ITextSelection_Impl {
+pub trait ITextRange2_Impl: Sized + ITextSelection_Impl {
     fn GetCch(&self) -> ::windows::core::Result<i32>;
     fn GetCells(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetColumn(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -4742,7 +4742,7 @@ impl ITextRow_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextSelection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextRange_Impl {
+pub trait ITextSelection_Impl: Sized + ITextRange_Impl {
     fn GetFlags(&self) -> ::windows::core::Result<i32>;
     fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()>;
     fn GetType(&self) -> ::windows::core::Result<i32>;
@@ -4876,7 +4876,7 @@ impl ITextSelection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextSelection2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextRange_Impl + ITextSelection_Impl + ITextRange2_Impl {}
+pub trait ITextSelection2_Impl: Sized + ITextRange2_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITextSelection2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5278,7 +5278,7 @@ impl ITextStoryRanges_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITextStoryRanges2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextStoryRanges_Impl {
+pub trait ITextStoryRanges2_Impl: Sized + ITextStoryRanges_Impl {
     fn Item2(&self, index: i32) -> ::windows::core::Result<ITextRange2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

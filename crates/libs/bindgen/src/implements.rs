@@ -16,6 +16,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let features = gen.cfg_features(&cfg);
     let mut requires = quote! {};
     let type_ident = quote! { #type_ident<#generic_names> };
+    let vtables = gen.reader.type_def_vtables(def);
 
     fn gen_required_trait(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
         let name = gen.type_def_name_imp(def, generics, "_Impl");
@@ -26,10 +27,13 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     let mut matches = quote! { iid == &<#type_ident as ::windows::core::Interface>::IID };
 
-    for def in gen.reader.type_def_vtables(def) {
+    if let Some(Type::TypeDef((def, _))) = vtables.last() {
+        requires.combine(&gen_required_trait(gen, *def, &[]))
+    }
+
+    for def in &vtables {
         if let Type::TypeDef((def, generics)) = def {
-            requires.combine(&gen_required_trait(gen, def, &generics));
-            let name = gen.type_def_name(def, &generics);
+            let name = gen.type_def_name(*def, generics);
 
             matches.combine(&quote! {
                 || iid == &<#name as ::windows::core::Interface>::IID

@@ -1311,7 +1311,7 @@ impl ISAXXMLReader_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchema_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
+pub trait ISchema_Impl: Sized + ISchemaItem_Impl {
     fn targetNamespace(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn version(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn types(&self) -> ::windows::core::Result<ISchemaItemCollection>;
@@ -1444,7 +1444,7 @@ impl ISchema_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaAny_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl + ISchemaParticle_Impl {
+pub trait ISchemaAny_Impl: Sized + ISchemaParticle_Impl {
     fn namespaces(&self) -> ::windows::core::Result<ISchemaStringCollection>;
     fn processContents(&self) -> ::windows::core::Result<SCHEMAPROCESSCONTENTS>;
 }
@@ -1486,7 +1486,7 @@ impl ISchemaAny_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
+pub trait ISchemaAttribute_Impl: Sized + ISchemaItem_Impl {
     fn r#type(&self) -> ::windows::core::Result<ISchemaType>;
     fn scope(&self) -> ::windows::core::Result<ISchemaComplexType>;
     fn defaultValue(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1580,7 +1580,7 @@ impl ISchemaAttribute_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaAttributeGroup_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
+pub trait ISchemaAttributeGroup_Impl: Sized + ISchemaItem_Impl {
     fn anyAttribute(&self) -> ::windows::core::Result<ISchemaAny>;
     fn attributes(&self) -> ::windows::core::Result<ISchemaItemCollection>;
 }
@@ -1622,7 +1622,7 @@ impl ISchemaAttributeGroup_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaComplexType_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl + ISchemaType_Impl {
+pub trait ISchemaComplexType_Impl: Sized + ISchemaType_Impl {
     fn isAbstract(&self) -> ::windows::core::Result<i16>;
     fn anyAttribute(&self) -> ::windows::core::Result<ISchemaAny>;
     fn attributes(&self) -> ::windows::core::Result<ISchemaItemCollection>;
@@ -1716,7 +1716,7 @@ impl ISchemaComplexType_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaElement_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl + ISchemaParticle_Impl {
+pub trait ISchemaElement_Impl: Sized + ISchemaParticle_Impl {
     fn r#type(&self) -> ::windows::core::Result<ISchemaType>;
     fn scope(&self) -> ::windows::core::Result<ISchemaComplexType>;
     fn defaultValue(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1875,7 +1875,7 @@ impl ISchemaElement_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaIdentityConstraint_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
+pub trait ISchemaIdentityConstraint_Impl: Sized + ISchemaItem_Impl {
     fn selector(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn fields(&self) -> ::windows::core::Result<ISchemaStringCollection>;
     fn referencedKey(&self) -> ::windows::core::Result<ISchemaIdentityConstraint>;
@@ -2118,7 +2118,7 @@ impl ISchemaItemCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaModelGroup_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl + ISchemaParticle_Impl {
+pub trait ISchemaModelGroup_Impl: Sized + ISchemaParticle_Impl {
     fn particles(&self) -> ::windows::core::Result<ISchemaItemCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2144,7 +2144,7 @@ impl ISchemaModelGroup_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaNotation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
+pub trait ISchemaNotation_Impl: Sized + ISchemaItem_Impl {
     fn systemIdentifier(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn publicIdentifier(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
@@ -2186,7 +2186,7 @@ impl ISchemaNotation_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaParticle_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
+pub trait ISchemaParticle_Impl: Sized + ISchemaItem_Impl {
     fn minOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn maxOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
@@ -2283,7 +2283,7 @@ impl ISchemaStringCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISchemaType_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ISchemaItem_Impl {
+pub trait ISchemaType_Impl: Sized + ISchemaItem_Impl {
     fn baseTypes(&self) -> ::windows::core::Result<ISchemaItemCollection>;
     fn r#final(&self) -> ::windows::core::Result<SCHEMADERIVATIONMETHOD>;
     fn variety(&self) -> ::windows::core::Result<SCHEMATYPEVARIETY>;
@@ -2520,7 +2520,7 @@ impl ISchemaType_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IServerXMLHTTPRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLHTTPRequest_Impl {
+pub trait IServerXMLHTTPRequest_Impl: Sized + IXMLHTTPRequest_Impl {
     fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::Result<()>;
     fn waitForResponse(&self, timeoutinseconds: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i16>;
     fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
@@ -2576,7 +2576,7 @@ impl IServerXMLHTTPRequest_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IServerXMLHTTPRequest2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLHTTPRequest_Impl + IServerXMLHTTPRequest_Impl {
+pub trait IServerXMLHTTPRequest2_Impl: Sized + IServerXMLHTTPRequest_Impl {
     fn setProxy(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: &super::super::super::System::Com::VARIANT, varbypasslist: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn setProxyCredentials(&self, bstrusername: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -3529,7 +3529,7 @@ impl IXMLAttribute_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
+pub trait IXMLDOMAttribute_Impl: Sized + IXMLDOMNode_Impl {
     fn name(&self, attributename: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn value(&self, attributevalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Setvalue(&self, attributevalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -3566,7 +3566,7 @@ impl IXMLDOMAttribute_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMCDATASection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMCharacterData_Impl + IXMLDOMText_Impl {}
+pub trait IXMLDOMCDATASection_Impl: Sized + IXMLDOMText_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IXMLDOMCDATASection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3579,7 +3579,7 @@ impl IXMLDOMCDATASection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMCharacterData_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
+pub trait IXMLDOMCharacterData_Impl: Sized + IXMLDOMNode_Impl {
     fn data(&self, data: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Setdata(&self, data: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn length(&self, datalength: *mut i32) -> ::windows::core::Result<()>;
@@ -3651,7 +3651,7 @@ impl IXMLDOMCharacterData_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMComment_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMCharacterData_Impl {}
+pub trait IXMLDOMComment_Impl: Sized + IXMLDOMCharacterData_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IXMLDOMComment {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3664,7 +3664,7 @@ impl IXMLDOMComment_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
+pub trait IXMLDOMDocument_Impl: Sized + IXMLDOMNode_Impl {
     fn doctype(&self) -> ::windows::core::Result<IXMLDOMDocumentType>;
     fn implementation(&self) -> ::windows::core::Result<IXMLDOMImplementation>;
     fn documentElement(&self) -> ::windows::core::Result<IXMLDOMElement>;
@@ -4001,7 +4001,7 @@ impl IXMLDOMDocument_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocument2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMDocument_Impl {
+pub trait IXMLDOMDocument2_Impl: Sized + IXMLDOMDocument_Impl {
     fn namespaces(&self) -> ::windows::core::Result<IXMLDOMSchemaCollection>;
     fn schemas(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn putref_schemas(&self, othercollection: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -4083,7 +4083,7 @@ impl IXMLDOMDocument2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocument3_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMDocument_Impl + IXMLDOMDocument2_Impl {
+pub trait IXMLDOMDocument3_Impl: Sized + IXMLDOMDocument2_Impl {
     fn validateNode(&self, node: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMParseError>;
     fn importNode(&self, node: &::core::option::Option<IXMLDOMNode>, deep: i16) -> ::windows::core::Result<IXMLDOMNode>;
 }
@@ -4125,7 +4125,7 @@ impl IXMLDOMDocument3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocumentFragment_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {}
+pub trait IXMLDOMDocumentFragment_Impl: Sized + IXMLDOMNode_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IXMLDOMDocumentFragment {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4138,7 +4138,7 @@ impl IXMLDOMDocumentFragment_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMDocumentType_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
+pub trait IXMLDOMDocumentType_Impl: Sized + IXMLDOMNode_Impl {
     fn name(&self, rootname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn entities(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap>;
     fn notations(&self) -> ::windows::core::Result<IXMLDOMNamedNodeMap>;
@@ -4187,7 +4187,7 @@ impl IXMLDOMDocumentType_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMElement_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
+pub trait IXMLDOMElement_Impl: Sized + IXMLDOMNode_Impl {
     fn tagName(&self, tagname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn getAttribute(&self, name: &::windows::core::BSTR, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn setAttribute(&self, name: &::windows::core::BSTR, value: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -4290,7 +4290,7 @@ impl IXMLDOMElement_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMEntity_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
+pub trait IXMLDOMEntity_Impl: Sized + IXMLDOMNode_Impl {
     fn publicId(&self, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn systemId(&self, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn notationName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4327,7 +4327,7 @@ impl IXMLDOMEntity_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMEntityReference_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {}
+pub trait IXMLDOMEntityReference_Impl: Sized + IXMLDOMNode_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IXMLDOMEntityReference {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4927,7 +4927,7 @@ impl IXMLDOMNodeList_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMNotation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
+pub trait IXMLDOMNotation_Impl: Sized + IXMLDOMNode_Impl {
     fn publicId(&self, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn systemId(&self, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -5022,7 +5022,7 @@ impl IXMLDOMParseError_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMParseError2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMParseError_Impl {
+pub trait IXMLDOMParseError2_Impl: Sized + IXMLDOMParseError_Impl {
     fn errorXPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn allErrors(&self) -> ::windows::core::Result<IXMLDOMParseErrorCollection>;
     fn errorParameters(&self, index: i32) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5165,7 +5165,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMProcessingInstruction_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
+pub trait IXMLDOMProcessingInstruction_Impl: Sized + IXMLDOMNode_Impl {
     fn target(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn data(&self, value: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Setdata(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -5291,7 +5291,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMSchemaCollection2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMSchemaCollection_Impl {
+pub trait IXMLDOMSchemaCollection2_Impl: Sized + IXMLDOMSchemaCollection_Impl {
     fn validate(&self) -> ::windows::core::Result<()>;
     fn SetvalidateOnLoad(&self, validateonload: i16) -> ::windows::core::Result<()>;
     fn validateOnLoad(&self) -> ::windows::core::Result<i16>;
@@ -5360,7 +5360,7 @@ impl IXMLDOMSchemaCollection2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMSelection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNodeList_Impl {
+pub trait IXMLDOMSelection_Impl: Sized + IXMLDOMNodeList_Impl {
     fn expr(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Setexpr(&self, expression: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn context(&self) -> ::windows::core::Result<IXMLDOMNode>;
@@ -5495,7 +5495,7 @@ impl IXMLDOMSelection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXMLDOMText_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl + IXMLDOMCharacterData_Impl {
+pub trait IXMLDOMText_Impl: Sized + IXMLDOMCharacterData_Impl {
     fn splitText(&self, offset: i32) -> ::windows::core::Result<IXMLDOMText>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7086,7 +7086,7 @@ impl IXSLTemplate_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IXTLRuntime_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IXMLDOMNode_Impl {
+pub trait IXTLRuntime_Impl: Sized + IXMLDOMNode_Impl {
     fn uniqueID(&self, pnode: &::core::option::Option<IXMLDOMNode>, pid: *mut i32) -> ::windows::core::Result<()>;
     fn depth(&self, pnode: &::core::option::Option<IXMLDOMNode>, pdepth: *mut i32) -> ::windows::core::Result<()>;
     fn childNumber(&self, pnode: &::core::option::Option<IXMLDOMNode>, pnumber: *mut i32) -> ::windows::core::Result<()>;

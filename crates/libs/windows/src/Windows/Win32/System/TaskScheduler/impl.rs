@@ -140,7 +140,7 @@ impl IActionCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IBootTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait IBootTrigger_Impl: Sized + ITrigger_Impl {
     fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetDelay(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -166,7 +166,7 @@ impl IBootTrigger_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IComHandlerAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
+pub trait IComHandlerAction_Impl: Sized + IAction_Impl {
     fn ClassId(&self, pclsid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetClassId(&self, clsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Data(&self, pdata: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -210,7 +210,7 @@ impl IComHandlerAction_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDailyTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait IDailyTrigger_Impl: Sized + ITrigger_Impl {
     fn DaysInterval(&self, pdays: *mut i16) -> ::windows::core::Result<()>;
     fn SetDaysInterval(&self, days: i16) -> ::windows::core::Result<()>;
     fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -254,7 +254,7 @@ impl IDailyTrigger_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IEmailAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
+pub trait IEmailAction_Impl: Sized + IAction_Impl {
     fn Server(&self, pserver: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetServer(&self, server: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Subject(&self, psubject: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -463,7 +463,7 @@ impl IEnumWorkItems_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IEventTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait IEventTrigger_Impl: Sized + ITrigger_Impl {
     fn Subscription(&self, pquery: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetSubscription(&self, query: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -527,7 +527,7 @@ impl IEventTrigger_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IExecAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
+pub trait IExecAction_Impl: Sized + IAction_Impl {
     fn Path(&self, ppath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetPath(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Arguments(&self, pargument: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -585,7 +585,7 @@ impl IExecAction_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IExecAction2_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl + IExecAction_Impl {
+pub trait IExecAction2_Impl: Sized + IExecAction_Impl {
     fn HideAppWindow(&self, phideappwindow: *mut i16) -> ::windows::core::Result<()>;
     fn SetHideAppWindow(&self, hideappwindow: i16) -> ::windows::core::Result<()>;
 }
@@ -687,7 +687,7 @@ impl IIdleSettings_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IIdleTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {}
+pub trait IIdleTrigger_Impl: Sized + ITrigger_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IIdleTrigger {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -700,7 +700,7 @@ impl IIdleTrigger_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ILogonTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait ILogonTrigger_Impl: Sized + ITrigger_Impl {
     fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetDelay(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn UserId(&self, puser: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -802,7 +802,7 @@ impl IMaintenanceSettings_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMonthlyDOWTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait IMonthlyDOWTrigger_Impl: Sized + ITrigger_Impl {
     fn DaysOfWeek(&self, pdays: *mut i16) -> ::windows::core::Result<()>;
     fn SetDaysOfWeek(&self, days: i16) -> ::windows::core::Result<()>;
     fn WeeksOfMonth(&self, pweeks: *mut i16) -> ::windows::core::Result<()>;
@@ -888,7 +888,7 @@ impl IMonthlyDOWTrigger_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMonthlyTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait IMonthlyTrigger_Impl: Sized + ITrigger_Impl {
     fn DaysOfMonth(&self, pdays: *mut i32) -> ::windows::core::Result<()>;
     fn SetDaysOfMonth(&self, days: i32) -> ::windows::core::Result<()>;
     fn MonthsOfYear(&self, pmonths: *mut i16) -> ::windows::core::Result<()>;
@@ -1604,7 +1604,7 @@ impl IRegistrationInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRegistrationTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait IRegistrationTrigger_Impl: Sized + ITrigger_Impl {
     fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetDelay(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -2142,7 +2142,7 @@ impl IScheduledWorkItem_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISessionStateChangeTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait ISessionStateChangeTrigger_Impl: Sized + ITrigger_Impl {
     fn Delay(&self, pdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetDelay(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn UserId(&self, puser: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2200,7 +2200,7 @@ impl ISessionStateChangeTrigger_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IShowMessageAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
+pub trait IShowMessageAction_Impl: Sized + IAction_Impl {
     fn Title(&self, ptitle: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetTitle(&self, title: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MessageBody(&self, pmessagebody: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3512,7 +3512,7 @@ impl ITaskSettings2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITaskSettings3_Impl: Sized + super::Com::IDispatch_Impl + ITaskSettings_Impl {
+pub trait ITaskSettings3_Impl: Sized + ITaskSettings_Impl {
     fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut i16) -> ::windows::core::Result<()>;
     fn SetDisallowStartOnRemoteAppSession(&self, disallowstart: i16) -> ::windows::core::Result<()>;
     fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut i16) -> ::windows::core::Result<()>;
@@ -3695,7 +3695,7 @@ impl ITaskVariables_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITimeTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait ITimeTrigger_Impl: Sized + ITrigger_Impl {
     fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetRandomDelay(&self, randomdelay: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -3914,7 +3914,7 @@ impl ITriggerCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWeeklyTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {
+pub trait IWeeklyTrigger_Impl: Sized + ITrigger_Impl {
     fn DaysOfWeek(&self, pdays: *mut i16) -> ::windows::core::Result<()>;
     fn SetDaysOfWeek(&self, days: i16) -> ::windows::core::Result<()>;
     fn WeeksInterval(&self, pweeks: *mut i16) -> ::windows::core::Result<()>;

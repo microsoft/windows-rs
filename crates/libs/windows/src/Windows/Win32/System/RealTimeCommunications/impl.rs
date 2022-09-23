@@ -95,7 +95,7 @@ impl IRTCBuddy_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IRTCBuddy2_Impl: Sized + IRTCPresenceContact_Impl + IRTCBuddy_Impl {
+pub trait IRTCBuddy2_Impl: Sized + IRTCBuddy_Impl {
     fn Profile(&self) -> ::windows::core::Result<IRTCProfile2>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn EnumerateGroups(&self) -> ::windows::core::Result<IRTCEnumGroups>;
@@ -235,7 +235,7 @@ impl IRTCBuddyEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRTCBuddyEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCBuddyEvent_Impl {
+pub trait IRTCBuddyEvent2_Impl: Sized + IRTCBuddyEvent_Impl {
     fn EventType(&self) -> ::windows::core::Result<RTC_BUDDY_EVENT_TYPE>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3227,7 +3227,7 @@ impl IRTCProfileEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRTCProfileEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCProfileEvent_Impl {
+pub trait IRTCProfileEvent2_Impl: Sized + IRTCProfileEvent_Impl {
     fn EventType(&self) -> ::windows::core::Result<RTC_PROFILE_EVENT_TYPE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3920,7 +3920,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRTCSessionOperationCompleteEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCSessionOperationCompleteEvent_Impl {
+pub trait IRTCSessionOperationCompleteEvent2_Impl: Sized + IRTCSessionOperationCompleteEvent_Impl {
     fn Participant(&self) -> ::windows::core::Result<IRTCParticipant>;
     fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut ::windows::core::BSTR, pbstrsessiondescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -4198,7 +4198,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRTCSessionStateChangeEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCSessionStateChangeEvent_Impl {
+pub trait IRTCSessionStateChangeEvent2_Impl: Sized + IRTCSessionStateChangeEvent_Impl {
     fn MediaTypes(&self) -> ::windows::core::Result<i32>;
     fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
     fn IsForked(&self) -> ::windows::core::Result<i16>;
@@ -4541,7 +4541,7 @@ impl IRTCWatcher_Vtbl {
         iid == &<IRTCWatcher as ::windows::core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows::core::Interface>::IID
     }
 }
-pub trait IRTCWatcher2_Impl: Sized + IRTCPresenceContact_Impl + IRTCWatcher_Impl {
+pub trait IRTCWatcher2_Impl: Sized + IRTCWatcher_Impl {
     fn Profile(&self) -> ::windows::core::Result<IRTCProfile2>;
     fn Scope(&self) -> ::windows::core::Result<RTC_ACE_SCOPE>;
 }
@@ -4603,7 +4603,7 @@ impl IRTCWatcherEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRTCWatcherEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCWatcherEvent_Impl {
+pub trait IRTCWatcherEvent2_Impl: Sized + IRTCWatcherEvent_Impl {
     fn EventType(&self) -> ::windows::core::Result<RTC_WATCHER_EVENT_TYPE>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
 }

@@ -509,7 +509,7 @@ impl IMILBitmapEffectImpl_Vtbl {
         iid == &<IMILBitmapEffectImpl as ::windows::core::Interface>::IID
     }
 }
-pub trait IMILBitmapEffectInputConnector_Impl: Sized + IMILBitmapEffectConnectorInfo_Impl + IMILBitmapEffectConnector_Impl {
+pub trait IMILBitmapEffectInputConnector_Impl: Sized + IMILBitmapEffectConnector_Impl {
     fn ConnectTo(&self, pconnector: &::core::option::Option<IMILBitmapEffectOutputConnector>) -> ::windows::core::Result<()>;
     fn GetConnection(&self) -> ::windows::core::Result<IMILBitmapEffectOutputConnector>;
 }
@@ -588,7 +588,7 @@ impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
         iid == &<IMILBitmapEffectInteriorOutputConnector as ::windows::core::Interface>::IID
     }
 }
-pub trait IMILBitmapEffectOutputConnector_Impl: Sized + IMILBitmapEffectConnectorInfo_Impl + IMILBitmapEffectConnector_Impl {
+pub trait IMILBitmapEffectOutputConnector_Impl: Sized + IMILBitmapEffectConnector_Impl {
     fn GetNumberConnections(&self) -> ::windows::core::Result<u32>;
     fn GetConnection(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector>;
 }

@@ -220,7 +220,7 @@ impl IBackgroundCopyCallback2_Vtbl {
         iid == &<IBackgroundCopyCallback2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyCallback as ::windows::core::Interface>::IID
     }
 }
-pub trait IBackgroundCopyCallback3_Impl: Sized + IBackgroundCopyCallback_Impl + IBackgroundCopyCallback2_Impl {
+pub trait IBackgroundCopyCallback3_Impl: Sized + IBackgroundCopyCallback2_Impl {
     fn FileRangesTransferred(&self, job: &::core::option::Option<IBackgroundCopyJob>, file: &::core::option::Option<IBackgroundCopyFile>, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IBackgroundCopyCallback3 {}
@@ -395,7 +395,7 @@ impl IBackgroundCopyFile2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IBackgroundCopyFile3_Impl: Sized + IBackgroundCopyFile_Impl + IBackgroundCopyFile2_Impl {
+pub trait IBackgroundCopyFile3_Impl: Sized + IBackgroundCopyFile2_Impl {
     fn GetTemporaryName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetValidationState(&self, state: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetValidationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -457,7 +457,7 @@ impl IBackgroundCopyFile3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IBackgroundCopyFile4_Impl: Sized + IBackgroundCopyFile_Impl + IBackgroundCopyFile2_Impl + IBackgroundCopyFile3_Impl {
+pub trait IBackgroundCopyFile4_Impl: Sized + IBackgroundCopyFile3_Impl {
     fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -477,7 +477,7 @@ impl IBackgroundCopyFile4_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IBackgroundCopyFile5_Impl: Sized + IBackgroundCopyFile_Impl + IBackgroundCopyFile2_Impl + IBackgroundCopyFile3_Impl + IBackgroundCopyFile4_Impl {
+pub trait IBackgroundCopyFile5_Impl: Sized + IBackgroundCopyFile4_Impl {
     fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: &BITS_FILE_PROPERTY_VALUE) -> ::windows::core::Result<()>;
     fn GetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID) -> ::windows::core::Result<BITS_FILE_PROPERTY_VALUE>;
 }
@@ -513,7 +513,7 @@ impl IBackgroundCopyFile5_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IBackgroundCopyFile6_Impl: Sized + IBackgroundCopyFile_Impl + IBackgroundCopyFile2_Impl + IBackgroundCopyFile3_Impl + IBackgroundCopyFile4_Impl + IBackgroundCopyFile5_Impl {
+pub trait IBackgroundCopyFile6_Impl: Sized + IBackgroundCopyFile5_Impl {
     fn UpdateDownloadPosition(&self, offset: u64) -> ::windows::core::Result<()>;
     fn RequestFileRanges(&self, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
     fn GetFilledFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()>;
@@ -1226,7 +1226,7 @@ impl IBackgroundCopyJob2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IBackgroundCopyJob3_Impl: Sized + IBackgroundCopyJob_Impl + IBackgroundCopyJob2_Impl {
+pub trait IBackgroundCopyJob3_Impl: Sized + IBackgroundCopyJob2_Impl {
     fn ReplaceRemotePrefix(&self, oldprefix: &::windows::core::PCWSTR, newprefix: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn AddFileWithRanges(&self, remoteurl: &::windows::core::PCWSTR, localname: &::windows::core::PCWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
     fn SetFileACLFlags(&self, flags: u32) -> ::windows::core::Result<()>;
@@ -1276,7 +1276,7 @@ impl IBackgroundCopyJob3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IBackgroundCopyJob4_Impl: Sized + IBackgroundCopyJob_Impl + IBackgroundCopyJob2_Impl + IBackgroundCopyJob3_Impl {
+pub trait IBackgroundCopyJob4_Impl: Sized + IBackgroundCopyJob3_Impl {
     fn SetPeerCachingFlags(&self, flags: u32) -> ::windows::core::Result<()>;
     fn GetPeerCachingFlags(&self) -> ::windows::core::Result<u32>;
     fn GetOwnerIntegrityLevel(&self) -> ::windows::core::Result<u32>;
@@ -1358,7 +1358,7 @@ impl IBackgroundCopyJob4_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IBackgroundCopyJob5_Impl: Sized + IBackgroundCopyJob_Impl + IBackgroundCopyJob2_Impl + IBackgroundCopyJob3_Impl + IBackgroundCopyJob4_Impl {
+pub trait IBackgroundCopyJob5_Impl: Sized + IBackgroundCopyJob4_Impl {
     fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: &BITS_JOB_PROPERTY_VALUE) -> ::windows::core::Result<()>;
     fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> ::windows::core::Result<BITS_JOB_PROPERTY_VALUE>;
 }
@@ -1507,7 +1507,7 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
         iid == &<IBackgroundCopyJobHttpOptions2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as ::windows::core::Interface>::IID
     }
 }
-pub trait IBackgroundCopyJobHttpOptions3_Impl: Sized + IBackgroundCopyJobHttpOptions_Impl + IBackgroundCopyJobHttpOptions2_Impl {
+pub trait IBackgroundCopyJobHttpOptions3_Impl: Sized + IBackgroundCopyJobHttpOptions2_Impl {
     fn SetServerCertificateValidationInterface(&self, certvalidationcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn MakeCustomHeadersWriteOnly(&self) -> ::windows::core::Result<()>;
 }

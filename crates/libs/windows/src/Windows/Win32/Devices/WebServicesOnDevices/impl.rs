@@ -510,7 +510,7 @@ impl IWSDEventingStatus_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWSDHttpAddress_Impl: Sized + IWSDAddress_Impl + IWSDTransportAddress_Impl {
+pub trait IWSDHttpAddress_Impl: Sized + IWSDTransportAddress_Impl {
     fn GetSecure(&self) -> ::windows::core::Result<()>;
     fn SetSecure(&self, fsecure: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetPath(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -1057,7 +1057,7 @@ impl IWSDServiceProxy_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWSDServiceProxyEventing_Impl: Sized + IWSDMetadataExchange_Impl + IWSDServiceProxy_Impl {
+pub trait IWSDServiceProxyEventing_Impl: Sized + IWSDServiceProxy_Impl {
     fn SubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: &::core::option::Option<::windows::core::IUnknown>, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
     fn BeginSubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: &::core::option::Option<::windows::core::IUnknown>, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: &::core::option::Option<::windows::core::IUnknown>, pasynccallback: &::core::option::Option<IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
     fn EndSubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: &::core::option::Option<IWSDAsyncResult>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
@@ -1313,7 +1313,7 @@ impl IWSDTransportAddress_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub trait IWSDUdpAddress_Impl: Sized + IWSDAddress_Impl + IWSDTransportAddress_Impl {
+pub trait IWSDUdpAddress_Impl: Sized + IWSDTransportAddress_Impl {
     fn SetSockaddr(&self, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows::core::Result<()>;
     fn GetSockaddr(&self) -> ::windows::core::Result<super::super::Networking::WinSock::SOCKADDR_STORAGE>;
     fn SetExclusive(&self, fexclusive: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;

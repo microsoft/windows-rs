@@ -353,7 +353,7 @@ impl IWICBitmapDecoder_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IWICBitmapDecoderInfo_Impl: Sized + IWICComponentInfo_Impl + IWICBitmapCodecInfo_Impl {
+pub trait IWICBitmapDecoderInfo_Impl: Sized + IWICBitmapCodecInfo_Impl {
     fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: *mut WICBitmapPattern, pcpatterns: *mut u32, pcbpatternsactual: *mut u32) -> ::windows::core::Result<()>;
     fn MatchesPattern(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapDecoder>;
@@ -506,7 +506,7 @@ impl IWICBitmapEncoder_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWICBitmapEncoderInfo_Impl: Sized + IWICComponentInfo_Impl + IWICBitmapCodecInfo_Impl {
+pub trait IWICBitmapEncoderInfo_Impl: Sized + IWICBitmapCodecInfo_Impl {
     fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapEncoder>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1280,7 +1280,7 @@ impl IWICDdsFrameDecode_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub trait IWICDevelopRaw_Impl: Sized + IWICBitmapSource_Impl + IWICBitmapFrameDecode_Impl {
+pub trait IWICDevelopRaw_Impl: Sized + IWICBitmapFrameDecode_Impl {
     fn QueryRawCapabilitiesInfo(&self, pinfo: *mut WICRawCapabilitiesInfo) -> ::windows::core::Result<()>;
     fn LoadParameterSet(&self, parameterset: WICRawParameterSet) -> ::windows::core::Result<()>;
     fn GetCurrentParameterSet(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyBag2>;
@@ -2668,7 +2668,7 @@ impl IWICMetadataReader_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IWICMetadataReaderInfo_Impl: Sized + IWICComponentInfo_Impl + IWICMetadataHandlerInfo_Impl {
+pub trait IWICMetadataReaderInfo_Impl: Sized + IWICMetadataHandlerInfo_Impl {
     fn GetPatterns(&self, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, ppattern: *mut WICMetadataPattern, pccount: *mut u32, pcbactual: *mut u32) -> ::windows::core::Result<()>;
     fn MatchesPattern(&self, guidcontainerformat: *const ::windows::core::GUID, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CreateInstance(&self) -> ::windows::core::Result<IWICMetadataReader>;
@@ -2761,7 +2761,7 @@ impl IWICMetadataWriter_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWICMetadataWriterInfo_Impl: Sized + IWICComponentInfo_Impl + IWICMetadataHandlerInfo_Impl {
+pub trait IWICMetadataWriterInfo_Impl: Sized + IWICMetadataHandlerInfo_Impl {
     fn GetHeader(&self, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, pheader: *mut WICMetadataHeader, pcbactual: *mut u32) -> ::windows::core::Result<()>;
     fn CreateInstance(&self) -> ::windows::core::Result<IWICMetadataWriter>;
 }
@@ -2913,7 +2913,7 @@ impl IWICPalette_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IWICPersistStream_Impl: Sized + super::super::System::Com::IPersist_Impl + super::super::System::Com::IPersistStream_Impl {
+pub trait IWICPersistStream_Impl: Sized + super::super::System::Com::IPersistStream_Impl {
     fn LoadEx(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>, pguidpreferredvendor: *const ::windows::core::GUID, dwpersistoptions: u32) -> ::windows::core::Result<()>;
     fn SaveEx(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>, dwpersistoptions: u32, fcleardirty: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
@@ -3015,7 +3015,7 @@ impl IWICPixelFormatInfo_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IWICPixelFormatInfo2_Impl: Sized + IWICComponentInfo_Impl + IWICPixelFormatInfo_Impl {
+pub trait IWICPixelFormatInfo2_Impl: Sized + IWICPixelFormatInfo_Impl {
     fn SupportsTransparency(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetNumericRepresentation(&self) -> ::windows::core::Result<WICPixelFormatNumericRepresentation>;
 }
@@ -3213,7 +3213,7 @@ impl IWICProgressiveLevelControl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IWICStream_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
+pub trait IWICStream_Impl: Sized + super::super::System::Com::IStream_Impl {
     fn InitializeFromIStream(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn InitializeFromFilename(&self, wzfilename: &::windows::core::PCWSTR, dwdesiredaccess: u32) -> ::windows::core::Result<()>;
     fn InitializeFromMemory(&self, pbbuffer: *const u8, cbbuffersize: u32) -> ::windows::core::Result<()>;

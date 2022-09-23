@@ -25,7 +25,7 @@ impl IMSMQApplication_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSMQApplication2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQApplication_Impl {
+pub trait IMSMQApplication2_Impl: Sized + IMSMQApplication_Impl {
     fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MachineNameOfMachineId(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16>;
@@ -126,7 +126,7 @@ impl IMSMQApplication2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSMQApplication3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQApplication_Impl + IMSMQApplication2_Impl {
+pub trait IMSMQApplication3_Impl: Sized + IMSMQApplication2_Impl {
     fn ActiveQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn PrivateQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn DirectoryServiceServer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -582,7 +582,7 @@ impl IMSMQEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSMQEvent2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQEvent_Impl {
+pub trait IMSMQEvent2_Impl: Sized + IMSMQEvent_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -608,7 +608,7 @@ impl IMSMQEvent2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSMQEvent3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQEvent_Impl + IMSMQEvent2_Impl {}
+pub trait IMSMQEvent3_Impl: Sized + IMSMQEvent2_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSMQEvent3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4034,7 +4034,7 @@ impl IMSMQMessage4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSMQOutgoingQueueManagement_Impl: Sized + super::Com::IDispatch_Impl + IMSMQManagement_Impl {
+pub trait IMSMQOutgoingQueueManagement_Impl: Sized + IMSMQManagement_Impl {
     fn State(&self) -> ::windows::core::Result<i32>;
     fn NextHops(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn EodGetSendInfo(&self) -> ::windows::core::Result<IMSMQCollection>;
@@ -7359,7 +7359,7 @@ impl IMSMQQueueInfos4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSMQQueueManagement_Impl: Sized + super::Com::IDispatch_Impl + IMSMQManagement_Impl {
+pub trait IMSMQQueueManagement_Impl: Sized + IMSMQManagement_Impl {
     fn JournalMessageCount(&self) -> ::windows::core::Result<i32>;
     fn BytesInJournal(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn EodGetReceiveInfo(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -7457,7 +7457,7 @@ impl IMSMQTransaction_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSMQTransaction2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQTransaction_Impl {
+pub trait IMSMQTransaction2_Impl: Sized + IMSMQTransaction_Impl {
     fn InitNew(&self, vartransaction: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
@@ -7493,7 +7493,7 @@ impl IMSMQTransaction2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSMQTransaction3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQTransaction_Impl + IMSMQTransaction2_Impl {
+pub trait IMSMQTransaction3_Impl: Sized + IMSMQTransaction2_Impl {
     fn ITransaction(&self) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

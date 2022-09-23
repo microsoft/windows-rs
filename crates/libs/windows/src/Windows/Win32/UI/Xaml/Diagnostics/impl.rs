@@ -235,7 +235,7 @@ impl IVisualTreeService2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IVisualTreeService3_Impl: Sized + IVisualTreeService_Impl + IVisualTreeService2_Impl {
+pub trait IVisualTreeService3_Impl: Sized + IVisualTreeService2_Impl {
     fn ResolveResource(&self, resourcecontext: u64, resourcename: &::windows::core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::Result<()>;
     fn GetDictionaryItem(&self, dictionaryhandle: u64, resourcename: &::windows::core::PCWSTR, resourceisimplicitstyle: super::super::super::Foundation::BOOL) -> ::windows::core::Result<u64>;
     fn AddDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::core::Result<()>;

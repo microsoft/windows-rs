@@ -76,7 +76,7 @@ impl IAutomaticUpdates_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAutomaticUpdates2_Impl: Sized + super::Com::IDispatch_Impl + IAutomaticUpdates_Impl {
+pub trait IAutomaticUpdates2_Impl: Sized + IAutomaticUpdates_Impl {
     fn Results(&self) -> ::windows::core::Result<IAutomaticUpdatesResults>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -260,7 +260,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAutomaticUpdatesSettings2_Impl: Sized + super::Com::IDispatch_Impl + IAutomaticUpdatesSettings_Impl {
+pub trait IAutomaticUpdatesSettings2_Impl: Sized + IAutomaticUpdatesSettings_Impl {
     fn IncludeRecommendedUpdates(&self) -> ::windows::core::Result<i16>;
     fn SetIncludeRecommendedUpdates(&self, value: i16) -> ::windows::core::Result<()>;
     fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> ::windows::core::Result<i16>;
@@ -309,7 +309,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAutomaticUpdatesSettings3_Impl: Sized + super::Com::IDispatch_Impl + IAutomaticUpdatesSettings_Impl + IAutomaticUpdatesSettings2_Impl {
+pub trait IAutomaticUpdatesSettings3_Impl: Sized + IAutomaticUpdatesSettings2_Impl {
     fn NonAdministratorsElevated(&self) -> ::windows::core::Result<i16>;
     fn SetNonAdministratorsElevated(&self, value: i16) -> ::windows::core::Result<()>;
     fn FeaturedUpdatesEnabled(&self) -> ::windows::core::Result<i16>;
@@ -1358,7 +1358,7 @@ impl IInstallationResult_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IInvalidProductLicenseException_Impl: Sized + super::Com::IDispatch_Impl + IUpdateException_Impl {
+pub trait IInvalidProductLicenseException_Impl: Sized + IUpdateException_Impl {
     fn Product(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2288,7 +2288,7 @@ impl IUpdate_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdate2_Impl: Sized + super::Com::IDispatch_Impl + IUpdate_Impl {
+pub trait IUpdate2_Impl: Sized + IUpdate_Impl {
     fn RebootRequired(&self) -> ::windows::core::Result<i16>;
     fn IsPresent(&self) -> ::windows::core::Result<i16>;
     fn CveIDs(&self) -> ::windows::core::Result<IStringCollection>;
@@ -2350,7 +2350,7 @@ impl IUpdate2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdate3_Impl: Sized + super::Com::IDispatch_Impl + IUpdate_Impl + IUpdate2_Impl {
+pub trait IUpdate3_Impl: Sized + IUpdate2_Impl {
     fn BrowseOnly(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2376,7 +2376,7 @@ impl IUpdate3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdate4_Impl: Sized + super::Com::IDispatch_Impl + IUpdate_Impl + IUpdate2_Impl + IUpdate3_Impl {
+pub trait IUpdate4_Impl: Sized + IUpdate3_Impl {
     fn PerUser(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2402,7 +2402,7 @@ impl IUpdate4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdate5_Impl: Sized + super::Com::IDispatch_Impl + IUpdate_Impl + IUpdate2_Impl + IUpdate3_Impl + IUpdate4_Impl {
+pub trait IUpdate5_Impl: Sized + IUpdate4_Impl {
     fn AutoSelection(&self) -> ::windows::core::Result<AutoSelectionMode>;
     fn AutoDownload(&self) -> ::windows::core::Result<AutoDownloadMode>;
 }
@@ -2592,7 +2592,7 @@ impl IUpdateDownloadContent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateDownloadContent2_Impl: Sized + super::Com::IDispatch_Impl + IUpdateDownloadContent_Impl {
+pub trait IUpdateDownloadContent2_Impl: Sized + IUpdateDownloadContent_Impl {
     fn IsDeltaCompressedContent(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3161,7 +3161,7 @@ impl IUpdateHistoryEntry_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateHistoryEntry2_Impl: Sized + super::Com::IDispatch_Impl + IUpdateHistoryEntry_Impl {
+pub trait IUpdateHistoryEntry2_Impl: Sized + IUpdateHistoryEntry_Impl {
     fn Categories(&self) -> ::windows::core::Result<ICategoryCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3592,7 +3592,7 @@ impl IUpdateInstaller_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateInstaller2_Impl: Sized + super::Com::IDispatch_Impl + IUpdateInstaller_Impl {
+pub trait IUpdateInstaller2_Impl: Sized + IUpdateInstaller_Impl {
     fn ForceQuiet(&self) -> ::windows::core::Result<i16>;
     fn SetForceQuiet(&self, value: i16) -> ::windows::core::Result<()>;
 }
@@ -3628,7 +3628,7 @@ impl IUpdateInstaller2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateInstaller3_Impl: Sized + super::Com::IDispatch_Impl + IUpdateInstaller_Impl + IUpdateInstaller2_Impl {
+pub trait IUpdateInstaller3_Impl: Sized + IUpdateInstaller2_Impl {
     fn AttemptCloseAppsIfNecessary(&self) -> ::windows::core::Result<i16>;
     fn SetAttemptCloseAppsIfNecessary(&self, value: i16) -> ::windows::core::Result<()>;
 }
@@ -3664,7 +3664,7 @@ impl IUpdateInstaller3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateInstaller4_Impl: Sized + super::Com::IDispatch_Impl + IUpdateInstaller_Impl + IUpdateInstaller2_Impl + IUpdateInstaller3_Impl {
+pub trait IUpdateInstaller4_Impl: Sized + IUpdateInstaller3_Impl {
     fn Commit(&self, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3915,7 +3915,7 @@ impl IUpdateSearcher_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateSearcher2_Impl: Sized + super::Com::IDispatch_Impl + IUpdateSearcher_Impl {
+pub trait IUpdateSearcher2_Impl: Sized + IUpdateSearcher_Impl {
     fn IgnoreDownloadPriority(&self) -> ::windows::core::Result<i16>;
     fn SetIgnoreDownloadPriority(&self, value: i16) -> ::windows::core::Result<()>;
 }
@@ -3951,7 +3951,7 @@ impl IUpdateSearcher2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateSearcher3_Impl: Sized + super::Com::IDispatch_Impl + IUpdateSearcher_Impl + IUpdateSearcher2_Impl {
+pub trait IUpdateSearcher3_Impl: Sized + IUpdateSearcher2_Impl {
     fn SearchScope(&self) -> ::windows::core::Result<SearchScope>;
     fn SetSearchScope(&self, value: SearchScope) -> ::windows::core::Result<()>;
 }
@@ -4172,7 +4172,7 @@ impl IUpdateService_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateService2_Impl: Sized + super::Com::IDispatch_Impl + IUpdateService_Impl {
+pub trait IUpdateService2_Impl: Sized + IUpdateService_Impl {
     fn IsDefaultAUService(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4336,7 +4336,7 @@ impl IUpdateServiceManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateServiceManager2_Impl: Sized + super::Com::IDispatch_Impl + IUpdateServiceManager_Impl {
+pub trait IUpdateServiceManager2_Impl: Sized + IUpdateServiceManager_Impl {
     fn ClientApplicationID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetClientApplicationID(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn QueryServiceRegistration(&self, serviceid: &::windows::core::BSTR) -> ::windows::core::Result<IUpdateServiceRegistration>;
@@ -4574,7 +4574,7 @@ impl IUpdateSession_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateSession2_Impl: Sized + super::Com::IDispatch_Impl + IUpdateSession_Impl {
+pub trait IUpdateSession2_Impl: Sized + IUpdateSession_Impl {
     fn UserLocale(&self) -> ::windows::core::Result<u32>;
     fn SetUserLocale(&self, lcid: u32) -> ::windows::core::Result<()>;
 }
@@ -4610,7 +4610,7 @@ impl IUpdateSession2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IUpdateSession3_Impl: Sized + super::Com::IDispatch_Impl + IUpdateSession_Impl + IUpdateSession2_Impl {
+pub trait IUpdateSession3_Impl: Sized + IUpdateSession2_Impl {
     fn CreateUpdateServiceManager(&self) -> ::windows::core::Result<IUpdateServiceManager2>;
     fn QueryHistory(&self, criteria: &::windows::core::BSTR, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection>;
 }
@@ -4802,7 +4802,7 @@ impl IWebProxy_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWindowsDriverUpdate_Impl: Sized + super::Com::IDispatch_Impl + IUpdate_Impl {
+pub trait IWindowsDriverUpdate_Impl: Sized + IUpdate_Impl {
     fn DriverClass(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn DriverHardwareID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn DriverManufacturer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4922,7 +4922,7 @@ impl IWindowsDriverUpdate_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWindowsDriverUpdate2_Impl: Sized + super::Com::IDispatch_Impl + IUpdate_Impl + IWindowsDriverUpdate_Impl {
+pub trait IWindowsDriverUpdate2_Impl: Sized + IWindowsDriverUpdate_Impl {
     fn RebootRequired(&self) -> ::windows::core::Result<i16>;
     fn IsPresent(&self) -> ::windows::core::Result<i16>;
     fn CveIDs(&self) -> ::windows::core::Result<IStringCollection>;
@@ -4984,7 +4984,7 @@ impl IWindowsDriverUpdate2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWindowsDriverUpdate3_Impl: Sized + super::Com::IDispatch_Impl + IUpdate_Impl + IWindowsDriverUpdate_Impl + IWindowsDriverUpdate2_Impl {
+pub trait IWindowsDriverUpdate3_Impl: Sized + IWindowsDriverUpdate2_Impl {
     fn BrowseOnly(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5010,7 +5010,7 @@ impl IWindowsDriverUpdate3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWindowsDriverUpdate4_Impl: Sized + super::Com::IDispatch_Impl + IUpdate_Impl + IWindowsDriverUpdate_Impl + IWindowsDriverUpdate2_Impl + IWindowsDriverUpdate3_Impl {
+pub trait IWindowsDriverUpdate4_Impl: Sized + IWindowsDriverUpdate3_Impl {
     fn WindowsDriverUpdateEntries(&self) -> ::windows::core::Result<IWindowsDriverUpdateEntryCollection>;
     fn PerUser(&self) -> ::windows::core::Result<i16>;
 }
@@ -5052,7 +5052,7 @@ impl IWindowsDriverUpdate4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWindowsDriverUpdate5_Impl: Sized + super::Com::IDispatch_Impl + IUpdate_Impl + IWindowsDriverUpdate_Impl + IWindowsDriverUpdate2_Impl + IWindowsDriverUpdate3_Impl + IWindowsDriverUpdate4_Impl {
+pub trait IWindowsDriverUpdate5_Impl: Sized + IWindowsDriverUpdate4_Impl {
     fn AutoSelection(&self) -> ::windows::core::Result<AutoSelectionMode>;
     fn AutoDownload(&self) -> ::windows::core::Result<AutoDownloadMode>;
 }

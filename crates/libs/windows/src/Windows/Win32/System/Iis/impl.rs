@@ -544,7 +544,7 @@ impl IMSAdminBase2W_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IMSAdminBase3W_Impl: Sized + IMSAdminBaseW_Impl + IMSAdminBase2W_Impl {
+pub trait IMSAdminBase3W_Impl: Sized + IMSAdminBase2W_Impl {
     fn GetChildPaths(&self, hmdhandle: u32, pszmdpath: &::windows::core::PCWSTR, cchmdbuffersize: u32, pszbuffer: &::windows::core::PWSTR, pcchmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -69,7 +69,7 @@ impl IDxcBlobEncoding_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDxcBlobUtf16_Impl: Sized + IDxcBlob_Impl + IDxcBlobEncoding_Impl {
+pub trait IDxcBlobUtf16_Impl: Sized + IDxcBlobEncoding_Impl {
     fn GetStringPointer(&self) -> ::windows::core::PWSTR;
     fn GetStringLength(&self) -> usize;
 }
@@ -99,7 +99,7 @@ impl IDxcBlobUtf16_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDxcBlobUtf8_Impl: Sized + IDxcBlob_Impl + IDxcBlobEncoding_Impl {
+pub trait IDxcBlobUtf8_Impl: Sized + IDxcBlobEncoding_Impl {
     fn GetStringPointer(&self) -> ::windows::core::PSTR;
     fn GetStringLength(&self) -> usize;
 }

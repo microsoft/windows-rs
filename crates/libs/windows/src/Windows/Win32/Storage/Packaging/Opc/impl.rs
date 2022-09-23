@@ -807,7 +807,7 @@ impl IOpcPartSet_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IOpcPartUri_Impl: Sized + super::super::super::System::Com::IUri_Impl + IOpcUri_Impl {
+pub trait IOpcPartUri_Impl: Sized + IOpcUri_Impl {
     fn ComparePartUri(&self, parturi: &::core::option::Option<IOpcPartUri>) -> ::windows::core::Result<i32>;
     fn GetSourceUri(&self) -> ::windows::core::Result<IOpcUri>;
     fn IsRelationshipsPartUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;

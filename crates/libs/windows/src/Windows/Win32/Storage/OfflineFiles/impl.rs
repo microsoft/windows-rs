@@ -780,7 +780,7 @@ impl IOfflineFilesEvents2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IOfflineFilesEvents3_Impl: Sized + IOfflineFilesEvents_Impl + IOfflineFilesEvents2_Impl {
+pub trait IOfflineFilesEvents3_Impl: Sized + IOfflineFilesEvents2_Impl {
     fn TransparentCacheItemNotify(&self, pszpath: &::windows::core::PCWSTR, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL, pzsoldpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn PrefetchFileBegin(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn PrefetchFileEnd(&self, pszpath: &::windows::core::PCWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -817,7 +817,7 @@ impl IOfflineFilesEvents3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IOfflineFilesEvents4_Impl: Sized + IOfflineFilesEvents_Impl + IOfflineFilesEvents2_Impl + IOfflineFilesEvents3_Impl {
+pub trait IOfflineFilesEvents4_Impl: Sized + IOfflineFilesEvents3_Impl {
     fn PrefetchCloseHandleBegin(&self) -> ::windows::core::Result<()>;
     fn PrefetchCloseHandleEnd(&self, dwclosedhandlecount: u32, dwopenhandlecount: u32, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }

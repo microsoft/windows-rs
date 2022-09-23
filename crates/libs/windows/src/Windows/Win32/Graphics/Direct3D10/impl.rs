@@ -60,7 +60,7 @@ impl ID3D10BlendState_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ID3D10BlendState1_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10BlendState_Impl {
+pub trait ID3D10BlendState1_Impl: Sized + ID3D10BlendState_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D10_BLEND_DESC1);
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -79,7 +79,7 @@ impl ID3D10BlendState1_Vtbl {
         iid == &<ID3D10BlendState1 as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10BlendState as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D10Buffer_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Impl {
+pub trait ID3D10Buffer_Impl: Sized + ID3D10Resource_Impl {
     fn Map(&self, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Unmap(&self);
     fn GetDesc(&self, pdesc: *mut D3D10_BUFFER_DESC);
@@ -113,7 +113,7 @@ impl ID3D10Buffer_Vtbl {
         iid == &<ID3D10Buffer as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Resource as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D10Counter_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl {
+pub trait ID3D10Counter_Impl: Sized + ID3D10Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_COUNTER_DESC);
 }
 impl ::windows::core::RuntimeName for ID3D10Counter {}
@@ -222,7 +222,7 @@ impl ID3D10DepthStencilState_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D10DepthStencilView_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl {
+pub trait ID3D10DepthStencilView_Impl: Sized + ID3D10View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_DEPTH_STENCIL_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2811,7 +2811,7 @@ impl ID3D10PixelShader_Vtbl {
         iid == &<ID3D10PixelShader as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D10Predicate_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl + ID3D10Query_Impl {}
+pub trait ID3D10Predicate_Impl: Sized + ID3D10Query_Impl {}
 impl ::windows::core::RuntimeName for ID3D10Predicate {}
 impl ID3D10Predicate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Predicate_Impl, const OFFSET: isize>() -> ID3D10Predicate_Vtbl {
@@ -2821,7 +2821,7 @@ impl ID3D10Predicate_Vtbl {
         iid == &<ID3D10Predicate as ::windows::core::Interface>::IID || iid == &<ID3D10DeviceChild as ::windows::core::Interface>::IID || iid == &<ID3D10Asynchronous as ::windows::core::Interface>::IID || iid == &<ID3D10Query as ::windows::core::Interface>::IID
     }
 }
-pub trait ID3D10Query_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl {
+pub trait ID3D10Query_Impl: Sized + ID3D10Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_QUERY_DESC);
 }
 impl ::windows::core::RuntimeName for ID3D10Query {}
@@ -2859,7 +2859,7 @@ impl ID3D10RasterizerState_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D10RenderTargetView_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl {
+pub trait ID3D10RenderTargetView_Impl: Sized + ID3D10View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_RENDER_TARGET_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3319,7 +3319,7 @@ impl ID3D10ShaderReflectionVariable_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D10ShaderResourceView_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl {
+pub trait ID3D10ShaderResourceView_Impl: Sized + ID3D10View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3339,7 +3339,7 @@ impl ID3D10ShaderResourceView_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D10ShaderResourceView1_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl + ID3D10ShaderResourceView_Impl {
+pub trait ID3D10ShaderResourceView1_Impl: Sized + ID3D10ShaderResourceView_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3436,7 +3436,7 @@ impl ID3D10SwitchToRef_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D10Texture1D_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Impl {
+pub trait ID3D10Texture1D_Impl: Sized + ID3D10Resource_Impl {
     fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Unmap(&self, subresource: u32);
     fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE1D_DESC);
@@ -3473,7 +3473,7 @@ impl ID3D10Texture1D_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D10Texture2D_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Impl {
+pub trait ID3D10Texture2D_Impl: Sized + ID3D10Resource_Impl {
     fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE2D>;
     fn Unmap(&self, subresource: u32);
     fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE2D_DESC);
@@ -3516,7 +3516,7 @@ impl ID3D10Texture2D_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait ID3D10Texture3D_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Impl {
+pub trait ID3D10Texture3D_Impl: Sized + ID3D10Resource_Impl {
     fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE3D>;
     fn Unmap(&self, subresource: u32);
     fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE3D_DESC);

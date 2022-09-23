@@ -244,7 +244,7 @@ impl IGPM_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPM2_Impl: Sized + super::Com::IDispatch_Impl + IGPM_Impl {
+pub trait IGPM2_Impl: Sized + IGPM_Impl {
     fn GetBackupDirEx(&self, bstrbackupdir: &::windows::core::BSTR, backupdirtype: GPMBackupType) -> ::windows::core::Result<IGPMBackupDirEx>;
     fn InitializeReportingEx(&self, bstradmpath: &::windows::core::BSTR, reportingoptions: i32) -> ::windows::core::Result<()>;
 }
@@ -1551,7 +1551,7 @@ impl IGPMConstants_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMConstants2_Impl: Sized + super::Com::IDispatch_Impl + IGPMConstants_Impl {
+pub trait IGPMConstants2_Impl: Sized + IGPMConstants_Impl {
     fn BackupTypeGPO(&self) -> ::windows::core::Result<GPMBackupType>;
     fn BackupTypeStarterGPO(&self) -> ::windows::core::Result<GPMBackupType>;
     fn StarterGPOTypeSystem(&self) -> ::windows::core::Result<GPMStarterGPOType>;
@@ -1902,7 +1902,7 @@ impl IGPMDomain_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMDomain2_Impl: Sized + super::Com::IDispatch_Impl + IGPMDomain_Impl {
+pub trait IGPMDomain2_Impl: Sized + IGPMDomain_Impl {
     fn CreateStarterGPO(&self) -> ::windows::core::Result<IGPMStarterGPO>;
     fn CreateGPOFromStarterGPO(&self, pgpotemplate: &::core::option::Option<IGPMStarterGPO>) -> ::windows::core::Result<IGPMGPO>;
     fn GetStarterGPO(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<IGPMStarterGPO>;
@@ -1984,7 +1984,7 @@ impl IGPMDomain2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMDomain3_Impl: Sized + super::Com::IDispatch_Impl + IGPMDomain_Impl + IGPMDomain2_Impl {
+pub trait IGPMDomain3_Impl: Sized + IGPMDomain2_Impl {
     fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>;
     fn InfrastructureDC(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetInfrastructureDC(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2355,7 +2355,7 @@ impl IGPMGPO_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMGPO2_Impl: Sized + super::Com::IDispatch_Impl + IGPMGPO_Impl {
+pub trait IGPMGPO2_Impl: Sized + IGPMGPO_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -2391,7 +2391,7 @@ impl IGPMGPO2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IGPMGPO3_Impl: Sized + super::Com::IDispatch_Impl + IGPMGPO_Impl + IGPMGPO2_Impl {
+pub trait IGPMGPO3_Impl: Sized + IGPMGPO2_Impl {
     fn InfrastructureDC(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetInfrastructureDC(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetInfrastructureFlags(&self, dwflags: u32) -> ::windows::core::Result<()>;

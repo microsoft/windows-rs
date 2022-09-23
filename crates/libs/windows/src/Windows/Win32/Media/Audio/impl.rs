@@ -369,7 +369,7 @@ impl IAudioClient2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IAudioClient3_Impl: Sized + IAudioClient_Impl + IAudioClient2_Impl {
+pub trait IAudioClient3_Impl: Sized + IAudioClient2_Impl {
     fn GetSharedModeEnginePeriod(&self, pformat: *const WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> ::windows::core::Result<()>;
     fn GetCurrentSharedModeEnginePeriod(&self, ppformat: *mut *mut WAVEFORMATEX, pcurrentperiodinframes: *mut u32) -> ::windows::core::Result<()>;
     fn InitializeSharedAudioStream(&self, streamflags: u32, periodinframes: u32, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;

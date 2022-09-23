@@ -460,7 +460,7 @@ impl IDiscFormat2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDiscFormat2Data_Impl: Sized + super::super::System::Com::IDispatch_Impl + IDiscFormat2_Impl {
+pub trait IDiscFormat2Data_Impl: Sized + IDiscFormat2_Impl {
     fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
     fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
     fn SetBufferUnderrunFreeDisabled(&self, value: i16) -> ::windows::core::Result<()>;
@@ -832,7 +832,7 @@ impl IDiscFormat2Data_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDiscFormat2DataEventArgs_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWriteEngine2EventArgs_Impl {
+pub trait IDiscFormat2DataEventArgs_Impl: Sized + IWriteEngine2EventArgs_Impl {
     fn ElapsedTime(&self) -> ::windows::core::Result<i32>;
     fn RemainingTime(&self) -> ::windows::core::Result<i32>;
     fn TotalTime(&self) -> ::windows::core::Result<i32>;
@@ -900,7 +900,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDiscFormat2Erase_Impl: Sized + super::super::System::Com::IDispatch_Impl + IDiscFormat2_Impl {
+pub trait IDiscFormat2Erase_Impl: Sized + IDiscFormat2_Impl {
     fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
     fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
     fn SetFullErase(&self, value: i16) -> ::windows::core::Result<()>;
@@ -996,7 +996,7 @@ impl IDiscFormat2Erase_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDiscFormat2RawCD_Impl: Sized + super::super::System::Com::IDispatch_Impl + IDiscFormat2_Impl {
+pub trait IDiscFormat2RawCD_Impl: Sized + IDiscFormat2_Impl {
     fn PrepareMedia(&self) -> ::windows::core::Result<()>;
     fn WriteMedia(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn WriteMedia2(&self, data: &::core::option::Option<super::super::System::Com::IStream>, streamleadinsectors: i32) -> ::windows::core::Result<()>;
@@ -1264,7 +1264,7 @@ impl IDiscFormat2RawCD_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDiscFormat2RawCDEventArgs_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWriteEngine2EventArgs_Impl {
+pub trait IDiscFormat2RawCDEventArgs_Impl: Sized + IWriteEngine2EventArgs_Impl {
     fn CurrentAction(&self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_WRITE_ACTION>;
     fn ElapsedTime(&self) -> ::windows::core::Result<i32>;
     fn RemainingTime(&self) -> ::windows::core::Result<i32>;
@@ -1319,7 +1319,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDiscFormat2TrackAtOnce_Impl: Sized + super::super::System::Com::IDispatch_Impl + IDiscFormat2_Impl {
+pub trait IDiscFormat2TrackAtOnce_Impl: Sized + IDiscFormat2_Impl {
     fn PrepareMedia(&self) -> ::windows::core::Result<()>;
     fn AddAudioTrack(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn CancelAddTrack(&self) -> ::windows::core::Result<()>;
@@ -1606,7 +1606,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDiscFormat2TrackAtOnceEventArgs_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWriteEngine2EventArgs_Impl {
+pub trait IDiscFormat2TrackAtOnceEventArgs_Impl: Sized + IWriteEngine2EventArgs_Impl {
     fn CurrentTrackNumber(&self) -> ::windows::core::Result<i32>;
     fn CurrentAction(&self) -> ::windows::core::Result<IMAPI_FORMAT2_TAO_WRITE_ACTION>;
     fn ElapsedTime(&self) -> ::windows::core::Result<i32>;
@@ -3261,7 +3261,7 @@ impl IFileSystemImage_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFileSystemImage2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFileSystemImage_Impl {
+pub trait IFileSystemImage2_Impl: Sized + IFileSystemImage_Impl {
     fn BootImageOptionsArray(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
@@ -3297,7 +3297,7 @@ impl IFileSystemImage2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFileSystemImage3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFileSystemImage_Impl + IFileSystemImage2_Impl {
+pub trait IFileSystemImage3_Impl: Sized + IFileSystemImage2_Impl {
     fn CreateRedundantUdfMetadataFiles(&self) -> ::windows::core::Result<i16>;
     fn SetCreateRedundantUdfMetadataFiles(&self, newval: i16) -> ::windows::core::Result<()>;
     fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> ::windows::core::Result<i16>;
@@ -3427,7 +3427,7 @@ impl IFileSystemImageResult_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFileSystemImageResult2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFileSystemImageResult_Impl {
+pub trait IFileSystemImageResult2_Impl: Sized + IFileSystemImageResult_Impl {
     fn ModifiedBlocks(&self) -> ::windows::core::Result<IBlockRangeList>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3453,7 +3453,7 @@ impl IFileSystemImageResult2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsiDirectoryItem_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl {
+pub trait IFsiDirectoryItem_Impl: Sized + IFsiItem_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
     fn get_Item(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<IFsiItem>;
     fn Count(&self) -> ::windows::core::Result<i32>;
@@ -3563,7 +3563,7 @@ impl IFsiDirectoryItem_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsiDirectoryItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl + IFsiDirectoryItem_Impl {
+pub trait IFsiDirectoryItem2_Impl: Sized + IFsiDirectoryItem_Impl {
     fn AddTreeWithNamedStreams(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3583,7 +3583,7 @@ impl IFsiDirectoryItem2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsiFileItem_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl {
+pub trait IFsiFileItem_Impl: Sized + IFsiItem_Impl {
     fn DataSize(&self) -> ::windows::core::Result<i64>;
     fn DataSize32BitLow(&self) -> ::windows::core::Result<i32>;
     fn DataSize32BitHigh(&self) -> ::windows::core::Result<i32>;
@@ -3658,7 +3658,7 @@ impl IFsiFileItem_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsiFileItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl + IFsiFileItem_Impl {
+pub trait IFsiFileItem2_Impl: Sized + IFsiFileItem_Impl {
     fn FsiNamedStreams(&self) -> ::windows::core::Result<IFsiNamedStreams>;
     fn IsNamedStream(&self) -> ::windows::core::Result<i16>;
     fn AddStream(&self, name: &::windows::core::BSTR, streamdata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
@@ -4157,7 +4157,7 @@ impl IMultisession_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMultisessionRandomWrite_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMultisession_Impl {
+pub trait IMultisessionRandomWrite_Impl: Sized + IMultisession_Impl {
     fn WriteUnitSize(&self) -> ::windows::core::Result<i32>;
     fn LastWrittenAddress(&self) -> ::windows::core::Result<i32>;
     fn TotalSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
@@ -4212,7 +4212,7 @@ impl IMultisessionRandomWrite_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMultisessionSequential_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMultisession_Impl {
+pub trait IMultisessionSequential_Impl: Sized + IMultisession_Impl {
     fn IsFirstDataSession(&self) -> ::windows::core::Result<i16>;
     fn StartAddressOfPreviousSession(&self) -> ::windows::core::Result<i32>;
     fn LastWrittenAddressOfPreviousSession(&self) -> ::windows::core::Result<i32>;
@@ -4293,7 +4293,7 @@ impl IMultisessionSequential_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMultisessionSequential2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMultisession_Impl + IMultisessionSequential_Impl {
+pub trait IMultisessionSequential2_Impl: Sized + IMultisessionSequential_Impl {
     fn WriteUnitSize(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4956,7 +4956,7 @@ impl IRedbookDiscMaster_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IStreamConcatenate_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
+pub trait IStreamConcatenate_Impl: Sized + super::super::System::Com::IStream_Impl {
     fn Initialize(&self, stream1: &::core::option::Option<super::super::System::Com::IStream>, stream2: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn Initialize2(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, streamcount: u32) -> ::windows::core::Result<()>;
     fn Append(&self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
@@ -5000,7 +5000,7 @@ impl IStreamConcatenate_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IStreamInterleave_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
+pub trait IStreamInterleave_Impl: Sized + super::super::System::Com::IStream_Impl {
     fn Initialize(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5020,7 +5020,7 @@ impl IStreamInterleave_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IStreamPseudoRandomBased_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
+pub trait IStreamPseudoRandomBased_Impl: Sized + super::super::System::Com::IStream_Impl {
     fn SetSeed(&self, value: u32) -> ::windows::core::Result<()>;
     fn Seed(&self) -> ::windows::core::Result<u32>;
     fn put_ExtendedSeed(&self, values: *const u32, ecount: u32) -> ::windows::core::Result<()>;

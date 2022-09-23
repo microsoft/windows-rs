@@ -248,7 +248,7 @@ impl ICodecAPI_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoDecodeCommandList_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
+pub trait ID3D12VideoDecodeCommandList_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn Reset(&self, pallocator: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12CommandAllocator>) -> ::windows::core::Result<()>;
     fn ClearState(&self);
@@ -362,7 +362,7 @@ impl ID3D12VideoDecodeCommandList_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoDecodeCommandList1_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl + ID3D12VideoDecodeCommandList_Impl {
+pub trait ID3D12VideoDecodeCommandList1_Impl: Sized + ID3D12VideoDecodeCommandList_Impl {
     fn DecodeFrame1(&self, pdecoder: &::core::option::Option<ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -382,7 +382,7 @@ impl ID3D12VideoDecodeCommandList1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoDecodeCommandList2_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl + ID3D12VideoDecodeCommandList_Impl + ID3D12VideoDecodeCommandList1_Impl {
+pub trait ID3D12VideoDecodeCommandList2_Impl: Sized + ID3D12VideoDecodeCommandList1_Impl {
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
     fn InitializeExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize);
     fn ExecuteExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize);
@@ -419,7 +419,7 @@ impl ID3D12VideoDecodeCommandList2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-pub trait ID3D12VideoDecoder_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
+pub trait ID3D12VideoDecoder_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_DECODER_DESC;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -439,7 +439,7 @@ impl ID3D12VideoDecoder_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-pub trait ID3D12VideoDecoder1_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl + ID3D12VideoDecoder_Impl {
+pub trait ID3D12VideoDecoder1_Impl: Sized + ID3D12VideoDecoder_Impl {
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -462,7 +462,7 @@ impl ID3D12VideoDecoder1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoDecoderHeap_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
+pub trait ID3D12VideoDecoderHeap_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -482,7 +482,7 @@ impl ID3D12VideoDecoderHeap_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoDecoderHeap1_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl + ID3D12VideoDecoderHeap_Impl {
+pub trait ID3D12VideoDecoderHeap1_Impl: Sized + ID3D12VideoDecoderHeap_Impl {
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -579,7 +579,7 @@ impl ID3D12VideoDevice1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoDevice2_Impl: Sized + ID3D12VideoDevice_Impl + ID3D12VideoDevice1_Impl {
+pub trait ID3D12VideoDevice2_Impl: Sized + ID3D12VideoDevice1_Impl {
     fn CreateVideoDecoder1(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateVideoDecoderHeap1(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateVideoProcessor1(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -630,7 +630,7 @@ impl ID3D12VideoDevice2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoDevice3_Impl: Sized + ID3D12VideoDevice_Impl + ID3D12VideoDevice1_Impl + ID3D12VideoDevice2_Impl {
+pub trait ID3D12VideoDevice3_Impl: Sized + ID3D12VideoDevice2_Impl {
     fn CreateVideoEncoder(&self, pdesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const ::windows::core::GUID, ppvideoencoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateVideoEncoderHeap(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideoencoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -660,7 +660,7 @@ impl ID3D12VideoDevice3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-pub trait ID3D12VideoEncodeCommandList_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
+pub trait ID3D12VideoEncodeCommandList_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn Reset(&self, pallocator: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12CommandAllocator>) -> ::windows::core::Result<()>;
     fn ClearState(&self);
@@ -788,7 +788,7 @@ impl ID3D12VideoEncodeCommandList_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-pub trait ID3D12VideoEncodeCommandList1_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl + ID3D12VideoEncodeCommandList_Impl {
+pub trait ID3D12VideoEncodeCommandList1_Impl: Sized + ID3D12VideoEncodeCommandList_Impl {
     fn InitializeExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize);
     fn ExecuteExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize);
 }
@@ -818,7 +818,7 @@ impl ID3D12VideoEncodeCommandList1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoEncodeCommandList2_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl + ID3D12VideoEncodeCommandList_Impl + ID3D12VideoEncodeCommandList1_Impl {
+pub trait ID3D12VideoEncodeCommandList2_Impl: Sized + ID3D12VideoEncodeCommandList1_Impl {
     fn EncodeFrame(&self, pencoder: &::core::option::Option<ID3D12VideoEncoder>, pheap: &::core::option::Option<ID3D12VideoEncoderHeap>, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
     fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS);
 }
@@ -848,7 +848,7 @@ impl ID3D12VideoEncodeCommandList2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoEncoder_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
+pub trait ID3D12VideoEncoder_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetNodeMask(&self) -> u32;
     fn GetEncoderFlags(&self) -> D3D12_VIDEO_ENCODER_FLAGS;
     fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
@@ -913,7 +913,7 @@ impl ID3D12VideoEncoder_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-pub trait ID3D12VideoEncoderHeap_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
+pub trait ID3D12VideoEncoderHeap_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetNodeMask(&self) -> u32;
     fn GetEncoderHeapFlags(&self) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS;
     fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
@@ -978,7 +978,7 @@ impl ID3D12VideoEncoderHeap_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-pub trait ID3D12VideoExtensionCommand_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
+pub trait ID3D12VideoExtensionCommand_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC;
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -1008,7 +1008,7 @@ impl ID3D12VideoExtensionCommand_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoMotionEstimator_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
+pub trait ID3D12VideoMotionEstimator_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC;
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -1038,7 +1038,7 @@ impl ID3D12VideoMotionEstimator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoMotionVectorHeap_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
+pub trait ID3D12VideoMotionVectorHeap_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC;
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -1068,7 +1068,7 @@ impl ID3D12VideoMotionVectorHeap_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-pub trait ID3D12VideoProcessCommandList_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
+pub trait ID3D12VideoProcessCommandList_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn Reset(&self, pallocator: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12CommandAllocator>) -> ::windows::core::Result<()>;
     fn ClearState(&self);
@@ -1182,7 +1182,7 @@ impl ID3D12VideoProcessCommandList_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-pub trait ID3D12VideoProcessCommandList1_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl + ID3D12VideoProcessCommandList_Impl {
+pub trait ID3D12VideoProcessCommandList1_Impl: Sized + ID3D12VideoProcessCommandList_Impl {
     fn ProcessFrames1(&self, pvideoprocessor: &::core::option::Option<ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -1202,7 +1202,7 @@ impl ID3D12VideoProcessCommandList1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-pub trait ID3D12VideoProcessCommandList2_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl + ID3D12VideoProcessCommandList_Impl + ID3D12VideoProcessCommandList1_Impl {
+pub trait ID3D12VideoProcessCommandList2_Impl: Sized + ID3D12VideoProcessCommandList1_Impl {
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
     fn InitializeExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize);
     fn ExecuteExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize);
@@ -1239,7 +1239,7 @@ impl ID3D12VideoProcessCommandList2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoProcessor_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
+pub trait ID3D12VideoProcessor_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetNodeMask(&self) -> u32;
     fn GetNumInputStreamDescs(&self) -> u32;
     fn GetInputStreamDescs(&self, numinputstreamdescs: u32, pinputstreamdescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> ::windows::core::Result<()>;
@@ -1283,7 +1283,7 @@ impl ID3D12VideoProcessor_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait ID3D12VideoProcessor1_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl + ID3D12VideoProcessor_Impl {
+pub trait ID3D12VideoProcessor1_Impl: Sized + ID3D12VideoProcessor_Impl {
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3904,7 +3904,7 @@ impl IMFAttributes_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IMFAudioMediaType_Impl: Sized + IMFAttributes_Impl + IMFMediaType_Impl {
+pub trait IMFAudioMediaType_Impl: Sized + IMFMediaType_Impl {
     fn GetAudioFormat(&self) -> *mut super::Audio::WAVEFORMATEX;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage"))]
@@ -9537,7 +9537,7 @@ impl IMFMediaSource_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IMFMediaSource2_Impl: Sized + IMFMediaEventGenerator_Impl + IMFMediaSource_Impl + IMFMediaSourceEx_Impl {
+pub trait IMFMediaSource2_Impl: Sized + IMFMediaSourceEx_Impl {
     fn SetMediaType(&self, dwstreamid: u32, pmediatype: &::core::option::Option<IMFMediaType>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -9557,7 +9557,7 @@ impl IMFMediaSource2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IMFMediaSourceEx_Impl: Sized + IMFMediaEventGenerator_Impl + IMFMediaSource_Impl {
+pub trait IMFMediaSourceEx_Impl: Sized + IMFMediaSource_Impl {
     fn GetSourceAttributes(&self) -> ::windows::core::Result<IMFAttributes>;
     fn GetStreamAttributes(&self, dwstreamidentifier: u32) -> ::windows::core::Result<IMFAttributes>;
     fn SetD3DManager(&self, pmanager: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
@@ -9848,7 +9848,7 @@ impl IMFMediaStream_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IMFMediaStream2_Impl: Sized + IMFMediaEventGenerator_Impl + IMFMediaStream_Impl {
+pub trait IMFMediaStream2_Impl: Sized + IMFMediaStream_Impl {
     fn SetStreamState(&self, value: MF_STREAM_STATE) -> ::windows::core::Result<()>;
     fn GetStreamState(&self) -> ::windows::core::Result<MF_STREAM_STATE>;
 }
@@ -12757,7 +12757,7 @@ impl IMFSampleGrabberSinkCallback_Vtbl {
         iid == &<IMFSampleGrabberSinkCallback as ::windows::core::Interface>::IID || iid == &<IMFClockStateSink as ::windows::core::Interface>::IID
     }
 }
-pub trait IMFSampleGrabberSinkCallback2_Impl: Sized + IMFClockStateSink_Impl + IMFSampleGrabberSinkCallback_Impl {
+pub trait IMFSampleGrabberSinkCallback2_Impl: Sized + IMFSampleGrabberSinkCallback_Impl {
     fn OnProcessSampleEx(&self, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMFSampleGrabberSinkCallback2 {}
@@ -14666,7 +14666,7 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IMFSpatialAudioSample_Impl: Sized + IMFAttributes_Impl + IMFSample_Impl {
+pub trait IMFSpatialAudioSample_Impl: Sized + IMFSample_Impl {
     fn GetObjectCount(&self) -> ::windows::core::Result<u32>;
     fn AddSpatialAudioObject(&self, paudioobjbuffer: &::core::option::Option<IMFSpatialAudioObjectBuffer>) -> ::windows::core::Result<()>;
     fn GetSpatialAudioObjectByIndex(&self, dwindex: u32) -> ::windows::core::Result<IMFSpatialAudioObjectBuffer>;
@@ -17174,7 +17174,7 @@ impl IMFVideoDisplayControl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IMFVideoMediaType_Impl: Sized + IMFAttributes_Impl + IMFMediaType_Impl {
+pub trait IMFVideoMediaType_Impl: Sized + IMFMediaType_Impl {
     fn GetVideoFormat(&self) -> *mut MFVIDEOFORMAT;
     fn GetVideoRepresentation(&self, guidrepresentation: &::windows::core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void, lstride: i32) -> ::windows::core::Result<()>;
 }
@@ -17636,7 +17636,7 @@ impl IMFVideoProcessorControl2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IMFVideoProcessorControl3_Impl: Sized + IMFVideoProcessorControl_Impl + IMFVideoProcessorControl2_Impl {
+pub trait IMFVideoProcessorControl3_Impl: Sized + IMFVideoProcessorControl2_Impl {
     fn GetNaturalOutputType(&self) -> ::windows::core::Result<IMFMediaType>;
     fn EnableSphericalVideoProcessing(&self, fenable: super::super::Foundation::BOOL, eformat: MFVideoSphericalFormat, eprojectionmode: MFVideoSphericalProjectionMode) -> ::windows::core::Result<()>;
     fn SetSphericalVideoProperties(&self, x: f32, y: f32, z: f32, w: f32, fieldofview: f32) -> ::windows::core::Result<()>;

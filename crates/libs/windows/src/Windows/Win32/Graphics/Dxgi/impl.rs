@@ -54,7 +54,7 @@ impl IDXGIAdapter_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDXGIAdapter1_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl {
+pub trait IDXGIAdapter1_Impl: Sized + IDXGIAdapter_Impl {
     fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -80,7 +80,7 @@ impl IDXGIAdapter1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDXGIAdapter2_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl + IDXGIAdapter1_Impl {
+pub trait IDXGIAdapter2_Impl: Sized + IDXGIAdapter1_Impl {
     fn GetDesc2(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -106,7 +106,7 @@ impl IDXGIAdapter2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDXGIAdapter3_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl + IDXGIAdapter1_Impl + IDXGIAdapter2_Impl {
+pub trait IDXGIAdapter3_Impl: Sized + IDXGIAdapter2_Impl {
     fn RegisterHardwareContentProtectionTeardownStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
     fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32);
     fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO>;
@@ -182,7 +182,7 @@ impl IDXGIAdapter3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDXGIAdapter4_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl + IDXGIAdapter1_Impl + IDXGIAdapter2_Impl + IDXGIAdapter3_Impl {
+pub trait IDXGIAdapter4_Impl: Sized + IDXGIAdapter3_Impl {
     fn GetDesc3(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC3>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -416,7 +416,7 @@ impl IDXGIDevice_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIDevice1_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl {
+pub trait IDXGIDevice1_Impl: Sized + IDXGIDevice_Impl {
     fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()>;
     fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32>;
 }
@@ -452,7 +452,7 @@ impl IDXGIDevice1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIDevice2_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGIDevice1_Impl {
+pub trait IDXGIDevice2_Impl: Sized + IDXGIDevice1_Impl {
     fn OfferResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()>;
     fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn EnqueueSetEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
@@ -495,7 +495,7 @@ impl IDXGIDevice2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIDevice3_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGIDevice1_Impl + IDXGIDevice2_Impl {
+pub trait IDXGIDevice3_Impl: Sized + IDXGIDevice2_Impl {
     fn Trim(&self);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -515,7 +515,7 @@ impl IDXGIDevice3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIDevice4_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGIDevice1_Impl + IDXGIDevice2_Impl + IDXGIDevice3_Impl {
+pub trait IDXGIDevice4_Impl: Sized + IDXGIDevice3_Impl {
     fn OfferResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()>;
     fn ReclaimResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<DXGI_RECLAIM_RESOURCE_RESULTS>;
 }
@@ -667,7 +667,7 @@ impl IDXGIFactory_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIFactory1_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl {
+pub trait IDXGIFactory1_Impl: Sized + IDXGIFactory_Impl {
     fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1>;
     fn IsCurrent(&self) -> super::super::Foundation::BOOL;
 }
@@ -703,7 +703,7 @@ impl IDXGIFactory1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIFactory2_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl {
+pub trait IDXGIFactory2_Impl: Sized + IDXGIFactory1_Impl {
     fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL;
     fn CreateSwapChainForHwnd(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
     fn CreateSwapChainForCoreWindow(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pwindow: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
@@ -844,7 +844,7 @@ impl IDXGIFactory2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIFactory3_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl {
+pub trait IDXGIFactory3_Impl: Sized + IDXGIFactory2_Impl {
     fn GetCreationFlags(&self) -> u32;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -864,7 +864,7 @@ impl IDXGIFactory3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIFactory4_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl + IDXGIFactory3_Impl {
+pub trait IDXGIFactory4_Impl: Sized + IDXGIFactory3_Impl {
     fn EnumAdapterByLuid(&self, adapterluid: &super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn EnumWarpAdapter(&self, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
@@ -894,7 +894,7 @@ impl IDXGIFactory4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIFactory5_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl + IDXGIFactory3_Impl + IDXGIFactory4_Impl {
+pub trait IDXGIFactory5_Impl: Sized + IDXGIFactory4_Impl {
     fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -914,7 +914,7 @@ impl IDXGIFactory5_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIFactory6_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl + IDXGIFactory3_Impl + IDXGIFactory4_Impl + IDXGIFactory5_Impl {
+pub trait IDXGIFactory6_Impl: Sized + IDXGIFactory5_Impl {
     fn EnumAdapterByGpuPreference(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -934,7 +934,7 @@ impl IDXGIFactory6_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGIFactory7_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl + IDXGIFactory3_Impl + IDXGIFactory4_Impl + IDXGIFactory5_Impl + IDXGIFactory6_Impl {
+pub trait IDXGIFactory7_Impl: Sized + IDXGIFactory6_Impl {
     fn RegisterAdaptersChangedEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
     fn UnregisterAdaptersChangedEvent(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
@@ -1286,7 +1286,7 @@ impl IDXGIInfoQueue_Vtbl {
         iid == &<IDXGIInfoQueue as ::windows::core::Interface>::IID
     }
 }
-pub trait IDXGIKeyedMutex_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl {
+pub trait IDXGIKeyedMutex_Impl: Sized + IDXGIDeviceSubObject_Impl {
     fn AcquireSync(&self, key: u64, dwmilliseconds: u32) -> ::windows::core::Result<()>;
     fn ReleaseSync(&self, key: u64) -> ::windows::core::Result<()>;
 }
@@ -1479,7 +1479,7 @@ impl IDXGIOutput_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-pub trait IDXGIOutput1_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl {
+pub trait IDXGIOutput1_Impl: Sized + IDXGIOutput_Impl {
     fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()>;
     fn FindClosestMatchingMode1(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetDisplaySurfaceData1(&self, pdestination: &::core::option::Option<IDXGIResource>) -> ::windows::core::Result<()>;
@@ -1529,7 +1529,7 @@ impl IDXGIOutput1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-pub trait IDXGIOutput2_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl {
+pub trait IDXGIOutput2_Impl: Sized + IDXGIOutput1_Impl {
     fn SupportsOverlays(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1549,7 +1549,7 @@ impl IDXGIOutput2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-pub trait IDXGIOutput3_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl {
+pub trait IDXGIOutput3_Impl: Sized + IDXGIOutput2_Impl {
     fn CheckOverlaySupport(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1575,7 +1575,7 @@ impl IDXGIOutput3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-pub trait IDXGIOutput4_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl + IDXGIOutput3_Impl {
+pub trait IDXGIOutput4_Impl: Sized + IDXGIOutput3_Impl {
     fn CheckOverlayColorSpaceSupport(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1604,7 +1604,7 @@ impl IDXGIOutput4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-pub trait IDXGIOutput5_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl + IDXGIOutput3_Impl + IDXGIOutput4_Impl {
+pub trait IDXGIOutput5_Impl: Sized + IDXGIOutput4_Impl {
     fn DuplicateOutput1(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> ::windows::core::Result<IDXGIOutputDuplication>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1630,7 +1630,7 @@ impl IDXGIOutput5_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-pub trait IDXGIOutput6_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl + IDXGIOutput3_Impl + IDXGIOutput4_Impl + IDXGIOutput5_Impl {
+pub trait IDXGIOutput6_Impl: Sized + IDXGIOutput5_Impl {
     fn GetDesc1(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC1>;
     fn CheckHardwareCompositionSupport(&self) -> ::windows::core::Result<u32>;
 }
@@ -1750,7 +1750,7 @@ impl IDXGIOutputDuplication_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDXGIResource_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl {
+pub trait IDXGIResource_Impl: Sized + IDXGIDeviceSubObject_Impl {
     fn GetSharedHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
     fn GetUsage(&self) -> ::windows::core::Result<u32>;
     fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()>;
@@ -1812,7 +1812,7 @@ impl IDXGIResource_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub trait IDXGIResource1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGIResource_Impl {
+pub trait IDXGIResource1_Impl: Sized + IDXGIResource_Impl {
     fn CreateSubresourceSurface(&self, index: u32) -> ::windows::core::Result<IDXGISurface2>;
     fn CreateSharedHandle(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
 }
@@ -1854,7 +1854,7 @@ impl IDXGIResource1_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-pub trait IDXGISurface_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl {
+pub trait IDXGISurface_Impl: Sized + IDXGIDeviceSubObject_Impl {
     fn GetDesc(&self) -> ::windows::core::Result<DXGI_SURFACE_DESC>;
     fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::core::Result<()>;
     fn Unmap(&self) -> ::windows::core::Result<()>;
@@ -1897,7 +1897,7 @@ impl IDXGISurface_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-pub trait IDXGISurface1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISurface_Impl {
+pub trait IDXGISurface1_Impl: Sized + IDXGISurface_Impl {
     fn GetDC(&self, discard: super::super::Foundation::BOOL) -> ::windows::core::Result<super::Gdi::HDC>;
     fn ReleaseDC(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
@@ -1933,7 +1933,7 @@ impl IDXGISurface1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-pub trait IDXGISurface2_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISurface_Impl + IDXGISurface1_Impl {
+pub trait IDXGISurface2_Impl: Sized + IDXGISurface1_Impl {
     fn GetResource(&self, riid: *const ::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1953,7 +1953,7 @@ impl IDXGISurface2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGISwapChain_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl {
+pub trait IDXGISwapChain_Impl: Sized + IDXGIDeviceSubObject_Impl {
     fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT;
     fn GetBuffer(&self, buffer: u32, riid: *const ::windows::core::GUID, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetFullscreenState(&self, fullscreen: super::super::Foundation::BOOL, ptarget: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()>;
@@ -2063,7 +2063,7 @@ impl IDXGISwapChain_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGISwapChain1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISwapChain_Impl {
+pub trait IDXGISwapChain1_Impl: Sized + IDXGISwapChain_Impl {
     fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1>;
     fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>;
     fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
@@ -2192,7 +2192,7 @@ impl IDXGISwapChain1_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGISwapChain2_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISwapChain_Impl + IDXGISwapChain1_Impl {
+pub trait IDXGISwapChain2_Impl: Sized + IDXGISwapChain1_Impl {
     fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::core::Result<()>;
     fn GetSourceSize(&self, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::Result<()>;
     fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()>;
@@ -2269,7 +2269,7 @@ impl IDXGISwapChain2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGISwapChain3_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISwapChain_Impl + IDXGISwapChain1_Impl + IDXGISwapChain2_Impl {
+pub trait IDXGISwapChain3_Impl: Sized + IDXGISwapChain2_Impl {
     fn GetCurrentBackBufferIndex(&self) -> u32;
     fn CheckColorSpaceSupport(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<u32>;
     fn SetColorSpace1(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()>;
@@ -2319,7 +2319,7 @@ impl IDXGISwapChain3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub trait IDXGISwapChain4_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISwapChain_Impl + IDXGISwapChain1_Impl + IDXGISwapChain2_Impl + IDXGISwapChain3_Impl {
+pub trait IDXGISwapChain4_Impl: Sized + IDXGISwapChain3_Impl {
     fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]

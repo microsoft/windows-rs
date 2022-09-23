@@ -199,7 +199,7 @@ impl IMDSPDevice2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-pub trait IMDSPDevice3_Impl: Sized + IMDSPDevice_Impl + IMDSPDevice2_Impl {
+pub trait IMDSPDevice3_Impl: Sized + IMDSPDevice2_Impl {
     fn GetProperty(&self, pwszpropname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetProperty(&self, pwszpropname: &::windows::core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY>;
@@ -852,7 +852,7 @@ impl IMDSPStorage2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-pub trait IMDSPStorage3_Impl: Sized + IMDSPStorage_Impl + IMDSPStorage2_Impl {
+pub trait IMDSPStorage3_Impl: Sized + IMDSPStorage2_Impl {
     fn GetMetadata(&self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
     fn SetMetadata(&self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
 }
@@ -882,7 +882,7 @@ impl IMDSPStorage3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-pub trait IMDSPStorage4_Impl: Sized + IMDSPStorage_Impl + IMDSPStorage2_Impl + IMDSPStorage3_Impl {
+pub trait IMDSPStorage4_Impl: Sized + IMDSPStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppispstorage: *const ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
     fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
     fn CreateStorageWithMetadata(&self, dwattributes: u32, pwszname: &::windows::core::PCWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
@@ -1113,7 +1113,7 @@ impl IMDServiceProvider2_Vtbl {
         iid == &<IMDServiceProvider2 as ::windows::core::Interface>::IID || iid == &<IMDServiceProvider as ::windows::core::Interface>::IID
     }
 }
-pub trait IMDServiceProvider3_Impl: Sized + IMDServiceProvider_Impl + IMDServiceProvider2_Impl {
+pub trait IMDServiceProvider3_Impl: Sized + IMDServiceProvider2_Impl {
     fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMDServiceProvider3 {}
@@ -1227,7 +1227,7 @@ impl ISCPSecureExchange2_Vtbl {
         iid == &<ISCPSecureExchange2 as ::windows::core::Interface>::IID || iid == &<ISCPSecureExchange as ::windows::core::Interface>::IID
     }
 }
-pub trait ISCPSecureExchange3_Impl: Sized + ISCPSecureExchange_Impl + ISCPSecureExchange2_Impl {
+pub trait ISCPSecureExchange3_Impl: Sized + ISCPSecureExchange2_Impl {
     fn TransferContainerDataOnClearChannel(&self, pdevice: &::core::option::Option<IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: &::core::option::Option<IWMDMProgress3>) -> ::windows::core::Result<u32>;
     fn GetObjectDataOnClearChannel(&self, pdevice: &::core::option::Option<IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
     fn TransferCompleteForDevice(&self, pdevice: &::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>;
@@ -1345,7 +1345,7 @@ impl ISCPSecureQuery2_Vtbl {
         iid == &<ISCPSecureQuery2 as ::windows::core::Interface>::IID || iid == &<ISCPSecureQuery as ::windows::core::Interface>::IID
     }
 }
-pub trait ISCPSecureQuery3_Impl: Sized + ISCPSecureQuery_Impl + ISCPSecureQuery2_Impl {
+pub trait ISCPSecureQuery3_Impl: Sized + ISCPSecureQuery2_Impl {
     fn GetRightsOnClearChannel(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: &::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
     fn MakeDecisionOnClearChannel(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut ::windows::core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: &::core::option::Option<::windows::core::IUnknown>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()>;
 }
@@ -1606,7 +1606,7 @@ impl IWMDMDevice2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-pub trait IWMDMDevice3_Impl: Sized + IWMDMDevice_Impl + IWMDMDevice2_Impl {
+pub trait IWMDMDevice3_Impl: Sized + IWMDMDevice2_Impl {
     fn GetProperty(&self, pwszpropname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetProperty(&self, pwszpropname: &::windows::core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY>;
@@ -2322,7 +2322,7 @@ impl IWMDMProgress2_Vtbl {
         iid == &<IWMDMProgress2 as ::windows::core::Interface>::IID || iid == &<IWMDMProgress as ::windows::core::Interface>::IID
     }
 }
-pub trait IWMDMProgress3_Impl: Sized + IWMDMProgress_Impl + IWMDMProgress2_Impl {
+pub trait IWMDMProgress3_Impl: Sized + IWMDMProgress2_Impl {
     fn Begin3(&self, eventid: &::windows::core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
     fn Progress3(&self, eventid: &::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
     fn End3(&self, eventid: &::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
@@ -2514,7 +2514,7 @@ impl IWMDMStorage2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-pub trait IWMDMStorage3_Impl: Sized + IWMDMStorage_Impl + IWMDMStorage2_Impl {
+pub trait IWMDMStorage3_Impl: Sized + IWMDMStorage2_Impl {
     fn GetMetadata(&self) -> ::windows::core::Result<IWMDMMetaData>;
     fn SetMetadata(&self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
     fn CreateEmptyMetadataObject(&self) -> ::windows::core::Result<IWMDMMetaData>;
@@ -2570,7 +2570,7 @@ impl IWMDMStorage3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-pub trait IWMDMStorage4_Impl: Sized + IWMDMStorage_Impl + IWMDMStorage2_Impl + IWMDMStorage3_Impl {
+pub trait IWMDMStorage4_Impl: Sized + IWMDMStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
     fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
     fn GetRightsWithProgress(&self, piprogresscallback: &::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
@@ -2716,7 +2716,7 @@ impl IWMDMStorageControl2_Vtbl {
         iid == &<IWMDMStorageControl2 as ::windows::core::Interface>::IID || iid == &<IWMDMStorageControl as ::windows::core::Interface>::IID
     }
 }
-pub trait IWMDMStorageControl3_Impl: Sized + IWMDMStorageControl_Impl + IWMDMStorageControl2_Impl {
+pub trait IWMDMStorageControl3_Impl: Sized + IWMDMStorageControl2_Impl {
     fn Insert3(&self, fumode: u32, futype: u32, pwszfilesource: &::windows::core::PCWSTR, pwszfiledest: &::windows::core::PCWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>, pmetadata: &::core::option::Option<IWMDMMetaData>, punknown: &::core::option::Option<::windows::core::IUnknown>, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWMDMStorageControl3 {}
@@ -2905,7 +2905,7 @@ impl IWMDeviceManager2_Vtbl {
         iid == &<IWMDeviceManager2 as ::windows::core::Interface>::IID || iid == &<IWMDeviceManager as ::windows::core::Interface>::IID
     }
 }
-pub trait IWMDeviceManager3_Impl: Sized + IWMDeviceManager_Impl + IWMDeviceManager2_Impl {
+pub trait IWMDeviceManager3_Impl: Sized + IWMDeviceManager2_Impl {
     fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWMDeviceManager3 {}

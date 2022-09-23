@@ -4636,7 +4636,7 @@ impl IAMovieSetup_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IATSCChannelTuneRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuneRequest_Impl + IChannelTuneRequest_Impl {
+pub trait IATSCChannelTuneRequest_Impl: Sized + IChannelTuneRequest_Impl {
     fn MinorChannel(&self) -> ::windows::core::Result<i32>;
     fn SetMinorChannel(&self, minorchannel: i32) -> ::windows::core::Result<()>;
 }
@@ -4672,7 +4672,7 @@ impl IATSCChannelTuneRequest_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IATSCComponentType_Impl: Sized + super::super::System::Com::IDispatch_Impl + IComponentType_Impl + ILanguageComponentType_Impl + IMPEG2ComponentType_Impl {
+pub trait IATSCComponentType_Impl: Sized + IMPEG2ComponentType_Impl {
     fn Flags(&self) -> ::windows::core::Result<i32>;
     fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()>;
 }
@@ -4708,7 +4708,7 @@ impl IATSCComponentType_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IATSCLocator_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl + IDigitalLocator_Impl {
+pub trait IATSCLocator_Impl: Sized + IDigitalLocator_Impl {
     fn PhysicalChannel(&self) -> ::windows::core::Result<i32>;
     fn SetPhysicalChannel(&self, physicalchannel: i32) -> ::windows::core::Result<()>;
     fn TSID(&self) -> ::windows::core::Result<i32>;
@@ -4764,7 +4764,7 @@ impl IATSCLocator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IATSCLocator2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl + IDigitalLocator_Impl + IATSCLocator_Impl {
+pub trait IATSCLocator2_Impl: Sized + IATSCLocator_Impl {
     fn ProgramNumber(&self) -> ::windows::core::Result<i32>;
     fn SetProgramNumber(&self, programnumber: i32) -> ::windows::core::Result<()>;
 }
@@ -4800,7 +4800,7 @@ impl IATSCLocator2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IATSCTuningSpace_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl + IAnalogTVTuningSpace_Impl {
+pub trait IATSCTuningSpace_Impl: Sized + IAnalogTVTuningSpace_Impl {
     fn MinMinorChannel(&self) -> ::windows::core::Result<i32>;
     fn SetMinMinorChannel(&self, newminminorchannelval: i32) -> ::windows::core::Result<()>;
     fn MaxMinorChannel(&self) -> ::windows::core::Result<i32>;
@@ -5719,7 +5719,7 @@ impl IATSC_VCT_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAnalogAudioComponentType_Impl: Sized + super::super::System::Com::IDispatch_Impl + IComponentType_Impl {
+pub trait IAnalogAudioComponentType_Impl: Sized + IComponentType_Impl {
     fn AnalogAudioMode(&self) -> ::windows::core::Result<TVAudioMode>;
     fn SetAnalogAudioMode(&self, mode: TVAudioMode) -> ::windows::core::Result<()>;
 }
@@ -5755,7 +5755,7 @@ impl IAnalogAudioComponentType_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAnalogLocator_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl {
+pub trait IAnalogLocator_Impl: Sized + ILocator_Impl {
     fn VideoStandard(&self) -> ::windows::core::Result<AnalogVideoStandard>;
     fn SetVideoStandard(&self, avs: AnalogVideoStandard) -> ::windows::core::Result<()>;
 }
@@ -5791,7 +5791,7 @@ impl IAnalogLocator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAnalogRadioTuningSpace_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl {
+pub trait IAnalogRadioTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn MinFrequency(&self) -> ::windows::core::Result<i32>;
     fn SetMinFrequency(&self, newminfrequencyval: i32) -> ::windows::core::Result<()>;
     fn MaxFrequency(&self) -> ::windows::core::Result<i32>;
@@ -5867,7 +5867,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAnalogRadioTuningSpace2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl + IAnalogRadioTuningSpace_Impl {
+pub trait IAnalogRadioTuningSpace2_Impl: Sized + IAnalogRadioTuningSpace_Impl {
     fn CountryCode(&self) -> ::windows::core::Result<i32>;
     fn SetCountryCode(&self, newcountrycodeval: i32) -> ::windows::core::Result<()>;
 }
@@ -5903,7 +5903,7 @@ impl IAnalogRadioTuningSpace2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAnalogTVTuningSpace_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl {
+pub trait IAnalogTVTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn MinChannel(&self) -> ::windows::core::Result<i32>;
     fn SetMinChannel(&self, newminchannelval: i32) -> ::windows::core::Result<()>;
     fn MaxChannel(&self) -> ::windows::core::Result<i32>;
@@ -6506,7 +6506,7 @@ impl IAudioStreamSample_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAuxInTuningSpace_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl {}
+pub trait IAuxInTuningSpace_Impl: Sized + ITuningSpace_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IAuxInTuningSpace {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6519,7 +6519,7 @@ impl IAuxInTuningSpace_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAuxInTuningSpace2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl + IAuxInTuningSpace_Impl {
+pub trait IAuxInTuningSpace2_Impl: Sized + IAuxInTuningSpace_Impl {
     fn CountryCode(&self) -> ::windows::core::Result<i32>;
     fn SetCountryCode(&self, newcountrycodeval: i32) -> ::windows::core::Result<()>;
 }
@@ -7306,7 +7306,7 @@ impl IBDA_DigitalDemodulator2_Vtbl {
         iid == &<IBDA_DigitalDemodulator2 as ::windows::core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as ::windows::core::Interface>::IID
     }
 }
-pub trait IBDA_DigitalDemodulator3_Impl: Sized + IBDA_DigitalDemodulator_Impl + IBDA_DigitalDemodulator2_Impl {
+pub trait IBDA_DigitalDemodulator3_Impl: Sized + IBDA_DigitalDemodulator2_Impl {
     fn SetSignalTimeouts(&self, psignaltimeouts: *const BDA_SIGNAL_TIMEOUTS) -> ::windows::core::Result<()>;
     fn SignalTimeouts(&self, psignaltimeouts: *mut BDA_SIGNAL_TIMEOUTS) -> ::windows::core::Result<()>;
     fn SetPLPNumber(&self, pplpnumber: *const u32) -> ::windows::core::Result<()>;
@@ -8799,7 +8799,7 @@ impl IBPCSatelliteTuner_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IBaseFilter_Impl: Sized + super::super::System::Com::IPersist_Impl + IMediaFilter_Impl {
+pub trait IBaseFilter_Impl: Sized + IMediaFilter_Impl {
     fn EnumPins(&self) -> ::windows::core::Result<IEnumPins>;
     fn FindPin(&self, id: &::windows::core::PCWSTR) -> ::windows::core::Result<IPin>;
     fn QueryFilterInfo(&self) -> ::windows::core::Result<FILTER_INFO>;
@@ -9334,7 +9334,7 @@ impl IBasicVideo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IBasicVideo2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IBasicVideo_Impl {
+pub trait IBasicVideo2_Impl: Sized + IBasicVideo_Impl {
     fn GetPreferredAspectRatio(&self, plaspectx: *mut i32, plaspecty: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10175,7 +10175,7 @@ impl ICaptureGraphBuilder2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IChannelIDTuneRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuneRequest_Impl {
+pub trait IChannelIDTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn ChannelID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetChannelID(&self, channelid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -10211,7 +10211,7 @@ impl IChannelIDTuneRequest_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IChannelTuneRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuneRequest_Impl {
+pub trait IChannelTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn Channel(&self) -> ::windows::core::Result<i32>;
     fn SetChannel(&self, channel: i32) -> ::windows::core::Result<()>;
 }
@@ -11442,7 +11442,7 @@ impl IDTFilter2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDTFilter3_Impl: Sized + IDTFilter_Impl + IDTFilter2_Impl {
+pub trait IDTFilter3_Impl: Sized + IDTFilter2_Impl {
     fn GetProtectionType(&self) -> ::windows::core::Result<ProtType>;
     fn LicenseHasExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetRights(&self, bstrrights: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -11544,7 +11544,7 @@ impl IDTFilterLicenseRenewal_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDVBCLocator_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl + IDigitalLocator_Impl {}
+pub trait IDVBCLocator_Impl: Sized + IDigitalLocator_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDVBCLocator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11557,7 +11557,7 @@ impl IDVBCLocator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDVBSLocator_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl + IDigitalLocator_Impl {
+pub trait IDVBSLocator_Impl: Sized + IDigitalLocator_Impl {
     fn SignalPolarisation(&self) -> ::windows::core::Result<Polarisation>;
     fn SetSignalPolarisation(&self, polarisationval: Polarisation) -> ::windows::core::Result<()>;
     fn WestPosition(&self) -> ::windows::core::Result<i16>;
@@ -11673,7 +11673,7 @@ impl IDVBSLocator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDVBSLocator2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl + IDigitalLocator_Impl + IDVBSLocator_Impl {
+pub trait IDVBSLocator2_Impl: Sized + IDVBSLocator_Impl {
     fn DiseqLNBSource(&self) -> ::windows::core::Result<LNB_Source>;
     fn SetDiseqLNBSource(&self, diseqlnbsourceval: LNB_Source) -> ::windows::core::Result<()>;
     fn LocalOscillatorOverrideLow(&self) -> ::windows::core::Result<i32>;
@@ -11829,7 +11829,7 @@ impl IDVBSLocator2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDVBSTuningSpace_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl + IDVBTuningSpace_Impl + IDVBTuningSpace2_Impl {
+pub trait IDVBSTuningSpace_Impl: Sized + IDVBTuningSpace2_Impl {
     fn LowOscillator(&self) -> ::windows::core::Result<i32>;
     fn SetLowOscillator(&self, lowoscillator: i32) -> ::windows::core::Result<()>;
     fn HighOscillator(&self) -> ::windows::core::Result<i32>;
@@ -11945,7 +11945,7 @@ impl IDVBSTuningSpace_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDVBTLocator_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl + IDigitalLocator_Impl {
+pub trait IDVBTLocator_Impl: Sized + IDigitalLocator_Impl {
     fn Bandwidth(&self) -> ::windows::core::Result<i32>;
     fn SetBandwidth(&self, bandwidthval: i32) -> ::windows::core::Result<()>;
     fn LPInnerFEC(&self) -> ::windows::core::Result<FECMethod>;
@@ -12101,7 +12101,7 @@ impl IDVBTLocator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDVBTLocator2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl + IDigitalLocator_Impl + IDVBTLocator_Impl {
+pub trait IDVBTLocator2_Impl: Sized + IDVBTLocator_Impl {
     fn PhysicalLayerPipeId(&self) -> ::windows::core::Result<i32>;
     fn SetPhysicalLayerPipeId(&self, physicallayerpipeidval: i32) -> ::windows::core::Result<()>;
 }
@@ -12137,7 +12137,7 @@ impl IDVBTLocator2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDVBTuneRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuneRequest_Impl {
+pub trait IDVBTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn ONID(&self) -> ::windows::core::Result<i32>;
     fn SetONID(&self, onid: i32) -> ::windows::core::Result<()>;
     fn TSID(&self) -> ::windows::core::Result<i32>;
@@ -12213,7 +12213,7 @@ impl IDVBTuneRequest_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDVBTuningSpace_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl {
+pub trait IDVBTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn SystemType(&self) -> ::windows::core::Result<DVBSystemType>;
     fn SetSystemType(&self, systype: DVBSystemType) -> ::windows::core::Result<()>;
 }
@@ -12249,7 +12249,7 @@ impl IDVBTuningSpace_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDVBTuningSpace2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl + IDVBTuningSpace_Impl {
+pub trait IDVBTuningSpace2_Impl: Sized + IDVBTuningSpace_Impl {
     fn NetworkID(&self) -> ::windows::core::Result<i32>;
     fn SetNetworkID(&self, networkid: i32) -> ::windows::core::Result<()>;
 }
@@ -13784,7 +13784,7 @@ impl IDeferredCommand_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDigitalCableLocator_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl + IDigitalLocator_Impl + IATSCLocator_Impl + IATSCLocator2_Impl {}
+pub trait IDigitalCableLocator_Impl: Sized + IATSCLocator2_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDigitalCableLocator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13797,7 +13797,7 @@ impl IDigitalCableLocator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDigitalCableTuneRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuneRequest_Impl + IChannelTuneRequest_Impl + IATSCChannelTuneRequest_Impl {
+pub trait IDigitalCableTuneRequest_Impl: Sized + IATSCChannelTuneRequest_Impl {
     fn MajorChannel(&self) -> ::windows::core::Result<i32>;
     fn SetMajorChannel(&self, majorchannel: i32) -> ::windows::core::Result<()>;
     fn SourceID(&self) -> ::windows::core::Result<i32>;
@@ -13853,7 +13853,7 @@ impl IDigitalCableTuneRequest_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDigitalCableTuningSpace_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuningSpace_Impl + IAnalogTVTuningSpace_Impl + IATSCTuningSpace_Impl {
+pub trait IDigitalCableTuningSpace_Impl: Sized + IATSCTuningSpace_Impl {
     fn MinMajorChannel(&self) -> ::windows::core::Result<i32>;
     fn SetMinMajorChannel(&self, newminmajorchannelval: i32) -> ::windows::core::Result<()>;
     fn MaxMajorChannel(&self) -> ::windows::core::Result<i32>;
@@ -13949,7 +13949,7 @@ impl IDigitalCableTuningSpace_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IDigitalLocator_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl {}
+pub trait IDigitalLocator_Impl: Sized + ILocator_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDigitalLocator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15144,7 +15144,7 @@ impl IDvbFrequencyListDescriptor_Vtbl {
         iid == &<IDvbFrequencyListDescriptor as ::windows::core::Interface>::IID
     }
 }
-pub trait IDvbHDSimulcastLogicalChannelDescriptor_Impl: Sized + IDvbLogicalChannelDescriptor_Impl + IDvbLogicalChannelDescriptor2_Impl {}
+pub trait IDvbHDSimulcastLogicalChannelDescriptor_Impl: Sized + IDvbLogicalChannelDescriptor2_Impl {}
 impl ::windows::core::RuntimeName for IDvbHDSimulcastLogicalChannelDescriptor {}
 impl IDvbHDSimulcastLogicalChannelDescriptor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDvbHDSimulcastLogicalChannelDescriptor_Impl, const OFFSET: isize>() -> IDvbHDSimulcastLogicalChannelDescriptor_Vtbl {
@@ -15265,7 +15265,7 @@ impl IDvbLinkageDescriptor_Vtbl {
         iid == &<IDvbLinkageDescriptor as ::windows::core::Interface>::IID
     }
 }
-pub trait IDvbLogicalChannel2Descriptor_Impl: Sized + IDvbLogicalChannelDescriptor_Impl + IDvbLogicalChannelDescriptor2_Impl {
+pub trait IDvbLogicalChannel2Descriptor_Impl: Sized + IDvbLogicalChannelDescriptor2_Impl {
     fn GetCountOfLists(&self) -> ::windows::core::Result<u8>;
     fn GetListId(&self, blistindex: u8) -> ::windows::core::Result<u8>;
     fn GetListNameW(&self, blistindex: u8, convmode: DVB_STRCONV_MODE) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -20319,7 +20319,7 @@ impl IFilterGraph_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
-pub trait IFilterGraph2_Impl: Sized + IFilterGraph_Impl + IGraphBuilder_Impl {
+pub trait IFilterGraph2_Impl: Sized + IGraphBuilder_Impl {
     fn AddSourceFilterForMoniker(&self, pmoniker: &::core::option::Option<super::super::System::Com::IMoniker>, pctx: &::core::option::Option<super::super::System::Com::IBindCtx>, lpcwstrfiltername: &::windows::core::PCWSTR) -> ::windows::core::Result<IBaseFilter>;
     fn ReconnectEx(&self, ppin: &::core::option::Option<IPin>, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
     fn RenderEx(&self, ppinout: &::core::option::Option<IPin>, dwflags: u32, pvcontext: *mut u32) -> ::windows::core::Result<()>;
@@ -20362,7 +20362,7 @@ impl IFilterGraph2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
-pub trait IFilterGraph3_Impl: Sized + IFilterGraph_Impl + IGraphBuilder_Impl + IFilterGraph2_Impl {
+pub trait IFilterGraph3_Impl: Sized + IFilterGraph2_Impl {
     fn SetSyncSourceEx(&self, pclockformostoffiltergraph: &::core::option::Option<super::IReferenceClock>, pclockforfilter: &::core::option::Option<super::IReferenceClock>, pfilter: &::core::option::Option<IBaseFilter>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
@@ -21561,7 +21561,7 @@ impl IIPDVDec_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IISDBSLocator_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocator_Impl + IDigitalLocator_Impl + IDVBSLocator_Impl {}
+pub trait IISDBSLocator_Impl: Sized + IDVBSLocator_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IISDBSLocator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -24294,7 +24294,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
         iid == &<IIsdbSeriesDescriptor as ::windows::core::Interface>::IID
     }
 }
-pub trait IIsdbSiParser2_Impl: Sized + IDvbSiParser_Impl + IDvbSiParser2_Impl {
+pub trait IIsdbSiParser2_Impl: Sized + IDvbSiParser2_Impl {
     fn GetSDT2(&self, tableid: u8, pwtransportstreamid: *const u16) -> ::windows::core::Result<IISDB_SDT>;
     fn GetBIT(&self, tableid: u8, pworiginalnetworkid: *const u16) -> ::windows::core::Result<IISDB_BIT>;
     fn GetNBIT(&self, tableid: u8, pworiginalnetworkid: *const u16) -> ::windows::core::Result<IISDB_NBIT>;
@@ -24755,7 +24755,7 @@ impl IKsTopologyInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ILanguageComponentType_Impl: Sized + super::super::System::Com::IDispatch_Impl + IComponentType_Impl {
+pub trait ILanguageComponentType_Impl: Sized + IComponentType_Impl {
     fn LangID(&self) -> ::windows::core::Result<i32>;
     fn SetLangID(&self, langid: i32) -> ::windows::core::Result<()>;
 }
@@ -24960,7 +24960,7 @@ impl ILocator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMPEG2Component_Impl: Sized + super::super::System::Com::IDispatch_Impl + IComponent_Impl {
+pub trait IMPEG2Component_Impl: Sized + IComponent_Impl {
     fn PID(&self) -> ::windows::core::Result<i32>;
     fn SetPID(&self, pid: i32) -> ::windows::core::Result<()>;
     fn PCRPID(&self) -> ::windows::core::Result<i32>;
@@ -25036,7 +25036,7 @@ impl IMPEG2Component_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMPEG2ComponentType_Impl: Sized + super::super::System::Com::IDispatch_Impl + IComponentType_Impl + ILanguageComponentType_Impl {
+pub trait IMPEG2ComponentType_Impl: Sized + ILanguageComponentType_Impl {
     fn StreamType(&self) -> ::windows::core::Result<MPEG2StreamType>;
     fn SetStreamType(&self, mp2streamtype: MPEG2StreamType) -> ::windows::core::Result<()>;
 }
@@ -25152,7 +25152,7 @@ impl IMPEG2StreamIdMap_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMPEG2TuneRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITuneRequest_Impl {
+pub trait IMPEG2TuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn TSID(&self) -> ::windows::core::Result<i32>;
     fn SetTSID(&self, tsid: i32) -> ::windows::core::Result<()>;
     fn ProgNo(&self) -> ::windows::core::Result<i32>;
@@ -25344,7 +25344,7 @@ impl IMSEventBinder_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidAnalogTuner_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidVideoInputDevice_Impl + IMSVidTuner_Impl {
+pub trait IMSVidAnalogTuner_Impl: Sized + IMSVidTuner_Impl {
     fn Channel(&self) -> ::windows::core::Result<i32>;
     fn SetChannel(&self, channel: i32) -> ::windows::core::Result<()>;
     fn VideoFrequency(&self) -> ::windows::core::Result<i32>;
@@ -25453,7 +25453,7 @@ impl IMSVidAnalogTuner_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidAnalogTuner2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidVideoInputDevice_Impl + IMSVidTuner_Impl + IMSVidAnalogTuner_Impl {
+pub trait IMSVidAnalogTuner2_Impl: Sized + IMSVidAnalogTuner_Impl {
     fn TVFormats(&self) -> ::windows::core::Result<i32>;
     fn TunerModes(&self) -> ::windows::core::Result<i32>;
     fn NumAuxInputs(&self) -> ::windows::core::Result<i32>;
@@ -25508,7 +25508,7 @@ impl IMSVidAnalogTuner2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidAnalogTunerEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl + IMSVidTunerEvent_Impl {}
+pub trait IMSVidAnalogTunerEvent_Impl: Sized + IMSVidTunerEvent_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidAnalogTunerEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -25521,7 +25521,7 @@ impl IMSVidAnalogTunerEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidAudioRenderer_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl {
+pub trait IMSVidAudioRenderer_Impl: Sized + IMSVidOutputDevice_Impl {
     fn SetVolume(&self, lvol: i32) -> ::windows::core::Result<()>;
     fn Volume(&self) -> ::windows::core::Result<i32>;
     fn SetBalance(&self, lbal: i32) -> ::windows::core::Result<()>;
@@ -25646,7 +25646,7 @@ impl IMSVidAudioRendererDevices_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidAudioRendererEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidOutputDeviceEvent_Impl {}
+pub trait IMSVidAudioRendererEvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidAudioRendererEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -25659,7 +25659,7 @@ impl IMSVidAudioRendererEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidAudioRendererEvent2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidOutputDeviceEvent_Impl + IMSVidAudioRendererEvent_Impl {
+pub trait IMSVidAudioRendererEvent2_Impl: Sized + IMSVidAudioRendererEvent_Impl {
     fn AVDecAudioDualMono(&self) -> ::windows::core::Result<()>;
     fn AVAudioSampleRate(&self) -> ::windows::core::Result<()>;
     fn AVAudioChannelConfig(&self) -> ::windows::core::Result<()>;
@@ -25731,7 +25731,7 @@ impl IMSVidAudioRendererEvent2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidClosedCaptioning_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidFeature_Impl {
+pub trait IMSVidClosedCaptioning_Impl: Sized + IMSVidFeature_Impl {
     fn Enable(&self) -> ::windows::core::Result<i16>;
     fn SetEnable(&self, on: i16) -> ::windows::core::Result<()>;
 }
@@ -25767,7 +25767,7 @@ impl IMSVidClosedCaptioning_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidClosedCaptioning2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidFeature_Impl + IMSVidClosedCaptioning_Impl {
+pub trait IMSVidClosedCaptioning2_Impl: Sized + IMSVidClosedCaptioning_Impl {
     fn Service(&self) -> ::windows::core::Result<MSVidCCService>;
     fn SetService(&self, on: MSVidCCService) -> ::windows::core::Result<()>;
 }
@@ -25803,7 +25803,7 @@ impl IMSVidClosedCaptioning2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidClosedCaptioning3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidFeature_Impl + IMSVidClosedCaptioning_Impl + IMSVidClosedCaptioning2_Impl {
+pub trait IMSVidClosedCaptioning3_Impl: Sized + IMSVidClosedCaptioning2_Impl {
     fn TeleTextFilter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -25829,7 +25829,7 @@ impl IMSVidClosedCaptioning3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IMSVidCompositionSegment_Impl: Sized + super::super::System::Com::IPersist_Impl + IMSVidGraphSegment_Impl {
+pub trait IMSVidCompositionSegment_Impl: Sized + IMSVidGraphSegment_Impl {
     fn Compose(&self, upstream: &::core::option::Option<IMSVidGraphSegment>, downstream: &::core::option::Option<IMSVidGraphSegment>) -> ::windows::core::Result<()>;
     fn Up(&self) -> ::windows::core::Result<IMSVidGraphSegment>;
     fn Down(&self) -> ::windows::core::Result<IMSVidGraphSegment>;
@@ -26321,7 +26321,7 @@ impl IMSVidCtl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidDataServices_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidFeature_Impl {}
+pub trait IMSVidDataServices_Impl: Sized + IMSVidFeature_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidDataServices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -26334,7 +26334,7 @@ impl IMSVidDataServices_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidDataServicesEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl {}
+pub trait IMSVidDataServicesEvent_Impl: Sized + IMSVidDeviceEvent_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidDataServicesEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -26517,7 +26517,7 @@ impl IMSVidDeviceEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidEVR_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl + IMSVidVideoRenderer_Impl {
+pub trait IMSVidEVR_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn Presenter(&self) -> ::windows::core::Result<super::MediaFoundation::IMFVideoPresenter>;
     fn SetPresenter(&self, pallocpresent: &::core::option::Option<super::MediaFoundation::IMFVideoPresenter>) -> ::windows::core::Result<()>;
     fn SetSuppressEffects(&self, bsuppress: i16) -> ::windows::core::Result<()>;
@@ -26573,7 +26573,7 @@ impl IMSVidEVR_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidEVREvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidOutputDeviceEvent_Impl {
+pub trait IMSVidEVREvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn OnUserEvent(&self, leventcode: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -26593,7 +26593,7 @@ impl IMSVidEVREvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidEncoder_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidFeature_Impl {
+pub trait IMSVidEncoder_Impl: Sized + IMSVidFeature_Impl {
     fn VideoEncoderInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn AudioEncoderInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -26635,7 +26635,7 @@ impl IMSVidEncoder_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidFeature_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl {}
+pub trait IMSVidFeature_Impl: Sized + IMSVidDevice_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidFeature {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -26648,7 +26648,7 @@ impl IMSVidFeature_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidFeatureEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl {}
+pub trait IMSVidFeatureEvent_Impl: Sized + IMSVidDeviceEvent_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidFeatureEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -26730,7 +26730,7 @@ impl IMSVidFeatures_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidFilePlayback_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl {
+pub trait IMSVidFilePlayback_Impl: Sized + IMSVidPlayback_Impl {
     fn FileName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetFileName(&self, filename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -26766,7 +26766,7 @@ impl IMSVidFilePlayback_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidFilePlayback2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl + IMSVidFilePlayback_Impl {
+pub trait IMSVidFilePlayback2_Impl: Sized + IMSVidFilePlayback_Impl {
     fn Set_SourceFilter(&self, filename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Set__SourceFilter(&self, filename: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
@@ -26796,7 +26796,7 @@ impl IMSVidFilePlayback2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidFilePlaybackEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl + IMSVidPlaybackEvent_Impl {}
+pub trait IMSVidFilePlaybackEvent_Impl: Sized + IMSVidPlaybackEvent_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidFilePlaybackEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -26809,7 +26809,7 @@ impl IMSVidFilePlaybackEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidGenericSink_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl {
+pub trait IMSVidGenericSink_Impl: Sized + IMSVidOutputDevice_Impl {
     fn SetSinkFilter(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SinkStreams(&self) -> ::windows::core::Result<MSVidSinkStreams>;
     fn SetSinkStreams(&self, streams: MSVidSinkStreams) -> ::windows::core::Result<()>;
@@ -26852,7 +26852,7 @@ impl IMSVidGenericSink_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidGenericSink2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl + IMSVidGenericSink_Impl {
+pub trait IMSVidGenericSink2_Impl: Sized + IMSVidGenericSink_Impl {
     fn AddFilter(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ResetFilterList(&self) -> ::windows::core::Result<()>;
 }
@@ -27243,7 +27243,7 @@ impl IMSVidGraphSegmentUserInput_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidInputDevice_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl {
+pub trait IMSVidInputDevice_Impl: Sized + IMSVidDevice_Impl {
     fn IsViewable(&self, v: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<i16>;
     fn View(&self, v: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -27361,7 +27361,7 @@ impl IMSVidInputDevices_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidOutputDevice_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl {}
+pub trait IMSVidOutputDevice_Impl: Sized + IMSVidDevice_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidOutputDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -27374,7 +27374,7 @@ impl IMSVidOutputDevice_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidOutputDeviceEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl {}
+pub trait IMSVidOutputDeviceEvent_Impl: Sized + IMSVidDeviceEvent_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidOutputDeviceEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -27456,7 +27456,7 @@ impl IMSVidOutputDevices_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidPlayback_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl {
+pub trait IMSVidPlayback_Impl: Sized + IMSVidInputDevice_Impl {
     fn EnableResetOnStop(&self) -> ::windows::core::Result<i16>;
     fn SetEnableResetOnStop(&self, newval: i16) -> ::windows::core::Result<()>;
     fn Run(&self) -> ::windows::core::Result<()>;
@@ -27606,7 +27606,7 @@ impl IMSVidPlayback_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidPlaybackEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl {
+pub trait IMSVidPlaybackEvent_Impl: Sized + IMSVidInputDeviceEvent_Impl {
     fn EndOfMedia(&self, lpd: &::core::option::Option<IMSVidPlayback>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -27857,7 +27857,7 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSink_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl {
+pub trait IMSVidStreamBufferSink_Impl: Sized + IMSVidOutputDevice_Impl {
     fn get_ContentRecorder(&self, pszfilename: &::windows::core::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
     fn get_ReferenceRecorder(&self, pszfilename: &::windows::core::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
     fn SinkName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -27939,7 +27939,7 @@ impl IMSVidStreamBufferSink_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSink2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl + IMSVidStreamBufferSink_Impl {
+pub trait IMSVidStreamBufferSink2_Impl: Sized + IMSVidStreamBufferSink_Impl {
     fn UnlockProfile(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -27959,7 +27959,7 @@ impl IMSVidStreamBufferSink2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSink3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl + IMSVidStreamBufferSink_Impl + IMSVidStreamBufferSink2_Impl {
+pub trait IMSVidStreamBufferSink3_Impl: Sized + IMSVidStreamBufferSink2_Impl {
     fn SetMinSeek(&self) -> ::windows::core::Result<i32>;
     fn AudioCounter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn VideoCounter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -28173,7 +28173,7 @@ impl IMSVidStreamBufferSink3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSinkEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidOutputDeviceEvent_Impl {
+pub trait IMSVidStreamBufferSinkEvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn CertificateFailure(&self) -> ::windows::core::Result<()>;
     fn CertificateSuccess(&self) -> ::windows::core::Result<()>;
     fn WriteFailure(&self) -> ::windows::core::Result<()>;
@@ -28210,7 +28210,7 @@ impl IMSVidStreamBufferSinkEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSinkEvent2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidOutputDeviceEvent_Impl + IMSVidStreamBufferSinkEvent_Impl {
+pub trait IMSVidStreamBufferSinkEvent2_Impl: Sized + IMSVidStreamBufferSinkEvent_Impl {
     fn EncryptionOn(&self) -> ::windows::core::Result<()>;
     fn EncryptionOff(&self) -> ::windows::core::Result<()>;
 }
@@ -28240,7 +28240,7 @@ impl IMSVidStreamBufferSinkEvent2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSinkEvent3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidOutputDeviceEvent_Impl + IMSVidStreamBufferSinkEvent_Impl + IMSVidStreamBufferSinkEvent2_Impl {
+pub trait IMSVidStreamBufferSinkEvent3_Impl: Sized + IMSVidStreamBufferSinkEvent2_Impl {
     fn LicenseChange(&self, dwprot: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -28260,7 +28260,7 @@ impl IMSVidStreamBufferSinkEvent3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSinkEvent4_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidOutputDeviceEvent_Impl + IMSVidStreamBufferSinkEvent_Impl + IMSVidStreamBufferSinkEvent2_Impl + IMSVidStreamBufferSinkEvent3_Impl {
+pub trait IMSVidStreamBufferSinkEvent4_Impl: Sized + IMSVidStreamBufferSinkEvent3_Impl {
     fn WriteFailureClear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -28280,7 +28280,7 @@ impl IMSVidStreamBufferSinkEvent4_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSource_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl + IMSVidFilePlayback_Impl {
+pub trait IMSVidStreamBufferSource_Impl: Sized + IMSVidFilePlayback_Impl {
     fn Start(&self) -> ::windows::core::Result<i32>;
     fn RecordingAttribute(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn CurrentRatings(&self, pensystem: *mut EnTvRat_System, penrating: *mut EnTvRat_GenericLevel, pbfenattr: *mut i32) -> ::windows::core::Result<()>;
@@ -28363,7 +28363,7 @@ impl IMSVidStreamBufferSource_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSource2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl + IMSVidFilePlayback_Impl + IMSVidStreamBufferSource_Impl {
+pub trait IMSVidStreamBufferSource2_Impl: Sized + IMSVidStreamBufferSource_Impl {
     fn put_RateEx(&self, dwrate: f64, dwframespersecond: u32) -> ::windows::core::Result<()>;
     fn AudioCounter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn VideoCounter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -28438,7 +28438,7 @@ impl IMSVidStreamBufferSource2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSourceEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl + IMSVidPlaybackEvent_Impl + IMSVidFilePlaybackEvent_Impl {
+pub trait IMSVidStreamBufferSourceEvent_Impl: Sized + IMSVidFilePlaybackEvent_Impl {
     fn CertificateFailure(&self) -> ::windows::core::Result<()>;
     fn CertificateSuccess(&self) -> ::windows::core::Result<()>;
     fn RatingsBlocked(&self) -> ::windows::core::Result<()>;
@@ -28517,7 +28517,7 @@ impl IMSVidStreamBufferSourceEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSourceEvent2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl + IMSVidPlaybackEvent_Impl + IMSVidFilePlaybackEvent_Impl + IMSVidStreamBufferSourceEvent_Impl {
+pub trait IMSVidStreamBufferSourceEvent2_Impl: Sized + IMSVidStreamBufferSourceEvent_Impl {
     fn RateChange(&self, qwnewrate: f64, qwoldrate: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -28537,7 +28537,7 @@ impl IMSVidStreamBufferSourceEvent2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferSourceEvent3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl + IMSVidPlaybackEvent_Impl + IMSVidFilePlaybackEvent_Impl + IMSVidStreamBufferSourceEvent_Impl + IMSVidStreamBufferSourceEvent2_Impl {
+pub trait IMSVidStreamBufferSourceEvent3_Impl: Sized + IMSVidStreamBufferSourceEvent2_Impl {
     fn BroadcastEvent(&self, guid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn BroadcastEventEx(&self, guid: &::windows::core::BSTR, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
     fn COPPBlocked(&self) -> ::windows::core::Result<()>;
@@ -28588,7 +28588,7 @@ impl IMSVidStreamBufferSourceEvent3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidStreamBufferV2SourceEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl + IMSVidPlaybackEvent_Impl + IMSVidFilePlaybackEvent_Impl {
+pub trait IMSVidStreamBufferV2SourceEvent_Impl: Sized + IMSVidFilePlaybackEvent_Impl {
     fn RatingsChanged(&self) -> ::windows::core::Result<()>;
     fn TimeHole(&self, streamoffsetms: i32, sizems: i32) -> ::windows::core::Result<()>;
     fn StaleDataRead(&self) -> ::windows::core::Result<()>;
@@ -28667,7 +28667,7 @@ impl IMSVidStreamBufferV2SourceEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidTuner_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidVideoInputDevice_Impl {
+pub trait IMSVidTuner_Impl: Sized + IMSVidVideoInputDevice_Impl {
     fn Tune(&self) -> ::windows::core::Result<ITuneRequest>;
     fn SetTune(&self, ptr: &::core::option::Option<ITuneRequest>) -> ::windows::core::Result<()>;
     fn TuningSpace(&self) -> ::windows::core::Result<ITuningSpace>;
@@ -28723,7 +28723,7 @@ impl IMSVidTuner_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidTunerEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl {
+pub trait IMSVidTunerEvent_Impl: Sized + IMSVidInputDeviceEvent_Impl {
     fn TuneChanged(&self, lpd: &::core::option::Option<IMSVidTuner>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -28743,7 +28743,7 @@ impl IMSVidTunerEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidVMR9_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl + IMSVidVideoRenderer_Impl {
+pub trait IMSVidVMR9_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn Allocator_ID(&self) -> ::windows::core::Result<i32>;
     fn SetAllocator(&self, allocpresent: &::core::option::Option<::windows::core::IUnknown>, id: i32) -> ::windows::core::Result<()>;
     fn SetSuppressEffects(&self, bsuppress: i16) -> ::windows::core::Result<()>;
@@ -28812,7 +28812,7 @@ impl IMSVidVMR9_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IMSVidVRGraphSegment_Impl: Sized + super::super::System::Com::IPersist_Impl + IMSVidGraphSegment_Impl {
+pub trait IMSVidVRGraphSegment_Impl: Sized + IMSVidGraphSegment_Impl {
     fn Set_VMRendererMode(&self, dwmode: i32) -> ::windows::core::Result<()>;
     fn SetOwner(&self, window: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn Owner(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
@@ -29023,7 +29023,7 @@ impl IMSVidVRGraphSegment_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidVideoInputDevice_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl {}
+pub trait IMSVidVideoInputDevice_Impl: Sized + IMSVidInputDevice_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSVidVideoInputDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -29036,7 +29036,7 @@ impl IMSVidVideoInputDevice_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidVideoRenderer_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl {
+pub trait IMSVidVideoRenderer_Impl: Sized + IMSVidOutputDevice_Impl {
     fn CustomCompositorClass(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetCustomCompositorClass(&self, compositorclsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn _CustomCompositorClass(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -29364,7 +29364,7 @@ impl IMSVidVideoRenderer_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidVideoRenderer2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl + IMSVidVideoRenderer_Impl {
+pub trait IMSVidVideoRenderer2_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn Allocator(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn _Allocator(&self) -> ::windows::core::Result<IVMRSurfaceAllocator>;
     fn Allocator_ID(&self) -> ::windows::core::Result<i32>;
@@ -29522,7 +29522,7 @@ impl IMSVidVideoRendererDevices_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidVideoRendererEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidOutputDeviceEvent_Impl {
+pub trait IMSVidVideoRendererEvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn OverlayUnavailable(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -29542,7 +29542,7 @@ impl IMSVidVideoRendererEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidVideoRendererEvent2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidOutputDeviceEvent_Impl {
+pub trait IMSVidVideoRendererEvent2_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn OverlayUnavailable(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -29562,7 +29562,7 @@ impl IMSVidVideoRendererEvent2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl {
+pub trait IMSVidWebDVD_Impl: Sized + IMSVidPlayback_Impl {
     fn OnDVDEvent(&self, levent: i32, lparam1: isize, lparam2: isize) -> ::windows::core::Result<()>;
     fn PlayTitle(&self, ltitle: i32) -> ::windows::core::Result<()>;
     fn PlayChapterInTitle(&self, ltitle: i32, lchapter: i32) -> ::windows::core::Result<()>;
@@ -30549,7 +30549,7 @@ impl IMSVidWebDVD_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidWebDVD2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl + IMSVidWebDVD_Impl {
+pub trait IMSVidWebDVD2_Impl: Sized + IMSVidWebDVD_Impl {
     fn get_Bookmark(&self, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows::core::Result<()>;
     fn put_Bookmark(&self, pdata: *const u8, dwdatalength: u32) -> ::windows::core::Result<()>;
 }
@@ -30735,7 +30735,7 @@ impl IMSVidWebDVDAdm_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidWebDVDEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidInputDeviceEvent_Impl + IMSVidPlaybackEvent_Impl {
+pub trait IMSVidWebDVDEvent_Impl: Sized + IMSVidPlaybackEvent_Impl {
     fn DVDNotify(&self, leventcode: i32, lparam1: &super::super::System::Com::VARIANT, lparam2: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn PlayForwards(&self, benabled: i16) -> ::windows::core::Result<()>;
     fn PlayBackwards(&self, benabled: i16) -> ::windows::core::Result<()>;
@@ -30912,7 +30912,7 @@ impl IMSVidWebDVDEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidXDS_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidFeature_Impl {
+pub trait IMSVidXDS_Impl: Sized + IMSVidFeature_Impl {
     fn ChannelChangeInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -30938,7 +30938,7 @@ impl IMSVidXDS_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMSVidXDSEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDeviceEvent_Impl + IMSVidFeatureEvent_Impl {
+pub trait IMSVidXDSEvent_Impl: Sized + IMSVidFeatureEvent_Impl {
     fn RatingChange(&self, prevratingsystem: EnTvRat_System, prevlevel: EnTvRat_GenericLevel, prevattributes: BfEnTvRat_GenericAttributes, newratingsystem: EnTvRat_System, newlevel: EnTvRat_GenericLevel, newattributes: BfEnTvRat_GenericAttributes) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -31148,7 +31148,7 @@ impl IMediaEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IMediaEventEx_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMediaEvent_Impl {
+pub trait IMediaEventEx_Impl: Sized + IMediaEvent_Impl {
     fn SetNotifyWindow(&self, hwnd: isize, lmsg: i32, linstancedata: isize) -> ::windows::core::Result<()>;
     fn SetNotifyFlags(&self, lnonotifyflags: i32) -> ::windows::core::Result<()>;
     fn GetNotifyFlags(&self) -> ::windows::core::Result<i32>;
@@ -32021,7 +32021,7 @@ impl IMediaStream_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IMediaStreamFilter_Impl: Sized + super::super::System::Com::IPersist_Impl + IMediaFilter_Impl + IBaseFilter_Impl {
+pub trait IMediaStreamFilter_Impl: Sized + IBaseFilter_Impl {
     fn AddMediaStream(&self, pammediastream: &::core::option::Option<IAMMediaStream>) -> ::windows::core::Result<()>;
     fn GetMediaStream(&self, idpurpose: *const ::windows::core::GUID) -> ::windows::core::Result<IMediaStream>;
     fn EnumMediaStreams(&self, index: i32) -> ::windows::core::Result<IMediaStream>;
@@ -35575,7 +35575,7 @@ impl IScanningTuner_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IScanningTunerEx_Impl: Sized + ITuner_Impl + IScanningTuner_Impl {
+pub trait IScanningTunerEx_Impl: Sized + IScanningTuner_Impl {
     fn GetCurrentLocator(&self, pilocator: *const ::core::option::Option<ILocator>) -> ::windows::core::Result<()>;
     fn PerformExhaustiveScan(&self, dwlowerfreq: i32, dwhigherfreq: i32, bfinetune: i16, hevent: usize) -> ::windows::core::Result<()>;
     fn TerminateCurrentScan(&self) -> ::windows::core::Result<i32>;
@@ -36002,7 +36002,7 @@ impl IStreamBufferConfigure2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IStreamBufferConfigure3_Impl: Sized + IStreamBufferConfigure_Impl + IStreamBufferConfigure2_Impl {
+pub trait IStreamBufferConfigure3_Impl: Sized + IStreamBufferConfigure2_Impl {
     fn SetStartRecConfig(&self, fstartstopscur: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetStartRecConfig(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetNamespace(&self, psznamespace: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -36130,7 +36130,7 @@ impl IStreamBufferMediaSeeking_Vtbl {
         iid == &<IStreamBufferMediaSeeking as ::windows::core::Interface>::IID || iid == &<IMediaSeeking as ::windows::core::Interface>::IID
     }
 }
-pub trait IStreamBufferMediaSeeking2_Impl: Sized + IMediaSeeking_Impl + IStreamBufferMediaSeeking_Impl {
+pub trait IStreamBufferMediaSeeking2_Impl: Sized + IStreamBufferMediaSeeking_Impl {
     fn SetRateEx(&self, drate: f64, dwframespersec: u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IStreamBufferMediaSeeking2 {}
@@ -36362,7 +36362,7 @@ impl IStreamBufferSink2_Vtbl {
         iid == &<IStreamBufferSink2 as ::windows::core::Interface>::IID || iid == &<IStreamBufferSink as ::windows::core::Interface>::IID
     }
 }
-pub trait IStreamBufferSink3_Impl: Sized + IStreamBufferSink_Impl + IStreamBufferSink2_Impl {
+pub trait IStreamBufferSink3_Impl: Sized + IStreamBufferSink2_Impl {
     fn SetAvailableFilter(&self, prtmin: *mut i64) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IStreamBufferSink3 {}
@@ -39282,7 +39282,7 @@ impl IVPNotify_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IVPNotify2_Impl: Sized + IVPBaseNotify_Impl + IVPNotify_Impl {
+pub trait IVPNotify2_Impl: Sized + IVPNotify_Impl {
     fn SetVPSyncMaster(&self, bvpsyncmaster: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetVPSyncMaster(&self, pbvpsyncmaster: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }

@@ -374,7 +374,7 @@ impl ISdoMachine_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISdoMachine2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ISdoMachine_Impl {
+pub trait ISdoMachine2_Impl: Sized + ISdoMachine_Impl {
     fn GetTemplatesSDO(&self, bstrservicename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn EnableTemplates(&self) -> ::windows::core::Result<()>;
     fn SyncConfigAgainstTemplates(&self, bstrservicename: &::windows::core::BSTR, ppconfigroot: *mut ::core::option::Option<::windows::core::IUnknown>, pptemplatesroot: *mut ::core::option::Option<::windows::core::IUnknown>, bforcedsync: i16) -> ::windows::core::Result<()>;
@@ -481,7 +481,7 @@ impl ISdoServiceControl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITemplateSdo_Impl: Sized + super::super::System::Com::IDispatch_Impl + ISdo_Impl {
+pub trait ITemplateSdo_Impl: Sized + ISdo_Impl {
     fn AddToCollection(&self, bstrname: &::windows::core::BSTR, pcollection: &::core::option::Option<super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn AddToSdo(&self, bstrname: &::windows::core::BSTR, psdotarget: &::core::option::Option<super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn AddToSdoAsProperty(&self, psdotarget: &::core::option::Option<super::super::System::Com::IDispatch>, id: i32) -> ::windows::core::Result<()>;

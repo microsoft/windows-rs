@@ -64,7 +64,7 @@ impl DISystemMonitorInternal_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAlertDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
+pub trait IAlertDataCollector_Impl: Sized + IDataCollector_Impl {
     fn AlertThresholds(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
     fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn EventLog(&self) -> ::windows::core::Result<i16>;
@@ -240,7 +240,7 @@ impl IAlertDataCollector_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IApiTracingDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
+pub trait IApiTracingDataCollector_Impl: Sized + IDataCollector_Impl {
     fn LogApiNamesOnly(&self) -> ::windows::core::Result<i16>;
     fn SetLogApiNamesOnly(&self, logapinames: i16) -> ::windows::core::Result<()>;
     fn LogApisRecursively(&self) -> ::windows::core::Result<i16>;
@@ -396,7 +396,7 @@ impl IApiTracingDataCollector_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IConfigurationDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
+pub trait IConfigurationDataCollector_Impl: Sized + IDataCollector_Impl {
     fn FileMaxCount(&self) -> ::windows::core::Result<u32>;
     fn SetFileMaxCount(&self, count: u32) -> ::windows::core::Result<()>;
     fn FileMaxRecursiveDepth(&self) -> ::windows::core::Result<u32>;
@@ -2542,7 +2542,7 @@ impl ILogFiles_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPerformanceCounterDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
+pub trait IPerformanceCounterDataCollector_Impl: Sized + IDataCollector_Impl {
     fn DataSourceName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDataSourceName(&self, dsn: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn PerformanceCounters(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
@@ -3860,7 +3860,7 @@ impl ISystemMonitorEvents_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITraceDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
+pub trait ITraceDataCollector_Impl: Sized + IDataCollector_Impl {
     fn BufferSize(&self) -> ::windows::core::Result<u32>;
     fn SetBufferSize(&self, size: u32) -> ::windows::core::Result<()>;
     fn BuffersLost(&self) -> ::windows::core::Result<u32>;

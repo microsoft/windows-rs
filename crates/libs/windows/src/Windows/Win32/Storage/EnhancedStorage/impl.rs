@@ -114,7 +114,7 @@ impl IEnhancedStorageACT2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IEnhancedStorageACT3_Impl: Sized + IEnhancedStorageACT_Impl + IEnhancedStorageACT2_Impl {
+pub trait IEnhancedStorageACT3_Impl: Sized + IEnhancedStorageACT2_Impl {
     fn UnauthorizeEx(&self, dwflags: u32) -> ::windows::core::Result<()>;
     fn IsQueueFrozen(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetShellExtSupport(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
