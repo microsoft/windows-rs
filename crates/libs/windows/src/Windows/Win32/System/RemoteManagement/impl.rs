@@ -110,7 +110,7 @@ impl IWSManConnectionOptions_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWSManConnectionOptionsEx_Impl: Sized + super::Com::IDispatch_Impl + IWSManConnectionOptions_Impl {
+pub trait IWSManConnectionOptionsEx_Impl: Sized + IWSManConnectionOptions_Impl {
     fn CertificateThumbprint(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetCertificateThumbprint(&self, thumbprint: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -146,7 +146,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWSManConnectionOptionsEx2_Impl: Sized + super::Com::IDispatch_Impl + IWSManConnectionOptions_Impl + IWSManConnectionOptionsEx_Impl {
+pub trait IWSManConnectionOptionsEx2_Impl: Sized + IWSManConnectionOptionsEx_Impl {
     fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &::windows::core::BSTR, password: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ProxyIEConfig(&self) -> ::windows::core::Result<i32>;
     fn ProxyWinHttpConfig(&self) -> ::windows::core::Result<i32>;
@@ -315,7 +315,7 @@ impl IWSManEnumerator_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWSManEx_Impl: Sized + super::Com::IDispatch_Impl + IWSMan_Impl {
+pub trait IWSManEx_Impl: Sized + IWSMan_Impl {
     fn CreateResourceLocator(&self, strresourcelocator: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
     fn SessionFlagUTF8(&self) -> ::windows::core::Result<i32>;
     fn SessionFlagCredUsernamePassword(&self) -> ::windows::core::Result<i32>;
@@ -591,7 +591,7 @@ impl IWSManEx_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWSManEx2_Impl: Sized + super::Com::IDispatch_Impl + IWSMan_Impl + IWSManEx_Impl {
+pub trait IWSManEx2_Impl: Sized + IWSManEx_Impl {
     fn SessionFlagUseClientCertificate(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -620,7 +620,7 @@ impl IWSManEx2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWSManEx3_Impl: Sized + super::Com::IDispatch_Impl + IWSMan_Impl + IWSManEx_Impl + IWSManEx2_Impl {
+pub trait IWSManEx3_Impl: Sized + IWSManEx2_Impl {
     fn SessionFlagUTF16(&self) -> ::windows::core::Result<i32>;
     fn SessionFlagUseCredSsp(&self) -> ::windows::core::Result<i32>;
     fn EnumerationFlagAssociationInstance(&self) -> ::windows::core::Result<i32>;

@@ -545,7 +545,7 @@ impl ISWbemEventSource_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISWbemLastError_Impl: Sized + super::Com::IDispatch_Impl + ISWbemObject_Impl {}
+pub trait ISWbemLastError_Impl: Sized + ISWbemObject_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ISWbemLastError {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1201,7 +1201,7 @@ impl ISWbemObject_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISWbemObjectEx_Impl: Sized + super::Com::IDispatch_Impl + ISWbemObject_Impl {
+pub trait ISWbemObjectEx_Impl: Sized + ISWbemObject_Impl {
     fn Refresh_(&self, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn SystemProperties_(&self) -> ::windows::core::Result<ISWbemPropertySet>;
     fn GetText_(&self, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2688,7 +2688,7 @@ impl ISWbemServices_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISWbemServicesEx_Impl: Sized + super::Com::IDispatch_Impl + ISWbemServices_Impl {
+pub trait ISWbemServicesEx_Impl: Sized + ISWbemServices_Impl {
     fn Put(&self, objwbemobject: &::core::option::Option<ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectPath>;
     fn PutAsync(&self, objwbemsink: &::core::option::Option<ISWbemSink>, objwbemobject: &::core::option::Option<ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }

@@ -364,7 +364,7 @@ impl IDirectManipulationManager2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IDirectManipulationManager3_Impl: Sized + IDirectManipulationManager_Impl + IDirectManipulationManager2_Impl {
+pub trait IDirectManipulationManager3_Impl: Sized + IDirectManipulationManager2_Impl {
     fn GetService(&self, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

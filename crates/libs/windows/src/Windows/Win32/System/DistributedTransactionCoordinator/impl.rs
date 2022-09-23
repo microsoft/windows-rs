@@ -813,7 +813,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDtcNetworkAccessConfig3_Impl: Sized + IDtcNetworkAccessConfig_Impl + IDtcNetworkAccessConfig2_Impl {
+pub trait IDtcNetworkAccessConfig3_Impl: Sized + IDtcNetworkAccessConfig2_Impl {
     fn GetLUAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetLUAccess(&self, bluaccess: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
@@ -1279,7 +1279,7 @@ impl IResourceManagerFactory2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IResourceManagerRejoinable_Impl: Sized + IResourceManager_Impl + IResourceManager2_Impl {
+pub trait IResourceManagerRejoinable_Impl: Sized + IResourceManager2_Impl {
     fn Rejoin(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1506,7 +1506,7 @@ impl ITransaction_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ITransaction2_Impl: Sized + ITransaction_Impl + ITransactionCloner_Impl {
+pub trait ITransaction2_Impl: Sized + ITransactionCloner_Impl {
     fn GetTransactionInfo2(&self) -> ::windows::core::Result<XACTTRANSINFO>;
 }
 #[cfg(feature = "Win32_Foundation")]

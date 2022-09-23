@@ -107,7 +107,7 @@ impl IFsrmAction_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmActionCommand_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmAction_Impl {
+pub trait IFsrmActionCommand_Impl: Sized + IFsrmAction_Impl {
     fn ExecutablePath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetExecutablePath(&self, executablepath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Arguments(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -263,7 +263,7 @@ impl IFsrmActionCommand_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmActionEmail_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmAction_Impl {
+pub trait IFsrmActionEmail_Impl: Sized + IFsrmAction_Impl {
     fn MailFrom(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetMailFrom(&self, mailfrom: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MailReplyTo(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -419,7 +419,7 @@ impl IFsrmActionEmail_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmActionEmail2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmAction_Impl + IFsrmActionEmail_Impl {
+pub trait IFsrmActionEmail2_Impl: Sized + IFsrmActionEmail_Impl {
     fn AttachmentFileListSize(&self) -> ::windows::core::Result<i32>;
     fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> ::windows::core::Result<()>;
 }
@@ -455,7 +455,7 @@ impl IFsrmActionEmail2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmActionEventLog_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmAction_Impl {
+pub trait IFsrmActionEventLog_Impl: Sized + IFsrmAction_Impl {
     fn EventType(&self) -> ::windows::core::Result<FsrmEventType>;
     fn SetEventType(&self, eventtype: FsrmEventType) -> ::windows::core::Result<()>;
     fn MessageText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -511,7 +511,7 @@ impl IFsrmActionEventLog_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmActionReport_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmAction_Impl {
+pub trait IFsrmActionReport_Impl: Sized + IFsrmAction_Impl {
     fn ReportTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetReportTypes(&self, reporttypes: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn MailTo(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -567,7 +567,7 @@ impl IFsrmActionReport_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmAutoApplyQuota_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmQuotaBase_Impl + IFsrmQuotaObject_Impl {
+pub trait IFsrmAutoApplyQuota_Impl: Sized + IFsrmQuotaObject_Impl {
     fn ExcludeFolders(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetExcludeFolders(&self, folders: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult>;
@@ -935,7 +935,7 @@ impl IFsrmClassificationManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmClassificationManager2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmClassificationManager_Impl {
+pub trait IFsrmClassificationManager2_Impl: Sized + IFsrmClassificationManager_Impl {
     fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -955,7 +955,7 @@ impl IFsrmClassificationManager2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmClassificationRule_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmRule_Impl {
+pub trait IFsrmClassificationRule_Impl: Sized + IFsrmRule_Impl {
     fn ExecutionOption(&self) -> ::windows::core::Result<FsrmExecutionOption>;
     fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> ::windows::core::Result<()>;
     fn PropertyAffected(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1031,7 +1031,7 @@ impl IFsrmClassificationRule_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmClassifierModuleDefinition_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmPipelineModuleDefinition_Impl {
+pub trait IFsrmClassifierModuleDefinition_Impl: Sized + IFsrmPipelineModuleDefinition_Impl {
     fn PropertiesAffected(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetPropertiesAffected(&self, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn PropertiesUsed(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -1107,7 +1107,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmClassifierModuleImplementation_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmPipelineModuleImplementation_Impl {
+pub trait IFsrmClassifierModuleImplementation_Impl: Sized + IFsrmPipelineModuleImplementation_Impl {
     fn LastModified(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn UseRulesAndDefinitions(&self, rules: &::core::option::Option<IFsrmCollection>, propertydefinitions: &::core::option::Option<IFsrmCollection>) -> ::windows::core::Result<()>;
     fn OnBeginFile(&self, propertybag: &::core::option::Option<IFsrmPropertyBag>, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
@@ -1272,7 +1272,7 @@ impl IFsrmCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmCommittableCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmCollection_Impl + IFsrmMutableCollection_Impl {
+pub trait IFsrmCommittableCollection_Impl: Sized + IFsrmMutableCollection_Impl {
     fn Commit(&self, options: FsrmCommitOptions) -> ::windows::core::Result<IFsrmCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1452,7 +1452,7 @@ impl IFsrmFileCondition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmFileConditionProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmFileCondition_Impl {
+pub trait IFsrmFileConditionProperty_Impl: Sized + IFsrmFileCondition_Impl {
     fn PropertyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetPropertyName(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn PropertyId(&self) -> ::windows::core::Result<FsrmFileSystemPropertyId>;
@@ -1568,7 +1568,7 @@ impl IFsrmFileConditionProperty_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmFileGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl {
+pub trait IFsrmFileGroup_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Members(&self) -> ::windows::core::Result<IFsrmMutableCollection>;
@@ -1644,7 +1644,7 @@ impl IFsrmFileGroup_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmFileGroupImported_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmFileGroup_Impl {
+pub trait IFsrmFileGroupImported_Impl: Sized + IFsrmFileGroup_Impl {
     fn OverwriteOnCommit(&self) -> ::windows::core::Result<i16>;
     fn SetOverwriteOnCommit(&self, overwrite: i16) -> ::windows::core::Result<()>;
 }
@@ -1761,7 +1761,7 @@ impl IFsrmFileGroupManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmFileManagementJob_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl {
+pub trait IFsrmFileManagementJob_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn NamespaceRoots(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -2369,7 +2369,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmFileScreen_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmFileScreenBase_Impl {
+pub trait IFsrmFileScreen_Impl: Sized + IFsrmFileScreenBase_Impl {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SourceTemplateName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn MatchesSourceTemplate(&self) -> ::windows::core::Result<i16>;
@@ -2457,7 +2457,7 @@ impl IFsrmFileScreen_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmFileScreenBase_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl {
+pub trait IFsrmFileScreenBase_Impl: Sized + IFsrmObject_Impl {
     fn BlockedFileGroups(&self) -> ::windows::core::Result<IFsrmMutableCollection>;
     fn SetBlockedFileGroups(&self, blocklist: &::core::option::Option<IFsrmMutableCollection>) -> ::windows::core::Result<()>;
     fn FileScreenFlags(&self) -> ::windows::core::Result<i32>;
@@ -2539,7 +2539,7 @@ impl IFsrmFileScreenBase_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmFileScreenException_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl {
+pub trait IFsrmFileScreenException_Impl: Sized + IFsrmObject_Impl {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn AllowedFileGroups(&self) -> ::windows::core::Result<IFsrmMutableCollection>;
     fn SetAllowedFileGroups(&self, allowlist: &::core::option::Option<IFsrmMutableCollection>) -> ::windows::core::Result<()>;
@@ -2721,7 +2721,7 @@ impl IFsrmFileScreenManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmFileScreenTemplate_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmFileScreenBase_Impl {
+pub trait IFsrmFileScreenTemplate_Impl: Sized + IFsrmFileScreenBase_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn CopyTemplate(&self, filescreentemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2777,7 +2777,7 @@ impl IFsrmFileScreenTemplate_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmFileScreenTemplateImported_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmFileScreenBase_Impl + IFsrmFileScreenTemplate_Impl {
+pub trait IFsrmFileScreenTemplateImported_Impl: Sized + IFsrmFileScreenTemplate_Impl {
     fn OverwriteOnCommit(&self) -> ::windows::core::Result<i16>;
     fn SetOverwriteOnCommit(&self, overwrite: i16) -> ::windows::core::Result<()>;
 }
@@ -2894,7 +2894,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmMutableCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmCollection_Impl {
+pub trait IFsrmMutableCollection_Impl: Sized + IFsrmCollection_Impl {
     fn Add(&self, item: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn RemoveById(&self, id: &::windows::core::GUID) -> ::windows::core::Result<()>;
@@ -3111,7 +3111,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmPipelineModuleDefinition_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl {
+pub trait IFsrmPipelineModuleDefinition_Impl: Sized + IFsrmObject_Impl {
     fn ModuleClsid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetModuleClsid(&self, moduleclsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3701,7 +3701,7 @@ impl IFsrmPropertyBag_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmPropertyBag2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmPropertyBag_Impl {
+pub trait IFsrmPropertyBag2_Impl: Sized + IFsrmPropertyBag_Impl {
     fn GetFieldValue(&self, field: FsrmPropertyBagField) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn GetUntrustedInFileProperties(&self) -> ::windows::core::Result<IFsrmCollection>;
 }
@@ -3826,7 +3826,7 @@ impl IFsrmPropertyCondition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmPropertyDefinition_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl {
+pub trait IFsrmPropertyDefinition_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Type(&self) -> ::windows::core::Result<FsrmPropertyDefinitionType>;
@@ -3942,7 +3942,7 @@ impl IFsrmPropertyDefinition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmPropertyDefinition2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmPropertyDefinition_Impl {
+pub trait IFsrmPropertyDefinition2_Impl: Sized + IFsrmPropertyDefinition_Impl {
     fn PropertyDefinitionFlags(&self) -> ::windows::core::Result<i32>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDisplayName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4085,7 +4085,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmQuota_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmQuotaBase_Impl + IFsrmQuotaObject_Impl {
+pub trait IFsrmQuota_Impl: Sized + IFsrmQuotaObject_Impl {
     fn QuotaUsed(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn QuotaPeakUsage(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn QuotaPeakUsageTime(&self) -> ::windows::core::Result<f64>;
@@ -4154,7 +4154,7 @@ impl IFsrmQuota_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmQuotaBase_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl {
+pub trait IFsrmQuotaBase_Impl: Sized + IFsrmObject_Impl {
     fn QuotaLimit(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetQuotaLimit(&self, quotalimit: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn QuotaFlags(&self) -> ::windows::core::Result<i32>;
@@ -4436,7 +4436,7 @@ impl IFsrmQuotaManager_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmQuotaManagerEx_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmQuotaManager_Impl {
+pub trait IFsrmQuotaManagerEx_Impl: Sized + IFsrmQuotaManager_Impl {
     fn IsAffectedByQuota(&self, path: &::windows::core::BSTR, options: FsrmEnumOptions) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4462,7 +4462,7 @@ impl IFsrmQuotaManagerEx_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmQuotaObject_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmQuotaBase_Impl {
+pub trait IFsrmQuotaObject_Impl: Sized + IFsrmQuotaBase_Impl {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UserSid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UserAccount(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4550,7 +4550,7 @@ impl IFsrmQuotaObject_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmQuotaTemplate_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmQuotaBase_Impl {
+pub trait IFsrmQuotaTemplate_Impl: Sized + IFsrmQuotaBase_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn CopyTemplate(&self, quotatemplatename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4606,7 +4606,7 @@ impl IFsrmQuotaTemplate_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmQuotaTemplateImported_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmQuotaBase_Impl + IFsrmQuotaTemplate_Impl {
+pub trait IFsrmQuotaTemplateImported_Impl: Sized + IFsrmQuotaTemplate_Impl {
     fn OverwriteOnCommit(&self) -> ::windows::core::Result<i16>;
     fn SetOverwriteOnCommit(&self, overwrite: i16) -> ::windows::core::Result<()>;
 }
@@ -4832,7 +4832,7 @@ impl IFsrmReport_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmReportJob_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl {
+pub trait IFsrmReportJob_Impl: Sized + IFsrmObject_Impl {
     fn Task(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetTask(&self, taskname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn NamespaceRoots(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -5205,7 +5205,7 @@ impl IFsrmReportScheduler_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmRule_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl {
+pub trait IFsrmRule_Impl: Sized + IFsrmObject_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn RuleType(&self) -> ::windows::core::Result<FsrmRuleType>;
@@ -5490,7 +5490,7 @@ impl IFsrmSetting_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmStorageModuleDefinition_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmObject_Impl + IFsrmPipelineModuleDefinition_Impl {
+pub trait IFsrmStorageModuleDefinition_Impl: Sized + IFsrmPipelineModuleDefinition_Impl {
     fn Capabilities(&self) -> ::windows::core::Result<FsrmStorageModuleCaps>;
     fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> ::windows::core::Result<()>;
     fn StorageType(&self) -> ::windows::core::Result<FsrmStorageModuleType>;
@@ -5566,7 +5566,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFsrmStorageModuleImplementation_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsrmPipelineModuleImplementation_Impl {
+pub trait IFsrmStorageModuleImplementation_Impl: Sized + IFsrmPipelineModuleImplementation_Impl {
     fn UseDefinitions(&self, propertydefinitions: &::core::option::Option<IFsrmCollection>) -> ::windows::core::Result<()>;
     fn LoadProperties(&self, propertybag: &::core::option::Option<IFsrmPropertyBag>) -> ::windows::core::Result<()>;
     fn SaveProperties(&self, propertybag: &::core::option::Option<IFsrmPropertyBag>) -> ::windows::core::Result<()>;

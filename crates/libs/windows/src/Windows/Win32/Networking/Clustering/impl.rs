@@ -1333,7 +1333,7 @@ impl ISClusPartition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ISClusPartitionEx_Impl: Sized + super::super::System::Com::IDispatch_Impl + ISClusPartition_Impl {
+pub trait ISClusPartitionEx_Impl: Sized + ISClusPartition_Impl {
     fn TotalSize(&self) -> ::windows::core::Result<i32>;
     fn FreeSpace(&self) -> ::windows::core::Result<i32>;
     fn DeviceNumber(&self) -> ::windows::core::Result<i32>;

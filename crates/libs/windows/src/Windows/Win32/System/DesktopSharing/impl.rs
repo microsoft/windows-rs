@@ -966,7 +966,7 @@ impl IRDPSRAPISharingSession_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IRDPSRAPISharingSession2_Impl: Sized + super::Com::IDispatch_Impl + IRDPSRAPISharingSession_Impl {
+pub trait IRDPSRAPISharingSession2_Impl: Sized + IRDPSRAPISharingSession_Impl {
     fn ConnectUsingTransportStream(&self, pstream: &::core::option::Option<IRDPSRAPITransportStream>, bstrgroup: &::windows::core::BSTR, bstrauthenticatedattendeename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn FrameBuffer(&self) -> ::windows::core::Result<IRDPSRAPIFrameBuffer>;
     fn SendControlLevelChangeResponse(&self, pattendee: &::core::option::Option<IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::Result<()>;

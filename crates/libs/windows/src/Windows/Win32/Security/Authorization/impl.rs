@@ -640,7 +640,7 @@ impl IAzApplication_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzApplication2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzApplication_Impl {
+pub trait IAzApplication2_Impl: Sized + IAzApplication_Impl {
     fn InitializeClientContextFromToken2(&self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext2>;
     fn InitializeClientContext2(&self, identifyingstring: &::windows::core::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext2>;
 }
@@ -682,7 +682,7 @@ impl IAzApplication2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzApplication3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzApplication_Impl + IAzApplication2_Impl {
+pub trait IAzApplication3_Impl: Sized + IAzApplication2_Impl {
     fn ScopeExists(&self, bstrscopename: &::windows::core::BSTR) -> ::windows::core::Result<i16>;
     fn OpenScope2(&self, bstrscopename: &::windows::core::BSTR) -> ::windows::core::Result<IAzScope2>;
     fn CreateScope2(&self, bstrscopename: &::windows::core::BSTR) -> ::windows::core::Result<IAzScope2>;
@@ -1168,7 +1168,7 @@ impl IAzApplicationGroup_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzApplicationGroup2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzApplicationGroup_Impl {
+pub trait IAzApplicationGroup2_Impl: Sized + IAzApplicationGroup_Impl {
     fn BizRule(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetBizRule(&self, bstrprop: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn BizRuleLanguage(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1872,7 +1872,7 @@ impl IAzAuthorizationStore_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzAuthorizationStore2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzAuthorizationStore_Impl {
+pub trait IAzAuthorizationStore2_Impl: Sized + IAzAuthorizationStore_Impl {
     fn OpenApplication2(&self, bstrapplicationname: &::windows::core::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication2>;
     fn CreateApplication2(&self, bstrapplicationname: &::windows::core::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication2>;
 }
@@ -1914,7 +1914,7 @@ impl IAzAuthorizationStore2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzAuthorizationStore3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzAuthorizationStore_Impl + IAzAuthorizationStore2_Impl {
+pub trait IAzAuthorizationStore3_Impl: Sized + IAzAuthorizationStore2_Impl {
     fn IsUpdateNeeded(&self) -> ::windows::core::Result<i16>;
     fn BizruleGroupSupported(&self) -> ::windows::core::Result<i16>;
     fn UpgradeStoresFunctionalLevel(&self, lfunctionallevel: i32) -> ::windows::core::Result<()>;
@@ -2363,7 +2363,7 @@ impl IAzClientContext_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzClientContext2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzClientContext_Impl {
+pub trait IAzClientContext2_Impl: Sized + IAzClientContext_Impl {
     fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Com::VARIANT, pvarscopenames: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AddRoles(&self, varroles: &super::super::System::Com::VARIANT, bstrscopename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AddApplicationGroups(&self, varapplicationgroups: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -2427,7 +2427,7 @@ impl IAzClientContext2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzClientContext3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzClientContext_Impl + IAzClientContext2_Impl {
+pub trait IAzClientContext3_Impl: Sized + IAzClientContext2_Impl {
     fn AccessCheck2(&self, bstrobjectname: &::windows::core::BSTR, bstrscopename: &::windows::core::BSTR, loperation: i32) -> ::windows::core::Result<u32>;
     fn IsInRoleAssignment(&self, bstrscopename: &::windows::core::BSTR, bstrrolename: &::windows::core::BSTR) -> ::windows::core::Result<i16>;
     fn GetOperations(&self, bstrscopename: &::windows::core::BSTR) -> ::windows::core::Result<IAzOperations>;
@@ -2749,7 +2749,7 @@ impl IAzOperation_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzOperation2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzOperation_Impl {
+pub trait IAzOperation2_Impl: Sized + IAzOperation_Impl {
     fn RoleAssignments(&self, bstrscopename: &::windows::core::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3137,7 +3137,7 @@ impl IAzRole_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzRoleAssignment_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzRole_Impl {
+pub trait IAzRoleAssignment_Impl: Sized + IAzRole_Impl {
     fn AddRoleDefinition(&self, bstrroledefinition: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn DeleteRoleDefinition(&self, bstrroledefinition: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn RoleDefinitions(&self) -> ::windows::core::Result<IAzRoleDefinitions>;
@@ -3248,7 +3248,7 @@ impl IAzRoleAssignments_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzRoleDefinition_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzTask_Impl {
+pub trait IAzRoleDefinition_Impl: Sized + IAzTask_Impl {
     fn RoleAssignments(&self, bstrscopename: &::windows::core::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
     fn AddRoleDefinition(&self, bstrroledefinition: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn DeleteRoleDefinition(&self, bstrroledefinition: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3816,7 +3816,7 @@ impl IAzScope_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzScope2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzScope_Impl {
+pub trait IAzScope2_Impl: Sized + IAzScope_Impl {
     fn RoleDefinitions(&self) -> ::windows::core::Result<IAzRoleDefinitions>;
     fn CreateRoleDefinition(&self, bstrroledefinitionname: &::windows::core::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
     fn OpenRoleDefinition(&self, bstrroledefinitionname: &::windows::core::BSTR) -> ::windows::core::Result<IAzRoleDefinition>;
@@ -4243,7 +4243,7 @@ impl IAzTask_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IAzTask2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAzTask_Impl {
+pub trait IAzTask2_Impl: Sized + IAzTask_Impl {
     fn RoleAssignments(&self, bstrscopename: &::windows::core::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

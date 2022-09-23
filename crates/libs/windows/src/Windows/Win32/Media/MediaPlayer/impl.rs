@@ -509,7 +509,7 @@ impl IFeed_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFeed2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFeed_Impl {
+pub trait IFeed2_Impl: Sized + IFeed_Impl {
     fn GetItemByEffectiveId(&self, itemeffectiveid: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn LastItemDownloadTime(&self) -> ::windows::core::Result<f64>;
     fn Username(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1409,7 +1409,7 @@ impl IFeedItem_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFeedItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFeedItem_Impl {
+pub trait IFeedItem2_Impl: Sized + IFeedItem_Impl {
     fn EffectiveId(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2036,7 +2036,7 @@ impl IWMPClosedCaption_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPClosedCaption2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPClosedCaption_Impl {
+pub trait IWMPClosedCaption2_Impl: Sized + IWMPClosedCaption_Impl {
     fn SAMILangCount(&self, plcount: *mut i32) -> ::windows::core::Result<()>;
     fn getSAMILangName(&self, nindex: i32, pbstrname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn getSAMILangID(&self, nindex: i32, pllangid: *mut i32) -> ::windows::core::Result<()>;
@@ -2672,7 +2672,7 @@ impl IWMPControls_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPControls2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPControls_Impl {
+pub trait IWMPControls2_Impl: Sized + IWMPControls_Impl {
     fn step(&self, lstep: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2692,7 +2692,7 @@ impl IWMPControls2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPControls3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPControls_Impl + IWMPControls2_Impl {
+pub trait IWMPControls3_Impl: Sized + IWMPControls2_Impl {
     fn audioLanguageCount(&self, plcount: *mut i32) -> ::windows::core::Result<()>;
     fn getAudioLanguageID(&self, lindex: i32, pllangid: *mut i32) -> ::windows::core::Result<()>;
     fn getAudioLanguageDescription(&self, lindex: i32, pbstrlangdesc: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3028,7 +3028,7 @@ impl IWMPCore_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPCore2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPCore_Impl {
+pub trait IWMPCore2_Impl: Sized + IWMPCore_Impl {
     fn dvd(&self) -> ::windows::core::Result<IWMPDVD>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3054,7 +3054,7 @@ impl IWMPCore2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPCore3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPCore_Impl + IWMPCore2_Impl {
+pub trait IWMPCore3_Impl: Sized + IWMPCore2_Impl {
     fn newPlaylist(&self, bstrname: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<IWMPPlaylist>;
     fn newMedia(&self, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<IWMPMedia>;
 }
@@ -3296,7 +3296,7 @@ impl IWMPDownloadItem_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPDownloadItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPDownloadItem_Impl {
+pub trait IWMPDownloadItem2_Impl: Sized + IWMPDownloadItem_Impl {
     fn getItemInfo(&self, bstritemname: &::windows::core::BSTR, pbstrval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3610,7 +3610,7 @@ impl IWMPErrorItem_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPErrorItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPErrorItem_Impl {
+pub trait IWMPErrorItem2_Impl: Sized + IWMPErrorItem_Impl {
     fn condition(&self, plcondition: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4019,7 +4019,7 @@ impl IWMPEvents2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IWMPEvents3_Impl: Sized + IWMPEvents_Impl + IWMPEvents2_Impl {
+pub trait IWMPEvents3_Impl: Sized + IWMPEvents2_Impl {
     fn CdromRipStateChange(&self, pcdromrip: &::core::option::Option<IWMPCdromRip>, wmprs: WMPRipState);
     fn CdromRipMediaError(&self, pcdromrip: &::core::option::Option<IWMPCdromRip>, pmedia: &::core::option::Option<super::super::System::Com::IDispatch>);
     fn CdromBurnStateChange(&self, pcdromburn: &::core::option::Option<IWMPCdromBurn>, wmpbs: WMPBurnState);
@@ -4112,7 +4112,7 @@ impl IWMPEvents3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IWMPEvents4_Impl: Sized + IWMPEvents_Impl + IWMPEvents2_Impl + IWMPEvents3_Impl {
+pub trait IWMPEvents4_Impl: Sized + IWMPEvents3_Impl {
     fn DeviceEstimation(&self, pdevice: &::core::option::Option<IWMPSyncDevice>, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4535,7 +4535,7 @@ impl IWMPMedia_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPMedia2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPMedia_Impl {
+pub trait IWMPMedia2_Impl: Sized + IWMPMedia_Impl {
     fn error(&self) -> ::windows::core::Result<IWMPErrorItem>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4561,7 +4561,7 @@ impl IWMPMedia2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPMedia3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPMedia_Impl + IWMPMedia2_Impl {
+pub trait IWMPMedia3_Impl: Sized + IWMPMedia2_Impl {
     fn getAttributeCountByType(&self, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, plcount: *mut i32) -> ::windows::core::Result<()>;
     fn getItemInfoByType(&self, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -4739,7 +4739,7 @@ impl IWMPMediaCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPMediaCollection2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPMediaCollection_Impl {
+pub trait IWMPMediaCollection2_Impl: Sized + IWMPMediaCollection_Impl {
     fn createQuery(&self) -> ::windows::core::Result<IWMPQuery>;
     fn getPlaylistByQuery(&self, pquery: &::core::option::Option<IWMPQuery>, bstrmediatype: &::windows::core::BSTR, bstrsortattribute: &::windows::core::BSTR, fsortascending: i16) -> ::windows::core::Result<IWMPPlaylist>;
     fn getStringCollectionByQuery(&self, bstrattribute: &::windows::core::BSTR, pquery: &::core::option::Option<IWMPQuery>, bstrmediatype: &::windows::core::BSTR, bstrsortattribute: &::windows::core::BSTR, fsortascending: i16) -> ::windows::core::Result<IWMPStringCollection>;
@@ -5305,7 +5305,7 @@ impl IWMPNodeWindowlessHost_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPPlayer_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPCore_Impl {
+pub trait IWMPPlayer_Impl: Sized + IWMPCore_Impl {
     fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()>;
     fn Setenabled(&self, benabled: i16) -> ::windows::core::Result<()>;
     fn fullScreen(&self, pbfullscreen: *mut i16) -> ::windows::core::Result<()>;
@@ -5377,7 +5377,7 @@ impl IWMPPlayer_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPPlayer2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPCore_Impl {
+pub trait IWMPPlayer2_Impl: Sized + IWMPCore_Impl {
     fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()>;
     fn Setenabled(&self, benabled: i16) -> ::windows::core::Result<()>;
     fn fullScreen(&self, pbfullscreen: *mut i16) -> ::windows::core::Result<()>;
@@ -5477,7 +5477,7 @@ impl IWMPPlayer2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPPlayer3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPCore_Impl + IWMPCore2_Impl {
+pub trait IWMPPlayer3_Impl: Sized + IWMPCore2_Impl {
     fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()>;
     fn Setenabled(&self, benabled: i16) -> ::windows::core::Result<()>;
     fn fullScreen(&self, pbfullscreen: *mut i16) -> ::windows::core::Result<()>;
@@ -5577,7 +5577,7 @@ impl IWMPPlayer3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPPlayer4_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPCore_Impl + IWMPCore2_Impl + IWMPCore3_Impl {
+pub trait IWMPPlayer4_Impl: Sized + IWMPCore3_Impl {
     fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()>;
     fn Setenabled(&self, benabled: i16) -> ::windows::core::Result<()>;
     fn fullScreen(&self, pbfullscreen: *mut i16) -> ::windows::core::Result<()>;
@@ -6505,7 +6505,7 @@ impl IWMPSettings_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPSettings2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPSettings_Impl {
+pub trait IWMPSettings2_Impl: Sized + IWMPSettings_Impl {
     fn defaultAudioLanguage(&self, pllangid: *mut i32) -> ::windows::core::Result<()>;
     fn mediaAccessRights(&self, pbstrrights: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn requestMediaAccessRights(&self, bstrdesiredaccess: &::windows::core::BSTR, pvbaccepted: *mut i16) -> ::windows::core::Result<()>;
@@ -6589,7 +6589,7 @@ impl IWMPStringCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWMPStringCollection2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPStringCollection_Impl {
+pub trait IWMPStringCollection2_Impl: Sized + IWMPStringCollection_Impl {
     fn isIdentical(&self, piwmpstringcollection2: &::core::option::Option<IWMPStringCollection2>, pvbool: *mut i16) -> ::windows::core::Result<()>;
     fn getItemInfo(&self, lcollectionindex: i32, bstritemname: &::windows::core::BSTR, pbstrvalue: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn getAttributeCountByType(&self, lcollectionindex: i32, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, plcount: *mut i32) -> ::windows::core::Result<()>;
@@ -6880,7 +6880,7 @@ impl IWMPSyncDevice2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IWMPSyncDevice3_Impl: Sized + IWMPSyncDevice_Impl + IWMPSyncDevice2_Impl {
+pub trait IWMPSyncDevice3_Impl: Sized + IWMPSyncDevice2_Impl {
     fn estimateSyncSize(&self, pnonruleplaylist: &::core::option::Option<IWMPPlaylist>, prulesplaylist: &::core::option::Option<IWMPPlaylist>) -> ::windows::core::Result<()>;
     fn cancelEstimation(&self) -> ::windows::core::Result<()>;
 }

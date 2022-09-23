@@ -509,7 +509,7 @@ impl IVssComponentEx_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IVssComponentEx2_Impl: Sized + IVssComponent_Impl + IVssComponentEx_Impl {
+pub trait IVssComponentEx2_Impl: Sized + IVssComponentEx_Impl {
     fn SetFailure(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: &::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
     fn GetFailure(&self, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut ::windows::core::BSTR, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
@@ -843,7 +843,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IVssDifferentialSoftwareSnapshotMgmt3_Impl: Sized + IVssDifferentialSoftwareSnapshotMgmt_Impl + IVssDifferentialSoftwareSnapshotMgmt2_Impl {
+pub trait IVssDifferentialSoftwareSnapshotMgmt3_Impl: Sized + IVssDifferentialSoftwareSnapshotMgmt2_Impl {
     fn SetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: VSS_PROTECTION_LEVEL) -> ::windows::core::Result<()>;
     fn GetVolumeProtectLevel(&self, pwszvolumename: *const u16) -> ::windows::core::Result<VSS_VOLUME_PROTECTION_INFO>;
     fn ClearVolumeProtectFault(&self, pwszvolumename: *const u16) -> ::windows::core::Result<()>;

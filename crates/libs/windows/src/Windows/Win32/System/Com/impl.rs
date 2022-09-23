@@ -517,7 +517,7 @@ impl IAsyncManager_Vtbl {
         iid == &<IAsyncManager as ::windows::core::Interface>::IID
     }
 }
-pub trait IAsyncRpcChannelBuffer_Impl: Sized + IRpcChannelBuffer_Impl + IRpcChannelBuffer2_Impl {
+pub trait IAsyncRpcChannelBuffer_Impl: Sized + IRpcChannelBuffer2_Impl {
     fn Send(&self, pmsg: *mut RPCOLEMESSAGE, psync: &::core::option::Option<ISynchronize>, pulstatus: *mut u32) -> ::windows::core::Result<()>;
     fn Receive(&self, pmsg: *mut RPCOLEMESSAGE, pulstatus: *mut u32) -> ::windows::core::Result<()>;
     fn GetDestCtxEx(&self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -2547,7 +2547,7 @@ impl IMallocSpy_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IMoniker_Impl: Sized + IPersist_Impl + IPersistStream_Impl {
+pub trait IMoniker_Impl: Sized + IPersistStream_Impl {
     fn BindToObject(&self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, riidresult: *const ::windows::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn BindToStorage(&self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Reduce(&self, pbc: &::core::option::Option<IBindCtx>, dwreducehowfar: u32, ppmktoleft: *mut ::core::option::Option<IMoniker>, ppmkreduced: *mut ::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
@@ -3290,7 +3290,7 @@ impl IRpcChannelBuffer2_Vtbl {
         iid == &<IRpcChannelBuffer2 as ::windows::core::Interface>::IID || iid == &<IRpcChannelBuffer as ::windows::core::Interface>::IID
     }
 }
-pub trait IRpcChannelBuffer3_Impl: Sized + IRpcChannelBuffer_Impl + IRpcChannelBuffer2_Impl {
+pub trait IRpcChannelBuffer3_Impl: Sized + IRpcChannelBuffer2_Impl {
     fn Send(&self, pmsg: *mut RPCOLEMESSAGE, pulstatus: *mut u32) -> ::windows::core::Result<()>;
     fn Receive(&self, pmsg: *mut RPCOLEMESSAGE, ulsize: u32, pulstatus: *mut u32) -> ::windows::core::Result<()>;
     fn Cancel(&self, pmsg: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()>;

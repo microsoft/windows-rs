@@ -64,7 +64,7 @@ impl IMarshal2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IMarshalingStream_Impl: Sized + super::ISequentialStream_Impl + super::IStream_Impl {
+pub trait IMarshalingStream_Impl: Sized + super::IStream_Impl {
     fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize>;
 }
 #[cfg(feature = "Win32_Foundation")]

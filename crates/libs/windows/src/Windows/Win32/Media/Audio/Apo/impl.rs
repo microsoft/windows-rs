@@ -440,7 +440,7 @@ impl IAudioSystemEffects2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IAudioSystemEffects3_Impl: Sized + IAudioSystemEffects_Impl + IAudioSystemEffects2_Impl {
+pub trait IAudioSystemEffects3_Impl: Sized + IAudioSystemEffects2_Impl {
     fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn SetAudioSystemEffectState(&self, effectid: &::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()>;
 }

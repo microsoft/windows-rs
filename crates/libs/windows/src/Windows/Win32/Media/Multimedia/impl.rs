@@ -121,7 +121,7 @@ impl IAVIFile_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IAVIPersistFile_Impl: Sized + super::super::System::Com::IPersist_Impl + super::super::System::Com::IPersistFile_Impl {
+pub trait IAVIPersistFile_Impl: Sized + super::super::System::Com::IPersistFile_Impl {
     fn Reserved1(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

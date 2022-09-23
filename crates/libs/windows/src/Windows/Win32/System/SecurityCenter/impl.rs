@@ -175,7 +175,7 @@ impl IWscProduct_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWscProduct2_Impl: Sized + super::Com::IDispatch_Impl + IWscProduct_Impl {
+pub trait IWscProduct2_Impl: Sized + IWscProduct_Impl {
     fn AntivirusScanSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
     fn AntivirusSettingsSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
     fn AntivirusProtectionUpdateSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
@@ -269,7 +269,7 @@ impl IWscProduct2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IWscProduct3_Impl: Sized + super::Com::IDispatch_Impl + IWscProduct_Impl + IWscProduct2_Impl {
+pub trait IWscProduct3_Impl: Sized + IWscProduct2_Impl {
     fn AntivirusDaysUntilExpired(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

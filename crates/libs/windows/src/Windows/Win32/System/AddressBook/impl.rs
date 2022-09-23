@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IABContainer_Impl: Sized + IMAPIProp_Impl + IMAPIContainer_Impl {
+pub trait IABContainer_Impl: Sized + IMAPIContainer_Impl {
     fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp>;
     fn CopyEntries(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
     fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::Result<()>;
@@ -210,7 +210,7 @@ impl IAttach_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IDistList_Impl: Sized + IMAPIProp_Impl + IMAPIContainer_Impl {
+pub trait IDistList_Impl: Sized + IMAPIContainer_Impl {
     fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp>;
     fn CopyEntries(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
     fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::Result<()>;
@@ -389,7 +389,7 @@ impl IMAPIControl_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IMAPIFolder_Impl: Sized + IMAPIProp_Impl + IMAPIContainer_Impl {
+pub trait IMAPIFolder_Impl: Sized + IMAPIContainer_Impl {
     fn CreateMessage(&self, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lppmessage: *mut ::core::option::Option<IMessage>) -> ::windows::core::Result<()>;
     fn CopyMessages(&self, lpmsglist: *const SBinaryArray, lpinterface: *const ::windows::core::GUID, lpdestfolder: *const ::core::ffi::c_void, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
     fn DeleteMessages(&self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;

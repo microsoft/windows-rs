@@ -1862,7 +1862,7 @@ impl ISyncChangeBatch_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISyncChangeBatch2_Impl: Sized + ISyncChangeBatchBase_Impl + ISyncChangeBatch_Impl {
+pub trait ISyncChangeBatch2_Impl: Sized + ISyncChangeBatch_Impl {
     fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder>;
     fn AddMergeTombstoneLoggedConflict(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: &::core::option::Option<ISyncKnowledge>) -> ::windows::core::Result<ISyncChangeBuilder>;
 }
@@ -2737,7 +2737,7 @@ impl ISyncFullEnumerationChangeBatch_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait ISyncFullEnumerationChangeBatch2_Impl: Sized + ISyncChangeBatchBase_Impl + ISyncFullEnumerationChangeBatch_Impl {
+pub trait ISyncFullEnumerationChangeBatch2_Impl: Sized + ISyncFullEnumerationChangeBatch_Impl {
     fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> ::windows::core::Result<ISyncChangeBuilder>;
 }
 #[cfg(feature = "Win32_Foundation")]

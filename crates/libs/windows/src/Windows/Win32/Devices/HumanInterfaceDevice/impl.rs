@@ -39,7 +39,7 @@ impl IDirectInput2W_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDirectInput7A_Impl: Sized + IDirectInputA_Impl + IDirectInput2A_Impl {
+pub trait IDirectInput7A_Impl: Sized + IDirectInput2A_Impl {
     fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -59,7 +59,7 @@ impl IDirectInput7A_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDirectInput7W_Impl: Sized + IDirectInputW_Impl + IDirectInput2W_Impl {
+pub trait IDirectInput7W_Impl: Sized + IDirectInput2W_Impl {
     fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -432,7 +432,7 @@ impl IDirectInputDevice2W_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDirectInputDevice7A_Impl: Sized + IDirectInputDeviceA_Impl + IDirectInputDevice2A_Impl {
+pub trait IDirectInputDevice7A_Impl: Sized + IDirectInputDevice2A_Impl {
     fn EnumEffectsInFile(&self, param0: &::windows::core::PCSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
     fn WriteEffectToFile(&self, param0: &::windows::core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
 }
@@ -462,7 +462,7 @@ impl IDirectInputDevice7A_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IDirectInputDevice7W_Impl: Sized + IDirectInputDeviceW_Impl + IDirectInputDevice2W_Impl {
+pub trait IDirectInputDevice7W_Impl: Sized + IDirectInputDevice2W_Impl {
     fn EnumEffectsInFile(&self, param0: &::windows::core::PCWSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
     fn WriteEffectToFile(&self, param0: &::windows::core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
 }

@@ -212,7 +212,7 @@ impl IEventClass_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub trait IEventClass2_Impl: Sized + super::IDispatch_Impl + IEventClass_Impl {
+pub trait IEventClass2_Impl: Sized + IEventClass_Impl {
     fn PublisherID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetPublisherID(&self, bstrpublisherid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MultiInterfacePublisherFilterCLSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;

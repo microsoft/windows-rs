@@ -971,7 +971,7 @@ impl IActiveScriptProfilerCallback2_Vtbl {
         iid == &<IActiveScriptProfilerCallback2 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows::core::Interface>::IID
     }
 }
-pub trait IActiveScriptProfilerCallback3_Impl: Sized + IActiveScriptProfilerCallback_Impl + IActiveScriptProfilerCallback2_Impl {
+pub trait IActiveScriptProfilerCallback3_Impl: Sized + IActiveScriptProfilerCallback2_Impl {
     fn SetWebWorkerId(&self, webworkerid: u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IActiveScriptProfilerCallback3 {}
@@ -1049,7 +1049,7 @@ impl IActiveScriptProfilerControl2_Vtbl {
         iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID
     }
 }
-pub trait IActiveScriptProfilerControl3_Impl: Sized + IActiveScriptProfilerControl_Impl + IActiveScriptProfilerControl2_Impl {
+pub trait IActiveScriptProfilerControl3_Impl: Sized + IActiveScriptProfilerControl2_Impl {
     fn EnumHeap(&self) -> ::windows::core::Result<IActiveScriptProfilerHeapEnum>;
 }
 impl ::windows::core::RuntimeName for IActiveScriptProfilerControl3 {}
@@ -1072,7 +1072,7 @@ impl IActiveScriptProfilerControl3_Vtbl {
         iid == &<IActiveScriptProfilerControl3 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID
     }
 }
-pub trait IActiveScriptProfilerControl4_Impl: Sized + IActiveScriptProfilerControl_Impl + IActiveScriptProfilerControl2_Impl + IActiveScriptProfilerControl3_Impl {
+pub trait IActiveScriptProfilerControl4_Impl: Sized + IActiveScriptProfilerControl3_Impl {
     fn SummarizeHeap(&self, heapsummary: *mut PROFILER_HEAP_SUMMARY) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IActiveScriptProfilerControl4 {}
@@ -1089,7 +1089,7 @@ impl IActiveScriptProfilerControl4_Vtbl {
         iid == &<IActiveScriptProfilerControl4 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows::core::Interface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows::core::Interface>::IID
     }
 }
-pub trait IActiveScriptProfilerControl5_Impl: Sized + IActiveScriptProfilerControl_Impl + IActiveScriptProfilerControl2_Impl + IActiveScriptProfilerControl3_Impl + IActiveScriptProfilerControl4_Impl {
+pub trait IActiveScriptProfilerControl5_Impl: Sized + IActiveScriptProfilerControl4_Impl {
     fn EnumHeap2(&self, enumflags: PROFILER_HEAP_ENUM_FLAGS) -> ::windows::core::Result<IActiveScriptProfilerHeapEnum>;
 }
 impl ::windows::core::RuntimeName for IActiveScriptProfilerControl5 {}
@@ -3721,7 +3721,7 @@ impl IDebugApplication64_Vtbl {
         iid == &<IDebugApplication64 as ::windows::core::Interface>::IID || iid == &<IRemoteDebugApplication as ::windows::core::Interface>::IID
     }
 }
-pub trait IDebugApplicationNode_Impl: Sized + IDebugDocumentInfo_Impl + IDebugDocumentProvider_Impl {
+pub trait IDebugApplicationNode_Impl: Sized + IDebugDocumentProvider_Impl {
     fn EnumChildren(&self) -> ::windows::core::Result<IEnumDebugApplicationNodes>;
     fn GetParent(&self) -> ::windows::core::Result<IDebugApplicationNode>;
     fn SetDocumentProvider(&self, pddp: &::core::option::Option<IDebugDocumentProvider>) -> ::windows::core::Result<()>;
@@ -4041,7 +4041,7 @@ impl IDebugApplicationThread11064_Vtbl {
         iid == &<IDebugApplicationThread11064 as ::windows::core::Interface>::IID
     }
 }
-pub trait IDebugApplicationThread64_Impl: Sized + IRemoteDebugApplicationThread_Impl + IDebugApplicationThread_Impl {
+pub trait IDebugApplicationThread64_Impl: Sized + IDebugApplicationThread_Impl {
     fn SynchronousCallIntoThread64(&self, pstcb: &::core::option::Option<IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IDebugApplicationThread64 {}
@@ -20456,7 +20456,7 @@ impl IDebugDocumentProvider_Vtbl {
         iid == &<IDebugDocumentProvider as ::windows::core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID
     }
 }
-pub trait IDebugDocumentText_Impl: Sized + IDebugDocumentInfo_Impl + IDebugDocument_Impl {
+pub trait IDebugDocumentText_Impl: Sized + IDebugDocument_Impl {
     fn GetDocumentAttributes(&self) -> ::windows::core::Result<u32>;
     fn GetSize(&self, pcnumlines: *mut u32, pcnumchars: *mut u32) -> ::windows::core::Result<()>;
     fn GetPositionOfLine(&self, clinenumber: u32) -> ::windows::core::Result<u32>;
@@ -20536,7 +20536,7 @@ impl IDebugDocumentText_Vtbl {
         iid == &<IDebugDocumentText as ::windows::core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows::core::Interface>::IID || iid == &<IDebugDocument as ::windows::core::Interface>::IID
     }
 }
-pub trait IDebugDocumentTextAuthor_Impl: Sized + IDebugDocumentInfo_Impl + IDebugDocument_Impl + IDebugDocumentText_Impl {
+pub trait IDebugDocumentTextAuthor_Impl: Sized + IDebugDocumentText_Impl {
     fn InsertText(&self, ccharacterposition: u32, cnumtoinsert: u32, pchartext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn RemoveText(&self, ccharacterposition: u32, cnumtoremove: u32) -> ::windows::core::Result<()>;
     fn ReplaceText(&self, ccharacterposition: u32, cnumtoreplace: u32, pchartext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -21798,7 +21798,7 @@ impl IDebugHostModule_Vtbl {
         iid == &<IDebugHostModule as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
     }
 }
-pub trait IDebugHostModule2_Impl: Sized + IDebugHostSymbol_Impl + IDebugHostModule_Impl {
+pub trait IDebugHostModule2_Impl: Sized + IDebugHostModule_Impl {
     fn FindContainingSymbolByRVA(&self, rva: u64, symbol: *mut ::core::option::Option<IDebugHostSymbol>, offset: *mut u64) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IDebugHostModule2 {}
@@ -22423,7 +22423,7 @@ impl IDebugHostType_Vtbl {
         iid == &<IDebugHostType as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
     }
 }
-pub trait IDebugHostType2_Impl: Sized + IDebugHostSymbol_Impl + IDebugHostType_Impl {
+pub trait IDebugHostType2_Impl: Sized + IDebugHostType_Impl {
     fn IsTypedef(&self) -> ::windows::core::Result<bool>;
     fn GetTypedefBaseType(&self) -> ::windows::core::Result<IDebugHostType2>;
     fn GetTypedefFinalBaseType(&self) -> ::windows::core::Result<IDebugHostType2>;
@@ -32858,7 +32858,7 @@ impl IScriptNode_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IScriptScriptlet_Impl: Sized + IScriptNode_Impl + IScriptEntry_Impl {
+pub trait IScriptScriptlet_Impl: Sized + IScriptEntry_Impl {
     fn GetSubItemName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetSubItemName(&self, psz: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetEventName(&self) -> ::windows::core::Result<::windows::core::BSTR>;

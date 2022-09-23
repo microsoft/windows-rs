@@ -2175,7 +2175,7 @@ impl IOleInPlaceActiveObject_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IOleInPlaceFrame_Impl: Sized + IOleWindow_Impl + IOleInPlaceUIWindow_Impl {
+pub trait IOleInPlaceFrame_Impl: Sized + IOleInPlaceUIWindow_Impl {
     fn InsertMenus(&self, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *mut OLEMENUGROUPWIDTHS) -> ::windows::core::Result<()>;
     fn SetMenu(&self, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, holemenu: isize, hwndactiveobject: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn RemoveMenus(&self, hmenushared: super::super::UI::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>;
@@ -2277,7 +2277,7 @@ impl IOleInPlaceObject_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IOleInPlaceObjectWindowless_Impl: Sized + IOleWindow_Impl + IOleInPlaceObject_Impl {
+pub trait IOleInPlaceObjectWindowless_Impl: Sized + IOleInPlaceObject_Impl {
     fn OnWindowMessage(&self, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::LRESULT>;
     fn GetDropTarget(&self) -> ::windows::core::Result<IDropTarget>;
 }
@@ -2405,7 +2405,7 @@ impl IOleInPlaceSite_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IOleInPlaceSiteEx_Impl: Sized + IOleWindow_Impl + IOleInPlaceSite_Impl {
+pub trait IOleInPlaceSiteEx_Impl: Sized + IOleInPlaceSite_Impl {
     fn OnInPlaceActivateEx(&self, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> ::windows::core::Result<()>;
     fn OnInPlaceDeactivateEx(&self, fnoredraw: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn RequestUIActivate(&self) -> ::windows::core::Result<()>;
@@ -2442,7 +2442,7 @@ impl IOleInPlaceSiteEx_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IOleInPlaceSiteWindowless_Impl: Sized + IOleWindow_Impl + IOleInPlaceSite_Impl + IOleInPlaceSiteEx_Impl {
+pub trait IOleInPlaceSiteWindowless_Impl: Sized + IOleInPlaceSiteEx_Impl {
     fn CanWindowlessActivate(&self) -> ::windows::core::Result<()>;
     fn GetCapture(&self) -> ::windows::core::Result<()>;
     fn SetCapture(&self, fcapture: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -2604,7 +2604,7 @@ impl IOleInPlaceUIWindow_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IOleItemContainer_Impl: Sized + IParseDisplayName_Impl + IOleContainer_Impl {
+pub trait IOleItemContainer_Impl: Sized + IOleContainer_Impl {
     fn GetObject(&self, pszitem: &::windows::core::PCWSTR, dwspeedneeded: u32, pbc: &::core::option::Option<super::Com::IBindCtx>, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetObjectStorage(&self, pszitem: &::windows::core::PCWSTR, pbc: &::core::option::Option<super::Com::IBindCtx>, riid: *const ::windows::core::GUID, ppvstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn IsRunning(&self, pszitem: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -4488,7 +4488,7 @@ impl IProvideClassInfo2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IProvideMultipleClassInfo_Impl: Sized + IProvideClassInfo_Impl + IProvideClassInfo2_Impl {
+pub trait IProvideMultipleClassInfo_Impl: Sized + IProvideClassInfo2_Impl {
     fn GetMultiTypeInfoCount(&self) -> ::windows::core::Result<u32>;
     fn GetInfoOfIndex(&self, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: *mut ::core::option::Option<super::Com::ITypeInfo>, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut ::windows::core::GUID, piidsource: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
@@ -5054,7 +5054,7 @@ impl IViewObject2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IViewObjectEx_Impl: Sized + IViewObject_Impl + IViewObject2_Impl {
+pub trait IViewObjectEx_Impl: Sized + IViewObject2_Impl {
     fn GetRect(&self, dwaspect: u32) -> ::windows::core::Result<super::super::Foundation::RECTL>;
     fn GetViewStatus(&self) -> ::windows::core::Result<u32>;
     fn QueryHitPoint(&self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: &super::super::Foundation::POINT, lclosehint: i32) -> ::windows::core::Result<u32>;

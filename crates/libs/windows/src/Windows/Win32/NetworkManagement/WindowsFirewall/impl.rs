@@ -2588,7 +2588,7 @@ impl INetFwRule_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait INetFwRule2_Impl: Sized + super::super::System::Com::IDispatch_Impl + INetFwRule_Impl {
+pub trait INetFwRule2_Impl: Sized + INetFwRule_Impl {
     fn EdgeTraversalOptions(&self) -> ::windows::core::Result<i32>;
     fn SetEdgeTraversalOptions(&self, loptions: i32) -> ::windows::core::Result<()>;
 }
@@ -2624,7 +2624,7 @@ impl INetFwRule2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait INetFwRule3_Impl: Sized + super::super::System::Com::IDispatch_Impl + INetFwRule_Impl + INetFwRule2_Impl {
+pub trait INetFwRule3_Impl: Sized + INetFwRule2_Impl {
     fn LocalAppPackageId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetLocalAppPackageId(&self, wszpackageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn LocalUserOwner(&self) -> ::windows::core::Result<::windows::core::BSTR>;

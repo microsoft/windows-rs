@@ -106,7 +106,7 @@ impl ICivicAddressReport_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICivicAddressReportFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocationReportFactory_Impl {
+pub trait ICivicAddressReportFactory_Impl: Sized + ILocationReportFactory_Impl {
     fn CivicAddressReport(&self) -> ::windows::core::Result<IDispCivicAddressReport>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -460,7 +460,7 @@ impl ILatLongReport_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ILatLongReportFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocationReportFactory_Impl {
+pub trait ILatLongReportFactory_Impl: Sized + ILocationReportFactory_Impl {
     fn LatLongReport(&self) -> ::windows::core::Result<IDispLatLongReport>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

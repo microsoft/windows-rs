@@ -761,7 +761,7 @@ impl IPartFont_Vtbl {
         iid == &<IPartFont as ::windows::core::Interface>::IID || iid == &<IPartBase as ::windows::core::Interface>::IID
     }
 }
-pub trait IPartFont2_Impl: Sized + IPartBase_Impl + IPartFont_Impl {
+pub trait IPartFont2_Impl: Sized + IPartFont_Impl {
     fn GetFontRestriction(&self) -> ::windows::core::Result<EXpsFontRestriction>;
 }
 impl ::windows::core::RuntimeName for IPartFont2 {}
@@ -1294,7 +1294,7 @@ impl IPrintCoreHelperUni_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IPrintCoreHelperUni2_Impl: Sized + IPrintCoreHelper_Impl + IPrintCoreHelperUni_Impl {
+pub trait IPrintCoreHelperUni2_Impl: Sized + IPrintCoreHelperUni_Impl {
     fn GetNamedCommand(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszcommandname: &::windows::core::PCWSTR, ppcommandbytes: *mut *mut u8, pcbcommandsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -1726,7 +1726,7 @@ impl IPrintOemUI_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IPrintOemUI2_Impl: Sized + IPrintOemCommon_Impl + IPrintOemUI_Impl {
+pub trait IPrintOemUI2_Impl: Sized + IPrintOemUI_Impl {
     fn QueryJobAttributes(&self, hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> ::windows::core::Result<()>;
     fn HideStandardUI(&self, dwmode: u32) -> ::windows::core::Result<()>;
     fn DocumentEvent(&self, hprinter: super::super::Foundation::HANDLE, hdc: super::Gdi::HDC, iesc: i32, cbin: u32, pvin: *mut ::core::ffi::c_void, cbout: u32, pvout: *mut ::core::ffi::c_void, piresult: *mut i32) -> ::windows::core::Result<()>;
@@ -2070,7 +2070,7 @@ impl IPrintSchemaAsyncOperationEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaCapabilities_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
+pub trait IPrintSchemaCapabilities_Impl: Sized + IPrintSchemaElement_Impl {
     fn GetFeatureByKeyName(&self, bstrkeyname: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
     fn GetFeature(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
     fn PageImageableSize(&self) -> ::windows::core::Result<IPrintSchemaPageImageableSize>;
@@ -2177,7 +2177,7 @@ impl IPrintSchemaCapabilities_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaCapabilities2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaCapabilities_Impl {
+pub trait IPrintSchemaCapabilities2_Impl: Sized + IPrintSchemaCapabilities_Impl {
     fn GetParameterDefinition(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaParameterDefinition>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2203,7 +2203,7 @@ impl IPrintSchemaCapabilities2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaDisplayableElement_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
+pub trait IPrintSchemaDisplayableElement_Impl: Sized + IPrintSchemaElement_Impl {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2284,7 +2284,7 @@ impl IPrintSchemaElement_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaFeature_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl {
+pub trait IPrintSchemaFeature_Impl: Sized + IPrintSchemaDisplayableElement_Impl {
     fn SelectedOption(&self) -> ::windows::core::Result<IPrintSchemaOption>;
     fn SetSelectedOption(&self, poption: &::core::option::Option<IPrintSchemaOption>) -> ::windows::core::Result<()>;
     fn SelectionType(&self) -> ::windows::core::Result<PrintSchemaSelectionType>;
@@ -2359,7 +2359,7 @@ impl IPrintSchemaFeature_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaNUpOption_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl + IPrintSchemaOption_Impl {
+pub trait IPrintSchemaNUpOption_Impl: Sized + IPrintSchemaOption_Impl {
     fn PagesPerSheet(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2385,7 +2385,7 @@ impl IPrintSchemaNUpOption_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaOption_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl {
+pub trait IPrintSchemaOption_Impl: Sized + IPrintSchemaDisplayableElement_Impl {
     fn Selected(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Constrained(&self) -> ::windows::core::Result<PrintSchemaConstrainedSetting>;
     fn GetPropertyValue(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -2495,7 +2495,7 @@ impl IPrintSchemaOptionCollection_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaPageImageableSize_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
+pub trait IPrintSchemaPageImageableSize_Impl: Sized + IPrintSchemaElement_Impl {
     fn ImageableSizeWidthInMicrons(&self) -> ::windows::core::Result<u32>;
     fn ImageableSizeHeightInMicrons(&self) -> ::windows::core::Result<u32>;
     fn OriginWidthInMicrons(&self) -> ::windows::core::Result<u32>;
@@ -2589,7 +2589,7 @@ impl IPrintSchemaPageImageableSize_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaPageMediaSizeOption_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl + IPrintSchemaOption_Impl {
+pub trait IPrintSchemaPageMediaSizeOption_Impl: Sized + IPrintSchemaOption_Impl {
     fn WidthInMicrons(&self) -> ::windows::core::Result<u32>;
     fn HeightInMicrons(&self) -> ::windows::core::Result<u32>;
 }
@@ -2631,7 +2631,7 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaParameterDefinition_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl {
+pub trait IPrintSchemaParameterDefinition_Impl: Sized + IPrintSchemaDisplayableElement_Impl {
     fn UserInputRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn UnitType(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn DataType(&self) -> ::windows::core::Result<PrintSchemaParameterDataType>;
@@ -2712,7 +2712,7 @@ impl IPrintSchemaParameterDefinition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaParameterInitializer_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
+pub trait IPrintSchemaParameterInitializer_Impl: Sized + IPrintSchemaElement_Impl {
     fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetValue(&self, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -2748,7 +2748,7 @@ impl IPrintSchemaParameterInitializer_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaTicket_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
+pub trait IPrintSchemaTicket_Impl: Sized + IPrintSchemaElement_Impl {
     fn GetFeatureByKeyName(&self, bstrkeyname: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
     fn GetFeature(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
     fn ValidateAsync(&self) -> ::windows::core::Result<IPrintSchemaAsyncOperation>;
@@ -2856,7 +2856,7 @@ impl IPrintSchemaTicket_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrintSchemaTicket2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaTicket_Impl {
+pub trait IPrintSchemaTicket2_Impl: Sized + IPrintSchemaTicket_Impl {
     fn GetParameterInitializer(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaParameterInitializer>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3252,7 +3252,7 @@ impl IPrinterExtensionEvent_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrinterExtensionEventArgs_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrinterExtensionContext_Impl {
+pub trait IPrinterExtensionEventArgs_Impl: Sized + IPrinterExtensionContext_Impl {
     fn BidiNotification(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ReasonId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Request(&self) -> ::windows::core::Result<IPrinterExtensionRequest>;
@@ -3594,7 +3594,7 @@ impl IPrinterQueue_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrinterQueue2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrinterQueue_Impl {
+pub trait IPrinterQueue2_Impl: Sized + IPrinterQueue_Impl {
     fn SendBidiSetRequestAsync(&self, bstrbidirequest: &::windows::core::BSTR, pcallback: &::core::option::Option<IPrinterBidiSetRequestCallback>) -> ::windows::core::Result<IPrinterExtensionAsyncOperation>;
     fn GetPrinterQueueView(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<IPrinterQueueView>;
 }
@@ -3876,7 +3876,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrinterScriptablePropertyBag2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrinterScriptablePropertyBag_Impl {
+pub trait IPrinterScriptablePropertyBag2_Impl: Sized + IPrinterScriptablePropertyBag_Impl {
     fn GetReadStreamAsXML(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3944,7 +3944,7 @@ impl IPrinterScriptableSequentialStream_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IPrinterScriptableStream_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrinterScriptableSequentialStream_Impl {
+pub trait IPrinterScriptableStream_Impl: Sized + IPrinterScriptableSequentialStream_Impl {
     fn Commit(&self) -> ::windows::core::Result<()>;
     fn Seek(&self, loffset: i32, streamseek: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<i32>;
     fn SetSize(&self, lsize: i32) -> ::windows::core::Result<()>;

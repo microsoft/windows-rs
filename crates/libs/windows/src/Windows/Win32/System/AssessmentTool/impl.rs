@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-pub trait IAccessibleWinSAT_Impl: Sized + super::Com::IDispatch_Impl + super::super::UI::Accessibility::IAccessible_Impl {
+pub trait IAccessibleWinSAT_Impl: Sized + super::super::UI::Accessibility::IAccessible_Impl {
     fn SetAccessiblityData(&self, wsname: &::windows::core::PCWSTR, wsvalue: &::windows::core::PCWSTR, wsdesc: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]

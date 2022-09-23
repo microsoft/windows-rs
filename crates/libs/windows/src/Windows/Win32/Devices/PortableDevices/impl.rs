@@ -640,7 +640,7 @@ impl IPortableDeviceContent2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IPortableDeviceDataStream_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
+pub trait IPortableDeviceDataStream_Impl: Sized + super::super::System::Com::IStream_Impl {
     fn GetObjectID(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }

@@ -1128,7 +1128,7 @@ impl IConsole2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IConsole3_Impl: Sized + IConsole_Impl + IConsole2_Impl {
+pub trait IConsole3_Impl: Sized + IConsole2_Impl {
     fn RenameScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

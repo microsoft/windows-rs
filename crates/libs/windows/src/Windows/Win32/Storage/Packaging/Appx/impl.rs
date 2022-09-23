@@ -3182,7 +3182,7 @@ impl IAppxManifestReader2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxManifestReader3_Impl: Sized + IAppxManifestReader_Impl + IAppxManifestReader2_Impl {
+pub trait IAppxManifestReader3_Impl: Sized + IAppxManifestReader2_Impl {
     fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator>;
     fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
 }
@@ -3224,7 +3224,7 @@ impl IAppxManifestReader3_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAppxManifestReader4_Impl: Sized + IAppxManifestReader_Impl + IAppxManifestReader2_Impl + IAppxManifestReader3_Impl {
+pub trait IAppxManifestReader4_Impl: Sized + IAppxManifestReader3_Impl {
     fn GetOptionalPackageInfo(&self) -> ::windows::core::Result<IAppxManifestOptionalPackageInfo>;
 }
 #[cfg(feature = "Win32_System_Com")]

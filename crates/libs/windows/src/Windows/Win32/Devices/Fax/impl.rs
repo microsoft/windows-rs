@@ -2121,7 +2121,7 @@ impl IFaxDocument_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFaxDocument2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxDocument_Impl {
+pub trait IFaxDocument2_Impl: Sized + IFaxDocument_Impl {
     fn SubmissionId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Bodies(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetBodies(&self, vbodies: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -3463,7 +3463,7 @@ impl IFaxIncomingMessage_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFaxIncomingMessage2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxIncomingMessage_Impl {
+pub trait IFaxIncomingMessage2_Impl: Sized + IFaxIncomingMessage_Impl {
     fn Subject(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetSubject(&self, bstrsubject: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SenderName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5045,7 +5045,7 @@ impl IFaxOutgoingJob_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFaxOutgoingJob2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxOutgoingJob_Impl {
+pub trait IFaxOutgoingJob2_Impl: Sized + IFaxOutgoingJob_Impl {
     fn HasCoverPage(&self) -> ::windows::core::Result<i16>;
     fn ReceiptAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ScheduleType(&self) -> ::windows::core::Result<FAX_SCHEDULE_TYPE_ENUM>;
@@ -5406,7 +5406,7 @@ impl IFaxOutgoingMessage_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFaxOutgoingMessage2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxOutgoingMessage_Impl {
+pub trait IFaxOutgoingMessage2_Impl: Sized + IFaxOutgoingMessage_Impl {
     fn HasCoverPage(&self) -> ::windows::core::Result<i16>;
     fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM>;
     fn ReceiptAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -6970,7 +6970,7 @@ impl IFaxServer_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait IFaxServer2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFaxServer_Impl {
+pub trait IFaxServer2_Impl: Sized + IFaxServer_Impl {
     fn Configuration(&self) -> ::windows::core::Result<IFaxConfiguration>;
     fn CurrentAccount(&self) -> ::windows::core::Result<IFaxAccount>;
     fn FaxAccountSet(&self) -> ::windows::core::Result<IFaxAccountSet>;

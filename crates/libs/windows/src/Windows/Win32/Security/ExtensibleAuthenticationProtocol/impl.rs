@@ -201,7 +201,7 @@ impl IEAPProviderConfig2_Vtbl {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub trait IEAPProviderConfig3_Impl: Sized + IEAPProviderConfig_Impl + IEAPProviderConfig2_Impl {
+pub trait IEAPProviderConfig3_Impl: Sized + IEAPProviderConfig2_Impl {
     fn ServerInvokeCertificateConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]

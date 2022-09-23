@@ -50,7 +50,7 @@ impl IITDatabase_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersist_Impl + super::super::System::Com::IPersistStreamInit_Impl {
+pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersistStreamInit_Impl {
     fn Set(&self, propid: u32, lpszwstring: &::windows::core::PCWSTR, dwoperation: u32) -> ::windows::core::Result<()>;
     fn Set2(&self, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::Result<()>;
     fn Set3(&self, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::core::Result<()>;

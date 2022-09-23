@@ -750,7 +750,7 @@ impl ICommandWithParameters_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
-pub trait ICondition_Impl: Sized + super::Com::IPersist_Impl + super::Com::IPersistStream_Impl {
+pub trait ICondition_Impl: Sized + super::Com::IPersistStream_Impl {
     fn GetConditionType(&self) -> ::windows::core::Result<Common::CONDITION_TYPE>;
     fn GetSubConditions(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetComparisonInfo(&self, ppszpropertyname: *mut ::windows::core::PWSTR, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -839,7 +839,7 @@ impl ICondition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
-pub trait ICondition2_Impl: Sized + super::Com::IPersist_Impl + super::Com::IPersistStream_Impl + ICondition_Impl {
+pub trait ICondition2_Impl: Sized + ICondition_Impl {
     fn GetLocale(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetLeafConditionInfo(&self, ppropkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
@@ -3952,7 +3952,7 @@ impl IRowsetResynch_Vtbl {
         iid == &<IRowsetResynch as ::windows::core::Interface>::IID
     }
 }
-pub trait IRowsetScroll_Impl: Sized + IRowset_Impl + IRowsetLocate_Impl {
+pub trait IRowsetScroll_Impl: Sized + IRowsetLocate_Impl {
     fn GetApproximatePosition(&self, hreserved: usize, cbbookmark: usize, pbookmark: *const u8, pulposition: *mut usize, pcrows: *mut usize) -> ::windows::core::Result<()>;
     fn GetRowsAtRatio(&self, hreserved1: usize, hreserved2: usize, ulnumerator: usize, uldenominator: usize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::Result<()>;
 }
@@ -6493,7 +6493,7 @@ impl ITableDefinition_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ITableDefinitionWithConstraints_Impl: Sized + ITableDefinition_Impl + ITableCreation_Impl {
+pub trait ITableDefinitionWithConstraints_Impl: Sized + ITableCreation_Impl {
     fn AddConstraint(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintdesc: *mut DBCONSTRAINTDESC) -> ::windows::core::Result<()>;
     fn CreateTableWithConstraints(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, ptableid: *mut super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *mut DBCONSTRAINTDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn DropConstraint(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
@@ -7041,7 +7041,7 @@ impl IUrlAccessor2_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IUrlAccessor3_Impl: Sized + IUrlAccessor_Impl + IUrlAccessor2_Impl {
+pub trait IUrlAccessor3_Impl: Sized + IUrlAccessor2_Impl {
     fn GetImpersonationSidBlobs(&self, pcwszurl: &::windows::core::PCWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -7061,7 +7061,7 @@ impl IUrlAccessor3_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-pub trait IUrlAccessor4_Impl: Sized + IUrlAccessor_Impl + IUrlAccessor2_Impl + IUrlAccessor3_Impl {
+pub trait IUrlAccessor4_Impl: Sized + IUrlAccessor3_Impl {
     fn ShouldIndexItemContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn ShouldIndexProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }

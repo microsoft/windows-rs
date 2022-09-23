@@ -80,7 +80,7 @@ impl ContextInfo_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ContextInfo2_Impl: Sized + super::Com::IDispatch_Impl + ContextInfo_Impl {
+pub trait ContextInfo2_Impl: Sized + ContextInfo_Impl {
     fn GetPartitionId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetApplicationId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetApplicationInstanceId(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -442,7 +442,7 @@ impl ICOMAdminCatalog_Vtbl {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub trait ICOMAdminCatalog2_Impl: Sized + super::Com::IDispatch_Impl + ICOMAdminCatalog_Impl {
+pub trait ICOMAdminCatalog2_Impl: Sized + ICOMAdminCatalog_Impl {
     fn GetCollectionByQuery2(&self, bstrcollectionname: &::windows::core::BSTR, pvarquerystrings: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
     fn GetApplicationInstanceIDFromProcessID(&self, lprocessid: i32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ShutdownApplicationInstances(&self, pvarapplicationinstanceid: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -5317,7 +5317,7 @@ impl IServiceSynchronizationConfig_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-pub trait IServiceSysTxnConfig_Impl: Sized + IServiceTransactionConfigBase_Impl + IServiceTransactionConfig_Impl {
+pub trait IServiceSysTxnConfig_Impl: Sized + IServiceTransactionConfig_Impl {
     fn ConfigureBYOTSysTxn(&self, ptxproxy: &::core::option::Option<ITransactionProxy>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
