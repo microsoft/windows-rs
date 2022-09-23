@@ -27,14 +27,13 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     let mut matches = quote! { iid == &<#type_ident as ::windows::core::Interface>::IID };
 
-    match vtables.last() {
-        Some(Type::TypeDef((def, _))) => requires.combine(&gen_required_trait(gen, *def, &[])),
-        _ => {}
+    if let Some(Type::TypeDef((def, _))) = vtables.last() {
+        requires.combine(&gen_required_trait(gen, *def, &[]))
     }
 
     for def in &vtables {
         if let Type::TypeDef((def, generics)) = def {
-            let name = gen.type_def_name(*def, &generics);
+            let name = gen.type_def_name(*def, generics);
 
             matches.combine(&quote! {
                 || iid == &<#name as ::windows::core::Interface>::IID
