@@ -9,3 +9,9 @@ path = "../../libs/windows"
 features = [
     "Win32_System_Diagnostics_Debug",
 ]
+
+[dependencies.windows-sys]
+path = "../../libs/sys"
+features = [
+    "Win32_System_Diagnostics_Debug",
+]

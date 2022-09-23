@@ -45,7 +45,6 @@ fn test() -> Result<()> {
         BCryptDecrypt(decrypt_key, Some(&encrypted), None, None, Some(&mut decrypted), &mut decrypted_len, Default::default())?;
 
         let receive_message = std::str::from_utf8(trim_null_end(&decrypted)).expect("Not a valid message");
-        println!("`{}`", receive_message);
         assert_eq!(send_message, receive_message);
     }
     Ok(())

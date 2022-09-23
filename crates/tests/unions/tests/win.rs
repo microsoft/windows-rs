@@ -1,5 +1,6 @@
 use windows::Win32::{
     Foundation::HANDLE,
+    Graphics::Direct3D12::*,
     System::IO::{OVERLAPPED, OVERLAPPED_0_0},
 };
 
@@ -60,4 +61,26 @@ fn test_arch() {
 #[cfg(target_arch = "x86")]
 fn test_arch() {
     assert_eq!(core::mem::size_of::<OVERLAPPED>(), 20);
+}
+
+#[test]
+fn d3d() {
+    assert_eq!(core::mem::size_of::<D3D12_INDIRECT_ARGUMENT_DESC>(), 16);
+
+    assert_eq!(D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW.0, 3);
+
+    let mut desc = D3D12_INDIRECT_ARGUMENT_DESC {
+        Type: D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW,
+        Anonymous: D3D12_INDIRECT_ARGUMENT_DESC_0 { VertexBuffer: D3D12_INDIRECT_ARGUMENT_DESC_0_4 { Slot: 123 } },
+    };
+
+    assert_eq!(desc.Type, D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW);
+
+    desc.Type = D3D12_INDIRECT_ARGUMENT_TYPE_CONSTANT;
+
+    assert_eq!(desc.Type, D3D12_INDIRECT_ARGUMENT_TYPE_CONSTANT);
+
+    unsafe {
+        assert_eq!(desc.Anonymous.VertexBuffer.Slot, 123);
+    }
 }

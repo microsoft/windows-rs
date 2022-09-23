@@ -9,3 +9,9 @@ path = "../../libs/windows"
 features = [
     "Win32_Graphics_Direct2D_Common"
 ]
+
+[dependencies.windows-sys]
+path = "../../libs/sys"
+features = [
+    "Win32_Graphics_Direct2D_Common"
+]

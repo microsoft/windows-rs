@@ -1,5 +1,4 @@
-use windows::core::{HSTRING, PCSTR, PCWSTR};
-use windows::{s, w};
+use windows::core::*;
 
 #[test]
 fn test() {
