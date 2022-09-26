@@ -7,12 +7,13 @@ pub unsafe fn LdapGetLastError() -> u32 {
     }
     LdapGetLastError()
 }
-#[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
+#[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LdapMapErrorToWin32(ldaperror: u32) -> u32 {
+pub unsafe fn LdapMapErrorToWin32(ldaperror: LDAP_RETCODE) -> super::super::Foundation::WIN32_ERROR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "cdecl" {
-        fn LdapMapErrorToWin32(ldaperror: u32) -> u32;
+        fn LdapMapErrorToWin32(ldaperror: LDAP_RETCODE) -> super::super::Foundation::WIN32_ERROR;
     }
     LdapMapErrorToWin32(ldaperror)
 }

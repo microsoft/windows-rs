@@ -11,7 +11,7 @@ fn main() -> Result<()> {
         let server = locator.ConnectServer(&BSTR::from("root\\cimv2"), &BSTR::new(), &BSTR::new(), &BSTR::new(), 0, &BSTR::new(), None)?;
 
         // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1265
-        let query = server.ExecQuery(&BSTR::from("WQL"), &BSTR::from("select Caption from Win32_LogicalDisk"), WBEM_FLAG_FORWARD_ONLY.0 | WBEM_FLAG_RETURN_IMMEDIATELY.0, None)?;
+        let query = server.ExecQuery(&BSTR::from("WQL"), &BSTR::from("select Caption from Win32_LogicalDisk"), WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY, None)?;
 
         loop {
             let mut row = [None; 1];
