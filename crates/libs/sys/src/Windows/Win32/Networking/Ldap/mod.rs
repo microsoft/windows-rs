@@ -2,8 +2,9 @@
 extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn LdapGetLastError() -> u32;
-    #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
-    pub fn LdapMapErrorToWin32(ldaperror: u32) -> u32;
+    #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LdapMapErrorToWin32(ldaperror: LDAP_RETCODE) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn LdapUTF8ToUnicode(lpsrcstr: ::windows_sys::core::PCSTR, cchsrc: i32, lpdeststr: ::windows_sys::core::PWSTR, cchdest: i32) -> i32;
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
