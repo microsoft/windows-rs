@@ -8229,7 +8229,16 @@ pub struct ID3D11FunctionLinkingGraph_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11FunctionParameterReflection(::windows::core::IUnknown);
+pub struct ID3D11FunctionParameterReflection(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D11FunctionParameterReflection> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D11FunctionParameterReflection {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D11FunctionParameterReflection {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -8259,9 +8268,6 @@ unsafe impl ::core::marker::Sync for ID3D11FunctionParameterReflection {}
 unsafe impl ::windows::core::Vtable for ID3D11FunctionParameterReflection {
     type Vtable = ID3D11FunctionParameterReflection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D11FunctionParameterReflection {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42757488_334f_47fe_982e_1a65d08cc462);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11FunctionParameterReflection_Vtbl {
@@ -8272,7 +8278,16 @@ pub struct ID3D11FunctionParameterReflection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11FunctionReflection(::windows::core::IUnknown);
+pub struct ID3D11FunctionReflection(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D11FunctionReflection> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D11FunctionReflection {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D11FunctionReflection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -8334,9 +8349,6 @@ unsafe impl ::core::marker::Send for ID3D11FunctionReflection {}
 unsafe impl ::core::marker::Sync for ID3D11FunctionReflection {}
 unsafe impl ::windows::core::Vtable for ID3D11FunctionReflection {
     type Vtable = ID3D11FunctionReflection_Vtbl;
-}
-unsafe impl ::windows::core::Interface for ID3D11FunctionReflection {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x207bcecb_d683_4a06_a8a3_9b149b9f73a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -10699,7 +10711,16 @@ pub struct ID3D11ShaderReflection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11ShaderReflectionConstantBuffer(::windows::core::IUnknown);
+pub struct ID3D11ShaderReflectionConstantBuffer(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D11ShaderReflectionConstantBuffer> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D11ShaderReflectionConstantBuffer {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D11ShaderReflectionConstantBuffer {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -10737,9 +10758,6 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionConstantBuffer {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderReflectionConstantBuffer {
     type Vtable = ID3D11ShaderReflectionConstantBuffer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D11ShaderReflectionConstantBuffer {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb62d63d_93dd_4318_8ae8_c6f83ad371b8);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ShaderReflectionConstantBuffer_Vtbl {
@@ -10752,7 +10770,16 @@ pub struct ID3D11ShaderReflectionConstantBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11ShaderReflectionType(::windows::core::IUnknown);
+pub struct ID3D11ShaderReflectionType(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D11ShaderReflectionType> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D11ShaderReflectionType {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D11ShaderReflectionType {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -10824,9 +10851,6 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionType {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderReflectionType {
     type Vtable = ID3D11ShaderReflectionType_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D11ShaderReflectionType {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e6ffa6a_9bae_4613_a51e_91652d508c21);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ShaderReflectionType_Vtbl {
@@ -10847,7 +10871,16 @@ pub struct ID3D11ShaderReflectionType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-pub struct ID3D11ShaderReflectionVariable(::windows::core::IUnknown);
+pub struct ID3D11ShaderReflectionVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D11ShaderReflectionVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D11ShaderReflectionVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D11ShaderReflectionVariable {
     pub unsafe fn GetDesc(&self) -> ::windows::core::Result<D3D11_SHADER_VARIABLE_DESC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10883,9 +10916,6 @@ unsafe impl ::core::marker::Send for ID3D11ShaderReflectionVariable {}
 unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionVariable {}
 unsafe impl ::windows::core::Vtable for ID3D11ShaderReflectionVariable {
     type Vtable = ID3D11ShaderReflectionVariable_Vtbl;
-}
-unsafe impl ::windows::core::Interface for ID3D11ShaderReflectionVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51f23923_f3e5_4bd1_91cb_606177d8db4c);
 }
 #[repr(C)]
 #[doc(hidden)]

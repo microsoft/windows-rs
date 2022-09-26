@@ -2496,7 +2496,16 @@ pub struct ID3D10Effect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectBlendVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectBlendVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectBlendVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectBlendVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectBlendVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2631,9 +2640,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectBlendVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectBlendVariable {
     type Vtable = ID3D10EffectBlendVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectBlendVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fcd2294_df6d_4eae_86b3_0e9160cfb07b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectBlendVariable_Vtbl {
@@ -2646,7 +2652,16 @@ pub struct ID3D10EffectBlendVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectConstantBuffer(::windows::core::IUnknown);
+pub struct ID3D10EffectConstantBuffer(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectConstantBuffer> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectConstantBuffer {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectConstantBuffer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2792,9 +2807,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectConstantBuffer {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectConstantBuffer {
     type Vtable = ID3D10EffectConstantBuffer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectConstantBuffer {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56648f4d_cc8b_4444_a5ad_b5a3d76e91b3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectConstantBuffer_Vtbl {
@@ -2806,7 +2818,16 @@ pub struct ID3D10EffectConstantBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectDepthStencilVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectDepthStencilVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectDepthStencilVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectDepthStencilVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectDepthStencilVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2942,9 +2963,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectDepthStencilVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectDepthStencilVariable {
     type Vtable = ID3D10EffectDepthStencilVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectDepthStencilVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf482368_330a_46a5_9a5c_01c71af24c8d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectDepthStencilVariable_Vtbl {
@@ -2957,7 +2975,16 @@ pub struct ID3D10EffectDepthStencilVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectDepthStencilViewVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectDepthStencilViewVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectDepthStencilViewVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectDepthStencilViewVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectDepthStencilViewVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3099,9 +3126,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectDepthStencilViewVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectDepthStencilViewVariable {
     type Vtable = ID3D10EffectDepthStencilViewVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectDepthStencilViewVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e02c918_cc79_4985_b622_2d92ad701623);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectDepthStencilViewVariable_Vtbl {
@@ -3113,7 +3137,16 @@ pub struct ID3D10EffectDepthStencilViewVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectMatrixVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectMatrixVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectMatrixVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectMatrixVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectMatrixVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3263,9 +3296,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectMatrixVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectMatrixVariable {
     type Vtable = ID3D10EffectMatrixVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectMatrixVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50666c24_b82f_4eed_a172_5b6e7e8522e0);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectMatrixVariable_Vtbl {
@@ -3281,7 +3311,16 @@ pub struct ID3D10EffectMatrixVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectPass(::windows::core::IUnknown);
+pub struct ID3D10EffectPass(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectPass> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectPass {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectPass {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3337,9 +3376,6 @@ unsafe impl ::core::marker::Send for ID3D10EffectPass {}
 unsafe impl ::core::marker::Sync for ID3D10EffectPass {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectPass {
     type Vtable = ID3D10EffectPass_Vtbl;
-}
-unsafe impl ::windows::core::Interface for ID3D10EffectPass {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cfbeb89_1a06_46e0_b282_e3f9bfa36a54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3412,7 +3448,16 @@ pub struct ID3D10EffectPool_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectRasterizerVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectRasterizerVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectRasterizerVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectRasterizerVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectRasterizerVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3548,9 +3593,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectRasterizerVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectRasterizerVariable {
     type Vtable = ID3D10EffectRasterizerVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectRasterizerVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21af9f0e_4d94_4ea9_9785_2cb76b8c0b34);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectRasterizerVariable_Vtbl {
@@ -3563,7 +3605,16 @@ pub struct ID3D10EffectRasterizerVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectRenderTargetViewVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectRenderTargetViewVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectRenderTargetViewVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectRenderTargetViewVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectRenderTargetViewVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3705,9 +3756,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectRenderTargetViewVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectRenderTargetViewVariable {
     type Vtable = ID3D10EffectRenderTargetViewVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectRenderTargetViewVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28ca0cc3_c2c9_40bb_b57f_67b737122b17);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectRenderTargetViewVariable_Vtbl {
@@ -3719,7 +3767,16 @@ pub struct ID3D10EffectRenderTargetViewVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectSamplerVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectSamplerVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectSamplerVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectSamplerVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectSamplerVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3853,9 +3910,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectSamplerVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectSamplerVariable {
     type Vtable = ID3D10EffectSamplerVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectSamplerVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6530d5c7_07e9_4271_a418_e7ce4bd1e480);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectSamplerVariable_Vtbl {
@@ -3865,7 +3919,16 @@ pub struct ID3D10EffectSamplerVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectScalarVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectScalarVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectScalarVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectScalarVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectScalarVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4041,9 +4104,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectScalarVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectScalarVariable {
     type Vtable = ID3D10EffectScalarVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectScalarVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e48f7b_d2c8_49e8_a86c_022dee53431f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectScalarVariable_Vtbl {
@@ -4075,7 +4135,16 @@ pub struct ID3D10EffectScalarVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectShaderResourceVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectShaderResourceVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectShaderResourceVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectShaderResourceVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectShaderResourceVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4217,9 +4286,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectShaderResourceVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectShaderResourceVariable {
     type Vtable = ID3D10EffectShaderResourceVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectShaderResourceVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0a7157b_d872_4b1d_8073_efc2acd4b1fc);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectShaderResourceVariable_Vtbl {
@@ -4231,7 +4297,16 @@ pub struct ID3D10EffectShaderResourceVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectShaderVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectShaderVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectShaderVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectShaderVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectShaderVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4387,9 +4462,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectShaderVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectShaderVariable {
     type Vtable = ID3D10EffectShaderVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectShaderVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80849279_c799_4797_8c33_0407a07d9e06);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectShaderVariable_Vtbl {
@@ -4412,7 +4484,16 @@ pub struct ID3D10EffectShaderVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectStringVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectStringVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectStringVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectStringVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectStringVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4545,9 +4626,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectStringVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectStringVariable {
     type Vtable = ID3D10EffectStringVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectStringVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71417501_8df9_4e0a_a78a_255f9756baff);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectStringVariable_Vtbl {
@@ -4557,7 +4635,16 @@ pub struct ID3D10EffectStringVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectTechnique(::windows::core::IUnknown);
+pub struct ID3D10EffectTechnique(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectTechnique> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectTechnique {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectTechnique {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4611,9 +4698,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectTechnique {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectTechnique {
     type Vtable = ID3D10EffectTechnique_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectTechnique {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb122ce8_d1c9_4292_b237_24ed3de8b175);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectTechnique_Vtbl {
@@ -4630,7 +4714,16 @@ pub struct ID3D10EffectTechnique_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectType(::windows::core::IUnknown);
+pub struct ID3D10EffectType(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectType> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectType {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectType {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4685,9 +4778,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectType {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectType {
     type Vtable = ID3D10EffectType_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectType {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e9e1ddc_cd9d_4772_a837_00180b9b88fd);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectType_Vtbl {
@@ -4707,7 +4797,16 @@ pub struct ID3D10EffectType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4818,9 +4917,6 @@ unsafe impl ::core::marker::Sync for ID3D10EffectVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectVariable {
     type Vtable = ID3D10EffectVariable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10EffectVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae897105_00e6_45bf_bb8e_281dd6db8e1b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10EffectVariable_Vtbl {
@@ -4855,7 +4951,16 @@ pub struct ID3D10EffectVariable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10EffectVectorVariable(::windows::core::IUnknown);
+pub struct ID3D10EffectVectorVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10EffectVectorVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10EffectVectorVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10EffectVectorVariable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5024,9 +5129,6 @@ unsafe impl ::core::marker::Send for ID3D10EffectVectorVariable {}
 unsafe impl ::core::marker::Sync for ID3D10EffectVectorVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10EffectVectorVariable {
     type Vtable = ID3D10EffectVectorVariable_Vtbl;
-}
-unsafe impl ::windows::core::Interface for ID3D10EffectVectorVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b98c44_1f82_4c67_bcd0_72cf8f217e81);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6493,7 +6595,16 @@ pub struct ID3D10ShaderReflection1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10ShaderReflectionConstantBuffer(::windows::core::IUnknown);
+pub struct ID3D10ShaderReflectionConstantBuffer(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10ShaderReflectionConstantBuffer> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10ShaderReflectionConstantBuffer {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10ShaderReflectionConstantBuffer {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6532,9 +6643,6 @@ unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionConstantBuffer {}
 unsafe impl ::windows::core::Vtable for ID3D10ShaderReflectionConstantBuffer {
     type Vtable = ID3D10ShaderReflectionConstantBuffer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionConstantBuffer {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66c66a94_dddd_4b62_a66a_f0da33c2b4d0);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflectionConstantBuffer_Vtbl {
@@ -6547,7 +6655,16 @@ pub struct ID3D10ShaderReflectionConstantBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10ShaderReflectionType(::windows::core::IUnknown);
+pub struct ID3D10ShaderReflectionType(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10ShaderReflectionType> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10ShaderReflectionType {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10ShaderReflectionType {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6588,9 +6705,6 @@ unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionType {}
 unsafe impl ::windows::core::Vtable for ID3D10ShaderReflectionType {
     type Vtable = ID3D10ShaderReflectionType_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionType {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc530ad7d_9b16_4395_a979_ba2ecff83add);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D10ShaderReflectionType_Vtbl {
@@ -6604,7 +6718,16 @@ pub struct ID3D10ShaderReflectionType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-pub struct ID3D10ShaderReflectionVariable(::windows::core::IUnknown);
+pub struct ID3D10ShaderReflectionVariable(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3D10ShaderReflectionVariable> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3D10ShaderReflectionVariable {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3D10ShaderReflectionVariable {
     pub unsafe fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_VARIABLE_DESC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6634,9 +6757,6 @@ unsafe impl ::core::marker::Send for ID3D10ShaderReflectionVariable {}
 unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionVariable {}
 unsafe impl ::windows::core::Vtable for ID3D10ShaderReflectionVariable {
     type Vtable = ID3D10ShaderReflectionVariable_Vtbl;
-}
-unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionVariable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bf63c95_2650_405d_99c1_3636bd1da0a1);
 }
 #[repr(C)]
 #[doc(hidden)]

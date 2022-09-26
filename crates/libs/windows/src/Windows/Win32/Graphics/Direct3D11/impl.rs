@@ -2516,13 +2516,11 @@ pub trait ID3D11FunctionParameterReflection_Impl: Sized {
     fn GetDesc(&self) -> ::windows::core::Result<D3D11_PARAMETER_DESC>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::windows::core::RuntimeName for ID3D11FunctionParameterReflection {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D11FunctionParameterReflection_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionParameterReflection_Impl, const OFFSET: isize>() -> ID3D11FunctionParameterReflection_Vtbl {
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionParameterReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_PARAMETER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D11FunctionParameterReflection_Impl>() -> ID3D11FunctionParameterReflection_Vtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D11FunctionParameterReflection_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_PARAMETER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -2531,10 +2529,22 @@ impl ID3D11FunctionParameterReflection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { GetDesc: GetDesc::<Identity, Impl, OFFSET> }
+        Self { GetDesc: GetDesc::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11FunctionParameterReflection as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+struct ID3D11FunctionParameterReflection_ImplVtbl<T: ID3D11FunctionParameterReflection_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl<T: ID3D11FunctionParameterReflection_Impl> ID3D11FunctionParameterReflection_ImplVtbl<T> {
+    const VTABLE: ID3D11FunctionParameterReflection_Vtbl = ID3D11FunctionParameterReflection_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ID3D11FunctionParameterReflection {
+    pub fn new<'a, T: ID3D11FunctionParameterReflection_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D11FunctionParameterReflection_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -2548,13 +2558,11 @@ pub trait ID3D11FunctionReflection_Impl: Sized {
     fn GetFunctionParameter(&self, parameterindex: i32) -> ::core::option::Option<ID3D11FunctionParameterReflection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
-impl ::windows::core::RuntimeName for ID3D11FunctionReflection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D11FunctionReflection_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionReflection_Impl, const OFFSET: isize>() -> ID3D11FunctionReflection_Vtbl {
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_FUNCTION_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D11FunctionReflection_Impl>() -> ID3D11FunctionReflection_Vtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D11FunctionReflection_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_FUNCTION_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -2563,19 +2571,19 @@ impl ID3D11FunctionReflection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConstantBufferByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bufferindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetConstantBufferByIndex<Impl: ID3D11FunctionReflection_Impl>(this: *mut ::core::ffi::c_void, bufferindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetConstantBufferByIndex(::core::mem::transmute_copy(&bufferindex))
         }
-        unsafe extern "system" fn GetConstantBufferByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetConstantBufferByName<Impl: ID3D11FunctionReflection_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetConstantBufferByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetResourceBindingDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetResourceBindingDesc<Impl: ID3D11FunctionReflection_Impl>(this: *mut ::core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetResourceBindingDesc(::core::mem::transmute_copy(&resourceindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -2584,14 +2592,14 @@ impl ID3D11FunctionReflection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVariableByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVariableByName<Impl: ID3D11FunctionReflection_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetVariableByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetResourceBindingDescByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, pdesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetResourceBindingDescByName<Impl: ID3D11FunctionReflection_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, pdesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetResourceBindingDescByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -2600,23 +2608,35 @@ impl ID3D11FunctionReflection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFunctionParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11FunctionReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameterindex: i32) -> ::core::option::Option<ID3D11FunctionParameterReflection> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFunctionParameter<Impl: ID3D11FunctionReflection_Impl>(this: *mut ::core::ffi::c_void, parameterindex: i32) -> ::core::option::Option<ID3D11FunctionParameterReflection> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetFunctionParameter(::core::mem::transmute_copy(&parameterindex))
         }
         Self {
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, Impl, OFFSET>,
-            GetConstantBufferByName: GetConstantBufferByName::<Identity, Impl, OFFSET>,
-            GetResourceBindingDesc: GetResourceBindingDesc::<Identity, Impl, OFFSET>,
-            GetVariableByName: GetVariableByName::<Identity, Impl, OFFSET>,
-            GetResourceBindingDescByName: GetResourceBindingDescByName::<Identity, Impl, OFFSET>,
-            GetFunctionParameter: GetFunctionParameter::<Identity, Impl, OFFSET>,
+            GetDesc: GetDesc::<Impl>,
+            GetConstantBufferByIndex: GetConstantBufferByIndex::<Impl>,
+            GetConstantBufferByName: GetConstantBufferByName::<Impl>,
+            GetResourceBindingDesc: GetResourceBindingDesc::<Impl>,
+            GetVariableByName: GetVariableByName::<Impl>,
+            GetResourceBindingDescByName: GetResourceBindingDescByName::<Impl>,
+            GetFunctionParameter: GetFunctionParameter::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11FunctionReflection as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+struct ID3D11FunctionReflection_ImplVtbl<T: ID3D11FunctionReflection_Impl>(::std::marker::PhantomData<T>);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl<T: ID3D11FunctionReflection_Impl> ID3D11FunctionReflection_ImplVtbl<T> {
+    const VTABLE: ID3D11FunctionReflection_Vtbl = ID3D11FunctionReflection_Vtbl::new::<T>();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ID3D11FunctionReflection {
+    pub fn new<'a, T: ID3D11FunctionReflection_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D11FunctionReflection_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 pub trait ID3D11GeometryShader_Impl: Sized + ID3D11DeviceChild_Impl {}
@@ -3577,33 +3597,39 @@ pub trait ID3D11ShaderReflectionConstantBuffer_Impl: Sized {
     fn GetVariableByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::windows::core::RuntimeName for ID3D11ShaderReflectionConstantBuffer {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D11ShaderReflectionConstantBuffer_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>() -> ID3D11ShaderReflectionConstantBuffer_Vtbl {
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_BUFFER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D11ShaderReflectionConstantBuffer_Impl>() -> ID3D11ShaderReflectionConstantBuffer_Vtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D11ShaderReflectionConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_BUFFER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetVariableByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVariableByIndex<Impl: ID3D11ShaderReflectionConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetVariableByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetVariableByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVariableByName<Impl: ID3D11ShaderReflectionConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetVariableByName(::core::mem::transmute(&name))
         }
-        Self {
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetVariableByIndex: GetVariableByIndex::<Identity, Impl, OFFSET>,
-            GetVariableByName: GetVariableByName::<Identity, Impl, OFFSET>,
-        }
+        Self { GetDesc: GetDesc::<Impl>, GetVariableByIndex: GetVariableByIndex::<Impl>, GetVariableByName: GetVariableByName::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ShaderReflectionConstantBuffer as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+struct ID3D11ShaderReflectionConstantBuffer_ImplVtbl<T: ID3D11ShaderReflectionConstantBuffer_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl<T: ID3D11ShaderReflectionConstantBuffer_Impl> ID3D11ShaderReflectionConstantBuffer_ImplVtbl<T> {
+    const VTABLE: ID3D11ShaderReflectionConstantBuffer_Vtbl = ID3D11ShaderReflectionConstantBuffer_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ID3D11ShaderReflectionConstantBuffer {
+    pub fn new<'a, T: ID3D11ShaderReflectionConstantBuffer_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D11ShaderReflectionConstantBuffer_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -3621,13 +3647,11 @@ pub trait ID3D11ShaderReflectionType_Impl: Sized {
     fn ImplementsInterface(&self, pbase: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::windows::core::RuntimeName for ID3D11ShaderReflectionType {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D11ShaderReflectionType_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>() -> ID3D11ShaderReflectionType_Vtbl {
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_TYPE_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D11ShaderReflectionType_Impl>() -> ID3D11ShaderReflectionType_Vtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_TYPE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -3636,72 +3660,84 @@ impl ID3D11ShaderReflectionType_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMemberTypeByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberTypeByIndex<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberTypeByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetMemberTypeByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberTypeByName<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberTypeByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetMemberTypeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberTypeName<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberTypeName(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn IsEqual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsEqual<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.IsEqual(::core::mem::transmute(&ptype)).into()
         }
-        unsafe extern "system" fn GetSubType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetSubType<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetSubType()
         }
-        unsafe extern "system" fn GetBaseClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBaseClass<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetBaseClass()
         }
-        unsafe extern "system" fn GetNumInterfaces<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetNumInterfaces<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetNumInterfaces()
         }
-        unsafe extern "system" fn GetInterfaceByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetInterfaceByIndex<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, uindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetInterfaceByIndex(::core::mem::transmute_copy(&uindex))
         }
-        unsafe extern "system" fn IsOfType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn IsOfType<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.IsOfType(::core::mem::transmute(&ptype)).into()
         }
-        unsafe extern "system" fn ImplementsInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbase: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ImplementsInterface<Impl: ID3D11ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, pbase: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.ImplementsInterface(::core::mem::transmute(&pbase)).into()
         }
         Self {
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetMemberTypeByIndex: GetMemberTypeByIndex::<Identity, Impl, OFFSET>,
-            GetMemberTypeByName: GetMemberTypeByName::<Identity, Impl, OFFSET>,
-            GetMemberTypeName: GetMemberTypeName::<Identity, Impl, OFFSET>,
-            IsEqual: IsEqual::<Identity, Impl, OFFSET>,
-            GetSubType: GetSubType::<Identity, Impl, OFFSET>,
-            GetBaseClass: GetBaseClass::<Identity, Impl, OFFSET>,
-            GetNumInterfaces: GetNumInterfaces::<Identity, Impl, OFFSET>,
-            GetInterfaceByIndex: GetInterfaceByIndex::<Identity, Impl, OFFSET>,
-            IsOfType: IsOfType::<Identity, Impl, OFFSET>,
-            ImplementsInterface: ImplementsInterface::<Identity, Impl, OFFSET>,
+            GetDesc: GetDesc::<Impl>,
+            GetMemberTypeByIndex: GetMemberTypeByIndex::<Impl>,
+            GetMemberTypeByName: GetMemberTypeByName::<Impl>,
+            GetMemberTypeName: GetMemberTypeName::<Impl>,
+            IsEqual: IsEqual::<Impl>,
+            GetSubType: GetSubType::<Impl>,
+            GetBaseClass: GetBaseClass::<Impl>,
+            GetNumInterfaces: GetNumInterfaces::<Impl>,
+            GetInterfaceByIndex: GetInterfaceByIndex::<Impl>,
+            IsOfType: IsOfType::<Impl>,
+            ImplementsInterface: ImplementsInterface::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ShaderReflectionType as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+struct ID3D11ShaderReflectionType_ImplVtbl<T: ID3D11ShaderReflectionType_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl<T: ID3D11ShaderReflectionType_Impl> ID3D11ShaderReflectionType_ImplVtbl<T> {
+    const VTABLE: ID3D11ShaderReflectionType_Vtbl = ID3D11ShaderReflectionType_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ID3D11ShaderReflectionType {
+    pub fn new<'a, T: ID3D11ShaderReflectionType_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D11ShaderReflectionType_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 pub trait ID3D11ShaderReflectionVariable_Impl: Sized {
@@ -3710,12 +3746,11 @@ pub trait ID3D11ShaderReflectionVariable_Impl: Sized {
     fn GetBuffer(&self) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
     fn GetInterfaceSlot(&self, uarrayindex: u32) -> u32;
 }
-impl ::windows::core::RuntimeName for ID3D11ShaderReflectionVariable {}
 impl ID3D11ShaderReflectionVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionVariable_Impl, const OFFSET: isize>() -> ID3D11ShaderReflectionVariable_Vtbl {
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_VARIABLE_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D11ShaderReflectionVariable_Impl>() -> ID3D11ShaderReflectionVariable_Vtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D11ShaderReflectionVariable_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_VARIABLE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -3724,30 +3759,34 @@ impl ID3D11ShaderReflectionVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetType<Impl: ID3D11ShaderReflectionVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetType()
         }
-        unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBuffer<Impl: ID3D11ShaderReflectionVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetBuffer()
         }
-        unsafe extern "system" fn GetInterfaceSlot<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D11ShaderReflectionVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uarrayindex: u32) -> u32 {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetInterfaceSlot<Impl: ID3D11ShaderReflectionVariable_Impl>(this: *mut ::core::ffi::c_void, uarrayindex: u32) -> u32 {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetInterfaceSlot(::core::mem::transmute_copy(&uarrayindex))
         }
-        Self {
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetType: GetType::<Identity, Impl, OFFSET>,
-            GetBuffer: GetBuffer::<Identity, Impl, OFFSET>,
-            GetInterfaceSlot: GetInterfaceSlot::<Identity, Impl, OFFSET>,
-        }
+        Self { GetDesc: GetDesc::<Impl>, GetType: GetType::<Impl>, GetBuffer: GetBuffer::<Impl>, GetInterfaceSlot: GetInterfaceSlot::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D11ShaderReflectionVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+struct ID3D11ShaderReflectionVariable_ImplVtbl<T: ID3D11ShaderReflectionVariable_Impl>(::std::marker::PhantomData<T>);
+impl<T: ID3D11ShaderReflectionVariable_Impl> ID3D11ShaderReflectionVariable_ImplVtbl<T> {
+    const VTABLE: ID3D11ShaderReflectionVariable_Vtbl = ID3D11ShaderReflectionVariable_Vtbl::new::<T>();
+}
+impl ID3D11ShaderReflectionVariable {
+    pub fn new<'a, T: ID3D11ShaderReflectionVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D11ShaderReflectionVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]

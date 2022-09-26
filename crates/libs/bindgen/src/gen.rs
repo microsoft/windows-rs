@@ -707,7 +707,7 @@ impl<'a> Gen<'a> {
         }
     }
 
-    pub fn interface_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn interface_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, features: &TokenStream, has_unknown_base: bool) -> TokenStream {
         if let Some(default) = self.reader.type_def_default_interface(def) {
             let default_name = self.type_name(&default);
             let vtbl = self.type_vtbl_name(&default);
@@ -737,16 +737,24 @@ impl<'a> Gen<'a> {
                     ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE)
                 }
             };
-            quote! {
+
+            let mut tokens = quote! {
                 #features
                 unsafe impl<#constraints> ::windows::core::Vtable for #ident {
                     type Vtable = #vtbl;
                 }
-                #features
-                unsafe impl<#constraints> ::windows::core::Interface for #ident {
-                    const IID: ::windows::core::GUID = #guid;
-                }
+            };
+
+            if has_unknown_base {
+                tokens.combine(&quote! {
+                    #features
+                    unsafe impl<#constraints> ::windows::core::Interface for #ident {
+                        const IID: ::windows::core::GUID = #guid;
+                    }
+                });
             }
+
+            tokens
         }
     }
     pub fn interface_vtbl(&self, def: TypeDef, generics: &[Type], _ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {

@@ -19,6 +19,7 @@ mod param;
 mod ref_count;
 mod runtime_name;
 mod runtime_type;
+mod scoped_interface;
 mod sha1;
 mod strings;
 mod unknown;
@@ -54,6 +55,7 @@ pub use ref_count::*;
 pub use runtime_name::*;
 #[doc(hidden)]
 pub use runtime_type::*;
+pub use scoped_interface::*;
 #[doc(hidden)]
 pub use sha1::*;
 pub use strings::*;

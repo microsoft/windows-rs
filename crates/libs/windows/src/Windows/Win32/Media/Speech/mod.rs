@@ -1486,7 +1486,16 @@ pub struct ISpMMSysAudio_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-pub struct ISpNotifyCallback(::windows::core::IUnknown);
+pub struct ISpNotifyCallback(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ISpNotifyCallback> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ISpNotifyCallback {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ISpNotifyCallback {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1516,9 +1525,6 @@ impl ::core::fmt::Debug for ISpNotifyCallback {
 }
 unsafe impl ::windows::core::Vtable for ISpNotifyCallback {
     type Vtable = ISpNotifyCallback_Vtbl;
-}
-unsafe impl ::windows::core::Interface for ISpNotifyCallback {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]

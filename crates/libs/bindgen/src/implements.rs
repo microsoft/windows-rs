@@ -9,6 +9,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let type_ident = to_ident(gen.reader.type_def_name(def));
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");
+    let implvtbl_ident = impl_ident.join("Vtbl");
     let constraints = gen.generic_constraints(generics);
     let generic_names = gen.generic_names(generics);
     let named_phantoms = gen.generic_named_phantoms(generics);
@@ -17,6 +18,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let mut requires = quote! {};
     let type_ident = quote! { #type_ident<#generic_names> };
     let vtables = gen.reader.type_def_vtables(def);
+    let has_unknown_base = matches!(vtables.first(), Some(Type::IUnknown));
 
     fn gen_required_trait(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
         let name = gen.type_def_name_imp(def, generics, "_Impl");
@@ -83,24 +85,38 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
         let invoke_upcall = if gen.reader.type_def_flags(def).winrt() { winrt_methods::gen_upcall(gen, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(gen, &signature, quote! { this.#name }) };
 
-        quote! {
-            unsafe extern "system" fn #name<#constraints Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize> #vtbl_signature {
-                // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
-                let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-                let this = (*this).get_impl();
-                #invoke_upcall
+        if has_unknown_base {
+            quote! {
+                unsafe extern "system" fn #name<#constraints Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize> #vtbl_signature {
+                    // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
+                    let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+                    let this = (*this).get_impl();
+                    #invoke_upcall
+                }
+            }
+        } else {
+            quote! {
+                unsafe extern "system" fn #name<Impl: #impl_ident> #vtbl_signature {
+                    let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+                    let this = &*((*this).this as *const Impl);
+                    #invoke_upcall
+                }
             }
         }
     });
 
     let mut methods = quote! {};
 
-    match gen.reader.type_def_vtables(def).last() {
+    match vtables.last() {
         Some(Type::IUnknown) => methods.combine(&quote! { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), }),
         Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, #type_ident, OFFSET>(), }),
         Some(Type::TypeDef((def, generics))) => {
             let name = gen.type_def_name_imp(*def, generics, "_Vtbl");
-            methods.combine(&quote! { base__: #name::new::<Identity, Impl, OFFSET>(), });
+            if has_unknown_base {
+                methods.combine(&quote! { base__: #name::new::<Identity, Impl, OFFSET>(), });
+            } else {
+                methods.combine(&quote! { base__: #name::new::<Impl>(), });
+            }
         }
         _ => {}
     }
@@ -110,26 +126,64 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     for method in gen.reader.type_def_methods(def) {
         let name = method_names.add(gen, method);
-        methods.combine(&quote! { #name: #name::<#generic_names Identity, Impl, OFFSET>, });
+        if has_unknown_base {
+            methods.combine(&quote! { #name: #name::<#generic_names Identity, Impl, OFFSET>, });
+        } else {
+            methods.combine(&quote! { #name: #name::<Impl>, });
+        }
     }
 
-    quote! {
-        #features
-        pub trait #impl_ident<#generic_names> : Sized #requires where #constraints {
-            #(#method_traits)*
-        }
-        #runtime_name
-        #features
-        impl<#constraints> #vtbl_ident<#generic_names> {
-            pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize>() -> #vtbl_ident<#generic_names> {
-                #(#method_impls)*
-                Self{
-                    #methods
-                    #(#named_phantoms)*
+    if has_unknown_base {
+        quote! {
+            #features
+            pub trait #impl_ident<#generic_names> : Sized #requires where #constraints {
+                #(#method_traits)*
+            }
+            #runtime_name
+            #features
+            impl<#constraints> #vtbl_ident<#generic_names> {
+                pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize>() -> #vtbl_ident<#generic_names> {
+                    #(#method_impls)*
+                    Self{
+                        #methods
+                        #(#named_phantoms)*
+                    }
+                }
+                pub fn matches(iid: &windows::core::GUID) -> bool {
+                    #matches
                 }
             }
-            pub fn matches(iid: &windows::core::GUID) -> bool {
-                #matches
+        }
+    } else {
+        quote! {
+            #features
+            pub trait #impl_ident : Sized #requires {
+                #(#method_traits)*
+            }
+            #features
+            impl #vtbl_ident {
+                pub const fn new<Impl: #impl_ident>() -> #vtbl_ident {
+                    #(#method_impls)*
+                    Self{
+                        #methods
+                        #(#named_phantoms)*
+                    }
+                }
+            }
+            #[doc(hidden)]
+            #features
+            struct #implvtbl_ident<T: #impl_ident> (::std::marker::PhantomData<T>);
+            #features
+            impl<T: #impl_ident> #implvtbl_ident<T> {
+                const VTABLE: #vtbl_ident = #vtbl_ident::new::<T>();
+            }
+            #features
+            impl #type_ident {
+                pub fn new<'a, T: #impl_ident>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+                    let this = ::windows::core::ScopedHeap { vtable: &#implvtbl_ident::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+                    let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+                    unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
+                }
             }
         }
     }

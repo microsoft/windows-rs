@@ -62,22 +62,30 @@ pub trait ID3DInclude_Impl: Sized {
     fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &::windows::core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>;
     fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-impl ::windows::core::RuntimeName for ID3DInclude {}
 impl ID3DInclude_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3DInclude_Impl, const OFFSET: isize>() -> ID3DInclude_Vtbl {
-        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3DInclude_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: ::windows::core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3DInclude_Impl>() -> ID3DInclude_Vtbl {
+        unsafe extern "system" fn Open<Impl: ID3DInclude_Impl>(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: ::windows::core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.Open(::core::mem::transmute_copy(&includetype), ::core::mem::transmute(&pfilename), ::core::mem::transmute_copy(&pparentdata), ::core::mem::transmute_copy(&ppdata), ::core::mem::transmute_copy(&pbytes)).into()
         }
-        unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3DInclude_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Close<Impl: ID3DInclude_Impl>(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.Close(::core::mem::transmute_copy(&pdata)).into()
         }
-        Self { Open: Open::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
+        Self { Open: Open::<Impl>, Close: Close::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3DInclude as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+struct ID3DInclude_ImplVtbl<T: ID3DInclude_Impl>(::std::marker::PhantomData<T>);
+impl<T: ID3DInclude_Impl> ID3DInclude_ImplVtbl<T> {
+    const VTABLE: ID3DInclude_Vtbl = ID3DInclude_Vtbl::new::<T>();
+}
+impl ID3DInclude {
+    pub fn new<'a, T: ID3DInclude_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3DInclude_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
