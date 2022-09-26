@@ -261,32 +261,36 @@ pub trait IXAudio2EngineCallback_Impl: Sized {
     fn OnProcessingPassEnd(&self);
     fn OnCriticalError(&self, error: ::windows::core::HRESULT);
 }
-impl ::windows::core::RuntimeName for IXAudio2EngineCallback {}
 impl IXAudio2EngineCallback_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2EngineCallback_Impl, const OFFSET: isize>() -> IXAudio2EngineCallback_Vtbl {
-        unsafe extern "system" fn OnProcessingPassStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2EngineCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: IXAudio2EngineCallback_Impl>() -> IXAudio2EngineCallback_Vtbl {
+        unsafe extern "system" fn OnProcessingPassStart<Impl: IXAudio2EngineCallback_Impl>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnProcessingPassStart()
         }
-        unsafe extern "system" fn OnProcessingPassEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2EngineCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnProcessingPassEnd<Impl: IXAudio2EngineCallback_Impl>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnProcessingPassEnd()
         }
-        unsafe extern "system" fn OnCriticalError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2EngineCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnCriticalError<Impl: IXAudio2EngineCallback_Impl>(this: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnCriticalError(::core::mem::transmute_copy(&error))
         }
-        Self {
-            OnProcessingPassStart: OnProcessingPassStart::<Identity, Impl, OFFSET>,
-            OnProcessingPassEnd: OnProcessingPassEnd::<Identity, Impl, OFFSET>,
-            OnCriticalError: OnCriticalError::<Identity, Impl, OFFSET>,
-        }
+        Self { OnProcessingPassStart: OnProcessingPassStart::<Impl>, OnProcessingPassEnd: OnProcessingPassEnd::<Impl>, OnCriticalError: OnCriticalError::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2EngineCallback as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+struct IXAudio2EngineCallback_ImplVtbl<T: IXAudio2EngineCallback_Impl>(::std::marker::PhantomData<T>);
+impl<T: IXAudio2EngineCallback_Impl> IXAudio2EngineCallback_ImplVtbl<T> {
+    const VTABLE: IXAudio2EngineCallback_Vtbl = IXAudio2EngineCallback_Vtbl::new::<T>();
+}
+impl IXAudio2EngineCallback {
+    pub fn new<'a, T: IXAudio2EngineCallback_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IXAudio2EngineCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 pub trait IXAudio2Extension_Impl: Sized {
@@ -321,13 +325,11 @@ pub trait IXAudio2MasteringVoice_Impl: Sized + IXAudio2Voice_Impl {
     fn GetChannelMask(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IXAudio2MasteringVoice {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2MasteringVoice_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2MasteringVoice_Impl, const OFFSET: isize>() -> IXAudio2MasteringVoice_Vtbl {
-        unsafe extern "system" fn GetChannelMask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2MasteringVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchannelmask: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: IXAudio2MasteringVoice_Impl>() -> IXAudio2MasteringVoice_Vtbl {
+        unsafe extern "system" fn GetChannelMask<Impl: IXAudio2MasteringVoice_Impl>(this: *mut ::core::ffi::c_void, pchannelmask: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetChannelMask() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pchannelmask, ::core::mem::transmute(ok__));
@@ -336,10 +338,22 @@ impl IXAudio2MasteringVoice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: IXAudio2Voice_Vtbl::new::<Identity, Impl, OFFSET>(), GetChannelMask: GetChannelMask::<Identity, Impl, OFFSET> }
+        Self { base__: IXAudio2Voice_Vtbl::new::<Impl>(), GetChannelMask: GetChannelMask::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2MasteringVoice as ::windows::core::Interface>::IID || iid == &<IXAudio2Voice as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct IXAudio2MasteringVoice_ImplVtbl<T: IXAudio2MasteringVoice_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: IXAudio2MasteringVoice_Impl> IXAudio2MasteringVoice_ImplVtbl<T> {
+    const VTABLE: IXAudio2MasteringVoice_Vtbl = IXAudio2MasteringVoice_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IXAudio2MasteringVoice {
+    pub fn new<'a, T: IXAudio2MasteringVoice_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IXAudio2MasteringVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -356,89 +370,109 @@ pub trait IXAudio2SourceVoice_Impl: Sized + IXAudio2Voice_Impl {
     fn SetSourceSampleRate(&self, newsourcesamplerate: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IXAudio2SourceVoice {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2SourceVoice_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>() -> IXAudio2SourceVoice_Vtbl {
-        unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: IXAudio2SourceVoice_Impl>() -> IXAudio2SourceVoice_Vtbl {
+        unsafe extern "system" fn Start<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void, flags: u32, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.Start(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn Stop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Stop<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void, flags: u32, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.Stop(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn SubmitSourceBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SubmitSourceBuffer<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SubmitSourceBuffer(::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&pbufferwma)).into()
         }
-        unsafe extern "system" fn FlushSourceBuffers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn FlushSourceBuffers<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.FlushSourceBuffers().into()
         }
-        unsafe extern "system" fn Discontinuity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Discontinuity<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.Discontinuity().into()
         }
-        unsafe extern "system" fn ExitLoop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ExitLoop<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.ExitLoop(::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvoicestate: *mut XAUDIO2_VOICE_STATE, flags: u32) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetState<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void, pvoicestate: *mut XAUDIO2_VOICE_STATE, flags: u32) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetState(::core::mem::transmute_copy(&pvoicestate), ::core::mem::transmute_copy(&flags))
         }
-        unsafe extern "system" fn SetFrequencyRatio<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ratio: f32, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetFrequencyRatio<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void, ratio: f32, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetFrequencyRatio(::core::mem::transmute_copy(&ratio), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetFrequencyRatio<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pratio: *mut f32) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFrequencyRatio<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void, pratio: *mut f32) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetFrequencyRatio(::core::mem::transmute_copy(&pratio))
         }
-        unsafe extern "system" fn SetSourceSampleRate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SourceVoice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newsourcesamplerate: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetSourceSampleRate<Impl: IXAudio2SourceVoice_Impl>(this: *mut ::core::ffi::c_void, newsourcesamplerate: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetSourceSampleRate(::core::mem::transmute_copy(&newsourcesamplerate)).into()
         }
         Self {
-            base__: IXAudio2Voice_Vtbl::new::<Identity, Impl, OFFSET>(),
-            Start: Start::<Identity, Impl, OFFSET>,
-            Stop: Stop::<Identity, Impl, OFFSET>,
-            SubmitSourceBuffer: SubmitSourceBuffer::<Identity, Impl, OFFSET>,
-            FlushSourceBuffers: FlushSourceBuffers::<Identity, Impl, OFFSET>,
-            Discontinuity: Discontinuity::<Identity, Impl, OFFSET>,
-            ExitLoop: ExitLoop::<Identity, Impl, OFFSET>,
-            GetState: GetState::<Identity, Impl, OFFSET>,
-            SetFrequencyRatio: SetFrequencyRatio::<Identity, Impl, OFFSET>,
-            GetFrequencyRatio: GetFrequencyRatio::<Identity, Impl, OFFSET>,
-            SetSourceSampleRate: SetSourceSampleRate::<Identity, Impl, OFFSET>,
+            base__: IXAudio2Voice_Vtbl::new::<Impl>(),
+            Start: Start::<Impl>,
+            Stop: Stop::<Impl>,
+            SubmitSourceBuffer: SubmitSourceBuffer::<Impl>,
+            FlushSourceBuffers: FlushSourceBuffers::<Impl>,
+            Discontinuity: Discontinuity::<Impl>,
+            ExitLoop: ExitLoop::<Impl>,
+            GetState: GetState::<Impl>,
+            SetFrequencyRatio: SetFrequencyRatio::<Impl>,
+            GetFrequencyRatio: GetFrequencyRatio::<Impl>,
+            SetSourceSampleRate: SetSourceSampleRate::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2SourceVoice as ::windows::core::Interface>::IID || iid == &<IXAudio2Voice as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct IXAudio2SourceVoice_ImplVtbl<T: IXAudio2SourceVoice_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: IXAudio2SourceVoice_Impl> IXAudio2SourceVoice_ImplVtbl<T> {
+    const VTABLE: IXAudio2SourceVoice_Vtbl = IXAudio2SourceVoice_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IXAudio2SourceVoice {
+    pub fn new<'a, T: IXAudio2SourceVoice_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IXAudio2SourceVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2SubmixVoice_Impl: Sized + IXAudio2Voice_Impl {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IXAudio2SubmixVoice {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2SubmixVoice_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2SubmixVoice_Impl, const OFFSET: isize>() -> IXAudio2SubmixVoice_Vtbl {
-        Self { base__: IXAudio2Voice_Vtbl::new::<Identity, Impl, OFFSET>() }
+    pub const fn new<Impl: IXAudio2SubmixVoice_Impl>() -> IXAudio2SubmixVoice_Vtbl {
+        Self { base__: IXAudio2Voice_Vtbl::new::<Impl>() }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2SubmixVoice as ::windows::core::Interface>::IID || iid == &<IXAudio2Voice as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct IXAudio2SubmixVoice_ImplVtbl<T: IXAudio2SubmixVoice_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: IXAudio2SubmixVoice_Impl> IXAudio2SubmixVoice_ImplVtbl<T> {
+    const VTABLE: IXAudio2SubmixVoice_Vtbl = IXAudio2SubmixVoice_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IXAudio2SubmixVoice {
+    pub fn new<'a, T: IXAudio2SubmixVoice_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IXAudio2SubmixVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -464,129 +498,139 @@ pub trait IXAudio2Voice_Impl: Sized {
     fn DestroyVoice(&self);
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IXAudio2Voice {}
-#[cfg(feature = "Win32_Foundation")]
 impl IXAudio2Voice_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>() -> IXAudio2Voice_Vtbl {
-        unsafe extern "system" fn GetVoiceDetails<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: IXAudio2Voice_Impl>() -> IXAudio2Voice_Vtbl {
+        unsafe extern "system" fn GetVoiceDetails<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetVoiceDetails(::core::mem::transmute_copy(&pvoicedetails))
         }
-        unsafe extern "system" fn SetOutputVoices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psendlist: *const XAUDIO2_VOICE_SENDS) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOutputVoices<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, psendlist: *const XAUDIO2_VOICE_SENDS) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetOutputVoices(::core::mem::transmute_copy(&psendlist)).into()
         }
-        unsafe extern "system" fn SetEffectChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetEffectChain<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetEffectChain(::core::mem::transmute_copy(&peffectchain)).into()
         }
-        unsafe extern "system" fn EnableEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectindex: u32, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn EnableEffect<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, effectindex: u32, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.EnableEffect(::core::mem::transmute_copy(&effectindex), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn DisableEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectindex: u32, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DisableEffect<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, effectindex: u32, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.DisableEffect(::core::mem::transmute_copy(&effectindex), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetEffectState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectindex: u32, penabled: *mut super::super::super::Foundation::BOOL) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetEffectState<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, effectindex: u32, penabled: *mut super::super::super::Foundation::BOOL) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetEffectState(::core::mem::transmute_copy(&effectindex), ::core::mem::transmute_copy(&penabled))
         }
-        unsafe extern "system" fn SetEffectParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectindex: u32, pparameters: *const ::core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetEffectParameters<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, effectindex: u32, pparameters: *const ::core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetEffectParameters(::core::mem::transmute_copy(&effectindex), ::core::mem::transmute_copy(&pparameters), ::core::mem::transmute_copy(&parametersbytesize), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetEffectParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectindex: u32, pparameters: *mut ::core::ffi::c_void, parametersbytesize: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetEffectParameters<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, effectindex: u32, pparameters: *mut ::core::ffi::c_void, parametersbytesize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetEffectParameters(::core::mem::transmute_copy(&effectindex), ::core::mem::transmute_copy(&pparameters), ::core::mem::transmute_copy(&parametersbytesize)).into()
         }
-        unsafe extern "system" fn SetFilterParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetFilterParameters<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetFilterParameters(::core::mem::transmute_copy(&pparameters), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetFilterParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparameters: *mut XAUDIO2_FILTER_PARAMETERS) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFilterParameters<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, pparameters: *mut XAUDIO2_FILTER_PARAMETERS) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetFilterParameters(::core::mem::transmute_copy(&pparameters))
         }
-        unsafe extern "system" fn SetOutputFilterParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOutputFilterParameters<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetOutputFilterParameters(::core::mem::transmute(&pdestinationvoice), ::core::mem::transmute_copy(&pparameters), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetOutputFilterParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, pparameters: *mut XAUDIO2_FILTER_PARAMETERS) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetOutputFilterParameters<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, pparameters: *mut XAUDIO2_FILTER_PARAMETERS) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetOutputFilterParameters(::core::mem::transmute(&pdestinationvoice), ::core::mem::transmute_copy(&pparameters))
         }
-        unsafe extern "system" fn SetVolume<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, volume: f32, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetVolume<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, volume: f32, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetVolume(::core::mem::transmute_copy(&volume), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetVolume<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvolume: *mut f32) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVolume<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, pvolume: *mut f32) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetVolume(::core::mem::transmute_copy(&pvolume))
         }
-        unsafe extern "system" fn SetChannelVolumes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channels: u32, pvolumes: *const f32, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetChannelVolumes<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, channels: u32, pvolumes: *const f32, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetChannelVolumes(::core::mem::transmute_copy(&channels), ::core::mem::transmute_copy(&pvolumes), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetChannelVolumes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channels: u32, pvolumes: *mut f32) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetChannelVolumes<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, channels: u32, pvolumes: *mut f32) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetChannelVolumes(::core::mem::transmute_copy(&channels), ::core::mem::transmute_copy(&pvolumes))
         }
-        unsafe extern "system" fn SetOutputMatrix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetOutputMatrix<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetOutputMatrix(::core::mem::transmute(&pdestinationvoice), ::core::mem::transmute_copy(&sourcechannels), ::core::mem::transmute_copy(&destinationchannels), ::core::mem::transmute_copy(&plevelmatrix), ::core::mem::transmute_copy(&operationset)).into()
         }
-        unsafe extern "system" fn GetOutputMatrix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetOutputMatrix<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetOutputMatrix(::core::mem::transmute(&pdestinationvoice), ::core::mem::transmute_copy(&sourcechannels), ::core::mem::transmute_copy(&destinationchannels), ::core::mem::transmute_copy(&plevelmatrix))
         }
-        unsafe extern "system" fn DestroyVoice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2Voice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn DestroyVoice<Impl: IXAudio2Voice_Impl>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.DestroyVoice()
         }
         Self {
-            GetVoiceDetails: GetVoiceDetails::<Identity, Impl, OFFSET>,
-            SetOutputVoices: SetOutputVoices::<Identity, Impl, OFFSET>,
-            SetEffectChain: SetEffectChain::<Identity, Impl, OFFSET>,
-            EnableEffect: EnableEffect::<Identity, Impl, OFFSET>,
-            DisableEffect: DisableEffect::<Identity, Impl, OFFSET>,
-            GetEffectState: GetEffectState::<Identity, Impl, OFFSET>,
-            SetEffectParameters: SetEffectParameters::<Identity, Impl, OFFSET>,
-            GetEffectParameters: GetEffectParameters::<Identity, Impl, OFFSET>,
-            SetFilterParameters: SetFilterParameters::<Identity, Impl, OFFSET>,
-            GetFilterParameters: GetFilterParameters::<Identity, Impl, OFFSET>,
-            SetOutputFilterParameters: SetOutputFilterParameters::<Identity, Impl, OFFSET>,
-            GetOutputFilterParameters: GetOutputFilterParameters::<Identity, Impl, OFFSET>,
-            SetVolume: SetVolume::<Identity, Impl, OFFSET>,
-            GetVolume: GetVolume::<Identity, Impl, OFFSET>,
-            SetChannelVolumes: SetChannelVolumes::<Identity, Impl, OFFSET>,
-            GetChannelVolumes: GetChannelVolumes::<Identity, Impl, OFFSET>,
-            SetOutputMatrix: SetOutputMatrix::<Identity, Impl, OFFSET>,
-            GetOutputMatrix: GetOutputMatrix::<Identity, Impl, OFFSET>,
-            DestroyVoice: DestroyVoice::<Identity, Impl, OFFSET>,
+            GetVoiceDetails: GetVoiceDetails::<Impl>,
+            SetOutputVoices: SetOutputVoices::<Impl>,
+            SetEffectChain: SetEffectChain::<Impl>,
+            EnableEffect: EnableEffect::<Impl>,
+            DisableEffect: DisableEffect::<Impl>,
+            GetEffectState: GetEffectState::<Impl>,
+            SetEffectParameters: SetEffectParameters::<Impl>,
+            GetEffectParameters: GetEffectParameters::<Impl>,
+            SetFilterParameters: SetFilterParameters::<Impl>,
+            GetFilterParameters: GetFilterParameters::<Impl>,
+            SetOutputFilterParameters: SetOutputFilterParameters::<Impl>,
+            GetOutputFilterParameters: GetOutputFilterParameters::<Impl>,
+            SetVolume: SetVolume::<Impl>,
+            GetVolume: GetVolume::<Impl>,
+            SetChannelVolumes: SetChannelVolumes::<Impl>,
+            GetChannelVolumes: GetChannelVolumes::<Impl>,
+            SetOutputMatrix: SetOutputMatrix::<Impl>,
+            GetOutputMatrix: GetOutputMatrix::<Impl>,
+            DestroyVoice: DestroyVoice::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2Voice as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct IXAudio2Voice_ImplVtbl<T: IXAudio2Voice_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: IXAudio2Voice_Impl> IXAudio2Voice_ImplVtbl<T> {
+    const VTABLE: IXAudio2Voice_Vtbl = IXAudio2Voice_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IXAudio2Voice {
+    pub fn new<'a, T: IXAudio2Voice_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IXAudio2Voice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 pub trait IXAudio2VoiceCallback_Impl: Sized {
@@ -598,55 +642,63 @@ pub trait IXAudio2VoiceCallback_Impl: Sized {
     fn OnLoopEnd(&self, pbuffercontext: *mut ::core::ffi::c_void);
     fn OnVoiceError(&self, pbuffercontext: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT);
 }
-impl ::windows::core::RuntimeName for IXAudio2VoiceCallback {}
 impl IXAudio2VoiceCallback_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2VoiceCallback_Impl, const OFFSET: isize>() -> IXAudio2VoiceCallback_Vtbl {
-        unsafe extern "system" fn OnVoiceProcessingPassStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2VoiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bytesrequired: u32) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: IXAudio2VoiceCallback_Impl>() -> IXAudio2VoiceCallback_Vtbl {
+        unsafe extern "system" fn OnVoiceProcessingPassStart<Impl: IXAudio2VoiceCallback_Impl>(this: *mut ::core::ffi::c_void, bytesrequired: u32) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnVoiceProcessingPassStart(::core::mem::transmute_copy(&bytesrequired))
         }
-        unsafe extern "system" fn OnVoiceProcessingPassEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2VoiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnVoiceProcessingPassEnd<Impl: IXAudio2VoiceCallback_Impl>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnVoiceProcessingPassEnd()
         }
-        unsafe extern "system" fn OnStreamEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2VoiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnStreamEnd<Impl: IXAudio2VoiceCallback_Impl>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnStreamEnd()
         }
-        unsafe extern "system" fn OnBufferStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2VoiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnBufferStart<Impl: IXAudio2VoiceCallback_Impl>(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnBufferStart(::core::mem::transmute_copy(&pbuffercontext))
         }
-        unsafe extern "system" fn OnBufferEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2VoiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnBufferEnd<Impl: IXAudio2VoiceCallback_Impl>(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnBufferEnd(::core::mem::transmute_copy(&pbuffercontext))
         }
-        unsafe extern "system" fn OnLoopEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2VoiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnLoopEnd<Impl: IXAudio2VoiceCallback_Impl>(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnLoopEnd(::core::mem::transmute_copy(&pbuffercontext))
         }
-        unsafe extern "system" fn OnVoiceError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2VoiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn OnVoiceError<Impl: IXAudio2VoiceCallback_Impl>(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT) {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.OnVoiceError(::core::mem::transmute_copy(&pbuffercontext), ::core::mem::transmute_copy(&error))
         }
         Self {
-            OnVoiceProcessingPassStart: OnVoiceProcessingPassStart::<Identity, Impl, OFFSET>,
-            OnVoiceProcessingPassEnd: OnVoiceProcessingPassEnd::<Identity, Impl, OFFSET>,
-            OnStreamEnd: OnStreamEnd::<Identity, Impl, OFFSET>,
-            OnBufferStart: OnBufferStart::<Identity, Impl, OFFSET>,
-            OnBufferEnd: OnBufferEnd::<Identity, Impl, OFFSET>,
-            OnLoopEnd: OnLoopEnd::<Identity, Impl, OFFSET>,
-            OnVoiceError: OnVoiceError::<Identity, Impl, OFFSET>,
+            OnVoiceProcessingPassStart: OnVoiceProcessingPassStart::<Impl>,
+            OnVoiceProcessingPassEnd: OnVoiceProcessingPassEnd::<Impl>,
+            OnStreamEnd: OnStreamEnd::<Impl>,
+            OnBufferStart: OnBufferStart::<Impl>,
+            OnBufferEnd: OnBufferEnd::<Impl>,
+            OnLoopEnd: OnLoopEnd::<Impl>,
+            OnVoiceError: OnVoiceError::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXAudio2VoiceCallback as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+struct IXAudio2VoiceCallback_ImplVtbl<T: IXAudio2VoiceCallback_Impl>(::std::marker::PhantomData<T>);
+impl<T: IXAudio2VoiceCallback_Impl> IXAudio2VoiceCallback_ImplVtbl<T> {
+    const VTABLE: IXAudio2VoiceCallback_Vtbl = IXAudio2VoiceCallback_Vtbl::new::<T>();
+}
+impl IXAudio2VoiceCallback {
+    pub fn new<'a, T: IXAudio2VoiceCallback_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IXAudio2VoiceCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }

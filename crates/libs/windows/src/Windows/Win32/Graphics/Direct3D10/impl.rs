@@ -1263,13 +1263,11 @@ pub trait ID3D10EffectBlendVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetBackingStore(&self, index: u32, pblenddesc: *mut D3D10_BLEND_DESC) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectBlendVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectBlendVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectBlendVariable_Impl, const OFFSET: isize>() -> ID3D10EffectBlendVariable_Vtbl {
-        unsafe extern "system" fn GetBlendState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectBlendVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppblendstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectBlendVariable_Impl>() -> ID3D10EffectBlendVariable_Vtbl {
+        unsafe extern "system" fn GetBlendState<Impl: ID3D10EffectBlendVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32, ppblendstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetBlendState(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppblendstate, ::core::mem::transmute(ok__));
@@ -1278,19 +1276,27 @@ impl ID3D10EffectBlendVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackingStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectBlendVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pblenddesc: *mut D3D10_BLEND_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBackingStore<Impl: ID3D10EffectBlendVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32, pblenddesc: *mut D3D10_BLEND_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetBackingStore(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pblenddesc)).into()
         }
-        Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            GetBlendState: GetBlendState::<Identity, Impl, OFFSET>,
-            GetBackingStore: GetBackingStore::<Identity, Impl, OFFSET>,
-        }
+        Self { base__: ID3D10EffectVariable_Vtbl::new::<Impl>(), GetBlendState: GetBlendState::<Impl>, GetBackingStore: GetBackingStore::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectBlendVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectBlendVariable_ImplVtbl<T: ID3D10EffectBlendVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectBlendVariable_Impl> ID3D10EffectBlendVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectBlendVariable_Vtbl = ID3D10EffectBlendVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectBlendVariable {
+    pub fn new<'a, T: ID3D10EffectBlendVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectBlendVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1301,18 +1307,16 @@ pub trait ID3D10EffectConstantBuffer_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetTextureBuffer(&self) -> ::windows::core::Result<ID3D10ShaderResourceView>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectConstantBuffer {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectConstantBuffer_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectConstantBuffer_Impl, const OFFSET: isize>() -> ID3D10EffectConstantBuffer_Vtbl {
-        unsafe extern "system" fn SetConstantBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconstantbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectConstantBuffer_Impl>() -> ID3D10EffectConstantBuffer_Vtbl {
+        unsafe extern "system" fn SetConstantBuffer<Impl: ID3D10EffectConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, pconstantbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetConstantBuffer(::core::mem::transmute(&pconstantbuffer)).into()
         }
-        unsafe extern "system" fn GetConstantBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppconstantbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetConstantBuffer<Impl: ID3D10EffectConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, ppconstantbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetConstantBuffer() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppconstantbuffer, ::core::mem::transmute(ok__));
@@ -1321,14 +1325,14 @@ impl ID3D10EffectConstantBuffer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTextureBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptexturebuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetTextureBuffer<Impl: ID3D10EffectConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, ptexturebuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetTextureBuffer(::core::mem::transmute(&ptexturebuffer)).into()
         }
-        unsafe extern "system" fn GetTextureBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptexturebuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetTextureBuffer<Impl: ID3D10EffectConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, pptexturebuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetTextureBuffer() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pptexturebuffer, ::core::mem::transmute(ok__));
@@ -1338,15 +1342,27 @@ impl ID3D10EffectConstantBuffer_Vtbl {
             }
         }
         Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SetConstantBuffer: SetConstantBuffer::<Identity, Impl, OFFSET>,
-            GetConstantBuffer: GetConstantBuffer::<Identity, Impl, OFFSET>,
-            SetTextureBuffer: SetTextureBuffer::<Identity, Impl, OFFSET>,
-            GetTextureBuffer: GetTextureBuffer::<Identity, Impl, OFFSET>,
+            base__: ID3D10EffectVariable_Vtbl::new::<Impl>(),
+            SetConstantBuffer: SetConstantBuffer::<Impl>,
+            GetConstantBuffer: GetConstantBuffer::<Impl>,
+            SetTextureBuffer: SetTextureBuffer::<Impl>,
+            GetTextureBuffer: GetTextureBuffer::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectConstantBuffer as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectConstantBuffer_ImplVtbl<T: ID3D10EffectConstantBuffer_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectConstantBuffer_Impl> ID3D10EffectConstantBuffer_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectConstantBuffer_Vtbl = ID3D10EffectConstantBuffer_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectConstantBuffer {
+    pub fn new<'a, T: ID3D10EffectConstantBuffer_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectConstantBuffer_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1355,13 +1371,11 @@ pub trait ID3D10EffectDepthStencilVariable_Impl: Sized + ID3D10EffectVariable_Im
     fn GetBackingStore(&self, index: u32) -> ::windows::core::Result<D3D10_DEPTH_STENCIL_DESC>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectDepthStencilVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectDepthStencilVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectDepthStencilVariable_Impl, const OFFSET: isize>() -> ID3D10EffectDepthStencilVariable_Vtbl {
-        unsafe extern "system" fn GetDepthStencilState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectDepthStencilVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppdepthstencilstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectDepthStencilVariable_Impl>() -> ID3D10EffectDepthStencilVariable_Vtbl {
+        unsafe extern "system" fn GetDepthStencilState<Impl: ID3D10EffectDepthStencilVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32, ppdepthstencilstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDepthStencilState(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppdepthstencilstate, ::core::mem::transmute(ok__));
@@ -1370,9 +1384,9 @@ impl ID3D10EffectDepthStencilVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackingStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectDepthStencilVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pdepthstencildesc: *mut D3D10_DEPTH_STENCIL_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBackingStore<Impl: ID3D10EffectDepthStencilVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32, pdepthstencildesc: *mut D3D10_DEPTH_STENCIL_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetBackingStore(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdepthstencildesc, ::core::mem::transmute(ok__));
@@ -1381,14 +1395,22 @@ impl ID3D10EffectDepthStencilVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            GetDepthStencilState: GetDepthStencilState::<Identity, Impl, OFFSET>,
-            GetBackingStore: GetBackingStore::<Identity, Impl, OFFSET>,
-        }
+        Self { base__: ID3D10EffectVariable_Vtbl::new::<Impl>(), GetDepthStencilState: GetDepthStencilState::<Impl>, GetBackingStore: GetBackingStore::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectDepthStencilVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectDepthStencilVariable_ImplVtbl<T: ID3D10EffectDepthStencilVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectDepthStencilVariable_Impl> ID3D10EffectDepthStencilVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectDepthStencilVariable_Vtbl = ID3D10EffectDepthStencilVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectDepthStencilVariable {
+    pub fn new<'a, T: ID3D10EffectDepthStencilVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectDepthStencilVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1399,18 +1421,16 @@ pub trait ID3D10EffectDepthStencilViewVariable_Impl: Sized + ID3D10EffectVariabl
     fn GetDepthStencilArray(&self, ppresources: *mut ::core::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectDepthStencilViewVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectDepthStencilViewVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectDepthStencilViewVariable_Impl, const OFFSET: isize>() -> ID3D10EffectDepthStencilViewVariable_Vtbl {
-        unsafe extern "system" fn SetDepthStencil<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectDepthStencilViewVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectDepthStencilViewVariable_Impl>() -> ID3D10EffectDepthStencilViewVariable_Vtbl {
+        unsafe extern "system" fn SetDepthStencil<Impl: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetDepthStencil(::core::mem::transmute(&presource)).into()
         }
-        unsafe extern "system" fn GetDepthStencil<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectDepthStencilViewVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDepthStencil<Impl: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDepthStencil() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppresource, ::core::mem::transmute(ok__));
@@ -1419,26 +1439,38 @@ impl ID3D10EffectDepthStencilViewVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDepthStencilArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectDepthStencilViewVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresources: *const *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetDepthStencilArray<Impl: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut ::core::ffi::c_void, ppresources: *const *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetDepthStencilArray(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetDepthStencilArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectDepthStencilViewVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresources: *mut *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDepthStencilArray<Impl: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut ::core::ffi::c_void, ppresources: *mut *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetDepthStencilArray(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SetDepthStencil: SetDepthStencil::<Identity, Impl, OFFSET>,
-            GetDepthStencil: GetDepthStencil::<Identity, Impl, OFFSET>,
-            SetDepthStencilArray: SetDepthStencilArray::<Identity, Impl, OFFSET>,
-            GetDepthStencilArray: GetDepthStencilArray::<Identity, Impl, OFFSET>,
+            base__: ID3D10EffectVariable_Vtbl::new::<Impl>(),
+            SetDepthStencil: SetDepthStencil::<Impl>,
+            GetDepthStencil: GetDepthStencil::<Impl>,
+            SetDepthStencilArray: SetDepthStencilArray::<Impl>,
+            GetDepthStencilArray: GetDepthStencilArray::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectDepthStencilViewVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectDepthStencilViewVariable_ImplVtbl<T: ID3D10EffectDepthStencilViewVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectDepthStencilViewVariable_Impl> ID3D10EffectDepthStencilViewVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectDepthStencilViewVariable_Vtbl = ID3D10EffectDepthStencilViewVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectDepthStencilViewVariable {
+    pub fn new<'a, T: ID3D10EffectDepthStencilViewVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectDepthStencilViewVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1453,64 +1485,74 @@ pub trait ID3D10EffectMatrixVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetMatrixTransposeArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectMatrixVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectMatrixVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>() -> ID3D10EffectMatrixVariable_Vtbl {
-        unsafe extern "system" fn SetMatrix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectMatrixVariable_Impl>() -> ID3D10EffectMatrixVariable_Vtbl {
+        unsafe extern "system" fn SetMatrix<Impl: ID3D10EffectMatrixVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetMatrix(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn GetMatrix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMatrix<Impl: ID3D10EffectMatrixVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMatrix(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn SetMatrixArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetMatrixArray<Impl: ID3D10EffectMatrixVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetMatrixArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetMatrixArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMatrixArray<Impl: ID3D10EffectMatrixVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMatrixArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn SetMatrixTranspose<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetMatrixTranspose<Impl: ID3D10EffectMatrixVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetMatrixTranspose(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn GetMatrixTranspose<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMatrixTranspose<Impl: ID3D10EffectMatrixVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMatrixTranspose(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn SetMatrixTransposeArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetMatrixTransposeArray<Impl: ID3D10EffectMatrixVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetMatrixTransposeArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetMatrixTransposeArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMatrixTransposeArray<Impl: ID3D10EffectMatrixVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMatrixTransposeArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SetMatrix: SetMatrix::<Identity, Impl, OFFSET>,
-            GetMatrix: GetMatrix::<Identity, Impl, OFFSET>,
-            SetMatrixArray: SetMatrixArray::<Identity, Impl, OFFSET>,
-            GetMatrixArray: GetMatrixArray::<Identity, Impl, OFFSET>,
-            SetMatrixTranspose: SetMatrixTranspose::<Identity, Impl, OFFSET>,
-            GetMatrixTranspose: GetMatrixTranspose::<Identity, Impl, OFFSET>,
-            SetMatrixTransposeArray: SetMatrixTransposeArray::<Identity, Impl, OFFSET>,
-            GetMatrixTransposeArray: GetMatrixTransposeArray::<Identity, Impl, OFFSET>,
+            base__: ID3D10EffectVariable_Vtbl::new::<Impl>(),
+            SetMatrix: SetMatrix::<Impl>,
+            GetMatrix: GetMatrix::<Impl>,
+            SetMatrixArray: SetMatrixArray::<Impl>,
+            GetMatrixArray: GetMatrixArray::<Impl>,
+            SetMatrixTranspose: SetMatrixTranspose::<Impl>,
+            GetMatrixTranspose: GetMatrixTranspose::<Impl>,
+            SetMatrixTransposeArray: SetMatrixTransposeArray::<Impl>,
+            GetMatrixTransposeArray: GetMatrixTransposeArray::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectMatrixVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectMatrixVariable_ImplVtbl<T: ID3D10EffectMatrixVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectMatrixVariable_Impl> ID3D10EffectMatrixVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectMatrixVariable_Vtbl = ID3D10EffectMatrixVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectMatrixVariable {
+    pub fn new<'a, T: ID3D10EffectMatrixVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectMatrixVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1526,53 +1568,51 @@ pub trait ID3D10EffectPass_Impl: Sized {
     fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectPass {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectPass_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>() -> ID3D10EffectPass_Vtbl {
-        unsafe extern "system" fn IsValid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectPass_Impl>() -> ID3D10EffectPass_Vtbl {
+        unsafe extern "system" fn IsValid<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.IsValid()
         }
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetVertexShaderDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVertexShaderDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetVertexShaderDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetGeometryShaderDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetGeometryShaderDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetGeometryShaderDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetPixelShaderDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPixelShaderDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetPixelShaderDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetAnnotationByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAnnotationByIndex<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetAnnotationByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetAnnotationByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAnnotationByName<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetAnnotationByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn Apply<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn Apply<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.Apply(::core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn ComputeStateBlockMask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ComputeStateBlockMask<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.ComputeStateBlockMask() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pstateblockmask, ::core::mem::transmute(ok__));
@@ -1582,19 +1622,31 @@ impl ID3D10EffectPass_Vtbl {
             }
         }
         Self {
-            IsValid: IsValid::<Identity, Impl, OFFSET>,
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetVertexShaderDesc: GetVertexShaderDesc::<Identity, Impl, OFFSET>,
-            GetGeometryShaderDesc: GetGeometryShaderDesc::<Identity, Impl, OFFSET>,
-            GetPixelShaderDesc: GetPixelShaderDesc::<Identity, Impl, OFFSET>,
-            GetAnnotationByIndex: GetAnnotationByIndex::<Identity, Impl, OFFSET>,
-            GetAnnotationByName: GetAnnotationByName::<Identity, Impl, OFFSET>,
-            Apply: Apply::<Identity, Impl, OFFSET>,
-            ComputeStateBlockMask: ComputeStateBlockMask::<Identity, Impl, OFFSET>,
+            IsValid: IsValid::<Impl>,
+            GetDesc: GetDesc::<Impl>,
+            GetVertexShaderDesc: GetVertexShaderDesc::<Impl>,
+            GetGeometryShaderDesc: GetGeometryShaderDesc::<Impl>,
+            GetPixelShaderDesc: GetPixelShaderDesc::<Impl>,
+            GetAnnotationByIndex: GetAnnotationByIndex::<Impl>,
+            GetAnnotationByName: GetAnnotationByName::<Impl>,
+            Apply: Apply::<Impl>,
+            ComputeStateBlockMask: ComputeStateBlockMask::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectPass as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectPass_ImplVtbl<T: ID3D10EffectPass_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectPass_Impl> ID3D10EffectPass_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectPass_Vtbl = ID3D10EffectPass_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectPass {
+    pub fn new<'a, T: ID3D10EffectPass_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectPass_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 pub trait ID3D10EffectPool_Impl: Sized {
@@ -1620,13 +1672,11 @@ pub trait ID3D10EffectRasterizerVariable_Impl: Sized + ID3D10EffectVariable_Impl
     fn GetBackingStore(&self, index: u32) -> ::windows::core::Result<D3D10_RASTERIZER_DESC>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectRasterizerVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectRasterizerVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectRasterizerVariable_Impl, const OFFSET: isize>() -> ID3D10EffectRasterizerVariable_Vtbl {
-        unsafe extern "system" fn GetRasterizerState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectRasterizerVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pprasterizerstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectRasterizerVariable_Impl>() -> ID3D10EffectRasterizerVariable_Vtbl {
+        unsafe extern "system" fn GetRasterizerState<Impl: ID3D10EffectRasterizerVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32, pprasterizerstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetRasterizerState(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pprasterizerstate, ::core::mem::transmute(ok__));
@@ -1635,9 +1685,9 @@ impl ID3D10EffectRasterizerVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackingStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectRasterizerVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, prasterizerdesc: *mut D3D10_RASTERIZER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBackingStore<Impl: ID3D10EffectRasterizerVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32, prasterizerdesc: *mut D3D10_RASTERIZER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetBackingStore(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(prasterizerdesc, ::core::mem::transmute(ok__));
@@ -1646,14 +1696,22 @@ impl ID3D10EffectRasterizerVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            GetRasterizerState: GetRasterizerState::<Identity, Impl, OFFSET>,
-            GetBackingStore: GetBackingStore::<Identity, Impl, OFFSET>,
-        }
+        Self { base__: ID3D10EffectVariable_Vtbl::new::<Impl>(), GetRasterizerState: GetRasterizerState::<Impl>, GetBackingStore: GetBackingStore::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectRasterizerVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectRasterizerVariable_ImplVtbl<T: ID3D10EffectRasterizerVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectRasterizerVariable_Impl> ID3D10EffectRasterizerVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectRasterizerVariable_Vtbl = ID3D10EffectRasterizerVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectRasterizerVariable {
+    pub fn new<'a, T: ID3D10EffectRasterizerVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectRasterizerVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1664,18 +1722,16 @@ pub trait ID3D10EffectRenderTargetViewVariable_Impl: Sized + ID3D10EffectVariabl
     fn GetRenderTargetArray(&self, ppresources: *mut ::core::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectRenderTargetViewVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectRenderTargetViewVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectRenderTargetViewVariable_Impl, const OFFSET: isize>() -> ID3D10EffectRenderTargetViewVariable_Vtbl {
-        unsafe extern "system" fn SetRenderTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectRenderTargetViewVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectRenderTargetViewVariable_Impl>() -> ID3D10EffectRenderTargetViewVariable_Vtbl {
+        unsafe extern "system" fn SetRenderTarget<Impl: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetRenderTarget(::core::mem::transmute(&presource)).into()
         }
-        unsafe extern "system" fn GetRenderTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectRenderTargetViewVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetRenderTarget<Impl: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetRenderTarget() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppresource, ::core::mem::transmute(ok__));
@@ -1684,26 +1740,38 @@ impl ID3D10EffectRenderTargetViewVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRenderTargetArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectRenderTargetViewVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresources: *const *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetRenderTargetArray<Impl: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut ::core::ffi::c_void, ppresources: *const *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetRenderTargetArray(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetRenderTargetArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectRenderTargetViewVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresources: *mut *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetRenderTargetArray<Impl: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut ::core::ffi::c_void, ppresources: *mut *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetRenderTargetArray(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SetRenderTarget: SetRenderTarget::<Identity, Impl, OFFSET>,
-            GetRenderTarget: GetRenderTarget::<Identity, Impl, OFFSET>,
-            SetRenderTargetArray: SetRenderTargetArray::<Identity, Impl, OFFSET>,
-            GetRenderTargetArray: GetRenderTargetArray::<Identity, Impl, OFFSET>,
+            base__: ID3D10EffectVariable_Vtbl::new::<Impl>(),
+            SetRenderTarget: SetRenderTarget::<Impl>,
+            GetRenderTarget: GetRenderTarget::<Impl>,
+            SetRenderTargetArray: SetRenderTargetArray::<Impl>,
+            GetRenderTargetArray: GetRenderTargetArray::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectRenderTargetViewVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectRenderTargetViewVariable_ImplVtbl<T: ID3D10EffectRenderTargetViewVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectRenderTargetViewVariable_Impl> ID3D10EffectRenderTargetViewVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectRenderTargetViewVariable_Vtbl = ID3D10EffectRenderTargetViewVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectRenderTargetViewVariable {
+    pub fn new<'a, T: ID3D10EffectRenderTargetViewVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectRenderTargetViewVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1712,13 +1780,11 @@ pub trait ID3D10EffectSamplerVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetBackingStore(&self, index: u32) -> ::windows::core::Result<D3D10_SAMPLER_DESC>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectSamplerVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectSamplerVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectSamplerVariable_Impl, const OFFSET: isize>() -> ID3D10EffectSamplerVariable_Vtbl {
-        unsafe extern "system" fn GetSampler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectSamplerVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppsampler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectSamplerVariable_Impl>() -> ID3D10EffectSamplerVariable_Vtbl {
+        unsafe extern "system" fn GetSampler<Impl: ID3D10EffectSamplerVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32, ppsampler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetSampler(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppsampler, ::core::mem::transmute(ok__));
@@ -1727,9 +1793,9 @@ impl ID3D10EffectSamplerVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBackingStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectSamplerVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, psamplerdesc: *mut D3D10_SAMPLER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBackingStore<Impl: ID3D10EffectSamplerVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32, psamplerdesc: *mut D3D10_SAMPLER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetBackingStore(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(psamplerdesc, ::core::mem::transmute(ok__));
@@ -1738,14 +1804,22 @@ impl ID3D10EffectSamplerVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            GetSampler: GetSampler::<Identity, Impl, OFFSET>,
-            GetBackingStore: GetBackingStore::<Identity, Impl, OFFSET>,
-        }
+        Self { base__: ID3D10EffectVariable_Vtbl::new::<Impl>(), GetSampler: GetSampler::<Impl>, GetBackingStore: GetBackingStore::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectSamplerVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectSamplerVariable_ImplVtbl<T: ID3D10EffectSamplerVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectSamplerVariable_Impl> ID3D10EffectSamplerVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectSamplerVariable_Vtbl = ID3D10EffectSamplerVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectSamplerVariable {
+    pub fn new<'a, T: ID3D10EffectSamplerVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectSamplerVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1764,18 +1838,16 @@ pub trait ID3D10EffectScalarVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetBoolArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectScalarVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectScalarVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>() -> ID3D10EffectScalarVariable_Vtbl {
-        unsafe extern "system" fn SetFloat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectScalarVariable_Impl>() -> ID3D10EffectScalarVariable_Vtbl {
+        unsafe extern "system" fn SetFloat<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetFloat(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetFloat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut f32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFloat<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, pvalue: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetFloat() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
@@ -1784,24 +1856,24 @@ impl ID3D10EffectScalarVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFloatArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *const f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetFloatArray<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *const f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetFloatArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetFloatArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFloatArray<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetFloatArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn SetInt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetInt<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetInt(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetInt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetInt<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetInt() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
@@ -1810,24 +1882,24 @@ impl ID3D10EffectScalarVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIntArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *const i32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetIntArray<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *const i32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetIntArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetIntArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetIntArray<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetIntArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn SetBool<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetBool<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetBool(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetBool<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBool<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, pvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetBool() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
@@ -1836,34 +1908,46 @@ impl ID3D10EffectScalarVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBoolArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *const super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetBoolArray<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *const super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetBoolArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetBoolArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBoolArray<Impl: ID3D10EffectScalarVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetBoolArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SetFloat: SetFloat::<Identity, Impl, OFFSET>,
-            GetFloat: GetFloat::<Identity, Impl, OFFSET>,
-            SetFloatArray: SetFloatArray::<Identity, Impl, OFFSET>,
-            GetFloatArray: GetFloatArray::<Identity, Impl, OFFSET>,
-            SetInt: SetInt::<Identity, Impl, OFFSET>,
-            GetInt: GetInt::<Identity, Impl, OFFSET>,
-            SetIntArray: SetIntArray::<Identity, Impl, OFFSET>,
-            GetIntArray: GetIntArray::<Identity, Impl, OFFSET>,
-            SetBool: SetBool::<Identity, Impl, OFFSET>,
-            GetBool: GetBool::<Identity, Impl, OFFSET>,
-            SetBoolArray: SetBoolArray::<Identity, Impl, OFFSET>,
-            GetBoolArray: GetBoolArray::<Identity, Impl, OFFSET>,
+            base__: ID3D10EffectVariable_Vtbl::new::<Impl>(),
+            SetFloat: SetFloat::<Impl>,
+            GetFloat: GetFloat::<Impl>,
+            SetFloatArray: SetFloatArray::<Impl>,
+            GetFloatArray: GetFloatArray::<Impl>,
+            SetInt: SetInt::<Impl>,
+            GetInt: GetInt::<Impl>,
+            SetIntArray: SetIntArray::<Impl>,
+            GetIntArray: GetIntArray::<Impl>,
+            SetBool: SetBool::<Impl>,
+            GetBool: GetBool::<Impl>,
+            SetBoolArray: SetBoolArray::<Impl>,
+            GetBoolArray: GetBoolArray::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectScalarVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectScalarVariable_ImplVtbl<T: ID3D10EffectScalarVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectScalarVariable_Impl> ID3D10EffectScalarVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectScalarVariable_Vtbl = ID3D10EffectScalarVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectScalarVariable {
+    pub fn new<'a, T: ID3D10EffectScalarVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectScalarVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1874,18 +1958,16 @@ pub trait ID3D10EffectShaderResourceVariable_Impl: Sized + ID3D10EffectVariable_
     fn GetResourceArray(&self, ppresources: *mut ::core::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectShaderResourceVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectShaderResourceVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderResourceVariable_Impl, const OFFSET: isize>() -> ID3D10EffectShaderResourceVariable_Vtbl {
-        unsafe extern "system" fn SetResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderResourceVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectShaderResourceVariable_Impl>() -> ID3D10EffectShaderResourceVariable_Vtbl {
+        unsafe extern "system" fn SetResource<Impl: ID3D10EffectShaderResourceVariable_Impl>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetResource(::core::mem::transmute(&presource)).into()
         }
-        unsafe extern "system" fn GetResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderResourceVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetResource<Impl: ID3D10EffectShaderResourceVariable_Impl>(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetResource() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppresource, ::core::mem::transmute(ok__));
@@ -1894,26 +1976,38 @@ impl ID3D10EffectShaderResourceVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResourceArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderResourceVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresources: *const *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetResourceArray<Impl: ID3D10EffectShaderResourceVariable_Impl>(this: *mut ::core::ffi::c_void, ppresources: *const *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetResourceArray(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetResourceArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderResourceVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresources: *mut *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetResourceArray<Impl: ID3D10EffectShaderResourceVariable_Impl>(this: *mut ::core::ffi::c_void, ppresources: *mut *mut ::core::ffi::c_void, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetResourceArray(::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SetResource: SetResource::<Identity, Impl, OFFSET>,
-            GetResource: GetResource::<Identity, Impl, OFFSET>,
-            SetResourceArray: SetResourceArray::<Identity, Impl, OFFSET>,
-            GetResourceArray: GetResourceArray::<Identity, Impl, OFFSET>,
+            base__: ID3D10EffectVariable_Vtbl::new::<Impl>(),
+            SetResource: SetResource::<Impl>,
+            GetResource: GetResource::<Impl>,
+            SetResourceArray: SetResourceArray::<Impl>,
+            GetResourceArray: GetResourceArray::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectShaderResourceVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectShaderResourceVariable_ImplVtbl<T: ID3D10EffectShaderResourceVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectShaderResourceVariable_Impl> ID3D10EffectShaderResourceVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectShaderResourceVariable_Vtbl = ID3D10EffectShaderResourceVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectShaderResourceVariable {
+    pub fn new<'a, T: ID3D10EffectShaderResourceVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectShaderResourceVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -1926,13 +2020,11 @@ pub trait ID3D10EffectShaderVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetOutputSignatureElementDesc(&self, shaderindex: u32, element: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
-impl ::windows::core::RuntimeName for ID3D10EffectShaderVariable {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10EffectShaderVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderVariable_Impl, const OFFSET: isize>() -> ID3D10EffectShaderVariable_Vtbl {
-        unsafe extern "system" fn GetShaderDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderindex: u32, pdesc: *mut D3D10_EFFECT_SHADER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectShaderVariable_Impl>() -> ID3D10EffectShaderVariable_Vtbl {
+        unsafe extern "system" fn GetShaderDesc<Impl: ID3D10EffectShaderVariable_Impl>(this: *mut ::core::ffi::c_void, shaderindex: u32, pdesc: *mut D3D10_EFFECT_SHADER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetShaderDesc(::core::mem::transmute_copy(&shaderindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -1941,9 +2033,9 @@ impl ID3D10EffectShaderVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVertexShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderindex: u32, ppvs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVertexShader<Impl: ID3D10EffectShaderVariable_Impl>(this: *mut ::core::ffi::c_void, shaderindex: u32, ppvs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetVertexShader(::core::mem::transmute_copy(&shaderindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppvs, ::core::mem::transmute(ok__));
@@ -1952,9 +2044,9 @@ impl ID3D10EffectShaderVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGeometryShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderindex: u32, ppgs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetGeometryShader<Impl: ID3D10EffectShaderVariable_Impl>(this: *mut ::core::ffi::c_void, shaderindex: u32, ppgs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetGeometryShader(::core::mem::transmute_copy(&shaderindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppgs, ::core::mem::transmute(ok__));
@@ -1963,9 +2055,9 @@ impl ID3D10EffectShaderVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPixelShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderindex: u32, ppps: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPixelShader<Impl: ID3D10EffectShaderVariable_Impl>(this: *mut ::core::ffi::c_void, shaderindex: u32, ppps: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetPixelShader(::core::mem::transmute_copy(&shaderindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppps, ::core::mem::transmute(ok__));
@@ -1974,9 +2066,9 @@ impl ID3D10EffectShaderVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInputSignatureElementDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderindex: u32, element: u32, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetInputSignatureElementDesc<Impl: ID3D10EffectShaderVariable_Impl>(this: *mut ::core::ffi::c_void, shaderindex: u32, element: u32, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetInputSignatureElementDesc(::core::mem::transmute_copy(&shaderindex), ::core::mem::transmute_copy(&element)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -1985,9 +2077,9 @@ impl ID3D10EffectShaderVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputSignatureElementDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectShaderVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shaderindex: u32, element: u32, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetOutputSignatureElementDesc<Impl: ID3D10EffectShaderVariable_Impl>(this: *mut ::core::ffi::c_void, shaderindex: u32, element: u32, pdesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetOutputSignatureElementDesc(::core::mem::transmute_copy(&shaderindex), ::core::mem::transmute_copy(&element)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -1997,17 +2089,29 @@ impl ID3D10EffectShaderVariable_Vtbl {
             }
         }
         Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            GetShaderDesc: GetShaderDesc::<Identity, Impl, OFFSET>,
-            GetVertexShader: GetVertexShader::<Identity, Impl, OFFSET>,
-            GetGeometryShader: GetGeometryShader::<Identity, Impl, OFFSET>,
-            GetPixelShader: GetPixelShader::<Identity, Impl, OFFSET>,
-            GetInputSignatureElementDesc: GetInputSignatureElementDesc::<Identity, Impl, OFFSET>,
-            GetOutputSignatureElementDesc: GetOutputSignatureElementDesc::<Identity, Impl, OFFSET>,
+            base__: ID3D10EffectVariable_Vtbl::new::<Impl>(),
+            GetShaderDesc: GetShaderDesc::<Impl>,
+            GetVertexShader: GetVertexShader::<Impl>,
+            GetGeometryShader: GetGeometryShader::<Impl>,
+            GetPixelShader: GetPixelShader::<Impl>,
+            GetInputSignatureElementDesc: GetInputSignatureElementDesc::<Impl>,
+            GetOutputSignatureElementDesc: GetOutputSignatureElementDesc::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectShaderVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+struct ID3D10EffectShaderVariable_ImplVtbl<T: ID3D10EffectShaderVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl<T: ID3D10EffectShaderVariable_Impl> ID3D10EffectShaderVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectShaderVariable_Vtbl = ID3D10EffectShaderVariable_Vtbl::new::<T>();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ID3D10EffectShaderVariable {
+    pub fn new<'a, T: ID3D10EffectShaderVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectShaderVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2016,13 +2120,11 @@ pub trait ID3D10EffectStringVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetStringArray(&self, ppstrings: *mut ::windows::core::PSTR, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectStringVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectStringVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>() -> ID3D10EffectStringVariable_Vtbl {
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstring: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectStringVariable_Impl>() -> ID3D10EffectStringVariable_Vtbl {
+        unsafe extern "system" fn GetString<Impl: ID3D10EffectStringVariable_Impl>(this: *mut ::core::ffi::c_void, ppstring: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetString() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppstring, ::core::mem::transmute(ok__));
@@ -2031,19 +2133,27 @@ impl ID3D10EffectStringVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstrings: *mut ::windows::core::PSTR, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetStringArray<Impl: ID3D10EffectStringVariable_Impl>(this: *mut ::core::ffi::c_void, ppstrings: *mut ::windows::core::PSTR, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetStringArray(::core::mem::transmute_copy(&ppstrings), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            GetString: GetString::<Identity, Impl, OFFSET>,
-            GetStringArray: GetStringArray::<Identity, Impl, OFFSET>,
-        }
+        Self { base__: ID3D10EffectVariable_Vtbl::new::<Impl>(), GetString: GetString::<Impl>, GetStringArray: GetStringArray::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectStringVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectStringVariable_ImplVtbl<T: ID3D10EffectStringVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectStringVariable_Impl> ID3D10EffectStringVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectStringVariable_Vtbl = ID3D10EffectStringVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectStringVariable {
+    pub fn new<'a, T: ID3D10EffectStringVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectStringVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2057,43 +2167,41 @@ pub trait ID3D10EffectTechnique_Impl: Sized {
     fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectTechnique {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectTechnique_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>() -> ID3D10EffectTechnique_Vtbl {
-        unsafe extern "system" fn IsValid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectTechnique_Impl>() -> ID3D10EffectTechnique_Vtbl {
+        unsafe extern "system" fn IsValid<Impl: ID3D10EffectTechnique_Impl>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.IsValid()
         }
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_TECHNIQUE_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDesc<Impl: ID3D10EffectTechnique_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_TECHNIQUE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetAnnotationByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAnnotationByIndex<Impl: ID3D10EffectTechnique_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetAnnotationByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetAnnotationByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAnnotationByName<Impl: ID3D10EffectTechnique_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetAnnotationByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetPassByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectPass> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPassByIndex<Impl: ID3D10EffectTechnique_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectPass> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetPassByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetPassByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectPass> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetPassByName<Impl: ID3D10EffectTechnique_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectPass> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetPassByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn ComputeStateBlockMask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn ComputeStateBlockMask<Impl: ID3D10EffectTechnique_Impl>(this: *mut ::core::ffi::c_void, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.ComputeStateBlockMask() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pstateblockmask, ::core::mem::transmute(ok__));
@@ -2103,17 +2211,29 @@ impl ID3D10EffectTechnique_Vtbl {
             }
         }
         Self {
-            IsValid: IsValid::<Identity, Impl, OFFSET>,
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetAnnotationByIndex: GetAnnotationByIndex::<Identity, Impl, OFFSET>,
-            GetAnnotationByName: GetAnnotationByName::<Identity, Impl, OFFSET>,
-            GetPassByIndex: GetPassByIndex::<Identity, Impl, OFFSET>,
-            GetPassByName: GetPassByName::<Identity, Impl, OFFSET>,
-            ComputeStateBlockMask: ComputeStateBlockMask::<Identity, Impl, OFFSET>,
+            IsValid: IsValid::<Impl>,
+            GetDesc: GetDesc::<Impl>,
+            GetAnnotationByIndex: GetAnnotationByIndex::<Impl>,
+            GetAnnotationByName: GetAnnotationByName::<Impl>,
+            GetPassByIndex: GetPassByIndex::<Impl>,
+            GetPassByName: GetPassByName::<Impl>,
+            ComputeStateBlockMask: ComputeStateBlockMask::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectTechnique as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectTechnique_ImplVtbl<T: ID3D10EffectTechnique_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectTechnique_Impl> ID3D10EffectTechnique_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectTechnique_Vtbl = ID3D10EffectTechnique_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectTechnique {
+    pub fn new<'a, T: ID3D10EffectTechnique_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectTechnique_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -2127,57 +2247,67 @@ pub trait ID3D10EffectType_Impl: Sized {
     fn GetMemberSemantic(&self, index: u32) -> ::windows::core::PSTR;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
-impl ::windows::core::RuntimeName for ID3D10EffectType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10EffectType_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectType_Impl, const OFFSET: isize>() -> ID3D10EffectType_Vtbl {
-        unsafe extern "system" fn IsValid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectType_Impl>() -> ID3D10EffectType_Vtbl {
+        unsafe extern "system" fn IsValid<Impl: ID3D10EffectType_Impl>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.IsValid()
         }
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDesc<Impl: ID3D10EffectType_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetMemberTypeByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberTypeByIndex<Impl: ID3D10EffectType_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberTypeByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetMemberTypeByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberTypeByName<Impl: ID3D10EffectType_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberTypeByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetMemberTypeBySemantic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberTypeBySemantic<Impl: ID3D10EffectType_Impl>(this: *mut ::core::ffi::c_void, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberTypeBySemantic(::core::mem::transmute(&semantic))
         }
-        unsafe extern "system" fn GetMemberName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberName<Impl: ID3D10EffectType_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberName(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetMemberSemantic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberSemantic<Impl: ID3D10EffectType_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberSemantic(::core::mem::transmute_copy(&index))
         }
         Self {
-            IsValid: IsValid::<Identity, Impl, OFFSET>,
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetMemberTypeByIndex: GetMemberTypeByIndex::<Identity, Impl, OFFSET>,
-            GetMemberTypeByName: GetMemberTypeByName::<Identity, Impl, OFFSET>,
-            GetMemberTypeBySemantic: GetMemberTypeBySemantic::<Identity, Impl, OFFSET>,
-            GetMemberName: GetMemberName::<Identity, Impl, OFFSET>,
-            GetMemberSemantic: GetMemberSemantic::<Identity, Impl, OFFSET>,
+            IsValid: IsValid::<Impl>,
+            GetDesc: GetDesc::<Impl>,
+            GetMemberTypeByIndex: GetMemberTypeByIndex::<Impl>,
+            GetMemberTypeByName: GetMemberTypeByName::<Impl>,
+            GetMemberTypeBySemantic: GetMemberTypeBySemantic::<Impl>,
+            GetMemberName: GetMemberName::<Impl>,
+            GetMemberSemantic: GetMemberSemantic::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectType as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+struct ID3D10EffectType_ImplVtbl<T: ID3D10EffectType_Impl>(::std::marker::PhantomData<T>);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl<T: ID3D10EffectType_Impl> ID3D10EffectType_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectType_Vtbl = ID3D10EffectType_Vtbl::new::<T>();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ID3D10EffectType {
+    pub fn new<'a, T: ID3D10EffectType_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectType_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2209,23 +2339,21 @@ pub trait ID3D10EffectVariable_Impl: Sized {
     fn GetRawValue(&self, pdata: *mut ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>() -> ID3D10EffectVariable_Vtbl {
-        unsafe extern "system" fn IsValid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectVariable_Impl>() -> ID3D10EffectVariable_Vtbl {
+        unsafe extern "system" fn IsValid<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.IsValid()
         }
-        unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetType<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetType()
         }
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDesc<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -2234,146 +2362,158 @@ impl ID3D10EffectVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAnnotationByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAnnotationByIndex<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetAnnotationByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetAnnotationByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetAnnotationByName<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetAnnotationByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetMemberByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberByIndex<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetMemberByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberByName<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetMemberBySemantic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberBySemantic<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void, semantic: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberBySemantic(::core::mem::transmute(&semantic))
         }
-        unsafe extern "system" fn GetElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetElement<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10EffectVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetElement(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetParentConstantBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetParentConstantBuffer<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetParentConstantBuffer()
         }
-        unsafe extern "system" fn AsScalar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectScalarVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsScalar<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectScalarVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsScalar()
         }
-        unsafe extern "system" fn AsVector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectVectorVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsVector<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectVectorVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsVector()
         }
-        unsafe extern "system" fn AsMatrix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectMatrixVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsMatrix<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectMatrixVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsMatrix()
         }
-        unsafe extern "system" fn AsString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectStringVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsString<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectStringVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsString()
         }
-        unsafe extern "system" fn AsShaderResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectShaderResourceVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsShaderResource<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectShaderResourceVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsShaderResource()
         }
-        unsafe extern "system" fn AsRenderTargetView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectRenderTargetViewVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsRenderTargetView<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectRenderTargetViewVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsRenderTargetView()
         }
-        unsafe extern "system" fn AsDepthStencilView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectDepthStencilViewVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsDepthStencilView<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectDepthStencilViewVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsDepthStencilView()
         }
-        unsafe extern "system" fn AsConstantBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsConstantBuffer<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsConstantBuffer()
         }
-        unsafe extern "system" fn AsShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectShaderVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsShader<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectShaderVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsShader()
         }
-        unsafe extern "system" fn AsBlend<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectBlendVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsBlend<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectBlendVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsBlend()
         }
-        unsafe extern "system" fn AsDepthStencil<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectDepthStencilVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsDepthStencil<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectDepthStencilVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsDepthStencil()
         }
-        unsafe extern "system" fn AsRasterizer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectRasterizerVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsRasterizer<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectRasterizerVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsRasterizer()
         }
-        unsafe extern "system" fn AsSampler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectSamplerVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AsSampler<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10EffectSamplerVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AsSampler()
         }
-        unsafe extern "system" fn SetRawValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetRawValue<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetRawValue(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&bytecount)).into()
         }
-        unsafe extern "system" fn GetRawValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetRawValue<Impl: ID3D10EffectVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetRawValue(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&bytecount)).into()
         }
         Self {
-            IsValid: IsValid::<Identity, Impl, OFFSET>,
-            GetType: GetType::<Identity, Impl, OFFSET>,
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetAnnotationByIndex: GetAnnotationByIndex::<Identity, Impl, OFFSET>,
-            GetAnnotationByName: GetAnnotationByName::<Identity, Impl, OFFSET>,
-            GetMemberByIndex: GetMemberByIndex::<Identity, Impl, OFFSET>,
-            GetMemberByName: GetMemberByName::<Identity, Impl, OFFSET>,
-            GetMemberBySemantic: GetMemberBySemantic::<Identity, Impl, OFFSET>,
-            GetElement: GetElement::<Identity, Impl, OFFSET>,
-            GetParentConstantBuffer: GetParentConstantBuffer::<Identity, Impl, OFFSET>,
-            AsScalar: AsScalar::<Identity, Impl, OFFSET>,
-            AsVector: AsVector::<Identity, Impl, OFFSET>,
-            AsMatrix: AsMatrix::<Identity, Impl, OFFSET>,
-            AsString: AsString::<Identity, Impl, OFFSET>,
-            AsShaderResource: AsShaderResource::<Identity, Impl, OFFSET>,
-            AsRenderTargetView: AsRenderTargetView::<Identity, Impl, OFFSET>,
-            AsDepthStencilView: AsDepthStencilView::<Identity, Impl, OFFSET>,
-            AsConstantBuffer: AsConstantBuffer::<Identity, Impl, OFFSET>,
-            AsShader: AsShader::<Identity, Impl, OFFSET>,
-            AsBlend: AsBlend::<Identity, Impl, OFFSET>,
-            AsDepthStencil: AsDepthStencil::<Identity, Impl, OFFSET>,
-            AsRasterizer: AsRasterizer::<Identity, Impl, OFFSET>,
-            AsSampler: AsSampler::<Identity, Impl, OFFSET>,
-            SetRawValue: SetRawValue::<Identity, Impl, OFFSET>,
-            GetRawValue: GetRawValue::<Identity, Impl, OFFSET>,
+            IsValid: IsValid::<Impl>,
+            GetType: GetType::<Impl>,
+            GetDesc: GetDesc::<Impl>,
+            GetAnnotationByIndex: GetAnnotationByIndex::<Impl>,
+            GetAnnotationByName: GetAnnotationByName::<Impl>,
+            GetMemberByIndex: GetMemberByIndex::<Impl>,
+            GetMemberByName: GetMemberByName::<Impl>,
+            GetMemberBySemantic: GetMemberBySemantic::<Impl>,
+            GetElement: GetElement::<Impl>,
+            GetParentConstantBuffer: GetParentConstantBuffer::<Impl>,
+            AsScalar: AsScalar::<Impl>,
+            AsVector: AsVector::<Impl>,
+            AsMatrix: AsMatrix::<Impl>,
+            AsString: AsString::<Impl>,
+            AsShaderResource: AsShaderResource::<Impl>,
+            AsRenderTargetView: AsRenderTargetView::<Impl>,
+            AsDepthStencilView: AsDepthStencilView::<Impl>,
+            AsConstantBuffer: AsConstantBuffer::<Impl>,
+            AsShader: AsShader::<Impl>,
+            AsBlend: AsBlend::<Impl>,
+            AsDepthStencil: AsDepthStencil::<Impl>,
+            AsRasterizer: AsRasterizer::<Impl>,
+            AsSampler: AsSampler::<Impl>,
+            SetRawValue: SetRawValue::<Impl>,
+            GetRawValue: GetRawValue::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectVariable_ImplVtbl<T: ID3D10EffectVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectVariable_Impl> ID3D10EffectVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectVariable_Vtbl = ID3D10EffectVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectVariable {
+    pub fn new<'a, T: ID3D10EffectVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2392,88 +2532,98 @@ pub trait ID3D10EffectVectorVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetFloatVectorArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ID3D10EffectVectorVariable {}
-#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectVectorVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>() -> ID3D10EffectVectorVariable_Vtbl {
-        unsafe extern "system" fn SetBoolVector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10EffectVectorVariable_Impl>() -> ID3D10EffectVectorVariable_Vtbl {
+        unsafe extern "system" fn SetBoolVector<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetBoolVector(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn SetIntVector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetIntVector<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetIntVector(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn SetFloatVector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetFloatVector<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetFloatVector(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn GetBoolVector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBoolVector<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetBoolVector(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn GetIntVector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetIntVector<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetIntVector(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn GetFloatVector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFloatVector<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetFloatVector(::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn SetBoolVectorArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetBoolVectorArray<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetBoolVectorArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn SetIntVectorArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetIntVectorArray<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetIntVectorArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn SetFloatVectorArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetFloatVectorArray<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetFloatVectorArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetBoolVectorArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetBoolVectorArray<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetBoolVectorArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetIntVectorArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetIntVectorArray<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetIntVectorArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetFloatVectorArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetFloatVectorArray<Impl: ID3D10EffectVectorVariable_Impl>(this: *mut ::core::ffi::c_void, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetFloatVectorArray(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
-            base__: ID3D10EffectVariable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SetBoolVector: SetBoolVector::<Identity, Impl, OFFSET>,
-            SetIntVector: SetIntVector::<Identity, Impl, OFFSET>,
-            SetFloatVector: SetFloatVector::<Identity, Impl, OFFSET>,
-            GetBoolVector: GetBoolVector::<Identity, Impl, OFFSET>,
-            GetIntVector: GetIntVector::<Identity, Impl, OFFSET>,
-            GetFloatVector: GetFloatVector::<Identity, Impl, OFFSET>,
-            SetBoolVectorArray: SetBoolVectorArray::<Identity, Impl, OFFSET>,
-            SetIntVectorArray: SetIntVectorArray::<Identity, Impl, OFFSET>,
-            SetFloatVectorArray: SetFloatVectorArray::<Identity, Impl, OFFSET>,
-            GetBoolVectorArray: GetBoolVectorArray::<Identity, Impl, OFFSET>,
-            GetIntVectorArray: GetIntVectorArray::<Identity, Impl, OFFSET>,
-            GetFloatVectorArray: GetFloatVectorArray::<Identity, Impl, OFFSET>,
+            base__: ID3D10EffectVariable_Vtbl::new::<Impl>(),
+            SetBoolVector: SetBoolVector::<Impl>,
+            SetIntVector: SetIntVector::<Impl>,
+            SetFloatVector: SetFloatVector::<Impl>,
+            GetBoolVector: GetBoolVector::<Impl>,
+            GetIntVector: GetIntVector::<Impl>,
+            GetFloatVector: GetFloatVector::<Impl>,
+            SetBoolVectorArray: SetBoolVectorArray::<Impl>,
+            SetIntVectorArray: SetIntVectorArray::<Impl>,
+            SetFloatVectorArray: SetFloatVectorArray::<Impl>,
+            GetBoolVectorArray: GetBoolVectorArray::<Impl>,
+            GetIntVectorArray: GetIntVectorArray::<Impl>,
+            GetFloatVectorArray: GetFloatVectorArray::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10EffectVectorVariable as ::windows::core::Interface>::IID || iid == &<ID3D10EffectVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Foundation")]
+struct ID3D10EffectVectorVariable_ImplVtbl<T: ID3D10EffectVectorVariable_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Foundation")]
+impl<T: ID3D10EffectVectorVariable_Impl> ID3D10EffectVectorVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10EffectVectorVariable_Vtbl = ID3D10EffectVectorVariable_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D10EffectVectorVariable {
+    pub fn new<'a, T: ID3D10EffectVectorVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10EffectVectorVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 pub trait ID3D10GeometryShader_Impl: Sized + ID3D10DeviceChild_Impl {}
@@ -3211,13 +3361,11 @@ pub trait ID3D10ShaderReflectionConstantBuffer_Impl: Sized {
     fn GetVariableByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::windows::core::RuntimeName for ID3D10ShaderReflectionConstantBuffer {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>() -> ID3D10ShaderReflectionConstantBuffer_Vtbl {
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_BUFFER_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10ShaderReflectionConstantBuffer_Impl>() -> ID3D10ShaderReflectionConstantBuffer_Vtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D10ShaderReflectionConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_BUFFER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -3226,24 +3374,32 @@ impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVariableByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVariableByIndex<Impl: ID3D10ShaderReflectionConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetVariableByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetVariableByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetVariableByName<Impl: ID3D10ShaderReflectionConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetVariableByName(::core::mem::transmute(&name))
         }
-        Self {
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetVariableByIndex: GetVariableByIndex::<Identity, Impl, OFFSET>,
-            GetVariableByName: GetVariableByName::<Identity, Impl, OFFSET>,
-        }
+        Self { GetDesc: GetDesc::<Impl>, GetVariableByIndex: GetVariableByIndex::<Impl>, GetVariableByName: GetVariableByName::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10ShaderReflectionConstantBuffer as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+struct ID3D10ShaderReflectionConstantBuffer_ImplVtbl<T: ID3D10ShaderReflectionConstantBuffer_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl<T: ID3D10ShaderReflectionConstantBuffer_Impl> ID3D10ShaderReflectionConstantBuffer_ImplVtbl<T> {
+    const VTABLE: ID3D10ShaderReflectionConstantBuffer_Vtbl = ID3D10ShaderReflectionConstantBuffer_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ID3D10ShaderReflectionConstantBuffer {
+    pub fn new<'a, T: ID3D10ShaderReflectionConstantBuffer_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10ShaderReflectionConstantBuffer_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -3254,51 +3410,60 @@ pub trait ID3D10ShaderReflectionType_Impl: Sized {
     fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::windows::core::RuntimeName for ID3D10ShaderReflectionType {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflectionType_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>() -> ID3D10ShaderReflectionType_Vtbl {
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10ShaderReflectionType_Impl>() -> ID3D10ShaderReflectionType_Vtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D10ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetMemberTypeByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberTypeByIndex<Impl: ID3D10ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberTypeByIndex(::core::mem::transmute_copy(&index))
         }
-        unsafe extern "system" fn GetMemberTypeByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberTypeByName<Impl: ID3D10ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberTypeByName(::core::mem::transmute(&name))
         }
-        unsafe extern "system" fn GetMemberTypeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetMemberTypeName<Impl: ID3D10ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::PSTR {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetMemberTypeName(::core::mem::transmute_copy(&index))
         }
         Self {
-            GetDesc: GetDesc::<Identity, Impl, OFFSET>,
-            GetMemberTypeByIndex: GetMemberTypeByIndex::<Identity, Impl, OFFSET>,
-            GetMemberTypeByName: GetMemberTypeByName::<Identity, Impl, OFFSET>,
-            GetMemberTypeName: GetMemberTypeName::<Identity, Impl, OFFSET>,
+            GetDesc: GetDesc::<Impl>,
+            GetMemberTypeByIndex: GetMemberTypeByIndex::<Impl>,
+            GetMemberTypeByName: GetMemberTypeByName::<Impl>,
+            GetMemberTypeName: GetMemberTypeName::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10ShaderReflectionType as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+struct ID3D10ShaderReflectionType_ImplVtbl<T: ID3D10ShaderReflectionType_Impl>(::std::marker::PhantomData<T>);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl<T: ID3D10ShaderReflectionType_Impl> ID3D10ShaderReflectionType_ImplVtbl<T> {
+    const VTABLE: ID3D10ShaderReflectionType_Vtbl = ID3D10ShaderReflectionType_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ID3D10ShaderReflectionType {
+    pub fn new<'a, T: ID3D10ShaderReflectionType_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10ShaderReflectionType_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 pub trait ID3D10ShaderReflectionVariable_Impl: Sized {
     fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_VARIABLE_DESC>;
     fn GetType(&self) -> ::core::option::Option<ID3D10ShaderReflectionType>;
 }
-impl ::windows::core::RuntimeName for ID3D10ShaderReflectionVariable {}
 impl ID3D10ShaderReflectionVariable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionVariable_Impl, const OFFSET: isize>() -> ID3D10ShaderReflectionVariable_Vtbl {
-        unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_VARIABLE_DESC) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: ID3D10ShaderReflectionVariable_Impl>() -> ID3D10ShaderReflectionVariable_Vtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D10ShaderReflectionVariable_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_VARIABLE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
@@ -3307,15 +3472,24 @@ impl ID3D10ShaderReflectionVariable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10ShaderReflectionVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10ShaderReflectionType> {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetType<Impl: ID3D10ShaderReflectionVariable_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10ShaderReflectionType> {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetType()
         }
-        Self { GetDesc: GetDesc::<Identity, Impl, OFFSET>, GetType: GetType::<Identity, Impl, OFFSET> }
+        Self { GetDesc: GetDesc::<Impl>, GetType: GetType::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ID3D10ShaderReflectionVariable as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+struct ID3D10ShaderReflectionVariable_ImplVtbl<T: ID3D10ShaderReflectionVariable_Impl>(::std::marker::PhantomData<T>);
+impl<T: ID3D10ShaderReflectionVariable_Impl> ID3D10ShaderReflectionVariable_ImplVtbl<T> {
+    const VTABLE: ID3D10ShaderReflectionVariable_Vtbl = ID3D10ShaderReflectionVariable_Vtbl::new::<T>();
+}
+impl ID3D10ShaderReflectionVariable {
+    pub fn new<'a, T: ID3D10ShaderReflectionVariable_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &ID3D10ShaderReflectionVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]

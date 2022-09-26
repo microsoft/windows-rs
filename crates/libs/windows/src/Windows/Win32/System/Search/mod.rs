@@ -15316,7 +15316,16 @@ pub struct ITrusteeGroupAdmin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-pub struct IUMS(::windows::core::IUnknown);
+pub struct IUMS(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<IUMS> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for IUMS {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl IUMS {
     pub unsafe fn SqlUmsSuspend(&self, ticks: u32) {
         (::windows::core::Vtable::vtable(self).SqlUmsSuspend)(::windows::core::Vtable::as_raw(self), ticks)
@@ -15354,9 +15363,6 @@ impl ::core::fmt::Debug for IUMS {
 }
 unsafe impl ::windows::core::Vtable for IUMS {
     type Vtable = IUMS_Vtbl;
-}
-unsafe impl ::windows::core::Interface for IUMS {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]

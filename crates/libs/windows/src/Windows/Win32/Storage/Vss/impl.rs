@@ -623,64 +623,62 @@ pub trait IVssCreateWriterMetadata_Impl: Sized {
     fn SaveAsXML(&self, pbstrxml: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-impl ::windows::core::RuntimeName for IVssCreateWriterMetadata {}
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl IVssCreateWriterMetadata_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>() -> IVssCreateWriterMetadata_Vtbl {
-        unsafe extern "system" fn AddIncludeFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: IVssCreateWriterMetadata_Impl>() -> IVssCreateWriterMetadata_Vtbl {
+        unsafe extern "system" fn AddIncludeFiles<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AddIncludeFiles(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&wszalternatelocation)).into()
         }
-        unsafe extern "system" fn AddExcludeFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddExcludeFiles<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AddExcludeFiles(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive)).into()
         }
-        unsafe extern "system" fn AddComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: ::windows::core::PCWSTR, wszcomponentname: ::windows::core::PCWSTR, wszcaption: ::windows::core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddComponent<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: ::windows::core::PCWSTR, wszcomponentname: ::windows::core::PCWSTR, wszcaption: ::windows::core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AddComponent(::core::mem::transmute_copy(&ct), ::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszcomponentname), ::core::mem::transmute(&wszcaption), ::core::mem::transmute_copy(&pbicon), ::core::mem::transmute_copy(&cbicon), ::core::mem::transmute_copy(&brestoremetadata), ::core::mem::transmute_copy(&bnotifyonbackupcomplete), ::core::mem::transmute_copy(&bselectable), ::core::mem::transmute_copy(&bselectableforrestore), ::core::mem::transmute_copy(&dwcomponentflags))
                 .into()
         }
-        unsafe extern "system" fn AddDatabaseFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszdatabasename: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddDatabaseFiles<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszdatabasename: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AddDatabaseFiles(::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszdatabasename), ::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn AddDatabaseLogFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszdatabasename: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddDatabaseLogFiles<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszdatabasename: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AddDatabaseLogFiles(::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszdatabasename), ::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn AddFilesToFileGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszgroupname: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddFilesToFileGroup<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows::core::PCWSTR, wszgroupname: ::windows::core::PCWSTR, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows::core::PCWSTR, dwbackuptypemask: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AddFilesToFileGroup(::core::mem::transmute(&wszlogicalpath), ::core::mem::transmute(&wszgroupname), ::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&wszalternatelocation), ::core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn SetRestoreMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: ::windows::core::PCWSTR, wszuserprocedure: ::windows::core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetRestoreMethod<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: ::windows::core::PCWSTR, wszuserprocedure: ::windows::core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetRestoreMethod(::core::mem::transmute_copy(&method), ::core::mem::transmute(&wszservice), ::core::mem::transmute(&wszuserprocedure), ::core::mem::transmute_copy(&writerrestore), ::core::mem::transmute_copy(&brebootrequired)).into()
         }
-        unsafe extern "system" fn AddAlternateLocationMapping<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszsourcepath: ::windows::core::PCWSTR, wszsourcefilespec: ::windows::core::PCWSTR, brecursive: u8, wszdestination: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddAlternateLocationMapping<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, wszsourcepath: ::windows::core::PCWSTR, wszsourcefilespec: ::windows::core::PCWSTR, brecursive: u8, wszdestination: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AddAlternateLocationMapping(::core::mem::transmute(&wszsourcepath), ::core::mem::transmute(&wszsourcefilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&wszdestination)).into()
         }
-        unsafe extern "system" fn AddComponentDependency<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszforlogicalpath: ::windows::core::PCWSTR, wszforcomponentname: ::windows::core::PCWSTR, onwriterid: ::windows::core::GUID, wszonlogicalpath: ::windows::core::PCWSTR, wszoncomponentname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn AddComponentDependency<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, wszforlogicalpath: ::windows::core::PCWSTR, wszforcomponentname: ::windows::core::PCWSTR, onwriterid: ::windows::core::GUID, wszonlogicalpath: ::windows::core::PCWSTR, wszoncomponentname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.AddComponentDependency(::core::mem::transmute(&wszforlogicalpath), ::core::mem::transmute(&wszforcomponentname), ::core::mem::transmute(&onwriterid), ::core::mem::transmute(&wszonlogicalpath), ::core::mem::transmute(&wszoncomponentname)).into()
         }
-        unsafe extern "system" fn SetBackupSchema<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SetBackupSchema<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SetBackupSchema(::core::mem::transmute_copy(&dwschemamask)).into()
         }
-        unsafe extern "system" fn GetDocument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdoc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetDocument<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, pdoc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetDocument() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdoc, ::core::mem::transmute(ok__));
@@ -689,28 +687,40 @@ impl IVssCreateWriterMetadata_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveAsXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn SaveAsXML<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.SaveAsXML(::core::mem::transmute_copy(&pbstrxml)).into()
         }
         Self {
-            AddIncludeFiles: AddIncludeFiles::<Identity, Impl, OFFSET>,
-            AddExcludeFiles: AddExcludeFiles::<Identity, Impl, OFFSET>,
-            AddComponent: AddComponent::<Identity, Impl, OFFSET>,
-            AddDatabaseFiles: AddDatabaseFiles::<Identity, Impl, OFFSET>,
-            AddDatabaseLogFiles: AddDatabaseLogFiles::<Identity, Impl, OFFSET>,
-            AddFilesToFileGroup: AddFilesToFileGroup::<Identity, Impl, OFFSET>,
-            SetRestoreMethod: SetRestoreMethod::<Identity, Impl, OFFSET>,
-            AddAlternateLocationMapping: AddAlternateLocationMapping::<Identity, Impl, OFFSET>,
-            AddComponentDependency: AddComponentDependency::<Identity, Impl, OFFSET>,
-            SetBackupSchema: SetBackupSchema::<Identity, Impl, OFFSET>,
-            GetDocument: GetDocument::<Identity, Impl, OFFSET>,
-            SaveAsXML: SaveAsXML::<Identity, Impl, OFFSET>,
+            AddIncludeFiles: AddIncludeFiles::<Impl>,
+            AddExcludeFiles: AddExcludeFiles::<Impl>,
+            AddComponent: AddComponent::<Impl>,
+            AddDatabaseFiles: AddDatabaseFiles::<Impl>,
+            AddDatabaseLogFiles: AddDatabaseLogFiles::<Impl>,
+            AddFilesToFileGroup: AddFilesToFileGroup::<Impl>,
+            SetRestoreMethod: SetRestoreMethod::<Impl>,
+            AddAlternateLocationMapping: AddAlternateLocationMapping::<Impl>,
+            AddComponentDependency: AddComponentDependency::<Impl>,
+            SetBackupSchema: SetBackupSchema::<Impl>,
+            GetDocument: GetDocument::<Impl>,
+            SaveAsXML: SaveAsXML::<Impl>,
         }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVssCreateWriterMetadata as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+struct IVssCreateWriterMetadata_ImplVtbl<T: IVssCreateWriterMetadata_Impl>(::std::marker::PhantomData<T>);
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+impl<T: IVssCreateWriterMetadata_Impl> IVssCreateWriterMetadata_ImplVtbl<T> {
+    const VTABLE: IVssCreateWriterMetadata_Vtbl = IVssCreateWriterMetadata_Vtbl::new::<T>();
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+impl IVssCreateWriterMetadata {
+    pub fn new<'a, T: IVssCreateWriterMetadata_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IVssCreateWriterMetadata_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 pub trait IVssDifferentialSoftwareSnapshotMgmt_Impl: Sized {
@@ -1626,22 +1636,21 @@ pub trait IVssWriterComponents_Impl: Sized {
     fn GetWriterInfo(&self, pidinstance: *mut ::windows::core::GUID, pidwriter: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetComponent(&self, icomponent: u32) -> ::windows::core::Result<IVssComponent>;
 }
-impl ::windows::core::RuntimeName for IVssWriterComponents {}
 impl IVssWriterComponents_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterComponents_Impl, const OFFSET: isize>() -> IVssWriterComponents_Vtbl {
-        unsafe extern "system" fn GetComponentCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterComponents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccomponents: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+    pub const fn new<Impl: IVssWriterComponents_Impl>() -> IVssWriterComponents_Vtbl {
+        unsafe extern "system" fn GetComponentCount<Impl: IVssWriterComponents_Impl>(this: *mut ::core::ffi::c_void, pccomponents: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetComponentCount(::core::mem::transmute_copy(&pccomponents)).into()
         }
-        unsafe extern "system" fn GetWriterInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterComponents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidinstance: *mut ::windows::core::GUID, pidwriter: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetWriterInfo<Impl: IVssWriterComponents_Impl>(this: *mut ::core::ffi::c_void, pidinstance: *mut ::windows::core::GUID, pidwriter: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             this.GetWriterInfo(::core::mem::transmute_copy(&pidinstance), ::core::mem::transmute_copy(&pidwriter)).into()
         }
-        unsafe extern "system" fn GetComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterComponents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, icomponent: u32, ppcomponent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
+        unsafe extern "system" fn GetComponent<Impl: IVssWriterComponents_Impl>(this: *mut ::core::ffi::c_void, icomponent: u32, ppcomponent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
+            let this = &*((*this).this as *const Impl);
             match this.GetComponent(::core::mem::transmute_copy(&icomponent)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppcomponent, ::core::mem::transmute(ok__));
@@ -1650,14 +1659,19 @@ impl IVssWriterComponents_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self {
-            GetComponentCount: GetComponentCount::<Identity, Impl, OFFSET>,
-            GetWriterInfo: GetWriterInfo::<Identity, Impl, OFFSET>,
-            GetComponent: GetComponent::<Identity, Impl, OFFSET>,
-        }
+        Self { GetComponentCount: GetComponentCount::<Impl>, GetWriterInfo: GetWriterInfo::<Impl>, GetComponent: GetComponent::<Impl> }
     }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVssWriterComponents as ::windows::core::Interface>::IID
+}
+#[doc(hidden)]
+struct IVssWriterComponents_ImplVtbl<T: IVssWriterComponents_Impl>(::std::marker::PhantomData<T>);
+impl<T: IVssWriterComponents_Impl> IVssWriterComponents_ImplVtbl<T> {
+    const VTABLE: IVssWriterComponents_Vtbl = IVssWriterComponents_Vtbl::new::<T>();
+}
+impl IVssWriterComponents {
+    pub fn new<'a, T: IVssWriterComponents_Impl>(this: &'a T) -> ::windows::core::ScopedInterface<'a, Self> {
+        let this = ::windows::core::ScopedHeap { vtable: &IVssWriterComponents_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+        unsafe { ::windows::core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
 pub trait IVssWriterImpl_Impl: Sized {

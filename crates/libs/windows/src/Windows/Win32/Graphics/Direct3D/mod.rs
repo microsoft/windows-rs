@@ -119,7 +119,16 @@ pub struct ID3DDestructionNotifier_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-pub struct ID3DInclude(::windows::core::IUnknown);
+pub struct ID3DInclude(::std::ptr::NonNull<::std::ffi::c_void>);
+unsafe impl ::windows::core::Abi for Option<ID3DInclude> {
+    type Abi = *mut ::std::ffi::c_void;
+}
+unsafe impl ::windows::core::Abi for ID3DInclude {
+    type Abi = *mut ::std::ffi::c_void;
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
+    }
+}
 impl ID3DInclude {
     pub unsafe fn Open<'a, P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>
     where
@@ -151,9 +160,6 @@ unsafe impl ::core::marker::Send for ID3DInclude {}
 unsafe impl ::core::marker::Sync for ID3DInclude {}
 unsafe impl ::windows::core::Vtable for ID3DInclude {
     type Vtable = ID3DInclude_Vtbl;
-}
-unsafe impl ::windows::core::Interface for ID3DInclude {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
