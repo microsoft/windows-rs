@@ -29,6 +29,8 @@ impl<'a, T: Vtable> std::ops::Deref for ScopedInterface<'a, T> {
 
 impl<'a, T: Vtable> Drop for ScopedInterface<'a, T> {
     fn drop(&mut self) {
-        unsafe { let _ = ::std::boxed::Box::from_raw(self.interface.as_raw() as *const _ as *mut ScopedHeap); }
+        unsafe {
+            let _ = ::std::boxed::Box::from_raw(self.interface.as_raw() as *const _ as *mut ScopedHeap);
+        }
     }
 }
