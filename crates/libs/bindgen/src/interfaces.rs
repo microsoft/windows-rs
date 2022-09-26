@@ -31,6 +31,8 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let interfaces = gen.reader.type_interfaces(&Type::TypeDef((def, generics.to_vec()))); // TODO: how to avoid copy?
+    let vtables = gen.reader.type_def_vtables(def);
+    let has_unknown_base = matches!(vtables.first(), Some(Type::IUnknown));
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
@@ -38,14 +40,70 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         quote! { #doc }
     };
 
-    tokens.combine(&quote! {
-        #features
-        #[repr(transparent)]
-        pub struct #ident(::windows::core::IUnknown, #phantoms) where #constraints;
-    });
+    if has_unknown_base {
+        tokens.combine(&quote! {
+            #features
+            #[repr(transparent)]
+            pub struct #ident(::windows::core::IUnknown, #phantoms) where #constraints;
+        });
+    } else {
+        tokens.combine(&quote! {
+            #features
+            #[repr(transparent)]
+            pub struct #ident(::std::ptr::NonNull<::std::ffi::c_void>);
+            #features
+            unsafe impl ::windows::core::Abi for Option<#ident> {
+                type Abi = *mut ::std::ffi::c_void;
+            }
+            #features
+            unsafe impl ::windows::core::Abi for #ident {
+                type Abi = *mut ::std::ffi::c_void;
+
+                fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+                    !abi.is_null()
+                }
+            }
+        });
+    }
 
     if !is_exclusive {
-        let methods = gen_methods(gen, def, generics, &interfaces);
+        let mut methods = quote! {};
+        // TODO: why do we need to distinguish between public and virtual methods?
+        let method_names = &mut MethodNames::new();
+        let virtual_names = &mut MethodNames::new();
+
+        if gen.reader.type_def_flags(def).winrt() {
+            for method in gen.reader.type_def_methods(def) {
+                methods.combine(&winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, method_names, virtual_names));
+            }
+            for interface in &interfaces {
+                if let Type::TypeDef((def, generics)) = &interface.ty {
+                    for method in gen.reader.type_def_methods(*def) {
+                        methods.combine(&winrt_methods::gen(gen, *def, generics, InterfaceKind::None, method, method_names, virtual_names));
+                    }
+                }
+            }
+        } else {
+            let mut bases = vtables.len();
+            for ty in &vtables {
+                match ty {
+                    Type::IUnknown | Type::IInspectable => {}
+                    Type::TypeDef((def, _)) => {
+                        let kind = if gen.reader.type_def_type_name(*def) == TypeName::IDispatch { InterfaceKind::None } else { InterfaceKind::Default };
+                        for method in gen.reader.type_def_methods(*def) {
+                            methods.combine(&com_methods::gen(gen, *def, kind, method, method_names, virtual_names, bases));
+                        }
+                    }
+                    _ => unimplemented!(),
+                }
+
+                bases -= 1;
+            }
+            for method in gen.reader.type_def_methods(def) {
+                methods.combine(&com_methods::gen(gen, def, InterfaceKind::Default, method, method_names, virtual_names, 0));
+            }
+        }
+
         tokens.combine(&quote! {
             #features
             impl<#constraints> #ident {
@@ -53,7 +111,62 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         });
 
-        tokens.combine(&gen_conversions(gen, def, generics, &interfaces, &ident, &constraints, &cfg));
+        for ty in &vtables {
+            let into = gen.type_name(ty);
+            let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(ty)));
+            tokens.combine(&quote! {
+                #cfg
+                impl<#constraints> ::core::convert::From<#ident> for #into {
+                    fn from(value: #ident) -> Self {
+                        unsafe { ::core::mem::transmute(value) }
+                    }
+                }
+                #cfg
+                impl<'a, #constraints> ::core::convert::From<&'a #ident> for &'a #into {
+                    fn from(value: &'a #ident) -> Self {
+                        unsafe { ::core::mem::transmute(value) }
+                    }
+                }
+                #cfg
+                impl<#constraints> ::core::convert::From<&#ident> for #into {
+                    fn from(value: &#ident) -> Self {
+                        ::core::convert::From::from(::core::clone::Clone::clone(value))
+                    }
+                }
+            });
+        }
+
+        if gen.reader.type_def_flags(def).winrt() {
+            for interface in &interfaces {
+                let into = gen.type_name(&interface.ty);
+                let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
+                tokens.combine(&quote! {
+                    #cfg
+                    impl<#constraints> ::core::convert::TryFrom<#ident> for #into {
+                        type Error = ::windows::core::Error;
+                        fn try_from(value: #ident) -> ::windows::core::Result<Self> {
+                            ::core::convert::TryFrom::try_from(&value)
+                        }
+                    }
+                    #cfg
+                    impl<#constraints> ::core::convert::TryFrom<&#ident> for #into {
+                        type Error = ::windows::core::Error;
+                        fn try_from(value: &#ident) -> ::windows::core::Result<Self> {
+                            ::windows::core::Interface::cast(value)
+                        }
+                    }
+                    #cfg
+                    impl<'a, #constraints> ::core::convert::TryFrom<&#ident> for ::windows::core::InParam<'a, #into> {
+                        type Error = ::windows::core::Error;
+                        fn try_from(value: &#ident) -> ::windows::core::Result<Self> {
+                            let item = ::std::convert::TryInto::try_into(value)?;
+                            Ok(::windows::core::InParam::owned(item))
+                        }
+                    }
+                });
+            }
+        }
+
         tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&gen.async_get(def, generics, &ident, &constraints, &phantoms, &features));
@@ -61,110 +174,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&gen.agile(def, &ident, &constraints, &features));
     }
 
-    tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features));
+    tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features, has_unknown_base));
     tokens.combine(&gen.interface_vtbl(def, generics, &ident, &constraints, &features));
-    tokens
-}
-
-fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Interface]) -> TokenStream {
-    let mut methods = quote! {};
-    // TODO: why do we need to distinguish between public and virtual methods?
-    let method_names = &mut MethodNames::new();
-    let virtual_names = &mut MethodNames::new();
-
-    if gen.reader.type_def_flags(def).winrt() {
-        for method in gen.reader.type_def_methods(def) {
-            methods.combine(&winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, method_names, virtual_names));
-        }
-        for interface in interfaces {
-            if let Type::TypeDef((def, generics)) = &interface.ty {
-                for method in gen.reader.type_def_methods(*def) {
-                    methods.combine(&winrt_methods::gen(gen, *def, generics, InterfaceKind::None, method, method_names, virtual_names));
-                }
-            }
-        }
-    } else {
-        let vtable_types = gen.reader.type_def_vtables(def);
-        let mut bases = vtable_types.len();
-        for ty in vtable_types {
-            match ty {
-                Type::IUnknown | Type::IInspectable => {}
-                Type::TypeDef((def, _)) => {
-                    let kind = if gen.reader.type_def_type_name(def) == TypeName::IDispatch { InterfaceKind::None } else { InterfaceKind::Default };
-                    for method in gen.reader.type_def_methods(def) {
-                        methods.combine(&com_methods::gen(gen, def, kind, method, method_names, virtual_names, bases));
-                    }
-                }
-                _ => unimplemented!(),
-            }
-
-            bases -= 1;
-        }
-        for method in gen.reader.type_def_methods(def) {
-            methods.combine(&com_methods::gen(gen, def, InterfaceKind::Default, method, method_names, virtual_names, 0));
-        }
-    }
-    methods
-}
-
-fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[Interface], name: &TokenStream, constraints: &TokenStream, cfg: &Cfg) -> TokenStream {
-    let mut tokens = quote! {};
-
-    for ty in &gen.reader.type_def_vtables(def) {
-        let into = gen.type_name(ty);
-        let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(ty)));
-        tokens.combine(&quote! {
-            #cfg
-            impl<#constraints> ::core::convert::From<#name> for #into {
-                fn from(value: #name) -> Self {
-                    unsafe { ::core::mem::transmute(value) }
-                }
-            }
-            #cfg
-            impl<'a, #constraints> ::core::convert::From<&'a #name> for &'a #into {
-                fn from(value: &'a #name) -> Self {
-                    unsafe { ::core::mem::transmute(value) }
-                }
-            }
-            #cfg
-            impl<#constraints> ::core::convert::From<&#name> for #into {
-                fn from(value: &#name) -> Self {
-                    ::core::convert::From::from(::core::clone::Clone::clone(value))
-                }
-            }
-        });
-    }
-
-    if gen.reader.type_def_flags(def).winrt() {
-        for interface in interfaces {
-            let into = gen.type_name(&interface.ty);
-            let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
-            tokens.combine(&quote! {
-                #cfg
-                impl<#constraints> ::core::convert::TryFrom<#name> for #into {
-                    type Error = ::windows::core::Error;
-                    fn try_from(value: #name) -> ::windows::core::Result<Self> {
-                        ::core::convert::TryFrom::try_from(&value)
-                    }
-                }
-                #cfg
-                impl<#constraints> ::core::convert::TryFrom<&#name> for #into {
-                    type Error = ::windows::core::Error;
-                    fn try_from(value: &#name) -> ::windows::core::Result<Self> {
-                        ::windows::core::Interface::cast(value)
-                    }
-                }
-                #cfg
-                impl<'a, #constraints> ::core::convert::TryFrom<&#name> for ::windows::core::InParam<'a, #into> {
-                    type Error = ::windows::core::Error;
-                    fn try_from(value: &#name) -> ::windows::core::Result<Self> {
-                        let item = ::std::convert::TryInto::try_into(value)?;
-                        Ok(::windows::core::InParam::owned(item))
-                    }
-                }
-            });
-        }
-    }
-
     tokens
 }

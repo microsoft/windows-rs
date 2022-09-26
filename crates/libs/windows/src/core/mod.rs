@@ -26,7 +26,9 @@ mod vtable;
 mod waiter;
 mod weak;
 mod weak_ref_count;
+mod scoped_interface;
 
+pub use scoped_interface::*;
 #[doc(hidden)]
 pub use abi::*;
 pub use agile_reference::*;
