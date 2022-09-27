@@ -84,12 +84,9 @@ impl ISyndicationClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -102,12 +99,9 @@ impl ISyndicationClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn MaxResponseBufferSize(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -148,14 +142,11 @@ impl ISyndicationClient {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RetrieveFeedAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RetrieveFeedAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RetrieveFeedAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).RetrieveFeedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>(result__)
         }
     }
 }
@@ -688,12 +679,9 @@ impl ISyndicationNode {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -912,12 +900,9 @@ impl ISyndicationText {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn SetXml<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn SetXml(&self, value: &super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetXml)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetXml)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
@@ -974,12 +959,9 @@ impl ISyndicationText {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1351,12 +1333,9 @@ impl SyndicationCategory {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1496,12 +1475,9 @@ impl SyndicationClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -1514,12 +1490,9 @@ impl SyndicationClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn MaxResponseBufferSize(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -1560,25 +1533,19 @@ impl SyndicationClient {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RetrieveFeedAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RetrieveFeedAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RetrieveFeedAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).RetrieveFeedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateSyndicationClient<'a, P0>(servercredential: P0) -> ::windows::core::Result<SyndicationClient>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn CreateSyndicationClient(servercredential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<SyndicationClient> {
         Self::ISyndicationClientFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSyndicationClient)(::windows::core::Vtable::as_raw(this), servercredential.into().abi(), result__.as_mut_ptr()).from_abi::<SyndicationClient>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSyndicationClient)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(servercredential), result__.as_mut_ptr()).from_abi::<SyndicationClient>(result__)
         })
     }
     #[doc(hidden)]
@@ -1692,12 +1659,9 @@ impl SyndicationContent {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSourceUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetSourceUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSourceUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSourceUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CreateSyndicationContent(text: &::windows::core::HSTRING, r#type: SyndicationTextType) -> ::windows::core::Result<SyndicationContent> {
         Self::ISyndicationContentFactory(|this| unsafe {
@@ -1707,13 +1671,10 @@ impl SyndicationContent {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateSyndicationContentWithSourceUri<'a, P0>(sourceuri: P0) -> ::windows::core::Result<SyndicationContent>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateSyndicationContentWithSourceUri(sourceuri: &super::super::Foundation::Uri) -> ::windows::core::Result<SyndicationContent> {
         Self::ISyndicationContentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSyndicationContentWithSourceUri)(::windows::core::Vtable::as_raw(this), sourceuri.into().abi(), result__.as_mut_ptr()).from_abi::<SyndicationContent>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSyndicationContentWithSourceUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceuri), result__.as_mut_ptr()).from_abi::<SyndicationContent>(result__)
         })
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1771,12 +1732,9 @@ impl SyndicationContent {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1838,12 +1796,9 @@ impl SyndicationContent {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn SetXml<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn SetXml(&self, value: &super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationText>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetXml)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetXml)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc(hidden)]
     pub fn ISyndicationContentFactory<R, F: FnOnce(&ISyndicationContentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2016,12 +1971,9 @@ impl SyndicationFeed {
             (::windows::core::Vtable::vtable(this).Generator)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SyndicationGenerator>(result__)
         }
     }
-    pub fn SetGenerator<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SyndicationGenerator>>,
-    {
+    pub fn SetGenerator(&self, value: &SyndicationGenerator) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetGenerator)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetGenerator)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2034,12 +1986,9 @@ impl SyndicationFeed {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIconUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetIconUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIconUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIconUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2096,12 +2045,9 @@ impl SyndicationFeed {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetImageUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetImageUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImageUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImageUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Rights(&self) -> ::windows::core::Result<ISyndicationText> {
         let this = self;
@@ -2197,22 +2143,16 @@ impl SyndicationFeed {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn LoadFromXml<'a, P0>(&self, feeddocument: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn LoadFromXml(&self, feeddocument: &super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).LoadFromXml)(::windows::core::Vtable::as_raw(this), feeddocument.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).LoadFromXml)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(feeddocument)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateSyndicationFeed<'a, P0>(title: &::windows::core::HSTRING, subtitle: &::windows::core::HSTRING, uri: P0) -> ::windows::core::Result<SyndicationFeed>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateSyndicationFeed(title: &::windows::core::HSTRING, subtitle: &::windows::core::HSTRING, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<SyndicationFeed> {
         Self::ISyndicationFeedFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSyndicationFeed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(subtitle), uri.into().abi(), result__.as_mut_ptr()).from_abi::<SyndicationFeed>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSyndicationFeed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(subtitle), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<SyndicationFeed>(result__)
         })
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2270,12 +2210,9 @@ impl SyndicationFeed {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2426,12 +2363,9 @@ impl SyndicationGenerator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2505,12 +2439,9 @@ impl SyndicationGenerator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2673,12 +2604,9 @@ impl SyndicationItem {
             (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SyndicationContent>(result__)
         }
     }
-    pub fn SetContent<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SyndicationContent>>,
-    {
+    pub fn SetContent(&self, value: &SyndicationContent) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContent)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2752,12 +2680,9 @@ impl SyndicationItem {
             (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SyndicationFeed>(result__)
         }
     }
-    pub fn SetSource<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SyndicationFeed>>,
-    {
+    pub fn SetSource(&self, value: &SyndicationFeed) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSource)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Summary(&self) -> ::windows::core::Result<ISyndicationText> {
         let this = self;
@@ -2800,12 +2725,9 @@ impl SyndicationItem {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCommentsUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetCommentsUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCommentsUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCommentsUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2847,23 +2769,16 @@ impl SyndicationItem {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn LoadFromXml<'a, P0>(&self, itemdocument: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn LoadFromXml(&self, itemdocument: &super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).LoadFromXml)(::windows::core::Vtable::as_raw(this), itemdocument.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).LoadFromXml)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(itemdocument)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateSyndicationItem<'a, P0, P1>(title: &::windows::core::HSTRING, content: P0, uri: P1) -> ::windows::core::Result<SyndicationItem>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SyndicationContent>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateSyndicationItem(title: &::windows::core::HSTRING, content: &SyndicationContent, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<SyndicationItem> {
         Self::ISyndicationItemFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSyndicationItem)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(title), content.into().abi(), uri.into().abi(), result__.as_mut_ptr()).from_abi::<SyndicationItem>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSyndicationItem)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(content), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<SyndicationItem>(result__)
         })
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2921,12 +2836,9 @@ impl SyndicationItem {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3110,12 +3022,9 @@ impl SyndicationLink {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ResourceLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -3130,24 +3039,18 @@ impl SyndicationLink {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateSyndicationLink<'a, P0>(uri: P0) -> ::windows::core::Result<SyndicationLink>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateSyndicationLink(uri: &super::super::Foundation::Uri) -> ::windows::core::Result<SyndicationLink> {
         Self::ISyndicationLinkFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSyndicationLink)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<SyndicationLink>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSyndicationLink)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<SyndicationLink>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateSyndicationLinkEx<'a, P0>(uri: P0, relationship: &::windows::core::HSTRING, title: &::windows::core::HSTRING, mediatype: &::windows::core::HSTRING, length: u32) -> ::windows::core::Result<SyndicationLink>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateSyndicationLinkEx(uri: &super::super::Foundation::Uri, relationship: &::windows::core::HSTRING, title: &::windows::core::HSTRING, mediatype: &::windows::core::HSTRING, length: u32) -> ::windows::core::Result<SyndicationLink> {
         Self::ISyndicationLinkFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSyndicationLinkEx)(::windows::core::Vtable::as_raw(this), uri.into().abi(), ::core::mem::transmute_copy(relationship), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(mediatype), length, result__.as_mut_ptr()).from_abi::<SyndicationLink>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSyndicationLinkEx)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(relationship), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(mediatype), length, result__.as_mut_ptr()).from_abi::<SyndicationLink>(result__)
         })
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3205,12 +3108,9 @@ impl SyndicationLink {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3394,12 +3294,9 @@ impl SyndicationNode {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3589,12 +3486,9 @@ impl SyndicationPerson {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3656,12 +3550,9 @@ impl SyndicationPerson {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CreateSyndicationPerson(name: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationPerson> {
         Self::ISyndicationPersonFactory(|this| unsafe {
@@ -3671,13 +3562,10 @@ impl SyndicationPerson {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateSyndicationPersonEx<'a, P0>(name: &::windows::core::HSTRING, email: &::windows::core::HSTRING, uri: P0) -> ::windows::core::Result<SyndicationPerson>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateSyndicationPersonEx(name: &::windows::core::HSTRING, email: &::windows::core::HSTRING, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<SyndicationPerson> {
         Self::ISyndicationPersonFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSyndicationPersonEx)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(email), uri.into().abi(), result__.as_mut_ptr()).from_abi::<SyndicationPerson>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSyndicationPersonEx)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(email), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<SyndicationPerson>(result__)
         })
     }
     #[doc(hidden)]
@@ -3835,12 +3723,9 @@ impl SyndicationText {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3902,12 +3787,9 @@ impl SyndicationText {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn SetXml<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn SetXml(&self, value: &super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetXml)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetXml)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CreateSyndicationText(text: &::windows::core::HSTRING) -> ::windows::core::Result<SyndicationText> {
         Self::ISyndicationTextFactory(|this| unsafe {

@@ -566,13 +566,10 @@ impl SpeechSynthesizer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySetDefaultVoiceAsync<'a, P0>(voice: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceInformation>>,
-    {
+    pub fn TrySetDefaultVoiceAsync(voice: &VoiceInformation) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IInstalledVoicesStatic2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TrySetDefaultVoiceAsync)(::windows::core::Vtable::as_raw(this), voice.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).TrySetDefaultVoiceAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(voice), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -593,12 +590,9 @@ impl SpeechSynthesizer {
             (::windows::core::Vtable::vtable(this).SynthesizeSsmlToStreamAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(ssml), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
         }
     }
-    pub fn SetVoice<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceInformation>>,
-    {
+    pub fn SetVoice(&self, value: &VoiceInformation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetVoice)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetVoice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Voice(&self) -> ::windows::core::Result<VoiceInformation> {
         let this = self;

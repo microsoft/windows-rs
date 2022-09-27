@@ -975,11 +975,8 @@ impl AccessoryManager {
     {
         Self::IAccessoryManager2(|this| unsafe { (::windows::core::Vtable::vtable(this).EnableEmailNotificationFolderFilter)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(emailaccount), folders.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
-    pub fn UpdateEmailReadStatus<'a, P0>(messageentryid: P0, isread: bool) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BinaryId>>,
-    {
-        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Vtable::vtable(this).UpdateEmailReadStatus)(::windows::core::Vtable::as_raw(this), messageentryid.into().abi(), isread).ok() })
+    pub fn UpdateEmailReadStatus(messageentryid: &BinaryId, isread: bool) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager2(|this| unsafe { (::windows::core::Vtable::vtable(this).UpdateEmailReadStatus)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(messageentryid), isread).ok() })
     }
     pub fn SnoozeAlarmByInstanceId(instanceid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         Self::IAccessoryManager3(|this| unsafe { (::windows::core::Vtable::vtable(this).SnoozeAlarmByInstanceId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(instanceid)).ok() })

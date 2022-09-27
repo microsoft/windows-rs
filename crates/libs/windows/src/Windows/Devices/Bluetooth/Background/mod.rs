@@ -824,12 +824,9 @@ impl RfcommInboundConnectionInformation {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn SetLocalServiceId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Rfcomm::RfcommServiceId>>,
-    {
+    pub fn SetLocalServiceId(&self, value: &super::Rfcomm::RfcommServiceId) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetLocalServiceId)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetLocalServiceId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ServiceCapabilities(&self) -> ::windows::core::Result<super::BluetoothServiceCapabilities> {
         let this = self;
@@ -922,12 +919,9 @@ impl RfcommOutboundConnectionInformation {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn SetRemoteServiceId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Rfcomm::RfcommServiceId>>,
-    {
+    pub fn SetRemoteServiceId(&self, value: &super::Rfcomm::RfcommServiceId) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRemoteServiceId)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRemoteServiceId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for RfcommOutboundConnectionInformation {

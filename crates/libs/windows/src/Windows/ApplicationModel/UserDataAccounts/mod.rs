@@ -589,13 +589,10 @@ impl UserDataAccountManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<UserDataAccountManagerForUser>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<UserDataAccountManagerForUser> {
         Self::IUserDataAccountManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<UserDataAccountManagerForUser>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<UserDataAccountManagerForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -741,14 +738,11 @@ impl UserDataAccountStore {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StoreChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>>>,
-    {
+    pub fn StoreChanged(&self, handler: &super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IUserDataAccountStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StoreChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StoreChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

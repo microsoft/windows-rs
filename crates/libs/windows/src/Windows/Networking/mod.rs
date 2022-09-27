@@ -117,12 +117,9 @@ impl EndpointPair {
             (::windows::core::Vtable::vtable(this).LocalHostName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HostName>(result__)
         }
     }
-    pub fn SetLocalHostName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>,
-    {
+    pub fn SetLocalHostName(&self, value: &HostName) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetLocalHostName)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetLocalHostName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn LocalServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -142,12 +139,9 @@ impl EndpointPair {
             (::windows::core::Vtable::vtable(this).RemoteHostName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HostName>(result__)
         }
     }
-    pub fn SetRemoteHostName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>,
-    {
+    pub fn SetRemoteHostName(&self, value: &HostName) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRemoteHostName)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRemoteHostName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn RemoteServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -160,14 +154,10 @@ impl EndpointPair {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetRemoteServiceName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateEndpointPair<'a, P0, P1>(localhostname: P0, localservicename: &::windows::core::HSTRING, remotehostname: P1, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<EndpointPair>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, HostName>>,
-    {
+    pub fn CreateEndpointPair(localhostname: &HostName, localservicename: &::windows::core::HSTRING, remotehostname: &HostName, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<EndpointPair> {
         Self::IEndpointPairFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateEndpointPair)(::windows::core::Vtable::as_raw(this), localhostname.into().abi(), ::core::mem::transmute_copy(localservicename), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<EndpointPair>(result__)
+            (::windows::core::Vtable::vtable(this).CreateEndpointPair)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localhostname), ::core::mem::transmute_copy(localservicename), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<EndpointPair>(result__)
         })
     }
     #[doc(hidden)]
@@ -281,14 +271,11 @@ impl HostName {
             (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HostNameType>(result__)
         }
     }
-    pub fn IsEqual<'a, P0>(&self, hostname: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>,
-    {
+    pub fn IsEqual(&self, hostname: &HostName) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsEqual)(::windows::core::Vtable::as_raw(this), hostname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsEqual)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostname), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn CreateHostName(hostname: &::windows::core::HSTRING) -> ::windows::core::Result<HostName> {

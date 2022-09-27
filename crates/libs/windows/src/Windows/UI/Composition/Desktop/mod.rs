@@ -17,12 +17,9 @@ pub struct IDesktopWindowTarget_Vtbl {
 #[repr(transparent)]
 pub struct DesktopWindowTarget(::windows::core::IUnknown);
 impl DesktopWindowTarget {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -82,12 +79,9 @@ impl DesktopWindowTarget {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where

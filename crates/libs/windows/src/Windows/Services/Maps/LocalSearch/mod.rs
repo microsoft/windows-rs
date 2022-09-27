@@ -373,13 +373,10 @@ pub struct LocalLocationFinder;
 impl LocalLocationFinder {
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindLocalLocationsAsync<'a, P0>(searchterm: &::windows::core::HSTRING, searcharea: P0, localcategory: &::windows::core::HSTRING, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geocircle>>,
-    {
+    pub fn FindLocalLocationsAsync(searchterm: &::windows::core::HSTRING, searcharea: &super::super::super::Devices::Geolocation::Geocircle, localcategory: &::windows::core::HSTRING, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>> {
         Self::ILocalLocationFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindLocalLocationsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(searchterm), searcharea.into().abi(), ::core::mem::transmute_copy(localcategory), maxresults, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindLocalLocationsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(searchterm), ::core::mem::transmute_copy(searcharea), ::core::mem::transmute_copy(localcategory), maxresults, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -669,13 +666,10 @@ unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 pub struct PlaceInfoHelper;
 impl PlaceInfoHelper {
-    pub fn CreateFromLocalLocation<'a, P0>(location: P0) -> ::windows::core::Result<super::PlaceInfo>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LocalLocation>>,
-    {
+    pub fn CreateFromLocalLocation(location: &LocalLocation) -> ::windows::core::Result<super::PlaceInfo> {
         Self::IPlaceInfoHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromLocalLocation)(::windows::core::Vtable::as_raw(this), location.into().abi(), result__.as_mut_ptr()).from_abi::<super::PlaceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromLocalLocation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(location), result__.as_mut_ptr()).from_abi::<super::PlaceInfo>(result__)
         })
     }
     #[doc(hidden)]

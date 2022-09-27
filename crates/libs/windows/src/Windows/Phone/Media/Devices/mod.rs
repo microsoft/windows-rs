@@ -55,14 +55,11 @@ impl AudioRoutingManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioEndpointChanged<'a, P0>(&self, endpointchangehandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows::core::IInspectable>>>,
-    {
+    pub fn AudioEndpointChanged(&self, endpointchangehandler: &super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AudioEndpointChanged)(::windows::core::Vtable::as_raw(this), endpointchangehandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AudioEndpointChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointchangehandler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

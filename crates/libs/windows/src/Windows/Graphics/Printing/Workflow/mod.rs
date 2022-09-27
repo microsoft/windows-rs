@@ -664,14 +664,11 @@ pub struct PrintWorkflowBackgroundSession(::windows::core::IUnknown);
 impl PrintWorkflowBackgroundSession {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetupRequested<'a, P0>(&self, setupeventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>>,
-    {
+    pub fn SetupRequested(&self, setupeventhandler: &super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SetupRequested)(::windows::core::Vtable::as_raw(this), setupeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SetupRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(setupeventhandler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -682,14 +679,11 @@ impl PrintWorkflowBackgroundSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Submitted<'a, P0>(&self, submittedeventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>>>,
-    {
+    pub fn Submitted(&self, submittedeventhandler: &super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Submitted)(::windows::core::Vtable::as_raw(this), submittedeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Submitted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(submittedeventhandler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -972,14 +966,11 @@ pub struct PrintWorkflowForegroundSession(::windows::core::IUnknown);
 impl PrintWorkflowForegroundSession {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetupRequested<'a, P0>(&self, setupeventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>>,
-    {
+    pub fn SetupRequested(&self, setupeventhandler: &super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SetupRequested)(::windows::core::Vtable::as_raw(this), setupeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SetupRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(setupeventhandler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -990,14 +981,11 @@ impl PrintWorkflowForegroundSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn XpsDataAvailable<'a, P0>(&self, xpsdataavailableeventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>>>,
-    {
+    pub fn XpsDataAvailable(&self, xpsdataavailableeventhandler: &super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).XpsDataAvailable)(::windows::core::Vtable::as_raw(this), xpsdataavailableeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).XpsDataAvailable)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(xpsdataavailableeventhandler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1345,14 +1333,11 @@ impl PrintWorkflowJobBackgroundSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn JobStarting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>>>,
-    {
+    pub fn JobStarting(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).JobStarting)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).JobStarting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1363,14 +1348,11 @@ impl PrintWorkflowJobBackgroundSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PdlModificationRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPdlModificationRequestedEventArgs>>>,
-    {
+    pub fn PdlModificationRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPdlModificationRequestedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PdlModificationRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PdlModificationRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1727,14 +1709,11 @@ impl PrintWorkflowJobUISession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PdlDataAvailable<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>>>,
-    {
+    pub fn PdlDataAvailable(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PdlDataAvailable)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PdlDataAvailable)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1745,14 +1724,11 @@ impl PrintWorkflowJobUISession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn JobNotification<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowJobNotificationEventArgs>>>,
-    {
+    pub fn JobNotification(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowJobNotificationEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).JobNotification)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).JobNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1990,18 +1966,17 @@ pub struct PrintWorkflowPdlConverter(::windows::core::IUnknown);
 impl PrintWorkflowPdlConverter {
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    pub fn ConvertPdlAsync<'a, P0, P1, E1, P2, E2>(&self, printticket: P0, inputstream: P1, outputstream: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ConvertPdlAsync<'a, P0, E0, P1, E1>(&self, printticket: &super::PrintTicket::WorkflowPrintTicket, inputstream: P0, outputstream: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PrintTicket::WorkflowPrintTicket>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E1>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConvertPdlAsync)(::windows::core::Vtable::as_raw(this), printticket.into().abi(), inputstream.try_into().map_err(|e| e.into())?.abi(), outputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConvertPdlAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printticket), inputstream.try_into().map_err(|e| e.into())?.abi(), outputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -2904,14 +2879,11 @@ impl PrintWorkflowSubmittedEventArgs {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetTarget<'a, P0>(&self, jobprintticket: P0) -> ::windows::core::Result<PrintWorkflowTarget>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PrintTicket::WorkflowPrintTicket>>,
-    {
+    pub fn GetTarget(&self, jobprintticket: &super::PrintTicket::WorkflowPrintTicket) -> ::windows::core::Result<PrintWorkflowTarget> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetTarget)(::windows::core::Vtable::as_raw(this), jobprintticket.into().abi(), result__.as_mut_ptr()).from_abi::<PrintWorkflowTarget>(result__)
+            (::windows::core::Vtable::vtable(this).GetTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(jobprintticket), result__.as_mut_ptr()).from_abi::<PrintWorkflowTarget>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

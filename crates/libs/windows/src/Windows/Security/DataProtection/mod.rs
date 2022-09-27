@@ -336,14 +336,11 @@ impl UserDataProtectionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DataAvailabilityStateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs>>>,
-    {
+    pub fn DataAvailabilityStateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DataAvailabilityStateChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).DataAvailabilityStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -360,13 +357,10 @@ impl UserDataProtectionManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn TryGetForUser<'a, P0>(user: P0) -> ::windows::core::Result<UserDataProtectionManager>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn TryGetForUser(user: &super::super::System::User) -> ::windows::core::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<UserDataProtectionManager>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<UserDataProtectionManager>(result__)
         })
     }
     #[doc(hidden)]

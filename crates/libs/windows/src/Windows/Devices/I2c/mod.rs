@@ -114,14 +114,11 @@ impl II2cDeviceStatics {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(&self, deviceid: &::windows::core::HSTRING, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, I2cConnectionSettings>>,
-    {
+    pub fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING, settings: &I2cConnectionSettings) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<I2cDevice>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<I2cDevice>>(result__)
         }
     }
 }
@@ -312,14 +309,11 @@ unsafe impl ::core::marker::Sync for I2cConnectionSettings {}
 #[repr(transparent)]
 pub struct I2cController(::windows::core::IUnknown);
 impl I2cController {
-    pub fn GetDevice<'a, P0>(&self, settings: P0) -> ::windows::core::Result<I2cDevice>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, I2cConnectionSettings>>,
-    {
+    pub fn GetDevice(&self, settings: &I2cConnectionSettings) -> ::windows::core::Result<I2cDevice> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDevice)(::windows::core::Vtable::as_raw(this), settings.into().abi(), result__.as_mut_ptr()).from_abi::<I2cDevice>(result__)
+            (::windows::core::Vtable::vtable(this).GetDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi::<I2cDevice>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_I2c_Provider\"`, `\"Foundation_Collections\"`*"]
@@ -483,13 +477,10 @@ impl I2cDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(deviceid: &::windows::core::HSTRING, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, I2cConnectionSettings>>,
-    {
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING, settings: &I2cConnectionSettings) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>> {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<I2cDevice>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<I2cDevice>>(result__)
         })
     }
     #[doc(hidden)]

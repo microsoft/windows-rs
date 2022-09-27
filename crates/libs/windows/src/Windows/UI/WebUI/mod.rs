@@ -1723,13 +1723,10 @@ pub struct WebUIApplication;
 impl WebUIApplication {
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
-    pub fn Activated<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ActivatedEventHandler>>,
-    {
+    pub fn Activated(handler: &ActivatedEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Activated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Activated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1739,13 +1736,10 @@ impl WebUIApplication {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
-    pub fn Suspending<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SuspendingEventHandler>>,
-    {
+    pub fn Suspending(handler: &SuspendingEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Suspending)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Suspending)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1755,13 +1749,10 @@ impl WebUIApplication {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Resuming<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ResumingEventHandler>>,
-    {
+    pub fn Resuming(handler: &ResumingEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Resuming)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Resuming)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1771,13 +1762,10 @@ impl WebUIApplication {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Navigated<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, NavigatedEventHandler>>,
-    {
+    pub fn Navigated(handler: &NavigatedEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Navigated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Navigated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1787,13 +1775,10 @@ impl WebUIApplication {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
-    pub fn LeavingBackground<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LeavingBackgroundEventHandler>>,
-    {
+    pub fn LeavingBackground(handler: &LeavingBackgroundEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LeavingBackground)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).LeavingBackground)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1803,13 +1788,10 @@ impl WebUIApplication {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
-    pub fn EnteredBackground<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, EnteredBackgroundEventHandler>>,
-    {
+    pub fn EnteredBackground(handler: &EnteredBackgroundEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnteredBackground)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnteredBackground)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1830,24 +1812,18 @@ impl WebUIApplication {
     }
     #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System"))]
-    pub fn RequestRestartForUserAsync<'a, P0>(user: P0, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn RequestRestartForUserAsync(user: &super::super::System::User, launcharguments: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>> {
         Self::IWebUIActivationStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestRestartForUserAsync)(::windows::core::Vtable::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(launcharguments), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestRestartForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(launcharguments), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NewWebUIViewCreated<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs>>>,
-    {
+    pub fn NewWebUIViewCreated(handler: &super::super::Foundation::EventHandler<NewWebUIViewCreatedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NewWebUIViewCreated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).NewWebUIViewCreated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1857,13 +1833,10 @@ impl WebUIApplication {
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
-    pub fn BackgroundActivated<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundActivatedEventHandler>>,
-    {
+    pub fn BackgroundActivated(handler: &BackgroundActivatedEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWebUIActivationStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BackgroundActivated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).BackgroundActivated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3258,14 +3231,11 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation"))]
-    pub fn Canceled<'a, P0>(&self, cancelhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Background::BackgroundTaskCanceledEventHandler>>,
-    {
+    pub fn Canceled(&self, cancelhandler: &super::super::ApplicationModel::Background::BackgroundTaskCanceledEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Canceled)(::windows::core::Vtable::as_raw(this), cancelhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Canceled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(cancelhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
@@ -12267,14 +12237,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<WebUIView, ::windows::core::IInspectable>>>,
-    {
+    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<WebUIView, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -12285,14 +12252,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
-    pub fn Activated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<WebUIView, super::super::ApplicationModel::Activation::IActivatedEventArgs>>>,
-    {
+    pub fn Activated(&self, handler: &super::super::Foundation::TypedEventHandler<WebUIView, super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Activated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Activated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -12322,13 +12286,10 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithUriAsync<'a, P0>(uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateWithUriAsync(uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WebUIView>> {
         Self::IWebUIViewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithUriAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithUriAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WebUIView>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12342,12 +12303,9 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn SetSource<'a, P0>(&self, source: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetSource(&self, source: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSource)(::windows::core::Vtable::as_raw(this), source.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(source)).ok() }
     }
     #[doc = "*Required features: `\"Web_UI\"`*"]
     #[cfg(feature = "Web_UI")]
@@ -12444,12 +12402,9 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn Navigate<'a, P0>(&self, source: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn Navigate(&self, source: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Navigate)(::windows::core::Vtable::as_raw(this), source.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Navigate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(source)).ok() }
     }
     #[doc = "*Required features: `\"Web_UI\"`*"]
     #[cfg(feature = "Web_UI")]
@@ -12459,23 +12414,19 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn NavigateToLocalStreamUri<'a, P0, P1, E1>(&self, source: P0, streamresolver: P1) -> ::windows::core::Result<()>
+    pub fn NavigateToLocalStreamUri<'a, P0, E0>(&self, source: &super::super::Foundation::Uri, streamresolver: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Web::IUriToStreamResolver>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Web::IUriToStreamResolver>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).NavigateToLocalStreamUri)(::windows::core::Vtable::as_raw(this), source.into().abi(), streamresolver.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).NavigateToLocalStreamUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(source), streamresolver.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Web_Http", feature = "Web_UI"))]
-    pub fn NavigateWithHttpRequestMessage<'a, P0>(&self, requestmessage: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Web::Http::HttpRequestMessage>>,
-    {
+    pub fn NavigateWithHttpRequestMessage(&self, requestmessage: &super::super::Web::Http::HttpRequestMessage) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).NavigateWithHttpRequestMessage)(::windows::core::Vtable::as_raw(this), requestmessage.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).NavigateWithHttpRequestMessage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requestmessage)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_UI"))]
@@ -12529,14 +12480,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn NavigationStarting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationStartingEventArgs>>>,
-    {
+    pub fn NavigationStarting(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationStartingEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NavigationStarting)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).NavigationStarting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12547,14 +12495,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn ContentLoading<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlContentLoadingEventArgs>>>,
-    {
+    pub fn ContentLoading(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlContentLoadingEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentLoading)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ContentLoading)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12565,14 +12510,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn DOMContentLoaded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlDOMContentLoadedEventArgs>>>,
-    {
+    pub fn DOMContentLoaded(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlDOMContentLoadedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DOMContentLoaded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).DOMContentLoaded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12583,14 +12525,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn NavigationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationCompletedEventArgs>>>,
-    {
+    pub fn NavigationCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationCompletedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NavigationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).NavigationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12601,14 +12540,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn FrameNavigationStarting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationStartingEventArgs>>>,
-    {
+    pub fn FrameNavigationStarting(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationStartingEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FrameNavigationStarting)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).FrameNavigationStarting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12619,14 +12555,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn FrameContentLoading<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlContentLoadingEventArgs>>>,
-    {
+    pub fn FrameContentLoading(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlContentLoadingEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FrameContentLoading)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).FrameContentLoading)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12637,14 +12570,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn FrameDOMContentLoaded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlDOMContentLoadedEventArgs>>>,
-    {
+    pub fn FrameDOMContentLoaded(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlDOMContentLoadedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FrameDOMContentLoaded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).FrameDOMContentLoaded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12655,14 +12585,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn FrameNavigationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationCompletedEventArgs>>>,
-    {
+    pub fn FrameNavigationCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNavigationCompletedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FrameNavigationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).FrameNavigationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12673,14 +12600,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn ScriptNotify<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlScriptNotifyEventArgs>>>,
-    {
+    pub fn ScriptNotify(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlScriptNotifyEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScriptNotify)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ScriptNotify)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12691,14 +12615,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn LongRunningScriptDetected<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlLongRunningScriptDetectedEventArgs>>>,
-    {
+    pub fn LongRunningScriptDetected(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlLongRunningScriptDetectedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LongRunningScriptDetected)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).LongRunningScriptDetected)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12709,14 +12630,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn UnsafeContentWarningDisplaying<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, ::windows::core::IInspectable>>>,
-    {
+    pub fn UnsafeContentWarningDisplaying(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UnsafeContentWarningDisplaying)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UnsafeContentWarningDisplaying)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12727,14 +12645,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn UnviewableContentIdentified<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlUnviewableContentIdentifiedEventArgs>>>,
-    {
+    pub fn UnviewableContentIdentified(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlUnviewableContentIdentifiedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UnviewableContentIdentified)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UnviewableContentIdentified)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12745,14 +12660,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn PermissionRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlPermissionRequestedEventArgs>>>,
-    {
+    pub fn PermissionRequested(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlPermissionRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PermissionRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PermissionRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12763,14 +12675,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn UnsupportedUriSchemeIdentified<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>>>,
-    {
+    pub fn UnsupportedUriSchemeIdentified(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UnsupportedUriSchemeIdentified)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UnsupportedUriSchemeIdentified)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12781,14 +12690,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn NewWindowRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNewWindowRequestedEventArgs>>>,
-    {
+    pub fn NewWindowRequested(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlNewWindowRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NewWindowRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).NewWindowRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12799,14 +12705,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn ContainsFullScreenElementChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, ::windows::core::IInspectable>>>,
-    {
+    pub fn ContainsFullScreenElementChanged(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContainsFullScreenElementChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ContainsFullScreenElementChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
@@ -12817,14 +12720,11 @@ impl WebUIView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
-    pub fn WebResourceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlWebResourceRequestedEventArgs>>>,
-    {
+    pub fn WebResourceRequested(&self, handler: &super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, super::super::Web::UI::WebViewControlWebResourceRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WebResourceRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).WebResourceRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_UI\"`*"]

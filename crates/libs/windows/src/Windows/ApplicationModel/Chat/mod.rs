@@ -1571,14 +1571,11 @@ impl ChatConversation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoteParticipantComposingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ChatConversation, RemoteParticipantComposingChangedEventArgs>>>,
-    {
+    pub fn RemoteParticipantComposingChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ChatConversation, RemoteParticipantComposingChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RemoteParticipantComposingChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).RemoteParticipantComposingChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2184,12 +2181,9 @@ impl ChatMessage {
             (::windows::core::Vtable::vtable(this).ThreadingInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ChatConversationThreadingInfo>(result__)
         }
     }
-    pub fn SetThreadingInfo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatConversationThreadingInfo>>,
-    {
+    pub fn SetThreadingInfo(&self, value: &ChatConversationThreadingInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetThreadingInfo)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetThreadingInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2592,12 +2586,9 @@ impl ChatMessageChangeReader {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).AcceptChanges)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn AcceptChangesThrough<'a, P0>(&self, lastchangetoacknowledge: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessageChange>>,
-    {
+    pub fn AcceptChangesThrough(&self, lastchangetoacknowledge: &ChatMessageChange) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).AcceptChangesThrough)(::windows::core::Vtable::as_raw(this), lastchangetoacknowledge.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AcceptChangesThrough)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(lastchangetoacknowledge)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2943,13 +2934,10 @@ impl ChatMessageManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowComposeSmsMessageAsync<'a, P0>(message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessage>>,
-    {
+    pub fn ShowComposeSmsMessageAsync(message: &ChatMessage) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IChatMessageManagerStatic(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowComposeSmsMessageAsync)(::windows::core::Vtable::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ShowComposeSmsMessageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(message), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     pub fn ShowSmsSettings() -> ::windows::core::Result<()> {
@@ -3247,36 +3235,27 @@ impl ChatMessageStore {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendMessageAsync<'a, P0>(&self, chatmessage: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessage>>,
-    {
+    pub fn SendMessageAsync(&self, chatmessage: &ChatMessage) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SendMessageAsync)(::windows::core::Vtable::as_raw(this), chatmessage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SendMessageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(chatmessage), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    pub fn ValidateMessage<'a, P0>(&self, chatmessage: P0) -> ::windows::core::Result<ChatMessageValidationResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessage>>,
-    {
+    pub fn ValidateMessage(&self, chatmessage: &ChatMessage) -> ::windows::core::Result<ChatMessageValidationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ValidateMessage)(::windows::core::Vtable::as_raw(this), chatmessage.into().abi(), result__.as_mut_ptr()).from_abi::<ChatMessageValidationResult>(result__)
+            (::windows::core::Vtable::vtable(this).ValidateMessage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(chatmessage), result__.as_mut_ptr()).from_abi::<ChatMessageValidationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageChanged<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageChangedEventArgs>>>,
-    {
+    pub fn MessageChanged(&self, value: &super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MessageChanged)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MessageChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3322,14 +3301,11 @@ impl ChatMessageStore {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetConversationFromThreadingInfoAsync<'a, P0>(&self, threadinginfo: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatConversationThreadingInfo>>,
-    {
+    pub fn GetConversationFromThreadingInfoAsync(&self, threadinginfo: &ChatConversationThreadingInfo) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetConversationFromThreadingInfoAsync)(::windows::core::Vtable::as_raw(this), threadinginfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatConversation>>(result__)
+            (::windows::core::Vtable::vtable(this).GetConversationFromThreadingInfoAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(threadinginfo), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ChatConversation>>(result__)
         }
     }
     pub fn GetConversationReader(&self) -> ::windows::core::Result<ChatConversationReader> {
@@ -3405,26 +3381,20 @@ impl ChatMessageStore {
             (::windows::core::Vtable::vtable(this).MarkAsSeenForTransportsAsync)(::windows::core::Vtable::as_raw(this), transportids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    pub fn GetSearchReader<'a, P0>(&self, value: P0) -> ::windows::core::Result<ChatSearchReader>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatQueryOptions>>,
-    {
+    pub fn GetSearchReader(&self, value: &ChatQueryOptions) -> ::windows::core::Result<ChatSearchReader> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetSearchReader)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<ChatSearchReader>(result__)
+            (::windows::core::Vtable::vtable(this).GetSearchReader)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<ChatSearchReader>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveMessageAsync<'a, P0>(&self, chatmessage: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatMessage>>,
-    {
+    pub fn SaveMessageAsync(&self, chatmessage: &ChatMessage) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SaveMessageAsync)(::windows::core::Vtable::as_raw(this), chatmessage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SaveMessageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(chatmessage), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3447,14 +3417,11 @@ impl ChatMessageStore {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StoreChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageStoreChangedEventArgs>>>,
-    {
+    pub fn StoreChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageStoreChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IChatMessageStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StoreChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StoreChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4389,14 +4356,11 @@ impl ChatSyncManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn AssociateAccountAsync<'a, P0>(&self, webaccount: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>,
-    {
+    pub fn AssociateAccountAsync(&self, webaccount: &super::super::Security::Credentials::WebAccount) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AssociateAccountAsync)(::windows::core::Vtable::as_raw(this), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).AssociateAccountAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccount), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4410,14 +4374,11 @@ impl ChatSyncManager {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn IsAccountAssociated<'a, P0>(&self, webaccount: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>,
-    {
+    pub fn IsAccountAssociated(&self, webaccount: &super::super::Security::Credentials::WebAccount) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsAccountAssociated)(::windows::core::Vtable::as_raw(this), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsAccountAssociated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccount), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn StartSync(&self) -> ::windows::core::Result<()> {
@@ -4426,14 +4387,11 @@ impl ChatSyncManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetConfigurationAsync<'a, P0>(&self, configuration: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatSyncConfiguration>>,
-    {
+    pub fn SetConfigurationAsync(&self, configuration: &ChatSyncConfiguration) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SetConfigurationAsync)(::windows::core::Vtable::as_raw(this), configuration.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SetConfigurationAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(configuration), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -4544,26 +4502,20 @@ impl RcsEndUserMessage {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendResponseAsync<'a, P0>(&self, action: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, RcsEndUserMessageAction>>,
-    {
+    pub fn SendResponseAsync(&self, action: &RcsEndUserMessageAction) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SendResponseAsync)(::windows::core::Vtable::as_raw(this), action.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SendResponseAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(action), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendResponseWithPinAsync<'a, P0>(&self, action: P0, pin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, RcsEndUserMessageAction>>,
-    {
+    pub fn SendResponseWithPinAsync(&self, action: &RcsEndUserMessageAction, pin: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SendResponseWithPinAsync)(::windows::core::Vtable::as_raw(this), action.into().abi(), ::core::mem::transmute_copy(pin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SendResponseWithPinAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(action), ::core::mem::transmute_copy(pin), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -4879,14 +4831,11 @@ pub struct RcsEndUserMessageManager(::windows::core::IUnknown);
 impl RcsEndUserMessageManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageAvailableChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RcsEndUserMessageManager, RcsEndUserMessageAvailableEventArgs>>>,
-    {
+    pub fn MessageAvailableChanged(&self, handler: &super::super::Foundation::TypedEventHandler<RcsEndUserMessageManager, RcsEndUserMessageAvailableEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MessageAvailableChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MessageAvailableChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4987,24 +4936,18 @@ impl RcsManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LeaveConversationAsync<'a, P0>(conversation: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ChatConversation>>,
-    {
+    pub fn LeaveConversationAsync(conversation: &ChatConversation) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IRcsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LeaveConversationAsync)(::windows::core::Vtable::as_raw(this), conversation.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).LeaveConversationAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(conversation), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TransportListChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
-    {
+    pub fn TransportListChanged(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IRcsManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TransportListChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).TransportListChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5159,14 +5102,11 @@ impl RcsTransport {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ServiceKindSupportedChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RcsTransport, RcsServiceKindSupportedChangedEventArgs>>>,
-    {
+    pub fn ServiceKindSupportedChanged(&self, handler: &super::super::Foundation::TypedEventHandler<RcsTransport, RcsServiceKindSupportedChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ServiceKindSupportedChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ServiceKindSupportedChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

@@ -399,14 +399,11 @@ impl Direct3D11CaptureFramePool {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FrameArrived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, ::windows::core::IInspectable>>>,
-    {
+    pub fn FrameArrived(&self, handler: &super::super::Foundation::TypedEventHandler<Direct3D11CaptureFramePool, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FrameArrived)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).FrameArrived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -415,14 +412,11 @@ impl Direct3D11CaptureFramePool {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveFrameArrived)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
-    pub fn CreateCaptureSession<'a, P0>(&self, item: P0) -> ::windows::core::Result<GraphicsCaptureSession>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, GraphicsCaptureItem>>,
-    {
+    pub fn CreateCaptureSession(&self, item: &GraphicsCaptureItem) -> ::windows::core::Result<GraphicsCaptureSession> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateCaptureSession)(::windows::core::Vtable::as_raw(this), item.into().abi(), result__.as_mut_ptr()).from_abi::<GraphicsCaptureSession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateCaptureSession)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(item), result__.as_mut_ptr()).from_abi::<GraphicsCaptureSession>(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -595,14 +589,11 @@ impl GraphicsCaptureItem {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, ::windows::core::IInspectable>>>,
-    {
+    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<GraphicsCaptureItem, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

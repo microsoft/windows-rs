@@ -42,21 +42,15 @@ pub struct HolographicKeyboard(::windows::core::IUnknown);
 impl HolographicKeyboard {
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetPlacementOverride<'a, P0>(&self, coordinatesystem: P0, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn SetPlacementOverride(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPlacementOverride)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), topcenterposition, orientation).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPlacementOverride)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), topcenterposition, orientation).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetPlacementOverrideWithMaxSize<'a, P0>(&self, coordinatesystem: P0, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn SetPlacementOverrideWithMaxSize(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPlacementOverrideWithMaxSize)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), topcenterposition, orientation, maxsize).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPlacementOverrideWithMaxSize)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), topcenterposition, orientation, maxsize).ok() }
     }
     pub fn ResetPlacementOverride(&self) -> ::windows::core::Result<()> {
         let this = self;

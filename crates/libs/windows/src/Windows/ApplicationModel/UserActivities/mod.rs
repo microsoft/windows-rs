@@ -552,12 +552,9 @@ impl UserActivity {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetContentUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetContentUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContentUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContentUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -581,12 +578,9 @@ impl UserActivity {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetFallbackUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetFallbackUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFallbackUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFallbackUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -599,12 +593,9 @@ impl UserActivity {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetActivationUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetActivationUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetActivationUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetActivationUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ContentInfo(&self) -> ::windows::core::Result<IUserActivityContentInfo> {
         let this = self;
@@ -784,12 +775,9 @@ impl UserActivityAttribution {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIconUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetIconUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIconUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIconUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn AlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -815,13 +803,10 @@ impl UserActivityAttribution {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithUri<'a, P0>(iconuri: P0) -> ::windows::core::Result<UserActivityAttribution>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateWithUri(iconuri: &super::super::Foundation::Uri) -> ::windows::core::Result<UserActivityAttribution> {
         Self::IUserActivityAttributionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithUri)(::windows::core::Vtable::as_raw(this), iconuri.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityAttribution>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(iconuri), result__.as_mut_ptr()).from_abi::<UserActivityAttribution>(result__)
         })
     }
     #[doc(hidden)]
@@ -954,24 +939,18 @@ impl UserActivityChannel {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn TryGetForWebAccount<'a, P0>(account: P0) -> ::windows::core::Result<UserActivityChannel>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>,
-    {
+    pub fn TryGetForWebAccount(account: &super::super::Security::Credentials::WebAccount) -> ::windows::core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetForWebAccount)(::windows::core::Vtable::as_raw(this), account.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetForWebAccount)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(account), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<UserActivityChannel>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
         })
     }
     #[doc(hidden)]
@@ -1164,12 +1143,9 @@ unsafe impl ::core::marker::Sync for UserActivityContentInfo {}
 #[repr(transparent)]
 pub struct UserActivityRequest(::windows::core::IUnknown);
 impl UserActivityRequest {
-    pub fn SetUserActivity<'a, P0>(&self, activity: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, UserActivity>>,
-    {
+    pub fn SetUserActivity(&self, activity: &UserActivity) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetUserActivity)(::windows::core::Vtable::as_raw(this), activity.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUserActivity)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activity)).ok() }
     }
 }
 impl ::core::clone::Clone for UserActivityRequest {
@@ -1242,14 +1218,11 @@ pub struct UserActivityRequestManager(::windows::core::IUnknown);
 impl UserActivityRequestManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UserActivityRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>>,
-    {
+    pub fn UserActivityRequested(&self, handler: &super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UserActivityRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UserActivityRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1663,12 +1636,9 @@ impl UserActivityVisualElements {
             (::windows::core::Vtable::vtable(this).Attribution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityAttribution>(result__)
         }
     }
-    pub fn SetAttribution<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, UserActivityAttribution>>,
-    {
+    pub fn SetAttribution(&self, value: &UserActivityAttribution) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAttribution)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAttribution)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]

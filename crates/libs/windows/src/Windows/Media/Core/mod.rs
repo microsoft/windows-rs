@@ -2273,14 +2273,11 @@ pub struct ISingleSelectMediaTrackList(::windows::core::IUnknown);
 impl ISingleSelectMediaTrackList {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SelectedIndexChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows::core::IInspectable>>>,
-    {
+    pub fn SelectedIndexChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SelectedIndexChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SelectedIndexChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3211,13 +3208,10 @@ impl AudioStreamDescriptor {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn Create<'a, P0>(encodingproperties: P0) -> ::windows::core::Result<AudioStreamDescriptor>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>,
-    {
+    pub fn Create(encodingproperties: &super::MediaProperties::AudioEncodingProperties) -> ::windows::core::Result<AudioStreamDescriptor> {
         Self::IAudioStreamDescriptorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), encodingproperties.into().abi(), result__.as_mut_ptr()).from_abi::<AudioStreamDescriptor>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(encodingproperties), result__.as_mut_ptr()).from_abi::<AudioStreamDescriptor>(result__)
         })
     }
     pub fn IsSelected(&self) -> ::windows::core::Result<bool> {
@@ -3374,14 +3368,11 @@ pub struct AudioTrack(::windows::core::IUnknown);
 impl AudioTrack {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenFailed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioTrack, AudioTrackOpenFailedEventArgs>>>,
-    {
+    pub fn OpenFailed(&self, handler: &super::super::Foundation::TypedEventHandler<AudioTrack, AudioTrackOpenFailedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IAudioTrack>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OpenFailed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OpenFailed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4639,14 +4630,11 @@ impl FaceDetectionEffect {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FaceDetected<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<FaceDetectionEffect, FaceDetectedEventArgs>>>,
-    {
+    pub fn FaceDetected(&self, handler: &super::super::Foundation::TypedEventHandler<FaceDetectionEffect, FaceDetectedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FaceDetected)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).FaceDetected)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5321,12 +5309,9 @@ impl ImageCue {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetSoftwareBitmap<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>,
-    {
+    pub fn SetSoftwareBitmap(&self, value: &super::super::Graphics::Imaging::SoftwareBitmap) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSoftwareBitmap)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSoftwareBitmap)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
@@ -5713,14 +5698,11 @@ impl MediaBinder {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Binding<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaBinder, MediaBindingEventArgs>>>,
-    {
+    pub fn Binding(&self, handler: &super::super::Foundation::TypedEventHandler<MediaBinder, MediaBindingEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Binding)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Binding)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5818,14 +5800,11 @@ pub struct MediaBindingEventArgs(::windows::core::IUnknown);
 impl MediaBindingEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Canceled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaBindingEventArgs, ::windows::core::IInspectable>>>,
-    {
+    pub fn Canceled(&self, handler: &super::super::Foundation::TypedEventHandler<MediaBindingEventArgs, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Canceled)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Canceled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5852,12 +5831,9 @@ impl MediaBindingEventArgs {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, P0>(&self, uri: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetUri(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), uri.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri)).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -5881,12 +5857,9 @@ impl MediaBindingEventArgs {
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     #[cfg(feature = "Media_Streaming_Adaptive")]
-    pub fn SetAdaptiveMediaSource<'a, P0>(&self, mediasource: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Streaming::Adaptive::AdaptiveMediaSource>>,
-    {
+    pub fn SetAdaptiveMediaSource(&self, mediasource: &super::Streaming::Adaptive::AdaptiveMediaSource) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaBindingEventArgs2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAdaptiveMediaSource)(::windows::core::Vtable::as_raw(this), mediasource.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAdaptiveMediaSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mediasource)).ok() }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
@@ -5900,12 +5873,9 @@ impl MediaBindingEventArgs {
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
     #[cfg(feature = "Networking_BackgroundTransfer")]
-    pub fn SetDownloadOperation<'a, P0>(&self, downloadoperation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Networking::BackgroundTransfer::DownloadOperation>>,
-    {
+    pub fn SetDownloadOperation(&self, downloadoperation: &super::super::Networking::BackgroundTransfer::DownloadOperation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaBindingEventArgs3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDownloadOperation)(::windows::core::Vtable::as_raw(this), downloadoperation.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDownloadOperation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(downloadoperation)).ok() }
     }
 }
 impl ::core::clone::Clone for MediaBindingEventArgs {
@@ -6060,14 +6030,11 @@ impl MediaSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenOperationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceOpenOperationCompletedEventArgs>>>,
-    {
+    pub fn OpenOperationCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceOpenOperationCompletedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OpenOperationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OpenOperationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6121,14 +6088,11 @@ impl MediaSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceStateChangedEventArgs>>>,
-    {
+    pub fn StateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceStateChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaSource3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StateChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6200,31 +6164,22 @@ impl MediaSource {
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     #[cfg(feature = "Media_Streaming_Adaptive")]
-    pub fn CreateFromAdaptiveMediaSource<'a, P0>(mediasource: P0) -> ::windows::core::Result<MediaSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Streaming::Adaptive::AdaptiveMediaSource>>,
-    {
+    pub fn CreateFromAdaptiveMediaSource(mediasource: &super::Streaming::Adaptive::AdaptiveMediaSource) -> ::windows::core::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromAdaptiveMediaSource)(::windows::core::Vtable::as_raw(this), mediasource.into().abi(), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromAdaptiveMediaSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mediasource), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
         })
     }
-    pub fn CreateFromMediaStreamSource<'a, P0>(mediasource: P0) -> ::windows::core::Result<MediaSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, MediaStreamSource>>,
-    {
+    pub fn CreateFromMediaStreamSource(mediasource: &MediaStreamSource) -> ::windows::core::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromMediaStreamSource)(::windows::core::Vtable::as_raw(this), mediasource.into().abi(), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromMediaStreamSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mediasource), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
         })
     }
-    pub fn CreateFromMseStreamSource<'a, P0>(mediasource: P0) -> ::windows::core::Result<MediaSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, MseStreamSource>>,
-    {
+    pub fn CreateFromMseStreamSource(mediasource: &MseStreamSource) -> ::windows::core::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromMseStreamSource)(::windows::core::Vtable::as_raw(this), mediasource.into().abi(), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromMseStreamSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mediasource), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
         })
     }
     pub fn CreateFromIMediaSource<'a, P0, E0>(mediasource: P0) -> ::windows::core::Result<MediaSource>
@@ -6275,44 +6230,32 @@ impl MediaSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFromUri<'a, P0>(uri: P0) -> ::windows::core::Result<MediaSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateFromUri(uri: &super::super::Foundation::Uri) -> ::windows::core::Result<MediaSource> {
         Self::IMediaSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromUri)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
         })
     }
-    pub fn CreateFromMediaBinder<'a, P0>(binder: P0) -> ::windows::core::Result<MediaSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, MediaBinder>>,
-    {
+    pub fn CreateFromMediaBinder(binder: &MediaBinder) -> ::windows::core::Result<MediaSource> {
         Self::IMediaSourceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromMediaBinder)(::windows::core::Vtable::as_raw(this), binder.into().abi(), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromMediaBinder)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(binder), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
     #[cfg(feature = "Media_Capture_Frames")]
-    pub fn CreateFromMediaFrameSource<'a, P0>(framesource: P0) -> ::windows::core::Result<MediaSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Capture::Frames::MediaFrameSource>>,
-    {
+    pub fn CreateFromMediaFrameSource(framesource: &super::Capture::Frames::MediaFrameSource) -> ::windows::core::Result<MediaSource> {
         Self::IMediaSourceStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromMediaFrameSource)(::windows::core::Vtable::as_raw(this), framesource.into().abi(), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromMediaFrameSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(framesource), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
     #[cfg(feature = "Networking_BackgroundTransfer")]
-    pub fn CreateFromDownloadOperation<'a, P0>(downloadoperation: P0) -> ::windows::core::Result<MediaSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Networking::BackgroundTransfer::DownloadOperation>>,
-    {
+    pub fn CreateFromDownloadOperation(downloadoperation: &super::super::Networking::BackgroundTransfer::DownloadOperation) -> ::windows::core::Result<MediaSource> {
         Self::IMediaSourceStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromDownloadOperation)(::windows::core::Vtable::as_raw(this), downloadoperation.into().abi(), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromDownloadOperation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(downloadoperation), result__.as_mut_ptr()).from_abi::<MediaSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -6450,14 +6393,11 @@ pub struct MediaSourceAppServiceConnection(::windows::core::IUnknown);
 impl MediaSourceAppServiceConnection {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InitializeMediaStreamSourceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaSourceAppServiceConnection, InitializeMediaStreamSourceRequestedEventArgs>>>,
-    {
+    pub fn InitializeMediaStreamSourceRequested(&self, handler: &super::super::Foundation::TypedEventHandler<MediaSourceAppServiceConnection, InitializeMediaStreamSourceRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InitializeMediaStreamSourceRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).InitializeMediaStreamSourceRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6472,13 +6412,10 @@ impl MediaSourceAppServiceConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn Create<'a, P0>(appserviceconnection: P0) -> ::windows::core::Result<MediaSourceAppServiceConnection>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::AppService::AppServiceConnection>>,
-    {
+    pub fn Create(appserviceconnection: &super::super::ApplicationModel::AppService::AppServiceConnection) -> ::windows::core::Result<MediaSourceAppServiceConnection> {
         Self::IMediaSourceAppServiceConnectionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), appserviceconnection.into().abi(), result__.as_mut_ptr()).from_abi::<MediaSourceAppServiceConnection>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appserviceconnection), result__.as_mut_ptr()).from_abi::<MediaSourceAppServiceConnection>(result__)
         })
     }
     #[doc(hidden)]
@@ -6790,14 +6727,11 @@ pub struct MediaStreamSample(::windows::core::IUnknown);
 impl MediaStreamSample {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Processed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSample, ::windows::core::IInspectable>>>,
-    {
+    pub fn Processed(&self, handler: &super::super::Foundation::TypedEventHandler<MediaStreamSample, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Processed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Processed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7327,14 +7261,11 @@ pub struct MediaStreamSource(::windows::core::IUnknown);
 impl MediaStreamSource {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceClosedEventArgs>>>,
-    {
+    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7345,14 +7276,11 @@ impl MediaStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Starting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceStartingEventArgs>>>,
-    {
+    pub fn Starting(&self, handler: &super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceStartingEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Starting)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Starting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7363,14 +7291,11 @@ impl MediaStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Paused<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, ::windows::core::IInspectable>>>,
-    {
+    pub fn Paused(&self, handler: &super::super::Foundation::TypedEventHandler<MediaStreamSource, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Paused)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Paused)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7381,14 +7306,11 @@ impl MediaStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SampleRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRequestedEventArgs>>>,
-    {
+    pub fn SampleRequested(&self, handler: &super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SampleRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SampleRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7399,14 +7321,11 @@ impl MediaStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SwitchStreamsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSwitchStreamsRequestedEventArgs>>>,
-    {
+    pub fn SwitchStreamsRequested(&self, handler: &super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSwitchStreamsRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SwitchStreamsRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SwitchStreamsRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7429,12 +7348,9 @@ impl MediaStreamSource {
     }
     #[doc = "*Required features: `\"Media_Protection\"`*"]
     #[cfg(feature = "Media_Protection")]
-    pub fn SetMediaProtectionManager<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Protection::MediaProtectionManager>>,
-    {
+    pub fn SetMediaProtectionManager(&self, value: &super::Protection::MediaProtectionManager) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMediaProtectionManager)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetMediaProtectionManager)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection\"`*"]
     #[cfg(feature = "Media_Protection")]
@@ -7539,14 +7455,11 @@ impl MediaStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SampleRendered<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRenderedEventArgs>>>,
-    {
+    pub fn SampleRendered(&self, handler: &super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRenderedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaStreamSource2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SampleRendered)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SampleRendered)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7944,12 +7857,9 @@ impl MediaStreamSourceSampleRequest {
             (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaStreamSourceSampleRequestDeferral>(result__)
         }
     }
-    pub fn SetSample<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, MediaStreamSample>>,
-    {
+    pub fn SetSample(&self, value: &MediaStreamSample) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSample)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSample)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Sample(&self) -> ::windows::core::Result<MediaStreamSample> {
         let this = self;
@@ -8661,14 +8571,11 @@ pub struct MseSourceBuffer(::windows::core::IUnknown);
 impl MseSourceBuffer {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateStarting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>>,
-    {
+    pub fn UpdateStarting(&self, handler: &super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateStarting)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateStarting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8679,14 +8586,11 @@ impl MseSourceBuffer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>>,
-    {
+    pub fn Updated(&self, handler: &super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Updated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Updated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8697,14 +8601,11 @@ impl MseSourceBuffer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateEnded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>>,
-    {
+    pub fn UpdateEnded(&self, handler: &super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateEnded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateEnded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8715,14 +8616,11 @@ impl MseSourceBuffer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorOccurred<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>>,
-    {
+    pub fn ErrorOccurred(&self, handler: &super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ErrorOccurred)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ErrorOccurred)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8733,14 +8631,11 @@ impl MseSourceBuffer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Aborted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>>>,
-    {
+    pub fn Aborted(&self, handler: &super::super::Foundation::TypedEventHandler<MseSourceBuffer, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Aborted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Aborted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8940,14 +8835,11 @@ pub struct MseSourceBufferList(::windows::core::IUnknown);
 impl MseSourceBufferList {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceBufferAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::core::IInspectable>>>,
-    {
+    pub fn SourceBufferAdded(&self, handler: &super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourceBufferAdded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SourceBufferAdded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8958,14 +8850,11 @@ impl MseSourceBufferList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceBufferRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::core::IInspectable>>>,
-    {
+    pub fn SourceBufferRemoved(&self, handler: &super::super::Foundation::TypedEventHandler<MseSourceBufferList, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourceBufferRemoved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SourceBufferRemoved)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9061,14 +8950,11 @@ impl MseStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Opened<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>>>,
-    {
+    pub fn Opened(&self, handler: &super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Opened)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Opened)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9079,14 +8965,11 @@ impl MseStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Ended<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>>>,
-    {
+    pub fn Ended(&self, handler: &super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Ended)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Ended)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9097,14 +8980,11 @@ impl MseStreamSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>>>,
-    {
+    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<MseStreamSource, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9160,12 +9040,9 @@ impl MseStreamSource {
             (::windows::core::Vtable::vtable(this).AddSourceBuffer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mimetype), result__.as_mut_ptr()).from_abi::<MseSourceBuffer>(result__)
         }
     }
-    pub fn RemoveSourceBuffer<'a, P0>(&self, buffer: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, MseSourceBuffer>>,
-    {
+    pub fn RemoveSourceBuffer(&self, buffer: &MseSourceBuffer) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveSourceBuffer)(::windows::core::Vtable::as_raw(this), buffer.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveSourceBuffer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(buffer)).ok() }
     }
     pub fn EndOfStream(&self, status: MseEndOfStreamStatus) -> ::windows::core::Result<()> {
         let this = self;
@@ -9323,14 +9200,11 @@ impl SceneAnalysisEffect {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SceneAnalyzed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SceneAnalysisEffect, SceneAnalyzedEventArgs>>>,
-    {
+    pub fn SceneAnalyzed(&self, handler: &super::super::Foundation::TypedEventHandler<SceneAnalysisEffect, SceneAnalyzedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SceneAnalyzed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SceneAnalyzed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -10110,13 +9984,10 @@ impl TimedMetadataStreamDescriptor {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn Create<'a, P0>(encodingproperties: P0) -> ::windows::core::Result<TimedMetadataStreamDescriptor>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::TimedMetadataEncodingProperties>>,
-    {
+    pub fn Create(encodingproperties: &super::MediaProperties::TimedMetadataEncodingProperties) -> ::windows::core::Result<TimedMetadataStreamDescriptor> {
         Self::ITimedMetadataStreamDescriptorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), encodingproperties.into().abi(), result__.as_mut_ptr()).from_abi::<TimedMetadataStreamDescriptor>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(encodingproperties), result__.as_mut_ptr()).from_abi::<TimedMetadataStreamDescriptor>(result__)
         })
     }
     #[doc(hidden)]
@@ -10265,14 +10136,11 @@ impl TimedMetadataTrack {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CueEntered<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>>,
-    {
+    pub fn CueEntered(&self, handler: &super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CueEntered)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CueEntered)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -10283,14 +10151,11 @@ impl TimedMetadataTrack {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CueExited<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>>,
-    {
+    pub fn CueExited(&self, handler: &super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CueExited)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CueExited)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -10301,14 +10166,11 @@ impl TimedMetadataTrack {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrackFailed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TimedMetadataTrack, TimedMetadataTrackFailedEventArgs>>>,
-    {
+    pub fn TrackFailed(&self, handler: &super::super::Foundation::TypedEventHandler<TimedMetadataTrack, TimedMetadataTrackFailedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TrackFailed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).TrackFailed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -10800,12 +10662,9 @@ impl TimedTextCue {
             (::windows::core::Vtable::vtable(this).CueRegion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TimedTextRegion>(result__)
         }
     }
-    pub fn SetCueRegion<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, TimedTextRegion>>,
-    {
+    pub fn SetCueRegion(&self, value: &TimedTextRegion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCueRegion)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCueRegion)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CueStyle(&self) -> ::windows::core::Result<TimedTextStyle> {
         let this = self;
@@ -10814,12 +10673,9 @@ impl TimedTextCue {
             (::windows::core::Vtable::vtable(this).CueStyle)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TimedTextStyle>(result__)
         }
     }
-    pub fn SetCueStyle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, TimedTextStyle>>,
-    {
+    pub fn SetCueStyle(&self, value: &TimedTextStyle) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCueStyle)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCueStyle)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -11341,14 +11197,11 @@ pub struct TimedTextSource(::windows::core::IUnknown);
 impl TimedTextSource {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Resolved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TimedTextSource, TimedTextSourceResolveResultEventArgs>>>,
-    {
+    pub fn Resolved(&self, handler: &super::super::Foundation::TypedEventHandler<TimedTextSource, TimedTextSourceResolveResultEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Resolved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Resolved)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -11371,13 +11224,10 @@ impl TimedTextSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFromUri<'a, P0>(uri: P0) -> ::windows::core::Result<TimedTextSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateFromUri(uri: &super::super::Foundation::Uri) -> ::windows::core::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromUri)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<TimedTextSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<TimedTextSource>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -11394,13 +11244,10 @@ impl TimedTextSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFromUriWithLanguage<'a, P0>(uri: P0, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateFromUriWithLanguage(uri: &super::super::Foundation::Uri, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromUriWithLanguage)(::windows::core::Vtable::as_raw(this), uri.into().abi(), ::core::mem::transmute_copy(defaultlanguage), result__.as_mut_ptr()).from_abi::<TimedTextSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromUriWithLanguage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(defaultlanguage), result__.as_mut_ptr()).from_abi::<TimedTextSource>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -11419,14 +11266,10 @@ impl TimedTextSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFromUriWithIndex<'a, P0, P1>(uri: P0, indexuri: P1) -> ::windows::core::Result<TimedTextSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateFromUriWithIndex(uri: &super::super::Foundation::Uri, indexuri: &super::super::Foundation::Uri) -> ::windows::core::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromUriWithIndex)(::windows::core::Vtable::as_raw(this), uri.into().abi(), indexuri.into().abi(), result__.as_mut_ptr()).from_abi::<TimedTextSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromUriWithIndex)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(indexuri), result__.as_mut_ptr()).from_abi::<TimedTextSource>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -11445,14 +11288,10 @@ impl TimedTextSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFromUriWithIndexAndLanguage<'a, P0, P1>(uri: P0, indexuri: P1, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateFromUriWithIndexAndLanguage(uri: &super::super::Foundation::Uri, indexuri: &super::super::Foundation::Uri, defaultlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<TimedTextSource> {
         Self::ITimedTextSourceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromUriWithIndexAndLanguage)(::windows::core::Vtable::as_raw(this), uri.into().abi(), indexuri.into().abi(), ::core::mem::transmute_copy(defaultlanguage), result__.as_mut_ptr()).from_abi::<TimedTextSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromUriWithIndexAndLanguage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(indexuri), ::core::mem::transmute_copy(defaultlanguage), result__.as_mut_ptr()).from_abi::<TimedTextSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -11955,12 +11794,9 @@ impl TimedTextSubformat {
             (::windows::core::Vtable::vtable(this).SubformatStyle)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TimedTextStyle>(result__)
         }
     }
-    pub fn SetSubformatStyle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, TimedTextStyle>>,
-    {
+    pub fn SetSubformatStyle(&self, value: &TimedTextStyle) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSubformatStyle)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSubformatStyle)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for TimedTextSubformat {
@@ -12054,14 +11890,11 @@ impl VideoStabilizationEffect {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnabledChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VideoStabilizationEffect, VideoStabilizationEffectEnabledChangedEventArgs>>>,
-    {
+    pub fn EnabledChanged(&self, handler: &super::super::Foundation::TypedEventHandler<VideoStabilizationEffect, VideoStabilizationEffectEnabledChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnabledChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnabledChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -12072,15 +11905,11 @@ impl VideoStabilizationEffect {
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_Devices", feature = "Media_MediaProperties"))]
-    pub fn GetRecommendedStreamConfiguration<'a, P0, P1>(&self, controller: P0, desiredproperties: P1) -> ::windows::core::Result<super::Capture::VideoStreamConfiguration>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Devices::VideoDeviceController>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>,
-    {
+    pub fn GetRecommendedStreamConfiguration(&self, controller: &super::Devices::VideoDeviceController, desiredproperties: &super::MediaProperties::VideoEncodingProperties) -> ::windows::core::Result<super::Capture::VideoStreamConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetRecommendedStreamConfiguration)(::windows::core::Vtable::as_raw(this), controller.into().abi(), desiredproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::Capture::VideoStreamConfiguration>(result__)
+            (::windows::core::Vtable::vtable(this).GetRecommendedStreamConfiguration)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controller), ::core::mem::transmute_copy(desiredproperties), result__.as_mut_ptr()).from_abi::<super::Capture::VideoStreamConfiguration>(result__)
         }
     }
 }
@@ -12439,13 +12268,10 @@ impl VideoStreamDescriptor {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn Create<'a, P0>(encodingproperties: P0) -> ::windows::core::Result<VideoStreamDescriptor>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>,
-    {
+    pub fn Create(encodingproperties: &super::MediaProperties::VideoEncodingProperties) -> ::windows::core::Result<VideoStreamDescriptor> {
         Self::IVideoStreamDescriptorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), encodingproperties.into().abi(), result__.as_mut_ptr()).from_abi::<VideoStreamDescriptor>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(encodingproperties), result__.as_mut_ptr()).from_abi::<VideoStreamDescriptor>(result__)
         })
     }
     #[doc(hidden)]
@@ -12594,14 +12420,11 @@ impl VideoTrack {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenFailed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VideoTrack, VideoTrackOpenFailedEventArgs>>>,
-    {
+    pub fn OpenFailed(&self, handler: &super::super::Foundation::TypedEventHandler<VideoTrack, VideoTrackOpenFailedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IVideoTrack>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OpenFailed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OpenFailed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

@@ -154,128 +154,100 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn RetrieveServiceDocumentAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RetrieveServiceDocumentAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RetrieveServiceDocumentAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).RetrieveServiceDocumentAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub fn RetrieveMediaResourceAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RetrieveMediaResourceAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RetrieveMediaResourceAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).RetrieveMediaResourceAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn RetrieveResourceAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RetrieveResourceAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RetrieveResourceAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).RetrieveResourceAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn CreateResourceAsync<'a, P0, P1>(&self, uri: P0, description: &::windows::core::HSTRING, item: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Syndication::SyndicationItem>>,
-    {
+    pub fn CreateResourceAsync(&self, uri: &super::super::Foundation::Uri, description: &::windows::core::HSTRING, item: &super::Syndication::SyndicationItem) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateResourceAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), ::core::mem::transmute_copy(description), item.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateResourceAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(description), ::core::mem::transmute_copy(item), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub fn CreateMediaResourceAsync<'a, P0, P1, E1>(&self, uri: P0, mediatype: &::windows::core::HSTRING, description: &::windows::core::HSTRING, mediastream: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
+    pub fn CreateMediaResourceAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, mediatype: &::windows::core::HSTRING, description: &::windows::core::HSTRING, mediastream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateMediaResourceAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), ::core::mem::transmute_copy(mediatype), ::core::mem::transmute_copy(description), mediastream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateMediaResourceAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(mediatype), ::core::mem::transmute_copy(description), mediastream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub fn UpdateMediaResourceAsync<'a, P0, P1, E1>(&self, uri: P0, mediatype: &::windows::core::HSTRING, mediastream: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn UpdateMediaResourceAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, mediatype: &::windows::core::HSTRING, mediastream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateMediaResourceAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), ::core::mem::transmute_copy(mediatype), mediastream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateMediaResourceAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(mediatype), mediastream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn UpdateResourceAsync<'a, P0, P1>(&self, uri: P0, item: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Syndication::SyndicationItem>>,
-    {
+    pub fn UpdateResourceAsync(&self, uri: &super::super::Foundation::Uri, item: &super::Syndication::SyndicationItem) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateResourceAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), item.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateResourceAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(item), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn UpdateResourceItemAsync<'a, P0>(&self, item: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Syndication::SyndicationItem>>,
-    {
+    pub fn UpdateResourceItemAsync(&self, item: &super::Syndication::SyndicationItem) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateResourceItemAsync)(::windows::core::Vtable::as_raw(this), item.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateResourceItemAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(item), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn DeleteResourceAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn DeleteResourceAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeleteResourceAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).DeleteResourceAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn DeleteResourceItemAsync<'a, P0>(&self, item: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Syndication::SyndicationItem>>,
-    {
+    pub fn DeleteResourceItemAsync(&self, item: &super::Syndication::SyndicationItem) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeleteResourceItemAsync)(::windows::core::Vtable::as_raw(this), item.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).DeleteResourceItemAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(item), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     pub fn CancelAsyncOperations(&self) -> ::windows::core::Result<()> {
@@ -284,13 +256,10 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateAtomPubClientWithCredentials<'a, P0>(servercredential: P0) -> ::windows::core::Result<AtomPubClient>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn CreateAtomPubClientWithCredentials(servercredential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<AtomPubClient> {
         Self::IAtomPubClientFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateAtomPubClientWithCredentials)(::windows::core::Vtable::as_raw(this), servercredential.into().abi(), result__.as_mut_ptr()).from_abi::<AtomPubClient>(result__)
+            (::windows::core::Vtable::vtable(this).CreateAtomPubClientWithCredentials)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(servercredential), result__.as_mut_ptr()).from_abi::<AtomPubClient>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
@@ -304,12 +273,9 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
-    pub fn SetServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
@@ -322,12 +288,9 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
-    pub fn SetProxyCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -382,14 +345,11 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn RetrieveFeedAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RetrieveFeedAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RetrieveFeedAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>>(result__)
+            (::windows::core::Vtable::vtable(this).RetrieveFeedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>>(result__)
         }
     }
     #[doc(hidden)]
@@ -595,12 +555,9 @@ impl ResourceCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]
@@ -800,12 +757,9 @@ impl ServiceDocument {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]
@@ -996,12 +950,9 @@ impl Workspace {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn SetBaseUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBaseUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]

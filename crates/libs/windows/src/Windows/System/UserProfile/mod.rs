@@ -417,13 +417,10 @@ impl AdvertisingManager {
             (::windows::core::Vtable::vtable(this).AdvertisingId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<AdvertisingManagerForUser>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
-    {
+    pub fn GetForUser(user: &super::User) -> ::windows::core::Result<AdvertisingManagerForUser> {
         Self::IAdvertisingManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<AdvertisingManagerForUser>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<AdvertisingManagerForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -554,13 +551,10 @@ impl AssignedAccessSettings {
             (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AssignedAccessSettings>(result__)
         })
     }
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<AssignedAccessSettings>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
-    {
+    pub fn GetForUser(user: &super::User) -> ::windows::core::Result<AssignedAccessSettings> {
         Self::IAssignedAccessSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<AssignedAccessSettings>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<AssignedAccessSettings>(result__)
         })
     }
     #[doc(hidden)]
@@ -657,13 +651,10 @@ impl DiagnosticsSettings {
             (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DiagnosticsSettings>(result__)
         })
     }
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<DiagnosticsSettings>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
-    {
+    pub fn GetForUser(user: &super::User) -> ::windows::core::Result<DiagnosticsSettings> {
         Self::IDiagnosticsSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticsSettings>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<DiagnosticsSettings>(result__)
         })
     }
     #[doc(hidden)]
@@ -985,13 +976,10 @@ impl GlobalizationPreferences {
             (::windows::core::Vtable::vtable(this).TrySetLanguages)(::windows::core::Vtable::as_raw(this), languagetags.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<GlobalizationPreferencesForUser>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
-    {
+    pub fn GetForUser(user: &super::User) -> ::windows::core::Result<GlobalizationPreferencesForUser> {
         Self::IGlobalizationPreferencesStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<GlobalizationPreferencesForUser>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<GlobalizationPreferencesForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -1146,13 +1134,10 @@ pub struct LockScreen;
 impl LockScreen {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestSetImageFeedAsync<'a, P0>(syndicationfeeduri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RequestSetImageFeedAsync(syndicationfeeduri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>> {
         Self::ILockScreenImageFeedStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestSetImageFeedAsync)(::windows::core::Vtable::as_raw(this), syndicationfeeduri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestSetImageFeedAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(syndicationfeeduri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>(result__)
         })
     }
     pub fn TryRemoveImageFeed() -> ::windows::core::Result<bool> {
@@ -1302,13 +1287,10 @@ impl UserInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn AccountPictureChanged<'a, P0>(changehandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
-    {
+    pub fn AccountPictureChanged(changehandler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AccountPictureChanged)(::windows::core::Vtable::as_raw(this), changehandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AccountPictureChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changehandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1381,26 +1363,20 @@ pub struct UserProfilePersonalizationSettings(::windows::core::IUnknown);
 impl UserProfilePersonalizationSettings {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TrySetLockScreenImageAsync<'a, P0>(&self, imagefile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
-    {
+    pub fn TrySetLockScreenImageAsync(&self, imagefile: &super::super::Storage::StorageFile) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TrySetLockScreenImageAsync)(::windows::core::Vtable::as_raw(this), imagefile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).TrySetLockScreenImageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(imagefile), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TrySetWallpaperImageAsync<'a, P0>(&self, imagefile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
-    {
+    pub fn TrySetWallpaperImageAsync(&self, imagefile: &super::super::Storage::StorageFile) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TrySetWallpaperImageAsync)(::windows::core::Vtable::as_raw(this), imagefile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).TrySetWallpaperImageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(imagefile), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     pub fn Current() -> ::windows::core::Result<UserProfilePersonalizationSettings> {

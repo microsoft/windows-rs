@@ -628,14 +628,11 @@ impl ActivationSignalDetectionConfiguration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AvailabilityChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>>>,
-    {
+    pub fn AvailabilityChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AvailabilityChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AvailabilityChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1395,14 +1392,11 @@ impl ConversationalAgentSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SessionInterrupted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>>,
-    {
+    pub fn SessionInterrupted(&self, handler: &super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SessionInterrupted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SessionInterrupted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1413,14 +1407,11 @@ impl ConversationalAgentSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SignalDetected<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>>>,
-    {
+    pub fn SignalDetected(&self, handler: &super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SignalDetected)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SignalDetected)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1431,14 +1422,11 @@ impl ConversationalAgentSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SystemStateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>>>,
-    {
+    pub fn SystemStateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SystemStateChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SystemStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1569,26 +1557,20 @@ impl ConversationalAgentSession {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Audio\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Audio"))]
-    pub fn CreateAudioDeviceInputNodeAsync<'a, P0>(&self, graph: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Media::Audio::AudioGraph>>,
-    {
+    pub fn CreateAudioDeviceInputNodeAsync(&self, graph: &super::super::Media::Audio::AudioGraph) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateAudioDeviceInputNodeAsync)(::windows::core::Vtable::as_raw(this), graph.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateAudioDeviceInputNodeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(graph), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
     #[cfg(feature = "Media_Audio")]
-    pub fn CreateAudioDeviceInputNode<'a, P0>(&self, graph: P0) -> ::windows::core::Result<super::super::Media::Audio::AudioDeviceInputNode>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Media::Audio::AudioGraph>>,
-    {
+    pub fn CreateAudioDeviceInputNode(&self, graph: &super::super::Media::Audio::AudioGraph) -> ::windows::core::Result<super::super::Media::Audio::AudioDeviceInputNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateAudioDeviceInputNode)(::windows::core::Vtable::as_raw(this), graph.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Media::Audio::AudioDeviceInputNode>(result__)
+            (::windows::core::Vtable::vtable(this).CreateAudioDeviceInputNode)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(graph), result__.as_mut_ptr()).from_abi::<super::super::Media::Audio::AudioDeviceInputNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

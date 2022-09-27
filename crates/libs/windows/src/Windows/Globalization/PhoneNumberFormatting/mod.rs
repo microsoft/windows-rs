@@ -99,24 +99,18 @@ impl PhoneNumberFormatter {
         static SHARED: ::windows::core::FactoryCache<PhoneNumberFormatter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Format<'a, P0>(&self, number: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>,
-    {
+    pub fn Format(&self, number: &PhoneNumberInfo) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn FormatWithOutputFormat<'a, P0>(&self, number: P0, numberformat: PhoneNumberFormat) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>,
-    {
+    pub fn FormatWithOutputFormat(&self, number: &PhoneNumberInfo, numberformat: PhoneNumberFormat) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FormatWithOutputFormat)(::windows::core::Vtable::as_raw(this), number.into().abi(), numberformat, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).FormatWithOutputFormat)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), numberformat, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn FormatPartialString(&self, number: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -284,14 +278,11 @@ impl PhoneNumberInfo {
             (::windows::core::Vtable::vtable(this).GetGeographicRegionCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn CheckNumberMatch<'a, P0>(&self, othernumber: P0) -> ::windows::core::Result<PhoneNumberMatchResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>,
-    {
+    pub fn CheckNumberMatch(&self, othernumber: &PhoneNumberInfo) -> ::windows::core::Result<PhoneNumberMatchResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CheckNumberMatch)(::windows::core::Vtable::as_raw(this), othernumber.into().abi(), result__.as_mut_ptr()).from_abi::<PhoneNumberMatchResult>(result__)
+            (::windows::core::Vtable::vtable(this).CheckNumberMatch)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(othernumber), result__.as_mut_ptr()).from_abi::<PhoneNumberMatchResult>(result__)
         }
     }
     pub fn Create(number: &::windows::core::HSTRING) -> ::windows::core::Result<PhoneNumberInfo> {

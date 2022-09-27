@@ -1623,14 +1623,11 @@ impl LockScreenCallUI {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EndRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>>>,
-    {
+    pub fn EndRequested(&self, handler: &super::super::Foundation::TypedEventHandler<LockScreenCallUI, LockScreenCallEndRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EndRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EndRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1641,14 +1638,11 @@ impl LockScreenCallUI {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<LockScreenCallUI, ::windows::core::IInspectable>>>,
-    {
+    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<LockScreenCallUI, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1815,14 +1809,11 @@ pub struct PhoneCall(::windows::core::IUnknown);
 impl PhoneCall {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>>,
-    {
+    pub fn StatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1833,14 +1824,11 @@ impl PhoneCall {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioDeviceChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>>,
-    {
+    pub fn AudioDeviceChanged(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AudioDeviceChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AudioDeviceChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1851,14 +1839,11 @@ impl PhoneCall {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsMutedChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>>>,
-    {
+    pub fn IsMutedChanged(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneCall, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsMutedChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).IsMutedChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2198,12 +2183,9 @@ impl PhoneCallHistoryEntry {
             (::windows::core::Vtable::vtable(this).Address)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PhoneCallHistoryEntryAddress>(result__)
         }
     }
-    pub fn SetAddress<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneCallHistoryEntryAddress>>,
-    {
+    pub fn SetAddress(&self, value: &PhoneCallHistoryEntryAddress) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAddress)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAddress)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2772,13 +2754,10 @@ impl PhoneCallHistoryManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<PhoneCallHistoryManagerForUser>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<PhoneCallHistoryManagerForUser> {
         Self::IPhoneCallHistoryManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<PhoneCallHistoryManagerForUser>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<PhoneCallHistoryManagerForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -2902,38 +2881,29 @@ impl PhoneCallHistoryStore {
             (::windows::core::Vtable::vtable(this).GetEntryReader)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PhoneCallHistoryEntryReader>(result__)
         }
     }
-    pub fn GetEntryReaderWithOptions<'a, P0>(&self, queryoptions: P0) -> ::windows::core::Result<PhoneCallHistoryEntryReader>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneCallHistoryEntryQueryOptions>>,
-    {
+    pub fn GetEntryReaderWithOptions(&self, queryoptions: &PhoneCallHistoryEntryQueryOptions) -> ::windows::core::Result<PhoneCallHistoryEntryReader> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetEntryReaderWithOptions)(::windows::core::Vtable::as_raw(this), queryoptions.into().abi(), result__.as_mut_ptr()).from_abi::<PhoneCallHistoryEntryReader>(result__)
+            (::windows::core::Vtable::vtable(this).GetEntryReaderWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryoptions), result__.as_mut_ptr()).from_abi::<PhoneCallHistoryEntryReader>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveEntryAsync<'a, P0>(&self, callhistoryentry: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneCallHistoryEntry>>,
-    {
+    pub fn SaveEntryAsync(&self, callhistoryentry: &PhoneCallHistoryEntry) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SaveEntryAsync)(::windows::core::Vtable::as_raw(this), callhistoryentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SaveEntryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(callhistoryentry), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteEntryAsync<'a, P0>(&self, callhistoryentry: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneCallHistoryEntry>>,
-    {
+    pub fn DeleteEntryAsync(&self, callhistoryentry: &PhoneCallHistoryEntry) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeleteEntryAsync)(::windows::core::Vtable::as_raw(this), callhistoryentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).DeleteEntryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(callhistoryentry), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2951,14 +2921,11 @@ impl PhoneCallHistoryStore {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MarkEntryAsSeenAsync<'a, P0>(&self, callhistoryentry: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneCallHistoryEntry>>,
-    {
+    pub fn MarkEntryAsSeenAsync(&self, callhistoryentry: &PhoneCallHistoryEntry) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MarkEntryAsSeenAsync)(::windows::core::Vtable::as_raw(this), callhistoryentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).MarkEntryAsSeenAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(callhistoryentry), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3204,13 +3171,10 @@ impl PhoneCallManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CallStateChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
-    {
+    pub fn CallStateChanged(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPhoneCallManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CallStateChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CallStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3574,12 +3538,9 @@ impl PhoneDialOptions {
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn SetContact<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Contacts::Contact>>,
-    {
+    pub fn SetContact(&self, value: &super::Contacts::Contact) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContact)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContact)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -3592,12 +3553,9 @@ impl PhoneDialOptions {
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn SetContactPhone<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Contacts::ContactPhone>>,
-    {
+    pub fn SetContactPhone(&self, value: &super::Contacts::ContactPhone) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContactPhone)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContactPhone)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Media(&self) -> ::windows::core::Result<PhoneCallMedia> {
         let this = self;
@@ -3692,14 +3650,11 @@ pub struct PhoneLine(::windows::core::IUnknown);
 impl PhoneLine {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LineChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneLine, ::windows::core::IInspectable>>>,
-    {
+    pub fn LineChanged(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneLine, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LineChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).LineChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3807,12 +3762,9 @@ impl PhoneLine {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Dial)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(number), ::core::mem::transmute_copy(displayname)).ok() }
     }
-    pub fn DialWithOptions<'a, P0>(&self, options: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneDialOptions>>,
-    {
+    pub fn DialWithOptions(&self, options: &PhoneDialOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).DialWithOptions)(::windows::core::Vtable::as_raw(this), options.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).DialWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options)).ok() }
     }
     pub fn EnableTextReply(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhoneLine2>(self)?;
@@ -4240,12 +4192,9 @@ impl PhoneLineTransportDevice {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn RegisterAppForUser<'a, P0>(&self, user: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn RegisterAppForUser(&self, user: &super::super::System::User) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RegisterAppForUser)(::windows::core::Vtable::as_raw(this), user.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RegisterAppForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user)).ok() }
     }
     pub fn UnregisterApp(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -4253,12 +4202,9 @@ impl PhoneLineTransportDevice {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn UnregisterAppForUser<'a, P0>(&self, user: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn UnregisterAppForUser(&self, user: &super::super::System::User) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UnregisterAppForUser)(::windows::core::Vtable::as_raw(this), user.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UnregisterAppForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user)).ok() }
     }
     pub fn IsRegistered(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -4292,14 +4238,11 @@ impl PhoneLineTransportDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioRoutingStatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn AudioRoutingStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AudioRoutingStatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AudioRoutingStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4317,14 +4260,11 @@ impl PhoneLineTransportDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InBandRingingEnabledChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn InBandRingingEnabledChanged(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneLineTransportDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IPhoneLineTransportDevice2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InBandRingingEnabledChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).InBandRingingEnabledChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4435,14 +4375,11 @@ impl PhoneLineWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LineAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>>,
-    {
+    pub fn LineAdded(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LineAdded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).LineAdded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4453,14 +4390,11 @@ impl PhoneLineWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LineRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>>,
-    {
+    pub fn LineRemoved(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LineRemoved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).LineRemoved)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4471,14 +4405,11 @@ impl PhoneLineWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LineUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>>>,
-    {
+    pub fn LineUpdated(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneLineWatcher, PhoneLineWatcherEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LineUpdated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).LineUpdated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4489,14 +4420,11 @@ impl PhoneLineWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn EnumerationCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4507,14 +4435,11 @@ impl PhoneLineWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn Stopped(&self, handler: &super::super::Foundation::TypedEventHandler<PhoneLineWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4785,14 +4710,11 @@ impl VoipCallCoordinator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MuteStateChanged<'a, P0>(&self, mutechangehandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>>,
-    {
+    pub fn MuteStateChanged(&self, mutechangehandler: &super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MuteStateChanged)(::windows::core::Vtable::as_raw(this), mutechangehandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MuteStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mutechangehandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4803,16 +4725,11 @@ impl VoipCallCoordinator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestNewIncomingCall<'a, P0, P1, P2>(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: P0, servicename: &::windows::core::HSTRING, brandingimage: P1, calldetails: &::windows::core::HSTRING, ringtone: P2, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RequestNewIncomingCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &super::super::Foundation::Uri, servicename: &::windows::core::HSTRING, brandingimage: &super::super::Foundation::Uri, calldetails: &::windows::core::HSTRING, ringtone: &super::super::Foundation::Uri, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestNewIncomingCall)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context), ::core::mem::transmute_copy(contactname), ::core::mem::transmute_copy(contactnumber), contactimage.into().abi(), ::core::mem::transmute_copy(servicename), brandingimage.into().abi(), ::core::mem::transmute_copy(calldetails), ringtone.into().abi(), media, ringtimeout, result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Vtable::vtable(this).RequestNewIncomingCall)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context), ::core::mem::transmute_copy(contactname), ::core::mem::transmute_copy(contactnumber), ::core::mem::transmute_copy(contactimage), ::core::mem::transmute_copy(servicename), ::core::mem::transmute_copy(brandingimage), ::core::mem::transmute_copy(calldetails), ::core::mem::transmute_copy(ringtone), media, ringtimeout, result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
         }
     }
     pub fn RequestNewOutgoingCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, servicename: &::windows::core::HSTRING, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall> {
@@ -4839,16 +4756,11 @@ impl VoipCallCoordinator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestIncomingUpgradeToVideoCall<'a, P0, P1, P2>(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: P0, servicename: &::windows::core::HSTRING, brandingimage: P1, calldetails: &::windows::core::HSTRING, ringtone: P2, ringtimeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RequestIncomingUpgradeToVideoCall(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &super::super::Foundation::Uri, servicename: &::windows::core::HSTRING, brandingimage: &super::super::Foundation::Uri, calldetails: &::windows::core::HSTRING, ringtone: &super::super::Foundation::Uri, ringtimeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestIncomingUpgradeToVideoCall)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context), ::core::mem::transmute_copy(contactname), ::core::mem::transmute_copy(contactnumber), contactimage.into().abi(), ::core::mem::transmute_copy(servicename), brandingimage.into().abi(), ::core::mem::transmute_copy(calldetails), ringtone.into().abi(), ringtimeout, result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Vtable::vtable(this).RequestIncomingUpgradeToVideoCall)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context), ::core::mem::transmute_copy(contactname), ::core::mem::transmute_copy(contactnumber), ::core::mem::transmute_copy(contactimage), ::core::mem::transmute_copy(servicename), ::core::mem::transmute_copy(brandingimage), ::core::mem::transmute_copy(calldetails), ::core::mem::transmute_copy(ringtone), ringtimeout, result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
         }
     }
     pub fn TerminateCellularCall(&self, callupgradeguid: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -4875,16 +4787,11 @@ impl VoipCallCoordinator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestNewIncomingCallWithContactRemoteId<'a, P0, P1, P2>(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: P0, servicename: &::windows::core::HSTRING, brandingimage: P1, calldetails: &::windows::core::HSTRING, ringtone: P2, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan, contactremoteid: &::windows::core::HSTRING) -> ::windows::core::Result<VoipPhoneCall>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn RequestNewIncomingCallWithContactRemoteId(&self, context: &::windows::core::HSTRING, contactname: &::windows::core::HSTRING, contactnumber: &::windows::core::HSTRING, contactimage: &super::super::Foundation::Uri, servicename: &::windows::core::HSTRING, brandingimage: &super::super::Foundation::Uri, calldetails: &::windows::core::HSTRING, ringtone: &super::super::Foundation::Uri, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan, contactremoteid: &::windows::core::HSTRING) -> ::windows::core::Result<VoipPhoneCall> {
         let this = &::windows::core::Interface::cast::<IVoipCallCoordinator3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestNewIncomingCallWithContactRemoteId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context), ::core::mem::transmute_copy(contactname), ::core::mem::transmute_copy(contactnumber), contactimage.into().abi(), ::core::mem::transmute_copy(servicename), brandingimage.into().abi(), ::core::mem::transmute_copy(calldetails), ringtone.into().abi(), media, ringtimeout, ::core::mem::transmute_copy(contactremoteid), result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Vtable::vtable(this).RequestNewIncomingCallWithContactRemoteId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context), ::core::mem::transmute_copy(contactname), ::core::mem::transmute_copy(contactnumber), ::core::mem::transmute_copy(contactimage), ::core::mem::transmute_copy(servicename), ::core::mem::transmute_copy(brandingimage), ::core::mem::transmute_copy(calldetails), ::core::mem::transmute_copy(ringtone), media, ringtimeout, ::core::mem::transmute_copy(contactremoteid), result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4978,14 +4885,11 @@ pub struct VoipPhoneCall(::windows::core::IUnknown);
 impl VoipPhoneCall {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EndRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>>,
-    {
+    pub fn EndRequested(&self, handler: &super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EndRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EndRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4996,14 +4900,11 @@ impl VoipPhoneCall {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HoldRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>>,
-    {
+    pub fn HoldRequested(&self, handler: &super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HoldRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).HoldRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5014,14 +4915,11 @@ impl VoipPhoneCall {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ResumeRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>>,
-    {
+    pub fn ResumeRequested(&self, handler: &super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ResumeRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ResumeRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5032,14 +4930,11 @@ impl VoipPhoneCall {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AnswerRequested<'a, P0>(&self, accepthandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>>>,
-    {
+    pub fn AnswerRequested(&self, accepthandler: &super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AnswerRequested)(::windows::core::Vtable::as_raw(this), accepthandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AnswerRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(accepthandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5050,14 +4945,11 @@ impl VoipPhoneCall {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RejectRequested<'a, P0>(&self, rejecthandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>>>,
-    {
+    pub fn RejectRequested(&self, rejecthandler: &super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RejectRequested)(::windows::core::Vtable::as_raw(this), rejecthandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).RejectRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(rejecthandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

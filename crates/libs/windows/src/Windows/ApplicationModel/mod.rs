@@ -1713,13 +1713,10 @@ impl AppInfo {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetFromAppUserModelIdForUser<'a, P0>(user: P0, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<AppInfo>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::System::User>>,
-    {
+    pub fn GetFromAppUserModelIdForUser(user: &super::System::User, appusermodelid: &::windows::core::HSTRING) -> ::windows::core::Result<AppInfo> {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetFromAppUserModelIdForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(appusermodelid), result__.as_mut_ptr()).from_abi::<AppInfo>(result__)
+            (::windows::core::Vtable::vtable(this).GetFromAppUserModelIdForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(appusermodelid), result__.as_mut_ptr()).from_abi::<AppInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -3026,14 +3023,11 @@ pub struct PackageCatalog(::windows::core::IUnknown);
 impl PackageCatalog {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageStaging<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>>>,
-    {
+    pub fn PackageStaging(&self, handler: &super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PackageStaging)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PackageStaging)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3044,14 +3038,11 @@ impl PackageCatalog {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageInstalling<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageInstallingEventArgs>>>,
-    {
+    pub fn PackageInstalling(&self, handler: &super::Foundation::TypedEventHandler<PackageCatalog, PackageInstallingEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PackageInstalling)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PackageInstalling)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3062,14 +3053,11 @@ impl PackageCatalog {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageUpdating<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageUpdatingEventArgs>>>,
-    {
+    pub fn PackageUpdating(&self, handler: &super::Foundation::TypedEventHandler<PackageCatalog, PackageUpdatingEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PackageUpdating)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PackageUpdating)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3080,14 +3068,11 @@ impl PackageCatalog {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageUninstalling<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageUninstallingEventArgs>>>,
-    {
+    pub fn PackageUninstalling(&self, handler: &super::Foundation::TypedEventHandler<PackageCatalog, PackageUninstallingEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PackageUninstalling)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PackageUninstalling)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3098,14 +3083,11 @@ impl PackageCatalog {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageStatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>>>,
-    {
+    pub fn PackageStatusChanged(&self, handler: &super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PackageStatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PackageStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3116,14 +3098,11 @@ impl PackageCatalog {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageContentGroupStaging<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>>>,
-    {
+    pub fn PackageContentGroupStaging(&self, handler: &super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PackageContentGroupStaging)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PackageContentGroupStaging)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

@@ -283,14 +283,11 @@ impl HandMeshObserver {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).GetTriangleIndices)(::windows::core::Vtable::as_raw(this), indices.len() as u32, indices.as_mut_ptr()).ok() }
     }
-    pub fn GetVertexStateForPose<'a, P0>(&self, handpose: P0) -> ::windows::core::Result<HandMeshVertexState>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HandPose>>,
-    {
+    pub fn GetVertexStateForPose(&self, handpose: &HandPose) -> ::windows::core::Result<HandMeshVertexState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetVertexStateForPose)(::windows::core::Vtable::as_raw(this), handpose.into().abi(), result__.as_mut_ptr()).from_abi::<HandMeshVertexState>(result__)
+            (::windows::core::Vtable::vtable(this).GetVertexStateForPose)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handpose), result__.as_mut_ptr()).from_abi::<HandMeshVertexState>(result__)
         }
     }
     pub fn NeutralPose(&self) -> ::windows::core::Result<HandPose> {
@@ -476,26 +473,20 @@ pub struct HandPose(::windows::core::IUnknown);
 impl HandPose {
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoint<'a, P0>(&self, coordinatesystem: P0, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn TryGetJoint(&self, coordinatesystem: &super::Spatial::SpatialCoordinateSystem, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetJoint)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), joint, jointpose, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetJoint)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), joint, jointpose, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoints<'a, P0>(&self, coordinatesystem: P0, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn TryGetJoints(&self, coordinatesystem: &super::Spatial::SpatialCoordinateSystem, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetJoints)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), joints.len() as u32, joints.as_ptr(), jointposes.len() as u32, jointposes.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetJoints)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), joints.len() as u32, joints.as_ptr(), jointposes.len() as u32, jointposes.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]

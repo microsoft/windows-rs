@@ -646,13 +646,10 @@ impl CurrentApp {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, P0>(productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProductPurchaseDisplayProperties>>,
-    {
+    pub fn RequestProductPurchaseWithDisplayPropertiesAsync(productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: &ProductPurchaseDisplayProperties) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), displayproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), ::core::mem::transmute_copy(displayproperties), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -757,13 +754,10 @@ impl CurrentAppSimulator {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn ReloadSimulatorAsync<'a, P0>(simulatorsettingsfile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
-    {
+    pub fn ReloadSimulatorAsync(simulatorsettingsfile: &super::super::Storage::StorageFile) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ReloadSimulatorAsync)(::windows::core::Vtable::as_raw(this), simulatorsettingsfile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ReloadSimulatorAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(simulatorsettingsfile), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -816,13 +810,10 @@ impl CurrentAppSimulator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, P0>(productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProductPurchaseDisplayProperties>>,
-    {
+    pub fn RequestProductPurchaseWithDisplayPropertiesAsync(productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: &ProductPurchaseDisplayProperties) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), displayproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), ::core::mem::transmute_copy(displayproperties), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -895,14 +886,11 @@ impl LicenseInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LicenseChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LicenseChangedEventHandler>>,
-    {
+    pub fn LicenseChanged(&self, handler: &LicenseChangedEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LicenseChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).LicenseChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1421,12 +1409,9 @@ impl ProductPurchaseDisplayProperties {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetImage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetImage(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImage)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CreateProductPurchaseDisplayProperties(name: &::windows::core::HSTRING) -> ::windows::core::Result<ProductPurchaseDisplayProperties> {
         Self::IProductPurchaseDisplayPropertiesFactory(|this| unsafe {

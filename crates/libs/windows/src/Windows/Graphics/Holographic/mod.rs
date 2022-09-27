@@ -1114,14 +1114,11 @@ impl HolographicCameraPose {
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetViewTransform<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<super::super::Foundation::IReference<HolographicStereoTransform>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn TryGetViewTransform(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows::core::Result<super::super::Foundation::IReference<HolographicStereoTransform>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetViewTransform)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<HolographicStereoTransform>>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetViewTransform)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<HolographicStereoTransform>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1135,26 +1132,20 @@ impl HolographicCameraPose {
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetCullingFrustum<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn TryGetCullingFrustum(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetCullingFrustum)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetCullingFrustum)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetVisibleFrustum<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn TryGetVisibleFrustum(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetVisibleFrustum)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetVisibleFrustum)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>(result__)
         }
     }
     pub fn NearPlaneDistance(&self) -> ::windows::core::Result<f64> {
@@ -1173,12 +1164,9 @@ impl HolographicCameraPose {
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn OverrideViewTransform<'a, P0>(&self, coordinatesystem: P0, coordinatesystemtoviewtransform: HolographicStereoTransform) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn OverrideViewTransform(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem, coordinatesystemtoviewtransform: HolographicStereoTransform) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraPose2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).OverrideViewTransform)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), coordinatesystemtoviewtransform).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).OverrideViewTransform)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), coordinatesystemtoviewtransform).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -1263,30 +1251,21 @@ pub struct HolographicCameraRenderingParameters(::windows::core::IUnknown);
 impl HolographicCameraRenderingParameters {
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetFocusPoint<'a, P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn SetFocusPoint(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFocusPoint)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), position).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFocusPoint)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), position).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetFocusPointWithNormal<'a, P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn SetFocusPointWithNormal(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFocusPointWithNormal)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), position, normal).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFocusPointWithNormal)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), position, normal).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetFocusPointWithNormalLinearVelocity<'a, P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3, linearvelocity: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn SetFocusPointWithNormalLinearVelocity(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3, linearvelocity: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFocusPointWithNormalLinearVelocity)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), position, normal, linearvelocity).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFocusPointWithNormalLinearVelocity)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), position, normal, linearvelocity).ok() }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -1663,14 +1642,11 @@ impl HolographicFrame {
             (::windows::core::Vtable::vtable(this).RemovedCameras)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HolographicCamera>>(result__)
         }
     }
-    pub fn GetRenderingParameters<'a, P0>(&self, camerapose: P0) -> ::windows::core::Result<HolographicCameraRenderingParameters>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HolographicCameraPose>>,
-    {
+    pub fn GetRenderingParameters(&self, camerapose: &HolographicCameraPose) -> ::windows::core::Result<HolographicCameraRenderingParameters> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetRenderingParameters)(::windows::core::Vtable::as_raw(this), camerapose.into().abi(), result__.as_mut_ptr()).from_abi::<HolographicCameraRenderingParameters>(result__)
+            (::windows::core::Vtable::vtable(this).GetRenderingParameters)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(camerapose), result__.as_mut_ptr()).from_abi::<HolographicCameraRenderingParameters>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1711,14 +1687,11 @@ impl HolographicFrame {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).WaitForFrameToFinish)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn GetQuadLayerUpdateParameters<'a, P0>(&self, layer: P0) -> ::windows::core::Result<HolographicQuadLayerUpdateParameters>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HolographicQuadLayer>>,
-    {
+    pub fn GetQuadLayerUpdateParameters(&self, layer: &HolographicQuadLayer) -> ::windows::core::Result<HolographicQuadLayerUpdateParameters> {
         let this = &::windows::core::Interface::cast::<IHolographicFrame2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetQuadLayerUpdateParameters)(::windows::core::Vtable::as_raw(this), layer.into().abi(), result__.as_mut_ptr()).from_abi::<HolographicQuadLayerUpdateParameters>(result__)
+            (::windows::core::Vtable::vtable(this).GetQuadLayerUpdateParameters)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(layer), result__.as_mut_ptr()).from_abi::<HolographicQuadLayerUpdateParameters>(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<HolographicFrameId> {
@@ -2629,12 +2602,9 @@ impl HolographicQuadLayerUpdateParameters {
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn UpdateLocationWithStationaryMode<'a, P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
+    pub fn UpdateLocationWithStationaryMode(&self, coordinatesystem: &super::super::Perception::Spatial::SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateLocationWithStationaryMode)(::windows::core::Vtable::as_raw(this), coordinatesystem.into().abi(), position, orientation).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UpdateLocationWithStationaryMode)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), position, orientation).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -2746,14 +2716,11 @@ impl HolographicSpace {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CameraAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs>>>,
-    {
+    pub fn CameraAdded(&self, handler: &super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CameraAdded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CameraAdded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2764,14 +2731,11 @@ impl HolographicSpace {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CameraRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs>>>,
-    {
+    pub fn CameraRemoved(&self, handler: &super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CameraRemoved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CameraRemoved)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2796,14 +2760,11 @@ impl HolographicSpace {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UserPresenceChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HolographicSpace, ::windows::core::IInspectable>>>,
-    {
+    pub fn UserPresenceChanged(&self, handler: &super::super::Foundation::TypedEventHandler<HolographicSpace, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UserPresenceChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UserPresenceChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2840,13 +2801,10 @@ impl HolographicSpace {
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
-    pub fn CreateForCoreWindow<'a, P0>(window: P0) -> ::windows::core::Result<HolographicSpace>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Core::CoreWindow>>,
-    {
+    pub fn CreateForCoreWindow(window: &super::super::UI::Core::CoreWindow) -> ::windows::core::Result<HolographicSpace> {
         Self::IHolographicSpaceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateForCoreWindow)(::windows::core::Vtable::as_raw(this), window.into().abi(), result__.as_mut_ptr()).from_abi::<HolographicSpace>(result__)
+            (::windows::core::Vtable::vtable(this).CreateForCoreWindow)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(window), result__.as_mut_ptr()).from_abi::<HolographicSpace>(result__)
         })
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {
@@ -2863,13 +2821,10 @@ impl HolographicSpace {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsAvailableChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
-    {
+    pub fn IsAvailableChanged(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IHolographicSpaceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsAvailableChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).IsAvailableChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

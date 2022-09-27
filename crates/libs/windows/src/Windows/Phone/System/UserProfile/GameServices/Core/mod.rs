@@ -104,13 +104,10 @@ impl GameService {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPartnerTokenAsync<'a, P0>(audienceuri: P0) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::super::Foundation::Uri>>,
-    {
+    pub fn GetPartnerTokenAsync(audienceuri: &super::super::super::super::super::Foundation::Uri) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IGameService(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPartnerTokenAsync)(::windows::core::Vtable::as_raw(this), audienceuri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).GetPartnerTokenAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(audienceuri), result__.as_mut_ptr()).from_abi::<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -138,11 +135,8 @@ impl GameService {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NotifyPartnerTokenExpired<'a, P0>(audienceuri: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::super::Foundation::Uri>>,
-    {
-        Self::IGameService2(|this| unsafe { (::windows::core::Vtable::vtable(this).NotifyPartnerTokenExpired)(::windows::core::Vtable::as_raw(this), audienceuri.into().abi()).ok() })
+    pub fn NotifyPartnerTokenExpired(audienceuri: &super::super::super::super::super::Foundation::Uri) -> ::windows::core::Result<()> {
+        Self::IGameService2(|this| unsafe { (::windows::core::Vtable::vtable(this).NotifyPartnerTokenExpired)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(audienceuri)).ok() })
     }
     pub fn GetAuthenticationStatus() -> ::windows::core::Result<u32> {
         Self::IGameService2(|this| unsafe {

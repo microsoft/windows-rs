@@ -183,12 +183,9 @@ impl IBackgroundTransferBase {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, P0>(&self, credential: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, credential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), credential.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(credential)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -201,12 +198,9 @@ impl IBackgroundTransferBase {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, P0>(&self, credential: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, credential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), credential.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(credential)).ok() }
     }
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1255,48 +1249,45 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateDownload<'a, P0, P1, E1>(&self, uri: P0, resultfile: P1) -> ::windows::core::Result<DownloadOperation>
+    pub fn CreateDownload<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, resultfile: P0) -> ::windows::core::Result<DownloadOperation>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateDownload)(::windows::core::Vtable::as_raw(this), uri.into().abi(), resultfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DownloadOperation>(result__)
+            (::windows::core::Vtable::vtable(this).CreateDownload)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), resultfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DownloadOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateDownloadFromFile<'a, P0, P1, E1, P2, E2>(&self, uri: P0, resultfile: P1, requestbodyfile: P2) -> ::windows::core::Result<DownloadOperation>
+    pub fn CreateDownloadFromFile<'a, P0, E0, P1, E1>(&self, uri: &super::super::Foundation::Uri, resultfile: P0, requestbodyfile: P1) -> ::windows::core::Result<DownloadOperation>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateDownloadFromFile)(::windows::core::Vtable::as_raw(this), uri.into().abi(), resultfile.try_into().map_err(|e| e.into())?.abi(), requestbodyfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DownloadOperation>(result__)
+            (::windows::core::Vtable::vtable(this).CreateDownloadFromFile)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), resultfile.try_into().map_err(|e| e.into())?.abi(), requestbodyfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DownloadOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateDownloadAsync<'a, P0, P1, E1, P2, E2>(&self, uri: P0, resultfile: P1, requestbodystream: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DownloadOperation>>
+    pub fn CreateDownloadAsync<'a, P0, E0, P1, E1>(&self, uri: &super::super::Foundation::Uri, resultfile: P0, requestbodystream: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DownloadOperation>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E1>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateDownloadAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), resultfile.try_into().map_err(|e| e.into())?.abi(), requestbodystream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DownloadOperation>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateDownloadAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), resultfile.try_into().map_err(|e| e.into())?.abi(), requestbodystream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DownloadOperation>>(result__)
         }
     }
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
@@ -1306,12 +1297,9 @@ impl BackgroundDownloader {
             (::windows::core::Vtable::vtable(this).TransferGroup)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferGroup>(result__)
         }
     }
-    pub fn SetTransferGroup<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferGroup>>,
-    {
+    pub fn SetTransferGroup(&self, value: &BackgroundTransferGroup) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTransferGroup)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetTransferGroup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
@@ -1324,12 +1312,9 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn SetSuccessToastNotification<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Notifications::ToastNotification>>,
-    {
+    pub fn SetSuccessToastNotification(&self, value: &super::super::UI::Notifications::ToastNotification) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSuccessToastNotification)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSuccessToastNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
@@ -1342,12 +1327,9 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn SetFailureToastNotification<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Notifications::ToastNotification>>,
-    {
+    pub fn SetFailureToastNotification(&self, value: &super::super::UI::Notifications::ToastNotification) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFailureToastNotification)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFailureToastNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
@@ -1360,12 +1342,9 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn SetSuccessTileNotification<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Notifications::TileNotification>>,
-    {
+    pub fn SetSuccessTileNotification(&self, value: &super::super::UI::Notifications::TileNotification) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSuccessTileNotification)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSuccessTileNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
@@ -1378,12 +1357,9 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn SetFailureTileNotification<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Notifications::TileNotification>>,
-    {
+    pub fn SetFailureTileNotification(&self, value: &super::super::UI::Notifications::TileNotification) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFailureTileNotification)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFailureTileNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CompletionGroup(&self) -> ::windows::core::Result<BackgroundTransferCompletionGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader3>(self)?;
@@ -1392,13 +1368,10 @@ impl BackgroundDownloader {
             (::windows::core::Vtable::vtable(this).CompletionGroup)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCompletionGroup>(result__)
         }
     }
-    pub fn CreateWithCompletionGroup<'a, P0>(completiongroup: P0) -> ::windows::core::Result<BackgroundDownloader>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferCompletionGroup>>,
-    {
+    pub fn CreateWithCompletionGroup(completiongroup: &BackgroundTransferCompletionGroup) -> ::windows::core::Result<BackgroundDownloader> {
         Self::IBackgroundDownloaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithCompletionGroup)(::windows::core::Vtable::as_raw(this), completiongroup.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundDownloader>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithCompletionGroup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(completiongroup), result__.as_mut_ptr()).from_abi::<BackgroundDownloader>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1419,13 +1392,10 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentDownloadsForTransferGroupAsync<'a, P0>(group: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferGroup>>,
-    {
+    pub fn GetCurrentDownloadsForTransferGroupAsync(group: &BackgroundTransferGroup) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetCurrentDownloadsForTransferGroupAsync)(::windows::core::Vtable::as_raw(this), group.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentDownloadsForTransferGroupAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(group), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1455,12 +1425,9 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, P0>(&self, credential: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, credential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), credential.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(credential)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -1473,12 +1440,9 @@ impl BackgroundDownloader {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, P0>(&self, credential: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, credential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), credential.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(credential)).ok() }
     }
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -2154,12 +2118,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, P0>(&self, credential: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, credential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), credential.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(credential)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -2172,12 +2133,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, P0>(&self, credential: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, credential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), credential.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(credential)).ok() }
     }
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -2218,72 +2176,67 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateUpload<'a, P0, P1, E1>(&self, uri: P0, sourcefile: P1) -> ::windows::core::Result<UploadOperation>
+    pub fn CreateUpload<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, sourcefile: P0) -> ::windows::core::Result<UploadOperation>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateUpload)(::windows::core::Vtable::as_raw(this), uri.into().abi(), sourcefile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<UploadOperation>(result__)
+            (::windows::core::Vtable::vtable(this).CreateUpload)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), sourcefile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<UploadOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateUploadFromStreamAsync<'a, P0, P1, E1>(&self, uri: P0, sourcestream: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadFromStreamAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, sourcestream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateUploadFromStreamAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), sourcestream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateUploadFromStreamAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), sourcestream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUploadWithFormDataAndAutoBoundaryAsync<'a, P0, P1, E1>(&self, uri: P0, parts: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadWithFormDataAndAutoBoundaryAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, parts: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateUploadWithFormDataAndAutoBoundaryAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), parts.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateUploadWithFormDataAndAutoBoundaryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), parts.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUploadWithSubTypeAsync<'a, P0, P1, E1>(&self, uri: P0, parts: P1, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadWithSubTypeAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, parts: P0, subtype: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateUploadWithSubTypeAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), parts.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(subtype), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateUploadWithSubTypeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), parts.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(subtype), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUploadWithSubTypeAndBoundaryAsync<'a, P0, P1, E1>(&self, uri: P0, parts: P1, subtype: &::windows::core::HSTRING, boundary: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadWithSubTypeAndBoundaryAsync<'a, P0, E0>(&self, uri: &super::super::Foundation::Uri, parts: P0, subtype: &::windows::core::HSTRING, boundary: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateUploadWithSubTypeAndBoundaryAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), parts.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(subtype), ::core::mem::transmute_copy(boundary), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateUploadWithSubTypeAndBoundaryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), parts.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(subtype), ::core::mem::transmute_copy(boundary), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
@@ -2293,12 +2246,9 @@ impl BackgroundUploader {
             (::windows::core::Vtable::vtable(this).TransferGroup)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferGroup>(result__)
         }
     }
-    pub fn SetTransferGroup<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferGroup>>,
-    {
+    pub fn SetTransferGroup(&self, value: &BackgroundTransferGroup) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTransferGroup)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetTransferGroup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
@@ -2311,12 +2261,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn SetSuccessToastNotification<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Notifications::ToastNotification>>,
-    {
+    pub fn SetSuccessToastNotification(&self, value: &super::super::UI::Notifications::ToastNotification) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSuccessToastNotification)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSuccessToastNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
@@ -2329,12 +2276,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn SetFailureToastNotification<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Notifications::ToastNotification>>,
-    {
+    pub fn SetFailureToastNotification(&self, value: &super::super::UI::Notifications::ToastNotification) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFailureToastNotification)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFailureToastNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
@@ -2347,12 +2291,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn SetSuccessTileNotification<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Notifications::TileNotification>>,
-    {
+    pub fn SetSuccessTileNotification(&self, value: &super::super::UI::Notifications::TileNotification) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSuccessTileNotification)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSuccessTileNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
@@ -2365,12 +2306,9 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn SetFailureTileNotification<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Notifications::TileNotification>>,
-    {
+    pub fn SetFailureTileNotification(&self, value: &super::super::UI::Notifications::TileNotification) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFailureTileNotification)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFailureTileNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CompletionGroup(&self) -> ::windows::core::Result<BackgroundTransferCompletionGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader3>(self)?;
@@ -2379,13 +2317,10 @@ impl BackgroundUploader {
             (::windows::core::Vtable::vtable(this).CompletionGroup)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCompletionGroup>(result__)
         }
     }
-    pub fn CreateWithCompletionGroup<'a, P0>(completiongroup: P0) -> ::windows::core::Result<BackgroundUploader>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferCompletionGroup>>,
-    {
+    pub fn CreateWithCompletionGroup(completiongroup: &BackgroundTransferCompletionGroup) -> ::windows::core::Result<BackgroundUploader> {
         Self::IBackgroundUploaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithCompletionGroup)(::windows::core::Vtable::as_raw(this), completiongroup.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundUploader>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithCompletionGroup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(completiongroup), result__.as_mut_ptr()).from_abi::<BackgroundUploader>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2406,13 +2341,10 @@ impl BackgroundUploader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCurrentUploadsForTransferGroupAsync<'a, P0>(group: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferGroup>>,
-    {
+    pub fn GetCurrentUploadsForTransferGroupAsync(group: &BackgroundTransferGroup) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetCurrentUploadsForTransferGroupAsync)(::windows::core::Vtable::as_raw(this), group.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentUploadsForTransferGroupAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(group), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -2545,11 +2477,8 @@ impl ContentPrefetcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIndirectContentUri<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
-        Self::IContentPrefetcher(|this| unsafe { (::windows::core::Vtable::vtable(this).SetIndirectContentUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() })
+    pub fn SetIndirectContentUri(value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
+        Self::IContentPrefetcher(|this| unsafe { (::windows::core::Vtable::vtable(this).SetIndirectContentUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2735,14 +2664,11 @@ impl DownloadOperation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RangesDownloaded<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<DownloadOperation, BackgroundTransferRangesDownloadedEventArgs>>>,
-    {
+    pub fn RangesDownloaded(&self, eventhandler: &super::super::Foundation::TypedEventHandler<DownloadOperation, BackgroundTransferRangesDownloadedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RangesDownloaded)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).RangesDownloaded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2753,12 +2679,9 @@ impl DownloadOperation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRequestedUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetRequestedUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRequestedUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRequestedUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web"))]

@@ -384,12 +384,9 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetIncomingServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetIncomingServerCredential(&self, value: &super::super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIncomingServerCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIncomingServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -402,12 +399,9 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetOutgoingServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetOutgoingServerCredential(&self, value: &super::super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetOutgoingServerCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetOutgoingServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn OAuthRefreshToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -577,12 +571,9 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCardDavServerUrl<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-    {
+    pub fn SetCardDavServerUrl(&self, value: &super::super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCardDavServerUrl)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCardDavServerUrl)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CardDavRequiresSsl(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -606,12 +597,9 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCalDavServerUrl<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-    {
+    pub fn SetCalDavServerUrl(&self, value: &super::super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCalDavServerUrl)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCalDavServerUrl)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CalDavRequiresSsl(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -802,13 +790,10 @@ impl UserDataAccountSystemAccessManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateDeviceAccountAsync<'a, P0>(account: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DeviceAccountConfiguration>>,
-    {
+    pub fn CreateDeviceAccountAsync(account: &DeviceAccountConfiguration) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateDeviceAccountAsync)(::windows::core::Vtable::as_raw(this), account.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).CreateDeviceAccountAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(account), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

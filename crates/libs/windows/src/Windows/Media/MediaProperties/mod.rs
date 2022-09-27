@@ -1449,12 +1449,9 @@ impl MediaEncodingProfile {
         static SHARED: ::windows::core::FactoryCache<MediaEncodingProfile, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetAudio<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AudioEncodingProperties>>,
-    {
+    pub fn SetAudio(&self, value: &AudioEncodingProperties) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAudio)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAudio)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Audio(&self) -> ::windows::core::Result<AudioEncodingProperties> {
         let this = self;
@@ -1463,12 +1460,9 @@ impl MediaEncodingProfile {
             (::windows::core::Vtable::vtable(this).Audio)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioEncodingProperties>(result__)
         }
     }
-    pub fn SetVideo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, VideoEncodingProperties>>,
-    {
+    pub fn SetVideo(&self, value: &VideoEncodingProperties) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetVideo)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetVideo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Video(&self) -> ::windows::core::Result<VideoEncodingProperties> {
         let this = self;
@@ -1477,12 +1471,9 @@ impl MediaEncodingProfile {
             (::windows::core::Vtable::vtable(this).Video)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<VideoEncodingProperties>(result__)
         }
     }
-    pub fn SetContainer<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ContainerEncodingProperties>>,
-    {
+    pub fn SetContainer(&self, value: &ContainerEncodingProperties) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContainer)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContainer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Container(&self) -> ::windows::core::Result<ContainerEncodingProperties> {
         let this = self;

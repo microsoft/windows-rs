@@ -256,19 +256,13 @@ impl IBasicAudioEffect {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetEncodingProperties<'a, P0>(&self, encodingproperties: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>,
-    {
+    pub fn SetEncodingProperties(&self, encodingproperties: &super::MediaProperties::AudioEncodingProperties) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetEncodingProperties)(::windows::core::Vtable::as_raw(this), encodingproperties.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetEncodingProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(encodingproperties)).ok() }
     }
-    pub fn ProcessFrame<'a, P0>(&self, context: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProcessAudioFrameContext>>,
-    {
+    pub fn ProcessFrame(&self, context: &ProcessAudioFrameContext) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ProcessFrame)(::windows::core::Vtable::as_raw(this), context.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ProcessFrame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context)).ok() }
     }
     pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
         let this = self;
@@ -420,21 +414,17 @@ impl IBasicVideoEffect {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<'a, P0, P1, E1>(&self, encodingproperties: P0, device: P1) -> ::windows::core::Result<()>
+    pub fn SetEncodingProperties<'a, P0, E0>(&self, encodingproperties: &super::MediaProperties::VideoEncodingProperties, device: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetEncodingProperties)(::windows::core::Vtable::as_raw(this), encodingproperties.into().abi(), device.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetEncodingProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(encodingproperties), device.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn ProcessFrame<'a, P0>(&self, context: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProcessVideoFrameContext>>,
-    {
+    pub fn ProcessFrame(&self, context: &ProcessVideoFrameContext) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ProcessFrame)(::windows::core::Vtable::as_raw(this), context.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ProcessFrame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context)).ok() }
     }
     pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
         let this = self;
@@ -637,21 +627,17 @@ impl IVideoCompositor {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<'a, P0, P1, E1>(&self, backgroundproperties: P0, device: P1) -> ::windows::core::Result<()>
+    pub fn SetEncodingProperties<'a, P0, E0>(&self, backgroundproperties: &super::MediaProperties::VideoEncodingProperties, device: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetEncodingProperties)(::windows::core::Vtable::as_raw(this), backgroundproperties.into().abi(), device.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetEncodingProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(backgroundproperties), device.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn CompositeFrame<'a, P0>(&self, context: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositeVideoFrameContext>>,
-    {
+    pub fn CompositeFrame(&self, context: &CompositeVideoFrameContext) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).CompositeFrame)(::windows::core::Vtable::as_raw(this), context.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).CompositeFrame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context)).ok() }
     }
     pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
         let this = self;
@@ -1106,14 +1092,11 @@ pub struct AudioCaptureEffectsManager(::windows::core::IUnknown);
 impl AudioCaptureEffectsManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioCaptureEffectsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>>,
-    {
+    pub fn AudioCaptureEffectsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AudioCaptureEffectsChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AudioCaptureEffectsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1449,14 +1432,11 @@ pub struct AudioRenderEffectsManager(::windows::core::IUnknown);
 impl AudioRenderEffectsManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioRenderEffectsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>>,
-    {
+    pub fn AudioRenderEffectsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AudioRenderEffectsChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AudioRenderEffectsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

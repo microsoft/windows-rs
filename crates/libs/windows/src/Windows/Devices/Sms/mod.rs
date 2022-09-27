@@ -258,14 +258,11 @@ impl ISmsDevice {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CalculateLength<'a, P0>(&self, message: P0) -> ::windows::core::Result<SmsEncodedLength>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsTextMessage>>,
-    {
+    pub fn CalculateLength(&self, message: &SmsTextMessage) -> ::windows::core::Result<SmsEncodedLength> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CalculateLength)(::windows::core::Vtable::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
+            (::windows::core::Vtable::vtable(this).CalculateLength)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(message), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -306,14 +303,11 @@ impl ISmsDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsMessageReceived<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsMessageReceivedEventHandler>>,
-    {
+    pub fn SmsMessageReceived(&self, eventhandler: &SmsMessageReceivedEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SmsMessageReceived)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SmsMessageReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -324,14 +318,11 @@ impl ISmsDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsDeviceStatusChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsDeviceStatusChangedEventHandler>>,
-    {
+    pub fn SmsDeviceStatusChanged(&self, eventhandler: &SmsDeviceStatusChangedEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SmsDeviceStatusChanged)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SmsDeviceStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1499,12 +1490,9 @@ pub struct DeleteSmsMessageOperation(::windows::core::IUnknown);
 impl DeleteSmsMessageOperation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>,
-    {
+    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncActionCompletedHandler) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1720,12 +1708,9 @@ pub struct DeleteSmsMessagesOperation(::windows::core::IUnknown);
 impl DeleteSmsMessagesOperation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>,
-    {
+    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncActionCompletedHandler) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1980,12 +1965,9 @@ impl GetSmsDeviceOperation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<SmsDevice>>>,
-    {
+    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncOperationCompletedHandler<SmsDevice>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2204,12 +2186,9 @@ impl GetSmsMessageOperation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<ISmsMessage>>>,
-    {
+    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncOperationCompletedHandler<ISmsMessage>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2428,12 +2407,9 @@ impl GetSmsMessagesOperation {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProgress<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>,
-    {
+    pub fn SetProgress(&self, handler: &super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProgress)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProgress)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2446,12 +2422,9 @@ impl GetSmsMessagesOperation {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>,
-    {
+    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2631,12 +2604,9 @@ pub struct SendSmsMessageOperation(::windows::core::IUnknown);
 impl SendSmsMessageOperation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>,
-    {
+    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncActionCompletedHandler) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3506,14 +3476,11 @@ impl SmsDevice {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CalculateLength<'a, P0>(&self, message: P0) -> ::windows::core::Result<SmsEncodedLength>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsTextMessage>>,
-    {
+    pub fn CalculateLength(&self, message: &SmsTextMessage) -> ::windows::core::Result<SmsEncodedLength> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CalculateLength)(::windows::core::Vtable::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
+            (::windows::core::Vtable::vtable(this).CalculateLength)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(message), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -3554,14 +3521,11 @@ impl SmsDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsMessageReceived<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsMessageReceivedEventHandler>>,
-    {
+    pub fn SmsMessageReceived(&self, eventhandler: &SmsMessageReceivedEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SmsMessageReceived)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SmsMessageReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -3572,14 +3536,11 @@ impl SmsDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsDeviceStatusChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsDeviceStatusChangedEventHandler>>,
-    {
+    pub fn SmsDeviceStatusChanged(&self, eventhandler: &SmsDeviceStatusChangedEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SmsDeviceStatusChanged)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SmsDeviceStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -3807,14 +3768,11 @@ impl SmsDevice2 {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeviceStatusChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows::core::IInspectable>>>,
-    {
+    pub fn DeviceStatusChanged(&self, eventhandler: &super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeviceStatusChanged)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4580,14 +4538,11 @@ impl SmsMessageRegistration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>>>,
-    {
+    pub fn MessageReceived(&self, eventhandler: &super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4604,13 +4559,10 @@ impl SmsMessageRegistration {
             (::windows::core::Vtable::vtable(this).AllRegistrations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<SmsMessageRegistration>>(result__)
         })
     }
-    pub fn Register<'a, P0>(id: &::windows::core::HSTRING, filterrules: P0) -> ::windows::core::Result<SmsMessageRegistration>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsFilterRules>>,
-    {
+    pub fn Register(id: &::windows::core::HSTRING, filterrules: &SmsFilterRules) -> ::windows::core::Result<SmsMessageRegistration> {
         Self::ISmsMessageRegistrationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Register)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), filterrules.into().abi(), result__.as_mut_ptr()).from_abi::<SmsMessageRegistration>(result__)
+            (::windows::core::Vtable::vtable(this).Register)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(filterrules), result__.as_mut_ptr()).from_abi::<SmsMessageRegistration>(result__)
         })
     }
     #[doc(hidden)]
@@ -5234,13 +5186,10 @@ impl SmsTextMessage {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn FromBinaryMessage<'a, P0>(binarymessage: P0) -> ::windows::core::Result<SmsTextMessage>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsBinaryMessage>>,
-    {
+    pub fn FromBinaryMessage(binarymessage: &SmsBinaryMessage) -> ::windows::core::Result<SmsTextMessage> {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromBinaryMessage)(::windows::core::Vtable::as_raw(this), binarymessage.into().abi(), result__.as_mut_ptr()).from_abi::<SmsTextMessage>(result__)
+            (::windows::core::Vtable::vtable(this).FromBinaryMessage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(binarymessage), result__.as_mut_ptr()).from_abi::<SmsTextMessage>(result__)
         })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -6434,12 +6383,9 @@ impl SmsDeviceStatusChangedEventHandler {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsDevice>>,
-    {
+    pub fn Invoke(&self, sender: &SmsDevice) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sender)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -6540,13 +6486,9 @@ impl SmsMessageReceivedEventHandler {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Invoke<'a, P0, P1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmsDevice>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SmsMessageReceivedEventArgs>>,
-    {
+    pub fn Invoke(&self, sender: &SmsDevice, e: &SmsMessageReceivedEventArgs) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(e)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]

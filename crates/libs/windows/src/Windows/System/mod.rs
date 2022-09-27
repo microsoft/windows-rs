@@ -2152,14 +2152,11 @@ pub struct AppDiagnosticInfoWatcher(::windows::core::IUnknown);
 impl AppDiagnosticInfoWatcher {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>>,
-    {
+    pub fn Added(&self, handler: &super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2170,14 +2167,11 @@ impl AppDiagnosticInfoWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>>>,
-    {
+    pub fn Removed(&self, handler: &super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2188,14 +2182,11 @@ impl AppDiagnosticInfoWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn EnumerationCompleted(&self, handler: &super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2206,14 +2197,11 @@ impl AppDiagnosticInfoWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn Stopped(&self, handler: &super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2886,14 +2874,11 @@ pub struct AppResourceGroupInfoWatcher(::windows::core::IUnknown);
 impl AppResourceGroupInfoWatcher {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>>,
-    {
+    pub fn Added(&self, handler: &super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2904,14 +2889,11 @@ impl AppResourceGroupInfoWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>>>,
-    {
+    pub fn Removed(&self, handler: &super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2922,14 +2904,11 @@ impl AppResourceGroupInfoWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn EnumerationCompleted(&self, handler: &super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2940,14 +2919,11 @@ impl AppResourceGroupInfoWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn Stopped(&self, handler: &super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2958,14 +2934,11 @@ impl AppResourceGroupInfoWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ExecutionStateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>>>,
-    {
+    pub fn ExecutionStateChanged(&self, handler: &super::Foundation::TypedEventHandler<AppResourceGroupInfoWatcher, AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExecutionStateChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ExecutionStateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3675,13 +3648,10 @@ impl AppUriHandlerRegistrationManager {
             (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AppUriHandlerRegistrationManager>(result__)
         })
     }
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<AppUriHandlerRegistrationManager>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-    {
+    pub fn GetForUser(user: &User) -> ::windows::core::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<AppUriHandlerRegistrationManager>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<AppUriHandlerRegistrationManager>(result__)
         })
     }
     pub fn GetForPackage(packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<AppUriHandlerRegistrationManager> {
@@ -3690,13 +3660,10 @@ impl AppUriHandlerRegistrationManager {
             (::windows::core::Vtable::vtable(this).GetForPackage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<AppUriHandlerRegistrationManager>(result__)
         })
     }
-    pub fn GetForPackageForUser<'a, P0>(packagefamilyname: &::windows::core::HSTRING, user: P0) -> ::windows::core::Result<AppUriHandlerRegistrationManager>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-    {
+    pub fn GetForPackageForUser(packagefamilyname: &::windows::core::HSTRING, user: &User) -> ::windows::core::Result<AppUriHandlerRegistrationManager> {
         Self::IAppUriHandlerRegistrationManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForPackageForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), user.into().abi(), result__.as_mut_ptr()).from_abi::<AppUriHandlerRegistrationManager>(result__)
+            (::windows::core::Vtable::vtable(this).GetForPackageForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<AppUriHandlerRegistrationManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -3802,36 +3769,27 @@ impl DispatcherQueue {
             (::windows::core::Vtable::vtable(this).CreateTimer)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DispatcherQueueTimer>(result__)
         }
     }
-    pub fn TryEnqueue<'a, P0>(&self, callback: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DispatcherQueueHandler>>,
-    {
+    pub fn TryEnqueue(&self, callback: &DispatcherQueueHandler) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryEnqueue)(::windows::core::Vtable::as_raw(this), callback.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).TryEnqueue)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(callback), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn TryEnqueueWithPriority<'a, P0>(&self, priority: DispatcherQueuePriority, callback: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DispatcherQueueHandler>>,
-    {
+    pub fn TryEnqueueWithPriority(&self, priority: DispatcherQueuePriority, callback: &DispatcherQueueHandler) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryEnqueueWithPriority)(::windows::core::Vtable::as_raw(this), priority, callback.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).TryEnqueueWithPriority)(::windows::core::Vtable::as_raw(this), priority, ::core::mem::transmute_copy(callback), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShutdownStarting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<DispatcherQueue, DispatcherQueueShutdownStartingEventArgs>>>,
-    {
+    pub fn ShutdownStarting(&self, handler: &super::Foundation::TypedEventHandler<DispatcherQueue, DispatcherQueueShutdownStartingEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShutdownStarting)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ShutdownStarting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3842,14 +3800,11 @@ impl DispatcherQueue {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShutdownCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<DispatcherQueue, ::windows::core::IInspectable>>>,
-    {
+    pub fn ShutdownCompleted(&self, handler: &super::Foundation::TypedEventHandler<DispatcherQueue, ::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShutdownCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ShutdownCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4162,14 +4117,11 @@ impl DispatcherQueueTimer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Tick<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<DispatcherQueueTimer, ::windows::core::IInspectable>>>,
-    {
+    pub fn Tick(&self, handler: &super::Foundation::TypedEventHandler<DispatcherQueueTimer, ::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Tick)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Tick)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4541,120 +4493,86 @@ impl Launcher {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFileWithOptionsAsync<'a, P0, E0, P1>(file: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFileWithOptionsAsync<'a, P0, E0>(file: P0, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, LauncherOptions>>,
     {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchFileWithOptionsAsync)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchFileWithOptionsAsync)(::windows::core::Vtable::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchUriAsync<'a, P0>(uri: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn LaunchUriAsync(uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchUriWithOptionsAsync<'a, P0, P1>(uri: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, LauncherOptions>>,
-    {
+    pub fn LaunchUriWithOptionsAsync(uri: &super::Foundation::Uri, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithOptionsAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchUriForResultsAsync<'a, P0, P1>(uri: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, LauncherOptions>>,
-    {
+    pub fn LaunchUriForResultsAsync(uri: &super::Foundation::Uri, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriForResultsAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriForResultsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LaunchUriForResultsWithDataAsync<'a, P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, LauncherOptions>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Collections::ValueSet>>,
-    {
+    pub fn LaunchUriForResultsWithDataAsync(uri: &super::Foundation::Uri, options: &LauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriForResultsWithDataAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), options.into().abi(), inputdata.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriForResultsWithDataAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LaunchUriWithDataAsync<'a, P0, P1, P2>(uri: P0, options: P1, inputdata: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, LauncherOptions>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Collections::ValueSet>>,
-    {
+    pub fn LaunchUriWithDataAsync(uri: &super::Foundation::Uri, options: &LauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithDataAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), options.into().abi(), inputdata.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriWithDataAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn QueryUriSupportAsync<'a, P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn QueryUriSupportAsync(uri: &super::Foundation::Uri, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QueryUriSupportAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), launchquerysupporttype, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).QueryUriSupportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), launchquerysupporttype, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn QueryUriSupportWithPackageFamilyNameAsync<'a, P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn QueryUriSupportWithPackageFamilyNameAsync(uri: &super::Foundation::Uri, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), launchquerysupporttype, ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), launchquerysupporttype, ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn QueryFileSupportAsync<'a, P0>(file: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Storage::StorageFile>>,
-    {
+    pub fn QueryFileSupportAsync(file: &super::Storage::StorageFile) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QueryFileSupportAsync)(::windows::core::Vtable::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).QueryFileSupportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(file), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn QueryFileSupportWithPackageFamilyNameAsync<'a, P0>(file: P0, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Storage::StorageFile>>,
-    {
+    pub fn QueryFileSupportWithPackageFamilyNameAsync(file: &super::Storage::StorageFile, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(::windows::core::Vtable::as_raw(this), file.into().abi(), ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).QueryFileSupportWithPackageFamilyNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(file), ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -4695,114 +4613,78 @@ impl Launcher {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LaunchFolderWithOptionsAsync<'a, P0, E0, P1>(folder: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn LaunchFolderWithOptionsAsync<'a, P0, E0>(folder: P0, options: &FolderLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Storage::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, FolderLauncherOptions>>,
     {
         Self::ILauncherStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchFolderWithOptionsAsync)(::windows::core::Vtable::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchFolderWithOptionsAsync)(::windows::core::Vtable::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn QueryAppUriSupportAsync<'a, P0>(uri: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn QueryAppUriSupportAsync(uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QueryAppUriSupportAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).QueryAppUriSupportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn QueryAppUriSupportWithPackageFamilyNameAsync<'a, P0>(uri: P0, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn QueryAppUriSupportWithPackageFamilyNameAsync(uri: &super::Foundation::Uri, packagefamilyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).QueryAppUriSupportWithPackageFamilyNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(packagefamilyname), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindAppUriHandlersAsync<'a, P0>(uri: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn FindAppUriHandlersAsync(uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindAppUriHandlersAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
+            (::windows::core::Vtable::vtable(this).FindAppUriHandlersAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchUriForUserAsync<'a, P0, P1>(user: P0, uri: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn LaunchUriForUserAsync(user: &User, uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriForUserAsync)(::windows::core::Vtable::as_raw(this), user.into().abi(), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchUriWithOptionsForUserAsync<'a, P0, P1, P2>(user: P0, uri: P1, options: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, LauncherOptions>>,
-    {
+    pub fn LaunchUriWithOptionsForUserAsync(user: &User, uri: &super::Foundation::Uri, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithOptionsForUserAsync)(::windows::core::Vtable::as_raw(this), user.into().abi(), uri.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriWithOptionsForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LaunchUriWithDataForUserAsync<'a, P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, LauncherOptions>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Collections::ValueSet>>,
-    {
+    pub fn LaunchUriWithDataForUserAsync(user: &User, uri: &super::Foundation::Uri, options: &LauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriStatus>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithDataForUserAsync)(::windows::core::Vtable::as_raw(this), user.into().abi(), uri.into().abi(), options.into().abi(), inputdata.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriWithDataForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchUriForResultsForUserAsync<'a, P0, P1, P2>(user: P0, uri: P1, options: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, LauncherOptions>>,
-    {
+    pub fn LaunchUriForResultsForUserAsync(user: &User, uri: &super::Foundation::Uri, options: &LauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriForResultsForUserAsync)(::windows::core::Vtable::as_raw(this), user.into().abi(), uri.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriForResultsForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn LaunchUriForResultsWithDataForUserAsync<'a, P0, P1, P2, P3>(user: P0, uri: P1, options: P2, inputdata: P3) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, LauncherOptions>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Collections::ValueSet>>,
-    {
+    pub fn LaunchUriForResultsWithDataForUserAsync(user: &User, uri: &super::Foundation::Uri, options: &LauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchUriResult>> {
         Self::ILauncherStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriForResultsWithDataForUserAsync)(::windows::core::Vtable::as_raw(this), user.into().abi(), uri.into().abi(), options.into().abi(), inputdata.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriForResultsWithDataForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchUriResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4815,36 +4697,26 @@ impl Launcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFolderPathWithOptionsAsync<'a, P0>(path: &::windows::core::HSTRING, options: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, FolderLauncherOptions>>,
-    {
+    pub fn LaunchFolderPathWithOptionsAsync(path: &::windows::core::HSTRING, options: &FolderLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchFolderPathWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchFolderPathWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFolderPathForUserAsync<'a, P0>(user: P0, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-    {
+    pub fn LaunchFolderPathForUserAsync(user: &User, path: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchFolderPathForUserAsync)(::windows::core::Vtable::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(path), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchFolderPathForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(path), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFolderPathWithOptionsForUserAsync<'a, P0, P1>(user: P0, path: &::windows::core::HSTRING, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, FolderLauncherOptions>>,
-    {
+    pub fn LaunchFolderPathWithOptionsForUserAsync(user: &User, path: &::windows::core::HSTRING, options: &FolderLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         Self::ILauncherStatics5(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchFolderPathWithOptionsForUserAsync)(::windows::core::Vtable::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(path), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchFolderPathWithOptionsForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4949,12 +4821,9 @@ impl LauncherOptions {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetFallbackUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn SetFallbackUri(&self, value: &super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFallbackUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFallbackUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -4989,12 +4858,9 @@ impl LauncherOptions {
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
-    pub fn SetNeighboringFilesQuery<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Storage::Search::StorageFileQueryResult>>,
-    {
+    pub fn SetNeighboringFilesQuery(&self, value: &super::Storage::Search::StorageFileQueryResult) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILauncherOptions2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetNeighboringFilesQuery)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetNeighboringFilesQuery)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn IgnoreAppUriHandlers(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILauncherOptions3>(self)?;
@@ -5262,13 +5128,10 @@ impl MemoryManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AppMemoryUsageIncreased<'a, P0>(handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>,
-    {
+    pub fn AppMemoryUsageIncreased(handler: &super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AppMemoryUsageIncreased)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AppMemoryUsageIncreased)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5278,13 +5141,10 @@ impl MemoryManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AppMemoryUsageDecreased<'a, P0>(handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>,
-    {
+    pub fn AppMemoryUsageDecreased(handler: &super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AppMemoryUsageDecreased)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AppMemoryUsageDecreased)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5294,13 +5154,10 @@ impl MemoryManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AppMemoryUsageLimitChanging<'a, P0>(handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>>>,
-    {
+    pub fn AppMemoryUsageLimitChanging(handler: &super::Foundation::EventHandler<AppMemoryUsageLimitChangingEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMemoryManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AppMemoryUsageLimitChanging)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AppMemoryUsageLimitChanging)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5369,13 +5226,10 @@ impl ProcessLauncher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RunToCompletionAsyncWithOptions<'a, P0>(filename: &::windows::core::HSTRING, args: &::windows::core::HSTRING, options: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProcessLauncherOptions>>,
-    {
+    pub fn RunToCompletionAsyncWithOptions(filename: &::windows::core::HSTRING, args: &::windows::core::HSTRING, options: &ProcessLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<ProcessLauncherResult>> {
         Self::IProcessLauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RunToCompletionAsyncWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(args), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<ProcessLauncherResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RunToCompletionAsyncWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(args), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<ProcessLauncherResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5696,12 +5550,9 @@ pub struct ProtocolForResultsOperation(::windows::core::IUnknown);
 impl ProtocolForResultsOperation {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReportCompleted<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Collections::ValueSet>>,
-    {
+    pub fn ReportCompleted(&self, data: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCompleted)(::windows::core::Vtable::as_raw(this), data.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ReportCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(data)).ok() }
     }
 }
 impl ::core::clone::Clone for ProtocolForResultsOperation {
@@ -5773,41 +5624,26 @@ pub struct RemoteLauncher;
 impl RemoteLauncher {
     #[doc = "*Required features: `\"Foundation\"`, `\"System_RemoteSystems\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
-    pub fn LaunchUriAsync<'a, P0, P1>(remotesystemconnectionrequest: P0, uri: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystems::RemoteSystemConnectionRequest>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn LaunchUriAsync(remotesystemconnectionrequest: &RemoteSystems::RemoteSystemConnectionRequest, uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriAsync)(::windows::core::Vtable::as_raw(this), remotesystemconnectionrequest.into().abi(), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System_RemoteSystems\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
-    pub fn LaunchUriWithOptionsAsync<'a, P0, P1, P2>(remotesystemconnectionrequest: P0, uri: P1, options: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystems::RemoteSystemConnectionRequest>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, RemoteLauncherOptions>>,
-    {
+    pub fn LaunchUriWithOptionsAsync(remotesystemconnectionrequest: &RemoteSystems::RemoteSystemConnectionRequest, uri: &super::Foundation::Uri, options: &RemoteLauncherOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithOptionsAsync)(::windows::core::Vtable::as_raw(this), remotesystemconnectionrequest.into().abi(), uri.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System_RemoteSystems\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
-    pub fn LaunchUriWithDataAsync<'a, P0, P1, P2, P3>(remotesystemconnectionrequest: P0, uri: P1, options: P2, inputdata: P3) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystems::RemoteSystemConnectionRequest>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, RemoteLauncherOptions>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Collections::ValueSet>>,
-    {
+    pub fn LaunchUriWithDataAsync(remotesystemconnectionrequest: &RemoteSystems::RemoteSystemConnectionRequest, uri: &super::Foundation::Uri, options: &RemoteLauncherOptions, inputdata: &super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>> {
         Self::IRemoteLauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchUriWithDataAsync)(::windows::core::Vtable::as_raw(this), remotesystemconnectionrequest.into().abi(), uri.into().abi(), options.into().abi(), inputdata.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).LaunchUriWithDataAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(inputdata), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5841,12 +5677,9 @@ impl RemoteLauncherOptions {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetFallbackUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn SetFallbackUri(&self, value: &super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetFallbackUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetFallbackUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -6457,13 +6290,10 @@ impl UserDeviceAssociation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UserDeviceAssociationChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>>>,
-    {
+    pub fn UserDeviceAssociationChanged(handler: &super::Foundation::EventHandler<UserDeviceAssociationChangedEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IUserDeviceAssociationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UserDeviceAssociationChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UserDeviceAssociationChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6599,12 +6429,9 @@ impl UserPicker {
             (::windows::core::Vtable::vtable(this).SuggestedSelectedUser)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<User>(result__)
         }
     }
-    pub fn SetSuggestedSelectedUser<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, User>>,
-    {
+    pub fn SetSuggestedSelectedUser(&self, value: &User) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSuggestedSelectedUser)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSuggestedSelectedUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6712,14 +6539,11 @@ impl UserWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>>,
-    {
+    pub fn Added(&self, handler: &super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6730,14 +6554,11 @@ impl UserWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>>,
-    {
+    pub fn Removed(&self, handler: &super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Removed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6748,14 +6569,11 @@ impl UserWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>>,
-    {
+    pub fn Updated(&self, handler: &super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Updated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Updated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6766,14 +6584,11 @@ impl UserWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AuthenticationStatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>>>,
-    {
+    pub fn AuthenticationStatusChanged(&self, handler: &super::Foundation::TypedEventHandler<UserWatcher, UserChangedEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticationStatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticationStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6784,14 +6599,11 @@ impl UserWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AuthenticationStatusChanging<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<UserWatcher, UserAuthenticationStatusChangingEventArgs>>>,
-    {
+    pub fn AuthenticationStatusChanging(&self, handler: &super::Foundation::TypedEventHandler<UserWatcher, UserAuthenticationStatusChangingEventArgs>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticationStatusChanging)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticationStatusChanging)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6802,14 +6614,11 @@ impl UserWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<UserWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn EnumerationCompleted(&self, handler: &super::Foundation::TypedEventHandler<UserWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6820,14 +6629,11 @@ impl UserWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<UserWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn Stopped(&self, handler: &super::Foundation::TypedEventHandler<UserWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

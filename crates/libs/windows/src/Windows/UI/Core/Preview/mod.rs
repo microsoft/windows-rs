@@ -93,13 +93,10 @@ pub struct CoreAppWindowPreview(::windows::core::IUnknown);
 impl CoreAppWindowPreview {
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     #[cfg(feature = "UI_WindowManagement")]
-    pub fn GetIdFromWindow<'a, P0>(window: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::WindowManagement::AppWindow>>,
-    {
+    pub fn GetIdFromWindow(window: &super::super::WindowManagement::AppWindow) -> ::windows::core::Result<i32> {
         Self::ICoreAppWindowPreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetIdFromWindow)(::windows::core::Vtable::as_raw(this), window.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).GetIdFromWindow)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(window), result__.as_mut_ptr()).from_abi::<i32>(result__)
         })
     }
     #[doc(hidden)]
@@ -267,14 +264,11 @@ pub struct SystemNavigationManagerPreview(::windows::core::IUnknown);
 impl SystemNavigationManagerPreview {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CloseRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>>,
-    {
+    pub fn CloseRequested(&self, handler: &super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CloseRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CloseRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

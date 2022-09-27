@@ -20,24 +20,18 @@ pub struct ICoreUserActivityManagerStatics_Vtbl {
 #[doc = "*Required features: `\"ApplicationModel_UserActivities_Core\"`*"]
 pub struct CoreUserActivityManager;
 impl CoreUserActivityManager {
-    pub fn CreateUserActivitySessionInBackground<'a, P0>(activity: P0) -> ::windows::core::Result<super::UserActivitySession>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::UserActivity>>,
-    {
+    pub fn CreateUserActivitySessionInBackground(activity: &super::UserActivity) -> ::windows::core::Result<super::UserActivitySession> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateUserActivitySessionInBackground)(::windows::core::Vtable::as_raw(this), activity.into().abi(), result__.as_mut_ptr()).from_abi::<super::UserActivitySession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateUserActivitySessionInBackground)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activity), result__.as_mut_ptr()).from_abi::<super::UserActivitySession>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteUserActivitySessionsInTimeRangeAsync<'a, P0>(channel: P0, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::UserActivityChannel>>,
-    {
+    pub fn DeleteUserActivitySessionsInTimeRangeAsync(channel: &super::UserActivityChannel, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(::windows::core::Vtable::as_raw(this), channel.into().abi(), starttime, endtime, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(channel), starttime, endtime, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]

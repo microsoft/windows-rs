@@ -2246,12 +2246,9 @@ impl ContentLinkInfo {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn LinkContentKind(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2778,12 +2775,9 @@ impl RichEditTextRange {
             (::windows::core::Vtable::vtable(this).ContentLinkInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ContentLinkInfo>(result__)
         }
     }
-    pub fn SetContentLinkInfo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ContentLinkInfo>>,
-    {
+    pub fn SetContentLinkInfo(&self, value: &ContentLinkInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRichEditTextRange>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContentLinkInfo)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContentLinkInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Character(&self) -> ::windows::core::Result<u16> {
         let this = self;

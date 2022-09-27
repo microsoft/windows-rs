@@ -477,14 +477,11 @@ pub struct DiagnosticInvoker(::windows::core::IUnknown);
 impl DiagnosticInvoker {
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
-    pub fn RunDiagnosticActionAsync<'a, P0>(&self, context: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Json::JsonObject>>,
-    {
+    pub fn RunDiagnosticActionAsync(&self, context: &super::super::Data::Json::JsonObject) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RunDiagnosticActionAsync)(::windows::core::Vtable::as_raw(this), context.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
+            (::windows::core::Vtable::vtable(this).RunDiagnosticActionAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -502,13 +499,10 @@ impl DiagnosticInvoker {
             (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
         })
     }
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<DiagnosticInvoker>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
-    {
+    pub fn GetForUser(user: &super::User) -> ::windows::core::Result<DiagnosticInvoker> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
         })
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {

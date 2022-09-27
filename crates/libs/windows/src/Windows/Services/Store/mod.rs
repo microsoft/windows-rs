@@ -1280,14 +1280,11 @@ impl StoreAvailability {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, P0>(&self, storepurchaseproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorePurchaseProperties>>,
-    {
+    pub fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &StorePurchaseProperties) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Vtable::as_raw(this), storepurchaseproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(storepurchaseproperties), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
 }
@@ -1690,14 +1687,11 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OfflineLicensesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<StoreContext, ::windows::core::IInspectable>>>,
-    {
+    pub fn OfflineLicensesChanged(&self, handler: &super::super::Foundation::TypedEventHandler<StoreContext, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OfflineLicensesChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OfflineLicensesChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1829,14 +1823,11 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
-    pub fn AcquireStoreLicenseForOptionalPackageAsync<'a, P0>(&self, optionalpackage: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Package>>,
-    {
+    pub fn AcquireStoreLicenseForOptionalPackageAsync(&self, optionalpackage: &super::super::ApplicationModel::Package) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AcquireStoreLicenseForOptionalPackageAsync)(::windows::core::Vtable::as_raw(this), optionalpackage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>(result__)
+            (::windows::core::Vtable::vtable(this).AcquireStoreLicenseForOptionalPackageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(optionalpackage), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1850,14 +1841,11 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, P0>(&self, storeid: &::windows::core::HSTRING, storepurchaseproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorePurchaseProperties>>,
-    {
+    pub fn RequestPurchaseWithPurchasePropertiesAsync(&self, storeid: &::windows::core::HSTRING, storepurchaseproperties: &StorePurchaseProperties) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(storeid), storepurchaseproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(storeid), ::core::mem::transmute_copy(storepurchaseproperties), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1910,16 +1898,15 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindStoreProductForPackageAsync<'a, P0, E0, P1>(&self, productkinds: P0, package: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>
+    pub fn FindStoreProductForPackageAsync<'a, P0, E0>(&self, productkinds: P0, package: &super::super::ApplicationModel::Package) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Package>>,
     {
         let this = &::windows::core::Interface::cast::<IStoreContext2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindStoreProductForPackageAsync)(::windows::core::Vtable::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), package.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindStoreProductForPackageAsync)(::windows::core::Vtable::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(package), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
         }
     }
     pub fn CanSilentlyDownloadStorePackageUpdates(&self) -> ::windows::core::Result<bool> {
@@ -1957,14 +1944,11 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
-    pub fn CanAcquireStoreLicenseForOptionalPackageAsync<'a, P0>(&self, optionalpackage: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Package>>,
-    {
+    pub fn CanAcquireStoreLicenseForOptionalPackageAsync(&self, optionalpackage: &super::super::ApplicationModel::Package) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CanAcquireStoreLicenseForOptionalPackageAsync)(::windows::core::Vtable::as_raw(this), optionalpackage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>(result__)
+            (::windows::core::Vtable::vtable(this).CanAcquireStoreLicenseForOptionalPackageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(optionalpackage), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1978,18 +1962,17 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStoreProductsWithOptionsAsync<'a, P0, E0, P1, E1, P2>(&self, productkinds: P0, storeids: P1, storeproductoptions: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
+    pub fn GetStoreProductsWithOptionsAsync<'a, P0, E0, P1, E1>(&self, productkinds: P0, storeids: P1, storeproductoptions: &StoreProductOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, StoreProductOptions>>,
     {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetStoreProductsWithOptionsAsync)(::windows::core::Vtable::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), storeids.try_into().map_err(|e| e.into())?.abi(), storeproductoptions.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetStoreProductsWithOptionsAsync)(::windows::core::Vtable::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), storeids.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(storeproductoptions), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2016,16 +1999,15 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync<'a, P0, E0, P1>(&self, storeids: P0, storepackageinstalloptions: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
+    pub fn RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync<'a, P0, E0>(&self, storeids: P0, storepackageinstalloptions: &StorePackageInstallOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, StorePackageInstallOptions>>,
     {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(::windows::core::Vtable::as_raw(this), storeids.try_into().map_err(|e| e.into())?.abi(), storepackageinstalloptions.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(::windows::core::Vtable::as_raw(this), storeids.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(storepackageinstalloptions), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2043,14 +2025,11 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
-    pub fn RequestUninstallStorePackageAsync<'a, P0>(&self, package: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Package>>,
-    {
+    pub fn RequestUninstallStorePackageAsync(&self, package: &super::super::ApplicationModel::Package) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestUninstallStorePackageAsync)(::windows::core::Vtable::as_raw(this), package.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestUninstallStorePackageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(package), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2064,14 +2043,11 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
-    pub fn UninstallStorePackageAsync<'a, P0>(&self, package: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Package>>,
-    {
+    pub fn UninstallStorePackageAsync(&self, package: &super::super::ApplicationModel::Package) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UninstallStorePackageAsync)(::windows::core::Vtable::as_raw(this), package.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
+            (::windows::core::Vtable::vtable(this).UninstallStorePackageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(package), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2113,13 +2089,10 @@ impl StoreContext {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<StoreContext>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<StoreContext> {
         Self::IStoreContextStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<StoreContext>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<StoreContext>(result__)
         })
     }
     #[doc(hidden)]
@@ -2503,14 +2476,11 @@ impl StorePackageLicense {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LicenseLost<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<StorePackageLicense, ::windows::core::IInspectable>>>,
-    {
+    pub fn LicenseLost(&self, handler: &super::super::Foundation::TypedEventHandler<StorePackageLicense, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LicenseLost)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).LicenseLost)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3050,14 +3020,11 @@ impl StoreProduct {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, P0>(&self, storepurchaseproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorePurchaseProperties>>,
-    {
+    pub fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &StorePurchaseProperties) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Vtable::as_raw(this), storepurchaseproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(storepurchaseproperties), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     pub fn InAppOfferToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3712,14 +3679,11 @@ impl StoreQueueItem {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Completed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<StoreQueueItem, StoreQueueItemCompletedEventArgs>>>,
-    {
+    pub fn Completed(&self, handler: &super::super::Foundation::TypedEventHandler<StoreQueueItem, StoreQueueItemCompletedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Completed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Completed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3730,14 +3694,11 @@ impl StoreQueueItem {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<StoreQueueItem, ::windows::core::IInspectable>>>,
-    {
+    pub fn StatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<StoreQueueItem, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4113,13 +4074,10 @@ pub struct StoreRequestHelper;
 impl StoreRequestHelper {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendRequestAsync<'a, P0>(context: P0, requestkind: u32, parametersasjson: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StoreContext>>,
-    {
+    pub fn SendRequestAsync(context: &StoreContext, requestkind: u32, parametersasjson: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>> {
         Self::IStoreRequestHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SendRequestAsync)(::windows::core::Vtable::as_raw(this), context.into().abi(), requestkind, ::core::mem::transmute_copy(parametersasjson), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>(result__)
+            (::windows::core::Vtable::vtable(this).SendRequestAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context), requestkind, ::core::mem::transmute_copy(parametersasjson), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4353,14 +4311,11 @@ impl StoreSku {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, P0>(&self, storepurchaseproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorePurchaseProperties>>,
-    {
+    pub fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &StorePurchaseProperties) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Vtable::as_raw(this), storepurchaseproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(storepurchaseproperties), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     pub fn IsSubscription(&self) -> ::windows::core::Result<bool> {

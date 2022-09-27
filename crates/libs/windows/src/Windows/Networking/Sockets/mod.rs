@@ -1326,14 +1326,11 @@ impl IWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn ConnectAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     pub fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1342,14 +1339,11 @@ impl IWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>>,
-    {
+    pub fn Closed(&self, eventhandler: &super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1515,12 +1509,9 @@ impl IWebSocketControl {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -1533,12 +1524,9 @@ impl IWebSocketControl {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1671,12 +1659,9 @@ impl IWebSocketControl2 {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -1689,12 +1674,9 @@ impl IWebSocketControl2 {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2327,26 +2309,20 @@ impl DatagramSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectAsync<'a, P0>(&self, remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn ConnectAsync(&self, remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectWithEndpointPairAsync<'a, P0>(&self, endpointpair: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EndpointPair>>,
-    {
+    pub fn ConnectWithEndpointPairAsync(&self, endpointpair: &super::EndpointPair) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Vtable::as_raw(this), endpointpair.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointpair), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2360,57 +2336,42 @@ impl DatagramSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BindEndpointAsync<'a, P0>(&self, localhostname: P0, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn BindEndpointAsync(&self, localhostname: &super::HostName, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BindEndpointAsync)(::windows::core::Vtable::as_raw(this), localhostname.into().abi(), ::core::mem::transmute_copy(localservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).BindEndpointAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localhostname), ::core::mem::transmute_copy(localservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    pub fn JoinMulticastGroup<'a, P0>(&self, host: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn JoinMulticastGroup(&self, host: &super::HostName) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).JoinMulticastGroup)(::windows::core::Vtable::as_raw(this), host.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).JoinMulticastGroup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(host)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetOutputStreamAsync<'a, P0>(&self, remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn GetOutputStreamAsync(&self, remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetOutputStreamAsync)(::windows::core::Vtable::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
+            (::windows::core::Vtable::vtable(this).GetOutputStreamAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetOutputStreamWithEndpointPairAsync<'a, P0>(&self, endpointpair: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EndpointPair>>,
-    {
+    pub fn GetOutputStreamWithEndpointPairAsync(&self, endpointpair: &super::EndpointPair) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetOutputStreamWithEndpointPairAsync)(::windows::core::Vtable::as_raw(this), endpointpair.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
+            (::windows::core::Vtable::vtable(this).GetOutputStreamWithEndpointPairAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointpair), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>>>,
-    {
+    pub fn MessageReceived(&self, eventhandler: &super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2421,14 +2382,11 @@ impl DatagramSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
-    pub fn BindServiceNameAndAdapterAsync<'a, P0>(&self, localservicename: &::windows::core::HSTRING, adapter: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::NetworkAdapter>>,
-    {
+    pub fn BindServiceNameAndAdapterAsync(&self, localservicename: &::windows::core::HSTRING, adapter: &super::Connectivity::NetworkAdapter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IDatagramSocket2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BindServiceNameAndAdapterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localservicename), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).BindServiceNameAndAdapterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localservicename), ::core::mem::transmute_copy(adapter), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2452,42 +2410,30 @@ impl DatagramSocket {
         let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).TransferOwnership)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
     }
-    pub fn TransferOwnershipWithContext<'a, P0>(&self, socketid: &::windows::core::HSTRING, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SocketActivityContext>>,
-    {
+    pub fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), data.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TransferOwnershipWithContextAndKeepAliveTime<'a, P0>(&self, socketid: &::windows::core::HSTRING, data: P0, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SocketActivityContext>>,
-    {
+    pub fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), data.into().abi(), keepalivetime).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data), keepalivetime).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsAsync<'a, P0>(remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn GetEndpointPairsAsync(remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IDatagramSocketStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetEndpointPairsAsync)(::windows::core::Vtable::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetEndpointPairsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsWithSortOptionsAsync<'a, P0>(remotehostname: P0, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn GetEndpointPairsWithSortOptionsAsync(remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IDatagramSocketStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Vtable::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), sortoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), sortoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2944,14 +2890,11 @@ impl MessageWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>>,
-    {
+    pub fn MessageReceived(&self, eventhandler: &super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2962,14 +2905,11 @@ impl MessageWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ServerCustomValidationRequested<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>>,
-    {
+    pub fn ServerCustomValidationRequested(&self, eventhandler: &super::super::Foundation::TypedEventHandler<MessageWebSocket, WebSocketServerCustomValidationRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMessageWebSocket2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ServerCustomValidationRequested)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ServerCustomValidationRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3015,14 +2955,11 @@ impl MessageWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn ConnectAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     pub fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3031,14 +2968,11 @@ impl MessageWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>>,
-    {
+    pub fn Closed(&self, eventhandler: &super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3229,12 +3163,9 @@ impl MessageWebSocketControl {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn SetClientCertificate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>,
-    {
+    pub fn SetClientCertificate(&self, value: &super::super::Security::Cryptography::Certificates::Certificate) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMessageWebSocketControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetClientCertificate)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetClientCertificate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
@@ -3258,12 +3189,9 @@ impl MessageWebSocketControl {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -3276,12 +3204,9 @@ impl MessageWebSocketControl {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3679,14 +3604,11 @@ impl ServerMessageWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>>,
-    {
+    pub fn MessageReceived(&self, value: &super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, MessageWebSocketMessageReceivedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MessageReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3720,14 +3642,11 @@ impl ServerMessageWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, WebSocketClosedEventArgs>>>,
-    {
+    pub fn Closed(&self, value: &super::super::Foundation::TypedEventHandler<ServerMessageWebSocket, WebSocketClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4034,14 +3953,11 @@ impl ServerStreamWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ServerStreamWebSocket, WebSocketClosedEventArgs>>>,
-    {
+    pub fn Closed(&self, value: &super::super::Foundation::TypedEventHandler<ServerStreamWebSocket, WebSocketClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4609,75 +4525,56 @@ impl StreamSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectWithEndpointPairAsync<'a, P0>(&self, endpointpair: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EndpointPair>>,
-    {
+    pub fn ConnectWithEndpointPairAsync(&self, endpointpair: &super::EndpointPair) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Vtable::as_raw(this), endpointpair.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointpair), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectAsync<'a, P0>(&self, remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn ConnectAsync(&self, remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectWithEndpointPairAndProtectionLevelAsync<'a, P0>(&self, endpointpair: P0, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EndpointPair>>,
-    {
+    pub fn ConnectWithEndpointPairAndProtectionLevelAsync(&self, endpointpair: &super::EndpointPair, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectWithEndpointPairAndProtectionLevelAsync)(::windows::core::Vtable::as_raw(this), endpointpair.into().abi(), protectionlevel, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectWithEndpointPairAndProtectionLevelAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointpair), protectionlevel, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectWithProtectionLevelAsync<'a, P0>(&self, remotehostname: P0, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn ConnectWithProtectionLevelAsync(&self, remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectWithProtectionLevelAsync)(::windows::core::Vtable::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), protectionlevel, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectWithProtectionLevelAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), protectionlevel, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpgradeToSslAsync<'a, P0>(&self, protectionlevel: SocketProtectionLevel, validationhostname: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn UpgradeToSslAsync(&self, protectionlevel: SocketProtectionLevel, validationhostname: &super::HostName) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpgradeToSslAsync)(::windows::core::Vtable::as_raw(this), protectionlevel, validationhostname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).UpgradeToSslAsync)(::windows::core::Vtable::as_raw(this), protectionlevel, ::core::mem::transmute_copy(validationhostname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
-    pub fn ConnectWithProtectionLevelAndAdapterAsync<'a, P0, P1>(&self, remotehostname: P0, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::NetworkAdapter>>,
-    {
+    pub fn ConnectWithProtectionLevelAndAdapterAsync(&self, remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &super::Connectivity::NetworkAdapter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStreamSocket2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectWithProtectionLevelAndAdapterAsync)(::windows::core::Vtable::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), protectionlevel, adapter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectWithProtectionLevelAndAdapterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), protectionlevel, ::core::mem::transmute_copy(adapter), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4701,42 +4598,30 @@ impl StreamSocket {
         let this = &::windows::core::Interface::cast::<IStreamSocket3>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).TransferOwnership)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
     }
-    pub fn TransferOwnershipWithContext<'a, P0>(&self, socketid: &::windows::core::HSTRING, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SocketActivityContext>>,
-    {
+    pub fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), data.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TransferOwnershipWithContextAndKeepAliveTime<'a, P0>(&self, socketid: &::windows::core::HSTRING, data: P0, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SocketActivityContext>>,
-    {
+    pub fn TransferOwnershipWithContextAndKeepAliveTime(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStreamSocket3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), data.into().abi(), keepalivetime).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data), keepalivetime).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsAsync<'a, P0>(remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn GetEndpointPairsAsync(remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IStreamSocketStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetEndpointPairsAsync)(::windows::core::Vtable::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetEndpointPairsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsWithSortOptionsAsync<'a, P0>(remotehostname: P0, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn GetEndpointPairsWithSortOptionsAsync(remotehostname: &super::HostName, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>> {
         Self::IStreamSocketStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Vtable::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), sortoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), sortoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4921,12 +4806,9 @@ impl StreamSocketControl {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn SetClientCertificate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>,
-    {
+    pub fn SetClientCertificate(&self, value: &super::super::Security::Cryptography::Certificates::Certificate) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStreamSocketControl3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetClientCertificate)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetClientCertificate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn MinProtectionLevel(&self) -> ::windows::core::Result<SocketProtectionLevel> {
         let this = &::windows::core::Interface::cast::<IStreamSocketControl4>(self)?;
@@ -5221,26 +5103,20 @@ impl StreamSocketListener {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BindEndpointAsync<'a, P0>(&self, localhostname: P0, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn BindEndpointAsync(&self, localhostname: &super::HostName, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BindEndpointAsync)(::windows::core::Vtable::as_raw(this), localhostname.into().abi(), ::core::mem::transmute_copy(localservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).BindEndpointAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localhostname), ::core::mem::transmute_copy(localservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionReceived<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<StreamSocketListener, StreamSocketListenerConnectionReceivedEventArgs>>>,
-    {
+    pub fn ConnectionReceived(&self, eventhandler: &super::super::Foundation::TypedEventHandler<StreamSocketListener, StreamSocketListenerConnectionReceivedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectionReceived)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectionReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5260,14 +5136,11 @@ impl StreamSocketListener {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
-    pub fn BindServiceNameWithProtectionLevelAndAdapterAsync<'a, P0>(&self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::NetworkAdapter>>,
-    {
+    pub fn BindServiceNameWithProtectionLevelAndAdapterAsync(&self, localservicename: &::windows::core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: &super::Connectivity::NetworkAdapter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStreamSocketListener2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BindServiceNameWithProtectionLevelAndAdapterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localservicename), protectionlevel, adapter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).BindServiceNameWithProtectionLevelAndAdapterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(localservicename), protectionlevel, ::core::mem::transmute_copy(adapter), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5291,12 +5164,9 @@ impl StreamSocketListener {
         let this = &::windows::core::Interface::cast::<IStreamSocketListener3>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).TransferOwnership)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
     }
-    pub fn TransferOwnershipWithContext<'a, P0>(&self, socketid: &::windows::core::HSTRING, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SocketActivityContext>>,
-    {
+    pub fn TransferOwnershipWithContext(&self, socketid: &::windows::core::HSTRING, data: &SocketActivityContext) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStreamSocketListener3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), data.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).TransferOwnershipWithContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socketid), ::core::mem::transmute_copy(data)).ok() }
     }
 }
 impl ::core::clone::Clone for StreamSocketListener {
@@ -5703,14 +5573,11 @@ impl StreamWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ServerCustomValidationRequested<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs>>>,
-    {
+    pub fn ServerCustomValidationRequested(&self, eventhandler: &super::super::Foundation::TypedEventHandler<StreamWebSocket, WebSocketServerCustomValidationRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IStreamWebSocket2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ServerCustomValidationRequested)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ServerCustomValidationRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5730,14 +5597,11 @@ impl StreamWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn ConnectAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     pub fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -5746,14 +5610,11 @@ impl StreamWebSocket {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>>,
-    {
+    pub fn Closed(&self, eventhandler: &super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IWebSocket>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5922,12 +5783,9 @@ impl StreamWebSocketControl {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn SetClientCertificate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>,
-    {
+    pub fn SetClientCertificate(&self, value: &super::super::Security::Cryptography::Certificates::Certificate) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStreamWebSocketControl2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetClientCertificate)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetClientCertificate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
@@ -5951,12 +5809,9 @@ impl StreamWebSocketControl {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetServerCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -5969,12 +5824,9 @@ impl StreamWebSocketControl {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebSocketControl>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProxyCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

@@ -554,14 +554,11 @@ pub struct IInkPresenterRuler2_Vtbl {
 #[repr(transparent)]
 pub struct IInkPresenterRulerFactory(::windows::core::IUnknown);
 impl IInkPresenterRulerFactory {
-    pub fn Create<'a, P0>(&self, inkpresenter: P0) -> ::windows::core::Result<InkPresenterRuler>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkPresenter>>,
-    {
+    pub fn Create(&self, inkpresenter: &InkPresenter) -> ::windows::core::Result<InkPresenterRuler> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), inkpresenter.into().abi(), result__.as_mut_ptr()).from_abi::<InkPresenterRuler>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(inkpresenter), result__.as_mut_ptr()).from_abi::<InkPresenterRuler>(result__)
         }
     }
 }
@@ -814,23 +811,17 @@ pub struct IInkRecognizer_Vtbl {
 #[repr(transparent)]
 pub struct IInkRecognizerContainer(::windows::core::IUnknown);
 impl IInkRecognizerContainer {
-    pub fn SetDefaultRecognizer<'a, P0>(&self, recognizer: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkRecognizer>>,
-    {
+    pub fn SetDefaultRecognizer(&self, recognizer: &InkRecognizer) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultRecognizer)(::windows::core::Vtable::as_raw(this), recognizer.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultRecognizer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(recognizer)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RecognizeAsync<'a, P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkStrokeContainer>>,
-    {
+    pub fn RecognizeAsync(&self, strokecollection: &InkStrokeContainer, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), strokecollection.into().abi(), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
+            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(strokecollection), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1087,12 +1078,9 @@ impl IInkStrokeContainer {
             (::windows::core::Vtable::vtable(this).BoundingRect)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    pub fn AddStroke<'a, P0>(&self, stroke: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkStroke>>,
-    {
+    pub fn AddStroke(&self, stroke: &InkStroke) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).AddStroke)(::windows::core::Vtable::as_raw(this), stroke.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AddStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2110,41 +2098,29 @@ impl InkManager {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetMode)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn ProcessPointerDown<'a, P0>(&self, pointerpoint: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PointerPoint>>,
-    {
+    pub fn ProcessPointerDown(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ProcessPointerDown)(::windows::core::Vtable::as_raw(this), pointerpoint.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ProcessPointerDown)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint)).ok() }
     }
-    pub fn ProcessPointerUpdate<'a, P0>(&self, pointerpoint: P0) -> ::windows::core::Result<::windows::core::IInspectable>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PointerPoint>>,
-    {
+    pub fn ProcessPointerUpdate(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProcessPointerUpdate)(::windows::core::Vtable::as_raw(this), pointerpoint.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Vtable::vtable(this).ProcessPointerUpdate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProcessPointerUp<'a, P0>(&self, pointerpoint: P0) -> ::windows::core::Result<super::super::super::Foundation::Rect>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PointerPoint>>,
-    {
+    pub fn ProcessPointerUp(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProcessPointerUp)(::windows::core::Vtable::as_raw(this), pointerpoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Vtable::vtable(this).ProcessPointerUp)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    pub fn SetDefaultDrawingAttributes<'a, P0>(&self, drawingattributes: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkDrawingAttributes>>,
-    {
+    pub fn SetDefaultDrawingAttributes(&self, drawingattributes: &InkDrawingAttributes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), drawingattributes.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(drawingattributes)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2155,23 +2131,17 @@ impl InkManager {
             (::windows::core::Vtable::vtable(this).RecognizeAsync2)(::windows::core::Vtable::as_raw(this), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
         }
     }
-    pub fn SetDefaultRecognizer<'a, P0>(&self, recognizer: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkRecognizer>>,
-    {
+    pub fn SetDefaultRecognizer(&self, recognizer: &InkRecognizer) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInkRecognizerContainer>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultRecognizer)(::windows::core::Vtable::as_raw(this), recognizer.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultRecognizer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(recognizer)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RecognizeAsync<'a, P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkStrokeContainer>>,
-    {
+    pub fn RecognizeAsync(&self, strokecollection: &InkStrokeContainer, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>> {
         let this = &::windows::core::Interface::cast::<IInkRecognizerContainer>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), strokecollection.into().abi(), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
+            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(strokecollection), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2192,12 +2162,9 @@ impl InkManager {
             (::windows::core::Vtable::vtable(this).BoundingRect)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    pub fn AddStroke<'a, P0>(&self, stroke: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkStroke>>,
-    {
+    pub fn AddStroke(&self, stroke: &InkStroke) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInkStrokeContainer>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).AddStroke)(::windows::core::Vtable::as_raw(this), stroke.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AddStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2710,12 +2677,9 @@ impl InkPresenter {
             (::windows::core::Vtable::vtable(this).StrokeContainer)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InkStrokeContainer>(result__)
         }
     }
-    pub fn SetStrokeContainer<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkStrokeContainer>>,
-    {
+    pub fn SetStrokeContainer(&self, value: &InkStrokeContainer) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetStrokeContainer)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetStrokeContainer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CopyDefaultDrawingAttributes(&self) -> ::windows::core::Result<InkDrawingAttributes> {
         let this = self;
@@ -2724,12 +2688,9 @@ impl InkPresenter {
             (::windows::core::Vtable::vtable(this).CopyDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InkDrawingAttributes>(result__)
         }
     }
-    pub fn UpdateDefaultDrawingAttributes<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkDrawingAttributes>>,
-    {
+    pub fn UpdateDefaultDrawingAttributes(&self, value: &InkDrawingAttributes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UpdateDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ActivateCustomDrying(&self) -> ::windows::core::Result<InkSynchronizer> {
         let this = self;
@@ -2744,14 +2705,11 @@ impl InkPresenter {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StrokesCollected<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesCollectedEventArgs>>>,
-    {
+    pub fn StrokesCollected(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesCollectedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StrokesCollected)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StrokesCollected)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2762,14 +2720,11 @@ impl InkPresenter {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StrokesErased<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesErasedEventArgs>>>,
-    {
+    pub fn StrokesErased(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesErasedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StrokesErased)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StrokesErased)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2942,13 +2897,10 @@ impl InkPresenterProtractor {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAccentColor)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn Create<'a, P0>(inkpresenter: P0) -> ::windows::core::Result<InkPresenterProtractor>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkPresenter>>,
-    {
+    pub fn Create(inkpresenter: &InkPresenter) -> ::windows::core::Result<InkPresenterProtractor> {
         Self::IInkPresenterProtractorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), inkpresenter.into().abi(), result__.as_mut_ptr()).from_abi::<InkPresenterProtractor>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(inkpresenter), result__.as_mut_ptr()).from_abi::<InkPresenterProtractor>(result__)
         })
     }
     pub fn Kind(&self) -> ::windows::core::Result<InkPresenterStencilKind> {
@@ -3143,13 +3095,10 @@ impl InkPresenterRuler {
         let this = &::windows::core::Interface::cast::<IInkPresenterRuler2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetIsCompassVisible)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn Create<'a, P0>(inkpresenter: P0) -> ::windows::core::Result<InkPresenterRuler>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkPresenter>>,
-    {
+    pub fn Create(inkpresenter: &InkPresenter) -> ::windows::core::Result<InkPresenterRuler> {
         Self::IInkPresenterRulerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), inkpresenter.into().abi(), result__.as_mut_ptr()).from_abi::<InkPresenterRuler>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(inkpresenter), result__.as_mut_ptr()).from_abi::<InkPresenterRuler>(result__)
         })
     }
     pub fn Kind(&self) -> ::windows::core::Result<InkPresenterStencilKind> {
@@ -3477,23 +3426,17 @@ impl InkRecognizerContainer {
         static SHARED: ::windows::core::FactoryCache<InkRecognizerContainer, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetDefaultRecognizer<'a, P0>(&self, recognizer: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkRecognizer>>,
-    {
+    pub fn SetDefaultRecognizer(&self, recognizer: &InkRecognizer) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultRecognizer)(::windows::core::Vtable::as_raw(this), recognizer.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultRecognizer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(recognizer)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RecognizeAsync<'a, P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkStrokeContainer>>,
-    {
+    pub fn RecognizeAsync(&self, strokecollection: &InkStrokeContainer, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), strokecollection.into().abi(), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
+            (::windows::core::Vtable::vtable(this).RecognizeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(strokecollection), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3598,12 +3541,9 @@ impl InkStroke {
             (::windows::core::Vtable::vtable(this).DrawingAttributes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<InkDrawingAttributes>(result__)
         }
     }
-    pub fn SetDrawingAttributes<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkDrawingAttributes>>,
-    {
+    pub fn SetDrawingAttributes(&self, value: &InkDrawingAttributes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDrawingAttributes)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDrawingAttributes)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3800,31 +3740,22 @@ impl InkStrokeBuilder {
         static SHARED: ::windows::core::FactoryCache<InkStrokeBuilder, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn BeginStroke<'a, P0>(&self, pointerpoint: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PointerPoint>>,
-    {
+    pub fn BeginStroke(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).BeginStroke)(::windows::core::Vtable::as_raw(this), pointerpoint.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).BeginStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint)).ok() }
     }
-    pub fn AppendToStroke<'a, P0>(&self, pointerpoint: P0) -> ::windows::core::Result<super::PointerPoint>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PointerPoint>>,
-    {
+    pub fn AppendToStroke(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<super::PointerPoint> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AppendToStroke)(::windows::core::Vtable::as_raw(this), pointerpoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::PointerPoint>(result__)
+            (::windows::core::Vtable::vtable(this).AppendToStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint), result__.as_mut_ptr()).from_abi::<super::PointerPoint>(result__)
         }
     }
-    pub fn EndStroke<'a, P0>(&self, pointerpoint: P0) -> ::windows::core::Result<InkStroke>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PointerPoint>>,
-    {
+    pub fn EndStroke(&self, pointerpoint: &super::PointerPoint) -> ::windows::core::Result<InkStroke> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EndStroke)(::windows::core::Vtable::as_raw(this), pointerpoint.into().abi(), result__.as_mut_ptr()).from_abi::<InkStroke>(result__)
+            (::windows::core::Vtable::vtable(this).EndStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pointerpoint), result__.as_mut_ptr()).from_abi::<InkStroke>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3840,12 +3771,9 @@ impl InkStrokeBuilder {
             (::windows::core::Vtable::vtable(this).CreateStroke)(::windows::core::Vtable::as_raw(this), points.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<InkStroke>(result__)
         }
     }
-    pub fn SetDefaultDrawingAttributes<'a, P0>(&self, drawingattributes: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkDrawingAttributes>>,
-    {
+    pub fn SetDefaultDrawingAttributes(&self, drawingattributes: &InkDrawingAttributes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), drawingattributes.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultDrawingAttributes)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(drawingattributes)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Foundation_Numerics"))]
@@ -3960,12 +3888,9 @@ impl InkStrokeContainer {
             (::windows::core::Vtable::vtable(this).BoundingRect)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
-    pub fn AddStroke<'a, P0>(&self, stroke: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InkStroke>>,
-    {
+    pub fn AddStroke(&self, stroke: &InkStroke) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).AddStroke)(::windows::core::Vtable::as_raw(this), stroke.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AddStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4203,14 +4128,11 @@ pub struct InkStrokeInput(::windows::core::IUnknown);
 impl InkStrokeInput {
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn StrokeStarted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn StrokeStarted(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StrokeStarted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StrokeStarted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4221,14 +4143,11 @@ impl InkStrokeInput {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn StrokeContinued<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn StrokeContinued(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StrokeContinued)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StrokeContinued)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4239,14 +4158,11 @@ impl InkStrokeInput {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn StrokeEnded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn StrokeEnded(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StrokeEnded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StrokeEnded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4257,14 +4173,11 @@ impl InkStrokeInput {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn StrokeCanceled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn StrokeCanceled(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StrokeCanceled)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StrokeCanceled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4707,14 +4620,11 @@ pub struct InkUnprocessedInput(::windows::core::IUnknown);
 impl InkUnprocessedInput {
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerEntered<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn PointerEntered(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PointerEntered)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PointerEntered)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4725,14 +4635,11 @@ impl InkUnprocessedInput {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerHovered<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn PointerHovered(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PointerHovered)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PointerHovered)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4743,14 +4650,11 @@ impl InkUnprocessedInput {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerExited<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn PointerExited(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PointerExited)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PointerExited)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4761,14 +4665,11 @@ impl InkUnprocessedInput {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerPressed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn PointerPressed(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PointerPressed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PointerPressed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4779,14 +4680,11 @@ impl InkUnprocessedInput {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerMoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn PointerMoved(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PointerMoved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PointerMoved)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4797,14 +4695,11 @@ impl InkUnprocessedInput {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerReleased<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn PointerReleased(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PointerReleased)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PointerReleased)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4815,14 +4710,11 @@ impl InkUnprocessedInput {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerLost<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>>>,
-    {
+    pub fn PointerLost(&self, handler: &super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PointerLost)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PointerLost)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

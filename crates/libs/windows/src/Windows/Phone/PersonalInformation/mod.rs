@@ -1285,14 +1285,11 @@ impl ContactStore {
             (::windows::core::Vtable::vtable(this).CreateContactQueryDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ContactQueryResult>(result__)
         }
     }
-    pub fn CreateContactQueryWithOptions<'a, P0>(&self, options: P0) -> ::windows::core::Result<ContactQueryResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ContactQueryOptions>>,
-    {
+    pub fn CreateContactQueryWithOptions(&self, options: &ContactQueryOptions) -> ::windows::core::Result<ContactQueryResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateContactQueryWithOptions)(::windows::core::Vtable::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<ContactQueryResult>(result__)
+            (::windows::core::Vtable::vtable(this).CreateContactQueryWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<ContactQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1843,23 +1840,16 @@ impl StoredContact {
             (::windows::core::Vtable::vtable(this).ReplaceExistingContactAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    pub fn CreateStoredContact<'a, P0>(store: P0) -> ::windows::core::Result<StoredContact>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ContactStore>>,
-    {
+    pub fn CreateStoredContact(store: &ContactStore) -> ::windows::core::Result<StoredContact> {
         Self::IStoredContactFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateStoredContact)(::windows::core::Vtable::as_raw(this), store.into().abi(), result__.as_mut_ptr()).from_abi::<StoredContact>(result__)
+            (::windows::core::Vtable::vtable(this).CreateStoredContact)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(store), result__.as_mut_ptr()).from_abi::<StoredContact>(result__)
         })
     }
-    pub fn CreateStoredContactFromInformation<'a, P0, P1>(store: P0, contact: P1) -> ::windows::core::Result<StoredContact>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ContactStore>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ContactInformation>>,
-    {
+    pub fn CreateStoredContactFromInformation(store: &ContactStore, contact: &ContactInformation) -> ::windows::core::Result<StoredContact> {
         Self::IStoredContactFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateStoredContactFromInformation)(::windows::core::Vtable::as_raw(this), store.into().abi(), contact.into().abi(), result__.as_mut_ptr()).from_abi::<StoredContact>(result__)
+            (::windows::core::Vtable::vtable(this).CreateStoredContactFromInformation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(store), ::core::mem::transmute_copy(contact), result__.as_mut_ptr()).from_abi::<StoredContact>(result__)
         })
     }
     #[doc(hidden)]

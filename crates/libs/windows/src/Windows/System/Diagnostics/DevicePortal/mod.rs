@@ -146,14 +146,11 @@ pub struct DevicePortalConnection(::windows::core::IUnknown);
 impl DevicePortalConnection {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs>>>,
-    {
+    pub fn Closed(&self, handler: &super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -164,14 +161,11 @@ impl DevicePortalConnection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionRequestReceivedEventArgs>>>,
-    {
+    pub fn RequestReceived(&self, handler: &super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionRequestReceivedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestReceived)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).RequestReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -182,73 +176,55 @@ impl DevicePortalConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn GetForAppServiceConnection<'a, P0>(appserviceconnection: P0) -> ::windows::core::Result<DevicePortalConnection>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::ApplicationModel::AppService::AppServiceConnection>>,
-    {
+    pub fn GetForAppServiceConnection(appserviceconnection: &super::super::super::ApplicationModel::AppService::AppServiceConnection) -> ::windows::core::Result<DevicePortalConnection> {
         Self::IDevicePortalConnectionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForAppServiceConnection)(::windows::core::Vtable::as_raw(this), appserviceconnection.into().abi(), result__.as_mut_ptr()).from_abi::<DevicePortalConnection>(result__)
+            (::windows::core::Vtable::vtable(this).GetForAppServiceConnection)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appserviceconnection), result__.as_mut_ptr()).from_abi::<DevicePortalConnection>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`*"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerMessageWebSocketForRequest<'a, P0>(&self, request: P0) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Web::Http::HttpRequestMessage>>,
-    {
+    pub fn GetServerMessageWebSocketForRequest(&self, request: &super::super::super::Web::Http::HttpRequestMessage) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetServerMessageWebSocketForRequest)(::windows::core::Vtable::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
+            (::windows::core::Vtable::vtable(this).GetServerMessageWebSocketForRequest)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(request), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`*"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerMessageWebSocketForRequest2<'a, P0>(&self, request: P0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Web::Http::HttpRequestMessage>>,
-    {
+    pub fn GetServerMessageWebSocketForRequest2(&self, request: &super::super::super::Web::Http::HttpRequestMessage, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetServerMessageWebSocketForRequest2)(::windows::core::Vtable::as_raw(this), request.into().abi(), messagetype, ::core::mem::transmute_copy(protocol), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
+            (::windows::core::Vtable::vtable(this).GetServerMessageWebSocketForRequest2)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(request), messagetype, ::core::mem::transmute_copy(protocol), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`*"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerMessageWebSocketForRequest3<'a, P0>(&self, request: P0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows::core::HSTRING, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Web::Http::HttpRequestMessage>>,
-    {
+    pub fn GetServerMessageWebSocketForRequest3(&self, request: &super::super::super::Web::Http::HttpRequestMessage, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows::core::HSTRING, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetServerMessageWebSocketForRequest3)(::windows::core::Vtable::as_raw(this), request.into().abi(), messagetype, ::core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, maxmessagesize, receivemode, result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
+            (::windows::core::Vtable::vtable(this).GetServerMessageWebSocketForRequest3)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(request), messagetype, ::core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, maxmessagesize, receivemode, result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`*"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerStreamWebSocketForRequest<'a, P0>(&self, request: P0) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Web::Http::HttpRequestMessage>>,
-    {
+    pub fn GetServerStreamWebSocketForRequest(&self, request: &super::super::super::Web::Http::HttpRequestMessage) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetServerStreamWebSocketForRequest)(::windows::core::Vtable::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerStreamWebSocket>(result__)
+            (::windows::core::Vtable::vtable(this).GetServerStreamWebSocketForRequest)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(request), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerStreamWebSocket>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`*"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerStreamWebSocketForRequest2<'a, P0>(&self, request: P0, protocol: &::windows::core::HSTRING, outboundbuffersizeinbytes: u32, nodelay: bool) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Web::Http::HttpRequestMessage>>,
-    {
+    pub fn GetServerStreamWebSocketForRequest2(&self, request: &super::super::super::Web::Http::HttpRequestMessage, protocol: &::windows::core::HSTRING, outboundbuffersizeinbytes: u32, nodelay: bool) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket> {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetServerStreamWebSocketForRequest2)(::windows::core::Vtable::as_raw(this), request.into().abi(), ::core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, nodelay, result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerStreamWebSocket>(result__)
+            (::windows::core::Vtable::vtable(this).GetServerStreamWebSocketForRequest2)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(request), ::core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, nodelay, result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerStreamWebSocket>(result__)
         }
     }
     #[doc(hidden)]

@@ -897,12 +897,9 @@ pub struct IAllJoynProducer(::windows::core::IUnknown);
 impl IAllJoynProducer {
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetBusObject<'a, P0>(&self, busobject: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AllJoynBusObject>>,
-    {
+    pub fn SetBusObject(&self, busobject: &AllJoynBusObject) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetBusObject)(::windows::core::Vtable::as_raw(this), busobject.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetBusObject)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(busobject)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1692,12 +1689,9 @@ impl AllJoynAboutData {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetSupportUrl<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetSupportUrl(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSupportUrl)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSupportUrl)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1947,25 +1941,18 @@ impl AllJoynAboutDataView {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn GetDataBySessionPortAsync<'a, P0>(uniquename: &::windows::core::HSTRING, busattachment: P0, sessionport: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AllJoynBusAttachment>>,
-    {
+    pub fn GetDataBySessionPortAsync(uniquename: &::windows::core::HSTRING, busattachment: &AllJoynBusAttachment, sessionport: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         Self::IAllJoynAboutDataViewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDataBySessionPortAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uniquename), busattachment.into().abi(), sessionport, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDataBySessionPortAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uniquename), ::core::mem::transmute_copy(busattachment), sessionport, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Globalization\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated"))]
-    pub fn GetDataBySessionPortWithLanguageAsync<'a, P0, P1>(uniquename: &::windows::core::HSTRING, busattachment: P0, sessionport: u16, language: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AllJoynBusAttachment>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Globalization::Language>>,
-    {
+    pub fn GetDataBySessionPortWithLanguageAsync(uniquename: &::windows::core::HSTRING, busattachment: &AllJoynBusAttachment, sessionport: u16, language: &super::super::Globalization::Language) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         Self::IAllJoynAboutDataViewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDataBySessionPortWithLanguageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uniquename), busattachment.into().abi(), sessionport, language.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDataBySessionPortWithLanguageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uniquename), ::core::mem::transmute_copy(busattachment), sessionport, ::core::mem::transmute_copy(language), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2397,14 +2384,11 @@ impl AllJoynBusAttachment {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynBusAttachmentStateChangedEventArgs>>>,
-    {
+    pub fn StateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynBusAttachmentStateChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StateChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StateChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2424,14 +2408,11 @@ impl AllJoynBusAttachment {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CredentialsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsRequestedEventArgs>>>,
-    {
+    pub fn CredentialsRequested(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CredentialsRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CredentialsRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2442,14 +2423,11 @@ impl AllJoynBusAttachment {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CredentialsVerificationRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsVerificationRequestedEventArgs>>>,
-    {
+    pub fn CredentialsVerificationRequested(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynCredentialsVerificationRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CredentialsVerificationRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CredentialsVerificationRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2460,14 +2438,11 @@ impl AllJoynBusAttachment {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn AuthenticationComplete<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAuthenticationCompleteEventArgs>>>,
-    {
+    pub fn AuthenticationComplete(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAuthenticationCompleteEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticationComplete)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticationComplete)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2478,39 +2453,29 @@ impl AllJoynBusAttachment {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn GetAboutDataAsync<'a, P0>(&self, serviceinfo: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AllJoynServiceInfo>>,
-    {
+    pub fn GetAboutDataAsync(&self, serviceinfo: &AllJoynServiceInfo) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAboutDataAsync)(::windows::core::Vtable::as_raw(this), serviceinfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
+            (::windows::core::Vtable::vtable(this).GetAboutDataAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serviceinfo), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Globalization\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated"))]
-    pub fn GetAboutDataWithLanguageAsync<'a, P0, P1>(&self, serviceinfo: P0, language: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AllJoynServiceInfo>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Globalization::Language>>,
-    {
+    pub fn GetAboutDataWithLanguageAsync(&self, serviceinfo: &AllJoynServiceInfo, language: &super::super::Globalization::Language) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAboutDataWithLanguageAsync)(::windows::core::Vtable::as_raw(this), serviceinfo.into().abi(), language.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
+            (::windows::core::Vtable::vtable(this).GetAboutDataWithLanguageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serviceinfo), ::core::mem::transmute_copy(language), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn AcceptSessionJoinerRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAcceptSessionJoinerEventArgs>>>,
-    {
+    pub fn AcceptSessionJoinerRequested(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynAcceptSessionJoinerEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AcceptSessionJoinerRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AcceptSessionJoinerRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2521,14 +2486,11 @@ impl AllJoynBusAttachment {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SessionJoined<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynSessionJoinedEventArgs>>>,
-    {
+    pub fn SessionJoined(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynBusAttachment, AllJoynSessionJoinedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SessionJoined)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SessionJoined)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2818,14 +2780,11 @@ impl AllJoynBusObject {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynBusObject, AllJoynBusObjectStoppedEventArgs>>>,
-    {
+    pub fn Stopped(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynBusObject, AllJoynBusObjectStoppedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2844,13 +2803,10 @@ impl AllJoynBusObject {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateWithBusAttachment<'a, P0>(objectpath: &::windows::core::HSTRING, busattachment: P0) -> ::windows::core::Result<AllJoynBusObject>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AllJoynBusAttachment>>,
-    {
+    pub fn CreateWithBusAttachment(objectpath: &::windows::core::HSTRING, busattachment: &AllJoynBusAttachment) -> ::windows::core::Result<AllJoynBusObject> {
         Self::IAllJoynBusObjectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithBusAttachment)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(objectpath), busattachment.into().abi(), result__.as_mut_ptr()).from_abi::<AllJoynBusObject>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithBusAttachment)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(objectpath), ::core::mem::transmute_copy(busattachment), result__.as_mut_ptr()).from_abi::<AllJoynBusObject>(result__)
         })
     }
     #[doc(hidden)]
@@ -3076,12 +3032,9 @@ impl AllJoynCredentials {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Security_Cryptography_Certificates", feature = "deprecated"))]
-    pub fn SetCertificate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>,
-    {
+    pub fn SetCertificate(&self, value: &super::super::Security::Cryptography::Certificates::Certificate) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCertificate)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCertificate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "deprecated"))]
@@ -3094,12 +3047,9 @@ impl AllJoynCredentials {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "deprecated"))]
-    pub fn SetPasswordCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>,
-    {
+    pub fn SetPasswordCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPasswordCredential)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPasswordCredential)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -3992,14 +3942,11 @@ impl AllJoynSession {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn MemberAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberAddedEventArgs>>>,
-    {
+    pub fn MemberAdded(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberAddedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MemberAdded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MemberAdded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -4010,14 +3957,11 @@ impl AllJoynSession {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn MemberRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberRemovedEventArgs>>>,
-    {
+    pub fn MemberRemoved(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionMemberRemovedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MemberRemoved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).MemberRemoved)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -4028,14 +3972,11 @@ impl AllJoynSession {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn Lost<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionLostEventArgs>>>,
-    {
+    pub fn Lost(&self, handler: &super::super::Foundation::TypedEventHandler<AllJoynSession, AllJoynSessionLostEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Lost)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Lost)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -4046,25 +3987,18 @@ impl AllJoynSession {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn GetFromServiceInfoAsync<'a, P0>(serviceinfo: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AllJoynServiceInfo>>,
-    {
+    pub fn GetFromServiceInfoAsync(serviceinfo: &AllJoynServiceInfo) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>> {
         Self::IAllJoynSessionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetFromServiceInfoAsync)(::windows::core::Vtable::as_raw(this), serviceinfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynSession>>(result__)
+            (::windows::core::Vtable::vtable(this).GetFromServiceInfoAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serviceinfo), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynSession>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn GetFromServiceInfoAndBusAttachmentAsync<'a, P0, P1>(serviceinfo: P0, busattachment: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AllJoynServiceInfo>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, AllJoynBusAttachment>>,
-    {
+    pub fn GetFromServiceInfoAndBusAttachmentAsync(serviceinfo: &AllJoynServiceInfo, busattachment: &AllJoynBusAttachment) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>> {
         Self::IAllJoynSessionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetFromServiceInfoAndBusAttachmentAsync)(::windows::core::Vtable::as_raw(this), serviceinfo.into().abi(), busattachment.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynSession>>(result__)
+            (::windows::core::Vtable::vtable(this).GetFromServiceInfoAndBusAttachmentAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serviceinfo), ::core::mem::transmute_copy(busattachment), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynSession>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4171,13 +4105,10 @@ impl AllJoynSessionJoinedEventArgs {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Create<'a, P0>(session: P0) -> ::windows::core::Result<AllJoynSessionJoinedEventArgs>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AllJoynSession>>,
-    {
+    pub fn Create(session: &AllJoynSession) -> ::windows::core::Result<AllJoynSessionJoinedEventArgs> {
         Self::IAllJoynSessionJoinedEventArgsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), session.into().abi(), result__.as_mut_ptr()).from_abi::<AllJoynSessionJoinedEventArgs>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(session), result__.as_mut_ptr()).from_abi::<AllJoynSessionJoinedEventArgs>(result__)
         })
     }
     #[doc(hidden)]

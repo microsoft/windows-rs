@@ -129,14 +129,11 @@ impl IStorageItemInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ThumbnailUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
-    {
+    pub fn ThumbnailUpdated(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ThumbnailUpdated)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ThumbnailUpdated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -147,14 +144,11 @@ impl IStorageItemInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PropertiesUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
-    {
+    pub fn PropertiesUpdated(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PropertiesUpdated)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PropertiesUpdated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -609,14 +603,11 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ThumbnailUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
-    {
+    pub fn ThumbnailUpdated(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ThumbnailUpdated)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ThumbnailUpdated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -627,14 +618,11 @@ impl FileInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PropertiesUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
-    {
+    pub fn PropertiesUpdated(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PropertiesUpdated)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PropertiesUpdated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1295,14 +1283,11 @@ impl FolderInformation {
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
-    pub fn CreateFileQueryWithOptions<'a, P0>(&self, queryoptions: P0) -> ::windows::core::Result<super::Search::StorageFileQueryResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Search::QueryOptions>>,
-    {
+    pub fn CreateFileQueryWithOptions(&self, queryoptions: &super::Search::QueryOptions) -> ::windows::core::Result<super::Search::StorageFileQueryResult> {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFileQueryWithOptions)(::windows::core::Vtable::as_raw(this), queryoptions.into().abi(), result__.as_mut_ptr()).from_abi::<super::Search::StorageFileQueryResult>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFileQueryWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryoptions), result__.as_mut_ptr()).from_abi::<super::Search::StorageFileQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
@@ -1325,14 +1310,11 @@ impl FolderInformation {
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
-    pub fn CreateFolderQueryWithOptions<'a, P0>(&self, queryoptions: P0) -> ::windows::core::Result<super::Search::StorageFolderQueryResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Search::QueryOptions>>,
-    {
+    pub fn CreateFolderQueryWithOptions(&self, queryoptions: &super::Search::QueryOptions) -> ::windows::core::Result<super::Search::StorageFolderQueryResult> {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFolderQueryWithOptions)(::windows::core::Vtable::as_raw(this), queryoptions.into().abi(), result__.as_mut_ptr()).from_abi::<super::Search::StorageFolderQueryResult>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFolderQueryWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryoptions), result__.as_mut_ptr()).from_abi::<super::Search::StorageFolderQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
@@ -1346,14 +1328,11 @@ impl FolderInformation {
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
-    pub fn CreateItemQueryWithOptions<'a, P0>(&self, queryoptions: P0) -> ::windows::core::Result<super::Search::StorageItemQueryResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Search::QueryOptions>>,
-    {
+    pub fn CreateItemQueryWithOptions(&self, queryoptions: &super::Search::QueryOptions) -> ::windows::core::Result<super::Search::StorageItemQueryResult> {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateItemQueryWithOptions)(::windows::core::Vtable::as_raw(this), queryoptions.into().abi(), result__.as_mut_ptr()).from_abi::<super::Search::StorageItemQueryResult>(result__)
+            (::windows::core::Vtable::vtable(this).CreateItemQueryWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryoptions), result__.as_mut_ptr()).from_abi::<super::Search::StorageItemQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Search\"`*"]
@@ -1403,14 +1382,11 @@ impl FolderInformation {
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
-    pub fn AreQueryOptionsSupported<'a, P0>(&self, queryoptions: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Search::QueryOptions>>,
-    {
+    pub fn AreQueryOptionsSupported(&self, queryoptions: &super::Search::QueryOptions) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AreQueryOptionsSupported)(::windows::core::Vtable::as_raw(this), queryoptions.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).AreQueryOptionsSupported)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryoptions), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
@@ -1589,14 +1565,11 @@ impl FolderInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ThumbnailUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
-    {
+    pub fn ThumbnailUpdated(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ThumbnailUpdated)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ThumbnailUpdated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1607,14 +1580,11 @@ impl FolderInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PropertiesUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
-    {
+    pub fn PropertiesUpdated(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PropertiesUpdated)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PropertiesUpdated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

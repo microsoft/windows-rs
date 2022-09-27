@@ -41,14 +41,11 @@ pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
 #[repr(transparent)]
 pub struct ISpiControllerProvider(::windows::core::IUnknown);
 impl ISpiControllerProvider {
-    pub fn GetDeviceProvider<'a, P0>(&self, settings: P0) -> ::windows::core::Result<ISpiDeviceProvider>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProviderSpiConnectionSettings>>,
-    {
+    pub fn GetDeviceProvider(&self, settings: &ProviderSpiConnectionSettings) -> ::windows::core::Result<ISpiDeviceProvider> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeviceProvider)(::windows::core::Vtable::as_raw(this), settings.into().abi(), result__.as_mut_ptr()).from_abi::<ISpiDeviceProvider>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceProvider)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi::<ISpiDeviceProvider>(result__)
         }
     }
 }

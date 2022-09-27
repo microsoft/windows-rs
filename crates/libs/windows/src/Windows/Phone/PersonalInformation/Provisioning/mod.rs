@@ -65,13 +65,10 @@ pub struct ContactPartnerProvisioningManager;
 impl ContactPartnerProvisioningManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AssociateNetworkAccountAsync<'a, P0>(store: P0, networkname: &::windows::core::HSTRING, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ContactStore>>,
-    {
+    pub fn AssociateNetworkAccountAsync(store: &super::ContactStore, networkname: &::windows::core::HSTRING, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AssociateNetworkAccountAsync)(::windows::core::Vtable::as_raw(this), store.into().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).AssociateNetworkAccountAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(store), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -88,13 +85,10 @@ impl ContactPartnerProvisioningManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AssociateSocialNetworkAccountAsync<'a, P0>(store: P0, networkname: &::windows::core::HSTRING, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ContactStore>>,
-    {
+    pub fn AssociateSocialNetworkAccountAsync(store: &super::ContactStore, networkname: &::windows::core::HSTRING, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AssociateSocialNetworkAccountAsync)(::windows::core::Vtable::as_raw(this), store.into().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).AssociateSocialNetworkAccountAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(store), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]

@@ -1085,12 +1085,9 @@ impl PaymentDetails {
             (::windows::core::Vtable::vtable(this).Total)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PaymentItem>(result__)
         }
     }
-    pub fn SetTotal<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentItem>>,
-    {
+    pub fn SetTotal(&self, value: &PaymentItem) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetTotal)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetTotal)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1149,26 +1146,22 @@ impl PaymentDetails {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetModifiers)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn Create<'a, P0>(total: P0) -> ::windows::core::Result<PaymentDetails>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentItem>>,
-    {
+    pub fn Create(total: &PaymentItem) -> ::windows::core::Result<PaymentDetails> {
         Self::IPaymentDetailsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), total.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentDetails>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(total), result__.as_mut_ptr()).from_abi::<PaymentDetails>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithDisplayItems<'a, P0, P1, E1>(total: P0, displayitems: P1) -> ::windows::core::Result<PaymentDetails>
+    pub fn CreateWithDisplayItems<'a, P0, E0>(total: &PaymentItem, displayitems: P0) -> ::windows::core::Result<PaymentDetails>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentItem>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentDetailsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithDisplayItems)(::windows::core::Vtable::as_raw(this), total.into().abi(), displayitems.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PaymentDetails>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithDisplayItems)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(total), displayitems.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PaymentDetails>(result__)
         })
     }
     #[doc(hidden)]
@@ -1279,45 +1272,42 @@ impl PaymentDetailsModifier {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, E0, P1>(supportedmethodids: P0, total: P1) -> ::windows::core::Result<PaymentDetailsModifier>
+    pub fn Create<'a, P0, E0>(supportedmethodids: P0, total: &PaymentItem) -> ::windows::core::Result<PaymentDetailsModifier>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PaymentItem>>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), supportedmethodids.try_into().map_err(|e| e.into())?.abi(), total.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentDetailsModifier>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), supportedmethodids.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(total), result__.as_mut_ptr()).from_abi::<PaymentDetailsModifier>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithAdditionalDisplayItems<'a, P0, E0, P1, P2, E2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2) -> ::windows::core::Result<PaymentDetailsModifier>
+    pub fn CreateWithAdditionalDisplayItems<'a, P0, E0, P1, E1>(supportedmethodids: P0, total: &PaymentItem, additionaldisplayitems: P1) -> ::windows::core::Result<PaymentDetailsModifier>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PaymentItem>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithAdditionalDisplayItems)(::windows::core::Vtable::as_raw(this), supportedmethodids.try_into().map_err(|e| e.into())?.abi(), total.into().abi(), additionaldisplayitems.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PaymentDetailsModifier>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAdditionalDisplayItems)(::windows::core::Vtable::as_raw(this), supportedmethodids.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(total), additionaldisplayitems.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PaymentDetailsModifier>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithAdditionalDisplayItemsAndJsonData<'a, P0, E0, P1, P2, E2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentDetailsModifier>
+    pub fn CreateWithAdditionalDisplayItemsAndJsonData<'a, P0, E0, P1, E1>(supportedmethodids: P0, total: &PaymentItem, additionaldisplayitems: P1, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentDetailsModifier>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PaymentItem>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentItem>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithAdditionalDisplayItemsAndJsonData)(::windows::core::Vtable::as_raw(this), supportedmethodids.try_into().map_err(|e| e.into())?.abi(), total.into().abi(), additionaldisplayitems.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(jsondata), result__.as_mut_ptr()).from_abi::<PaymentDetailsModifier>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithAdditionalDisplayItemsAndJsonData)(::windows::core::Vtable::as_raw(this), supportedmethodids.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(total), additionaldisplayitems.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(jsondata), result__.as_mut_ptr()).from_abi::<PaymentDetailsModifier>(result__)
         })
     }
     #[doc(hidden)]
@@ -1412,12 +1402,9 @@ impl PaymentItem {
             (::windows::core::Vtable::vtable(this).Amount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PaymentCurrencyAmount>(result__)
         }
     }
-    pub fn SetAmount<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentCurrencyAmount>>,
-    {
+    pub fn SetAmount(&self, value: &PaymentCurrencyAmount) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAmount)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAmount)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Pending(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -1430,13 +1417,10 @@ impl PaymentItem {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetPending)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn Create<'a, P0>(label: &::windows::core::HSTRING, amount: P0) -> ::windows::core::Result<PaymentItem>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentCurrencyAmount>>,
-    {
+    pub fn Create(label: &::windows::core::HSTRING, amount: &PaymentCurrencyAmount) -> ::windows::core::Result<PaymentItem> {
         Self::IPaymentItemFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), amount.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentItem>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(amount), result__.as_mut_ptr()).from_abi::<PaymentItem>(result__)
         })
     }
     #[doc(hidden)]
@@ -1531,39 +1515,29 @@ impl PaymentMediator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SubmitPaymentRequestAsync<'a, P0>(&self, paymentrequest: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequest>>,
-    {
+    pub fn SubmitPaymentRequestAsync(&self, paymentrequest: &PaymentRequest) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SubmitPaymentRequestAsync)(::windows::core::Vtable::as_raw(this), paymentrequest.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>(result__)
+            (::windows::core::Vtable::vtable(this).SubmitPaymentRequestAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(paymentrequest), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SubmitPaymentRequestWithChangeHandlerAsync<'a, P0, P1>(&self, paymentrequest: P0, changehandler: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequest>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequestChangedHandler>>,
-    {
+    pub fn SubmitPaymentRequestWithChangeHandlerAsync(&self, paymentrequest: &PaymentRequest, changehandler: &PaymentRequestChangedHandler) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SubmitPaymentRequestWithChangeHandlerAsync)(::windows::core::Vtable::as_raw(this), paymentrequest.into().abi(), changehandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>(result__)
+            (::windows::core::Vtable::vtable(this).SubmitPaymentRequestWithChangeHandlerAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(paymentrequest), ::core::mem::transmute_copy(changehandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CanMakePaymentAsync<'a, P0>(&self, paymentrequest: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequest>>,
-    {
+    pub fn CanMakePaymentAsync(&self, paymentrequest: &PaymentRequest) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>> {
         let this = &::windows::core::Interface::cast::<IPaymentMediator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CanMakePaymentAsync)(::windows::core::Vtable::as_raw(this), paymentrequest.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>(result__)
+            (::windows::core::Vtable::vtable(this).CanMakePaymentAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(paymentrequest), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>(result__)
         }
     }
 }
@@ -1660,13 +1634,10 @@ impl PaymentMerchantInfo {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Create<'a, P0>(uri: P0) -> ::windows::core::Result<PaymentMerchantInfo>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn Create(uri: &super::super::Foundation::Uri) -> ::windows::core::Result<PaymentMerchantInfo> {
         Self::IPaymentMerchantInfoFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentMerchantInfo>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<PaymentMerchantInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -2027,59 +1998,50 @@ impl PaymentRequest {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, P0, P1, E1>(details: P0, methoddata: P1) -> ::windows::core::Result<PaymentRequest>
+    pub fn Create<'a, P0, E0>(details: &PaymentDetails, methoddata: P0) -> ::windows::core::Result<PaymentRequest>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentDetails>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), details.into().abi(), methoddata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(details), methoddata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithMerchantInfo<'a, P0, P1, E1, P2>(details: P0, methoddata: P1, merchantinfo: P2) -> ::windows::core::Result<PaymentRequest>
+    pub fn CreateWithMerchantInfo<'a, P0, E0>(details: &PaymentDetails, methoddata: P0, merchantinfo: &PaymentMerchantInfo) -> ::windows::core::Result<PaymentRequest>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentDetails>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, PaymentMerchantInfo>>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithMerchantInfo)(::windows::core::Vtable::as_raw(this), details.into().abi(), methoddata.try_into().map_err(|e| e.into())?.abi(), merchantinfo.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithMerchantInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(details), methoddata.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(merchantinfo), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithMerchantInfoAndOptions<'a, P0, P1, E1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3) -> ::windows::core::Result<PaymentRequest>
+    pub fn CreateWithMerchantInfoAndOptions<'a, P0, E0>(details: &PaymentDetails, methoddata: P0, merchantinfo: &PaymentMerchantInfo, options: &PaymentOptions) -> ::windows::core::Result<PaymentRequest>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentDetails>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, PaymentMerchantInfo>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, PaymentOptions>>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithMerchantInfoAndOptions)(::windows::core::Vtable::as_raw(this), details.into().abi(), methoddata.try_into().map_err(|e| e.into())?.abi(), merchantinfo.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithMerchantInfoAndOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(details), methoddata.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(merchantinfo), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithMerchantInfoOptionsAndId<'a, P0, P1, E1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3, id: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentRequest>
+    pub fn CreateWithMerchantInfoOptionsAndId<'a, P0, E0>(details: &PaymentDetails, methoddata: P0, merchantinfo: &PaymentMerchantInfo, options: &PaymentOptions, id: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentRequest>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentDetails>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, PaymentMerchantInfo>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, PaymentOptions>>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PaymentMethodData>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPaymentRequestFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithMerchantInfoOptionsAndId)(::windows::core::Vtable::as_raw(this), details.into().abi(), methoddata.try_into().map_err(|e| e.into())?.abi(), merchantinfo.into().abi(), options.into().abi(), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithMerchantInfoOptionsAndId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(details), methoddata.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(merchantinfo), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
         })
     }
     #[doc(hidden)]
@@ -2182,12 +2144,9 @@ impl PaymentRequestChangedArgs {
             (::windows::core::Vtable::vtable(this).SelectedShippingOption)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PaymentShippingOption>(result__)
         }
     }
-    pub fn Acknowledge<'a, P0>(&self, changeresult: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequestChangedResult>>,
-    {
+    pub fn Acknowledge(&self, changeresult: &PaymentRequestChangedResult) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Acknowledge)(::windows::core::Vtable::as_raw(this), changeresult.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Acknowledge)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changeresult)).ok() }
     }
 }
 impl ::core::clone::Clone for PaymentRequestChangedArgs {
@@ -2287,12 +2246,9 @@ impl PaymentRequestChangedResult {
             (::windows::core::Vtable::vtable(this).UpdatedPaymentDetails)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PaymentDetails>(result__)
         }
     }
-    pub fn SetUpdatedPaymentDetails<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentDetails>>,
-    {
+    pub fn SetUpdatedPaymentDetails(&self, value: &PaymentDetails) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetUpdatedPaymentDetails)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetUpdatedPaymentDetails)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Create(changeacceptedbymerchant: bool) -> ::windows::core::Result<PaymentRequestChangedResult> {
         Self::IPaymentRequestChangedResultFactory(|this| unsafe {
@@ -2300,13 +2256,10 @@ impl PaymentRequestChangedResult {
             (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), changeacceptedbymerchant, result__.as_mut_ptr()).from_abi::<PaymentRequestChangedResult>(result__)
         })
     }
-    pub fn CreateWithPaymentDetails<'a, P0>(changeacceptedbymerchant: bool, updatedpaymentdetails: P0) -> ::windows::core::Result<PaymentRequestChangedResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentDetails>>,
-    {
+    pub fn CreateWithPaymentDetails(changeacceptedbymerchant: bool, updatedpaymentdetails: &PaymentDetails) -> ::windows::core::Result<PaymentRequestChangedResult> {
         Self::IPaymentRequestChangedResultFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithPaymentDetails)(::windows::core::Vtable::as_raw(this), changeacceptedbymerchant, updatedpaymentdetails.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentRequestChangedResult>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithPaymentDetails)(::windows::core::Vtable::as_raw(this), changeacceptedbymerchant, ::core::mem::transmute_copy(updatedpaymentdetails), result__.as_mut_ptr()).from_abi::<PaymentRequestChangedResult>(result__)
         })
     }
     #[doc(hidden)]
@@ -2604,12 +2557,9 @@ impl PaymentShippingOption {
             (::windows::core::Vtable::vtable(this).Amount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PaymentCurrencyAmount>(result__)
         }
     }
-    pub fn SetAmount<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentCurrencyAmount>>,
-    {
+    pub fn SetAmount(&self, value: &PaymentCurrencyAmount) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAmount)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAmount)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2633,31 +2583,22 @@ impl PaymentShippingOption {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetIsSelected)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn Create<'a, P0>(label: &::windows::core::HSTRING, amount: P0) -> ::windows::core::Result<PaymentShippingOption>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentCurrencyAmount>>,
-    {
+    pub fn Create(label: &::windows::core::HSTRING, amount: &PaymentCurrencyAmount) -> ::windows::core::Result<PaymentShippingOption> {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), amount.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentShippingOption>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(amount), result__.as_mut_ptr()).from_abi::<PaymentShippingOption>(result__)
         })
     }
-    pub fn CreateWithSelected<'a, P0>(label: &::windows::core::HSTRING, amount: P0, selected: bool) -> ::windows::core::Result<PaymentShippingOption>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentCurrencyAmount>>,
-    {
+    pub fn CreateWithSelected(label: &::windows::core::HSTRING, amount: &PaymentCurrencyAmount, selected: bool) -> ::windows::core::Result<PaymentShippingOption> {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithSelected)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), amount.into().abi(), selected, result__.as_mut_ptr()).from_abi::<PaymentShippingOption>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithSelected)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(amount), selected, result__.as_mut_ptr()).from_abi::<PaymentShippingOption>(result__)
         })
     }
-    pub fn CreateWithSelectedAndTag<'a, P0>(label: &::windows::core::HSTRING, amount: P0, selected: bool, tag: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentShippingOption>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentCurrencyAmount>>,
-    {
+    pub fn CreateWithSelectedAndTag(label: &::windows::core::HSTRING, amount: &PaymentCurrencyAmount, selected: bool, tag: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentShippingOption> {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithSelectedAndTag)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), amount.into().abi(), selected, ::core::mem::transmute_copy(tag), result__.as_mut_ptr()).from_abi::<PaymentShippingOption>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithSelectedAndTag)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(amount), selected, ::core::mem::transmute_copy(tag), result__.as_mut_ptr()).from_abi::<PaymentShippingOption>(result__)
         })
     }
     #[doc(hidden)]
@@ -3051,13 +2992,9 @@ impl PaymentRequestChangedHandler {
         let com = PaymentRequestChangedHandlerBox::<F> { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, P1>(&self, paymentrequest: P0, args: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequest>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PaymentRequestChangedArgs>>,
-    {
+    pub fn Invoke(&self, paymentrequest: &PaymentRequest, args: &PaymentRequestChangedArgs) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), paymentrequest.into().abi(), args.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(paymentrequest), ::core::mem::transmute_copy(args)).ok() }
     }
 }
 #[repr(C)]

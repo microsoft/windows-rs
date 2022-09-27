@@ -115,13 +115,10 @@ pub struct CredentialPicker;
 impl CredentialPicker {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PickWithOptionsAsync<'a, P0>(options: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CredentialPickerOptions>>,
-    {
+    pub fn PickWithOptionsAsync(options: &CredentialPickerOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PickWithOptionsAsync)(::windows::core::Vtable::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
+            (::windows::core::Vtable::vtable(this).PickWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

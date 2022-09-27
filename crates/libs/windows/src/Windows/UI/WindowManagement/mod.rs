@@ -715,32 +715,23 @@ impl AppWindow {
             (::windows::core::Vtable::vtable(this).GetDisplayRegions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<DisplayRegion>>(result__)
         }
     }
-    pub fn RequestMoveToDisplayRegion<'a, P0>(&self, displayregion: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayRegion>>,
-    {
+    pub fn RequestMoveToDisplayRegion(&self, displayregion: &DisplayRegion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RequestMoveToDisplayRegion)(::windows::core::Vtable::as_raw(this), displayregion.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RequestMoveToDisplayRegion)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(displayregion)).ok() }
     }
     pub fn RequestMoveAdjacentToCurrentView(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RequestMoveAdjacentToCurrentView)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn RequestMoveAdjacentToWindow<'a, P0>(&self, anchorwindow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AppWindow>>,
-    {
+    pub fn RequestMoveAdjacentToWindow(&self, anchorwindow: &AppWindow) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RequestMoveAdjacentToWindow)(::windows::core::Vtable::as_raw(this), anchorwindow.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RequestMoveAdjacentToWindow)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(anchorwindow)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestMoveRelativeToWindowContent<'a, P0>(&self, anchorwindow: P0, contentoffset: super::super::Foundation::Point) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AppWindow>>,
-    {
+    pub fn RequestMoveRelativeToWindowContent(&self, anchorwindow: &AppWindow, contentoffset: super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RequestMoveRelativeToWindowContent)(::windows::core::Vtable::as_raw(this), anchorwindow.into().abi(), contentoffset).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RequestMoveRelativeToWindowContent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(anchorwindow), contentoffset).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -750,12 +741,9 @@ impl AppWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestMoveRelativeToDisplayRegion<'a, P0>(&self, displayregion: P0, displayregionoffset: super::super::Foundation::Point) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayRegion>>,
-    {
+    pub fn RequestMoveRelativeToDisplayRegion(&self, displayregion: &DisplayRegion, displayregionoffset: super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RequestMoveRelativeToDisplayRegion)(::windows::core::Vtable::as_raw(this), displayregion.into().abi(), displayregionoffset).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RequestMoveRelativeToDisplayRegion)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(displayregion), displayregionoffset).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -774,14 +762,11 @@ impl AppWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>>,
-    {
+    pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -792,14 +777,11 @@ impl AppWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>>,
-    {
+    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -810,14 +792,11 @@ impl AppWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CloseRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>>,
-    {
+    pub fn CloseRequested(&self, handler: &super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CloseRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CloseRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2213,14 +2192,11 @@ impl DisplayRegion {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable>>>,
-    {
+    pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2452,14 +2428,11 @@ impl WindowingEnvironment {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>>,
-    {
+    pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

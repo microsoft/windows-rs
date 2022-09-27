@@ -1797,14 +1797,11 @@ impl SmartCardAppletIdGroupRegistration {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPropertiesAsync<'a, P0>(&self, props: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
-    {
+    pub fn SetPropertiesAsync(&self, props: &super::super::Foundation::Collections::ValueSet) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<ISmartCardAppletIdGroupRegistration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SetPropertiesAsync)(::windows::core::Vtable::as_raw(this), props.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SetPropertiesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(props), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -3345,12 +3342,9 @@ impl SmartCardCryptogramPlacementStep {
             (::windows::core::Vtable::vtable(this).ChainedOutputStep)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SmartCardCryptogramPlacementStep>(result__)
         }
     }
-    pub fn SetChainedOutputStep<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardCryptogramPlacementStep>>,
-    {
+    pub fn SetChainedOutputStep(&self, value: &SmartCardCryptogramPlacementStep) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetChainedOutputStep)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetChainedOutputStep)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for SmartCardCryptogramPlacementStep {
@@ -3669,14 +3663,11 @@ impl SmartCardEmulator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ApduReceived<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>>,
-    {
+    pub fn ApduReceived(&self, value: &super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ApduReceived)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ApduReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3687,14 +3678,11 @@ impl SmartCardEmulator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionDeactivated<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>>,
-    {
+    pub fn ConnectionDeactivated(&self, value: &super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectionDeactivated)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectionDeactivated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3732,24 +3720,18 @@ impl SmartCardEmulator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RegisterAppletIdGroupAsync<'a, P0>(appletidgroup: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardAppletIdGroup>>,
-    {
+    pub fn RegisterAppletIdGroupAsync(appletidgroup: &SmartCardAppletIdGroup) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>> {
         Self::ISmartCardEmulatorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RegisterAppletIdGroupAsync)(::windows::core::Vtable::as_raw(this), appletidgroup.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>(result__)
+            (::windows::core::Vtable::vtable(this).RegisterAppletIdGroupAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appletidgroup), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UnregisterAppletIdGroupAsync<'a, P0>(registration: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardAppletIdGroupRegistration>>,
-    {
+    pub fn UnregisterAppletIdGroupAsync(registration: &SmartCardAppletIdGroupRegistration) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::ISmartCardEmulatorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UnregisterAppletIdGroupAsync)(::windows::core::Vtable::as_raw(this), registration.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).UnregisterAppletIdGroupAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(registration), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     pub fn MaxAppletIdGroupRegistrations() -> ::windows::core::Result<u16> {
@@ -4537,14 +4519,11 @@ impl SmartCardProvisioning {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestPinResetAsync<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinResetHandler>>,
-    {
+    pub fn RequestPinResetAsync(&self, handler: &SmartCardPinResetHandler) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestPinResetAsync)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestPinResetAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4558,76 +4537,66 @@ impl SmartCardProvisioning {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromSmartCardAsync<'a, P0>(card: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmartCard>>,
-    {
+    pub fn FromSmartCardAsync(card: &SmartCard) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromSmartCardAsync)(::windows::core::Vtable::as_raw(this), card.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Vtable::vtable(this).FromSmartCardAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(card), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RequestVirtualSmartCardCreationAsync<'a, P0, E0, P1>(friendlyname: &::windows::core::HSTRING, administrativekey: P0, pinpolicy: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
+    pub fn RequestVirtualSmartCardCreationAsync<'a, P0, E0>(friendlyname: &::windows::core::HSTRING, administrativekey: P0, pinpolicy: &SmartCardPinPolicy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinPolicy>>,
     {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestVirtualSmartCardCreationAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into().map_err(|e| e.into())?.abi(), pinpolicy.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestVirtualSmartCardCreationAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(pinpolicy), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RequestVirtualSmartCardCreationAsyncWithCardId<'a, P0, E0, P1>(friendlyname: &::windows::core::HSTRING, administrativekey: P0, pinpolicy: P1, cardid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
+    pub fn RequestVirtualSmartCardCreationAsyncWithCardId<'a, P0, E0>(friendlyname: &::windows::core::HSTRING, administrativekey: P0, pinpolicy: &SmartCardPinPolicy, cardid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinPolicy>>,
     {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into().map_err(|e| e.into())?.abi(), pinpolicy.into().abi(), cardid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(pinpolicy), cardid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestVirtualSmartCardDeletionAsync<'a, P0>(card: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmartCard>>,
-    {
+    pub fn RequestVirtualSmartCardDeletionAsync(card: &SmartCard) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestVirtualSmartCardDeletionAsync)(::windows::core::Vtable::as_raw(this), card.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestVirtualSmartCardDeletionAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(card), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RequestAttestedVirtualSmartCardCreationAsync<'a, P0, E0, P1>(friendlyname: &::windows::core::HSTRING, administrativekey: P0, pinpolicy: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
+    pub fn RequestAttestedVirtualSmartCardCreationAsync<'a, P0, E0>(friendlyname: &::windows::core::HSTRING, administrativekey: P0, pinpolicy: &SmartCardPinPolicy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinPolicy>>,
     {
         Self::ISmartCardProvisioningStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAttestedVirtualSmartCardCreationAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into().map_err(|e| e.into())?.abi(), pinpolicy.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAttestedVirtualSmartCardCreationAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(pinpolicy), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<'a, P0, E0, P1>(friendlyname: &::windows::core::HSTRING, administrativekey: P0, pinpolicy: P1, cardid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
+    pub fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<'a, P0, E0>(friendlyname: &::windows::core::HSTRING, administrativekey: P0, pinpolicy: &SmartCardPinPolicy, cardid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinPolicy>>,
     {
         Self::ISmartCardProvisioningStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAttestedVirtualSmartCardCreationAsyncWithCardId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into().map_err(|e| e.into())?.abi(), pinpolicy.into().abi(), cardid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAttestedVirtualSmartCardCreationAsyncWithCardId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(pinpolicy), cardid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4750,14 +4719,11 @@ impl SmartCardReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CardAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs>>>,
-    {
+    pub fn CardAdded(&self, handler: &super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CardAdded)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CardAdded)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4768,14 +4734,11 @@ impl SmartCardReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CardRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>>>,
-    {
+    pub fn CardRemoved(&self, handler: &super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CardRemoved)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CardRemoved)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5963,13 +5926,9 @@ impl SmartCardPinResetHandler {
         let com = SmartCardPinResetHandlerBox::<F> { vtable: &SmartCardPinResetHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    pub fn Invoke<'a, P0, P1>(&self, sender: P0, request: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardProvisioning>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinResetRequest>>,
-    {
+    pub fn Invoke(&self, sender: &SmartCardProvisioning, request: &SmartCardPinResetRequest) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi(), request.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(request)).ok() }
     }
 }
 #[repr(C)]

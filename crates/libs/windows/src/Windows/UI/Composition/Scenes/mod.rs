@@ -550,12 +550,9 @@ pub struct ISceneVisualStatics_Vtbl {
 #[repr(transparent)]
 pub struct SceneBoundingBox(::windows::core::IUnknown);
 impl SceneBoundingBox {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -615,12 +612,9 @@ impl SceneBoundingBox {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -839,12 +833,9 @@ unsafe impl ::core::marker::Sync for SceneBoundingBox {}
 #[repr(transparent)]
 pub struct SceneComponent(::windows::core::IUnknown);
 impl SceneComponent {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -904,12 +895,9 @@ impl SceneComponent {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1092,12 +1080,9 @@ unsafe impl ::core::marker::Sync for SceneComponent {}
 pub struct SceneComponentCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl SceneComponentCollection {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1157,12 +1142,9 @@ impl SceneComponentCollection {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1529,12 +1511,9 @@ unsafe impl ::core::marker::Sync for SceneComponentCollection {}
 #[repr(transparent)]
 pub struct SceneMaterial(::windows::core::IUnknown);
 impl SceneMaterial {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1594,12 +1573,9 @@ impl SceneMaterial {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1773,12 +1749,9 @@ unsafe impl ::core::marker::Sync for SceneMaterial {}
 #[repr(transparent)]
 pub struct SceneMaterialInput(::windows::core::IUnknown);
 impl SceneMaterialInput {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1838,12 +1811,9 @@ impl SceneMaterialInput {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2017,12 +1987,9 @@ unsafe impl ::core::marker::Sync for SceneMaterialInput {}
 #[repr(transparent)]
 pub struct SceneMesh(::windows::core::IUnknown);
 impl SceneMesh {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2082,12 +2049,9 @@ impl SceneMesh {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2145,20 +2109,14 @@ impl SceneMesh {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
-    pub fn FillMeshAttribute<'a, P0>(&self, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::MemoryBuffer>>,
-    {
+    pub fn FillMeshAttribute(&self, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: &super::super::super::Foundation::MemoryBuffer) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).FillMeshAttribute)(::windows::core::Vtable::as_raw(this), semantic, format, memory.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).FillMeshAttribute)(::windows::core::Vtable::as_raw(this), semantic, format, ::core::mem::transmute_copy(memory)).ok() }
     }
-    pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<SceneMesh>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
-    {
+    pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<SceneMesh> {
         Self::ISceneMeshStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<SceneMesh>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi::<SceneMesh>(result__)
         })
     }
     #[doc(hidden)]
@@ -2306,12 +2264,9 @@ unsafe impl ::core::marker::Sync for SceneMesh {}
 #[repr(transparent)]
 pub struct SceneMeshMaterialAttributeMap(::windows::core::IUnknown);
 impl SceneMeshMaterialAttributeMap {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2371,12 +2326,9 @@ impl SceneMeshMaterialAttributeMap {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2676,12 +2628,9 @@ unsafe impl ::core::marker::Sync for SceneMeshMaterialAttributeMap {}
 #[repr(transparent)]
 pub struct SceneMeshRendererComponent(::windows::core::IUnknown);
 impl SceneMeshRendererComponent {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2741,12 +2690,9 @@ impl SceneMeshRendererComponent {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2808,12 +2754,9 @@ impl SceneMeshRendererComponent {
             (::windows::core::Vtable::vtable(this).Mesh)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SceneMesh>(result__)
         }
     }
-    pub fn SetMesh<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneMesh>>,
-    {
+    pub fn SetMesh(&self, value: &SceneMesh) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMesh)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetMesh)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn UVMappings(&self) -> ::windows::core::Result<SceneMeshMaterialAttributeMap> {
         let this = self;
@@ -2822,13 +2765,10 @@ impl SceneMeshRendererComponent {
             (::windows::core::Vtable::vtable(this).UVMappings)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SceneMeshMaterialAttributeMap>(result__)
         }
     }
-    pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<SceneMeshRendererComponent>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
-    {
+    pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<SceneMeshRendererComponent> {
         Self::ISceneMeshRendererComponentStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<SceneMeshRendererComponent>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi::<SceneMeshRendererComponent>(result__)
         })
     }
     #[doc(hidden)]
@@ -3006,12 +2946,9 @@ unsafe impl ::core::marker::Sync for SceneMeshRendererComponent {}
 #[repr(transparent)]
 pub struct SceneMetallicRoughnessMaterial(::windows::core::IUnknown);
 impl SceneMetallicRoughnessMaterial {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3071,12 +3008,9 @@ impl SceneMetallicRoughnessMaterial {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -3175,13 +3109,10 @@ impl SceneMetallicRoughnessMaterial {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetRoughnessFactor)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<SceneMetallicRoughnessMaterial>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
-    {
+    pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<SceneMetallicRoughnessMaterial> {
         Self::ISceneMetallicRoughnessMaterialStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<SceneMetallicRoughnessMaterial>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi::<SceneMetallicRoughnessMaterial>(result__)
         })
     }
     pub fn AlphaCutoff(&self) -> ::windows::core::Result<f32> {
@@ -3471,12 +3402,9 @@ unsafe impl ::core::marker::Sync for SceneMetallicRoughnessMaterial {}
 #[repr(transparent)]
 pub struct SceneModelTransform(::windows::core::IUnknown);
 impl SceneModelTransform {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3536,12 +3464,9 @@ impl SceneModelTransform {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -3797,12 +3722,9 @@ unsafe impl ::core::marker::Sync for SceneModelTransform {}
 #[repr(transparent)]
 pub struct SceneNode(::windows::core::IUnknown);
 impl SceneNode {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3862,12 +3784,9 @@ impl SceneNode {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -3940,13 +3859,10 @@ impl SceneNode {
             (::windows::core::Vtable::vtable(this).FindFirstComponentOfType)(::windows::core::Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<SceneComponent>(result__)
         }
     }
-    pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<SceneNode>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
-    {
+    pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<SceneNode> {
         Self::ISceneNodeStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<SceneNode>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi::<SceneNode>(result__)
         })
     }
     #[doc(hidden)]
@@ -4096,12 +4012,9 @@ unsafe impl ::core::marker::Sync for SceneNode {}
 pub struct SceneNodeCollection(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl SceneNodeCollection {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4161,12 +4074,9 @@ impl SceneNodeCollection {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4238,33 +4148,24 @@ impl SceneNodeCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneNode>>,
-    {
+    pub fn IndexOf(&self, value: &SceneNode, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneNode>>,
-    {
+    pub fn SetAt(&self, index: u32, value: &SceneNode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetAt)(::windows::core::Vtable::as_raw(this), index, value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetAt)(::windows::core::Vtable::as_raw(this), index, ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneNode>>,
-    {
+    pub fn InsertAt(&self, index: u32, value: &SceneNode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).InsertAt)(::windows::core::Vtable::as_raw(this), index, value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InsertAt)(::windows::core::Vtable::as_raw(this), index, ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4274,12 +4175,9 @@ impl SceneNodeCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneNode>>,
-    {
+    pub fn Append(&self, value: &SceneNode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Append)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Append)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4533,12 +4431,9 @@ unsafe impl ::core::marker::Sync for SceneNodeCollection {}
 #[repr(transparent)]
 pub struct SceneObject(::windows::core::IUnknown);
 impl SceneObject {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4598,12 +4493,9 @@ impl SceneObject {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4762,12 +4654,9 @@ unsafe impl ::core::marker::Sync for SceneObject {}
 #[repr(transparent)]
 pub struct ScenePbrMaterial(::windows::core::IUnknown);
 impl ScenePbrMaterial {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4827,12 +4716,9 @@ impl ScenePbrMaterial {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -5133,12 +5019,9 @@ unsafe impl ::core::marker::Sync for ScenePbrMaterial {}
 #[repr(transparent)]
 pub struct SceneRendererComponent(::windows::core::IUnknown);
 impl SceneRendererComponent {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5198,12 +5081,9 @@ impl SceneRendererComponent {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -5399,12 +5279,9 @@ unsafe impl ::core::marker::Sync for SceneRendererComponent {}
 #[repr(transparent)]
 pub struct SceneSurfaceMaterialInput(::windows::core::IUnknown);
 impl SceneSurfaceMaterialInput {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5464,12 +5341,9 @@ impl SceneSurfaceMaterialInput {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -5551,13 +5425,10 @@ impl SceneSurfaceMaterialInput {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetWrappingVMode)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<SceneSurfaceMaterialInput>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
-    {
+    pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<SceneSurfaceMaterialInput> {
         Self::ISceneSurfaceMaterialInputStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<SceneSurfaceMaterialInput>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi::<SceneSurfaceMaterialInput>(result__)
         })
     }
     #[doc(hidden)]
@@ -5720,12 +5591,9 @@ unsafe impl ::core::marker::Sync for SceneSurfaceMaterialInput {}
 #[repr(transparent)]
 pub struct SceneVisual(::windows::core::IUnknown);
 impl SceneVisual {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
+    pub fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &super::AnimationPropertyInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).PopulatePropertyInfo)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(propertyinfo)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5785,12 +5653,9 @@ impl SceneVisual {
             (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
         }
     }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
+    pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetImplicitAnimations)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -5838,20 +5703,14 @@ impl SceneVisual {
             (::windows::core::Vtable::vtable(this).Root)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SceneNode>(result__)
         }
     }
-    pub fn SetRoot<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SceneNode>>,
-    {
+    pub fn SetRoot(&self, value: &SceneNode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRoot)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRoot)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<SceneVisual>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
-    {
+    pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<SceneVisual> {
         Self::ISceneVisualStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<SceneVisual>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi::<SceneVisual>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]

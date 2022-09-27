@@ -1197,14 +1197,11 @@ impl BluetoothDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NameChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn NameChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NameChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).NameChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1215,14 +1212,11 @@ impl BluetoothDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SdpRecordsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn SdpRecordsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SdpRecordsChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SdpRecordsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1233,14 +1227,11 @@ impl BluetoothDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionStatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn ConnectionStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectionStatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectionStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1296,26 +1287,20 @@ impl BluetoothDevice {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
-    pub fn GetRfcommServicesForIdAsync<'a, P0>(&self, serviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Rfcomm::RfcommServiceId>>,
-    {
+    pub fn GetRfcommServicesForIdAsync(&self, serviceid: &Rfcomm::RfcommServiceId) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetRfcommServicesForIdAsync)(::windows::core::Vtable::as_raw(this), serviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetRfcommServicesForIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation"))]
-    pub fn GetRfcommServicesForIdWithCacheModeAsync<'a, P0>(&self, serviceid: P0, cachemode: BluetoothCacheMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Rfcomm::RfcommServiceId>>,
-    {
+    pub fn GetRfcommServicesForIdWithCacheModeAsync(&self, serviceid: &Rfcomm::RfcommServiceId, cachemode: BluetoothCacheMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IBluetoothDevice3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetRfcommServicesForIdWithCacheModeAsync)(::windows::core::Vtable::as_raw(this), serviceid.into().abi(), cachemode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetRfcommServicesForIdWithCacheModeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serviceid), cachemode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Rfcomm::RfcommDeviceServicesResult>>(result__)
         }
     }
     pub fn BluetoothDeviceId(&self) -> ::windows::core::Result<BluetoothDeviceId> {
@@ -1342,13 +1327,10 @@ impl BluetoothDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking"))]
-    pub fn FromHostNameAsync<'a, P0>(hostname: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Networking::HostName>>,
-    {
+    pub fn FromHostNameAsync(hostname: &super::super::Networking::HostName) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BluetoothDevice>> {
         Self::IBluetoothDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromHostNameAsync)(::windows::core::Vtable::as_raw(this), hostname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BluetoothDevice>>(result__)
+            (::windows::core::Vtable::vtable(this).FromHostNameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BluetoothDevice>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1389,13 +1371,10 @@ impl BluetoothDevice {
             (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromBluetoothAddress)(::windows::core::Vtable::as_raw(this), bluetoothaddress, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    pub fn GetDeviceSelectorFromClassOfDevice<'a, P0>(classofdevice: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BluetoothClassOfDevice>>,
-    {
+    pub fn GetDeviceSelectorFromClassOfDevice(classofdevice: &BluetoothClassOfDevice) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothDeviceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromClassOfDevice)(::windows::core::Vtable::as_raw(this), classofdevice.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromClassOfDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(classofdevice), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2348,14 +2327,11 @@ impl BluetoothLEDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NameChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn NameChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NameChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).NameChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2366,14 +2342,11 @@ impl BluetoothLEDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GattServicesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn GattServicesChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GattServicesChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).GattServicesChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2384,14 +2357,11 @@ impl BluetoothLEDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionStatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn ConnectionStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectionStatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectionStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2505,26 +2475,20 @@ impl BluetoothLEDevice {
             (::windows::core::Vtable::vtable(this).GetConnectionPhy)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<BluetoothLEConnectionPhy>(result__)
         }
     }
-    pub fn RequestPreferredConnectionParameters<'a, P0>(&self, preferredconnectionparameters: P0) -> ::windows::core::Result<BluetoothLEPreferredConnectionParametersRequest>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BluetoothLEPreferredConnectionParameters>>,
-    {
+    pub fn RequestPreferredConnectionParameters(&self, preferredconnectionparameters: &BluetoothLEPreferredConnectionParameters) -> ::windows::core::Result<BluetoothLEPreferredConnectionParametersRequest> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestPreferredConnectionParameters)(::windows::core::Vtable::as_raw(this), preferredconnectionparameters.into().abi(), result__.as_mut_ptr()).from_abi::<BluetoothLEPreferredConnectionParametersRequest>(result__)
+            (::windows::core::Vtable::vtable(this).RequestPreferredConnectionParameters)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(preferredconnectionparameters), result__.as_mut_ptr()).from_abi::<BluetoothLEPreferredConnectionParametersRequest>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionParametersChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn ConnectionParametersChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectionParametersChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectionParametersChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2535,14 +2499,11 @@ impl BluetoothLEDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionPhyChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>>>,
-    {
+    pub fn ConnectionPhyChanged(&self, handler: &super::super::Foundation::TypedEventHandler<BluetoothLEDevice, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEDevice6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectionPhyChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectionPhyChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2603,13 +2564,10 @@ impl BluetoothLEDevice {
             (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType)(::windows::core::Vtable::as_raw(this), bluetoothaddress, bluetoothaddresstype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    pub fn GetDeviceSelectorFromAppearance<'a, P0>(appearance: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BluetoothLEAppearance>>,
-    {
+    pub fn GetDeviceSelectorFromAppearance(appearance: &BluetoothLEAppearance) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBluetoothLEDeviceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromAppearance)(::windows::core::Vtable::as_raw(this), appearance.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeviceSelectorFromAppearance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appearance), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
