@@ -1,6 +1,6 @@
 use super::*;
 use bindings::*;
-use core::sync::atomic::{AtomicIsize, Ordering};
+use std::sync::atomic::{AtomicIsize, Ordering};
 
 #[doc(hidden)]
 #[repr(transparent)]
@@ -32,9 +32,9 @@ impl WeakRefCount {
     }
 
     /// # Safety
-    pub unsafe fn query(&self, iid: &::windows::core::GUID, object: *mut core::ffi::c_void) -> *mut core::ffi::c_void {
+    pub unsafe fn query(&self, iid: &windows::core::GUID, object: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
         if iid != &IWeakReferenceSource::IID {
-            return core::ptr::null_mut();
+            return std::ptr::null_mut();
         }
 
         let mut count_or_pointer = self.0.load(Ordering::Relaxed);
@@ -44,13 +44,13 @@ impl WeakRefCount {
         }
 
         let tear_off = TearOff::new(object, count_or_pointer as _);
-        let tear_off_ptr: *mut core::ffi::c_void = core::mem::transmute_copy(&tear_off);
-        let encoding: usize = ((tear_off_ptr as usize) >> 1) | (1 << (core::mem::size_of::<usize>() * 8 - 1));
+        let tear_off_ptr: *mut std::ffi::c_void = std::mem::transmute_copy(&tear_off);
+        let encoding: usize = ((tear_off_ptr as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
 
         loop {
             match self.0.compare_exchange_weak(count_or_pointer, encoding as _, Ordering::AcqRel, Ordering::Relaxed) {
                 Ok(_) => {
-                    let result: *mut core::ffi::c_void = core::mem::transmute(tear_off);
+                    let result: *mut std::ffi::c_void = std::mem::transmute(tear_off);
                     TearOff::from_strong_ptr(result).strong_count.add_ref();
                     return result;
                 }
@@ -74,15 +74,15 @@ fn is_weak_ref(value: isize) -> bool {
 struct TearOff {
     strong_vtable: *const IWeakReferenceSource_Vtbl,
     weak_vtable: *const IWeakReference_Vtbl,
-    object: *mut core::ffi::c_void,
+    object: *mut std::ffi::c_void,
     strong_count: RefCount,
     weak_count: RefCount,
 }
 
 impl TearOff {
     #[allow(clippy::new_ret_no_self)]
-    unsafe fn new(object: *mut core::ffi::c_void, strong_count: u32) -> IWeakReferenceSource {
-        core::mem::transmute(windows::core::alloc::boxed::Box::new(TearOff {
+    unsafe fn new(object: *mut std::ffi::c_void, strong_count: u32) -> IWeakReferenceSource {
+        std::mem::transmute(windows::core::alloc::boxed::Box::new(TearOff {
             strong_vtable: &Self::STRONG_VTABLE,
             weak_vtable: &Self::WEAK_VTABLE,
             object,
@@ -91,10 +91,10 @@ impl TearOff {
         }))
     }
 
-    unsafe fn from_encoding(encoding: isize) -> *mut core::ffi::c_void {
+    unsafe fn from_encoding(encoding: isize) -> *mut std::ffi::c_void {
         let tear_off = TearOff::decode(encoding);
         tear_off.strong_count.add_ref();
-        core::mem::transmute(tear_off)
+        std::mem::transmute(tear_off)
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_Vtbl = IWeakReferenceSource_Vtbl {
@@ -107,23 +107,23 @@ impl TearOff {
         Resolve: Self::WeakUpgrade,
     };
 
-    unsafe fn from_strong_ptr<'a>(this: *mut core::ffi::c_void) -> &'a mut Self {
-        &mut *(this as *mut *mut core::ffi::c_void as *mut Self)
+    unsafe fn from_strong_ptr<'a>(this: *mut std::ffi::c_void) -> &'a mut Self {
+        &mut *(this as *mut *mut std::ffi::c_void as *mut Self)
     }
 
-    unsafe fn from_weak_ptr<'a>(this: *mut core::ffi::c_void) -> &'a mut Self {
-        &mut *((this as *mut *mut core::ffi::c_void).sub(1) as *mut Self)
+    unsafe fn from_weak_ptr<'a>(this: *mut std::ffi::c_void) -> &'a mut Self {
+        &mut *((this as *mut *mut std::ffi::c_void).sub(1) as *mut Self)
     }
 
     unsafe fn decode<'a>(value: isize) -> &'a mut Self {
-        core::mem::transmute(value << 1)
+        std::mem::transmute(value << 1)
     }
 
-    unsafe fn query_interface(&self, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
+    unsafe fn query_interface(&self, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT {
         ((*(*(self.object as *mut *mut _) as *mut IUnknown_Vtbl)).QueryInterface)(self.object, iid, interface)
     }
 
-    unsafe extern "system" fn StrongQueryInterface(ptr: *mut core::ffi::c_void, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
+    unsafe extern "system" fn StrongQueryInterface(ptr: *mut std::ffi::c_void, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT {
         let this = Self::from_strong_ptr(ptr);
 
         // Only directly respond to queries for the the tear-off's strong interface. This is
@@ -139,14 +139,14 @@ impl TearOff {
         this.query_interface(iid, interface)
     }
 
-    unsafe extern "system" fn WeakQueryInterface(ptr: *mut core::ffi::c_void, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
+    unsafe extern "system" fn WeakQueryInterface(ptr: *mut std::ffi::c_void, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         // While the weak vtable is packed into the same allocation as the strong vtable and
         // tear-off, it represents a distinct COM identity and thus does not share or delegate to
         // the object.
 
-        *interface = if iid == &IWeakReference::IID || iid == &IUnknown::IID || iid == &IAgileObject::IID { ptr } else { core::ptr::null_mut() };
+        *interface = if iid == &IWeakReference::IID || iid == &IUnknown::IID || iid == &IAgileObject::IID { ptr } else { std::ptr::null_mut() };
 
         // TODO: implement IMarshal
 
@@ -158,21 +158,21 @@ impl TearOff {
         }
     }
 
-    unsafe extern "system" fn StrongAddRef(ptr: *mut core::ffi::c_void) -> u32 {
+    unsafe extern "system" fn StrongAddRef(ptr: *mut std::ffi::c_void) -> u32 {
         let this = Self::from_strong_ptr(ptr);
 
         // Implement `AddRef` directly as we own the strong reference.
         this.strong_count.add_ref()
     }
 
-    unsafe extern "system" fn WeakAddRef(ptr: *mut core::ffi::c_void) -> u32 {
+    unsafe extern "system" fn WeakAddRef(ptr: *mut std::ffi::c_void) -> u32 {
         let this = Self::from_weak_ptr(ptr);
 
         // Implement `AddRef` directly as we own the weak reference.
         this.weak_count.add_ref()
     }
 
-    unsafe extern "system" fn StrongRelease(ptr: *mut core::ffi::c_void) -> u32 {
+    unsafe extern "system" fn StrongRelease(ptr: *mut std::ffi::c_void) -> u32 {
         let this = Self::from_strong_ptr(ptr);
 
         // Forward strong `Release` to the object so that it can destroy itself. It will then
@@ -180,7 +180,7 @@ impl TearOff {
         ((*(*(this.object as *mut *mut _) as *mut IUnknown_Vtbl)).Release)((*this).object)
     }
 
-    unsafe extern "system" fn WeakRelease(ptr: *mut core::ffi::c_void) -> u32 {
+    unsafe extern "system" fn WeakRelease(ptr: *mut std::ffi::c_void) -> u32 {
         let this = Self::from_weak_ptr(ptr);
 
         // Implement `Release` directly as we own the weak reference.
@@ -195,7 +195,7 @@ impl TearOff {
         remaining
     }
 
-    unsafe extern "system" fn StrongDowngrade(ptr: *mut core::ffi::c_void, interface: *mut *mut core::ffi::c_void) -> HRESULT {
+    unsafe extern "system" fn StrongDowngrade(ptr: *mut std::ffi::c_void, interface: *mut *mut std::ffi::c_void) -> HRESULT {
         let this = Self::from_strong_ptr(ptr);
 
         // The strong vtable hands out a reference to the weak vtable. This is always safe and
@@ -206,7 +206,7 @@ impl TearOff {
         HRESULT(0)
     }
 
-    unsafe extern "system" fn WeakUpgrade(ptr: *mut core::ffi::c_void, iid: *const GUID, interface: *mut *mut core::ffi::c_void) -> HRESULT {
+    unsafe extern "system" fn WeakUpgrade(ptr: *mut std::ffi::c_void, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         this.strong_count
@@ -225,7 +225,7 @@ impl TearOff {
                 result
             })
             .unwrap_or_else(|_| {
-                *interface = core::ptr::null_mut();
+                *interface = std::ptr::null_mut();
                 HRESULT(0)
             })
     }

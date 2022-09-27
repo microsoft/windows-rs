@@ -17,8 +17,8 @@ impl Error {
     pub fn new(code: HRESULT, message: HSTRING) -> Self {
         unsafe {
             if let Ok(function) = delay_load(s!("combase.dll"), s!("RoOriginateError")) {
-                let function: RoOriginateError = core::mem::transmute(function);
-                function(code, core::mem::transmute_copy(&message));
+                let function: RoOriginateError = std::mem::transmute(function);
+                function(code, std::mem::transmute_copy(&message));
             }
             let info = GetErrorInfo().and_then(|e| e.cast()).ok();
             Self { code, info }
@@ -62,7 +62,7 @@ impl Error {
     }
 }
 
-impl core::convert::From<Error> for HRESULT {
+impl std::convert::From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         let code = error.code;
         let info: Option<IErrorInfo> = error.info.and_then(|info| info.cast().ok());
@@ -75,7 +75,7 @@ impl core::convert::From<Error> for HRESULT {
     }
 }
 
-impl core::convert::From<Error> for std::io::Error {
+impl std::convert::From<Error> for std::io::Error {
     fn from(from: Error) -> Self {
         Self::from_raw_os_error(from.code.0)
     }
@@ -85,13 +85,13 @@ impl core::convert::From<Error> for std::io::Error {
 // not know the `Infallible` can never be constructed. This code needs to be here
 // to satesify the type checker but it will never be run. Once `!` is stabilizied
 // this can be removed.
-impl core::convert::From<core::convert::Infallible> for Error {
-    fn from(from: core::convert::Infallible) -> Self {
+impl std::convert::From<std::convert::Infallible> for Error {
+    fn from(from: std::convert::Infallible) -> Self {
         unreachable!()
     }
 }
 
-impl core::convert::From<HRESULT> for Error {
+impl std::convert::From<HRESULT> for Error {
     fn from(code: HRESULT) -> Self {
         let info: Option<IRestrictedErrorInfo> = GetErrorInfo().and_then(|e| e.cast()).ok();
 
@@ -117,22 +117,22 @@ impl core::convert::From<HRESULT> for Error {
     }
 }
 
-impl core::fmt::Debug for Error {
-    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+impl std::fmt::Debug for Error {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
         debug.field("code", &format_args!("{:#010X}", self.code.0)).field("message", &self.message()).finish()
     }
 }
 
-impl core::fmt::Display for Error {
-    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        core::write!(fmt, "{}", self.message())
+impl std::fmt::Display for Error {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::write!(fmt, "{}", self.message())
     }
 }
 
 impl std::error::Error for Error {}
 
-type RoOriginateError = extern "system" fn(code: HRESULT, message: core::mem::ManuallyDrop<HSTRING>) -> i32;
+type RoOriginateError = extern "system" fn(code: HRESULT, message: std::mem::ManuallyDrop<HSTRING>) -> i32;
 
 fn GetErrorInfo() -> Result<IErrorInfo> {
     let mut result = std::mem::MaybeUninit::zeroed();

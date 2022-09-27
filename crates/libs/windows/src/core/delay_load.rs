@@ -8,7 +8,7 @@ use bindings::*;
 /// # Safety
 ///
 /// * Both the library and function names must be valid PCSTR representations
-pub unsafe fn delay_load(library: PCSTR, function: PCSTR) -> Result<*const core::ffi::c_void> {
+pub unsafe fn delay_load(library: PCSTR, function: PCSTR) -> Result<*const std::ffi::c_void> {
     let library = LoadLibraryA(library);
 
     if library == 0 {

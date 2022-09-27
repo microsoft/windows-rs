@@ -7,7 +7,7 @@ use bindings::*;
 ///
 /// This function will fail in OOM situations, if the heap is otherwise corrupt,
 /// or if getting a handle to the process heap fails.
-pub fn heap_alloc(bytes: usize) -> Result<*mut core::ffi::c_void> {
+pub fn heap_alloc(bytes: usize) -> Result<*mut std::ffi::c_void> {
     let ptr = unsafe { HeapAlloc(GetProcessHeap(), 0, bytes) };
 
     if ptr.is_null() {
@@ -31,6 +31,6 @@ pub fn heap_alloc(bytes: usize) -> Result<*mut core::ffi::c_void> {
 /// # Safety
 ///
 /// `ptr` must be a valid pointer to memory allocated by `HeapAlloc` or `HeapReAlloc`
-pub unsafe fn heap_free(ptr: *mut core::ffi::c_void) {
+pub unsafe fn heap_free(ptr: *mut std::ffi::c_void) {
     HeapFree(GetProcessHeap(), 0, ptr);
 }

@@ -1,6 +1,6 @@
 use super::*;
 use bindings::*;
-use core::marker::PhantomData;
+use std::marker::PhantomData;
 
 /// A type representing an agile reference to a COM/WinRT object.
 #[repr(transparent)]

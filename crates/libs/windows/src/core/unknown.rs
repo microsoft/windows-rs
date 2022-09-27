@@ -5,14 +5,14 @@ use super::*;
 /// under the hood to provide reference-counted lifetime management as well as the ability
 /// to query for additional interfaces that the object may implement.
 #[repr(transparent)]
-pub struct IUnknown(core::ptr::NonNull<core::ffi::c_void>);
+pub struct IUnknown(std::ptr::NonNull<std::ffi::c_void>);
 
 #[doc(hidden)]
 #[repr(C)]
 pub struct IUnknown_Vtbl {
-    pub QueryInterface: unsafe extern "system" fn(this: *mut core::ffi::c_void, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT,
-    pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+    pub QueryInterface: unsafe extern "system" fn(this: *mut std::ffi::c_void, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT,
+    pub AddRef: unsafe extern "system" fn(this: *mut std::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(this: *mut std::ffi::c_void) -> u32,
 }
 
 unsafe impl Vtable for IUnknown {
@@ -26,7 +26,7 @@ unsafe impl Interface for IUnknown {
 impl Clone for IUnknown {
     fn clone(&self) -> Self {
         unsafe {
-            (self.vtable().AddRef)(core::mem::transmute_copy(self));
+            (self.vtable().AddRef)(std::mem::transmute_copy(self));
         }
 
         Self(self.0)
@@ -36,7 +36,7 @@ impl Clone for IUnknown {
 impl Drop for IUnknown {
     fn drop(&mut self) {
         unsafe {
-            (self.vtable().Release)(core::mem::transmute_copy(self));
+            (self.vtable().Release)(std::mem::transmute_copy(self));
         }
     }
 }
@@ -53,8 +53,8 @@ impl PartialEq for IUnknown {
 
 impl Eq for IUnknown {}
 
-impl core::fmt::Debug for IUnknown {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+impl std::fmt::Debug for IUnknown {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_tuple("IUnknown").field(&self.0).finish()
     }
 }
@@ -71,7 +71,7 @@ pub trait IUnknownImpl {
     ///
     /// This function is safe to call as long as the interface pointer is non-null and valid for writes
     /// of an interface pointer.
-    unsafe fn QueryInterface(&self, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT;
+    unsafe fn QueryInterface(&self, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT;
     /// Increments the reference count of the interface
     fn AddRef(&self) -> u32;
     /// Decrements the reference count causing the interface's memory to be freed when the count is 0
@@ -86,16 +86,16 @@ pub trait IUnknownImpl {
 #[cfg(any(feature = "interface", feature = "implement"))]
 impl IUnknown_Vtbl {
     pub const fn new<T: IUnknownImpl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void).offset(OFFSET) as *mut T;
+        unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void, iid: &GUID, interface: *mut *const std::ffi::c_void) -> HRESULT {
+            let this = (this as *mut *mut std::ffi::c_void).offset(OFFSET) as *mut T;
             (*this).QueryInterface(iid, interface)
         }
-        unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            let this = (this as *mut *mut core::ffi::c_void).offset(OFFSET) as *mut T;
+        unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void) -> u32 {
+            let this = (this as *mut *mut std::ffi::c_void).offset(OFFSET) as *mut T;
             (*this).AddRef()
         }
-        unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            let this = (this as *mut *mut core::ffi::c_void).offset(OFFSET) as *mut T;
+        unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void) -> u32 {
+            let this = (this as *mut *mut std::ffi::c_void).offset(OFFSET) as *mut T;
             (*this).Release()
         }
         Self { QueryInterface: QueryInterface::<T, OFFSET>, AddRef: AddRef::<T, OFFSET>, Release: Release::<T, OFFSET> }

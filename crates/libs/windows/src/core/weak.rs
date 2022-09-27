@@ -1,6 +1,6 @@
 use super::*;
 use bindings::*;
-use core::marker::PhantomData;
+use std::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.
 #[derive(Clone, PartialEq, Eq, Default)]

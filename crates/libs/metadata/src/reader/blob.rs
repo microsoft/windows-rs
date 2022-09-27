@@ -62,11 +62,11 @@ impl<'a> Blob<'a> {
     }
     pub fn read_string(self) -> String {
         let slice = self.slice;
-        if slice.as_ptr().align_offset(core::mem::align_of::<u16>()) > 0 {
+        if slice.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
             let slice = slice.chunks_exact(2).take(slice.len() / 2).map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap())).collect::<Vec<u16>>();
             String::from_utf16_lossy(&slice)
         } else {
-            let slice = unsafe { core::slice::from_raw_parts(slice.as_ptr() as *const u16, slice.len() / 2) };
+            let slice = unsafe { std::slice::from_raw_parts(slice.as_ptr() as *const u16, slice.len() / 2) };
             String::from_utf16_lossy(slice)
         }
     }

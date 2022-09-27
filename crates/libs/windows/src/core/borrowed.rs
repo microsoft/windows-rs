@@ -12,7 +12,7 @@
 #[repr(transparent)]
 pub struct Borrowed<'a, T: super::Abi> {
     item: T::Abi,
-    lifetime: core::marker::PhantomData<&'a ()>,
+    lifetime: std::marker::PhantomData<&'a ()>,
 }
 
 impl<'a, T: super::Abi> Borrowed<'a, T> {
@@ -22,15 +22,15 @@ impl<'a, T: super::Abi> Borrowed<'a, T> {
     /// that allows you to call `.into` to safely create a `Borrowed` value.
     pub fn new(item: Option<&'a T>) -> Self {
         // SAFETY: The `Abi` trait ensures `T::Abi` is safe to zero initialize
-        let item = item.map(|i| i.abi()).unwrap_or_else(|| unsafe { core::mem::MaybeUninit::zeroed().assume_init() });
-        Self { item, lifetime: core::marker::PhantomData }
+        let item = item.map(|i| i.abi()).unwrap_or_else(|| unsafe { std::mem::MaybeUninit::zeroed().assume_init() });
+        Self { item, lifetime: std::marker::PhantomData }
     }
 
     /// Create a new null `Borrowed` value.
     pub fn none() -> Self {
         // SAFETY: The `Abi` trait ensures `T::Abi` is safe to zero initialize
-        let item = unsafe { core::mem::MaybeUninit::zeroed().assume_init() };
-        Self { item, lifetime: core::marker::PhantomData }
+        let item = unsafe { std::mem::MaybeUninit::zeroed().assume_init() };
+        Self { item, lifetime: std::marker::PhantomData }
     }
 
     /// Get the abi representation for this param
@@ -38,7 +38,7 @@ impl<'a, T: super::Abi> Borrowed<'a, T> {
     /// Note: the return value is only guranteed to be valid for the lifetime of `&self`
     pub fn abi(&self) -> T::Abi {
         // SAFETY: The `Abi` trait ensures `T::Abi` is safe to memcopy
-        unsafe { core::mem::transmute_copy(&self.item) }
+        unsafe { std::mem::transmute_copy(&self.item) }
     }
 
     /// Get an optional reference to the underlying value
@@ -52,7 +52,7 @@ impl<'a, T: super::Abi> Borrowed<'a, T> {
 impl<'a, T: super::Abi + Copy> Borrowed<'a, T> {
     /// Creates an `Borrowed` type from a `Copy` type meaning we don't need to borrow `item` like in `Borrowed::new`
     pub(crate) fn new_from_owned(item: T) -> Self {
-        Self { item: item.abi(), lifetime: core::marker::PhantomData }
+        Self { item: item.abi(), lifetime: std::marker::PhantomData }
     }
 }
 
@@ -90,8 +90,8 @@ where
     }
 }
 
-impl<'a, T: super::Abi + core::fmt::Debug> core::fmt::Debug for Borrowed<'a, T> {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+impl<'a, T: super::Abi + std::fmt::Debug> std::fmt::Debug for Borrowed<'a, T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{:?}", self.as_ref())
     }
 }
@@ -99,6 +99,6 @@ impl<'a, T: super::Abi + core::fmt::Debug> core::fmt::Debug for Borrowed<'a, T> 
 impl<'a, T: super::Abi> Clone for Borrowed<'a, T> {
     fn clone(&self) -> Self {
         // SAFETY: it is safe to alias `Borrow<'a, T>` for the lifetime `'a`
-        unsafe { core::mem::transmute_copy(self) }
+        unsafe { std::mem::transmute_copy(self) }
     }
 }

@@ -13,7 +13,7 @@ impl PWSTR {
 
     /// Construct a null `PWSTR`.
     pub fn null() -> Self {
-        Self(core::ptr::null_mut())
+        Self(std::ptr::null_mut())
     }
 
     /// Returns a raw pointer to the `PWSTR`.
@@ -41,7 +41,7 @@ impl PWSTR {
     /// # Safety
     ///
     /// See the safety information for `PWSTR::as_wide`.
-    pub unsafe fn to_string(&self) -> core::result::Result<String, std::string::FromUtf16Error> {
+    pub unsafe fn to_string(&self) -> std::result::Result<String, std::string::FromUtf16Error> {
         String::from_utf16(self.as_wide().into())
     }
 
@@ -50,8 +50,8 @@ impl PWSTR {
     /// # Safety
     ///
     /// See the safety information for `PWSTR::as_wide`.
-    pub unsafe fn display<'a>(&'a self) -> impl core::fmt::Display + 'a {
-        Decode(move || core::char::decode_utf16(self.as_wide().iter().cloned()))
+    pub unsafe fn display<'a>(&'a self) -> impl std::fmt::Display + 'a {
+        Decode(move || std::char::decode_utf16(self.as_wide().iter().cloned()))
     }
 }
 

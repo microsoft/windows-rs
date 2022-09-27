@@ -13,7 +13,7 @@ impl PSTR {
 
     /// Construct a null `PSTR`
     pub fn null() -> Self {
-        Self(core::ptr::null_mut())
+        Self(std::ptr::null_mut())
     }
 
     /// Returns a raw pointer to the `PSTR`
@@ -41,7 +41,7 @@ impl PSTR {
     /// # Safety
     ///
     /// See the safety information for `PSTR::as_bytes`.
-    pub unsafe fn to_string(&self) -> core::result::Result<String, std::string::FromUtf8Error> {
+    pub unsafe fn to_string(&self) -> std::result::Result<String, std::string::FromUtf8Error> {
         String::from_utf8(self.as_bytes().into())
     }
 
@@ -50,7 +50,7 @@ impl PSTR {
     /// # Safety
     ///
     /// See the safety information for `PSTR::as_bytes`.
-    pub unsafe fn display<'a>(&'a self) -> impl core::fmt::Display + 'a {
+    pub unsafe fn display<'a>(&'a self) -> impl std::fmt::Display + 'a {
         Decode(move || decode_utf8(self.as_bytes()))
     }
 }
