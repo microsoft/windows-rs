@@ -62,7 +62,6 @@ pub enum InterfaceKind {
     Default,
     Overridable,
     Static,
-    Composable,
     Base,
 }
 
@@ -1382,22 +1381,6 @@ impl<'a> Reader<'a> {
                                 if let Value::TypeDef(row) = arg {
                                     result.push(Interface { ty: Type::TypeDef((row, Vec::new())), kind: InterfaceKind::Static });
                                     break;
-                                }
-                            }
-                        }
-                        "ComposableAttribute" => {
-                            let mut public = false;
-                            let mut def = None;
-                            for (_, arg) in self.attribute_args(attribute) {
-                                match arg {
-                                    Value::I32(2) => public = true,
-                                    Value::TypeDef(row) => def = Some(row),
-                                    _ => {}
-                                }
-                            }
-                            if public {
-                                if let Some(row) = def {
-                                    result.push(Interface { ty: Type::TypeDef((row, Vec::new())), kind: InterfaceKind::Composable });
                                 }
                             }
                         }

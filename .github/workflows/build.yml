@@ -144,36 +144,30 @@ jobs:
           cargo clippy -p test_bstr &&
           cargo clippy -p test_calling_convention &&
           cargo clippy -p test_cfg_generic &&
-          cargo clippy -p test_class_factory &&
           cargo clippy -p test_component &&
           cargo clippy -p test_component_client &&
           cargo clippy -p test_const_fields &&
           cargo clippy -p test_core &&
-          cargo clippy -p test_data_object &&
           cargo clippy -p test_debug &&
           cargo clippy -p test_deprecated &&
           cargo clippy -p test_dispatch &&
           cargo clippy -p test_does_not_return &&
-          cargo clippy -p test_drop_target &&
           cargo clippy -p test_enums &&
           cargo clippy -p test_error &&
           cargo clippy -p test_event &&
           cargo clippy -p test_extensions &&
           cargo clippy -p test_handles &&
           cargo clippy -p test_helpers &&
-          cargo clippy -p test_identity &&
           cargo clippy -p test_implement &&
           cargo clippy -p test_interface &&
           cargo clippy -p test_interop &&
           cargo clippy -p test_lib &&
           cargo clippy -p test_literals &&
-          cargo clippy -p test_map &&
           cargo clippy -p test_match &&
           cargo clippy -p test_matrix3x2 &&
           cargo clippy -p test_metadata &&
           cargo clippy -p test_no_use &&
           cargo clippy -p test_not_dll &&
-          cargo clippy -p test_properties &&
           cargo clippy -p test_query_signature &&
           cargo clippy -p test_reserved &&
           cargo clippy -p test_resources &&
@@ -182,7 +176,6 @@ jobs:
           cargo clippy -p test_structs &&
           cargo clippy -p test_sys &&
           cargo clippy -p test_unions &&
-          cargo clippy -p test_vector &&
           cargo clippy -p test_weak &&
           cargo clippy -p test_weak_ref &&
           cargo clippy -p test_win32 &&

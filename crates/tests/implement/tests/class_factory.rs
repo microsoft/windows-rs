@@ -27,7 +27,6 @@ impl IClassFactory_Impl for Factory {
     fn CreateInstance(&self, outer: &Option<IUnknown>, iid: *const GUID, object: *mut *mut core::ffi::c_void) -> Result<()> {
         assert!(outer.is_none());
         let unknown: IInspectable = Object().into();
-        // TODO: https://github.com/microsoft/windows-rs/issues/1441
         unsafe { unknown.query(&*iid, object as *mut _).ok() }
     }
 
@@ -44,7 +43,7 @@ fn test() -> Result<()> {
         factory.LockServer(true)?;
 
         let stringable: IStringable = factory.CreateInstance(None)?;
-        assert!(stringable.ToString()? == "Object");
+        assert_eq!(stringable.ToString()?, "Object");
 
         let closable: IClosable = factory.CreateInstance(None)?;
         closable.Close()?;

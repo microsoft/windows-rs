@@ -41,7 +41,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 
     let factories = interfaces.iter().filter_map(|interface| match interface.kind {
-        InterfaceKind::Static | InterfaceKind::Composable => {
+        InterfaceKind::Static => {
             if let Type::TypeDef((def, generics)) = &interface.ty {
                 if gen.reader.type_def_methods(*def).next().is_some() {
                     let interface_type = gen.type_name(&interface.ty);

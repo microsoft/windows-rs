@@ -127,37 +127,31 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_bstr &&
           cargo test --target ${{ matrix.target }} -p test_calling_convention &&
           cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
-          cargo test --target ${{ matrix.target }} -p test_class_factory &&
+          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_component &&
           cargo test --target ${{ matrix.target }} -p test_component_client &&
-          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_const_fields &&
           cargo test --target ${{ matrix.target }} -p test_core &&
-          cargo test --target ${{ matrix.target }} -p test_data_object &&
           cargo test --target ${{ matrix.target }} -p test_debug &&
           cargo test --target ${{ matrix.target }} -p test_deprecated &&
           cargo test --target ${{ matrix.target }} -p test_dispatch &&
           cargo test --target ${{ matrix.target }} -p test_does_not_return &&
-          cargo test --target ${{ matrix.target }} -p test_drop_target &&
           cargo test --target ${{ matrix.target }} -p test_enums &&
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
           cargo test --target ${{ matrix.target }} -p test_extensions &&
           cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
-          cargo test --target ${{ matrix.target }} -p test_identity &&
           cargo test --target ${{ matrix.target }} -p test_implement &&
           cargo test --target ${{ matrix.target }} -p test_interface &&
           cargo test --target ${{ matrix.target }} -p test_interop &&
           cargo test --target ${{ matrix.target }} -p test_lib &&
           cargo test --target ${{ matrix.target }} -p test_literals &&
-          cargo test --target ${{ matrix.target }} -p test_map &&
           cargo test --target ${{ matrix.target }} -p test_match &&
           cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
           cargo test --target ${{ matrix.target }} -p test_metadata &&
           cargo test --target ${{ matrix.target }} -p test_no_use &&
           cargo test --target ${{ matrix.target }} -p test_not_dll &&
-          cargo test --target ${{ matrix.target }} -p test_properties &&
           cargo test --target ${{ matrix.target }} -p test_query_signature &&
           cargo test --target ${{ matrix.target }} -p test_reserved &&
           cargo test --target ${{ matrix.target }} -p test_resources &&
@@ -166,7 +160,6 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_structs &&
           cargo test --target ${{ matrix.target }} -p test_sys &&
           cargo test --target ${{ matrix.target }} -p test_unions &&
-          cargo test --target ${{ matrix.target }} -p test_vector &&
           cargo test --target ${{ matrix.target }} -p test_weak &&
           cargo test --target ${{ matrix.target }} -p test_weak_ref &&
           cargo test --target ${{ matrix.target }} -p test_win32 &&
