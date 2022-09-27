@@ -148,12 +148,10 @@ jobs:
           cargo clippy -p test_component_client &&
           cargo clippy -p test_const_fields &&
           cargo clippy -p test_core &&
-          cargo clippy -p test_data_object &&
           cargo clippy -p test_debug &&
           cargo clippy -p test_deprecated &&
           cargo clippy -p test_dispatch &&
           cargo clippy -p test_does_not_return &&
-          cargo clippy -p test_drop_target &&
           cargo clippy -p test_enums &&
           cargo clippy -p test_error &&
           cargo clippy -p test_event &&

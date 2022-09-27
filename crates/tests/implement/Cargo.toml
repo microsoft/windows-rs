@@ -8,12 +8,15 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "implement",
+    "implement",
     "ApplicationModel_Activation",
     "Foundation_Collections",
-    "Win32_Foundation",
     "Storage_Streams",
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi", 
+    "Win32_System_Com_StructuredStorage",
+    "Win32_System_Ole",
+    "Win32_System_SystemServices",
     "Win32_System_WinRT_Composition",
     "Win32_System_WinRT_Display",
-    "Win32_Foundation",
-    "Win32_System_Com",
 ]
