@@ -11,3 +11,4 @@ cargo publish -p windows-interface
 cargo publish -p windows-implement
 cargo publish -p windows-bindgen
 cargo publish -p windows
+cargo publish -p windows-sys
