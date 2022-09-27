@@ -536,12 +536,9 @@ impl UserDataTask {
             (::windows::core::Vtable::vtable(this).RecurrenceProperties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataTaskRecurrenceProperties>(result__)
         }
     }
-    pub fn SetRecurrenceProperties<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, UserDataTaskRecurrenceProperties>>,
-    {
+    pub fn SetRecurrenceProperties(&self, value: &UserDataTaskRecurrenceProperties) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRecurrenceProperties)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRecurrenceProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn RegenerationProperties(&self) -> ::windows::core::Result<UserDataTaskRegenerationProperties> {
         let this = self;
@@ -550,12 +547,9 @@ impl UserDataTask {
             (::windows::core::Vtable::vtable(this).RegenerationProperties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataTaskRegenerationProperties>(result__)
         }
     }
-    pub fn SetRegenerationProperties<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, UserDataTaskRegenerationProperties>>,
-    {
+    pub fn SetRegenerationProperties(&self, value: &UserDataTaskRegenerationProperties) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRegenerationProperties)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRegenerationProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -848,14 +842,11 @@ impl UserDataTaskList {
             (::windows::core::Vtable::vtable(this).GetTaskReader)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataTaskReader>(result__)
         }
     }
-    pub fn GetTaskReaderWithOptions<'a, P0>(&self, options: P0) -> ::windows::core::Result<UserDataTaskReader>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, UserDataTaskQueryOptions>>,
-    {
+    pub fn GetTaskReaderWithOptions(&self, options: &UserDataTaskQueryOptions) -> ::windows::core::Result<UserDataTaskReader> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetTaskReaderWithOptions)(::windows::core::Vtable::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<UserDataTaskReader>(result__)
+            (::windows::core::Vtable::vtable(this).GetTaskReaderWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<UserDataTaskReader>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -869,14 +860,11 @@ impl UserDataTaskList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveTaskAsync<'a, P0>(&self, userdatatask: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, UserDataTask>>,
-    {
+    pub fn SaveTaskAsync(&self, userdatatask: &UserDataTask) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SaveTaskAsync)(::windows::core::Vtable::as_raw(this), userdatatask.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SaveTaskAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(userdatatask), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -986,14 +974,11 @@ impl UserDataTaskListLimitedWriteOperations {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryCreateOrUpdateTaskAsync<'a, P0>(&self, userdatatask: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, UserDataTask>>,
-    {
+    pub fn TryCreateOrUpdateTaskAsync(&self, userdatatask: &UserDataTask) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryCreateOrUpdateTaskAsync)(::windows::core::Vtable::as_raw(this), userdatatask.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).TryCreateOrUpdateTaskAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(userdatatask), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1135,14 +1120,11 @@ impl UserDataTaskListSyncManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SyncStatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<UserDataTaskListSyncManager, ::windows::core::IInspectable>>>,
-    {
+    pub fn SyncStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<UserDataTaskListSyncManager, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SyncStatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).SyncStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1246,13 +1228,10 @@ impl UserDataTaskManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<UserDataTaskManager>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<UserDataTaskManager> {
         Self::IUserDataTaskManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<UserDataTaskManager>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<UserDataTaskManager>(result__)
         })
     }
     #[doc(hidden)]

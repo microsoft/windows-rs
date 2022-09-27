@@ -144,14 +144,11 @@ impl ISpiDeviceStatics {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(&self, busid: &::windows::core::HSTRING, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>,
-    {
+    pub fn FromIdAsync(&self, busid: &::windows::core::HSTRING, settings: &SpiConnectionSettings) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(busid), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(busid), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
         }
     }
 }
@@ -464,14 +461,11 @@ unsafe impl ::core::marker::Sync for SpiConnectionSettings {}
 #[repr(transparent)]
 pub struct SpiController(::windows::core::IUnknown);
 impl SpiController {
-    pub fn GetDevice<'a, P0>(&self, settings: P0) -> ::windows::core::Result<SpiDevice>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>,
-    {
+    pub fn GetDevice(&self, settings: &SpiConnectionSettings) -> ::windows::core::Result<SpiDevice> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDevice)(::windows::core::Vtable::as_raw(this), settings.into().abi(), result__.as_mut_ptr()).from_abi::<SpiDevice>(result__)
+            (::windows::core::Vtable::vtable(this).GetDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi::<SpiDevice>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -624,13 +618,10 @@ impl SpiDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0>(busid: &::windows::core::HSTRING, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SpiConnectionSettings>>,
-    {
+    pub fn FromIdAsync(busid: &::windows::core::HSTRING, settings: &SpiConnectionSettings) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(busid), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
+            (::windows::core::Vtable::vtable(this).FromIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(busid), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpiDevice>>(result__)
         })
     }
     #[doc(hidden)]

@@ -259,16 +259,15 @@ impl CortanaActionableInsights {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn ShowInsightsForImageWithOptionsAsync<'a, P0, E0, P1>(&self, imagestream: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn ShowInsightsForImageWithOptionsAsync<'a, P0, E0>(&self, imagestream: P0, options: &CortanaActionableInsightsOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, CortanaActionableInsightsOptions>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowInsightsForImageWithOptionsAsync)(::windows::core::Vtable::as_raw(this), imagestream.try_into().map_err(|e| e.into())?.abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ShowInsightsForImageWithOptionsAsync)(::windows::core::Vtable::as_raw(this), imagestream.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -282,39 +281,29 @@ impl CortanaActionableInsights {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ShowInsightsForTextWithOptionsAsync<'a, P0>(&self, text: &::windows::core::HSTRING, options: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CortanaActionableInsightsOptions>>,
-    {
+    pub fn ShowInsightsForTextWithOptionsAsync(&self, text: &::windows::core::HSTRING, options: &CortanaActionableInsightsOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowInsightsForTextWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(text), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ShowInsightsForTextWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(text), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated"))]
-    pub fn ShowInsightsAsync<'a, P0>(&self, datapackage: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::DataTransfer::DataPackage>>,
-    {
+    pub fn ShowInsightsAsync(&self, datapackage: &super::super::ApplicationModel::DataTransfer::DataPackage) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowInsightsAsync)(::windows::core::Vtable::as_raw(this), datapackage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ShowInsightsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(datapackage), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated"))]
-    pub fn ShowInsightsWithOptionsAsync<'a, P0, P1>(&self, datapackage: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::DataTransfer::DataPackage>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, CortanaActionableInsightsOptions>>,
-    {
+    pub fn ShowInsightsWithOptionsAsync(&self, datapackage: &super::super::ApplicationModel::DataTransfer::DataPackage, options: &CortanaActionableInsightsOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowInsightsWithOptionsAsync)(::windows::core::Vtable::as_raw(this), datapackage.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ShowInsightsWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(datapackage), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -327,13 +316,10 @@ impl CortanaActionableInsights {
     }
     #[doc = "*Required features: `\"System\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "System", feature = "deprecated"))]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<CortanaActionableInsights>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<CortanaActionableInsights> {
         Self::ICortanaActionableInsightsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<CortanaActionableInsights>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<CortanaActionableInsights>(result__)
         })
     }
     #[doc(hidden)]
@@ -447,12 +433,9 @@ impl CortanaActionableInsightsOptions {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetContentSourceWebLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetContentSourceWebLink(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetContentSourceWebLink)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetContentSourceWebLink)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]

@@ -67,13 +67,10 @@ impl NamedPolicy {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetPolicyFromPathForUser<'a, P0>(user: P0, area: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<NamedPolicyData>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetPolicyFromPathForUser(user: &super::super::System::User, area: &::windows::core::HSTRING, name: &::windows::core::HSTRING) -> ::windows::core::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPolicyFromPathForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(area), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<NamedPolicyData>(result__)
+            (::windows::core::Vtable::vtable(this).GetPolicyFromPathForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(area), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<NamedPolicyData>(result__)
         })
     }
     #[doc(hidden)]
@@ -172,14 +169,11 @@ impl NamedPolicyData {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<NamedPolicyData, ::windows::core::IInspectable>>>,
-    {
+    pub fn Changed(&self, changedhandler: &super::super::Foundation::TypedEventHandler<NamedPolicyData, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

@@ -172,12 +172,9 @@ impl PhoneCallOrigin {
     }
     #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SetDisplayPicture<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::StorageFile>>,
-    {
+    pub fn SetDisplayPicture(&self, value: &super::super::super::Storage::StorageFile) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhoneCallOrigin3>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDisplayPicture)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetDisplayPicture)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for PhoneCallOrigin {
@@ -256,11 +253,8 @@ impl PhoneCallOriginManager {
     pub fn ShowPhoneCallOriginSettingsUI() -> ::windows::core::Result<()> {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).ShowPhoneCallOriginSettingsUI)(::windows::core::Vtable::as_raw(this)).ok() })
     }
-    pub fn SetCallOrigin<'a, P0>(requestid: ::windows::core::GUID, callorigin: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneCallOrigin>>,
-    {
-        Self::IPhoneCallOriginManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).SetCallOrigin)(::windows::core::Vtable::as_raw(this), requestid, callorigin.into().abi()).ok() })
+    pub fn SetCallOrigin(requestid: ::windows::core::GUID, callorigin: &PhoneCallOrigin) -> ::windows::core::Result<()> {
+        Self::IPhoneCallOriginManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).SetCallOrigin)(::windows::core::Vtable::as_raw(this), requestid, ::core::mem::transmute_copy(callorigin)).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

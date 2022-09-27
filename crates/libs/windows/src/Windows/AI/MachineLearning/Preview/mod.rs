@@ -866,13 +866,10 @@ impl LearningModelBindingPreview {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateFromModel<'a, P0>(model: P0) -> ::windows::core::Result<LearningModelBindingPreview>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelPreview>>,
-    {
+    pub fn CreateFromModel(model: &LearningModelPreview) -> ::windows::core::Result<LearningModelBindingPreview> {
         Self::ILearningModelBindingPreviewFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromModel)(::windows::core::Vtable::as_raw(this), model.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelBindingPreview>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromModel)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), result__.as_mut_ptr()).from_abi::<LearningModelBindingPreview>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1315,14 +1312,11 @@ pub struct LearningModelPreview(::windows::core::IUnknown);
 impl LearningModelPreview {
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn EvaluateAsync<'a, P0>(&self, binding: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBindingPreview>>,
-    {
+    pub fn EvaluateAsync(&self, binding: &LearningModelBindingPreview, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EvaluateAsync)(::windows::core::Vtable::as_raw(this), binding.into().abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
+            (::windows::core::Vtable::vtable(this).EvaluateAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(binding), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1358,12 +1352,9 @@ impl LearningModelPreview {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetInferencingOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InferencingOptionsPreview>>,
-    {
+    pub fn SetInferencingOptions(&self, value: &InferencingOptionsPreview) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetInferencingOptions)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetInferencingOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]

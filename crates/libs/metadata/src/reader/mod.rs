@@ -853,14 +853,17 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_contract(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ApiContractAttribute")
     }
+    fn type_def_is_composable(&self, row: TypeDef) -> bool {
+        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ComposableAttribute")
+    }
     pub fn type_def_is_udt(&self, row: TypeDef) -> bool {
         // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_handle?
         self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
     }
-    pub fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
+    fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
-            TypeKind::Class => true,
-            TypeKind::Delegate => self.type_def_flags(row).winrt(),
+            TypeKind::Class => self.type_def_is_composable(row),
+            TypeKind::Delegate => false,
             _ => !self.type_def_is_blittable(row),
         }
     }

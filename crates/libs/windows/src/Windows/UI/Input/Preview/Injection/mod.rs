@@ -955,12 +955,9 @@ impl InputInjector {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).InitializePenInjection)(::windows::core::Vtable::as_raw(this), visualmode).ok() }
     }
-    pub fn InjectPenInput<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InjectedInputPenInfo>>,
-    {
+    pub fn InjectPenInput(&self, input: &InjectedInputPenInfo) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).InjectPenInput)(::windows::core::Vtable::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InjectPenInput)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
     pub fn UninitializePenInjection(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -974,12 +971,9 @@ impl InputInjector {
         let this = &::windows::core::Interface::cast::<IInputInjector2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).InitializeGamepadInjection)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn InjectGamepadInput<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, InjectedInputGamepadInfo>>,
-    {
+    pub fn InjectGamepadInput(&self, input: &InjectedInputGamepadInfo) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInputInjector2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).InjectGamepadInput)(::windows::core::Vtable::as_raw(this), input.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).InjectGamepadInput)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input)).ok() }
     }
     pub fn UninitializeGamepadInjection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInputInjector2>(self)?;

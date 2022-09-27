@@ -815,13 +815,10 @@ impl IppAttributeValue {
             (::windows::core::Vtable::vtable(this).CreateDateTimeArray)(::windows::core::Vtable::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateResolution<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IppResolution>>,
-    {
+    pub fn CreateResolution(value: &IppResolution) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateResolution)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Vtable::vtable(this).CreateResolution)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -836,13 +833,10 @@ impl IppAttributeValue {
             (::windows::core::Vtable::vtable(this).CreateResolutionArray)(::windows::core::Vtable::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateRangeOfInteger<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IppIntegerRange>>,
-    {
+    pub fn CreateRangeOfInteger(value: &IppIntegerRange) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateRangeOfInteger)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Vtable::vtable(this).CreateRangeOfInteger)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -881,13 +875,10 @@ impl IppAttributeValue {
             (::windows::core::Vtable::vtable(this).CreateCollectionArray)(::windows::core::Vtable::as_raw(this), memberattributesarray.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateTextWithLanguage<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IppTextWithLanguage>>,
-    {
+    pub fn CreateTextWithLanguage(value: &IppTextWithLanguage) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateTextWithLanguage)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Vtable::vtable(this).CreateTextWithLanguage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -902,13 +893,10 @@ impl IppAttributeValue {
             (::windows::core::Vtable::vtable(this).CreateTextWithLanguageArray)(::windows::core::Vtable::as_raw(this), values.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
-    pub fn CreateNameWithLanguage<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IppTextWithLanguage>>,
-    {
+    pub fn CreateNameWithLanguage(value: &IppTextWithLanguage) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateNameWithLanguage)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Vtable::vtable(this).CreateNameWithLanguage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -979,13 +967,10 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateUri<'a, P0>(value: P0) -> ::windows::core::Result<IppAttributeValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateUri(value: &super::super::Foundation::Uri) -> ::windows::core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateUri)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
+            (::windows::core::Vtable::vtable(this).CreateUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IppAttributeValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]

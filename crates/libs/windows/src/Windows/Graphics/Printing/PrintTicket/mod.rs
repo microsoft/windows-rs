@@ -491,12 +491,9 @@ impl PrintTicketFeature {
             (::windows::core::Vtable::vtable(this).GetSelectedOption)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketOption>(result__)
         }
     }
-    pub fn SetSelectedOption<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketOption>>,
-    {
+    pub fn SetSelectedOption(&self, value: &PrintTicketOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSelectedOption)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSelectedOption)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn SelectionType(&self) -> ::windows::core::Result<PrintTicketFeatureSelectionType> {
         let this = self;
@@ -848,12 +845,9 @@ impl PrintTicketParameterInitializer {
             (::windows::core::Vtable::vtable(this).XmlNode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
-    pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketValue>>,
-    {
+    pub fn SetValue(&self, value: &PrintTicketValue) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetValue)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetValue)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Value(&self) -> ::windows::core::Result<PrintTicketValue> {
         let this = self;
@@ -1202,14 +1196,11 @@ impl WorkflowPrintTicket {
             (::windows::core::Vtable::vtable(this).SetParameterInitializerAsString)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(xmlnamespace), ::core::mem::transmute_copy(stringvalue), result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
-    pub fn MergeAndValidateTicket<'a, P0>(&self, deltashematicket: P0) -> ::windows::core::Result<WorkflowPrintTicket>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, WorkflowPrintTicket>>,
-    {
+    pub fn MergeAndValidateTicket(&self, deltashematicket: &WorkflowPrintTicket) -> ::windows::core::Result<WorkflowPrintTicket> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MergeAndValidateTicket)(::windows::core::Vtable::as_raw(this), deltashematicket.into().abi(), result__.as_mut_ptr()).from_abi::<WorkflowPrintTicket>(result__)
+            (::windows::core::Vtable::vtable(this).MergeAndValidateTicket)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deltashematicket), result__.as_mut_ptr()).from_abi::<WorkflowPrintTicket>(result__)
         }
     }
 }

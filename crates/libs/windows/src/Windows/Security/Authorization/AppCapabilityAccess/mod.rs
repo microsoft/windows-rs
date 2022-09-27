@@ -109,14 +109,11 @@ impl AppCapability {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AccessChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>>>,
-    {
+    pub fn AccessChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AccessChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AccessChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -139,15 +136,14 @@ impl AppCapability {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub fn RequestAccessForCapabilitiesForUserAsync<'a, P0, P1, E1>(user: P0, capabilitynames: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>
+    pub fn RequestAccessForCapabilitiesForUserAsync<'a, P0, E0>(user: &super::super::super::System::User, capabilitynames: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows::core::Vtable::as_raw(this), user.into().abi(), capabilitynames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), capabilitynames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>(result__)
         })
     }
     pub fn Create(capabilityname: &::windows::core::HSTRING) -> ::windows::core::Result<AppCapability> {
@@ -158,13 +154,10 @@ impl AppCapability {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateWithProcessIdForUser<'a, P0>(user: P0, capabilityname: &::windows::core::HSTRING, pid: u32) -> ::windows::core::Result<AppCapability>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
-    {
+    pub fn CreateWithProcessIdForUser(user: &super::super::super::System::User, capabilityname: &::windows::core::HSTRING, pid: u32) -> ::windows::core::Result<AppCapability> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithProcessIdForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(capabilityname), pid, result__.as_mut_ptr()).from_abi::<AppCapability>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithProcessIdForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(capabilityname), pid, result__.as_mut_ptr()).from_abi::<AppCapability>(result__)
         })
     }
     #[doc(hidden)]

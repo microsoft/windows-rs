@@ -226,26 +226,20 @@ pub struct FaceDetector(::windows::core::IUnknown);
 impl FaceDetector {
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn DetectFacesAsync<'a, P0>(&self, image: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>,
-    {
+    pub fn DetectFacesAsync(&self, image: &super::super::Graphics::Imaging::SoftwareBitmap) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DetectFacesAsync)(::windows::core::Vtable::as_raw(this), image.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
+            (::windows::core::Vtable::vtable(this).DetectFacesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(image), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn DetectFacesWithSearchAreaAsync<'a, P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>,
-    {
+    pub fn DetectFacesWithSearchAreaAsync(&self, image: &super::super::Graphics::Imaging::SoftwareBitmap, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DetectFacesWithSearchAreaAsync)(::windows::core::Vtable::as_raw(this), image.into().abi(), searcharea, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
+            (::windows::core::Vtable::vtable(this).DetectFacesWithSearchAreaAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(image), searcharea, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -384,14 +378,11 @@ pub struct FaceTracker(::windows::core::IUnknown);
 impl FaceTracker {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ProcessNextFrameAsync<'a, P0>(&self, videoframe: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::VideoFrame>>,
-    {
+    pub fn ProcessNextFrameAsync(&self, videoframe: &super::VideoFrame) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProcessNextFrameAsync)(::windows::core::Vtable::as_raw(this), videoframe.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
+            (::windows::core::Vtable::vtable(this).ProcessNextFrameAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(videoframe), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]

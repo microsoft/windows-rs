@@ -321,49 +321,36 @@ pub struct ResourceIndexer(::windows::core::IUnknown);
 impl ResourceIndexer {
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn IndexFilePath<'a, P0>(&self, filepath: P0) -> ::windows::core::Result<IndexedResourceCandidate>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-    {
+    pub fn IndexFilePath(&self, filepath: &super::super::super::Foundation::Uri) -> ::windows::core::Result<IndexedResourceCandidate> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IndexFilePath)(::windows::core::Vtable::as_raw(this), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<IndexedResourceCandidate>(result__)
+            (::windows::core::Vtable::vtable(this).IndexFilePath)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), result__.as_mut_ptr()).from_abi::<IndexedResourceCandidate>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn IndexFileContentsAsync<'a, P0>(&self, file: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-    {
+    pub fn IndexFileContentsAsync(&self, file: &super::super::super::Foundation::Uri) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IndexFileContentsAsync)(::windows::core::Vtable::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>(result__)
+            (::windows::core::Vtable::vtable(this).IndexFileContentsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(file), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateResourceIndexer<'a, P0>(projectroot: P0) -> ::windows::core::Result<ResourceIndexer>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-    {
+    pub fn CreateResourceIndexer(projectroot: &super::super::super::Foundation::Uri) -> ::windows::core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateResourceIndexer)(::windows::core::Vtable::as_raw(this), projectroot.into().abi(), result__.as_mut_ptr()).from_abi::<ResourceIndexer>(result__)
+            (::windows::core::Vtable::vtable(this).CreateResourceIndexer)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(projectroot), result__.as_mut_ptr()).from_abi::<ResourceIndexer>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateResourceIndexerWithExtension<'a, P0, P1>(projectroot: P0, extensiondllpath: P1) -> ::windows::core::Result<ResourceIndexer>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
-    {
+    pub fn CreateResourceIndexerWithExtension(projectroot: &super::super::super::Foundation::Uri, extensiondllpath: &super::super::super::Foundation::Uri) -> ::windows::core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateResourceIndexerWithExtension)(::windows::core::Vtable::as_raw(this), projectroot.into().abi(), extensiondllpath.into().abi(), result__.as_mut_ptr()).from_abi::<ResourceIndexer>(result__)
+            (::windows::core::Vtable::vtable(this).CreateResourceIndexerWithExtension)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(projectroot), ::core::mem::transmute_copy(extensiondllpath), result__.as_mut_ptr()).from_abi::<ResourceIndexer>(result__)
         })
     }
     #[doc(hidden)]

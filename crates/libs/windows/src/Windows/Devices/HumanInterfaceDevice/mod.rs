@@ -749,26 +749,20 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendOutputReportAsync<'a, P0>(&self, outputreport: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HidOutputReport>>,
-    {
+    pub fn SendOutputReportAsync(&self, outputreport: &HidOutputReport) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SendOutputReportAsync)(::windows::core::Vtable::as_raw(this), outputreport.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).SendOutputReportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(outputreport), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendFeatureReportAsync<'a, P0>(&self, featurereport: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HidFeatureReport>>,
-    {
+    pub fn SendFeatureReportAsync(&self, featurereport: &HidFeatureReport) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SendFeatureReportAsync)(::windows::core::Vtable::as_raw(this), featurereport.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Vtable::vtable(this).SendFeatureReportAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(featurereport), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -791,14 +785,11 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InputReportReceived<'a, P0>(&self, reporthandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>>,
-    {
+    pub fn InputReportReceived(&self, reporthandler: &super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InputReportReceived)(::windows::core::Vtable::as_raw(this), reporthandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).InputReportReceived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(reporthandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -956,14 +947,11 @@ impl HidFeatureReport {
             (::windows::core::Vtable::vtable(this).GetBooleanControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
-    pub fn GetBooleanControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidBooleanControl>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>,
-    {
+    pub fn GetBooleanControlByDescription(&self, controldescription: &HidBooleanControlDescription) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetBooleanControlByDescription)(::windows::core::Vtable::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
+            (::windows::core::Vtable::vtable(this).GetBooleanControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl> {
@@ -973,14 +961,11 @@ impl HidFeatureReport {
             (::windows::core::Vtable::vtable(this).GetNumericControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
-    pub fn GetNumericControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidNumericControl>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>,
-    {
+    pub fn GetNumericControlByDescription(&self, controldescription: &HidNumericControlDescription) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetNumericControlByDescription)(::windows::core::Vtable::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
+            (::windows::core::Vtable::vtable(this).GetNumericControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
 }
@@ -1093,14 +1078,11 @@ impl HidInputReport {
             (::windows::core::Vtable::vtable(this).GetBooleanControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
-    pub fn GetBooleanControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidBooleanControl>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>,
-    {
+    pub fn GetBooleanControlByDescription(&self, controldescription: &HidBooleanControlDescription) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetBooleanControlByDescription)(::windows::core::Vtable::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
+            (::windows::core::Vtable::vtable(this).GetBooleanControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl> {
@@ -1110,14 +1092,11 @@ impl HidInputReport {
             (::windows::core::Vtable::vtable(this).GetNumericControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
-    pub fn GetNumericControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidNumericControl>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>,
-    {
+    pub fn GetNumericControlByDescription(&self, controldescription: &HidNumericControlDescription) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetNumericControlByDescription)(::windows::core::Vtable::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
+            (::windows::core::Vtable::vtable(this).GetNumericControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
 }
@@ -1607,14 +1586,11 @@ impl HidOutputReport {
             (::windows::core::Vtable::vtable(this).GetBooleanControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
-    pub fn GetBooleanControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidBooleanControl>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>,
-    {
+    pub fn GetBooleanControlByDescription(&self, controldescription: &HidBooleanControlDescription) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetBooleanControlByDescription)(::windows::core::Vtable::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
+            (::windows::core::Vtable::vtable(this).GetBooleanControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl> {
@@ -1624,14 +1600,11 @@ impl HidOutputReport {
             (::windows::core::Vtable::vtable(this).GetNumericControl)(::windows::core::Vtable::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
-    pub fn GetNumericControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidNumericControl>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>,
-    {
+    pub fn GetNumericControlByDescription(&self, controldescription: &HidNumericControlDescription) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetNumericControlByDescription)(::windows::core::Vtable::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
+            (::windows::core::Vtable::vtable(this).GetNumericControlByDescription)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(controldescription), result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
 }

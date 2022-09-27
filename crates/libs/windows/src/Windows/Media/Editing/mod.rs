@@ -526,13 +526,10 @@ impl BackgroundAudioTrack {
             (::windows::core::Vtable::vtable(this).AudioEffectDefinitions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>(result__)
         }
     }
-    pub fn CreateFromEmbeddedAudioTrack<'a, P0>(embeddedaudiotrack: P0) -> ::windows::core::Result<BackgroundAudioTrack>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, EmbeddedAudioTrack>>,
-    {
+    pub fn CreateFromEmbeddedAudioTrack(embeddedaudiotrack: &EmbeddedAudioTrack) -> ::windows::core::Result<BackgroundAudioTrack> {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromEmbeddedAudioTrack)(::windows::core::Vtable::as_raw(this), embeddedaudiotrack.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundAudioTrack>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromEmbeddedAudioTrack)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(embeddedaudiotrack), result__.as_mut_ptr()).from_abi::<BackgroundAudioTrack>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -1075,16 +1072,15 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileWithProfileAsync<'a, P0, E0, P1>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    pub fn RenderToFileWithProfileAsync<'a, P0, E0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: &super::MediaProperties::MediaEncodingProfile) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RenderToFileWithProfileAsync)(::windows::core::Vtable::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), trimmingpreference, encodingprofile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
+            (::windows::core::Vtable::vtable(this).RenderToFileWithProfileAsync)(::windows::core::Vtable::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), trimmingpreference, ::core::mem::transmute_copy(encodingprofile), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -1107,14 +1103,11 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties"))]
-    pub fn GenerateMediaStreamSourceWithProfile<'a, P0>(&self, encodingprofile: P0) -> ::windows::core::Result<super::Core::MediaStreamSource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>,
-    {
+    pub fn GenerateMediaStreamSourceWithProfile(&self, encodingprofile: &super::MediaProperties::MediaEncodingProfile) -> ::windows::core::Result<super::Core::MediaStreamSource> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GenerateMediaStreamSourceWithProfile)(::windows::core::Vtable::as_raw(this), encodingprofile.into().abi(), result__.as_mut_ptr()).from_abi::<super::Core::MediaStreamSource>(result__)
+            (::windows::core::Vtable::vtable(this).GenerateMediaStreamSourceWithProfile)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(encodingprofile), result__.as_mut_ptr()).from_abi::<super::Core::MediaStreamSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
@@ -1137,13 +1130,10 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadAsync<'a, P0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
-    {
+    pub fn LoadAsync(file: &super::super::Storage::StorageFile) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>> {
         Self::IMediaCompositionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadAsync)(::windows::core::Vtable::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaComposition>>(result__)
+            (::windows::core::Vtable::vtable(this).LoadAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(file), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaComposition>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1286,24 +1276,18 @@ impl MediaOverlay {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAudioEnabled)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
-    pub fn Create<'a, P0>(clip: P0) -> ::windows::core::Result<MediaOverlay>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, MediaClip>>,
-    {
+    pub fn Create(clip: &MediaClip) -> ::windows::core::Result<MediaOverlay> {
         Self::IMediaOverlayFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), clip.into().abi(), result__.as_mut_ptr()).from_abi::<MediaOverlay>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(clip), result__.as_mut_ptr()).from_abi::<MediaOverlay>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithPositionAndOpacity<'a, P0>(clip: P0, position: super::super::Foundation::Rect, opacity: f64) -> ::windows::core::Result<MediaOverlay>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, MediaClip>>,
-    {
+    pub fn CreateWithPositionAndOpacity(clip: &MediaClip, position: super::super::Foundation::Rect, opacity: f64) -> ::windows::core::Result<MediaOverlay> {
         Self::IMediaOverlayFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithPositionAndOpacity)(::windows::core::Vtable::as_raw(this), clip.into().abi(), position, opacity, result__.as_mut_ptr()).from_abi::<MediaOverlay>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithPositionAndOpacity)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(clip), position, opacity, result__.as_mut_ptr()).from_abi::<MediaOverlay>(result__)
         })
     }
     #[doc(hidden)]

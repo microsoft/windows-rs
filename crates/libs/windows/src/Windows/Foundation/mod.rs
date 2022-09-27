@@ -10,12 +10,9 @@ pub mod Numerics;
 #[repr(transparent)]
 pub struct IAsyncAction(::windows::core::IUnknown);
 impl IAsyncAction {
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionCompletedHandler>>,
-    {
+    pub fn SetCompleted(&self, handler: &AsyncActionCompletedHandler) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     pub fn Completed(&self) -> ::windows::core::Result<AsyncActionCompletedHandler> {
         let this = self;
@@ -181,12 +178,9 @@ pub struct IAsyncActionWithProgress<TProgress>(::windows::core::IUnknown, ::core
 where
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
-    pub fn SetProgress<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionProgressHandler<TProgress>>>,
-    {
+    pub fn SetProgress(&self, handler: &AsyncActionProgressHandler<TProgress>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProgress)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProgress)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     pub fn Progress(&self) -> ::windows::core::Result<AsyncActionProgressHandler<TProgress>> {
         let this = self;
@@ -195,12 +189,9 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
             (::windows::core::Vtable::vtable(this).Progress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncActionProgressHandler<TProgress>>(result__)
         }
     }
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionWithProgressCompletedHandler<TProgress>>>,
-    {
+    pub fn SetCompleted(&self, handler: &AsyncActionWithProgressCompletedHandler<TProgress>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     pub fn Completed(&self) -> ::windows::core::Result<AsyncActionWithProgressCompletedHandler<TProgress>> {
         let this = self;
@@ -475,12 +466,9 @@ pub struct IAsyncOperation<TResult>(::windows::core::IUnknown, ::core::marker::P
 where
     TResult: ::windows::core::RuntimeType + 'static;
 impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationCompletedHandler<TResult>>>,
-    {
+    pub fn SetCompleted(&self, handler: &AsyncOperationCompletedHandler<TResult>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     pub fn Completed(&self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>> {
         let this = self;
@@ -654,12 +642,9 @@ where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
-    pub fn SetProgress<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationProgressHandler<TResult, TProgress>>>,
-    {
+    pub fn SetProgress(&self, handler: &AsyncOperationProgressHandler<TResult, TProgress>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProgress)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProgress)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     pub fn Progress(&self) -> ::windows::core::Result<AsyncOperationProgressHandler<TResult, TProgress>> {
         let this = self;
@@ -668,12 +653,9 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
             (::windows::core::Vtable::vtable(this).Progress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncOperationProgressHandler<TResult, TProgress>>(result__)
         }
     }
-    pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>>,
-    {
+    pub fn SetCompleted(&self, handler: &AsyncOperationWithProgressCompletedHandler<TResult, TProgress>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
     }
     pub fn Completed(&self) -> ::windows::core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>> {
         let this = self;
@@ -1168,14 +1150,11 @@ impl IMemoryBufferReference {
             (::windows::core::Vtable::vtable(this).Capacity)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>>,
-    {
+    pub fn Closed(&self, handler: &TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>) -> ::windows::core::Result<EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<EventRegistrationToken>(result__)
         }
     }
     pub fn RemoveClosed(&self, cookie: EventRegistrationToken) -> ::windows::core::Result<()> {
@@ -2569,13 +2548,10 @@ impl Deferral {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Complete)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn Create<'a, P0>(handler: P0) -> ::windows::core::Result<Deferral>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DeferralCompletedHandler>>,
-    {
+    pub fn Create(handler: &DeferralCompletedHandler) -> ::windows::core::Result<Deferral> {
         Self::IDeferralFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<Deferral>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<Deferral>(result__)
         })
     }
     #[doc(hidden)]
@@ -3203,14 +3179,11 @@ impl Uri {
             (::windows::core::Vtable::vtable(this).Suspicious)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn Equals<'a, P0>(&self, puri: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Uri>>,
-    {
+    pub fn Equals(&self, puri: &Uri) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Equals)(::windows::core::Vtable::as_raw(this), puri.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Equals)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(puri), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn CombineUri(&self, relativeuri: &::windows::core::HSTRING) -> ::windows::core::Result<Uri> {

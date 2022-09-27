@@ -619,14 +619,11 @@ impl IStorageProviderStatusSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>>,
-    {
+    pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -844,19 +841,13 @@ pub struct IStorageProviderSyncRootManagerStatics2_Vtbl {
 #[repr(transparent)]
 pub struct IStorageProviderUriSource(::windows::core::IUnknown);
 impl IStorageProviderUriSource {
-    pub fn GetPathForContentUri<'a, P0>(&self, contenturi: &::windows::core::HSTRING, result: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderGetPathForContentUriResult>>,
-    {
+    pub fn GetPathForContentUri(&self, contenturi: &::windows::core::HSTRING, result: &StorageProviderGetPathForContentUriResult) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).GetPathForContentUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contenturi), result.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).GetPathForContentUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contenturi), ::core::mem::transmute_copy(result)).ok() }
     }
-    pub fn GetContentInfoForPath<'a, P0>(&self, path: &::windows::core::HSTRING, result: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderGetContentInfoForPathResult>>,
-    {
+    pub fn GetContentInfoForPath(&self, path: &::windows::core::HSTRING, result: &StorageProviderGetContentInfoForPathResult) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).GetContentInfoForPath)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path), result.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).GetContentInfoForPath)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(result)).ok() }
     }
 }
 impl ::core::convert::From<IStorageProviderUriSource> for ::windows::core::IUnknown {
@@ -968,14 +959,11 @@ impl CachedFileUpdaterUI {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FileUpdateRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>>,
-    {
+    pub fn FileUpdateRequested(&self, handler: &super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FileUpdateRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).FileUpdateRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -986,14 +974,11 @@ impl CachedFileUpdaterUI {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UIRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>>>,
-    {
+    pub fn UIRequested(&self, handler: &super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UIRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UIRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1392,12 +1377,9 @@ impl StorageProviderError {
             (::windows::core::Vtable::vtable(this).PrimaryAction)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<StorageProviderErrorCommand>(result__)
         }
     }
-    pub fn SetPrimaryAction<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderErrorCommand>>,
-    {
+    pub fn SetPrimaryAction(&self, value: &StorageProviderErrorCommand) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPrimaryAction)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPrimaryAction)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn SecondaryAction(&self) -> ::windows::core::Result<StorageProviderErrorCommand> {
         let this = self;
@@ -1406,12 +1388,9 @@ impl StorageProviderError {
             (::windows::core::Vtable::vtable(this).SecondaryAction)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<StorageProviderErrorCommand>(result__)
         }
     }
-    pub fn SetSecondaryAction<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderErrorCommand>>,
-    {
+    pub fn SetSecondaryAction(&self, value: &StorageProviderErrorCommand) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSecondaryAction)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSecondaryAction)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn InformationalLink(&self) -> ::windows::core::Result<StorageProviderErrorCommand> {
         let this = self;
@@ -1420,12 +1399,9 @@ impl StorageProviderError {
             (::windows::core::Vtable::vtable(this).InformationalLink)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<StorageProviderErrorCommand>(result__)
         }
     }
-    pub fn SetInformationalLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderErrorCommand>>,
-    {
+    pub fn SetInformationalLink(&self, value: &StorageProviderErrorCommand) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetInformationalLink)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetInformationalLink)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn CreateInstance(id: &::windows::core::HSTRING, title: &::windows::core::HSTRING, message: &::windows::core::HSTRING) -> ::windows::core::Result<StorageProviderError> {
         Self::IStorageProviderErrorFactory(|this| unsafe {
@@ -1525,13 +1501,10 @@ impl StorageProviderErrorCommand {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstance<'a, P0>(label: &::windows::core::HSTRING, actionuri: P0) -> ::windows::core::Result<StorageProviderErrorCommand>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateInstance(label: &::windows::core::HSTRING, actionuri: &super::super::Foundation::Uri) -> ::windows::core::Result<StorageProviderErrorCommand> {
         Self::IStorageProviderErrorCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), actionuri.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderErrorCommand>(result__)
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(actionuri), result__.as_mut_ptr()).from_abi::<StorageProviderErrorCommand>(result__)
         })
     }
     #[doc(hidden)]
@@ -2450,12 +2423,9 @@ impl StorageProviderSyncRootInfo {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRecycleBinUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetRecycleBinUri(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetRecycleBinUri)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetRecycleBinUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
@@ -2545,11 +2515,8 @@ unsafe impl ::core::marker::Sync for StorageProviderSyncRootInfo {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 pub struct StorageProviderSyncRootManager;
 impl StorageProviderSyncRootManager {
-    pub fn Register<'a, P0>(syncrootinformation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderSyncRootInfo>>,
-    {
-        Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).Register)(::windows::core::Vtable::as_raw(this), syncrootinformation.into().abi()).ok() })
+    pub fn Register(syncrootinformation: &StorageProviderSyncRootInfo) -> ::windows::core::Result<()> {
+        Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).Register)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(syncrootinformation)).ok() })
     }
     pub fn Unregister(id: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).Unregister)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id)).ok() })

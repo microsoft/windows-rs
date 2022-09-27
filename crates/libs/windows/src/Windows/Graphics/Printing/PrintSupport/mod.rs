@@ -178,14 +178,11 @@ impl PrintSupportExtensionSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintTicketValidationRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>>>,
-    {
+    pub fn PrintTicketValidationRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PrintTicketValidationRequested)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PrintTicketValidationRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -196,14 +193,11 @@ impl PrintSupportExtensionSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintDeviceCapabilitiesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>>,
-    {
+    pub fn PrintDeviceCapabilitiesChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PrintDeviceCapabilitiesChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PrintDeviceCapabilitiesChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -372,12 +366,9 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn UpdatePrintDeviceCapabilities<'a, P0>(&self, updatedpdc: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn UpdatePrintDeviceCapabilities(&self, updatedpdc: &super::super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdatePrintDeviceCapabilities)(::windows::core::Vtable::as_raw(this), updatedpdc.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UpdatePrintDeviceCapabilities)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(updatedpdc)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -825,12 +816,9 @@ impl PrintSupportSettingsUISession {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn UpdatePrintTicket<'a, P0>(&self, printticket: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PrintTicket::WorkflowPrintTicket>>,
-    {
+    pub fn UpdatePrintTicket(&self, printticket: &super::PrintTicket::WorkflowPrintTicket) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdatePrintTicket)(::windows::core::Vtable::as_raw(this), printticket.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UpdatePrintTicket)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printticket)).ok() }
     }
     pub fn SessionInfo(&self) -> ::windows::core::Result<PrintSupportSessionInfo> {
         let this = self;

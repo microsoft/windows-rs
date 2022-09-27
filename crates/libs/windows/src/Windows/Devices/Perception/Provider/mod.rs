@@ -293,12 +293,9 @@ impl IPerceptionFrameProvider {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetProperty<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PerceptionPropertyChangeRequest>>,
-    {
+    pub fn SetProperty(&self, value: &PerceptionPropertyChangeRequest) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetProperty)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetProperty)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -497,14 +494,11 @@ pub struct IPerceptionFrameProviderManager(::windows::core::IUnknown);
 impl IPerceptionFrameProviderManager {
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn GetFrameProvider<'a, P0>(&self, frameproviderinfo: P0) -> ::windows::core::Result<IPerceptionFrameProvider>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFrameProviderInfo>>,
-    {
+    pub fn GetFrameProvider(&self, frameproviderinfo: &PerceptionFrameProviderInfo) -> ::windows::core::Result<IPerceptionFrameProvider> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetFrameProvider)(::windows::core::Vtable::as_raw(this), frameproviderinfo.into().abi(), result__.as_mut_ptr()).from_abi::<IPerceptionFrameProvider>(result__)
+            (::windows::core::Vtable::vtable(this).GetFrameProvider)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(frameproviderinfo), result__.as_mut_ptr()).from_abi::<IPerceptionFrameProvider>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1175,16 +1169,14 @@ impl PerceptionFaceAuthenticationGroup {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn Create<'a, P0, E0, P1, P2>(ids: P0, starthandler: P1, stophandler: P2) -> ::windows::core::Result<PerceptionFaceAuthenticationGroup>
+    pub fn Create<'a, P0, E0>(ids: P0, starthandler: &PerceptionStartFaceAuthenticationHandler, stophandler: &PerceptionStopFaceAuthenticationHandler) -> ::windows::core::Result<PerceptionFaceAuthenticationGroup>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionStartFaceAuthenticationHandler>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, PerceptionStopFaceAuthenticationHandler>>,
     {
         Self::IPerceptionFaceAuthenticationGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ids.try_into().map_err(|e| e.into())?.abi(), starthandler.into().abi(), stophandler.into().abi(), result__.as_mut_ptr()).from_abi::<PerceptionFaceAuthenticationGroup>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ids.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(starthandler), ::core::mem::transmute_copy(stophandler), result__.as_mut_ptr()).from_abi::<PerceptionFaceAuthenticationGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -1570,83 +1562,75 @@ pub struct PerceptionFrameProviderManagerService;
 impl PerceptionFrameProviderManagerService {
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn RegisterFrameProviderInfo<'a, P0, E0, P1>(manager: P0, frameproviderinfo: P1) -> ::windows::core::Result<()>
+    pub fn RegisterFrameProviderInfo<'a, P0, E0>(manager: P0, frameproviderinfo: &PerceptionFrameProviderInfo) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProviderManager>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFrameProviderInfo>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterFrameProviderInfo)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), frameproviderinfo.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterFrameProviderInfo)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(frameproviderinfo)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn UnregisterFrameProviderInfo<'a, P0, E0, P1>(manager: P0, frameproviderinfo: P1) -> ::windows::core::Result<()>
+    pub fn UnregisterFrameProviderInfo<'a, P0, E0>(manager: P0, frameproviderinfo: &PerceptionFrameProviderInfo) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProviderManager>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFrameProviderInfo>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterFrameProviderInfo)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), frameproviderinfo.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterFrameProviderInfo)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(frameproviderinfo)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn RegisterFaceAuthenticationGroup<'a, P0, E0, P1>(manager: P0, faceauthenticationgroup: P1) -> ::windows::core::Result<()>
+    pub fn RegisterFaceAuthenticationGroup<'a, P0, E0>(manager: P0, faceauthenticationgroup: &PerceptionFaceAuthenticationGroup) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProviderManager>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFaceAuthenticationGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterFaceAuthenticationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), faceauthenticationgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterFaceAuthenticationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(faceauthenticationgroup)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn UnregisterFaceAuthenticationGroup<'a, P0, E0, P1>(manager: P0, faceauthenticationgroup: P1) -> ::windows::core::Result<()>
+    pub fn UnregisterFaceAuthenticationGroup<'a, P0, E0>(manager: P0, faceauthenticationgroup: &PerceptionFaceAuthenticationGroup) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProviderManager>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFaceAuthenticationGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterFaceAuthenticationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), faceauthenticationgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterFaceAuthenticationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(faceauthenticationgroup)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn RegisterControlGroup<'a, P0, E0, P1>(manager: P0, controlgroup: P1) -> ::windows::core::Result<()>
+    pub fn RegisterControlGroup<'a, P0, E0>(manager: P0, controlgroup: &PerceptionControlGroup) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProviderManager>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionControlGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterControlGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), controlgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterControlGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(controlgroup)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn UnregisterControlGroup<'a, P0, E0, P1>(manager: P0, controlgroup: P1) -> ::windows::core::Result<()>
+    pub fn UnregisterControlGroup<'a, P0, E0>(manager: P0, controlgroup: &PerceptionControlGroup) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProviderManager>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionControlGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterControlGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), controlgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterControlGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(controlgroup)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn RegisterCorrelationGroup<'a, P0, E0, P1>(manager: P0, correlationgroup: P1) -> ::windows::core::Result<()>
+    pub fn RegisterCorrelationGroup<'a, P0, E0>(manager: P0, correlationgroup: &PerceptionCorrelationGroup) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProviderManager>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionCorrelationGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterCorrelationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), correlationgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RegisterCorrelationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationgroup)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn UnregisterCorrelationGroup<'a, P0, E0, P1>(manager: P0, correlationgroup: P1) -> ::windows::core::Result<()>
+    pub fn UnregisterCorrelationGroup<'a, P0, E0>(manager: P0, correlationgroup: &PerceptionCorrelationGroup) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProviderManager>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionCorrelationGroup>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterCorrelationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), correlationgroup.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).UnregisterCorrelationGroup)(::windows::core::Vtable::as_raw(this), manager.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationgroup)).ok() })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1659,13 +1643,12 @@ impl PerceptionFrameProviderManagerService {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn PublishFrameForProvider<'a, P0, E0, P1>(provider: P0, frame: P1) -> ::windows::core::Result<()>
+    pub fn PublishFrameForProvider<'a, P0, E0>(provider: P0, frame: &PerceptionFrame) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IPerceptionFrameProvider>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFrame>>,
     {
-        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).PublishFrameForProvider)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), frame.into().abi()).ok() })
+        Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).PublishFrameForProvider)(::windows::core::Vtable::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(frame)).ok() })
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
@@ -1830,14 +1813,11 @@ impl PerceptionVideoFrameAllocator {
     }
     #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media", feature = "deprecated"))]
-    pub fn CopyFromVideoFrame<'a, P0>(&self, frame: P0) -> ::windows::core::Result<PerceptionFrame>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::VideoFrame>>,
-    {
+    pub fn CopyFromVideoFrame(&self, frame: &super::super::super::Media::VideoFrame) -> ::windows::core::Result<PerceptionFrame> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CopyFromVideoFrame)(::windows::core::Vtable::as_raw(this), frame.into().abi(), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
+            (::windows::core::Vtable::vtable(this).CopyFromVideoFrame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(frame), result__.as_mut_ptr()).from_abi::<PerceptionFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"deprecated\"`*"]
@@ -1969,14 +1949,11 @@ impl PerceptionStartFaceAuthenticationHandler {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFaceAuthenticationGroup>>,
-    {
+    pub fn Invoke(&self, sender: &PerceptionFaceAuthenticationGroup) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sender), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -2085,12 +2062,9 @@ impl PerceptionStopFaceAuthenticationHandler {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PerceptionFaceAuthenticationGroup>>,
-    {
+    pub fn Invoke(&self, sender: &PerceptionFaceAuthenticationGroup) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), sender.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sender)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]

@@ -56,13 +56,10 @@ impl PlatformTelemetryClient {
             (::windows::core::Vtable::vtable(this).Register)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<PlatformTelemetryRegistrationResult>(result__)
         })
     }
-    pub fn RegisterWithSettings<'a, P0>(id: &::windows::core::HSTRING, settings: P0) -> ::windows::core::Result<PlatformTelemetryRegistrationResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, PlatformTelemetryRegistrationSettings>>,
-    {
+    pub fn RegisterWithSettings(id: &::windows::core::HSTRING, settings: &PlatformTelemetryRegistrationSettings) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RegisterWithSettings)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), settings.into().abi(), result__.as_mut_ptr()).from_abi::<PlatformTelemetryRegistrationResult>(result__)
+            (::windows::core::Vtable::vtable(this).RegisterWithSettings)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi::<PlatformTelemetryRegistrationResult>(result__)
         })
     }
     #[doc(hidden)]

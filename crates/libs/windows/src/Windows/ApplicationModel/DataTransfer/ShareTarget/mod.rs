@@ -121,12 +121,9 @@ impl QuickLink {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetThumbnail<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::Streams::RandomAccessStreamReference>>,
-    {
+    pub fn SetThumbnail(&self, value: &super::super::super::Storage::Streams::RandomAccessStreamReference) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetThumbnail)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetThumbnail)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -254,12 +251,9 @@ impl ShareOperation {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).ReportSubmittedBackgroundTask)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn ReportCompletedWithQuickLink<'a, P0>(&self, quicklink: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, QuickLink>>,
-    {
+    pub fn ReportCompletedWithQuickLink(&self, quicklink: &QuickLink) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCompletedWithQuickLink)(::windows::core::Vtable::as_raw(this), quicklink.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ReportCompletedWithQuickLink)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(quicklink)).ok() }
     }
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;

@@ -4461,14 +4461,11 @@ impl PrintTaskOptionDetails {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OptionChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>>,
-    {
+    pub fn OptionChanged(&self, eventhandler: &super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OptionChanged)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OptionChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4479,14 +4476,11 @@ impl PrintTaskOptionDetails {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BeginValidation<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows::core::IInspectable>>>,
-    {
+    pub fn BeginValidation(&self, eventhandler: &super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BeginValidation)(::windows::core::Vtable::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).BeginValidation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4502,13 +4496,10 @@ impl PrintTaskOptionDetails {
             (::windows::core::Vtable::vtable(this).CreateToggleOption)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(optionid), ::core::mem::transmute_copy(displayname), result__.as_mut_ptr()).from_abi::<PrintCustomToggleOptionDetails>(result__)
         }
     }
-    pub fn GetFromPrintTaskOptions<'a, P0>(printtaskoptions: P0) -> ::windows::core::Result<PrintTaskOptionDetails>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PrintTaskOptions>>,
-    {
+    pub fn GetFromPrintTaskOptions(printtaskoptions: &super::PrintTaskOptions) -> ::windows::core::Result<PrintTaskOptionDetails> {
         Self::IPrintTaskOptionDetailsStatic(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetFromPrintTaskOptions)(::windows::core::Vtable::as_raw(this), printtaskoptions.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTaskOptionDetails>(result__)
+            (::windows::core::Vtable::vtable(this).GetFromPrintTaskOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printtaskoptions), result__.as_mut_ptr()).from_abi::<PrintTaskOptionDetails>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

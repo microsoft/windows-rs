@@ -978,25 +978,18 @@ unsafe impl ::core::marker::Sync for DisplayAdapter {}
 #[repr(transparent)]
 pub struct DisplayDevice(::windows::core::IUnknown);
 impl DisplayDevice {
-    pub fn CreateScanoutSource<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplaySource>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn CreateScanoutSource(&self, target: &DisplayTarget) -> ::windows::core::Result<DisplaySource> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateScanoutSource)(::windows::core::Vtable::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplaySource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateScanoutSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplaySource>(result__)
         }
     }
-    pub fn CreatePrimary<'a, P0, P1>(&self, target: P0, desc: P1) -> ::windows::core::Result<DisplaySurface>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplayPrimaryDescription>>,
-    {
+    pub fn CreatePrimary(&self, target: &DisplayTarget, desc: &DisplayPrimaryDescription) -> ::windows::core::Result<DisplaySurface> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreatePrimary)(::windows::core::Vtable::as_raw(this), target.into().abi(), desc.into().abi(), result__.as_mut_ptr()).from_abi::<DisplaySurface>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePrimary)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), ::core::mem::transmute_copy(desc), result__.as_mut_ptr()).from_abi::<DisplaySurface>(result__)
         }
     }
     pub fn CreateTaskPool(&self) -> ::windows::core::Result<DisplayTaskPool> {
@@ -1008,32 +1001,22 @@ impl DisplayDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreatePeriodicFence<'a, P0>(&self, target: P0, offsetfromvblank: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<DisplayFence>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn CreatePeriodicFence(&self, target: &DisplayTarget, offsetfromvblank: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<DisplayFence> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreatePeriodicFence)(::windows::core::Vtable::as_raw(this), target.into().abi(), offsetfromvblank, result__.as_mut_ptr()).from_abi::<DisplayFence>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePeriodicFence)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), offsetfromvblank, result__.as_mut_ptr()).from_abi::<DisplayFence>(result__)
         }
     }
-    pub fn WaitForVBlank<'a, P0>(&self, source: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>,
-    {
+    pub fn WaitForVBlank(&self, source: &DisplaySource) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).WaitForVBlank)(::windows::core::Vtable::as_raw(this), source.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).WaitForVBlank)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(source)).ok() }
     }
-    pub fn CreateSimpleScanout<'a, P0, P1>(&self, psource: P0, psurface: P1, subresourceindex: u32, syncinterval: u32) -> ::windows::core::Result<DisplayScanout>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplaySurface>>,
-    {
+    pub fn CreateSimpleScanout(&self, psource: &DisplaySource, psurface: &DisplaySurface, subresourceindex: u32, syncinterval: u32) -> ::windows::core::Result<DisplayScanout> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSimpleScanout)(::windows::core::Vtable::as_raw(this), psource.into().abi(), psurface.into().abi(), subresourceindex, syncinterval, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSimpleScanout)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(psource), ::core::mem::transmute_copy(psurface), subresourceindex, syncinterval, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
         }
     }
     pub fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> ::windows::core::Result<bool> {
@@ -1045,17 +1028,15 @@ impl DisplayDevice {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
-    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, P0, P1, P2, E2>(&self, source: P0, surface: P1, subresourceindex: u32, syncinterval: u32, dirtyrects: P2, options: DisplayScanoutOptions) -> ::windows::core::Result<DisplayScanout>
+    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, P0, E0>(&self, source: &DisplaySource, surface: &DisplaySurface, subresourceindex: u32, syncinterval: u32, dirtyrects: P0, options: DisplayScanoutOptions) -> ::windows::core::Result<DisplayScanout>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplaySurface>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IDisplayDevice2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(::windows::core::Vtable::as_raw(this), source.into().abi(), surface.into().abi(), subresourceindex, syncinterval, dirtyrects.try_into().map_err(|e| e.into())?.abi(), options, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(source), ::core::mem::transmute_copy(surface), subresourceindex, syncinterval, dirtyrects.try_into().map_err(|e| e.into())?.abi(), options, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
         }
     }
 }
@@ -1219,22 +1200,16 @@ impl DisplayManager {
             (::windows::core::Vtable::vtable(this).GetCurrentAdapters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>>(result__)
         }
     }
-    pub fn TryAcquireTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplayManagerResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn TryAcquireTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<DisplayManagerResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryAcquireTarget)(::windows::core::Vtable::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResult>(result__)
+            (::windows::core::Vtable::vtable(this).TryAcquireTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplayManagerResult>(result__)
         }
     }
-    pub fn ReleaseTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn ReleaseTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReleaseTarget)(::windows::core::Vtable::as_raw(this), target.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ReleaseTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target)).ok() }
     }
     pub fn TryReadCurrentStateForAllTargets(&self) -> ::windows::core::Result<DisplayManagerResultWithState> {
         let this = self;
@@ -1271,38 +1246,31 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryAcquireTargetsAndCreateSubstate<'a, P0, P1, E1>(&self, existingstate: P0, targets: P1) -> ::windows::core::Result<DisplayManagerResultWithState>
+    pub fn TryAcquireTargetsAndCreateSubstate<'a, P0, E0>(&self, existingstate: &DisplayState, targets: P0) -> ::windows::core::Result<DisplayManagerResultWithState>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayState>>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryAcquireTargetsAndCreateSubstate)(::windows::core::Vtable::as_raw(this), existingstate.into().abi(), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
+            (::windows::core::Vtable::vtable(this).TryAcquireTargetsAndCreateSubstate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(existingstate), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
-    pub fn CreateDisplayDevice<'a, P0>(&self, adapter: P0) -> ::windows::core::Result<DisplayDevice>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayAdapter>>,
-    {
+    pub fn CreateDisplayDevice(&self, adapter: &DisplayAdapter) -> ::windows::core::Result<DisplayDevice> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateDisplayDevice)(::windows::core::Vtable::as_raw(this), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayDevice>(result__)
+            (::windows::core::Vtable::vtable(this).CreateDisplayDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(adapter), result__.as_mut_ptr()).from_abi::<DisplayDevice>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Enabled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>>,
-    {
+    pub fn Enabled(&self, handler: &super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Enabled)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Enabled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1313,14 +1281,11 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Disabled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>>,
-    {
+    pub fn Disabled(&self, handler: &super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Disabled)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Disabled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1331,14 +1296,11 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>>,
-    {
+    pub fn Changed(&self, handler: &super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1349,14 +1311,11 @@ impl DisplayManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PathsFailedOrInvalidated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>>,
-    {
+    pub fn PathsFailedOrInvalidated(&self, handler: &super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PathsFailedOrInvalidated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PathsFailedOrInvalidated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1978,14 +1937,11 @@ impl DisplayModeInfo {
             (::windows::core::Vtable::vtable(this).GetWireFormatSupportedBitsPerChannel)(::windows::core::Vtable::as_raw(this), encoding, result__.as_mut_ptr()).from_abi::<DisplayBitsPerChannel>(result__)
         }
     }
-    pub fn IsWireFormatSupported<'a, P0>(&self, wireformat: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayWireFormat>>,
-    {
+    pub fn IsWireFormatSupported(&self, wireformat: &DisplayWireFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsWireFormatSupported)(::windows::core::Vtable::as_raw(this), wireformat.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsWireFormatSupported)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(wireformat), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2205,12 +2161,9 @@ impl DisplayPath {
             (::windows::core::Vtable::vtable(this).WireFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
         }
     }
-    pub fn SetWireFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayWireFormat>>,
-    {
+    pub fn SetWireFormat(&self, value: &DisplayWireFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetWireFormat)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetWireFormat)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Rotation(&self) -> ::windows::core::Result<DisplayRotation> {
         let this = self;
@@ -2243,12 +2196,9 @@ impl DisplayPath {
             (::windows::core::Vtable::vtable(this).FindModes)(::windows::core::Vtable::as_raw(this), flags, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>(result__)
         }
     }
-    pub fn ApplyPropertiesFromMode<'a, P0>(&self, moderesult: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayModeInfo>>,
-    {
+    pub fn ApplyPropertiesFromMode(&self, moderesult: &DisplayModeInfo) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ApplyPropertiesFromMode)(::windows::core::Vtable::as_raw(this), moderesult.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ApplyPropertiesFromMode)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(moderesult)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2605,14 +2555,11 @@ impl DisplaySource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::core::IInspectable>>>,
-    {
+    pub fn StatusChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2731,64 +2678,44 @@ impl DisplayState {
             (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
-    pub fn ConnectTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplayPath>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn ConnectTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectTarget)(::windows::core::Vtable::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
         }
     }
-    pub fn ConnectTargetToView<'a, P0, P1>(&self, target: P0, view: P1) -> ::windows::core::Result<DisplayPath>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplayView>>,
-    {
+    pub fn ConnectTargetToView(&self, target: &DisplayTarget, view: &DisplayView) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectTargetToView)(::windows::core::Vtable::as_raw(this), target.into().abi(), view.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectTargetToView)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), ::core::mem::transmute_copy(view), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
         }
     }
-    pub fn CanConnectTargetToView<'a, P0, P1>(&self, target: P0, view: P1) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplayView>>,
-    {
+    pub fn CanConnectTargetToView(&self, target: &DisplayTarget, view: &DisplayView) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CanConnectTargetToView)(::windows::core::Vtable::as_raw(this), target.into().abi(), view.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).CanConnectTargetToView)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), ::core::mem::transmute_copy(view), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn GetViewForTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplayView>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn GetViewForTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<DisplayView> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetViewForTarget)(::windows::core::Vtable::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayView>(result__)
+            (::windows::core::Vtable::vtable(this).GetViewForTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplayView>(result__)
         }
     }
-    pub fn GetPathForTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<DisplayPath>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn GetPathForTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPathForTarget)(::windows::core::Vtable::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
+            (::windows::core::Vtable::vtable(this).GetPathForTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
         }
     }
-    pub fn DisconnectTarget<'a, P0>(&self, target: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn DisconnectTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).DisconnectTarget)(::windows::core::Vtable::as_raw(this), target.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).DisconnectTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target)).ok() }
     }
     pub fn TryFunctionalize(&self, options: DisplayStateFunctionalizeOptions) -> ::windows::core::Result<DisplayStateOperationResult> {
         let this = self;
@@ -3117,24 +3044,18 @@ impl DisplayTarget {
             (::windows::core::Vtable::vtable(this).IsStale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn IsSame<'a, P0>(&self, othertarget: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn IsSame(&self, othertarget: &DisplayTarget) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsSame)(::windows::core::Vtable::as_raw(this), othertarget.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsSame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(othertarget), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn IsEqual<'a, P0>(&self, othertarget: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTarget>>,
-    {
+    pub fn IsEqual(&self, othertarget: &DisplayTarget) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsEqual)(::windows::core::Vtable::as_raw(this), othertarget.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsEqual)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(othertarget), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3206,26 +3127,17 @@ unsafe impl ::core::marker::Sync for DisplayTarget {}
 #[repr(transparent)]
 pub struct DisplayTask(::windows::core::IUnknown);
 impl DisplayTask {
-    pub fn SetScanout<'a, P0>(&self, scanout: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayScanout>>,
-    {
+    pub fn SetScanout(&self, scanout: &DisplayScanout) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetScanout)(::windows::core::Vtable::as_raw(this), scanout.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetScanout)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(scanout)).ok() }
     }
-    pub fn SetWait<'a, P0>(&self, readyfence: P0, readyfencevalue: u64) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>,
-    {
+    pub fn SetWait(&self, readyfence: &DisplayFence, readyfencevalue: u64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetWait)(::windows::core::Vtable::as_raw(this), readyfence.into().abi(), readyfencevalue).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetWait)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(readyfence), readyfencevalue).ok() }
     }
-    pub fn SetSignal<'a, P0>(&self, signalkind: DisplayTaskSignalKind, fence: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>,
-    {
+    pub fn SetSignal(&self, signalkind: DisplayTaskSignalKind, fence: &DisplayFence) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDisplayTask2>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSignal)(::windows::core::Vtable::as_raw(this), signalkind, fence.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSignal)(::windows::core::Vtable::as_raw(this), signalkind, ::core::mem::transmute_copy(fence)).ok() }
     }
 }
 impl ::core::clone::Clone for DisplayTask {
@@ -3305,21 +3217,15 @@ impl DisplayTaskPool {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn ExecuteTask<'a, P0>(&self, task: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTask>>,
-    {
+    pub fn ExecuteTask(&self, task: &DisplayTask) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ExecuteTask)(::windows::core::Vtable::as_raw(this), task.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ExecuteTask)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(task)).ok() }
     }
-    pub fn TryExecuteTask<'a, P0>(&self, task: P0) -> ::windows::core::Result<DisplayTaskResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayTask>>,
-    {
+    pub fn TryExecuteTask(&self, task: &DisplayTask) -> ::windows::core::Result<DisplayTaskResult> {
         let this = &::windows::core::Interface::cast::<IDisplayTaskPool2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryExecuteTask)(::windows::core::Vtable::as_raw(this), task.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayTaskResult>(result__)
+            (::windows::core::Vtable::vtable(this).TryExecuteTask)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(task), result__.as_mut_ptr()).from_abi::<DisplayTaskResult>(result__)
         }
     }
 }
@@ -3509,12 +3415,9 @@ impl DisplayView {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetContentResolution)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn SetPrimaryPath<'a, P0>(&self, path: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayPath>>,
-    {
+    pub fn SetPrimaryPath(&self, path: &DisplayPath) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetPrimaryPath)(::windows::core::Vtable::as_raw(this), path.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetPrimaryPath)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(path)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

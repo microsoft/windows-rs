@@ -1131,15 +1131,14 @@ impl FileProtectionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn UnprotectWithOptionsAsync<'a, P0, E0, P1>(target: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>
+    pub fn UnprotectWithOptionsAsync<'a, P0, E0>(target: P0, options: &FileUnprotectOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, FileUnprotectOptions>>,
     {
         Self::IFileProtectionManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UnprotectWithOptionsAsync)(::windows::core::Vtable::as_raw(this), target.try_into().map_err(|e| e.into())?.abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>(result__)
+            (::windows::core::Vtable::vtable(this).UnprotectWithOptionsAsync)(::windows::core::Vtable::as_raw(this), target.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2006,13 +2005,10 @@ impl ProtectionPolicyManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking"))]
-    pub fn GetPrimaryManagedIdentityForNetworkEndpointAsync<'a, P0>(endpointhost: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Networking::HostName>>,
-    {
+    pub fn GetPrimaryManagedIdentityForNetworkEndpointAsync(endpointhost: &super::super::Networking::HostName) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPrimaryManagedIdentityForNetworkEndpointAsync)(::windows::core::Vtable::as_raw(this), endpointhost.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Vtable::vtable(this).GetPrimaryManagedIdentityForNetworkEndpointAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(endpointhost), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     pub fn RevokeContent(identity: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2026,13 +2022,10 @@ impl ProtectionPolicyManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProtectedAccessSuspending<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ProtectedAccessSuspendingEventArgs>>>,
-    {
+    pub fn ProtectedAccessSuspending(handler: &super::super::Foundation::EventHandler<ProtectedAccessSuspendingEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProtectedAccessSuspending)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ProtectedAccessSuspending)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2042,13 +2035,10 @@ impl ProtectionPolicyManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProtectedAccessResumed<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ProtectedAccessResumedEventArgs>>>,
-    {
+    pub fn ProtectedAccessResumed(handler: &super::super::Foundation::EventHandler<ProtectedAccessResumedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProtectedAccessResumed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ProtectedAccessResumed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2058,13 +2048,10 @@ impl ProtectionPolicyManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProtectedContentRevoked<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ProtectedContentRevokedEventArgs>>>,
-    {
+    pub fn ProtectedContentRevoked(handler: &super::super::Foundation::EventHandler<ProtectedContentRevokedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProtectedContentRevoked)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ProtectedContentRevoked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2128,13 +2115,10 @@ impl ProtectionPolicyManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PolicyChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
-    {
+    pub fn PolicyChanged(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PolicyChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PolicyChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2150,53 +2134,38 @@ impl ProtectionPolicyManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessWithAuditingInfoAsync<'a, P0>(sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
-    {
+    pub fn RequestAccessWithAuditingInfoAsync(sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &ProtectionPolicyAuditInfo) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessWithAuditingInfoAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessWithAuditingInfoAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), ::core::mem::transmute_copy(auditinfo), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessWithMessageAsync<'a, P0>(sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: P0, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
-    {
+    pub fn RequestAccessWithMessageAsync(sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &ProtectionPolicyAuditInfo, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessWithMessageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfo.into().abi(), ::core::mem::transmute_copy(messagefromapp), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessWithMessageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), ::core::mem::transmute_copy(auditinfo), ::core::mem::transmute_copy(messagefromapp), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessForAppWithAuditingInfoAsync<'a, P0>(sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
-    {
+    pub fn RequestAccessForAppWithAuditingInfoAsync(sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &ProtectionPolicyAuditInfo) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessForAppWithAuditingInfoAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessForAppWithAuditingInfoAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), ::core::mem::transmute_copy(auditinfo), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessForAppWithMessageAsync<'a, P0>(sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: P0, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
-    {
+    pub fn RequestAccessForAppWithMessageAsync(sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &ProtectionPolicyAuditInfo, messagefromapp: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessForAppWithMessageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfo.into().abi(), ::core::mem::transmute_copy(messagefromapp), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessForAppWithMessageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), ::core::mem::transmute_copy(auditinfo), ::core::mem::transmute_copy(messagefromapp), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
-    pub fn LogAuditEvent<'a, P0>(sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
-    {
-        Self::IProtectionPolicyManagerStatics3(|this| unsafe { (::windows::core::Vtable::vtable(this).LogAuditEvent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfo.into().abi()).ok() })
+    pub fn LogAuditEvent(sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &ProtectionPolicyAuditInfo) -> ::windows::core::Result<()> {
+        Self::IProtectionPolicyManagerStatics3(|this| unsafe { (::windows::core::Vtable::vtable(this).LogAuditEvent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), ::core::mem::transmute_copy(auditinfo)).ok() })
     }
     pub fn IsRoamableProtectionEnabled(identity: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
@@ -2206,76 +2175,66 @@ impl ProtectionPolicyManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessWithBehaviorAsync<'a, P0>(sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: P0, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
-    {
+    pub fn RequestAccessWithBehaviorAsync(sourceidentity: &::windows::core::HSTRING, targetidentity: &::windows::core::HSTRING, auditinfo: &ProtectionPolicyAuditInfo, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessWithBehaviorAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), auditinfo.into().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessWithBehaviorAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(targetidentity), ::core::mem::transmute_copy(auditinfo), ::core::mem::transmute_copy(messagefromapp), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessForAppWithBehaviorAsync<'a, P0>(sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: P0, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
-    {
+    pub fn RequestAccessForAppWithBehaviorAsync(sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &ProtectionPolicyAuditInfo, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessForAppWithBehaviorAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfo.into().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessForAppWithBehaviorAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), ::core::mem::transmute_copy(auditinfo), ::core::mem::transmute_copy(messagefromapp), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn RequestAccessToFilesForAppAsync<'a, P0, E0, P1>(sourceitemlist: P0, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessToFilesForAppAsync<'a, P0, E0>(sourceitemlist: P0, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &ProtectionPolicyAuditInfo) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
     {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessToFilesForAppAsync)(::windows::core::Vtable::as_raw(this), sourceitemlist.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(apppackagefamilyname), auditinfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessToFilesForAppAsync)(::windows::core::Vtable::as_raw(this), sourceitemlist.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(apppackagefamilyname), ::core::mem::transmute_copy(auditinfo), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync<'a, P0, E0, P1>(sourceitemlist: P0, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: P1, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync<'a, P0, E0>(sourceitemlist: P0, apppackagefamilyname: &::windows::core::HSTRING, auditinfo: &ProtectionPolicyAuditInfo, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
     {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessToFilesForAppWithMessageAndBehaviorAsync)(::windows::core::Vtable::as_raw(this), sourceitemlist.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(apppackagefamilyname), auditinfo.into().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessToFilesForAppWithMessageAndBehaviorAsync)(::windows::core::Vtable::as_raw(this), sourceitemlist.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(apppackagefamilyname), ::core::mem::transmute_copy(auditinfo), ::core::mem::transmute_copy(messagefromapp), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn RequestAccessToFilesForProcessAsync<'a, P0, E0, P1>(sourceitemlist: P0, processid: u32, auditinfo: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessToFilesForProcessAsync<'a, P0, E0>(sourceitemlist: P0, processid: u32, auditinfo: &ProtectionPolicyAuditInfo) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
     {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessToFilesForProcessAsync)(::windows::core::Vtable::as_raw(this), sourceitemlist.try_into().map_err(|e| e.into())?.abi(), processid, auditinfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessToFilesForProcessAsync)(::windows::core::Vtable::as_raw(this), sourceitemlist.try_into().map_err(|e| e.into())?.abi(), processid, ::core::mem::transmute_copy(auditinfo), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync<'a, P0, E0, P1>(sourceitemlist: P0, processid: u32, auditinfo: P1, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
+    pub fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync<'a, P0, E0>(sourceitemlist: P0, processid: u32, auditinfo: &ProtectionPolicyAuditInfo, messagefromapp: &::windows::core::HSTRING, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ProtectionPolicyAuditInfo>>,
     {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessToFilesForProcessWithMessageAndBehaviorAsync)(::windows::core::Vtable::as_raw(this), sourceitemlist.try_into().map_err(|e| e.into())?.abi(), processid, auditinfo.into().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessToFilesForProcessWithMessageAndBehaviorAsync)(::windows::core::Vtable::as_raw(this), sourceitemlist.try_into().map_err(|e| e.into())?.abi(), processid, ::core::mem::transmute_copy(auditinfo), ::core::mem::transmute_copy(messagefromapp), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]

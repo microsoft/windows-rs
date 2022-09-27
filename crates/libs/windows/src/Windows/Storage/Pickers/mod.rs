@@ -693,13 +693,10 @@ impl FileOpenPicker {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser<'a, P0>(user: P0) -> ::windows::core::Result<FileOpenPicker>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn CreateForUser(user: &super::super::System::User) -> ::windows::core::Result<FileOpenPicker> {
         Self::IFileOpenPickerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<FileOpenPicker>(result__)
+            (::windows::core::Vtable::vtable(this).CreateForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<FileOpenPicker>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1038,14 +1035,11 @@ impl FilePickerSelectedFilesArray {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::StorageFile>>,
-    {
+    pub fn IndexOf(&self, value: &super::StorageFile, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1269,12 +1263,9 @@ impl FileSavePicker {
             (::windows::core::Vtable::vtable(this).SuggestedSaveFile)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::StorageFile>(result__)
         }
     }
-    pub fn SetSuggestedSaveFile<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::StorageFile>>,
-    {
+    pub fn SetSuggestedSaveFile(&self, value: &super::StorageFile) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSuggestedSaveFile)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetSuggestedSaveFile)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn SuggestedFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1333,13 +1324,10 @@ impl FileSavePicker {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser<'a, P0>(user: P0) -> ::windows::core::Result<FileSavePicker>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn CreateForUser(user: &super::super::System::User) -> ::windows::core::Result<FileSavePicker> {
         Self::IFileSavePickerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<FileSavePicker>(result__)
+            (::windows::core::Vtable::vtable(this).CreateForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<FileSavePicker>(result__)
         })
     }
     #[doc(hidden)]
@@ -1511,13 +1499,10 @@ impl FolderPicker {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser<'a, P0>(user: P0) -> ::windows::core::Result<FolderPicker>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn CreateForUser(user: &super::super::System::User) -> ::windows::core::Result<FolderPicker> {
         Self::IFolderPickerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<FolderPicker>(result__)
+            (::windows::core::Vtable::vtable(this).CreateForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<FolderPicker>(result__)
         })
     }
     #[doc(hidden)]

@@ -1778,13 +1778,10 @@ impl ImageFeatureValue {
     }
     #[doc = "*Required features: `\"Media\"`*"]
     #[cfg(feature = "Media")]
-    pub fn CreateFromVideoFrame<'a, P0>(image: P0) -> ::windows::core::Result<ImageFeatureValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Media::VideoFrame>>,
-    {
+    pub fn CreateFromVideoFrame(image: &super::super::Media::VideoFrame) -> ::windows::core::Result<ImageFeatureValue> {
         Self::IImageFeatureValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromVideoFrame)(::windows::core::Vtable::as_raw(this), image.into().abi(), result__.as_mut_ptr()).from_abi::<ImageFeatureValue>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromVideoFrame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(image), result__.as_mut_ptr()).from_abi::<ImageFeatureValue>(result__)
         })
     }
     pub fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind> {
@@ -2176,13 +2173,10 @@ impl LearningModelBinding {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).Clear)(::windows::core::Vtable::as_raw(this)).ok() }
     }
-    pub fn CreateFromSession<'a, P0>(session: P0) -> ::windows::core::Result<LearningModelBinding>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelSession>>,
-    {
+    pub fn CreateFromSession(session: &LearningModelSession) -> ::windows::core::Result<LearningModelBinding> {
         Self::ILearningModelBindingFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromSession)(::windows::core::Vtable::as_raw(this), session.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelBinding>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromSession)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(session), result__.as_mut_ptr()).from_abi::<LearningModelBinding>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2597,14 +2591,11 @@ impl LearningModelSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EvaluateAsync<'a, P0>(&self, bindings: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>,
-    {
+    pub fn EvaluateAsync(&self, bindings: &LearningModelBinding, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EvaluateAsync)(::windows::core::Vtable::as_raw(this), bindings.into().abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).EvaluateAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(bindings), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2620,14 +2611,11 @@ impl LearningModelSession {
             (::windows::core::Vtable::vtable(this).EvaluateFeaturesAsync)(::windows::core::Vtable::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>(result__)
         }
     }
-    pub fn Evaluate<'a, P0>(&self, bindings: P0, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<LearningModelEvaluationResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>,
-    {
+    pub fn Evaluate(&self, bindings: &LearningModelBinding, correlationid: &::windows::core::HSTRING) -> ::windows::core::Result<LearningModelEvaluationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Evaluate)(::windows::core::Vtable::as_raw(this), bindings.into().abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
+            (::windows::core::Vtable::vtable(this).Evaluate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(bindings), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2643,34 +2631,22 @@ impl LearningModelSession {
             (::windows::core::Vtable::vtable(this).EvaluateFeatures)(::windows::core::Vtable::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(correlationid), result__.as_mut_ptr()).from_abi::<LearningModelEvaluationResult>(result__)
         }
     }
-    pub fn CreateFromModel<'a, P0>(model: P0) -> ::windows::core::Result<LearningModelSession>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>,
-    {
+    pub fn CreateFromModel(model: &LearningModel) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromModel)(::windows::core::Vtable::as_raw(this), model.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromModel)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
         })
     }
-    pub fn CreateFromModelOnDevice<'a, P0, P1>(model: P0, devicetorunon: P1) -> ::windows::core::Result<LearningModelSession>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, LearningModelDevice>>,
-    {
+    pub fn CreateFromModelOnDevice(model: &LearningModel, devicetorunon: &LearningModelDevice) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromModelOnDevice)(::windows::core::Vtable::as_raw(this), model.into().abi(), devicetorunon.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromModelOnDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), ::core::mem::transmute_copy(devicetorunon), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
         })
     }
-    pub fn CreateFromModelOnDeviceWithSessionOptions<'a, P0, P1, P2>(model: P0, devicetorunon: P1, learningmodelsessionoptions: P2) -> ::windows::core::Result<LearningModelSession>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, LearningModelDevice>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, LearningModelSessionOptions>>,
-    {
+    pub fn CreateFromModelOnDeviceWithSessionOptions(model: &LearningModel, devicetorunon: &LearningModelDevice, learningmodelsessionoptions: &LearningModelSessionOptions) -> ::windows::core::Result<LearningModelSession> {
         Self::ILearningModelSessionFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(::windows::core::Vtable::as_raw(this), model.into().abi(), devicetorunon.into().abi(), learningmodelsessionoptions.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(model), ::core::mem::transmute_copy(devicetorunon), ::core::mem::transmute_copy(learningmodelsessionoptions), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
         })
     }
     #[doc(hidden)]

@@ -129,12 +129,9 @@ impl PaymentAppCanMakePaymentTriggerDetails {
             (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PaymentRequest>(result__)
         }
     }
-    pub fn ReportCanMakePaymentResult<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PaymentCanMakePaymentResult>>,
-    {
+    pub fn ReportCanMakePaymentResult(&self, value: &super::PaymentCanMakePaymentResult) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReportCanMakePaymentResult)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ReportCanMakePaymentResult)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for PaymentAppCanMakePaymentTriggerDetails {
@@ -349,38 +346,29 @@ impl PaymentTransaction {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateShippingAddressAsync<'a, P0>(&self, shippingaddress: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PaymentAddress>>,
-    {
+    pub fn UpdateShippingAddressAsync(&self, shippingaddress: &super::PaymentAddress) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateShippingAddressAsync)(::windows::core::Vtable::as_raw(this), shippingaddress.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateShippingAddressAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(shippingaddress), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateSelectedShippingOptionAsync<'a, P0>(&self, selectedshippingoption: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PaymentShippingOption>>,
-    {
+    pub fn UpdateSelectedShippingOptionAsync(&self, selectedshippingoption: &super::PaymentShippingOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateSelectedShippingOptionAsync)(::windows::core::Vtable::as_raw(this), selectedshippingoption.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateSelectedShippingOptionAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(selectedshippingoption), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AcceptAsync<'a, P0>(&self, paymenttoken: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PaymentToken>>,
-    {
+    pub fn AcceptAsync(&self, paymenttoken: &super::PaymentToken) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AcceptAsync)(::windows::core::Vtable::as_raw(this), paymenttoken.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>(result__)
+            (::windows::core::Vtable::vtable(this).AcceptAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(paymenttoken), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>(result__)
         }
     }
     pub fn Reject(&self) -> ::windows::core::Result<()> {

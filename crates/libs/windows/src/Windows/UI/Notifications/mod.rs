@@ -1633,13 +1633,10 @@ impl BadgeNotification {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateBadgeNotification<'a, P0>(content: P0) -> ::windows::core::Result<BadgeNotification>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn CreateBadgeNotification(content: &super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<BadgeNotification> {
         Self::IBadgeNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateBadgeNotification)(::windows::core::Vtable::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeNotification>(result__)
+            (::windows::core::Vtable::vtable(this).CreateBadgeNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), result__.as_mut_ptr()).from_abi::<BadgeNotification>(result__)
         })
     }
     #[doc(hidden)]
@@ -1743,13 +1740,10 @@ impl BadgeUpdateManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<BadgeUpdateManagerForUser>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<BadgeUpdateManagerForUser> {
         Self::IBadgeUpdateManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdateManagerForUser>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<BadgeUpdateManagerForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -1869,12 +1863,9 @@ unsafe impl ::core::marker::Sync for BadgeUpdateManagerForUser {}
 #[repr(transparent)]
 pub struct BadgeUpdater(::windows::core::IUnknown);
 impl BadgeUpdater {
-    pub fn Update<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BadgeNotification>>,
-    {
+    pub fn Update(&self, notification: &BadgeNotification) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this), notification.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(notification)).ok() }
     }
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -1882,21 +1873,15 @@ impl BadgeUpdater {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, P0>(&self, badgecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn StartPeriodicUpdate(&self, badgecontent: &super::super::Foundation::Uri, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdate)(::windows::core::Vtable::as_raw(this), badgecontent.into().abi(), requestedinterval).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(badgecontent), requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, P0>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn StartPeriodicUpdateAtTime(&self, badgecontent: &super::super::Foundation::Uri, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Vtable::as_raw(this), badgecontent.into().abi(), starttime, requestedinterval).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(badgecontent), starttime, requestedinterval).ok() }
     }
     pub fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -2196,12 +2181,9 @@ impl Notification {
             (::windows::core::Vtable::vtable(this).Visual)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<NotificationVisual>(result__)
         }
     }
-    pub fn SetVisual<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationVisual>>,
-    {
+    pub fn SetVisual(&self, value: &NotificationVisual) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetVisual)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetVisual)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
 impl ::core::clone::Clone for Notification {
@@ -2663,13 +2645,10 @@ impl ScheduledTileNotification {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation"))]
-    pub fn CreateScheduledTileNotification<'a, P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledTileNotification>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn CreateScheduledTileNotification(content: &super::super::Data::Xml::Dom::XmlDocument, deliverytime: super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledTileNotification> {
         Self::IScheduledTileNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateScheduledTileNotification)(::windows::core::Vtable::as_raw(this), content.into().abi(), deliverytime, result__.as_mut_ptr()).from_abi::<ScheduledTileNotification>(result__)
+            (::windows::core::Vtable::vtable(this).CreateScheduledTileNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), deliverytime, result__.as_mut_ptr()).from_abi::<ScheduledTileNotification>(result__)
         })
     }
     #[doc(hidden)]
@@ -2867,24 +2846,18 @@ impl ScheduledToastNotification {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation"))]
-    pub fn CreateScheduledToastNotification<'a, P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledToastNotification>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn CreateScheduledToastNotification(content: &super::super::Data::Xml::Dom::XmlDocument, deliverytime: super::super::Foundation::DateTime) -> ::windows::core::Result<ScheduledToastNotification> {
         Self::IScheduledToastNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateScheduledToastNotification)(::windows::core::Vtable::as_raw(this), content.into().abi(), deliverytime, result__.as_mut_ptr()).from_abi::<ScheduledToastNotification>(result__)
+            (::windows::core::Vtable::vtable(this).CreateScheduledToastNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), deliverytime, result__.as_mut_ptr()).from_abi::<ScheduledToastNotification>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation"))]
-    pub fn CreateScheduledToastNotificationRecurring<'a, P0>(content: P0, deliverytime: super::super::Foundation::DateTime, snoozeinterval: super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> ::windows::core::Result<ScheduledToastNotification>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn CreateScheduledToastNotificationRecurring(content: &super::super::Data::Xml::Dom::XmlDocument, deliverytime: super::super::Foundation::DateTime, snoozeinterval: super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> ::windows::core::Result<ScheduledToastNotification> {
         Self::IScheduledToastNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateScheduledToastNotificationRecurring)(::windows::core::Vtable::as_raw(this), content.into().abi(), deliverytime, snoozeinterval, maximumsnoozecount, result__.as_mut_ptr()).from_abi::<ScheduledToastNotification>(result__)
+            (::windows::core::Vtable::vtable(this).CreateScheduledToastNotificationRecurring)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), deliverytime, snoozeinterval, maximumsnoozecount, result__.as_mut_ptr()).from_abi::<ScheduledToastNotification>(result__)
         })
     }
     #[doc(hidden)]
@@ -3163,13 +3136,10 @@ impl TileFlyoutNotification {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateTileFlyoutNotification<'a, P0>(content: P0) -> ::windows::core::Result<TileFlyoutNotification>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn CreateTileFlyoutNotification(content: &super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<TileFlyoutNotification> {
         Self::ITileFlyoutNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateTileFlyoutNotification)(::windows::core::Vtable::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<TileFlyoutNotification>(result__)
+            (::windows::core::Vtable::vtable(this).CreateTileFlyoutNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), result__.as_mut_ptr()).from_abi::<TileFlyoutNotification>(result__)
         })
     }
     #[doc(hidden)]
@@ -3284,12 +3254,9 @@ impl ::windows::core::RuntimeName for TileFlyoutUpdateManager {
 #[repr(transparent)]
 pub struct TileFlyoutUpdater(::windows::core::IUnknown);
 impl TileFlyoutUpdater {
-    pub fn Update<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, TileFlyoutNotification>>,
-    {
+    pub fn Update(&self, notification: &TileFlyoutNotification) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this), notification.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(notification)).ok() }
     }
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -3297,21 +3264,15 @@ impl TileFlyoutUpdater {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, P0>(&self, tileflyoutcontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn StartPeriodicUpdate(&self, tileflyoutcontent: &super::super::Foundation::Uri, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdate)(::windows::core::Vtable::as_raw(this), tileflyoutcontent.into().abi(), requestedinterval).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(tileflyoutcontent), requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, P0>(&self, tileflyoutcontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn StartPeriodicUpdateAtTime(&self, tileflyoutcontent: &super::super::Foundation::Uri, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Vtable::as_raw(this), tileflyoutcontent.into().abi(), starttime, requestedinterval).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(tileflyoutcontent), starttime, requestedinterval).ok() }
     }
     pub fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -3432,13 +3393,10 @@ impl TileNotification {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateTileNotification<'a, P0>(content: P0) -> ::windows::core::Result<TileNotification>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn CreateTileNotification(content: &super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<TileNotification> {
         Self::ITileNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateTileNotification)(::windows::core::Vtable::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<TileNotification>(result__)
+            (::windows::core::Vtable::vtable(this).CreateTileNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), result__.as_mut_ptr()).from_abi::<TileNotification>(result__)
         })
     }
     #[doc(hidden)]
@@ -3542,13 +3500,10 @@ impl TileUpdateManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<TileUpdateManagerForUser>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<TileUpdateManagerForUser> {
         Self::ITileUpdateManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<TileUpdateManagerForUser>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<TileUpdateManagerForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -3668,12 +3623,9 @@ unsafe impl ::core::marker::Sync for TileUpdateManagerForUser {}
 #[repr(transparent)]
 pub struct TileUpdater(::windows::core::IUnknown);
 impl TileUpdater {
-    pub fn Update<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, TileNotification>>,
-    {
+    pub fn Update(&self, notification: &TileNotification) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this), notification.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Update)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(notification)).ok() }
     }
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -3690,19 +3642,13 @@ impl TileUpdater {
             (::windows::core::Vtable::vtable(this).Setting)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<NotificationSetting>(result__)
         }
     }
-    pub fn AddToSchedule<'a, P0>(&self, scheduledtile: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledTileNotification>>,
-    {
+    pub fn AddToSchedule(&self, scheduledtile: &ScheduledTileNotification) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).AddToSchedule)(::windows::core::Vtable::as_raw(this), scheduledtile.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AddToSchedule)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(scheduledtile)).ok() }
     }
-    pub fn RemoveFromSchedule<'a, P0>(&self, scheduledtile: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledTileNotification>>,
-    {
+    pub fn RemoveFromSchedule(&self, scheduledtile: &ScheduledTileNotification) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveFromSchedule)(::windows::core::Vtable::as_raw(this), scheduledtile.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveFromSchedule)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(scheduledtile)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3715,21 +3661,15 @@ impl TileUpdater {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, P0>(&self, tilecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn StartPeriodicUpdate(&self, tilecontent: &super::super::Foundation::Uri, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdate)(::windows::core::Vtable::as_raw(this), tilecontent.into().abi(), requestedinterval).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(tilecontent), requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, P0>(&self, tilecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn StartPeriodicUpdateAtTime(&self, tilecontent: &super::super::Foundation::Uri, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Vtable::as_raw(this), tilecontent.into().abi(), starttime, requestedinterval).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(tilecontent), starttime, requestedinterval).ok() }
     }
     pub fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -3959,22 +3899,16 @@ impl ToastCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIcon<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn SetIcon(&self, value: &super::super::Foundation::Uri) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetIcon)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetIcon)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstance<'a, P0>(collectionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, launchargs: &::windows::core::HSTRING, iconuri: P0) -> ::windows::core::Result<ToastCollection>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn CreateInstance(collectionid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, launchargs: &::windows::core::HSTRING, iconuri: &super::super::Foundation::Uri) -> ::windows::core::Result<ToastCollection> {
         Self::IToastCollectionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(collectionid), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(launchargs), iconuri.into().abi(), result__.as_mut_ptr()).from_abi::<ToastCollection>(result__)
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(collectionid), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(launchargs), ::core::mem::transmute_copy(iconuri), result__.as_mut_ptr()).from_abi::<ToastCollection>(result__)
         })
     }
     #[doc(hidden)]
@@ -4053,14 +3987,11 @@ pub struct ToastCollectionManager(::windows::core::IUnknown);
 impl ToastCollectionManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveToastCollectionAsync<'a, P0>(&self, collection: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ToastCollection>>,
-    {
+    pub fn SaveToastCollectionAsync(&self, collection: &ToastCollection) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SaveToastCollectionAsync)(::windows::core::Vtable::as_raw(this), collection.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).SaveToastCollectionAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(collection), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4366,14 +4297,11 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Dismissed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>>>,
-    {
+    pub fn Dismissed(&self, handler: &super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dismissed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Dismissed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4384,14 +4312,11 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Activated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ::windows::core::IInspectable>>>,
-    {
+    pub fn Activated(&self, handler: &super::super::Foundation::TypedEventHandler<ToastNotification, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Activated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Activated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4402,14 +4327,11 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Failed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>>>,
-    {
+    pub fn Failed(&self, handler: &super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Failed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Failed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4480,12 +4402,9 @@ impl ToastNotification {
             (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<NotificationData>(result__)
         }
     }
-    pub fn SetData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>,
-    {
+    pub fn SetData(&self, value: &NotificationData) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IToastNotification4>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).SetData)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetData)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Priority(&self) -> ::windows::core::Result<ToastNotificationPriority> {
         let this = &::windows::core::Interface::cast::<IToastNotification4>(self)?;
@@ -4511,13 +4430,10 @@ impl ToastNotification {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateToastNotification<'a, P0>(content: P0) -> ::windows::core::Result<ToastNotification>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
+    pub fn CreateToastNotification(content: &super::super::Data::Xml::Dom::XmlDocument) -> ::windows::core::Result<ToastNotification> {
         Self::IToastNotificationFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateToastNotification)(::windows::core::Vtable::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<ToastNotification>(result__)
+            (::windows::core::Vtable::vtable(this).CreateToastNotification)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), result__.as_mut_ptr()).from_abi::<ToastNotification>(result__)
         })
     }
     #[doc(hidden)]
@@ -4898,13 +4814,10 @@ impl ToastNotificationManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<ToastNotificationManagerForUser>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<ToastNotificationManagerForUser> {
         Self::IToastNotificationManagerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<ToastNotificationManagerForUser>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUser)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<ToastNotificationManagerForUser>(result__)
         })
     }
     pub fn ConfigureNotificationMirroring(value: NotificationMirroring) -> ::windows::core::Result<()> {
@@ -5075,19 +4988,13 @@ unsafe impl ::core::marker::Sync for ToastNotificationManagerForUser {}
 #[repr(transparent)]
 pub struct ToastNotifier(::windows::core::IUnknown);
 impl ToastNotifier {
-    pub fn Show<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ToastNotification>>,
-    {
+    pub fn Show(&self, notification: &ToastNotification) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Show)(::windows::core::Vtable::as_raw(this), notification.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Show)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(notification)).ok() }
     }
-    pub fn Hide<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ToastNotification>>,
-    {
+    pub fn Hide(&self, notification: &ToastNotification) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Hide)(::windows::core::Vtable::as_raw(this), notification.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).Hide)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(notification)).ok() }
     }
     pub fn Setting(&self) -> ::windows::core::Result<NotificationSetting> {
         let this = self;
@@ -5096,19 +5003,13 @@ impl ToastNotifier {
             (::windows::core::Vtable::vtable(this).Setting)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<NotificationSetting>(result__)
         }
     }
-    pub fn AddToSchedule<'a, P0>(&self, scheduledtoast: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledToastNotification>>,
-    {
+    pub fn AddToSchedule(&self, scheduledtoast: &ScheduledToastNotification) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).AddToSchedule)(::windows::core::Vtable::as_raw(this), scheduledtoast.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AddToSchedule)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(scheduledtoast)).ok() }
     }
-    pub fn RemoveFromSchedule<'a, P0>(&self, scheduledtoast: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ScheduledToastNotification>>,
-    {
+    pub fn RemoveFromSchedule(&self, scheduledtoast: &ScheduledToastNotification) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).RemoveFromSchedule)(::windows::core::Vtable::as_raw(this), scheduledtoast.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveFromSchedule)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(scheduledtoast)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -5119,36 +5020,27 @@ impl ToastNotifier {
             (::windows::core::Vtable::vtable(this).GetScheduledToastNotifications)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>>(result__)
         }
     }
-    pub fn UpdateWithTagAndGroup<'a, P0>(&self, data: P0, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>,
-    {
+    pub fn UpdateWithTagAndGroup(&self, data: &NotificationData, tag: &::windows::core::HSTRING, group: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult> {
         let this = &::windows::core::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateWithTagAndGroup)(::windows::core::Vtable::as_raw(this), data.into().abi(), ::core::mem::transmute_copy(tag), ::core::mem::transmute_copy(group), result__.as_mut_ptr()).from_abi::<NotificationUpdateResult>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateWithTagAndGroup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(data), ::core::mem::transmute_copy(tag), ::core::mem::transmute_copy(group), result__.as_mut_ptr()).from_abi::<NotificationUpdateResult>(result__)
         }
     }
-    pub fn UpdateWithTag<'a, P0>(&self, data: P0, tag: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, NotificationData>>,
-    {
+    pub fn UpdateWithTag(&self, data: &NotificationData, tag: &::windows::core::HSTRING) -> ::windows::core::Result<NotificationUpdateResult> {
         let this = &::windows::core::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UpdateWithTag)(::windows::core::Vtable::as_raw(this), data.into().abi(), ::core::mem::transmute_copy(tag), result__.as_mut_ptr()).from_abi::<NotificationUpdateResult>(result__)
+            (::windows::core::Vtable::vtable(this).UpdateWithTag)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(data), ::core::mem::transmute_copy(tag), result__.as_mut_ptr()).from_abi::<NotificationUpdateResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ScheduledToastNotificationShowing<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>>>,
-    {
+    pub fn ScheduledToastNotificationShowing(&self, handler: &super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IToastNotifier3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScheduledToastNotificationShowing)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ScheduledToastNotificationShowing)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

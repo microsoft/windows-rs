@@ -881,19 +881,13 @@ unsafe impl ::core::marker::Sync for GuidanceMapMatchedCoordinate {}
 #[repr(transparent)]
 pub struct GuidanceNavigator(::windows::core::IUnknown);
 impl GuidanceNavigator {
-    pub fn StartNavigating<'a, P0>(&self, route: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, GuidanceRoute>>,
-    {
+    pub fn StartNavigating(&self, route: &GuidanceRoute) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartNavigating)(::windows::core::Vtable::as_raw(this), route.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StartNavigating)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(route)).ok() }
     }
-    pub fn StartSimulating<'a, P0>(&self, route: P0, speedinmeterspersecond: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, GuidanceRoute>>,
-    {
+    pub fn StartSimulating(&self, route: &GuidanceRoute, speedinmeterspersecond: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).StartSimulating)(::windows::core::Vtable::as_raw(this), route.into().abi(), speedinmeterspersecond).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).StartSimulating)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(route), speedinmeterspersecond).ok() }
     }
     pub fn StartTracking(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -939,14 +933,11 @@ impl GuidanceNavigator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GuidanceUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceUpdatedEventArgs>>>,
-    {
+    pub fn GuidanceUpdated(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceUpdatedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GuidanceUpdated)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).GuidanceUpdated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -957,14 +948,11 @@ impl GuidanceNavigator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DestinationReached<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>>>,
-    {
+    pub fn DestinationReached(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DestinationReached)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).DestinationReached)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -975,14 +963,11 @@ impl GuidanceNavigator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Rerouting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>>>,
-    {
+    pub fn Rerouting(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Rerouting)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Rerouting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -993,14 +978,11 @@ impl GuidanceNavigator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Rerouted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceReroutedEventArgs>>>,
-    {
+    pub fn Rerouted(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceReroutedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Rerouted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Rerouted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1011,14 +993,11 @@ impl GuidanceNavigator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RerouteFailed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>>>,
-    {
+    pub fn RerouteFailed(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RerouteFailed)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).RerouteFailed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1029,14 +1008,11 @@ impl GuidanceNavigator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UserLocationLost<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>>>,
-    {
+    pub fn UserLocationLost(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UserLocationLost)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UserLocationLost)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1047,14 +1023,11 @@ impl GuidanceNavigator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UserLocationRestored<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>>>,
-    {
+    pub fn UserLocationRestored(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UserLocationRestored)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).UserLocationRestored)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1069,32 +1042,23 @@ impl GuidanceNavigator {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn UpdateUserLocation<'a, P0>(&self, userlocation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geocoordinate>>,
-    {
+    pub fn UpdateUserLocation(&self, userlocation: &super::super::super::Devices::Geolocation::Geocoordinate) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateUserLocation)(::windows::core::Vtable::as_raw(this), userlocation.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UpdateUserLocation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(userlocation)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn UpdateUserLocationWithPositionOverride<'a, P0>(&self, userlocation: P0, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geocoordinate>>,
-    {
+    pub fn UpdateUserLocationWithPositionOverride(&self, userlocation: &super::super::super::Devices::Geolocation::Geocoordinate, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).UpdateUserLocationWithPositionOverride)(::windows::core::Vtable::as_raw(this), userlocation.into().abi(), positionoverride).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).UpdateUserLocationWithPositionOverride)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(userlocation), positionoverride).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioNotificationRequested<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>>>,
-    {
+    pub fn AudioNotificationRequested(&self, value: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AudioNotificationRequested)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AudioNotificationRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1593,22 +1557,16 @@ impl GuidanceRoute {
             (::windows::core::Vtable::vtable(this).ConvertToMapRoute)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MapRoute>(result__)
         }
     }
-    pub fn CanCreateFromMapRoute<'a, P0>(maproute: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MapRoute>>,
-    {
+    pub fn CanCreateFromMapRoute(maproute: &super::MapRoute) -> ::windows::core::Result<bool> {
         Self::IGuidanceRouteStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CanCreateFromMapRoute)(::windows::core::Vtable::as_raw(this), maproute.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).CanCreateFromMapRoute)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(maproute), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    pub fn TryCreateFromMapRoute<'a, P0>(maproute: P0) -> ::windows::core::Result<GuidanceRoute>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MapRoute>>,
-    {
+    pub fn TryCreateFromMapRoute(maproute: &super::MapRoute) -> ::windows::core::Result<GuidanceRoute> {
         Self::IGuidanceRouteStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryCreateFromMapRoute)(::windows::core::Vtable::as_raw(this), maproute.into().abi(), result__.as_mut_ptr()).from_abi::<GuidanceRoute>(result__)
+            (::windows::core::Vtable::vtable(this).TryCreateFromMapRoute)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(maproute), result__.as_mut_ptr()).from_abi::<GuidanceRoute>(result__)
         })
     }
     #[doc(hidden)]

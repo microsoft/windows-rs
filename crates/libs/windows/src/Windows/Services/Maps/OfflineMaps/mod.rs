@@ -128,14 +128,11 @@ impl OfflineMapPackage {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable>>>,
-    {
+    pub fn StatusChanged(&self, value: &super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -149,35 +146,26 @@ impl OfflineMapPackage {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindPackagesAsync<'a, P0>(querypoint: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geopoint>>,
-    {
+    pub fn FindPackagesAsync(querypoint: &super::super::super::Devices::Geolocation::Geopoint) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindPackagesAsync)(::windows::core::Vtable::as_raw(this), querypoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindPackagesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(querypoint), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindPackagesInBoundingBoxAsync<'a, P0>(queryboundingbox: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::GeoboundingBox>>,
-    {
+    pub fn FindPackagesInBoundingBoxAsync(queryboundingbox: &super::super::super::Devices::Geolocation::GeoboundingBox) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindPackagesInBoundingBoxAsync)(::windows::core::Vtable::as_raw(this), queryboundingbox.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindPackagesInBoundingBoxAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryboundingbox), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindPackagesInGeocircleAsync<'a, P0>(querycircle: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geocircle>>,
-    {
+    pub fn FindPackagesInGeocircleAsync(querycircle: &super::super::super::Devices::Geolocation::Geocircle) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindPackagesInGeocircleAsync)(::windows::core::Vtable::as_raw(this), querycircle.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindPackagesInGeocircleAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(querycircle), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
     #[doc(hidden)]

@@ -12,14 +12,11 @@ pub struct IUriToStreamResolver(::windows::core::IUnknown);
 impl IUriToStreamResolver {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn UriToStreamAsync<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-    {
+    pub fn UriToStreamAsync(&self, uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UriToStreamAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
+            (::windows::core::Vtable::vtable(this).UriToStreamAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
         }
     }
 }

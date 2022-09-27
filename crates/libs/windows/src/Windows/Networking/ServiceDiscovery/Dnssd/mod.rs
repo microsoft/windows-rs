@@ -265,12 +265,9 @@ impl DnssdServiceInstance {
             (::windows::core::Vtable::vtable(this).HostName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::HostName>(result__)
         }
     }
-    pub fn SetHostName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::HostName>>,
-    {
+    pub fn SetHostName(&self, value: &super::super::HostName) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetHostName)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).SetHostName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn Port(&self) -> ::windows::core::Result<u16> {
         let this = self;
@@ -316,61 +313,44 @@ impl DnssdServiceInstance {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
-    pub fn RegisterStreamSocketListenerAsync1<'a, P0>(&self, socket: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::StreamSocketListener>>,
-    {
+    pub fn RegisterStreamSocketListenerAsync1(&self, socket: &super::super::Sockets::StreamSocketListener) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RegisterStreamSocketListenerAsync1)(::windows::core::Vtable::as_raw(this), socket.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RegisterStreamSocketListenerAsync1)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socket), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    pub fn RegisterStreamSocketListenerAsync2<'a, P0, P1>(&self, socket: P0, adapter: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::StreamSocketListener>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Connectivity::NetworkAdapter>>,
-    {
+    pub fn RegisterStreamSocketListenerAsync2(&self, socket: &super::super::Sockets::StreamSocketListener, adapter: &super::super::Connectivity::NetworkAdapter) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RegisterStreamSocketListenerAsync2)(::windows::core::Vtable::as_raw(this), socket.into().abi(), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RegisterStreamSocketListenerAsync2)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socket), ::core::mem::transmute_copy(adapter), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
-    pub fn RegisterDatagramSocketAsync1<'a, P0>(&self, socket: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::DatagramSocket>>,
-    {
+    pub fn RegisterDatagramSocketAsync1(&self, socket: &super::super::Sockets::DatagramSocket) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RegisterDatagramSocketAsync1)(::windows::core::Vtable::as_raw(this), socket.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RegisterDatagramSocketAsync1)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socket), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    pub fn RegisterDatagramSocketAsync2<'a, P0, P1>(&self, socket: P0, adapter: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Sockets::DatagramSocket>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Connectivity::NetworkAdapter>>,
-    {
+    pub fn RegisterDatagramSocketAsync2(&self, socket: &super::super::Sockets::DatagramSocket, adapter: &super::super::Connectivity::NetworkAdapter) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RegisterDatagramSocketAsync2)(::windows::core::Vtable::as_raw(this), socket.into().abi(), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).RegisterDatagramSocketAsync2)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(socket), ::core::mem::transmute_copy(adapter), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>>(result__)
         }
     }
-    pub fn Create<'a, P0>(dnssdserviceinstancename: &::windows::core::HSTRING, hostname: P0, port: u16) -> ::windows::core::Result<DnssdServiceInstance>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::HostName>>,
-    {
+    pub fn Create(dnssdserviceinstancename: &::windows::core::HSTRING, hostname: &super::super::HostName, port: u16) -> ::windows::core::Result<DnssdServiceInstance> {
         Self::IDnssdServiceInstanceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(dnssdserviceinstancename), hostname.into().abi(), port, result__.as_mut_ptr()).from_abi::<DnssdServiceInstance>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(dnssdserviceinstancename), ::core::mem::transmute_copy(hostname), port, result__.as_mut_ptr()).from_abi::<DnssdServiceInstance>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -509,14 +489,11 @@ impl DnssdServiceInstanceCollection {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DnssdServiceInstance>>,
-    {
+    pub fn IndexOf(&self, value: &DnssdServiceInstance, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IndexOf)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -675,14 +652,11 @@ pub struct DnssdServiceWatcher(::windows::core::IUnknown);
 impl DnssdServiceWatcher {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance>>>,
-    {
+    pub fn Added(&self, handler: &super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Added)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -693,14 +667,11 @@ impl DnssdServiceWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn EnumerationCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).EnumerationCompleted)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -711,14 +682,11 @@ impl DnssdServiceWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>>>,
-    {
+    pub fn Stopped(&self, handler: &super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Stopped)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

@@ -642,14 +642,11 @@ impl ImageScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn ScanFilesToFolderAsync<'a, P0>(&self, scansource: ImageScannerScanSource, storagefolder: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFolder>>,
-    {
+    pub fn ScanFilesToFolderAsync(&self, scansource: ImageScannerScanSource, storagefolder: &super::super::Storage::StorageFolder) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScanFilesToFolderAsync)(::windows::core::Vtable::as_raw(this), scansource, storagefolder.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>(result__)
+            (::windows::core::Vtable::vtable(this).ScanFilesToFolderAsync)(::windows::core::Vtable::as_raw(this), scansource, ::core::mem::transmute_copy(storagefolder), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

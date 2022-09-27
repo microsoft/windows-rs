@@ -1910,12 +1910,9 @@ impl InkAnalyzer {
             (::windows::core::Vtable::vtable(this).IsAnalyzing)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    pub fn AddDataForStroke<'a, P0>(&self, stroke: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::InkStroke>>,
-    {
+    pub fn AddDataForStroke(&self, stroke: &super::InkStroke) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).AddDataForStroke)(::windows::core::Vtable::as_raw(this), stroke.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).AddDataForStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1945,12 +1942,9 @@ impl InkAnalyzer {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveDataForStrokes)(::windows::core::Vtable::as_raw(this), strokeids.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    pub fn ReplaceDataForStroke<'a, P0>(&self, stroke: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::InkStroke>>,
-    {
+    pub fn ReplaceDataForStroke(&self, stroke: &super::InkStroke) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ReplaceDataForStroke)(::windows::core::Vtable::as_raw(this), stroke.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ReplaceDataForStroke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(stroke)).ok() }
     }
     pub fn SetStrokeDataKind(&self, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows::core::Result<()> {
         let this = self;

@@ -1821,26 +1821,17 @@ pub struct ConnectivityManager;
 impl ConnectivityManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AcquireConnectionAsync<'a, P0>(cellularapncontext: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CellularApnContext>>,
-    {
+    pub fn AcquireConnectionAsync(cellularapncontext: &CellularApnContext) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>> {
         Self::IConnectivityManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AcquireConnectionAsync)(::windows::core::Vtable::as_raw(this), cellularapncontext.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionSession>>(result__)
+            (::windows::core::Vtable::vtable(this).AcquireConnectionAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(cellularapncontext), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionSession>>(result__)
         })
     }
-    pub fn AddHttpRoutePolicy<'a, P0>(routepolicy: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, RoutePolicy>>,
-    {
-        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).AddHttpRoutePolicy)(::windows::core::Vtable::as_raw(this), routepolicy.into().abi()).ok() })
+    pub fn AddHttpRoutePolicy(routepolicy: &RoutePolicy) -> ::windows::core::Result<()> {
+        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).AddHttpRoutePolicy)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(routepolicy)).ok() })
     }
-    pub fn RemoveHttpRoutePolicy<'a, P0>(routepolicy: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, RoutePolicy>>,
-    {
-        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveHttpRoutePolicy)(::windows::core::Vtable::as_raw(this), routepolicy.into().abi()).ok() })
+    pub fn RemoveHttpRoutePolicy(routepolicy: &RoutePolicy) -> ::windows::core::Result<()> {
+        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveHttpRoutePolicy)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(routepolicy)).ok() })
     }
     #[doc(hidden)]
     pub fn IConnectivityManagerStatics<R, F: FnOnce(&IConnectivityManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2570,13 +2561,10 @@ impl NetworkInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetProxyConfigurationAsync<'a, P0>(uri: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn GetProxyConfigurationAsync(uri: &super::super::Foundation::Uri) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>> {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetProxyConfigurationAsync)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>(result__)
+            (::windows::core::Vtable::vtable(this).GetProxyConfigurationAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2593,13 +2581,10 @@ impl NetworkInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NetworkStatusChanged<'a, P0>(networkstatushandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, NetworkStatusChangedEventHandler>>,
-    {
+    pub fn NetworkStatusChanged(networkstatushandler: &NetworkStatusChangedEventHandler) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NetworkStatusChanged)(::windows::core::Vtable::as_raw(this), networkstatushandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).NetworkStatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(networkstatushandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2609,13 +2594,10 @@ impl NetworkInformation {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindConnectionProfilesAsync<'a, P0>(pprofilefilter: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ConnectionProfileFilter>>,
-    {
+    pub fn FindConnectionProfilesAsync(pprofilefilter: &ConnectionProfileFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>> {
         Self::INetworkInformationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindConnectionProfilesAsync)(::windows::core::Vtable::as_raw(this), pprofilefilter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>(result__)
+            (::windows::core::Vtable::vtable(this).FindConnectionProfilesAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pprofilefilter), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3215,14 +3197,10 @@ impl RoutePolicy {
             (::windows::core::Vtable::vtable(this).HostNameType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DomainNameType>(result__)
         }
     }
-    pub fn CreateRoutePolicy<'a, P0, P1>(connectionprofile: P0, hostname: P1, r#type: super::DomainNameType) -> ::windows::core::Result<RoutePolicy>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ConnectionProfile>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
+    pub fn CreateRoutePolicy(connectionprofile: &ConnectionProfile, hostname: &super::HostName, r#type: super::DomainNameType) -> ::windows::core::Result<RoutePolicy> {
         Self::IRoutePolicyFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateRoutePolicy)(::windows::core::Vtable::as_raw(this), connectionprofile.into().abi(), hostname.into().abi(), r#type, result__.as_mut_ptr()).from_abi::<RoutePolicy>(result__)
+            (::windows::core::Vtable::vtable(this).CreateRoutePolicy)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(connectionprofile), ::core::mem::transmute_copy(hostname), r#type, result__.as_mut_ptr()).from_abi::<RoutePolicy>(result__)
         })
     }
     #[doc(hidden)]

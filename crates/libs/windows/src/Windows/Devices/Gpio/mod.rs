@@ -259,13 +259,10 @@ impl GpioChangeCounter {
             (::windows::core::Vtable::vtable(this).Reset)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioChangeCount>(result__)
         }
     }
-    pub fn Create<'a, P0>(pin: P0) -> ::windows::core::Result<GpioChangeCounter>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>,
-    {
+    pub fn Create(pin: &GpioPin) -> ::windows::core::Result<GpioChangeCounter> {
         Self::IGpioChangeCounterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), pin.into().abi(), result__.as_mut_ptr()).from_abi::<GpioChangeCounter>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pin), result__.as_mut_ptr()).from_abi::<GpioChangeCounter>(result__)
         })
     }
     #[doc(hidden)]
@@ -464,22 +461,16 @@ impl GpioChangeReader {
             (::windows::core::Vtable::vtable(this).WaitForItemsAsync)(::windows::core::Vtable::as_raw(this), count, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    pub fn Create<'a, P0>(pin: P0) -> ::windows::core::Result<GpioChangeReader>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>,
-    {
+    pub fn Create(pin: &GpioPin) -> ::windows::core::Result<GpioChangeReader> {
         Self::IGpioChangeReaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), pin.into().abi(), result__.as_mut_ptr()).from_abi::<GpioChangeReader>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pin), result__.as_mut_ptr()).from_abi::<GpioChangeReader>(result__)
         })
     }
-    pub fn CreateWithCapacity<'a, P0>(pin: P0, mincapacity: i32) -> ::windows::core::Result<GpioChangeReader>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>,
-    {
+    pub fn CreateWithCapacity(pin: &GpioPin, mincapacity: i32) -> ::windows::core::Result<GpioChangeReader> {
         Self::IGpioChangeReaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithCapacity)(::windows::core::Vtable::as_raw(this), pin.into().abi(), mincapacity, result__.as_mut_ptr()).from_abi::<GpioChangeReader>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithCapacity)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pin), mincapacity, result__.as_mut_ptr()).from_abi::<GpioChangeReader>(result__)
         })
     }
     #[doc(hidden)]
@@ -719,14 +710,11 @@ impl GpioPin {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ValueChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>>,
-    {
+    pub fn ValueChanged(&self, handler: &super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ValueChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ValueChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

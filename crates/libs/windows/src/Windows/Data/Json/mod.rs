@@ -763,24 +763,18 @@ impl JsonObject {
             (::windows::core::Vtable::vtable(this).TryParse)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(input), result as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    pub fn GetNamedValueOrDefault<'a, P0>(&self, name: &::windows::core::HSTRING, defaultvalue: P0) -> ::windows::core::Result<JsonValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, JsonValue>>,
-    {
+    pub fn GetNamedValueOrDefault(&self, name: &::windows::core::HSTRING, defaultvalue: &JsonValue) -> ::windows::core::Result<JsonValue> {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetNamedValueOrDefault)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), defaultvalue.into().abi(), result__.as_mut_ptr()).from_abi::<JsonValue>(result__)
+            (::windows::core::Vtable::vtable(this).GetNamedValueOrDefault)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(defaultvalue), result__.as_mut_ptr()).from_abi::<JsonValue>(result__)
         }
     }
-    pub fn GetNamedObjectOrDefault<'a, P0>(&self, name: &::windows::core::HSTRING, defaultvalue: P0) -> ::windows::core::Result<JsonObject>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, JsonObject>>,
-    {
+    pub fn GetNamedObjectOrDefault(&self, name: &::windows::core::HSTRING, defaultvalue: &JsonObject) -> ::windows::core::Result<JsonObject> {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetNamedObjectOrDefault)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), defaultvalue.into().abi(), result__.as_mut_ptr()).from_abi::<JsonObject>(result__)
+            (::windows::core::Vtable::vtable(this).GetNamedObjectOrDefault)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(defaultvalue), result__.as_mut_ptr()).from_abi::<JsonObject>(result__)
         }
     }
     pub fn GetNamedStringOrDefault(&self, name: &::windows::core::HSTRING, defaultvalue: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -790,14 +784,11 @@ impl JsonObject {
             (::windows::core::Vtable::vtable(this).GetNamedStringOrDefault)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(defaultvalue), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    pub fn GetNamedArrayOrDefault<'a, P0>(&self, name: &::windows::core::HSTRING, defaultvalue: P0) -> ::windows::core::Result<JsonArray>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, JsonArray>>,
-    {
+    pub fn GetNamedArrayOrDefault(&self, name: &::windows::core::HSTRING, defaultvalue: &JsonArray) -> ::windows::core::Result<JsonArray> {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetNamedArrayOrDefault)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), defaultvalue.into().abi(), result__.as_mut_ptr()).from_abi::<JsonArray>(result__)
+            (::windows::core::Vtable::vtable(this).GetNamedArrayOrDefault)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(defaultvalue), result__.as_mut_ptr()).from_abi::<JsonArray>(result__)
         }
     }
     pub fn GetNamedNumberOrDefault(&self, name: &::windows::core::HSTRING, defaultvalue: f64) -> ::windows::core::Result<f64> {

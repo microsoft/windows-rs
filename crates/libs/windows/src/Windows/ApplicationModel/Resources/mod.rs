@@ -139,14 +139,11 @@ impl ResourceLoader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetStringForUri<'a, P0>(&self, uri: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn GetStringForUri(&self, uri: &super::super::Foundation::Uri) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IResourceLoader2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetStringForUri)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetStringForUri)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn CreateResourceLoaderByName(name: &::windows::core::HSTRING) -> ::windows::core::Result<ResourceLoader> {
@@ -157,13 +154,10 @@ impl ResourceLoader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetStringForReference<'a, P0>(uri: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
+    pub fn GetStringForReference(uri: &super::super::Foundation::Uri) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IResourceLoaderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetStringForReference)(::windows::core::Vtable::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).GetStringForReference)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     pub fn GetForCurrentView() -> ::windows::core::Result<ResourceLoader> {
@@ -192,13 +186,10 @@ impl ResourceLoader {
     }
     #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn GetForUIContext<'a, P0>(context: P0) -> ::windows::core::Result<ResourceLoader>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::UIContext>>,
-    {
+    pub fn GetForUIContext(context: &super::super::UI::UIContext) -> ::windows::core::Result<ResourceLoader> {
         Self::IResourceLoaderStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForUIContext)(::windows::core::Vtable::as_raw(this), context.into().abi(), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
+            (::windows::core::Vtable::vtable(this).GetForUIContext)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(context), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
         })
     }
     pub fn GetDefaultPriPath(packagefullname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {

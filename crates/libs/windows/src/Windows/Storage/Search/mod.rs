@@ -397,14 +397,11 @@ impl IStorageFolderQueryOperations {
             (::windows::core::Vtable::vtable(this).CreateFileQuery)(::windows::core::Vtable::as_raw(this), query, result__.as_mut_ptr()).from_abi::<StorageFileQueryResult>(result__)
         }
     }
-    pub fn CreateFileQueryWithOptions<'a, P0>(&self, queryoptions: P0) -> ::windows::core::Result<StorageFileQueryResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, QueryOptions>>,
-    {
+    pub fn CreateFileQueryWithOptions(&self, queryoptions: &QueryOptions) -> ::windows::core::Result<StorageFileQueryResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFileQueryWithOptions)(::windows::core::Vtable::as_raw(this), queryoptions.into().abi(), result__.as_mut_ptr()).from_abi::<StorageFileQueryResult>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFileQueryWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryoptions), result__.as_mut_ptr()).from_abi::<StorageFileQueryResult>(result__)
         }
     }
     pub fn CreateFolderQueryOverloadDefault(&self) -> ::windows::core::Result<StorageFolderQueryResult> {
@@ -421,14 +418,11 @@ impl IStorageFolderQueryOperations {
             (::windows::core::Vtable::vtable(this).CreateFolderQuery)(::windows::core::Vtable::as_raw(this), query, result__.as_mut_ptr()).from_abi::<StorageFolderQueryResult>(result__)
         }
     }
-    pub fn CreateFolderQueryWithOptions<'a, P0>(&self, queryoptions: P0) -> ::windows::core::Result<StorageFolderQueryResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, QueryOptions>>,
-    {
+    pub fn CreateFolderQueryWithOptions(&self, queryoptions: &QueryOptions) -> ::windows::core::Result<StorageFolderQueryResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFolderQueryWithOptions)(::windows::core::Vtable::as_raw(this), queryoptions.into().abi(), result__.as_mut_ptr()).from_abi::<StorageFolderQueryResult>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFolderQueryWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryoptions), result__.as_mut_ptr()).from_abi::<StorageFolderQueryResult>(result__)
         }
     }
     pub fn CreateItemQuery(&self) -> ::windows::core::Result<StorageItemQueryResult> {
@@ -438,14 +432,11 @@ impl IStorageFolderQueryOperations {
             (::windows::core::Vtable::vtable(this).CreateItemQuery)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<StorageItemQueryResult>(result__)
         }
     }
-    pub fn CreateItemQueryWithOptions<'a, P0>(&self, queryoptions: P0) -> ::windows::core::Result<StorageItemQueryResult>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, QueryOptions>>,
-    {
+    pub fn CreateItemQueryWithOptions(&self, queryoptions: &QueryOptions) -> ::windows::core::Result<StorageItemQueryResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateItemQueryWithOptions)(::windows::core::Vtable::as_raw(this), queryoptions.into().abi(), result__.as_mut_ptr()).from_abi::<StorageItemQueryResult>(result__)
+            (::windows::core::Vtable::vtable(this).CreateItemQueryWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryoptions), result__.as_mut_ptr()).from_abi::<StorageItemQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -493,14 +484,11 @@ impl IStorageFolderQueryOperations {
             (::windows::core::Vtable::vtable(this).GetItemsAsync)(::windows::core::Vtable::as_raw(this), startindex, maxitemstoretrieve, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>(result__)
         }
     }
-    pub fn AreQueryOptionsSupported<'a, P0>(&self, queryoptions: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, QueryOptions>>,
-    {
+    pub fn AreQueryOptionsSupported(&self, queryoptions: &QueryOptions) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AreQueryOptionsSupported)(::windows::core::Vtable::as_raw(this), queryoptions.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).AreQueryOptionsSupported)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(queryoptions), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> ::windows::core::Result<bool> {
@@ -718,14 +706,11 @@ impl IStorageQueryResultBase {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContentsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>>,
-    {
+    pub fn ContentsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentsChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ContentsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -736,14 +721,11 @@ impl IStorageQueryResultBase {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OptionsChanged<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>>,
-    {
+    pub fn OptionsChanged(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OptionsChanged)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OptionsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -771,12 +753,9 @@ impl IStorageQueryResultBase {
             (::windows::core::Vtable::vtable(this).GetCurrentQueryOptions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<QueryOptions>(result__)
         }
     }
-    pub fn ApplyNewQueryOptions<'a, P0>(&self, newqueryoptions: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, QueryOptions>>,
-    {
+    pub fn ApplyNewQueryOptions(&self, newqueryoptions: &QueryOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).ApplyNewQueryOptions)(::windows::core::Vtable::as_raw(this), newqueryoptions.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ApplyNewQueryOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(newqueryoptions)).ok() }
     }
 }
 impl ::core::convert::From<IStorageQueryResultBase> for ::windows::core::IUnknown {
@@ -1857,14 +1836,11 @@ impl StorageFileQueryResult {
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
-    pub fn GetMatchingPropertiesWithRanges<'a, P0>(&self, file: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::StorageFile>>,
-    {
+    pub fn GetMatchingPropertiesWithRanges(&self, file: &super::StorageFile) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>> {
         let this = &::windows::core::Interface::cast::<IStorageFileQueryResult2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetMatchingPropertiesWithRanges)(::windows::core::Vtable::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>>(result__)
+            (::windows::core::Vtable::vtable(this).GetMatchingPropertiesWithRanges)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(file), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1885,14 +1861,11 @@ impl StorageFileQueryResult {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContentsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>>,
-    {
+    pub fn ContentsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentsChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ContentsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1903,14 +1876,11 @@ impl StorageFileQueryResult {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OptionsChanged<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>>,
-    {
+    pub fn OptionsChanged(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OptionsChanged)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OptionsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1938,12 +1908,9 @@ impl StorageFileQueryResult {
             (::windows::core::Vtable::vtable(this).GetCurrentQueryOptions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<QueryOptions>(result__)
         }
     }
-    pub fn ApplyNewQueryOptions<'a, P0>(&self, newqueryoptions: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, QueryOptions>>,
-    {
+    pub fn ApplyNewQueryOptions(&self, newqueryoptions: &QueryOptions) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageQueryResultBase>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).ApplyNewQueryOptions)(::windows::core::Vtable::as_raw(this), newqueryoptions.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ApplyNewQueryOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(newqueryoptions)).ok() }
     }
 }
 impl ::core::clone::Clone for StorageFileQueryResult {
@@ -2067,14 +2034,11 @@ impl StorageFolderQueryResult {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContentsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>>,
-    {
+    pub fn ContentsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentsChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ContentsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2085,14 +2049,11 @@ impl StorageFolderQueryResult {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OptionsChanged<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>>,
-    {
+    pub fn OptionsChanged(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OptionsChanged)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OptionsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2120,12 +2081,9 @@ impl StorageFolderQueryResult {
             (::windows::core::Vtable::vtable(this).GetCurrentQueryOptions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<QueryOptions>(result__)
         }
     }
-    pub fn ApplyNewQueryOptions<'a, P0>(&self, newqueryoptions: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, QueryOptions>>,
-    {
+    pub fn ApplyNewQueryOptions(&self, newqueryoptions: &QueryOptions) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageQueryResultBase>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).ApplyNewQueryOptions)(::windows::core::Vtable::as_raw(this), newqueryoptions.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ApplyNewQueryOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(newqueryoptions)).ok() }
     }
 }
 impl ::core::clone::Clone for StorageFolderQueryResult {
@@ -2249,14 +2207,11 @@ impl StorageItemQueryResult {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContentsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>>,
-    {
+    pub fn ContentsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentsChanged)(::windows::core::Vtable::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).ContentsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2267,14 +2222,11 @@ impl StorageItemQueryResult {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OptionsChanged<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>>,
-    {
+    pub fn OptionsChanged(&self, changedhandler: &super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IStorageQueryResultBase>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OptionsChanged)(::windows::core::Vtable::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).OptionsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changedhandler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2302,12 +2254,9 @@ impl StorageItemQueryResult {
             (::windows::core::Vtable::vtable(this).GetCurrentQueryOptions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<QueryOptions>(result__)
         }
     }
-    pub fn ApplyNewQueryOptions<'a, P0>(&self, newqueryoptions: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, QueryOptions>>,
-    {
+    pub fn ApplyNewQueryOptions(&self, newqueryoptions: &QueryOptions) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageQueryResultBase>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).ApplyNewQueryOptions)(::windows::core::Vtable::as_raw(this), newqueryoptions.into().abi()).ok() }
+        unsafe { (::windows::core::Vtable::vtable(this).ApplyNewQueryOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(newqueryoptions)).ok() }
     }
 }
 impl ::core::clone::Clone for StorageItemQueryResult {
