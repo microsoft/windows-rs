@@ -19,4 +19,5 @@ features = [
     "Win32_System_SystemServices",
     "Win32_System_WinRT_Composition",
     "Win32_System_WinRT_Display",
+    "Win32_UI_Shell_PropertiesSystem",
 ]
