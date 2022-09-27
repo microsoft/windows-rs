@@ -144,7 +144,6 @@ jobs:
           cargo clippy -p test_bstr &&
           cargo clippy -p test_calling_convention &&
           cargo clippy -p test_cfg_generic &&
-          cargo clippy -p test_class_factory &&
           cargo clippy -p test_component &&
           cargo clippy -p test_component_client &&
           cargo clippy -p test_const_fields &&
