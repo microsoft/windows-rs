@@ -274,7 +274,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
     pub fn WHvWriteVpciDeviceRegister(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, register: *const WHV_VPCI_DEVICE_REGISTER, data: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
+pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -287,13 +287,13 @@ pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
 pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
-pub const HV_GUID_BROADCAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4294967295, data2: 65535, data3: 65535, data4: [255, 255, 255, 255, 255, 255, 255, 255] };
-pub const HV_GUID_CHILDREN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2430307209, data2: 3381, data3: 20345, data4: [140, 233, 73, 234, 10, 200, 183, 205] };
-pub const HV_GUID_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3772866967, data2: 56662, data3: 18960, data4: [145, 149, 94, 231, 161, 85, 168, 56] };
-pub const HV_GUID_PARENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2754510042, data2: 53311, data3: 18444, data4: [156, 194, 164, 222, 32, 171, 184, 120] };
-pub const HV_GUID_SILOHOST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 918359132, data2: 29302, data3: 16931, data4: [136, 186, 125, 3, 182, 84, 197, 104] };
-pub const HV_GUID_VSOCK_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 64203, data3: 4582, data4: [189, 88, 100, 0, 106, 121, 134, 211] };
-pub const HV_GUID_ZERO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+pub const HV_GUID_BROADCAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
+pub const HV_GUID_CHILDREN: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
+pub const HV_GUID_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe0e16197_dd56_4a10_9195_5ee7a155a838);
+pub const HV_GUID_PARENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xa42e7cda_d03f_480c_9cc2_a4de20abb878);
+pub const HV_GUID_SILOHOST: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
+pub const HV_GUID_VSOCK_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
+pub const HV_GUID_ZERO: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]

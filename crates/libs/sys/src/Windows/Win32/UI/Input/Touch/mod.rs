@@ -34,8 +34,8 @@ extern "system" {
 pub type IInertiaProcessor = *mut ::core::ffi::c_void;
 pub type IManipulationProcessor = *mut ::core::ffi::c_void;
 pub type _IManipulationEvents = *mut ::core::ffi::c_void;
-pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2880598151, data2: 19680, data3: 20056, data4: [160, 203, 226, 77, 249, 104, 20, 190] };
-pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1501384624, data2: 18429, data3: 19199, data4: [137, 185, 198, 207, 174, 140, 240, 142] };
+pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
+pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 pub type GESTURECONFIG_ID = u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]

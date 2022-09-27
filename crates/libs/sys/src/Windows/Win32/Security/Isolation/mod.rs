@@ -30,7 +30,7 @@ extern "system" {
     pub fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void, isprocessinwdagcontainer: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
 pub type IIsolatedAppLauncher = *mut ::core::ffi::c_void;
-pub const IsolatedAppLauncher: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3162580016, data2: 59230, data3: 20433, data4: [150, 65, 31, 159, 30, 45, 154, 31] };
+pub const IsolatedAppLauncher: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
