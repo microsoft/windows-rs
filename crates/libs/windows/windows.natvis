@@ -27,18 +27,20 @@
   </Type>
 
   <Type Name="windows::core::strings::hstring::HSTRING">
-    <DisplayString Condition="__0 == nullptr">""</DisplayString>
-    <DisplayString>{((char16_t*)__0->data),[__0->len]su}</DisplayString>
+    <Intrinsic Name="header" Expression="*((windows::core::strings::hstring::Header**)this)" ReturnType="windows::core::strings::hstring::Header *" />
+    <Intrinsic Name="is_empty" Expression="header() == nullptr" />
+    <DisplayString Condition="is_empty()">""</DisplayString>
+    <DisplayString>{((char16_t*)header()->data),[header()->len]su}</DisplayString>
 
     <Expand>
-      <Item Name="[len]">__0 == nullptr ? (unsigned int)0 : __0->len</Item>
-      <Item Name="[ref_count]" Condition="__0 != nullptr">__0->count</Item>
-      <Item Name="[flags]" Condition="__0 != nullptr">__0->flags</Item>
-      <Synthetic Name="[chars]" Condition="__0 != nullptr">
+      <Item Name="[len]">is_empty() ? (unsigned int)0 : header()->len</Item>
+      <Item Name="[ref_count]" Condition="!is_empty()">header()->count</Item>
+      <Item Name="[flags]" Condition="!is_empty()">header()->flags</Item>
+      <Synthetic Name="[chars]" Condition="!is_empty()">
         <Expand>
           <ArrayItems>
-            <Size>__0->len</Size>
-            <ValuePointer>(char16_t*)__0->data</ValuePointer>
+            <Size>header()->len</Size>
+            <ValuePointer>(char16_t*)header()->data</ValuePointer>
           </ArrayItems>
         </Expand>
       </Synthetic>
