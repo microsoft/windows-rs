@@ -73,7 +73,7 @@ impl HRESULT {
     /// Safe to call if
     /// * `abi` is initialized if `self` is `Ok`
     /// * `abi` can be safely transmuted to `T`
-    pub unsafe fn from_abi<T: Abi>(self, abi: core::mem::MaybeUninit<T::Abi>) -> Result<T> {
+    pub unsafe fn from_abi<T: Abi>(self, abi: std::mem::MaybeUninit<T::Abi>) -> Result<T> {
         if self.is_ok() {
             T::from_abi(abi.assume_init())
         } else {
@@ -83,12 +83,12 @@ impl HRESULT {
 
     /// The error message describing the error.
     pub fn message(&self) -> HSTRING {
-        let mut message = HeapString(core::ptr::null_mut());
+        let mut message = HeapString(std::ptr::null_mut());
 
         unsafe {
-            let size = FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, std::ptr::null(), self.0 as _, 0, PWSTR(core::mem::transmute(&mut message.0)), 0, std::ptr::null());
+            let size = FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, std::ptr::null(), self.0 as _, 0, PWSTR(&mut message.0 as *mut _ as *mut _), 0, std::ptr::null());
 
-            HSTRING::from_wide(wide_trim_end(core::slice::from_raw_parts(message.0 as *const u16, size as usize)))
+            HSTRING::from_wide(wide_trim_end(std::slice::from_raw_parts(message.0 as *const u16, size as usize)))
         }
     }
 
@@ -110,7 +110,7 @@ unsafe impl RuntimeType for HRESULT {
     }
 }
 
-impl<T> core::convert::From<Result<T>> for HRESULT {
+impl<T> std::convert::From<Result<T>> for HRESULT {
     fn from(result: Result<T>) -> Self {
         if let Err(error) = result {
             return error.into();
@@ -120,8 +120,8 @@ impl<T> core::convert::From<Result<T>> for HRESULT {
     }
 }
 
-impl core::fmt::Debug for HRESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+impl std::fmt::Debug for HRESULT {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("HRESULT(0x{:08X})", self.0))
     }
 }

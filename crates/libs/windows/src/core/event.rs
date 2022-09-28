@@ -28,7 +28,7 @@ impl<T: Interface + Clone> Event<T> {
     pub fn add(&mut self, delegate: &T) -> Result<i64> {
         let mut _lock_free_drop = Array::new();
         Ok({
-            let change_lock = self.change.lock().unwrap();
+            let _change_lock = self.change.lock().unwrap();
             let mut new_delegates = Array::with_capacity(self.delegates.len() + 1)?;
             for delegate in self.delegates.as_slice() {
                 new_delegates.push(delegate.clone());
@@ -37,7 +37,7 @@ impl<T: Interface + Clone> Event<T> {
             let token = delegate.to_token();
             new_delegates.push(delegate);
 
-            let swap_lock = self.swap.lock().unwrap();
+            let _swap_lock = self.swap.lock().unwrap();
             _lock_free_drop = self.delegates.swap(new_delegates);
             token
         })
@@ -47,7 +47,7 @@ impl<T: Interface + Clone> Event<T> {
     pub fn remove(&mut self, token: i64) -> Result<()> {
         let mut _lock_free_drop = Array::new();
         {
-            let change_lock = self.change.lock().unwrap();
+            let _change_lock = self.change.lock().unwrap();
             if self.delegates.is_empty() {
                 return Ok(());
             }
@@ -71,7 +71,7 @@ impl<T: Interface + Clone> Event<T> {
                 }
             }
             if removed {
-                let swap_lock = self.swap.lock().unwrap();
+                let _swap_lock = self.swap.lock().unwrap();
                 _lock_free_drop = self.delegates.swap(new_delegates);
             }
         }
@@ -82,11 +82,11 @@ impl<T: Interface + Clone> Event<T> {
     pub fn clear(&mut self) {
         let mut _lock_free_drop = Array::new();
         {
-            let change_lock = self.change.lock().unwrap();
+            let _change_lock = self.change.lock().unwrap();
             if self.delegates.is_empty() {
                 return;
             }
-            let swap_lock = self.swap.lock().unwrap();
+            let _swap_lock = self.swap.lock().unwrap();
             _lock_free_drop = self.delegates.swap(Array::new());
         }
     }
@@ -94,7 +94,7 @@ impl<T: Interface + Clone> Event<T> {
     /// Invokes all of the event object's registered delegates with the provided callback.
     pub fn call<F: FnMut(&T) -> Result<()>>(&mut self, mut callback: F) -> Result<()> {
         let lock_free_calls = {
-            let swap_lock = self.swap.lock().unwrap();
+            let _swap_lock = self.swap.lock().unwrap();
             self.delegates.clone()
         };
         for delegate in lock_free_calls.as_slice() {

@@ -71,13 +71,13 @@ unsafe impl RuntimeType for GUID {
     }
 }
 
-impl core::fmt::Debug for GUID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+impl std::fmt::Debug for GUID {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{:08X?}-{:04X?}-{:04X?}-{:02X?}{:02X?}-{:02X?}{:02X?}{:02X?}{:02X?}{:02X?}{:02X?}", self.data1, self.data2, self.data3, self.data4[0], self.data4[1], self.data4[2], self.data4[3], self.data4[4], self.data4[5], self.data4[6], self.data4[7])
     }
 }
 
-impl core::convert::From<&str> for GUID {
+impl std::convert::From<&str> for GUID {
     fn from(value: &str) -> Self {
         assert!(value.len() == 36, "Invalid GUID string");
         let mut bytes = value.bytes();
@@ -103,13 +103,13 @@ impl core::convert::From<&str> for GUID {
     }
 }
 
-impl core::convert::From<u128> for GUID {
+impl std::convert::From<u128> for GUID {
     fn from(value: u128) -> Self {
         Self::from_u128(value)
     }
 }
 
-impl core::convert::From<GUID> for u128 {
+impl std::convert::From<GUID> for u128 {
     fn from(value: GUID) -> Self {
         value.to_u128()
     }
@@ -121,7 +121,7 @@ trait HexReader {
     fn next_u32(&mut self) -> u32;
 }
 
-impl HexReader for core::str::Bytes<'_> {
+impl HexReader for std::str::Bytes<'_> {
     fn next_u8(&mut self) -> u8 {
         let value = self.next().unwrap();
         match value {

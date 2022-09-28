@@ -65,7 +65,7 @@ pub use weak::*;
 pub use weak_ref_count::*;
 
 /// A specialized [`Result`] type that provides Windows error information.
-pub type Result<T> = core::result::Result<T, Error>;
+pub type Result<T> = std::result::Result<T, Error>;
 
 #[doc(hidden)]
 pub use bindings::IAgileObject;
@@ -80,7 +80,7 @@ pub use windows_interface::interface;
 
 extern "C" {
     #[doc(hidden)]
-    pub fn memcmp(left: *const core::ffi::c_void, right: *const core::ffi::c_void, len: usize) -> i32;
+    pub fn memcmp(left: *const std::ffi::c_void, right: *const std::ffi::c_void, len: usize) -> i32;
 }
 
 #[doc(hidden)]

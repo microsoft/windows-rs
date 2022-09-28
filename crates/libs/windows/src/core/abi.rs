@@ -21,7 +21,7 @@ pub unsafe trait Abi: Sized {
     /// Note: `Self::Abi` is only valid for however long `&self` lives for
     fn abi(&self) -> Self::Abi {
         // SAFETY: the `Abi` trait ensures that `Self` can be memcopied into `Self::Abi`
-        unsafe { core::mem::transmute_copy(self) }
+        unsafe { std::mem::transmute_copy(self) }
     }
 
     /// Converts an abi value to `Self` or fails if we can determine `abi` is not valid.
@@ -32,7 +32,7 @@ pub unsafe trait Abi: Sized {
     /// if `abi_is_possibly_valid` returns true.
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         if Self::abi_is_possibly_valid(&abi) {
-            Ok(core::mem::transmute_copy(&abi))
+            Ok(std::mem::transmute_copy(&abi))
         } else {
             Err(Error::OK)
         }
@@ -46,7 +46,7 @@ pub unsafe trait Abi: Sized {
     /// if `abi_is_possibly_valid` returns true.
     unsafe fn from_abi_ref(abi: &Self::Abi) -> Result<&Self> {
         if Self::abi_is_possibly_valid(abi) {
-            Ok(core::mem::transmute(abi))
+            Ok(std::mem::transmute(abi))
         } else {
             Err(Error::OK)
         }
@@ -55,17 +55,17 @@ pub unsafe trait Abi: Sized {
     /// Whether `abi` is known to be invalid
     ///
     /// Note: this does not guarantee that it definitely *is* valid.
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+    fn abi_is_possibly_valid(_: &Self::Abi) -> bool {
         true
     }
 }
 
 unsafe impl<T: Interface> Abi for Option<T> {
-    type Abi = *mut core::ffi::c_void;
+    type Abi = *mut std::ffi::c_void;
 }
 
 unsafe impl<T: Interface> Abi for T {
-    type Abi = *mut core::ffi::c_void;
+    type Abi = *mut std::ffi::c_void;
 
     fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
         !abi.is_null()

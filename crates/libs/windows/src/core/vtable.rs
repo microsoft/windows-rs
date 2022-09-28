@@ -2,6 +2,8 @@
 ///
 /// This trait is automatically implemented by the generated bindings and should not be
 /// implemented manually.
+///
+/// # Safety
 pub unsafe trait Vtable: Sized {
     type Vtable;
 
@@ -25,13 +27,13 @@ pub unsafe trait Vtable: Sized {
 
     /// Returns the raw COM interface pointer. The resulting pointer continues to be owned by the `Interface` implementation.
     #[inline(always)]
-    fn as_raw(&self) -> *mut core::ffi::c_void {
+    fn as_raw(&self) -> *mut std::ffi::c_void {
         // SAFETY: implementors of this trait must guarantee that the implementing type has a pointer in-memory representation
-        unsafe { core::mem::transmute_copy(self) }
+        unsafe { std::mem::transmute_copy(self) }
     }
 
     /// Returns the raw COM interface pointer and releases ownership. It the caller's responsibility to release the COM interface pointer.
-    fn into_raw(self) -> *mut core::ffi::c_void {
+    fn into_raw(self) -> *mut std::ffi::c_void {
         // SAFETY: implementors of this trait must guarantee that the implementing type has a pointer in-memory representation
         let raw = self.as_raw();
         std::mem::forget(self);
@@ -44,7 +46,7 @@ pub unsafe trait Vtable: Sized {
     ///
     /// The `raw` pointer must be owned by the caller and represent a valid COM interface pointer. In other words,
     /// it must point to a vtable beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
-    unsafe fn from_raw(raw: *mut core::ffi::c_void) -> Self {
+    unsafe fn from_raw(raw: *mut std::ffi::c_void) -> Self {
         std::mem::transmute_copy(&raw)
     }
 
@@ -54,7 +56,7 @@ pub unsafe trait Vtable: Sized {
     ///
     /// The `raw` pointer must be a valid COM interface pointer. In other words, it must point to a vtable
     /// beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
-    unsafe fn from_raw_borrowed<'a>(raw: &'a *mut core::ffi::c_void) -> &'a Self {
+    unsafe fn from_raw_borrowed(raw: &*mut std::ffi::c_void) -> &'_ Self {
         std::mem::transmute_copy(&raw)
     }
 }

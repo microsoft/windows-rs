@@ -11,7 +11,7 @@ impl IGenericFactory {
     pub fn ActivateInstance<I: Interface>(&self) -> Result<I> {
         unsafe {
             let mut result__ = zeroed();
-            (Vtable::vtable(self).ActivateInstance)(transmute_copy(self), transmute(&mut result__)).from_abi::<IInspectable>(result__)?.cast()
+            (Vtable::vtable(self).ActivateInstance)(transmute_copy(self), &mut result__ as *mut _ as *mut _).from_abi::<IInspectable>(result__)?.cast()
         }
     }
 }
