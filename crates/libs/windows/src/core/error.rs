@@ -132,13 +132,18 @@ impl std::convert::From<HRESULT> for Error {
 impl std::fmt::Debug for Error {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
-        debug.field("code", &format_args!("{:#010X}", self.code.0)).field("message", &self.message()).finish()
+        debug.field("code", &self.code).field("message", &self.message()).finish()
     }
 }
 
 impl std::fmt::Display for Error {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        std::write!(fmt, "{}", self.message())
+        let message = self.message();
+        if message.is_empty() {
+            std::write!(fmt, "{}", self.code())
+        } else {
+            std::write!(fmt, "{} ({})", self.message(), self.code())
+        }
     }
 }
 
