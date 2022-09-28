@@ -3,44 +3,43 @@ use super::*;
 /// A WinRT string ([HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring))
 /// is reference-counted and immutable.
 #[repr(transparent)]
-pub struct HSTRING(*mut Header);
+pub struct HSTRING(Option<std::ptr::NonNull<Header>>);
 
 impl HSTRING {
     /// Create an empty `HSTRING`.
     ///
     /// This function does not allocate memory.
     pub const fn new() -> Self {
-        Self(std::ptr::null_mut())
+        Self(None)
     }
 
     /// Returns `true` if the string is empty.
-    pub fn is_empty(&self) -> bool {
+    pub const fn is_empty(&self) -> bool {
         // An empty HSTRING is represented by a null pointer.
-        self.0.is_null()
+        self.0.is_none()
     }
 
     /// Returns the length of the string.
-    pub fn len(&self) -> usize {
-        if self.is_empty() {
-            return 0;
+    pub const fn len(&self) -> usize {
+        if let Some(header) = self.get_header() {
+            header.len as usize
+        } else {
+            0
         }
-
-        unsafe { (*self.0).len as usize }
     }
 
     /// Get the string as 16-bit wide characters (wchars).
-    pub fn as_wide(&self) -> &[u16] {
+    pub const fn as_wide(&self) -> &[u16] {
         unsafe { std::slice::from_raw_parts(self.as_ptr(), self.len()) }
     }
 
     /// Returns a raw pointer to the `HSTRING` buffer.
-    pub fn as_ptr(&self) -> *const u16 {
-        if self.is_empty() {
+    pub const fn as_ptr(&self) -> *const u16 {
+        if let Some(header) = self.get_header() {
+            header.data
+        } else {
             const EMPTY: [u16; 1] = [0];
             EMPTY.as_ptr()
-        } else {
-            let header = self.0;
-            unsafe { (*header).data }
         }
     }
 
@@ -80,7 +79,16 @@ impl HSTRING {
 
         // Write a 0 byte to the end of the buffer.
         std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
-        Self(ptr)
+        Self(std::mem::transmute(ptr))
+    }
+
+    const fn get_header(&self) -> Option<&Header> {
+        if let Some(header) = &self.0 {
+            // TODO: this can be replaced with `as_ref` in future: https://github.com/rust-lang/rust/issues/91822
+            unsafe { Some(&*(header.as_ptr() as *const Header)) }
+        } else {
+            None
+        }
     }
 }
 
@@ -104,11 +112,11 @@ impl Default for HSTRING {
 
 impl Clone for HSTRING {
     fn clone(&self) -> Self {
-        if self.is_empty() {
+        if let Some(header) = self.get_header() {
+            unsafe { Self(std::mem::transmute(header.duplicate())) }
+        } else {
             return Self::new();
         }
-
-        unsafe { Self((*self.0).duplicate()) }
     }
 }
 
@@ -119,11 +127,13 @@ impl Drop for HSTRING {
         }
 
         unsafe {
-            let header = std::mem::replace(&mut self.0, std::ptr::null_mut());
-            // REFERENCE_FLAG indicates a string backed by static or stack memory that is
-            // thus not reference-counted and does not need to be freed.
-            if (*header).flags & REFERENCE_FLAG == 0 && (*header).count.release() == 0 {
-                heap_free(header as *mut std::ffi::c_void);
+            if let Some(header) = self.0.take() {
+                // REFERENCE_FLAG indicates a string backed by static or stack memory that is
+                // thus not reference-counted and does not need to be freed.
+                let header = header.as_ref();
+                if header.flags & REFERENCE_FLAG == 0 && header.count.release() == 0 {
+                    heap_free(header as *const _ as *mut _);
+                }
             }
         }
     }
