@@ -81,6 +81,18 @@ impl std::convert::From<Error> for std::io::Error {
     }
 }
 
+impl std::convert::From<std::string::FromUtf16Error> for Error {
+    fn from(_: std::string::FromUtf16Error) -> Self {
+        Self { code: HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION), info: None }
+    }
+}
+
+impl std::convert::From<std::string::FromUtf8Error> for Error {
+    fn from(_: std::string::FromUtf8Error) -> Self {
+        Self { code: HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION), info: None }
+    }
+}
+
 // Unfortunately this is needed to make types line up. The Rust type system does
 // not know the `Infallible` can never be constructed. This code needs to be here
 // to satesify the type checker but it will never be run. Once `!` is stabilizied
