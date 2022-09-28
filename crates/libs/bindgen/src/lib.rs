@@ -23,6 +23,12 @@ use tokens::*;
 pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     let mut tokens = TokenStream::new();
 
+    if tree.namespace == "Windows" {
+        tokens.combine(&quote! {
+            #![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, clashing_extern_declarations, unused_variables, dead_code, clippy::all)]
+        });
+    }
+
     for (name, tree) in &tree.nested {
         let name = to_ident(name);
         let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");

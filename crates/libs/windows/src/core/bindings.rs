@@ -160,12 +160,6 @@ pub struct IStringable_Vtbl {
 
 pub struct PropertyValue;
 impl PropertyValue {
-    pub fn CreateEmpty() -> Result<IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateEmpty)(Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
-        })
-    }
     pub fn CreateUInt8(value: u8) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
@@ -220,12 +214,6 @@ impl PropertyValue {
             (Vtable::vtable(this).CreateDouble)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
         })
     }
-    pub fn CreateChar16(value: u16) -> Result<IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateChar16)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
-        })
-    }
     pub fn CreateBoolean(value: bool) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
@@ -275,25 +263,9 @@ pub struct IAgileObject_Vtbl {
 #[repr(transparent)]
 pub struct IErrorInfo(IUnknown);
 impl IErrorInfo {
-    pub unsafe fn GetGUID(&self) -> Result<GUID> {
-        let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetGUID)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<GUID>(result__)
-    }
-    pub unsafe fn GetSource(&self) -> Result<BSTR> {
-        let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetSource)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
-    }
     pub unsafe fn GetDescription(&self) -> Result<BSTR> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
         (Vtable::vtable(self).GetDescription)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
-    }
-    pub unsafe fn GetHelpFile(&self) -> Result<BSTR> {
-        let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetHelpFile)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
-    }
-    pub unsafe fn GetHelpContext(&self) -> Result<u32> {
-        let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetHelpContext)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 
@@ -363,12 +335,6 @@ pub struct IAgileReference_Vtbl {
 
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo(IUnknown);
-impl ILanguageExceptionErrorInfo {
-    pub unsafe fn GetLanguageException(&self) -> Result<IUnknown> {
-        let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetLanguageException)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<IUnknown>(result__)
-    }
-}
 impl std::clone::Clone for ILanguageExceptionErrorInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -396,23 +362,11 @@ pub struct ILanguageExceptionErrorInfo_Vtbl {
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo2(IUnknown);
 impl ILanguageExceptionErrorInfo2 {
-    pub unsafe fn GetLanguageException(&self) -> Result<IUnknown> {
-        let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).base__.GetLanguageException)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<IUnknown>(result__)
-    }
-    pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> Result<ILanguageExceptionErrorInfo2> {
-        let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetPreviousLanguageExceptionErrorInfo)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
-    }
     pub unsafe fn CapturePropagationContext<'a, P0>(&self, languageexception: P0) -> Result<()>
     where
         P0: std::convert::Into<InParam<'a, IUnknown>>,
     {
         (Vtable::vtable(self).CapturePropagationContext)(Vtable::as_raw(self), languageexception.into().abi()).ok()
-    }
-    pub unsafe fn GetPropagationContextHead(&self) -> Result<ILanguageExceptionErrorInfo2> {
-        let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetPropagationContextHead)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
 }
 impl std::clone::Clone for ILanguageExceptionErrorInfo2 {
@@ -445,7 +399,7 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
 pub struct IRestrictedErrorInfo(IUnknown);
 impl IRestrictedErrorInfo {
     pub unsafe fn GetErrorDetails(&self, description: &mut BSTR, error: &mut HRESULT, restricteddescription: &mut BSTR, capabilitysid: &mut BSTR) -> Result<()> {
-        (Vtable::vtable(self).GetErrorDetails)(Vtable::as_raw(self), std::mem::transmute(description), std::mem::transmute(error), std::mem::transmute(restricteddescription), std::mem::transmute(capabilitysid)).ok()
+        (Vtable::vtable(self).GetErrorDetails)(Vtable::as_raw(self), description as *mut _, error as *mut _, restricteddescription as *mut _, capabilitysid as *mut _).ok()
     }
     pub unsafe fn GetReference(&self) -> Result<BSTR> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
@@ -519,7 +473,7 @@ pub struct IWeakReferenceSource(IUnknown);
 impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> Result<IWeakReference> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetWeakReference)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<IWeakReference>(result__)
+        (Vtable::vtable(self).GetWeakReference)(Vtable::as_raw(self), result__.as_mut_ptr()).from_abi::<IWeakReference>(result__)
     }
 }
 impl std::clone::Clone for IWeakReferenceSource {

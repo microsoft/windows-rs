@@ -55,7 +55,7 @@ pub unsafe trait Abi: Sized {
     /// Whether `abi` is known to be invalid
     ///
     /// Note: this does not guarantee that it definitely *is* valid.
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+    fn abi_is_possibly_valid(_: &Self::Abi) -> bool {
         true
     }
 }

@@ -50,7 +50,7 @@ impl PCWSTR {
     /// # Safety
     ///
     /// See the safety information for `PCWSTR::as_wide`.
-    pub unsafe fn display<'a>(&'a self) -> impl std::fmt::Display + 'a {
+    pub unsafe fn display(&self) -> impl std::fmt::Display + '_ {
         Decode(move || std::char::decode_utf16(self.as_wide().iter().cloned()))
     }
 }

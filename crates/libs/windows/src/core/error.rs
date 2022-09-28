@@ -2,7 +2,7 @@ use super::*;
 use bindings::*;
 
 /// An error object consists of both an error code as well as detailed error information for debugging.
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, Eq)]
 pub struct Error {
     pub(crate) code: HRESULT,
     pub(crate) info: Option<IRestrictedErrorInfo>,
@@ -86,7 +86,7 @@ impl std::convert::From<Error> for std::io::Error {
 // to satesify the type checker but it will never be run. Once `!` is stabilizied
 // this can be removed.
 impl std::convert::From<std::convert::Infallible> for Error {
-    fn from(from: std::convert::Infallible) -> Self {
+    fn from(_: std::convert::Infallible) -> Self {
         unreachable!()
     }
 }

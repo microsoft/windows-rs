@@ -94,7 +94,7 @@ impl TearOff {
     unsafe fn from_encoding(encoding: isize) -> *mut std::ffi::c_void {
         let tear_off = TearOff::decode(encoding);
         tear_off.strong_count.add_ref();
-        std::mem::transmute(tear_off)
+        tear_off as *mut _ as *mut _
     }
 
     const STRONG_VTABLE: IWeakReferenceSource_Vtbl = IWeakReferenceSource_Vtbl {
@@ -177,14 +177,14 @@ impl TearOff {
 
         // Forward strong `Release` to the object so that it can destroy itself. It will then
         // decrement its weak reference and allow the tear-off to be released as needed.
-        ((*(*(this.object as *mut *mut _) as *mut IUnknown_Vtbl)).Release)((*this).object)
+        ((*(*(this.object as *mut *mut _) as *mut IUnknown_Vtbl)).Release)(this.object)
     }
 
     unsafe extern "system" fn WeakRelease(ptr: *mut std::ffi::c_void) -> u32 {
         let this = Self::from_weak_ptr(ptr);
 
         // Implement `Release` directly as we own the weak reference.
-        let remaining = (*this).weak_count.release();
+        let remaining = this.weak_count.release();
 
         // If there are no remaining references, it means that the object has already been
         // destroyed. Go ahead and destroy the tear-off.

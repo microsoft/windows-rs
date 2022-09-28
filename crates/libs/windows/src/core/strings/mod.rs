@@ -37,14 +37,14 @@ where
         use std::fmt::Write;
         let iter = self.0.clone();
         for c in iter().into_iter() {
-            f.write_char(c.unwrap_or_else(|_| std::char::REPLACEMENT_CHARACTER))?
+            f.write_char(c.unwrap_or(std::char::REPLACEMENT_CHARACTER))?
         }
         Ok(())
     }
 }
 
 /// Mirror of `std::char::decode_utf16` for utf-8.
-fn decode_utf8<'a>(mut buffer: &'a [u8]) -> impl Iterator<Item = std::result::Result<char, std::str::Utf8Error>> + 'a {
+fn decode_utf8(mut buffer: &[u8]) -> impl Iterator<Item = std::result::Result<char, std::str::Utf8Error>> + '_ {
     let mut current = "".chars();
     let mut previous_error = None;
     std::iter::from_fn(move || {

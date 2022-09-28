@@ -37,6 +37,7 @@ impl BSTR {
         unsafe { std::slice::from_raw_parts(self.0, self.len()) }
     }
 
+    /// # Safety
     pub unsafe fn from_raw(raw: *const u16) -> Self {
         Self(raw)
     }

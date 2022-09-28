@@ -2,6 +2,8 @@
 ///
 /// This trait is automatically implemented by the generated bindings and should not be
 /// implemented manually.
+///
+/// # Safety
 pub unsafe trait Vtable: Sized {
     type Vtable;
 
@@ -54,7 +56,7 @@ pub unsafe trait Vtable: Sized {
     ///
     /// The `raw` pointer must be a valid COM interface pointer. In other words, it must point to a vtable
     /// beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
-    unsafe fn from_raw_borrowed<'a>(raw: &'a *mut std::ffi::c_void) -> &'a Self {
+    unsafe fn from_raw_borrowed(raw: &*mut std::ffi::c_void) -> &'_ Self {
         std::mem::transmute_copy(&raw)
     }
 }

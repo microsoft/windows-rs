@@ -50,7 +50,7 @@ impl PCSTR {
     /// # Safety
     ///
     /// See the safety information for `PCSTR::as_bytes`.
-    pub unsafe fn display<'a>(&'a self) -> impl std::fmt::Display + 'a {
+    pub unsafe fn display(&self) -> impl std::fmt::Display + '_ {
         Decode(move || decode_utf8(self.as_bytes()))
     }
 }
