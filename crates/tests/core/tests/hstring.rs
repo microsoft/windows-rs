@@ -46,7 +46,7 @@ fn display_invalid_format() {
 #[test]
 fn debug_format() {
     let value = HSTRING::from("Hello world");
-    assert!(format!("{:?}", value) == "Hello world");
+    assert!(format!("{:?}", value) == r#""Hello world""#);
 }
 
 #[test]
