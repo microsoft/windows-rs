@@ -115,7 +115,7 @@ impl Clone for HSTRING {
         if let Some(header) = self.get_header() {
             unsafe { Self(std::mem::transmute(header.duplicate())) }
         } else {
-            return Self::new();
+            Self::new()
         }
     }
 }

@@ -215,7 +215,7 @@ jobs:
     name: Check windows
     strategy:
       matrix:
-        rust: [1.59.0, stable, nightly]
+        rust: [1.64.0, stable, nightly]
         runs-on:
           - windows-2019
           - ubuntu-latest
