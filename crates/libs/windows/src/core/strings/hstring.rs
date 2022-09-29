@@ -79,7 +79,7 @@ impl HSTRING {
 
         // Write a 0 byte to the end of the buffer.
         std::ptr::write((*ptr).data.offset((*ptr).len as isize), 0);
-        Self(std::mem::transmute(ptr))
+        Self(std::ptr::NonNull::new(ptr))
     }
 
     const fn get_header(&self) -> Option<&Header> {
@@ -113,7 +113,7 @@ impl Default for HSTRING {
 impl Clone for HSTRING {
     fn clone(&self) -> Self {
         if let Some(header) = self.get_header() {
-            unsafe { Self(std::mem::transmute(header.duplicate())) }
+            Self(std::ptr::NonNull::new(header.duplicate()))
         } else {
             Self::new()
         }
@@ -126,10 +126,10 @@ impl Drop for HSTRING {
             return;
         }
 
-        unsafe {
-            if let Some(header) = self.0.take() {
-                // REFERENCE_FLAG indicates a string backed by static or stack memory that is
-                // thus not reference-counted and does not need to be freed.
+        if let Some(header) = self.0.take() {
+            // REFERENCE_FLAG indicates a string backed by static or stack memory that is
+            // thus not reference-counted and does not need to be freed.
+            unsafe {
                 let header = header.as_ref();
                 if header.flags & REFERENCE_FLAG == 0 && header.count.release() == 0 {
                     heap_free(header as *const _ as *mut _);
