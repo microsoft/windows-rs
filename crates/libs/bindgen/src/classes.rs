@@ -129,32 +129,9 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
 }
 
 fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[Interface], cfg: &Cfg) -> TokenStream {
-    let mut tokens = quote! {};
-
-    for def in &[Type::IUnknown, Type::IInspectable] {
-        let into = gen.type_name(def);
-        let features = gen.cfg_features(cfg);
-        tokens.combine(&quote! {
-            #features
-            impl ::core::convert::From<#name> for #into {
-                fn from(value: #name) -> Self {
-                    unsafe { ::core::mem::transmute(value) }
-                }
-            }
-            #features
-            impl ::core::convert::From<&#name> for #into {
-                fn from(value: &#name) -> Self {
-                    ::core::convert::From::from(::core::clone::Clone::clone(value))
-                }
-            }
-            #features
-            impl ::core::convert::From<&#name> for &#into {
-                fn from(value: &#name) -> Self {
-                    unsafe { ::core::mem::transmute(value) }
-                }
-            }
-        });
-    }
+    let mut tokens = quote! {
+        crate::core::interface_hierarchy!(#name, ::windows::core::IUnknown, ::windows::core::IInspectable);
+    };
 
     for interface in interfaces {
         if gen.reader.type_is_exclusive(&interface.ty) {
